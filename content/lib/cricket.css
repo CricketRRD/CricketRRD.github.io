@@ -118,15 +118,31 @@ acronym {
 
 
 /* Links... */
+a {text-decoration: none;}
 
 a:link {
-    text-decoration: none;
     color:           blue;
+    background:      #FFC;
 }
 
 a:visited {
-    text-decoration: none;
-    color:           blue;
+     color:           #666;
+     background:      #FFC;
+}
+
+a:hover {
+     color:           #C00;
+     background:      #FC0;
+}
+
+a:active {
+     color:           #F00;
+     background:      #FC0;
+}
+
+a.offsite {
+     color:           #C00;
+     background:      #FFC;
 }
 
 /* Padding and Margins */
