@@ -73,12 +73,8 @@
 			<h2>Contributed Stuff</h2>
 			<p>
 				There is a collection of contributed stuff (scripts,
-				patches, example configuration trees) at the <a
-				href="http://www.certaintysolutions.com/tech-advice/cricket-contrib/">Cricket Contributed Software</a> website.
-			</p>
-			<p>
-				Our thanks go out to <a href="http://www.gnac.com">GNAC</a>
-				for hosting the site.
+				patches, example configuration trees) <a
+				href="../contrib/">here</a>.
 			</p>
 		</div>
 

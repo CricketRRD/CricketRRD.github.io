@@ -1,0 +1,12 @@
+
+@import url(../lib/cricket.css);
+
+div.contrib {
+    padding-bottom: 2em;
+}
+
+td.contriblist {
+    font-size:             .9em;
+    border-top: 1px black solid;
+}
+
