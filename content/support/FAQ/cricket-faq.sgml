@@ -1,0 +1,203 @@
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V3.1//EN" [
+<!ENTITY Cricket "Cricket">
+]
+>
+<article class="FAQ">
+  <title>&Cricket; FAQ</title>
+  <artheader>
+    <author>
+      <firstname>Sasha</firstname>
+      <surname>Mikheev</surname>
+    </author>
+    <date>31 Oct 2000</date>
+  </artheader>
+
+  <sect1>
+    <title>General Questions</title>
+
+    <sect2>
+      <title>What is cricket ?</title>
+
+      <para>
+      Cricket is a high performance, extremely flexible system for
+      monitoring trends in time-series data. Cricket was expressly developed
+      to help network managers visualize and understand the traffic on their
+      networks, but it can be used all kinds of other jobs, as well. </para>
+      <para>
+      Cricket has two components, a collector and a grapher. The collector
+      runs from cron every 5 minutes (or at a different rate, if you want),
+      and stores data into a data structure managed by RRD Tool. Later, when
+      you want to check on the data you have collected, you can use a
+      web-based interface to view graphs of the data.</para>
+    </sect2>
+
+    <sect2>
+      <title>What is rrdtool ?</title>
+
+      <para>RRD is the Acronym for Round Robin Database. RRD is
+system to  store and display time-series data (i.e. network bandwidth, 
+machine-room temperature, server load average). It stores the data in a 
+very compact way that will not expand over time, and it presents useful 
+graphs by processing the data to enforce a certain data density. It
+can be used either via simple wrapper scripts (from shell or Perl) or
+via frontends that poll network devices and put a friendly user
+interface on it. Check out <ulink url="http://www.rrdtool.org">
+http://www.rrdtool.org</ulink> for more information</para>
+    </sect2>
+    
+    <sect2>
+      <title>How do I bill customers with Cricket ?</title>
+      <para>
+The main answer is: <emphasis>Don't do it!</emphasis> 
+Why: It's not supported... it's not designed for this, nor is it
+tested for this. There's no warranty, so if you customers sue you,
+don't expect to sue the Cricket maintainers. It would be good to
+provide a list of alternative systems that can be trusted for billing
+purposes, or documentation from Cricket users who have successfully
+done so.</para>
+    </sect2>
+
+  </sect1>
+
+  <sect1>
+    <title>Installation and Configuration</title>
+
+    <sect2>
+      <title>How I install cricket on Unix ?</title>
+
+      <para>
+Follow steps described in <quote>Installing Cricket for Complete Beginner</quote>article which is available from 
+<ulink url="http://cricket.sourceforge.net/support/doc/beginner.html">
+http://cricket.sourceforge.net/support/doc/beginner.html</ulink></para>
+    </sect2>
+
+    <sect2>
+      <title>How I install cricket on NT ?</title>
+      
+      <para>There are rumors about working NT installations. If you have Cricket
+      running on NT please contribute.</para>
+    </sect2>
+
+    <sect2>
+      <title>Can I import my MRTG config files and data into Cricket ?</title>
+
+      <para>Short answer is <emphasis>NO</emphasis>.</para>
+      <para>
+Cricket configuration tree is completely incompatible with MRTG config
+file. Also MRTG stores measurements in text files while RRDtool uses
+binary files. </para>
+<para>
+ In theory it is possible to write a script which will convert MRTG
+config files into cricket subtree, parse MRTG data files and fill up
+relevant RRD data file. In practice, no one bothered to do this yet.</para>
+    </sect2>
+
+    <sect2>
+      <title>Is there a central repository of useful configurations</title>
+
+      <para>
+       Check out 
+<ulink url="http://www.gnac.com/techinfo/cricket_contrib/index.html">
+http://www.gnac.com/techinfo/cricket_contrib/index.html</ulink></para>
+    </sect2>
+
+    <sect2>
+      <title>How I improve CGI performance on Unix ?</title>
+      
+      <para>
+Cricket can be run under mod_perl module for Apache web server. Check
+out <ulink url="http://cricket.sourceforge.net/support/doc/modperl.html">
+http://cricket.sourceforge.net/support/doc/modperl.html</ulink></para> 
+    </sect2>
+
+    <sect2>
+      <title>How I add new device to Cricket</title>
+      
+      <para>There are detailed instructions at
+
+      <ulink url="http://cricket.sourceforge.net/support/doc/new-devices.html">
+http://cricket.sourceforge.net/support/doc/new-devices.html</ulink></para>
+    </sect2>
+
+  </sect1>
+
+  <sect1>
+    <title>Common Problems</title>
+
+    <sect2>
+      <title>FAQ: mega = 10^6 vs 2^20</title>
+      <para>
+      While it is a common knowledge that byte has 8 bits many people think
+      that Kilobyte has 1000 bytes and Megabyte has 1 000 000 bytes. This is
+      wrong. Kilobyte has 1024 bytes and Megabyte has 1024 * 1024 = 1048576
+bytes. This is about 4.9% difference.</para>
+
+<para>By default cricket uses powers of 10 to convert measurement data to SI
+units. This is OK for most things. However network traffic is measured
+in bits per second so cricket should use powers of 2 to scale this
+data. bytes tag tells cricket to use powers of 2 instead of powers of
+10.</para>
+
+<para>See definition of ifInOctets and ifOutOctets in the default config tree.</para>
+    </sect2>
+    <sect2>
+      <title>Why HP OpenView measurements differ from Cricket ?</title>
+      
+      <para>HP OpenView assumes that mega = 10^6. See answer to previous question.</para>
+    </sect2>
+  
+    <sect2>
+      <title>I see huge spikes on my graphs for Netapp filer. What is going on ?</title>
+
+<para>Apparently, the Netapp stores counters internally as unsigned integers
+(Counter32 or just plain Counter in SNMP parlance), but sends them out
+as signed integers (INTEGER in SNMP parlance). Cricket collects its
+data using Perl, which (unlike C) will not fix the corruption caused
+by Netapp`s goof, so it will blithely operate on the large negative
+values it retrieves and (not surprisingly) come up with wrong values.</para>
+
+<para>Solution: add 2^31 to the collected value. Following code fragment donated by  Matthew Stier &#60;Matthew.Stier&#64;fnc.fujitsu.com&#62;
+	illustrates it:</para>
+
+<programlisting>
+my($cpuusage)	= "1.3.6.1.4.1.789.1.2.1.2.0";
+my($netsent)	= "1.3.6.1.4.1.789.1.2.2.2.0";
+my($netrcvd)	= "1.3.6.1.4.1.789.1.2.2.3.0";
+
+my(@ret)	= snmpUtils::get($snmp, $cpuusage, $netsent, $netrcvd);
+
+print $ret[0] . "\n";
+print 2147483648 + $ret[1] * 1024 . "\n";
+print 2147483648 + $ret[2] * 1024 . "\n";
+
+</programlisting>
+
+      <para>Matthew says:
+ <quote> I've had discussions with Network Appliance, and they have added additional OID's to the MIB to provide the same information, in the more common "Counter32" format.  These OID's are available in ONTAP 6.</quote>
+</para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Miscellaneous questions</title>
+
+    <sect2>
+      <title>NT SNMP resources</title>
+
+      <para>From: "William Schwartz" &#60;WSchwartz&#64;apz-applied.com&#62;</para>
+
+      <para><ulink url="http://www.wtcs.org/snmp4tpc/">http://www.wtcs.org/snmp4tpc/</ulink>
+       Is a great place for info on SNMP for NT. It is for MRTG specifically, but I
+      think you can make the "conversion" in your mind. Its has a great
+tutorial for setting up SNMP properly on your boxes.</para>
+    </sect2>
+ 
+    <sect2>
+      <title>What are perl mode indentation setting for emacs ?</title>
+
+      <para>Some one please fill this</para>
+    </sect2>
+  </sect1>
+</article>
+
+
+
