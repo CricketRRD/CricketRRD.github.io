@@ -32,6 +32,24 @@
     </sect2>
 
     <sect2>
+      <title>How does Cricket differ from MRTG ?</title>
+
+      <para>
+	Short answer: in more ways than meet the eye. The most noticable
+	are that Cricket has built in magic to look up and verify
+	SNMP instances (MRTG only verifies instances). Cricket does away
+	with creating the images every five minutes, which should allow
+	your management station to monitor more datasources with fewer
+	resources. Cricket also has built in threshold monitoring.
+      </para>
+      <para>
+	In practice, MRTG has involved since Cricket began, and other
+	alternatives appeared. Choosing between network monitoring tools
+	requires more decisions than this FAQ can deal with.
+      </para>
+    </sect2>
+
+    <sect2>
       <title>What is rrdtool ?</title>
 
       <para>RRD is the Acronym for Round Robin Database. RRD is
