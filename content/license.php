@@ -62,5 +62,5 @@
       Greenspun explain</a> my philosophy regarding this type of situation.
     </p>
     <p>Jeff R. Allen</p>
-<?php endpage(__FILE__); ?>
+<?php endpage(__FILE__, "\$Author$", "\$Date$"); ?>
 

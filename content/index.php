@@ -3,7 +3,6 @@
     include("$gRoot/lib/common.inc");
     page("Cricket Home");
 ?>
-
         <div id="about">
             <h2>About Cricket</h2>
             <p>
@@ -83,4 +82,4 @@
             </p>
         </div>
 
-<?php endpage(__FILE__); ?>
+<?php endpage(__FILE__, "\$Author$", "\$Date$"); ?>

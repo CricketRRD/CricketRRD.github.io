@@ -39,5 +39,5 @@ I recommend that you always use <a href="cvs-wrap.php">cvs-wrap</a>'s
 up command, which will take care of this for you.
 </p>
 
-<?php endpage(__FILE__); ?>
+<?php endpage(__FILE__, "\$Author$", "\$Date$"); ?>
 

@@ -147,5 +147,5 @@
 			</div>
 		</div>
 
-<?php endpage(__FILE__); ?>
+<?php endpage(__FILE__, "\$Author$", "\$Date$"); ?>
 

@@ -31,4 +31,4 @@
 	<li><a href="http://dl.sf.net/cricket/cricket-1.0.4-pre2.tar.gz">Cricket 1.0.4pre2</a></li>
       </ul>
     </div>
-<?php endpage(__FILE__); ?>
+<?php endpage(__FILE__, "\$Author$", "\$Date$"); ?>

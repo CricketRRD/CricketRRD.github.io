@@ -33,5 +33,5 @@
     Together, we can make a difference in the lives of people who need to read.
   </p>
   <p>Sincerely, Jeff R. Allen</p>
-<?php endpage(__FILE__); ?>
+<?php endpage(__FILE__, "\$Author$", "\$Date$"); ?>
 

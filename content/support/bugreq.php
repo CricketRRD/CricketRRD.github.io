@@ -60,4 +60,4 @@
         frequently, so at least one is likely to answer.
       </p>
     </div>
-<?php endpage(__FILE__); ?>
+<?php endpage(__FILE__, "\$Author$", "\$Date$"); ?>

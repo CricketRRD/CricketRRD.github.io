@@ -54,5 +54,5 @@ of other CVS documentation</a></li>
 </ul>
 </div>
 
-<?php endpage(__FILE__); ?>
+<?php endpage(__FILE__, "\$Author$", "\$Date$"); ?>
 

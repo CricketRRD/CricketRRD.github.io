@@ -92,5 +92,5 @@ directories don't end up in your local copy.
 </div>
 </div>
 
-<?php endpage(__FILE__); ?>
+<?php endpage(__FILE__, "\$Author$", "\$Date$"); ?>
 

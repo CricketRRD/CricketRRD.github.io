@@ -30,29 +30,27 @@ function page($title) {
 	echo "<h1>$title</h1>\n";
 }
 
-function endpage($file) {
-
+function endpage($file, $author, $date) {
 	echo "        <div class=\"footer\">\n";
 	nav();
 	echo "            <address>\n";
 
-	$owner = fileowner($file);
-	$owner = uid2name($owner);
+	# Strip leading and trailing gunk off "$Author$"..
+	$author = substr_replace($author, "",  0, 9); # First 9...
+	$author = substr_replace($author, "", -2, 2); # Last 2...
 
-	$date = strftime("%Y-%m-%d", filectime($file));
+	# Strip leading and trailing gunk off "$Date$"..
+	$date = substr_replace($date, "",  0, 7); # First 7...
+	$date = substr_replace($date, "", -2, 2); # Last 2...
 
-	echo "Last modified on $date by $owner.\n";
+	# Fake an SF.net email address for last comitter...
+	$address = "&lt;<a href=\"mailto:$author@users.sf.net\">$author@users.sf.net</a>&gt;";
+
+	echo "Last modified at $date UTC by $address.\n";
 	echo "            </address>\n";
 	echo "        </div>\n";
 	echo "    </body>\n";
 	echo "</html>\n";
-}
-
-function uid2name($uid) {
-  $ent   = posix_getpwuid($uid);
-  $name  = $ent["name"];
-  $gecos = $ent["gecos"];
-  return "$gecos &lt;<a href=\"mailto:$name@users.sf.net\">$name@users.sf.net</a>&gt;";
 }
 
 function ex($ex) {

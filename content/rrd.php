@@ -32,5 +32,5 @@
 			href="http://www.rrdtool.org/"><tt>http://www.rrdtool.org/</tt></a>.
 		</p>
 
-<?php endpage(__FILE__); ?>
+<?php endpage(__FILE__, "\$Author$", "\$Date$"); ?>
 
