@@ -25,7 +25,7 @@
             </p>
 
             <div id="device" class="contrib">
-                <h3><a name="device">Device Support</a></h3>
+                <h2><a name="device">Device Support</a></h2>
                 <p>
                     This section offers configuration samples or
                     generators for monitoring network devices and other
@@ -70,14 +70,14 @@
                     <tr class="contriblist">
                         <td class="contriblist"> <a href="files/netapp_ext.zip">netapp_ext.zip</a> </td>
                         <td class="contriblist"> More help for monitoring NetApp Boxen. </td>
-                        <td class="contriblist"> <a href="mailto:jsanjuan%40satec%2ees">Jose Antonio San Juan Samprón</a> </td>
+                        <td class="contriblist"> <a href="mailto:jsanjuan%40satec%2ees">Jose Antonio San Juan Sampr&oacute;n</a> </td>
                         <td class="contriblist"> 4K </td>
                         <td class="contriblist"> 2/26/2002 </td>
                     </tr>
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="http://www.acktomic.com/cricket/cricket-genRtrConfig.htm" target="_blank">genRtrConfig</a> </td>
+                        <td class="contriblist"> <a href="http://www.acktomic.com/cricket/cricket-genRtrConfig.htm">genRtrConfig</a> </td>
                         <td class="contriblist"> Config subtree generator for routers </td>
-                        <td class="contriblist"> <a href="mailto:fmikus%40acktomic%2ecom">Fran&ccedil;ois Mikus</a><br>Original by: <a href="mailto:mlf%40users%2esourceforge%2enet">Mike Fisher</a> </td>
+                        <td class="contriblist"> <a href="mailto:fmikus%40acktomic%2ecom">Fran&ccedil;ois Mikus</a><br />Original by: <a href="mailto:mlf%40users%2esourceforge%2enet">Mike Fisher</a> </td>
                         <td class="contriblist"> 16K </td>
                         <td class="contriblist"> 1/24/2002 </td>
                     </tr>
@@ -90,7 +90,7 @@
                     </tr>
                     <tr class="contriblist">
                         <td class="contriblist"> <a href="files/cacheflow.tar.gz">cacheflow.tar.gz</a> </td>
-                        <td class="contriblist"> This is a config tree to watch all Cacheflow proxies and other appliances.<br> It's based on the proxy-mib. </td>
+                        <td class="contriblist"> This is a config tree to watch all Cacheflow proxies and other appliances.<br /> It's based on the proxy-mib. </td>
                         <td class="contriblist"> <a href="mailto:jjmts%40spirou%2eeasynet%2efr">Jean-Jacques Martres</a> </td>
                         <td class="contriblist"> 3K </td>
                         <td class="contriblist"> 11/20/2000 </td>
@@ -138,7 +138,7 @@
                         <td class="contriblist"> 12/8/1999 </td>
                     </tr>
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="http://www.sugarat.net/software/fr-config.tar.gz" target="_blank">fr-config.tar.gz</a> </td>
+                        <td class="contriblist"> <a href="http://www.sugarat.net/software/fr-config.tar.gz">fr-config.tar.gz</a> </td>
                         <td class="contriblist"> Frame Relay config tree changes and a new listinterfaces script for handling frames. </td>
                         <td class="contriblist"> <a href="mailto:sugarat%40thunderhold%2esugarat%2enet">Tim Kennedy</a> </td>
                         <td class="contriblist"> 5.5K </td>
@@ -148,7 +148,7 @@
             </div>
 
             <div id="software" class="contrib">
-                <h3><a name="software">Server Software Support</a></h3>
+                <h2><a name="software">Server Software Support</a></h2>
                 <p>
                     These are configuration samples and generators for
                     monitoring general-purpose servers or server software.
@@ -183,14 +183,14 @@
                         <td class="contriblist"> 4/29/2002 </td>
                     </tr>
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="http://www.mikehan.com/cricket/oracle.html" target="_blank">oracle</a> </td>
+                        <td class="contriblist"> <a href="http://www.mikehan.com/cricket/oracle.html">oracle</a> </td>
                         <td class="contriblist"> Defaults file and script to generate cricket trees to monitor Oracle </td>
                         <td class="contriblist"> <a href="mailto:mikehan+cricket%40mikehan%2ecom">Michael Han</a> </td>
                         <td class="contriblist"> - </td>
                         <td class="contriblist"> 4/25/2002 </td>
                     </tr>
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="http://www.mikehan.com/cricket/weblogic.html" target="_blank">weblogic</a> </td>
+                        <td class="contriblist"> <a href="http://www.mikehan.com/cricket/weblogic.html">weblogic</a> </td>
                         <td class="contriblist"> Sample configurations for monitoring BEA Weblogic Server 6.1 and above </td>
                         <td class="contriblist"> <a href="mailto:mikehan+cricket%40mikehan%2ecom">Michael Han</a> </td>
                         <td class="contriblist"> - </td>
@@ -232,14 +232,14 @@
                         <td class="contriblist"> 4/18/2002 </td>
                     </tr>
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="http://members.optusnet.com.au/peteblack/pooter/cricket/latency/" target="_blank">cricket-latency</a> </td>
+                        <td class="contriblist"> <a href="http://members.optusnet.com.au/peteblack/pooter/cricket/latency/"">cricket-latency</a> </td>
                         <td class="contriblist"> Measure latency using ping and a shell script </td>
                         <td class="contriblist"> <a href="mailto:dezwart%40froob%2enet">Pete de Zwart</a> </td>
                         <td class="contriblist"> 2K </td>
                         <td class="contriblist"> 2/4/2002 </td>
                     </tr>
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="http://members.optusnet.com.au/peteblack/pooter/cricket/boxen/" target="_blank">cricket-linux-boxen</a> </td>
+                        <td class="contriblist"> <a href="http://members.optusnet.com.au/peteblack/pooter/cricket/boxen/">cricket-linux-boxen</a> </td>
                         <td class="contriblist"> Monitor your Linux boxen via SNMP </td>
                         <td class="contriblist"> <a href="mailto:dezwart%40froob%2enet">Pete de Zwart</a> </td>
                         <td class="contriblist"> 5K </td>
@@ -255,7 +255,7 @@
                     <tr class="contriblist">
                         <td class="contriblist"> <a href="files/apache-stats-1.0.tar.gz">apache-stats-1.0.tar.gz</a> </td>
                         <td class="contriblist"> Apache Stats is a package to pull some useful information from the mod_status Apache module. </td>
-                        <td class="contriblist"> Update by: <a href="mailto:dan%40klein%2ecom">Daniel V. Klein</a><br> Original by: <a href="mailto:amw1%40yahoo%2ecom">Andrew Williams</a> </td>
+                        <td class="contriblist"> Update by: <a href="mailto:dan%40klein%2ecom">Daniel V. Klein</a><br /> Original by: <a href="mailto:amw1%40yahoo%2ecom">Andrew Williams</a> </td>
                         <td class="contriblist"> 5K </td>
                         <td class="contriblist"> 10/30/2001 </td>
                     </tr>
@@ -274,7 +274,7 @@
                         <td class="contriblist"> 6/25/2001 </td>
                     </tr>
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="http://www.mikehan.com/cricket/dynamo.html" target="_blank">cricket-dynamo</a> </td>
+                        <td class="contriblist"> <a href="http://www.mikehan.com/cricket/dynamo.html">cricket-dynamo</a> </td>
                         <td class="contriblist"> Defaults file for monitoring the ATG Dynamo application server. </td>
                         <td class="contriblist"> <a href="mailto:mikehan+cricket%40mikehan%2ecom">Michael Han</a> </td>
                         <td class="contriblist"> 1K </td>
@@ -302,14 +302,14 @@
                         <td class="contriblist"> 8/15/2000 </td>
                     </tr>
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="http://www.afn.org/~jam/software/cricket/" target="_blank">unix_host_resources</a> </td>
+                        <td class="contriblist"> <a href="http://www.afn.org/~jam/software/cricket/">unix_host_resources</a> </td>
                         <td class="contriblist"> With this Defaults file and this script you can monitor disk utilization, # of users, and # of processes on a unix machine running snmpd. </td>
                         <td class="contriblist"> <a href="mailto:jm%40ufl%2eedu">James Moore</a> </td>
                         <td class="contriblist"> 1.5K </td>
                         <td class="contriblist"> 1/11/2000 </td>
                     </tr>
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="http://www.afn.org/~jam/software/cricket/" target="_blank">novell_netware_resources</a> </td>
+                        <td class="contriblist"> <a href="http://www.afn.org/~jam/software/cricket/">novell_netware_resources</a> </td>
                         <td class="contriblist"> With this Defaults file and this script you can monitor cpu, connections, caches, buffers, and disk utilization on a netware server. </td>
                         <td class="contriblist"> <a href="mailto:jm%40ufl%2eedu">James Moore</a> </td>
                         <td class="contriblist"> 5K </td>
@@ -333,7 +333,7 @@
             </div>
 
             <div id="util" class="contrib">
-                <h3><a name="util">Utilities</a></h3>
+                <h2><a name="util">Utilities</a></h2>
                 <p>
                     Here are scripts, utilities and extensions for
                     improving your Cricket framework.
@@ -369,10 +369,10 @@
                     </tr>
             
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="files/anichols.tar.gz">anichols.tar.gz</a> <br> <a href="files/SNMP_Simple.tar.gz">SNMP_Simple.tar.gz</a> </td>
-                        <td class="contriblist"> A few sample config trees plus scripts in use %40 Sun<br> An SNMP library needed for the above config trees. </td>
+                        <td class="contriblist"> <a href="files/anichols.tar.gz">anichols.tar.gz</a> <br /> <a href="files/SNMP_Simple.tar.gz">SNMP_Simple.tar.gz</a> </td>
+                        <td class="contriblist"> A few sample config trees plus scripts in use %40 Sun<br /> An SNMP library needed for the above config trees. </td>
                         <td class="contriblist"> Alan Nichols </td>
-                        <td class="contriblist"> 6K<br> 68K </td>
+                        <td class="contriblist"> 6K<br /> 68K </td>
                         <td class="contriblist"> 5/27/1999 </td>
                     </tr>
                     <tr class="contriblist">
@@ -399,7 +399,7 @@
                     <tr class="contriblist">
                         <td class="contriblist"> <a href="files/chirp-0.5.tar.gz">chirp-0.5.tar.gz</a> </td>
                         <td class="contriblist"> CHIRP is a modular system for writing "drivers" for generating configuration files for Cricket!!! </td>
-                        <td class="contriblist"> <a href="mailto:tom%40honermann%2enet">Tom Honermann</a><br> <a href="mailto:sm%2efeldmann%40hosp%2ewisc%2eedu">Scott Feldmann</a> </td>
+                        <td class="contriblist"> <a href="mailto:tom%40honermann%2enet">Tom Honermann</a><br /> <a href="mailto:sm%2efeldmann%40hosp%2ewisc%2eedu">Scott Feldmann</a> </td>
                         <td class="contriblist"> 30K </td>
                         <td class="contriblist"> 5/15/2000 </td>
                     </tr>
