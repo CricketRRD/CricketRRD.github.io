@@ -232,7 +232,7 @@
                         <td class="contriblist"> 4/18/2002 </td>
                     </tr>
                     <tr class="contriblist">
-                        <td class="contriblist"> <a href="http://members.optusnet.com.au/peteblack/pooter/cricket/latency/"">cricket-latency</a> </td>
+                        <td class="contriblist"> <a href="http://members.optusnet.com.au/peteblack/pooter/cricket/latency/">cricket-latency</a> </td>
                         <td class="contriblist"> Measure latency using ping and a shell script </td>
                         <td class="contriblist"> <a href="mailto:dezwart%40froob%2enet">Pete de Zwart</a> </td>
                         <td class="contriblist"> 2K </td>
