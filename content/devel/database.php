@@ -4,9 +4,12 @@
     page("Cricket project's MySQL database");
 ?>
 
+<p>
 The project has a database available for use. Here's the info
 from the SourceForge folks:
+</p>
 
+<p>
 <pre>
 Your database has been created.  Details are as follows: 
  Hostname:   moby 
@@ -15,10 +18,12 @@ Username:    cricket
 <!-- aye, you're a wee smart one, aren't ya! -->
 <!--Password:   mgp1RhlM                   -->
 </pre>
+</p>
 
 <p>
 We are not using it yet. I just got it setup so that when we want
 it, we'll have it.
+</p>
 
 <? endpage(__FILE__); ?>
 

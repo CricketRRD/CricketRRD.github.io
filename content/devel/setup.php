@@ -10,7 +10,9 @@ for stable/devel concurrent releases, including a script to
 merge changes in a regular way. These notes may be useful to other
 people learning CVS. Or they may just turn out to be useful
 to me later to understand what I did.
+</p>
 
+<p>
 <pre>
 I made a fake project called super-hello. Were it to be completed,
 this project would knock gnu-hello out as the premier hello application
@@ -166,6 +168,7 @@ If Perl is installed in /usr/local/bin on your test machine, but in
 /usr/bin on the CVS server, then you'll be very sad and bash your head
 against a wall for a long time. Not that I did that. :)
 </pre>
+</p>
 
 <? endpage(__FILE__); ?>
 
