@@ -12,11 +12,11 @@
                 and someone there might be able to help you.
             </p>
             <p>
-                This repository was hosted by <a href="http://www.certaintysolutions.com/">Certainty
-                Solutions</a> and generously maintained by Emmett
-                Hogan for a long time prior to arriving in its current
-                location. Our sincere gratitude goes to them for their
-                contributions to the Cricket community.
+                This repository was hosted by <a href="http://www.gnac.com/">GNAC</a>
+                and generously maintained by Emmett Hogan for a long time
+                prior to arriving in its current location. Our sincere
+                gratitude goes to them for their contributions to the Cricket
+                community.
             </p>
             <p>
                 Select from: <a href="#device">Device Support</a> | <a
@@ -298,7 +298,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="http://www.sugarat.net/software/fr-config.tar.gz">fr-config.tar.gz</a>
+                        <a href="http://www.sugarat.net/software/fr-config.tar.gz" target="_blank">fr-config.tar.gz</a>
                     </td>
                     <td>
                         Frame Relay config tree changes and a new listinterfaces script for
@@ -623,7 +623,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="http://www.mikehan.com/sysadmin/cricket-dynamo.html">cricket-dynamo</a>
+                        <a href="http://www.mikehan.com/sysadmin/cricket-dynamo.html" target="_blank">cricket-dynamo</a>
                     </td>
                     <td>
                         Defaults file for monitoring the ATG Dynamo
