@@ -173,7 +173,7 @@
                     <tr>
                         <td> <a href="files/mysql-stats-0.2.tar.gz">mysql-stats-0.2.tar.gz</a> </td>
                         <td> Monitor data from MySQL. <br> </td>
-                        <td> <a href="mailto:mike%40rentageek%2ecom">Mike Lerley</a> </td>
+                        <td> <a href="mailto:mike%40rentageekme%2ecom">Mike Lerley</a> </td>
                         <td> 3K </td>
                         <td> 7/7/2003 </td>
                     </tr>
