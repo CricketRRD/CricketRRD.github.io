@@ -16,11 +16,14 @@ function nav() {
 
 function page($title) {
 	global $gRoot;
+
+	header("Content-Type: text/html; charset=utf-8");
+
 	echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n";
 	echo "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n";
 	echo "<html>\n";
 	echo "    <head>\n";
-	echo "        <title> $title </title>\n";
+	echo "        <title>$title</title>\n";
 	echo "        <link rel=\"stylesheet\" type=\"text/css\"" .
 			" href=\"" . $gRoot . "/lib/cricket.css\" />\n";
 	echo "     </head>\n";
