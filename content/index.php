@@ -4,7 +4,7 @@
 	page("Cricket Home");
 ?>
 
-        <div>
+        <div id="about">
             <h2>About Cricket</h2>
             <p>
                 Cricket is a high performance, extremely flexible system for
@@ -36,7 +36,7 @@
             </p>
         </div>
 
-        <div>
+        <div id="os">
             <h2>Supported OS's</h2>
             <p>
                 Cricket is developed on Solaris machines running under Apache.
@@ -47,7 +47,7 @@
             </p>
         </div>
 
-        <div>
+        <div id="sponsors">
             <h2>Sponsors</h2>
             <p>
                 Cricket was originally written for <a
