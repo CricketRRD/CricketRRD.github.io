@@ -3,31 +3,32 @@
 	include("$gRoot/lib/common.inc");
 	page("Downloading Cricket");
 ?>
+    <div>
+      <h2> Final Releases </h2>
+      <p>
+        For the truly impatient, you can get <a
+          title="Download Cricket 1.0.3"
+          href="http://download.sourceforge.net/cricket/cricket-1.0.3.tar.gz"
+        >Cricket 1.0.3</a>, the latest production release, from
+        <a href="http://sf.net/">SourceForge.Net</a>'s download server.
+      </p>
+      <p>
+        All final releases of Cricket are available on the
+        <a href="http://download.sourceforge.net/cricket/">Sourceforge
+          download server</a>. They are also available via anonymous FTP
+        from &lt;<a href="ftp://download.sourceforge.net/pub/sourceforge/cricket/">ftp://download.sf.net/pub/sourceforge/cricket/</a>&gt;.
+      </p>
+    </div>
 
-<h2> Final Releases </h2>
-
-<p>
-For the truly impatient,
-<a href="http://download.sourceforge.net/cricket/cricket-1.0.3.tar.gz">click
-here</a> to get version 1.0.3, the latest final release.
-<p>
-
-<p>
-All final releases of Cricket are available on
-<a href="http://download.sourceforge.net/cricket">Sourceforge's
-download server</a>. They are also available via anonymous FTP
-from <tt>download.sourceforge.net</tt>. Change directory to here:
-<tt>/pub/sourceforge/cricket</tt>.
-
-<h2>Pre-releases</h2>
-
-<p>
-Pre-releases will appear here when available. Users and developers alike
-are encouraged to try these out and report any problems to the
-cricket-users mailing list.
-
-<ul>
-	<li><a href="beta/cricket-1.0.4-pre1.tar.gz">cricket-1.0.4-pre1.tar.gz</a>
-</ul>
-
-<? endpage(__FILE__); ?>
+    <div>
+      <h2>Pre-releases</h2>
+      <p>
+        Pre-releases will appear here when available. Users and developers
+        alike are encouraged to try these out and report any problems to the
+        cricket-users mailing list.
+      </p>
+      <ul>
+	<li><a href="http://dl.sf.net/cricket/cricket-1.0.4-pre2.tar.gz">Cricket 1.0.4pre2</a></li>
+      </ul>
+    </div>
+<?php endpage(__FILE__); ?>
