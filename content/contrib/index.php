@@ -9,7 +9,9 @@
                 useful for enhancing your Cricket installation. Please
                 contact individual authors for assistance, or ask on
                 the <a href="http://lists.sourceforge.net/mailman/listinfo/cricket-users">mailing list</a>
-                and someone there might be able to help you.
+                and someone there might be able to help you. Also,
+                send a message to the list if you have something you'd
+                like to contribute.
             </p>
             <p>
                 This repository was hosted by <a href="http://www.certaintysolutions.com/">Certainty Solutions</a>
@@ -323,9 +325,9 @@
                         <td> 1/11/2000 </td>
                     </tr>
                     <tr>
-                        <td> <a href="ftp://ftp.cybertrails.com/sysadmin/netsaintcricket/netsaintcricket.tar">netsaintcricket.tar</a> </td>
+                        <td> <a href="http://www.sysadminsith.org/software/netsaint/">netsaintcricket.tar</a> </td>
                         <td> Configs and Utils for graphing Netstaint information with Cricket </td>
-                        <td> <a href="mailto:nathan%40cybertrails%2ecom">Nathan Alan Haneysmith</a> </td>
+                        <td> <a href="mailto:nathan%40sysadminsith%2eorg">Nathan Alan Haneysmith</a> </td>
                         <td> 40K </td>
                         <td> 12/20/1999 </td>
                     </tr>
