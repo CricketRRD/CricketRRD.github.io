@@ -49,20 +49,10 @@ function endpage($file) {
 }
 
 function uid2name($uid) {
-
-	# This would be the right way to do it, but I get
-	# ENOENT for my uid. Hmm.
-	#$ent = posix_getpwuid($owner);
-	#$owner = $ent["name"];
-
-	# For now, hard code it, since there's not too many people editing
-	# these pages.
-
-	if ($uid == 21218) {
-		return "jra@users.sourceforge.net";
-	} else {
-		return "uid " + $uid;
-	}
+  $ent   = posix_getpwuid($uid);
+  $name  = $ent["name"];
+  $gecos = $ent["gecos"];
+  return "$gecos &lt;<a href=\"mailto:$name@users.sf.net\">$name@users.sf.net</a>&gt;";
 }
 
 function ex($ex) {
