@@ -69,16 +69,16 @@
                 free from the SourceForge guys. Thanks a bunch for your
                 support.
             </p>
-            <p align=center>
+            <p style="text-align: center">
                 <!-- we fetch the image locally, since the PHP one is slow, but
                     we follow the rules and fetch the PHP one too. -->
-                <A href="http://sourceforge.net">
-                    <IMG src="img/sf.gif" width="88" height="31"
-                        border="0"></A>
-                <br>
-                <IMG
-                    src="http://sourceforge.net/sflogo.php?group_id=1210&type=1"
-                    width="0" height="0">
+                <a href="http://sourceforge.net">
+                    <img src="img/sf.gif" width="88" height="31"
+                        style="border: solid white 0px"
+                        alt="SourceForge.Net" /></a>
+                <img
+                    src="http://sourceforge.net/sflogo.php?group_id=1210&amp;type=1"
+                    width="0" height="0" alt="SourceForge.Net" />
             </p>
         </div>
 

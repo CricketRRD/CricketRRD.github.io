@@ -4,16 +4,14 @@
     page("Notes on setting things up");
 ?>
 
-<p>
-Here are some notes I took on how to setup a CVS repository
-for stable/devel concurrent releases, including a script to
-merge changes in a regular way. These notes may be useful to other
-people learning CVS. Or they may just turn out to be useful
-to me later to understand what I did.
-</p>
-
-<p>
-<pre>
+		<p>
+			Here are some notes I took on how to setup a CVS repository for
+			stable/devel concurrent releases, including a script to merge
+			changes in a regular way. These notes may be useful to other
+			people learning CVS. Or they may just turn out to be useful to
+			me later to understand what I did.
+		</p>
+		<pre>
 I made a fake project called super-hello. Were it to be completed,
 this project would knock gnu-hello out as the premier hello application
 available on the Internet. For now, it's just a few files to play
@@ -167,8 +165,7 @@ the remote machine, with the privledges of the user doing the commit.
 If Perl is installed in /usr/local/bin on your test machine, but in
 /usr/bin on the CVS server, then you'll be very sad and bash your head
 against a wall for a long time. Not that I did that. :)
-</pre>
-</p>
+		</pre>
 
 <? endpage(__FILE__); ?>
 

@@ -1,12 +1,12 @@
 <?
 
 function navBit($link, $name, $sep) {
-	echo "<a class=nav href=\"$link\">[&nbsp;$name&nbsp;]</a> $sep\n";
+	echo "<a class=\"nav\" href=\"$link\">[&nbsp;$name&nbsp;]</a> $sep\n";
 }
 
 function nav() {
 	global $gRoot;
-	echo "<div class=nav>";
+	echo "<div class=\"nav\">";
 	navBit("$gRoot", "home", "|");
 	navBit("$gRoot/download", "download", "|");
 	navBit("$gRoot/support", "support", "|");
@@ -16,13 +16,15 @@ function nav() {
 
 function page($title) {
 	global $gRoot;
+	echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n";
+	echo "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n";
 	echo "<html>\n";
-	echo "  <head>\n";
-	echo "  <title> $title </title>\n";
-	echo "  <link rel=\"stylesheet\" type=\"text/css\"" .
-			" href=\"" . $gRoot . "/lib/cricket.css\">\n";
-	echo "  </head>\n";
-	echo "<body>\n";
+	echo "    <head>\n";
+	echo "        <title> $title </title>\n";
+	echo "        <link rel=\"stylesheet\" type=\"text/css\"" .
+			" href=\"" . $gRoot . "/lib/cricket.css\" />\n";
+	echo "     </head>\n";
+	echo "     <body>\n";
 	
 	nav();
 	echo "<h1>$title</h1>\n";
@@ -31,9 +33,6 @@ function page($title) {
 function endpage($file) {
 
 	nav();
-	echo "<p>\n";
-
-	echo "<hr>\n";
 	echo "<address>\n";
 
 	$owner = fileowner($file);
