@@ -183,16 +183,16 @@
                         <td> 4/29/2002 </td>
                     </tr>
                     <tr>
-                        <td> <a href="http://www.mikehan.com/sysadmin/cricket-oracle.html" target="_blank">oracle</a> </td>
+                        <td> <a href="http://www.mikehan.com/cricket/oracle.html" target="_blank">oracle</a> </td>
                         <td> Defaults file and script to generate cricket trees to monitor Oracle </td>
-                        <td> Michael Han </td>
+                        <td> <a href="mailto:mikehan+cricket%40mikehan%2ecom">Michael Han</a> </td>
                         <td> - </td>
                         <td> 4/25/2002 </td>
                     </tr>
                     <tr>
-                        <td> <a href="http://www.mikehan.com/sysadmin/cricket-weblogic.html" target="_blank">weblogic</a> </td>
+                        <td> <a href="http://www.mikehan.com/cricket/weblogic.html" target="_blank">weblogic</a> </td>
                         <td> Sample configurations for monitoring BEA Weblogic Server 6.1 and above </td>
-                        <td> Michael Han </td>
+                        <td> <a href="mailto:mikehan+cricket%40mikehan%2ecom">Michael Han</a> </td>
                         <td> - </td>
                         <td> 4/25/2002 </td>
                     </tr>
@@ -232,14 +232,14 @@
                         <td> 4/18/2002 </td>
                     </tr>
                     <tr>
-                        <td> <a href="http://froob.net/~dezwart/pooter/cricket/latency/" target="_blank">cricket-latency</a> </td>
+                        <td> <a href="http://members.optusnet.com.au/peteblack/pooter/cricket/latency/" target="_blank">cricket-latency</a> </td>
                         <td> Measure latency using ping and a shell script </td>
                         <td> <a href="mailto:dezwart%40froob%2enet">Pete de Zwart</a> </td>
                         <td> 2K </td>
                         <td> 2/4/2002 </td>
                     </tr>
                     <tr>
-                        <td> <a href="http://froob.net/~dezwart/pooter/cricket/boxen/" target="_blank">cricket-linux-boxen</a> </td>
+                        <td> <a href="http://members.optusnet.com.au/peteblack/pooter/cricket/boxen/" target="_blank">cricket-linux-boxen</a> </td>
                         <td> Monitor your Linux boxen via SNMP </td>
                         <td> <a href="mailto:dezwart%40froob%2enet">Pete de Zwart</a> </td>
                         <td> 5K </td>
@@ -274,9 +274,9 @@
                         <td> 6/25/2001 </td>
                     </tr>
                     <tr>
-                        <td> <a href="http://www.mikehan.com/sysadmin/cricket-dynamo.html" target="_blank">cricket-dynamo</a> </td>
+                        <td> <a href="http://www.mikehan.com/cricket/dynamo.html" target="_blank">cricket-dynamo</a> </td>
                         <td> Defaults file for monitoring the ATG Dynamo application server. </td>
-                        <td> Michael Han </td>
+                        <td> <a href="mailto:mikehan+cricket%40mikehan%2ecom">Michael Han</a> </td>
                         <td> 1K </td>
                         <td> 1/28/2001 </td>
                     </tr>
