@@ -354,6 +354,13 @@
                         <th> Date Submitted </th>
                     </tr>
                     <tr>
+                        <td> <a href="http://sourceforge.net/tracker/index.php?func=detail&aid=742601&group_id=1210&atid=301210">(see "Attached Files" section at bottom of page)</a> </td>
+                        <td> Access control lists for Cricket pages </td>
+                        <td> <a href="mailto:eravin%40panix%2ecom">Ed Ravin</a> </td>
+                        <td> - </td>
+                        <td> 5/23/2003 </td>
+                    </tr>
+                    <tr>
                         <td> <a href="files/traffic_1_7.tar.gz">traffic_1_7.tar.gz</a> </td>
                         <td> Traffic is a pair of scripts that will allow you to graph month, week, or year-to-date bandwidth usage for things like DSL and T1 customers, so you can bill them according to their use </td>
                         <td> <a href="mailto:dkelly%40inav%2enet">Dave Kelly</a> </td>
