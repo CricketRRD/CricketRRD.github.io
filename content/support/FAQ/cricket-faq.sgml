@@ -214,8 +214,74 @@ tutorial for setting up SNMP properly on your boxes.</para>
 
       <para>Some one please fill this</para>
     </sect2>
+    <sect2> <title>How do I change my config tree to use the view dictionary entries introduced in 1.0.4? (added by jakeb 6/7/02)</title>
+    <para>This is best illustrated via example. Suppose this is your existing (pre-1.0.4) targettype dictionary and graph --default-- dictionary: </para>
+<programlisting>
+graph --default--
+    default-ranges = "d"
+    show-avg-max = false
+
+targettype process
+    ds = "usertime, kerneltime, utilization, workingsetsize, 
+	      reads, writes, pagefaults"
+    view = "processor: usertime kerneltime utilization,
+            memory: workingsetsize,
+            io: reads writes,
+            swapping: pagefaults"
+</programlisting>
+<para>Here is the translation to the 1.0.4 syntax:</para>
+<programlisting>
+graph --default--
+# datasource specific, remains in graph --default--
+    show-avg-max = false
+
+view --default--
+# non-datasource specific, goes to view --default--
+    default-ranges = "d"
+
+targettype process
+    ds = "usertime, kerneltime, utilization, workingsetsize, 
+	      reads, writes, pagefaults"
+    view = "processor, memory, io, swapping"
+
+view processor
+    elements = "usertime,kerneltime,utilization"
+
+view memory
+    elements = "workingsetsize"
+                     
+view io
+    elements = "reads,writes"
+
+view swapping
+    elements = "pagefaults"
+</programlisting>
+<para>And now for some advance features using the same example:</para>
+<programlisting>
+view processor
+    elements = "usertime,kerneltime,utilization"
+# assume these are on the percentage scale, force y-axis
+    y-min = 0
+    y-max = 100
+
+view memory
+    elements = "workingsetsize"
+# assume aberrant behavior detection rras are define for this target
+    holtwinters = true
+                     
+view io
+    elements = "reads,writes"
+# choose a different font (RRDtool 1.1.x)
+# Win32 Note:
+# RRDTOOL seems to have difficulty if the font path contains a colon 
+# so times.ttf is in the working directory (crickethome)
+    rrd-graph-args      = "--font DEFAULT:12:times.ttf"
+
+view swapping
+    elements = "pagefaults"
+# change the default-range for this view
+    default-ranges      = "d:w"
+</programlisting>
+    </sect2>
   </sect1>
 </article>
-
-
-
