@@ -40,6 +40,13 @@
                         <th> Date Submitted </th>
                     </tr>
                     <tr>
+                        <td> <a href="files/mge-ups-cricket-1.0.tar.gz">mge-ups-cricket-1.0.tar.gz</a> </td>
+                        <td> Config tree for MGE UPS devices </td>
+                        <td> <a href="mailto:cricket%40%2eoisec%2enet">Cliff Albert</a> </td>
+                        <td> 1K </td>
+                        <td> 2/13/2003 </td>
+                    </tr>
+                    <tr>
                         <td> <a href="files/genCatConfig-1.4.1.tar.gz">genCatConfig-1.4.1.tar.gz</a> </td>
                         <td> Config subtree generator for Catalyst switches </td>
                         <td> <a href="mailto:mlf%40users%2esourceforge%2enet">Mike Fisher</a> </td>
