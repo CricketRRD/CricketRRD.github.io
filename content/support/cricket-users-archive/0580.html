@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Way to speed grapher.cgi up?</TITLE>
+<META NAME="Author" CONTENT="Kirby Krueger (kirbyk@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Way to speed grapher.cgi up?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Way to speed grapher.cgi up?</H1>
+<!-- received="Wed Sep  8 16:56:22 1999" -->
+<!-- isoreceived="19990908235622" -->
+<!-- sent="Wed, 08 Sep 1999 13:51:14 -0700" -->
+<!-- isosent="19990908205114" -->
+<!-- name="Kirby Krueger" -->
+<!-- email="kirbyk@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Way to speed grapher.cgi up?" -->
+<!-- id="37D6CC42.EB8D83FF@corp.webtv.net" -->
+<!-- inreplyto="19990908151643.G26772@fly.HiWAAY.net" -->
+<STRONG>From:</STRONG> Kirby Krueger (<A HREF="mailto:kirbyk@corp.webtv.net?Subject=Re:%20[cricket-users]%20Way%20to%20speed%20grapher.cgi%20up?&In-Reply-To=&lt;37D6CC42.EB8D83FF@corp.webtv.net&gt;"><EM>kirbyk@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Sep 08 1999 - 13:51:14 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0581.html">qztf7k@powertrain.mpg.gm.com: "RE: [cricket-users] Way to speed grapher.cgi up?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0579.html">Chris Adams: "[cricket-users] Way to speed grapher.cgi up?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0579.html">Chris Adams: "[cricket-users] Way to speed grapher.cgi up?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0581.html">qztf7k@powertrain.mpg.gm.com: "RE: [cricket-users] Way to speed grapher.cgi up?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#580">[ date ]</A>
+<A HREF="index.html#580">[ thread ]</A>
+<A HREF="subject.html#580">[ subject ]</A>
+<A HREF="author.html#580">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Kirby Krueger &lt;<A HREF="mailto:kirbyk@corp.webtv.net?Subject=Re:%20[cricket-users]%20Way%20to%20speed%20grapher.cgi%20up?&In-Reply-To=&lt;37D6CC42.EB8D83FF@corp.webtv.net&gt;">kirbyk@corp.webtv.net</A>&gt;
+<BR>
+<P>Chris Adams wrote:
+<BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; From: Chris Adams &lt;<A HREF="mailto:cmadams@hiwaay.net?Subject=Re:%20[cricket-users]%20Way%20to%20speed%20grapher.cgi%20up?&In-Reply-To=&lt;37D6CC42.EB8D83FF@corp.webtv.net&gt;">cmadams@hiwaay.net</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I am running RRD/Cricket on a Cobalt RaQ, and it is slow (very slow).
+</EM><BR>
+<EM>&gt; It takes 10-30 seconds to get an HTML page generated and another 30-45
+</EM><BR>
+<EM>&gt; seconds to get the images generated.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Is there any way to speed it up?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I think I would prefer something more like MRTG where the HTML and the
+</EM><BR>
+<EM>&gt; images are generated statically every 5 minutes instead of on-demand.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Also I prefer the layout of MRTG's HTML, with graphs down the page and
+</EM><BR>
+<EM>&gt; then the numbers that go with that graph right below it.
+</EM><BR>
+<P>The short answer for speed is to use mod_perl, if you aren't.  I'm not
+<BR>
+sure which webservers support it (apache certainly does), but it allows
+<BR>
+perl processes to run in the webserver without having to fork, and it
+<BR>
+has a very obvious speed improvement for cricket.
+<BR>
+<P>We've encountered a bug with mod_perl and running multiple cricket
+<BR>
+installs on one webserver, so in the unlikely case that you're doing
+<BR>
+this, you might hold off a bit.
+<BR>
+<P>If you want to, you can actually rewrite a lot of the layout stuff in
+<BR>
+the Defaults file at the top of your cricket-config directory.  I
+<BR>
+haven't done much with this, but it wouldn't surprise me if you could
+<BR>
+rearrange things so that you like them more.
+<BR>
+<P>-- Kirby
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Show your ONElist SPIRIT!
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/tshirt2">http://clickme.onelist.com/ad/tshirt2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+With a new ONElist SHIRT available through our website.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0581.html">qztf7k@powertrain.mpg.gm.com: "RE: [cricket-users] Way to speed grapher.cgi up?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0579.html">Chris Adams: "[cricket-users] Way to speed grapher.cgi up?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0579.html">Chris Adams: "[cricket-users] Way to speed grapher.cgi up?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0581.html">qztf7k@powertrain.mpg.gm.com: "RE: [cricket-users] Way to speed grapher.cgi up?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#580">[ date ]</A>
+<A HREF="index.html#580">[ thread ]</A>
+<A HREF="subject.html#580">[ subject ]</A>
+<A HREF="author.html#580">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

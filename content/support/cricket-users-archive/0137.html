@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] cricket for innd news</TITLE>
+<META NAME="Author" CONTENT="Jost Krieger (Jost.Krieger+onelist@ruhr-uni-bochum.de)">
+<META NAME="Subject" CONTENT="[cricket-users] cricket for innd news">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] cricket for innd news</H1>
+<!-- received="Wed May 26 11:53:08 1999" -->
+<!-- isoreceived="19990526185308" -->
+<!-- sent="26 May 1999 17:15:37 +0200" -->
+<!-- isosent="19990526151537" -->
+<!-- name="Jost Krieger" -->
+<!-- email="Jost.Krieger+onelist@ruhr-uni-bochum.de" -->
+<!-- subject="[cricket-users] cricket for innd news" -->
+<!-- id="s5kwvxvoo9y.fsf@sunu115.rz.ruhr-uni-bochum.de" -->
+<STRONG>From:</STRONG> Jost Krieger (<A HREF="mailto:Jost.Krieger%2Bonelist@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20cricket%20for%20innd%20news&In-Reply-To=&lt;s5kwvxvoo9y.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;"><EM>Jost.Krieger+onelist@ruhr-uni-bochum.de</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed May 26 1999 - 08:15:37 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0138.html">Jeff Allen: "Re: [cricket-users] Graph scales after RRD-TOOL 0.99.30 update."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0136.html">Jeff Johnson: "[cricket-users] Graph scales after RRD-TOOL 0.99.30 update."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#137">[ date ]</A>
+<A HREF="index.html#137">[ thread ]</A>
+<A HREF="subject.html#137">[ subject ]</A>
+<A HREF="author.html#137">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jost Krieger &lt;Jost.Krieger+<A HREF="mailto:onelist@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20cricket%20for%20innd%20news&In-Reply-To=&lt;s5kwvxvoo9y.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">onelist@ruhr-uni-bochum.de</A>&gt;
+<BR>
+<P>In case you are running one (or more) news servers with INND and cleanfeed,
+<BR>
+you could use the attached configuration.
+<BR>
+<P>Here's cricket-config/news-server/Defaults:
+<BR>
+<P>target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# you'll probably want to change this... unless you
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# have Cricket in ~/cricket and your config tree in ~/config
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;util-dir	=	%auto-base%/../cricket/util
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remexec		=	&quot;/usr/local/net/bin/ssh -l %user% %server%&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type	=	news-server
+<BR>
+<P>datasource	pass
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source	=	&quot;exec:0:%remexec% bin/ctlinnd mode | %util-dir%/newsstats&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desc		=	&quot;Number of articles that passed the filter.&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type		=	COUNTER
+<BR>
+<P>datasource	reject
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source	=	&quot;exec:1:%remexec% bin/ctlinnd mode | %util-dir%/newsstats&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desc		=	&quot;Number of articles rejected by the filter.&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type		=	COUNTER
+<BR>
+<P>datasource	refuse
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source	=	&quot;exec:2:%remexec% bin/ctlinnd mode | %util-dir%/newsstats&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desc		=	&quot;Number of articles refused.&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type		=	COUNTER
+<BR>
+<P>targetType	news-server
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds		=	&quot;pass, reject, refuse&quot;
+<BR>
+<P><P>graph --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;# of articles&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units	=	art.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# cut off spikes above 5 seconds
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-max	=	30	
+<BR>
+<P>graph pass
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legend = &quot;Passed&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as = AREA
+<BR>
+<P>graph reject
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legend = &quot;Reject&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as = LINE1
+<BR>
+<P>graph refuse
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legend = &quot;Refuse&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as = LINE1
+<BR>
+<P><P>Here's cricket-config/news-server/news:
+<BR>
+<P>target	news
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server = news
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user   = news
+<BR>
+<P>and here's cricket/util/newsstats:
+<BR>
+<P>#!/usr/local/bin/perl
+<BR>
+<P>##
+<BR>
+# Get simple stats from INND with cleanfeed
+<BR>
+# expects output crom &quot;ctlinnd mode&quot; on STDIN
+<BR>
+#
+<BR>
+# Author: Jost Krieger &lt;<A HREF="mailto:Jost.Krieger@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20cricket%20for%20innd%20news&In-Reply-To=&lt;s5kwvxvoo9y.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">Jost.Krieger@ruhr-uni-bochum.de</A>&gt;
+<BR>
+# Revision: $Revision$
+<BR>
+##
+<BR>
+<P>use strict;
+<BR>
+<P>my ($passed, $reject, $refuse);
+<BR>
+<P>while (&lt;&gt;) 
+<BR>
+{
+<BR>
+#	print STDERR $_;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (/Perl filter stats/) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Pass: (\d+)/ and $passed=$1;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Reject: (\d+)/ and $reject=$1;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Refuse: (\d+)/ and $refuse=$1;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+}
+<BR>
+<P>print &quot;$passed\n$reject\n$refuse\n&quot;;
+<BR>
+<P><PRE>
+-- 
+| <A HREF="mailto:Jost.Krieger@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20cricket%20for%20innd%20news&In-Reply-To=&lt;s5kwvxvoo9y.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">Jost.Krieger@ruhr-uni-bochum.de</A>      Please help stamp out spam! |
+| Postmaster, JAPH, resident answer machine          am RZ der RUB |
+| non sunt multiplicanda entia praeter necessitatem                |
+|                                 William of Ockham (1285-1347/49) |
+<P><P><P>------------------------------------------------------------------------
+Looking to expand your world?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+ONElist has over 150,000 e-mail communities from which to chose!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0138.html">Jeff Allen: "Re: [cricket-users] Graph scales after RRD-TOOL 0.99.30 update."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0136.html">Jeff Johnson: "[cricket-users] Graph scales after RRD-TOOL 0.99.30 update."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#137">[ date ]</A>
+<A HREF="index.html#137">[ thread ]</A>
+<A HREF="subject.html#137">[ subject ]</A>
+<A HREF="author.html#137">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:51 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] cisco homogenous stuff</TITLE>
+<META NAME="Author" CONTENT="Timothy Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="[cricket-users] cisco homogenous stuff">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] cisco homogenous stuff</H1>
+<!-- received="Fri May 21 04:09:29 1999" -->
+<!-- isoreceived="19990521110929" -->
+<!-- sent="Fri, 21 May 1999 04:08:26 -0400 (EDT)" -->
+<!-- isosent="19990521080826" -->
+<!-- name="Timothy Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="[cricket-users] cisco homogenous stuff" -->
+<!-- id="Pine.LNX.3.96.990521033352.373J-100000@gunslinger.hate.org" -->
+<STRONG>From:</STRONG> Timothy Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20cisco%20homogenous%20stuff&In-Reply-To=&lt;Pine.LNX.3.96.990521033352.373J-100000@gunslinger.hate.org&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri May 21 1999 - 01:08:26 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0108.html">Timothy Kennedy: "[cricket-users] Defaults file for routers subtree"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0106.html">Timothy Kennedy: "[cricket-users] new Defaults file to work with my listInterface"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#107">[ date ]</A>
+<A HREF="index.html#107">[ thread ]</A>
+<A HREF="subject.html#107">[ subject ]</A>
+<A HREF="author.html#107">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Timothy Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20cisco%20homogenous%20stuff&In-Reply-To=&lt;Pine.LNX.3.96.990521033352.373J-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P><P><P>Somebody (I lost the mail) asked me for examples of my cisco homogenous
+<BR>
+environment scripts.  Here's the one to make the targets file for 
+<BR>
+cricket/config/routers/Targets.
+<BR>
+<P><P>### BOF
+<BR>
+<P>#!/usr/local/bin/perl -w
+<BR>
+#
+<BR>
+# MakeTargets:  this file will get a list of targets from a flat file
+<BR>
+#               called db.router in the same directory.  Easy enough to
+<BR>
+#               change, eh?  --Tim
+<BR>
+#
+<BR>
+# Don't forget to change your paths.
+<BR>
+#
+<BR>
+<P>### The hash is just the list of oid's that match the cisco routers on our
+<BR>
+network.
+<BR>
+### oid being the key to the router type as needed by the cricket
+<BR>
+collector
+<BR>
+### I am also lazy enough that this only lists the types of routers that I 
+<BR>
+### have in my network.  :)
+<BR>
+<P>my($community) = &quot;public&quot;;
+<BR>
+$community = $ARGV[0] unless (! defined($ARGV[0]));
+<BR>
+<P>my %hash = (
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;enterprises.9.1.108&quot; =&gt; &quot;Cisco-7200-Router&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;enterprises.9.1.14&quot; =&gt; &quot;Cisco-4500-Router&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;enterprises.9.1.17&quot; =&gt; &quot;Cisco-2500-Router&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;enterprises.9.1.19&quot; =&gt; &quot;Cisco-2500-Router&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;enterprises.9.1.25&quot; =&gt; &quot;Cisco-2500-Router&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;enterprises.9.1.30&quot; =&gt; &quot;Cisco-2500-Router&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;enterprises.9.1.45&quot; =&gt; &quot;Cisco-7500-Router&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;enterprises.9.1.46&quot; =&gt; &quot;Cisco-7500-Router&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;enterprises.9.1.48&quot; =&gt; &quot;Cisco-7500-Router&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;enterprises.9.1.50&quot; =&gt; &quot;Cisco-4700-Router&quot;,
+<BR>
+);     
+<BR>
+<P>### db.router is a list of routers, one fully qualified hostname per line.
+<BR>
+### we generate this file on a daily basis as we add hosts from dns.
+<BR>
+<P>open(RTR, &quot;db.router&quot;) ||
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die &quot;Sorry, I couldn't read db.router.&quot;;
+<BR>
+<P>while(&lt;RTR&gt;) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chomp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my $router = ($_);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;open (GET, &quot;snmpget -v 1 $router $community system.sysObjectId.0
+<BR>
+|&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while($line = &lt;GET&gt;) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chomp $line;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($line =~ /system.sysObjectId.0/i) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my @target = split(/\s+/, $line);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($#target == 3) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$objid  = $target[3];
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;Can't run snmpget, or output isn't
+<BR>
+right!\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+<P>print(&quot;target\t$router\n\tdomain\t\t=\trcn.net\n\ttarget-type\t=\t$hash{$objid}\n\tshort-desc\t=\t\&quot;$router\&quot;\n\n\n\n&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;close GET;
+<BR>
+}
+<BR>
+close RTR;
+<BR>
+<P>### EOF
+<BR>
+<P><P><P>Tim Kennedy
+<BR>
+<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20cisco%20homogenous%20stuff&In-Reply-To=&lt;Pine.LNX.3.96.990521033352.373J-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>
+<BR>
+<P>Disclaimer:  since this came from this me, not that ---&gt; me, 
+<BR>
+it is persona mail, and in no way reflects any opinions or
+<BR>
+policies of my employer, whom I won't mention here, just to 
+<BR>
+keep things clear of them. (new email policy at work)
+<BR>
+Usual stuff about confidentiality and whatnot... intended
+<BR>
+receivers, blah, blah, etc., etc.
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+It's finally here!  What's your opinion?
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Create a Star Wars discussion group at ONElist.
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0108.html">Timothy Kennedy: "[cricket-users] Defaults file for routers subtree"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0106.html">Timothy Kennedy: "[cricket-users] new Defaults file to work with my listInterface"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#107">[ date ]</A>
+<A HREF="index.html#107">[ thread ]</A>
+<A HREF="subject.html#107">[ subject ]</A>
+<A HREF="author.html#107">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

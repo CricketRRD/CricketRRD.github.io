@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Some really bizarre problems wit</TITLE>
+<META NAME="Author" CONTENT="Adam B. Meltzer (KF6PDH) (ameltzer@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Some really bizarre problems with Cricket.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Some really bizarre problems with Cricket.</H1>
+<!-- received="Thu Sep 23 13:10:41 1999" -->
+<!-- isoreceived="19990923201041" -->
+<!-- sent="Thu, 23 Sep 1999 10:09:11 -0700" -->
+<!-- isosent="19990923170911" -->
+<!-- name="Adam B. Meltzer (KF6PDH)" -->
+<!-- email="ameltzer@corp.webtv.net" -->
+<!-- subject="[cricket-users] Some really bizarre problems with Cricket." -->
+<!-- id="19990923100910.P3772@corp.webtv.net" -->
+<STRONG>From:</STRONG> Adam B. Meltzer (KF6PDH) (<A HREF="mailto:ameltzer@corp.webtv.net?Subject=Re:%20[cricket-users]%20Some%20really%20bizarre%20problems%20with%20Cricket.&In-Reply-To=&lt;19990923100910.P3772@corp.webtv.net&gt;"><EM>ameltzer@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Sep 23 1999 - 10:09:11 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0609.html">Berg, Ivan: "RE: [cricket-users] Some really bizarre problems with Cricket."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0607.html">dusteur@excite.com: "[cricket-users] explicit long term stats"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0609.html">Berg, Ivan: "RE: [cricket-users] Some really bizarre problems with Cricket."</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0609.html">Berg, Ivan: "RE: [cricket-users] Some really bizarre problems with Cricket."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#608">[ date ]</A>
+<A HREF="index.html#608">[ thread ]</A>
+<A HREF="subject.html#608">[ subject ]</A>
+<A HREF="author.html#608">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Adam B. Meltzer (KF6PDH)&quot; &lt;<A HREF="mailto:ameltzer@corp.webtv.net?Subject=Re:%20[cricket-users]%20Some%20really%20bizarre%20problems%20with%20Cricket.&In-Reply-To=&lt;19990923100910.P3772@corp.webtv.net&gt;">ameltzer@corp.webtv.net</A>&gt;
+<BR>
+<P>I'm playing with two totally seperate installations of Cricket right now and
+<BR>
+having two totally wierd problems.
+<BR>
+<P>First off, with one instance it seems to be working just fine. I run collector,
+<BR>
+and you see it getting valid stats and apparently writing to the RRD files.
+<BR>
+<P>[23-Sep-1999 09:56:42 ] Retrieving data (EXEC: /home/smrtgint/cricket-config/../util/netAppRate netapp-101) for netapp-101
+<BR>
+[23-Sep-1999 09:56:42 ] Retrieved data for netapp-101 (): 90
+<BR>
+<P>But, if I look at the RRD file (even after running collector maybe 500 times
+<BR>
+throughout several hours) here is what it will ALWAYS look like:
+<BR>
+<P>(strings ~/cricket-data/netapps/netapp-101.rrd):
+<BR>
+<P>0001
+<BR>
+GAUGE
+<BR>
+AVERAGE
+<BR>
+AVERAGE
+<BR>
+AVERAGE
+<BR>
+AVERAGE
+<BR>
+UNKN
+<BR>
+<P>Wierd, eh? If I nuke the old RRD files and try again it writes new ones but
+<BR>
+same thing with no data - so it is seeing the right RRD files.
+<BR>
+<P>Next problem is totally unrelated. It's getting the stats, and the RRD files
+<BR>
+look all good and all, but whenever I try to view the graph mini-grapher ALWAYS
+<BR>
+fails with the 'Failed to draw graph' pic. I've checked things from the command
+<BR>
+line and server-logs and can't find any errors.
+<BR>
+<P>Both are totally bone-stock Cricket installs with all the proper (and most
+<BR>
+recent versions of) the modules.
+<BR>
+<P>Anyone seen such wierd behavior?
+<BR>
+<P><PRE>
+-- 
+              ._____                    
+    _-_  ____//_/___\_.-=___     Adam Meltzer / KF6PDH
+ _-_-_  / ,-.   |`  /  .-.  \    WebTV Tools Engineer
+- - _-  `( * )--+--+--( o )-'    <A HREF="mailto:ameltzer@corp.webtv.net?Subject=Re:%20[cricket-users]%20Some%20really%20bizarre%20problems%20with%20Cricket.&In-Reply-To=&lt;19990923100910.P3772@corp.webtv.net&gt;">ameltzer@corp.webtv.net</A>
+      -   `-'          `-'       Voice: 650-470-4828 Cell: 650-280-6402
+<P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>Share your special moments with family and friends- send PHOTO Greetings
+at Zing.com! Use your own photos or choose from a variety of funny,
+                 cute, cool and animated cards.       
+   &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/zing9">http://clickme.onelist.com/ad/zing9</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0609.html">Berg, Ivan: "RE: [cricket-users] Some really bizarre problems with Cricket."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0607.html">dusteur@excite.com: "[cricket-users] explicit long term stats"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0609.html">Berg, Ivan: "RE: [cricket-users] Some really bizarre problems with Cricket."</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0609.html">Berg, Ivan: "RE: [cricket-users] Some really bizarre problems with Cricket."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#608">[ date ]</A>
+<A HREF="index.html#608">[ thread ]</A>
+<A HREF="subject.html#608">[ subject ]</A>
+<A HREF="author.html#608">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

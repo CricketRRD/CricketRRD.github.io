@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Graphing to 100%</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Graphing to 100%">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Graphing to 100%</H1>
+<!-- received="Mon Jul 19 21:36:16 1999" -->
+<!-- isoreceived="19990720043616" -->
+<!-- sent="Mon, 19 Jul 1999 18:34:59 -0700 (PDT)" -->
+<!-- isosent="19990720013459" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Graphing to 100%" -->
+<!-- id="199907200134.SAA22328@oops.artemis.com" -->
+<!-- inreplyto="37938F07.A3D110F@tddny.fujitsu.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Graphing%20to%20100%25&In-Reply-To=&lt;199907200134.SAA22328@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jul 19 1999 - 18:34:59 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0384.html">Jeff Allen: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0382.html">Kilian Weniger: "[cricket-users] many router-monitor-graphs on one website?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0368.html">Matthew Stier: "Re: [cricket-users] Graphing to 100%"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#383">[ date ]</A>
+<A HREF="index.html#383">[ thread ]</A>
+<A HREF="subject.html#383">[ subject ]</A>
+<A HREF="author.html#383">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+Matthew Stier wrote:
+<BR>
+<EM>&gt; Re-read the documentation. (The Cricket Reference Guide).
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The tags 'y-min' and 'y-max' are generic tags, and are only valid in the
+</EM><BR>
+<EM>&gt; --default-- dictionary.
+</EM><BR>
+<P>Actually, that's not true anymore in Cricket 0.69. Alas, that means
+<BR>
+he's reporting a bug, since he's using it right.
+<BR>
+<P>I just loked at it and realized I had added a check that's breaking
+<BR>
+it. Try applying the patch below. It replaces the logic with clearer
+<BR>
+logic that does the right thing, along with cleaning up some other
+<BR>
+cruft related to this feature.
+<BR>
+<P>Sorry for the problem. A new future new version of Cricket will have
+<BR>
+this patch in it.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Graphing%20to%20100%25&In-Reply-To=&lt;199907200134.SAA22328@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P><P>
+</PRE>
+<P>
+==== //depot/operations/nsgtools/cricket/grapher.cgi#19 - /home/jra/operations/nsgtools/cricket/grapher.cgi ====
+*** /tmp/tmp.13846.0	Mon Jul 19 18:32:14 1999
+--- /home/jra/operations/nsgtools/cricket/grapher.cgi	Mon Jul 19 18:31:51 1999
+***************
+*** 66,72 ****
+  # This is for debugging here at WebTV. Feel free to nuke this
+  # if you happen to _also_ be running Cricket on a machine named
+  # mango. :)
+! if ($ENV{'HTTP_HOST'} =~ /mango1/) {
+  	$log = 'debug';
+  }
+  Common::Log::setLevel($log);
+--- 66,72 ----
+  # This is for debugging here at WebTV. Feel free to nuke this
+  # if you happen to _also_ be running Cricket on a machine named
+  # mango. :)
+! if ($ENV{'HTTP_HOST'} =~ /mango/) {
+  	$log = 'debug';
+  }
+  Common::Log::setLevel($log);
+***************
+*** 1199,1212 ****
+  		$yminlck = 0;
+  	}
+  
+- 	my(@rigid);
+- 
+- 	if (defined($ymin) || defined($ymax)) {
+- 		push @rigid, '-r';
+- 		push @rigid, '-u', $ymax if (defined($ymax));
+- 		push @rigid, '-l', $ymin if (defined($ymin));
+- 	}
+- 
+  	# ok, lets attempt to handle mtargets.  We need to loop through
+  	# each of the individual targets and construct the graph command
+  	# on each of those.  The other initializations should be outside
+--- 1199,1204 ----
+***************
+*** 1297,1312 ****
+  
+  			my($ym);
+  
+! 			$ym = graphParam($gRef, 'y-max', $ymax);
+! 			if (! $ymaxlck &amp;&amp; defined($ym) &amp;&amp; defined($ymax)) {
+! 				if ($ym &gt; $ymax) {
+  					$ymax = $ym;
+  				}
+  			}
+  
+! 			$ym = graphParam($gRef, 'y-min', $ymin);
+! 			if (! $yminlck &amp;&amp; defined($ym) &amp;&amp; defined($ymin)) {
+! 				if ($ym &lt; $ymin) {
+  					$ymin = $ym;
+  				}
+  			}
+--- 1289,1308 ----
+  
+  			my($ym);
+  
+! 			$ym = graphParam($gRef, 'y-max');
+! 			if ($ym &amp;&amp; ! $ymaxlck) {
+! 				if (defined($ymax) &amp;&amp; $ymax &gt; $ym) {
+! 					# nothing
+! 				} else {
+  					$ymax = $ym;
+  				}
+  			}
+  
+! 			$ym = graphParam($gRef, 'y-min');
+! 			if ($ym &amp;&amp; ! $yminlck) {
+! 				if (defined($ymin) &amp;&amp; $ymin &gt; $ym) {
+! 					# nothing
+! 				} else {
+  					$ymin = $ym;
+  				}
+  			}
+***************
+*** 1487,1492 ****
+--- 1483,1490 ----
+  		push @rules, 'COMMENT:\s';
+  	}
+  
++ 	my(@rigid);
++ 
+  	if (defined($ymin) || defined($ymax)) {
+  		push @rigid, '-r';
+  		push @rigid, '-u', $ymax if (defined($ymax));
+<P><P>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0384.html">Jeff Allen: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0382.html">Kilian Weniger: "[cricket-users] many router-monitor-graphs on one website?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0368.html">Matthew Stier: "Re: [cricket-users] Graphing to 100%"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#383">[ date ]</A>
+<A HREF="index.html#383">[ thread ]</A>
+<A HREF="subject.html#383">[ subject ]</A>
+<A HREF="author.html#383">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:57 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

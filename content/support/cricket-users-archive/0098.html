@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] DB_File in cricket-0.64</TITLE>
+<META NAME="Author" CONTENT="Jost Krieger (Jost.Krieger+onelist@ruhr-uni-bochum.de)">
+<META NAME="Subject" CONTENT="[cricket-users] DB_File in cricket-0.64">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] DB_File in cricket-0.64</H1>
+<!-- received="Thu May 20 06:11:19 1999" -->
+<!-- isoreceived="19990520131119" -->
+<!-- sent="20 May 1999 12:11:01 +0200" -->
+<!-- isosent="19990520101101" -->
+<!-- name="Jost Krieger" -->
+<!-- email="Jost.Krieger+onelist@ruhr-uni-bochum.de" -->
+<!-- subject="[cricket-users] DB_File in cricket-0.64" -->
+<!-- id="s5k4sl859vu.fsf@sunu115.rz.ruhr-uni-bochum.de" -->
+<STRONG>From:</STRONG> Jost Krieger (<A HREF="mailto:Jost.Krieger%2Bonelist@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20DB_File%20in%20cricket-0.64&In-Reply-To=&lt;s5k4sl859vu.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;"><EM>Jost.Krieger+onelist@ruhr-uni-bochum.de</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu May 20 1999 - 03:11:01 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0099.html">Jost Krieger: "[cricket-users] Slightly corrected squid-proxy/Defaults"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0097.html">David Koski: "Re: [cricket-users] Cricket 0.65 re-released"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#98">[ date ]</A>
+<A HREF="index.html#98">[ thread ]</A>
+<A HREF="subject.html#98">[ subject ]</A>
+<A HREF="author.html#98">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jost Krieger &lt;Jost.Krieger+<A HREF="mailto:onelist@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20DB_File%20in%20cricket-0.64&In-Reply-To=&lt;s5k4sl859vu.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">onelist@ruhr-uni-bochum.de</A>&gt;
+<BR>
+<P>I think using DB_File may be necessary, as records tend to get
+<BR>
+largish, but could we agree to use something like the patch below?
+<BR>
+(It uses DB_File if available.)
+<BR>
+<P>One thing not in it is to ignore every file starting with &quot;config.db&quot;.
+<BR>
+<P><P>Unfortunately, I haven't got it running yet (DB_File not installed,
+<BR>
+NDBM doesn't cope with the squid proxy record, it seems).
+<BR>
+<P>I would personally prefer to use CDB, but I need to test it first.
+<BR>
+It's a classical case of a constant database (write once, read often).
+<BR>
+<P>Jost
+<BR>
+<P>diff -u -r src/cricket-0.64/lib/ConfigTree/Cache.pm cricket-0.64/lib/ConfigTree/Cache.pm
+<BR>
+--- src/cricket-0.64/lib/ConfigTree/Cache.pm    Mon May 17 20:54:27 1999
+<BR>
++++ cricket-0.64/lib/ConfigTree/Cache.pm        Thu May 20 09:36:40 1999
+<BR>
+@@ -1,6 +1,7 @@
+<BR>
+&nbsp;package ConfigTree::Cache;
+<BR>
+<P>-use DB_File;
+<BR>
++BEGIN { @AnyDBM_File::ISA = qw(DB_File GDBM_File NDBM_File) }
+<BR>
++use AnyDBM_File;
+<BR>
+&nbsp;use POSIX;
+<BR>
+<P>&nbsp;sub DbRef { shift-&gt;_getAndSet('DbRef', @_) };
+<BR>
+@@ -26,7 +27,7 @@
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($self) = @_;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($file) = $self-&gt;Base() . &quot;/config.db&quot;;
+<BR>
+-       my($dbh) = tie %db, 'DB_File', $file, O_RDONLY, 0644, $DB_HASH;
+<BR>
++       my($dbh) = tie %db, 'AnyDBM_File', $file, O_RDONLY, 0644;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$self-&gt;DbRef(\%db);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$self-&gt;Dbh($dbh);
+<BR>
+diff -u -r src/cricket-0.64/lib/ConfigTree/Node.pm cricket-0.64/lib/ConfigTree/Node.pm
+<BR>
+--- src/cricket-0.64/lib/ConfigTree/Node.pm     Tue May 18 09:21:11 1999
+<BR>
++++ cricket-0.64/lib/ConfigTree/Node.pm Thu May 20 09:37:01 1999
+<BR>
+@@ -3,7 +3,9 @@
+<BR>
+&nbsp;use strict;
+<BR>
+&nbsp;use Text::ParseWords;
+<BR>
+&nbsp;use FileHandle;
+<BR>
+-use DB_File;
+<BR>
++BEGIN { @AnyDBM_File::ISA = qw(DB_File GDBM_File NDBM_File) }
+<BR>
++use AnyDBM_File;
+<BR>
++
+<BR>
+&nbsp;use POSIX;
+<BR>
+<P>&nbsp;my($gDebug) = 0;
+<BR>
+@@ -153,7 +155,7 @@
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unlink($file);
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my(%db);
+<BR>
+-    my($dbh) = tie %db, 'DB_File', $file, O_CREAT|O_RDWR, 0644, $DB_HASH;
+<BR>
++    my($dbh) = tie %db, 'AnyDBM_File', $file, O_CREAT|O_RDWR, 0644;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($ct) = $self-&gt;compileTree(\%db);
+<BR>
+<P><P><PRE>
+-- 
+| <A HREF="mailto:Jost.Krieger@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20DB_File%20in%20cricket-0.64&In-Reply-To=&lt;s5k4sl859vu.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">Jost.Krieger@ruhr-uni-bochum.de</A>      Please help stamp out spam! |
+| Postmaster, JAPH, resident answer machine          am RZ der RUB |
+| non sunt multiplicanda entia praeter necessitatem                |
+|                                 William of Ockham (1285-1347/49) |
+<P>------------------------------------------------------------------------
+Are you hogging all the fun?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Friends tell friends about ONElist!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0099.html">Jost Krieger: "[cricket-users] Slightly corrected squid-proxy/Defaults"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0097.html">David Koski: "Re: [cricket-users] Cricket 0.65 re-released"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#98">[ date ]</A>
+<A HREF="index.html#98">[ thread ]</A>
+<A HREF="subject.html#98">[ subject ]</A>
+<A HREF="author.html#98">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

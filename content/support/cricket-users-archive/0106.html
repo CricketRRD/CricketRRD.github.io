@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] new Defaults file to work with m</TITLE>
+<META NAME="Author" CONTENT="Timothy Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="[cricket-users] new Defaults file to work with my listInterface">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] new Defaults file to work with my listInterface</H1>
+<!-- received="Fri May 21 03:35:24 1999" -->
+<!-- isoreceived="19990521103524" -->
+<!-- sent="Fri, 21 May 1999 03:33:33 -0400 (EDT)" -->
+<!-- isosent="19990521073333" -->
+<!-- name="Timothy Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="[cricket-users] new Defaults file to work with my listInterface" -->
+<!-- id="Pine.LNX.3.96.990521032940.373I-100000@gunslinger.hate.org" -->
+<STRONG>From:</STRONG> Timothy Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20new%20Defaults%20file%20to%20work%20with%20my%20listInterface&In-Reply-To=&lt;Pine.LNX.3.96.990521032940.373I-100000@gunslinger.hate.org&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri May 21 1999 - 00:33:33 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0107.html">Timothy Kennedy: "[cricket-users] cisco homogenous stuff"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0105.html">Timothy Kennedy: "[cricket-users] New listInterfaces is finally working for frame-relay. :)"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#106">[ date ]</A>
+<A HREF="index.html#106">[ thread ]</A>
+<A HREF="subject.html#106">[ subject ]</A>
+<A HREF="author.html#106">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Timothy Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20new%20Defaults%20file%20to%20work%20with%20my%20listInterface&In-Reply-To=&lt;Pine.LNX.3.96.990521032940.373I-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P><P>This is a kinda long diff.  I can probably be cleaned up a bit.
+<BR>
+This is the Defaults file from the router-interfaces directory.
+<BR>
+Again, diffed versus the router-interfaces/Defaults from 0.65.
+<BR>
+<P>Let me know if I diffed it wrong, if you try and use it for a patch.
+<BR>
+I can never remember whether it old-file first or last.  :)
+<BR>
+<P>-Tim
+<BR>
+<P>------------8&lt; cute here 8&lt;------------
+<BR>
+<P>*** Defaults	Wed Mar 31 00:53:27 1999
+<BR>
+--- ../../../cricket-config/router-interfaces/Defaults	Fri May 21 00:42:05 1999
+<BR>
+***************
+<BR>
+*** 6,66 ****
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;Target	--default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst		=	map(interface-name)
+<BR>
+! 	# snmp-community	=	secret
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host	=	%router%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type	=	standard-interface
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;# ifInOctets and ifOutOctets come from above, since they
+<BR>
+&nbsp;&nbsp;# are used by switch-ports as well
+<BR>
+&nbsp;&nbsp;
+<BR>
+! datasource ifInErrors
+<BR>
+! 	ds-source	=	snmp://%snmp%/ifInErrors.%inst%
+<BR>
+&nbsp;&nbsp;
+<BR>
+! datasource ifOutErrors
+<BR>
+! 	ds-source	=	snmp://%snmp%/ifOutErrors.%inst%
+<BR>
+&nbsp;&nbsp;
+<BR>
+! datasource ifInUcastPackets
+<BR>
+! 	ds-source	=	snmp://%snmp%/ifInUcastPkts.%inst%
+<BR>
+&nbsp;&nbsp;
+<BR>
+! datasource ifOutUcastPackets
+<BR>
+! 	ds-source	=	snmp://%snmp%/ifOutUcastPkts.%inst%
+<BR>
+&nbsp;&nbsp;
+<BR>
+! targetType  standard-interface
+<BR>
+! 	ds	=	&quot;ifInOctets, ifOutOctets, ifInErrors,
+<BR>
+! 				ifOutErrors, ifInUcastPackets, ifOutUcastPackets&quot;
+<BR>
+! 	view	=	&quot;Octets: ifInOctets ifOutOctets,
+<BR>
+! 					UcastPackets: ifInUcastPackets ifOutUcastPackets,
+<BR>
+! 					Errors: ifInErrors ifOutErrors&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+- targetType  sub-interface
+<BR>
+- 	ds	=	&quot;ifInOctets, ifOutOctets&quot;
+<BR>
+-     view		=	&quot;Octets: ifInOctets ifOutOctets&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+! # likewise, graph params for ifInOctets and ifOutOctets come from above
+<BR>
+&nbsp;&nbsp;
+<BR>
+! graph   ifInUcastPackets
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color       =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as     =   AREA
+<BR>
+!     y-axis      =   &quot;packets per second&quot;
+<BR>
+!     units       =   &quot;pkt/sec&quot;
+<BR>
+!     legend      =   &quot;Average num Packets In&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;
+<BR>
+! graph   ifOutUcastPackets
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color       =   blue
+<BR>
+!     y-axis      =   &quot;packets per second&quot;
+<BR>
+!     units       =   &quot;pkt/sec&quot;
+<BR>
+!     legend      =   &quot;Average num Packets Out&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;
+<BR>
+! graph   ifInErrors
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color       =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as     =   AREA
+<BR>
+!     y-axis      =   &quot;errors per second&quot;
+<BR>
+!     units       =   &quot;err/sec&quot;
+<BR>
+!     legend      =   &quot;Average Errors In&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+! graph   ifOutErrors
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color       =   blue
+<BR>
+!     y-axis      =   &quot;errors per second&quot;
+<BR>
+!     legend      =   &quot;Average Errors Out&quot;
+<BR>
+!     units       =   &quot;err/sec&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+--- 6,134 ----
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;Target	--default--
+<BR>
++ 	rrd-datafile    = 	%dataDir%/%router%.%auto-target-name%.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst		=	map(interface-name)
+<BR>
+! 	frinst		=	%host-interface%.%frame-interface%
+<BR>
+! 	snmp-community	=	srvr-status
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host	=	%router%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type	=	standard-interface
+<BR>
+&nbsp;&nbsp;
+<BR>
++ OID             ifInBps         .1.3.6.1.4.1.9.2.2.1.1.6
+<BR>
++ OID             ifOutBps        .1.3.6.1.4.1.9.2.2.1.1.8
+<BR>
++ OID             ifInCRC         .1.3.6.1.4.1.9.2.2.1.1.12
+<BR>
++ OID		ifInOctets	.1.3.6.1.2.1.2.2.1.10
+<BR>
++ OID		ifOutOctets	.1.3.6.1.2.1.2.2.1.16
+<BR>
++ OID		frInOctets	.1.3.6.1.2.1.10.32.2.1.9
+<BR>
++ OID		frOutOctets	.1.3.6.1.2.1.10.32.2.1.7
+<BR>
++ OID		frRecBECNs	.1.3.6.1.2.1.10.32.2.1.5
+<BR>
++ OID		frRecFECNs	.1.3.6.1.2.1.10.32.2.1.4
+<BR>
++ OID     	frIndex         .1.3.6.1.2.1.10.32.2.1.1
+<BR>
++ OID		frDlci          .1.3.6.1.2.1.10.32.2.1.2
+<BR>
++ 
+<BR>
++ datasource      --default--
+<BR>
++ 	rrd-ds-type             =       GAUGE
+<BR>
++ 	rrd-heartbeat           =       1800
+<BR>
++ 	rrd-min                 =       undef
+<BR>
++ 	rrd-max                 =       undef
+<BR>
++ 
+<BR>
++ datasource      ifInBps         ds-source       =       snmp://%snmp%/ifInBps.%inst%
+<BR>
++ datasource      ifOutBps        ds-source       =       snmp://%snmp%/ifOutBps.%inst%
+<BR>
++ datasource      ifInOctets      ds-source       =       snmp://%snmp%/ifInOctets.%inst%
+<BR>
++ 				rrd-ds-type	=	COUNTER
+<BR>
++ datasource      ifOutOctets     ds-source       =       snmp://%snmp%/ifOutOctets.%inst%
+<BR>
++ 				rrd-ds-type	=	COUNTER
+<BR>
++ datasource      frInOctets      ds-source       =       snmp://%snmp%/frInOctets.%frinst%
+<BR>
++ 				rrd-ds-type	=	COUNTER
+<BR>
++ datasource      frOutOctets     ds-source       =       snmp://%snmp%/frOutOctets.%frinst%
+<BR>
++ 				rrd-ds-type	=	COUNTER
+<BR>
++ datasource	frRecBECNs	ds-source       =       snmp://%snmp%/frRecBECNs.%frinst%
+<BR>
++ 				rrd-ds-type	=	COUNTER
+<BR>
++ datasource	frRecFECNs	ds-source       =       snmp://%snmp%/frRecFECNs.%frinst%
+<BR>
++ 				rrd-ds-type	=	COUNTER
+<BR>
++ datasource      ifInCRC         ds-source       =       snmp://%snmp%/ifInCRC.%inst%
+<BR>
++ 				rrd-ds-type	=	COUNTER
+<BR>
++ 
+<BR>
+&nbsp;&nbsp;# ifInOctets and ifOutOctets come from above, since they
+<BR>
+&nbsp;&nbsp;# are used by switch-ports as well
+<BR>
+&nbsp;&nbsp;
+<BR>
+! targetType  standard-interface
+<BR>
+! 	ds			=	ifInBps
+<BR>
+! 	ds			=	ifOutBps
+<BR>
+! 	ds			=	ifInCRC
+<BR>
+!   	view			=	&quot;utilization stats: ifInBps ifOutBps&quot;
+<BR>
+!   	view			=	&quot;error stats: ifInCRC&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+! targetType  sub-interface
+<BR>
+! 	ds			=	ifInBps
+<BR>
+! 	ds			=	ifOutBps
+<BR>
+! 	ds			=	ifInCRC
+<BR>
+!   	view			=	&quot;utilization stats: ifInBps ifOutBps&quot;
+<BR>
+!   	view			=	&quot;error stats: ifInCRC&quot;
+<BR>
+! 
+<BR>
+! targetType  frame-interface
+<BR>
+! 	ds			=	frInOctets
+<BR>
+! 	ds			=	frOutOctets
+<BR>
+! 	ds			=	frRecBECNs
+<BR>
+! 	ds			=	frRecFECNs
+<BR>
+!   	view			=	&quot;utilization stats: frInOctets frOutOctets&quot;
+<BR>
+!   	view			=	&quot;line stats: frRecBECNs frRecFECNs&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+! # likewise, graph params for ifInOctets and ifOutOctets come from above
+<BR>
+&nbsp;&nbsp;
+<BR>
+! graph   ifInBps
+<BR>
+!      color 	=       dark-green
+<BR>
+!      draw-as	=       AREA
+<BR>
+!      y-axis 	=       &quot;bits per second&quot;
+<BR>
+!      Legend  	=       &quot;bits/sec inbound&quot;
+<BR>
+!      units   	=	&quot;bits/sec&quot;
+<BR>
+!      bytes	=	true
+<BR>
+&nbsp;&nbsp;
+<BR>
+! graph   ifOutBps
+<BR>
+!      color   	=       blue
+<BR>
+!      y-axis 	=       &quot;bits per second&quot;
+<BR>
+!      Legend	=       &quot;bits/sec outbound&quot;
+<BR>
+!      units  	=       &quot;bits/sec&quot;
+<BR>
+!      bytes	=	true
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;
+<BR>
+! graph   ifInCRC
+<BR>
+!      color   	=       red
+<BR>
+!      draw-as 	=	AREA
+<BR>
+!      y-axis  	=       &quot;crc errors&quot;
+<BR>
+!      Legend  	=       &quot;crc errors&quot;
+<BR>
+!      si-units   =       false
+<BR>
+!      precision  =       integer
+<BR>
+&nbsp;&nbsp;
+<BR>
+! graph   frRecBECNs
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color       =   	dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as     =   	AREA
+<BR>
+!     y-axis      =   	&quot;frame relay BECNs&quot;
+<BR>
+!     units       =   	&quot;BECNs&quot;
+<BR>
+!     legend      =   	&quot;Average num BECNs&quot;
+<BR>
+!     si-units    =       false
+<BR>
+!     precision   =       integer
+<BR>
+&nbsp;&nbsp;
+<BR>
+! graph   frRecFECNs
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color       =   	blue
+<BR>
+!     y-axis      =   	&quot;frame relay FECNs&quot;
+<BR>
+!     units       =   	&quot;FECNs&quot;
+<BR>
+!     legend      =   	&quot;Average num FECNs&quot;
+<BR>
+!     si-units    =       false
+<BR>
+!     precision   =       integer
+<BR>
+&nbsp;&nbsp;&nbsp;
+<BR>
+! graph   frInOctets
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color       =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as     =   AREA
+<BR>
+!     legend      =   &quot;Average bits in&quot;
+<BR>
+!     y-axis      =   &quot;bits per second&quot;
+<BR>
+!     units       =   &quot;bits/sec&quot;
+<BR>
+!     scale       =   8,*
+<BR>
+!     bytes       =   true
+<BR>
+&nbsp;&nbsp;
+<BR>
+! graph   frOutOctets
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color       =   blue
+<BR>
+!     legend      =   &quot;Average bits out&quot;
+<BR>
+!     y-axis      =   &quot;bits per second&quot;
+<BR>
+!     units       =   &quot;bits/sec&quot;
+<BR>
+!     scale       =   8,*
+<BR>
+!     bytes       =   true
+<BR>
+&nbsp;&nbsp;
+<BR>
+--------------8&lt; cut here 8&lt;-------------
+<BR>
+<P>Tim Kennedy
+<BR>
+<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20new%20Defaults%20file%20to%20work%20with%20my%20listInterface&In-Reply-To=&lt;Pine.LNX.3.96.990521032940.373I-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>
+<BR>
+<P>Disclaimer:  since this came from this me, not that ---&gt; me, 
+<BR>
+it is persona mail, and in no way reflects any opinions or
+<BR>
+policies of my employer, whom I won't mention here, just to 
+<BR>
+keep things clear of them. (new email policy at work)
+<BR>
+Usual stuff about confidentiality and whatnot... intended
+<BR>
+receivers, blah, blah, etc., etc.
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+What was YOUR favorite part?!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Tell other Star Wars fans at ONElist!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0107.html">Timothy Kennedy: "[cricket-users] cisco homogenous stuff"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0105.html">Timothy Kennedy: "[cricket-users] New listInterfaces is finally working for frame-relay. :)"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#106">[ date ]</A>
+<A HREF="index.html#106">[ thread ]</A>
+<A HREF="subject.html#106">[ subject ]</A>
+<A HREF="author.html#106">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

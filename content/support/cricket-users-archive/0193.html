@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] [MRTG-DEV] Re: Adding new da</TITLE>
+<META NAME="Author" CONTENT="Tobias Oetiker (oetiker@ee.ethz.ch)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] [MRTG-DEV] Re: Adding new data sources to existing RRD">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] [MRTG-DEV] Re: Adding new data sources to existing RRD</H1>
+<!-- received="Sun Jun 13 18:27:30 1999" -->
+<!-- isoreceived="19990614012730" -->
+<!-- sent="Mon, 14 Jun 1999 00:25:48 +0200 (MET DST)" -->
+<!-- isosent="19990613222548" -->
+<!-- name="Tobias Oetiker" -->
+<!-- email="oetiker@ee.ethz.ch" -->
+<!-- subject="Re: [cricket-users] [MRTG-DEV] Re: Adding new data sources to existing RRD" -->
+<!-- id="Pine.GSO.4.10.9906140025080.23673-100000@engelberg.ee.ethz.ch" -->
+<!-- inreplyto="Pine.GSO.4.10.9906131102460.27950-100000@the.satanic.org" -->
+<STRONG>From:</STRONG> Tobias Oetiker (<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20[MRTG-DEV]%20Re:%20Adding%20new%20data%20sources%20to%20existing%20RRD&In-Reply-To=&lt;Pine.GSO.4.10.9906140025080.23673-100000@engelberg.ee.ethz.ch&gt;"><EM>oetiker@ee.ethz.ch</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sun Jun 13 1999 - 15:25:48 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0194.html">Gildas PERROT: "[cricket-users] REPOST : Use of Cricket for several protected group of data"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0192.html">roofpig@the.satanic.org: "Re: [cricket-users] [MRTG-DEV] Re: Adding new data sources to existing RRD"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0192.html">roofpig@the.satanic.org: "Re: [cricket-users] [MRTG-DEV] Re: Adding new data sources to existing RRD"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#193">[ date ]</A>
+<A HREF="index.html#193">[ thread ]</A>
+<A HREF="subject.html#193">[ subject ]</A>
+<A HREF="author.html#193">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20[MRTG-DEV]%20Re:%20Adding%20new%20data%20sources%20to%20existing%20RRD&In-Reply-To=&lt;Pine.GSO.4.10.9906140025080.23673-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A>&gt;
+<BR>
+<P>Hi <A HREF="mailto:roofpig@the.satanic.org?Subject=Re:%20[cricket-users]%20[MRTG-DEV]%20Re:%20Adding%20new%20data%20sources%20to%20existing%20RRD&In-Reply-To=&lt;Pine.GSO.4.10.9906140025080.23673-100000@engelberg.ee.ethz.ch&gt;">roofpig@the.satanic.org</A>,
+<BR>
+<P>Yesterday you sent me mail regarding Re: [cricket-users] [MRTG-DEV] Re:...:
+<BR>
+<P>*&gt; On Sat, 12 Jun 1999, Tobias Oetiker wrote:
+<BR>
+*&gt; 
+<BR>
+*&gt; &gt; From: Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20[MRTG-DEV]%20Re:%20Adding%20new%20data%20sources%20to%20existing%20RRD&In-Reply-To=&lt;Pine.GSO.4.10.9906140025080.23673-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A>&gt;
+<BR>
+*&gt; &gt; 
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; *&gt; Paul Wickman wrote:
+<BR>
+*&gt; &gt; *&gt; &gt; 	Am I correct is saying that RRD will not let you added new
+<BR>
+*&gt; &gt; *&gt; &gt; data-sources to an exhisting RRD? 
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; *&gt; Yes. You need to recreate your RRD, which will make you lose all your
+<BR>
+*&gt; &gt; *&gt; old data. :(
+<BR>
+*&gt; &gt; 
+<BR>
+*&gt; &gt; I would not keep several datasources in the same rrd unless they are realy
+<BR>
+*&gt; &gt; cl0osly related ... like in and out traffic or something like this ... 
+<BR>
+*&gt; &gt; cheers
+<BR>
+*&gt; &gt; tobi
+<BR>
+*&gt; &gt; 
+<BR>
+*&gt; 
+<BR>
+*&gt; 	I definitely agree, but I could see the usefulness of being able
+<BR>
+*&gt; to add new data-sources to an existing RRD w/o lossing the old data. For
+<BR>
+*&gt; example, I have cricket monitoring ifInOctets/ifOutOctets on several
+<BR>
+*&gt; ethernet switches.  I'd like to start monitoring some other interface MIB
+<BR>
+*&gt; variables (multicasts in/out, packet sizes, etc.) without lossing all my
+<BR>
+*&gt; historical data.
+<BR>
+*&gt;  
+<BR>
+*&gt; 	I was also thinking about building an RRD front end for some
+<BR>
+*&gt; NetApp specific things, starting with user disk quotas.  I wanted to have
+<BR>
+*&gt; one RRD, with each data-source being a userid, and each row/timeslot being
+<BR>
+*&gt; their disk-usage at that time.  Since I can't add/remove data-sources
+<BR>
+*&gt; as logins are created/deleted, I have to make each user a seperate RRD,
+<BR>
+*&gt; which means at least 300 files (that's how many users we have right now).
+<BR>
+<P>I think the way to go about this would be to write an rrddump / restore pair
+<BR>
+and then use a perl script to manipulate the asci representation before
+<BR>
+restore ... 
+<BR>
+<P>cheers
+<BR>
+tobi
+<BR>
+*&gt; 
+<BR>
+*&gt; 
+<BR>
+<P><PRE>
+-- 
+ ______    __   _
+/_  __/_  / /  (_) Oetiker, Timelord &amp; SysMgr @ EE-Dept ETH-Zurich
+ / // _ \/ _ \/ / TEL: +41(0)1-6325286  FAX:...1517  ICQ: 10419518 
+/_/ \.__/_.__/_/ <A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20[MRTG-DEV]%20Re:%20Adding%20new%20data%20sources%20to%20existing%20RRD&In-Reply-To=&lt;Pine.GSO.4.10.9906140025080.23673-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A> <A HREF="http://ee-staff.ethz.ch/~oetiker">http://ee-staff.ethz.ch/~oetiker</A>
+<P><P>------------------------------------------------------------------------
+Looking to expand your world?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+ONElist has over 165,000 e-mail communities from which to choose!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0194.html">Gildas PERROT: "[cricket-users] REPOST : Use of Cricket for several protected group of data"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0192.html">roofpig@the.satanic.org: "Re: [cricket-users] [MRTG-DEV] Re: Adding new data sources to existing RRD"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0192.html">roofpig@the.satanic.org: "Re: [cricket-users] [MRTG-DEV] Re: Adding new data sources to existing RRD"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#193">[ date ]</A>
+<A HREF="index.html#193">[ thread ]</A>
+<A HREF="subject.html#193">[ subject ]</A>
+<A HREF="author.html#193">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:53 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

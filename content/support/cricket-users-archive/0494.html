@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Error...</TITLE>
+<META NAME="Author" CONTENT="Michael P. Burton (mpburton@teleport.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Error...">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Error...</H1>
+<!-- received="Mon Aug 16 16:20:21 1999" -->
+<!-- isoreceived="19990816232021" -->
+<!-- sent="Mon, 16 Aug 1999 13:19:58 -0700 (PDT)" -->
+<!-- isosent="19990816201958" -->
+<!-- name="Michael P. Burton" -->
+<!-- email="mpburton@teleport.com" -->
+<!-- subject="Re: [cricket-users] Error..." -->
+<!-- id="Pine.GSO.3.96.990816131751.13295F-100000@user2.teleport.com" -->
+<!-- inreplyto="37B8631D.98C04E8C@avantel.net.mx" -->
+<STRONG>From:</STRONG> Michael P. Burton (<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Error...&In-Reply-To=&lt;Pine.GSO.3.96.990816131751.13295F-100000@user2.teleport.com&gt;"><EM>mpburton@teleport.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Aug 16 1999 - 13:19:58 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0495.html">Aurelio Sanchez: "Re: [cricket-users] Error..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0493.html">Denise Sandell: "[cricket-users] collecter can't find RRDs.pm"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0492.html">Aurelio Sanchez: "Re: [cricket-users] Error..."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0495.html">Aurelio Sanchez: "Re: [cricket-users] Error..."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0495.html">Aurelio Sanchez: "Re: [cricket-users] Error..."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#494">[ date ]</A>
+<A HREF="index.html#494">[ thread ]</A>
+<A HREF="subject.html#494">[ subject ]</A>
+<A HREF="author.html#494">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Michael P. Burton&quot; &lt;<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Error...&In-Reply-To=&lt;Pine.GSO.3.96.990816131751.13295F-100000@user2.teleport.com&gt;">mpburton@teleport.com</A>&gt;
+<BR>
+<P><P>Ok - I uninstalled, and reinstalled the files, and most of the graphs
+<BR>
+could be created. However, it really chokes on the &quot;targets&quot; tag. Ie:
+<BR>
+<P>target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = psur2.dmz.pdx.edu
+<BR>
+<P>target All
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targets         =       &quot;Vlan1;Vlan9;Vlan30;Vlan35;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vlan40;Vlan45;Vlan50;Vlan55;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vlan60;Vlan65;Vlan70;Vlan90;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vlan95;Vlan120;Vlan128;Vlan129;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vlan135;Vlan224&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;All VLAN ports&quot;
+<BR>
+<P><P>target Vlan1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Vlan1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;*** DMZ Network ***&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       sub-interface
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+....
+<BR>
+<P>used to work, but it now no longer does - while the indivual maps do
+<BR>
+work...
+<BR>
+<P>Michael
+<BR>
+<P>:Michael,
+<BR>
+:
+<BR>
+:  I upgraded to version 0.70 and I'm having the same problem you have,
+<BR>
+:with grapher.cgi  not showing the graphs at all. Have you been able to
+<BR>
+:find the error? I woud appreciate all the help you can give me.
+<BR>
+:
+<BR>
+:  Regards,
+<BR>
+:
+<BR>
+:  Aurelio Sanchez
+<BR>
+:
+<BR>
+:
+<BR>
+:
+<BR>
+:
+<BR>
+:From: &quot;Michael P. Burton&quot; &lt;<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Error...&In-Reply-To=&lt;Pine.GSO.3.96.990816131751.13295F-100000@user2.teleport.com&gt;">mpburton@teleport.com</A>&gt;
+<BR>
+:
+<BR>
+:I'm upgrading from .69 to .70 - and after following all the instructions
+<BR>
+:
+<BR>
+:of a clean install, then porting over my config files, I'm getting error
+<BR>
+:
+<BR>
+:messages on the web-page, though there are no errors in the logs or
+<BR>
+:cron.
+<BR>
+:It is odd that Max is not mapping for any of my interfaces or for
+<BR>
+:memory.
+<BR>
+:Am I missing something?
+<BR>
+:
+<BR>
+:Michael
+<BR>
+:
+<BR>
+:--------------------------
+<BR>
+:Summary
+<BR>
+:
+<BR>
+: Values at last update:
+<BR>
+:  Average bits in (for the day):
+<BR>
+:  Cur: 190.09 bits/sec
+<BR>
+:  Avg: 190.09 bits/sec
+<BR>
+:  Max: NaN bits/sec
+<BR>
+:                                  Average bits out (for the day):
+<BR>
+:                                  Cur: 13.45 kbits/sec
+<BR>
+:                                  Avg: 13.45 kbits/sec
+<BR>
+:                                  Max: NaN bits/sec
+<BR>
+:
+<BR>
+:[FAILED TO DRAW GRAPH. SEE ERROR LOG FOR DETAILS.}
+<BR>
+:
+<BR>
+:________________________________________________________________________
+<BR>
+:
+<BR>
+:Michael P. Burton &quot;Love is like racing across the frozen tundra
+<BR>
+:Network Engineer, DCII on a snowmobile which flips over,
+<BR>
+:Portland State University trapping you underneath.
+<BR>
+:                            At night, the ice-weasels come.&quot; - Nietchze
+<BR>
+:-------------------------------------------------------------------------
+<BR>
+:
+<BR>
+<P>________________________________________________________________________
+<BR>
+Michael P. Burton          &quot;Love is like racing across the frozen tundra 
+<BR>
+Network Engineer, DCII      on a snowmobile which flips over, 
+<BR>
+Portland State University   trapping you underneath. 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At night, the ice-weasels come.&quot; - Nietchze
+<BR>
+-------------------------------------------------------------------------
+<BR>
+GCS d---- H--- s g+ !p au a25 w+++ v++ C++ UL++ P+ L++ 3 E---- N+ K- W+ M
+<BR>
+V po--- Y+ t++ 5 j R++ G+ tv b++ D+ B--- e+++ u++ h-- f+ r+++ n--- z+++ 
+<BR>
+Decode at: <A HREF="http://pcd.stanford.edu/mogens/geek2.html">http://pcd.stanford.edu/mogens/geek2.html</A>
+<BR>
+-------------------------------------------------------------------------
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ATTN ONELIST USERS: stay current on the latest activities,
+<BR>
+programs, &amp; features at ONElist by joining our member newsletter at
+<BR>
+&lt;a href=&quot; <A HREF="http://www.onelist.com/subscribe/onelist_announce">http://www.onelist.com/subscribe/onelist_announce</A> &quot;&gt;Click&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0495.html">Aurelio Sanchez: "Re: [cricket-users] Error..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0493.html">Denise Sandell: "[cricket-users] collecter can't find RRDs.pm"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0492.html">Aurelio Sanchez: "Re: [cricket-users] Error..."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0495.html">Aurelio Sanchez: "Re: [cricket-users] Error..."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0495.html">Aurelio Sanchez: "Re: [cricket-users] Error..."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#494">[ date ]</A>
+<A HREF="index.html#494">[ thread ]</A>
+<A HREF="subject.html#494">[ subject ]</A>
+<A HREF="author.html#494">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

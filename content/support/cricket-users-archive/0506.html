@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Error solution...</TITLE>
+<META NAME="Author" CONTENT="Michael P. Burton (mpburton@teleport.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Error solution...">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Error solution...</H1>
+<!-- received="Tue Aug 17 14:55:25 1999" -->
+<!-- isoreceived="19990817215525" -->
+<!-- sent="Tue, 17 Aug 1999 11:54:09 -0700 (PDT)" -->
+<!-- isosent="19990817185409" -->
+<!-- name="Michael P. Burton" -->
+<!-- email="mpburton@teleport.com" -->
+<!-- subject="[cricket-users] Error solution..." -->
+<!-- id="Pine.GSO.3.96.990817112919.22281B-100000@user2.teleport.com" -->
+<STRONG>From:</STRONG> Michael P. Burton (<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Error%20solution...&In-Reply-To=&lt;Pine.GSO.3.96.990817112919.22281B-100000@user2.teleport.com&gt;"><EM>mpburton@teleport.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Aug 17 1999 - 11:54:09 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0507.html">Aurelio Sanchez: "Re: [cricket-users] Error..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0505.html">Greg Redder: "[cricket-users] Re: can't find 'dummy'?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0516.html">Jeff Allen: "Re: [cricket-users] Error solution..."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0516.html">Jeff Allen: "Re: [cricket-users] Error solution..."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#506">[ date ]</A>
+<A HREF="index.html#506">[ thread ]</A>
+<A HREF="subject.html#506">[ subject ]</A>
+<A HREF="author.html#506">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Michael P. Burton&quot; &lt;<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Error%20solution...&In-Reply-To=&lt;Pine.GSO.3.96.990817112919.22281B-100000@user2.teleport.com&gt;">mpburton@teleport.com</A>&gt;
+<BR>
+<P><P>Ok kids, here was the solution to my problem...
+<BR>
+<P>My router-interfaces/interfaces code used to read:
+<BR>
+<P>target All
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targets         =       &quot;Vlan1;Vlan9;Vlan30;Vlan35;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vlan40;Vlan45;Vlan50;Vlan55;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vlan60;Vlan65;Vlan70;Vlan90;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vlan95;Vlan120;Vlan128;Vlan129;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vlan135;Vlan224&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;All VLAN ports&quot;         
+<BR>
+<P><P>Which just wasn't working at all. After scratching a bald spot in my head
+<BR>
+over the last week, I was staring at the config-data/router-interfaces/
+<BR>
+directory, and noticed something slightly different. I changed all my 
+<BR>
+Vlans to vlans (cap change of V to v) and then everything came up. I used
+<BR>
+the same config file from .69 where all the vlan stuff is Vlan, but
+<BR>
+somehow Cricket0.7 ignored caps in the processing of those instances. So
+<BR>
+anyhow, this works:
+<BR>
+<P>target All
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targets         =       &quot;vlan1;vlan9;vlan30;vlan35;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vlan40;vlan45;vlan50;vlan55;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vlan60;vlan65;vlan70;vlan90;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vlan95;vlan120;vlan128;vlan129;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vlan135;vlan224&quot;     
+<BR>
+<P><P>So, um... there.
+<BR>
+<P>Michael
+<BR>
+________________________________________________________________________
+<BR>
+Michael P. Burton          &quot;Love is like racing across the frozen tundra 
+<BR>
+Network Engineer, DCII      on a snowmobile which flips over, 
+<BR>
+Portland State University   trapping you underneath. 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At night, the ice-weasels come.&quot; - Nietchze
+<BR>
+-------------------------------------------------------------------------
+<BR>
+GCS d---- H--- s g+ !p au a25 w+++ v++ C++ UL++ P+ L++ 3 E---- N+ K- W+ M
+<BR>
+V po--- Y+ t++ 5 j R++ G+ tv b++ D+ B--- e+++ u++ h-- f+ r+++ n--- z+++ 
+<BR>
+Decode at: <A HREF="http://pcd.stanford.edu/mogens/geek2.html">http://pcd.stanford.edu/mogens/geek2.html</A>
+<BR>
+-------------------------------------------------------------------------
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>How do you enter ONElist’s WEEKLY DRAWING for $100?
+<BR>
+By joining the FRIENDS &amp; FAMILY program.  For details, go to
+<BR>
+<A HREF="http://www.onelist.com/info/onereachsplash3.html">http://www.onelist.com/info/onereachsplash3.html</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0507.html">Aurelio Sanchez: "Re: [cricket-users] Error..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0505.html">Greg Redder: "[cricket-users] Re: can't find 'dummy'?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0516.html">Jeff Allen: "Re: [cricket-users] Error solution..."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0516.html">Jeff Allen: "Re: [cricket-users] Error solution..."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#506">[ date ]</A>
+<A HREF="index.html#506">[ thread ]</A>
+<A HREF="subject.html#506">[ subject ]</A>
+<A HREF="author.html#506">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

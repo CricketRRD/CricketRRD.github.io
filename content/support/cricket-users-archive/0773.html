@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Receiving noSuchName SNMP error</TITLE>
+<META NAME="Author" CONTENT="theresa.hilding@gcmail.maricopa.edu (theresa.hilding@gcmail.maricopa.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] Receiving noSuchName SNMP error from collector, new cricket installation">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Receiving noSuchName SNMP error from collector, new cricket installation</H1>
+<!-- received="Mon Dec  6 13:04:59 1999" -->
+<!-- isoreceived="19991206210459" -->
+<!-- sent="6 Dec 1999 18:02:53 -0000" -->
+<!-- isosent="19991206180253" -->
+<!-- name="theresa.hilding@gcmail.maricopa.edu" -->
+<!-- email="theresa.hilding@gcmail.maricopa.edu" -->
+<!-- subject="[cricket-users] Receiving noSuchName SNMP error from collector, new cricket installation" -->
+<!-- id="944503373.12754@onelist.com" -->
+<STRONG>From:</STRONG> <A HREF="mailto:theresa.hilding@gcmail.maricopa.edu?Subject=Re:%20[cricket-users]%20Receiving%20noSuchName%20SNMP%20error%20from%20collector,%20new%20cricket%20installation&In-Reply-To=&lt;944503373.12754@onelist.com&gt;"><EM>theresa.hilding@gcmail.maricopa.edu</EM></A><BR>
+<STRONG>Date:</STRONG> Mon Dec 06 1999 - 10:02:53 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0774.html">Hugo Gayosso: "RE: [cricket-users] Multiview works, but single view doesn't !!"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0772.html">Tim Kennedy: "Re: [cricket-users] config for frame relay ints"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#773">[ date ]</A>
+<A HREF="index.html#773">[ thread ]</A>
+<A HREF="subject.html#773">[ subject ]</A>
+<A HREF="author.html#773">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:theresa.hilding@gcmail.maricopa.edu?Subject=Re:%20[cricket-users]%20Receiving%20noSuchName%20SNMP%20error%20from%20collector,%20new%20cricket%20installation&In-Reply-To=&lt;944503373.12754@onelist.com&gt;">theresa.hilding@gcmail.maricopa.edu</A>
+<BR>
+<P>Hello,
+<BR>
+<P>I am installing cricket 0.70 for the first time per the beginner.txt file on a
+<BR>
+RedHat 6.0 box. I had no problems installing the perl modules or compiling the
+<BR>
+config tree. Running the collector against my cisco router, however, produces
+<BR>
+the following SNMP error:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;Received SNMP response with error code noSuchName
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;Retrieved data for rsm (): U,U,U,U,U,U
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;Some data is missing for rsm ().
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;Processed 1 targets in 4 seconds.
+<BR>
+<P>I searched and found a previous post with the same problem. The recommended
+<BR>
+solution was to edit the field
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain =&quot;&quot;
+<BR>
+<P>in the Defaults file in the routers' subtree to include my domain name. The 
+<BR>
+field &quot;domain&quot; does not exist anywhere in my Defaults file in either the 
+<BR>
+~/cricket-config/routers or ~/cricket-config directories. I tried adding it 
+<BR>
+in multiple places to both the Defaults and Target file in my routers subtree
+<BR>
+with no luck. So, I modified the name of my router in the target field of the
+<BR>
+Targets file to include the domain name. I get the same errors as above but 
+<BR>
+with the following output:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved data for rsm.gc.maricopa.edu (): U,U,U,U,U,U
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+<BR>
+<P>I next tried to manually retrieve values for the OID's listed in the router 
+<BR>
+sub-tree Defaults file using snmpget. This works *if* I prepend a '.' to the 
+<BR>
+OID. For example, 
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmpget rsm topsecret .1.3.6.1.4.1.9.2.1.57.0 
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;works, but
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmpget rsm topsecret 1.3.6.1.4.1.9.2.1.57.0 
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returns the following error (same as that returned by the collector):
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error in packet
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reason: (noSuchName) There is no such variable name in this MIB.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This name doesn't exist: system.sysUpTime.6.1.4.1.9.2.1.57.0
+<BR>
+<P>So, I then tried adding a leading period to the OID's in the router sub-tree
+<BR>
+Defaults file but received the same noSuchName error. 
+<BR>
+<P>Does anyone have any suggestions? I am new to both PERL and LINUX and am afraid 
+<BR>
+I am missing something obvious.
+<BR>
+<P>Thanks very much,
+<BR>
+Theresa Hilding, Network Manager
+<BR>
+Glendale Community College
+<BR>
+<A HREF="mailto:theresa.hilding@gcmail.maricopa.edu?Subject=Re:%20[cricket-users]%20Receiving%20noSuchName%20SNMP%20error%20from%20collector,%20new%20cricket%20installation&In-Reply-To=&lt;944503373.12754@onelist.com&gt;">theresa.hilding@gcmail.maricopa.edu</A>
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make $$$ by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0774.html">Hugo Gayosso: "RE: [cricket-users] Multiview works, but single view doesn't !!"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0772.html">Tim Kennedy: "Re: [cricket-users] config for frame relay ints"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#773">[ date ]</A>
+<A HREF="index.html#773">[ thread ]</A>
+<A HREF="subject.html#773">[ subject ]</A>
+<A HREF="author.html#773">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:06 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] collector can't find/use RRD</TITLE>
+<META NAME="Author" CONTENT="Matt Birkner (mbirkner@talus.net)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] collector can't find/use RRDs.pm">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] collector can't find/use RRDs.pm</H1>
+<!-- received="Thu Jul 22 13:56:52 1999" -->
+<!-- isoreceived="19990722205652" -->
+<!-- sent="Thu, 22 Jul 1999 13:55:57 -0400" -->
+<!-- isosent="19990722175557" -->
+<!-- name="Matt Birkner" -->
+<!-- email="mbirkner@talus.net" -->
+<!-- subject="RE: [cricket-users] collector can't find/use RRDs.pm" -->
+<!-- id="5DDC98303A22D21180D800A0C9A92FEA940C27@atlxchange.atl.talus.net" -->
+<!-- inreplyto="[cricket-users] collector can't find/use RRDs.pm" -->
+<STRONG>From:</STRONG> Matt Birkner (<A HREF="mailto:mbirkner@talus.net?Subject=RE:%20[cricket-users]%20collector%20can't%20find/use%20RRDs.pm&In-Reply-To=&lt;5DDC98303A22D21180D800A0C9A92FEA940C27@atlxchange.atl.talus.net&gt;"><EM>mbirkner@talus.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jul 22 1999 - 10:55:57 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0414.html">Alan Nichols: "Re: [cricket-users] Using Cricket without Apache"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0412.html">rose@gerf.org: "[cricket-users] Using Cricket without Apache"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0409.html">Matt Birkner: "[cricket-users] collector can't find/use RRDs.pm"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0415.html">Daniel Spisak: "[cricket-users] Collector issues or is this a Cisco bug? (or both?)"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0415.html">Daniel Spisak: "[cricket-users] Collector issues or is this a Cisco bug? (or both?)"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0426.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] Need help !!!!  problems with cricket setup and grapher.cgi"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#413">[ date ]</A>
+<A HREF="index.html#413">[ thread ]</A>
+<A HREF="subject.html#413">[ subject ]</A>
+<A HREF="author.html#413">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Matt Birkner &lt;<A HREF="mailto:mbirkner@talus.net?Subject=RE:%20[cricket-users]%20collector%20can't%20find/use%20RRDs.pm&In-Reply-To=&lt;5DDC98303A22D21180D800A0C9A92FEA940C27@atlxchange.atl.talus.net&gt;">mbirkner@talus.net</A>&gt;
+<BR>
+<P>Matthew,
+<BR>
+Thanks.  Going into the perl directories and running through the install
+<BR>
+procedures for both (i.e. make Makefile.PL, make, make test, make install)
+<BR>
+does seem to have fixed the perl problems.
+<BR>
+<P>All,
+<BR>
+I was also having a problem because I set up cricket in /usr/local without
+<BR>
+setting up a special user from which to run cricket:  Running 'compile'
+<BR>
+would fail to produce any form of database and then 'collecter' would fail
+<BR>
+because it couldn't find //cricket-config/config.db.  I was able to solve
+<BR>
+that problem by creating a symlink for cricket-config in / (i.e. ln -s
+<BR>
+/usr/local/cricket/cricket-config /cricket-config).  I'd like to suggest
+<BR>
+that 'compile' be allowed to take as an argument the root dir in which to
+<BR>
+look for cricket-config.
+<BR>
+<P>Thanks all for you help.
+<BR>
+Matt
+<BR>
+========================================================================
+<BR>
+Matt Birkner                  &quot;If they are the pillars of our community,
+<BR>
+Systems Administrator         We better keep a sharp eye on the roof&quot;
+<BR>
+Talus
+<BR>
+404-684-2716                        
+<BR>
+<A HREF="mailto:mbirkner@talus.net?Subject=RE:%20[cricket-users]%20collector%20can't%20find/use%20RRDs.pm&In-Reply-To=&lt;5DDC98303A22D21180D800A0C9A92FEA940C27@atlxchange.atl.talus.net&gt;">mbirkner@talus.net</A>                [Standard Views Disclaimer applies]
+<BR>
+========================================================================
+<BR>
+<P><P><EM>&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; From: Matthew Stier [mailto:<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=RE:%20[cricket-users]%20collector%20can't%20find/use%20RRDs.pm&In-Reply-To=&lt;5DDC98303A22D21180D800A0C9A92FEA940C27@atlxchange.atl.talus.net&gt;">Matthew.Stier@tddny.fujitsu.com</A>]
+</EM><BR>
+<EM>&gt; Sent: Thursday, July 22, 1999 8:19 AM
+</EM><BR>
+<EM>&gt; To: Matt Birkner
+</EM><BR>
+<EM>&gt; Subject: Re: [cricket-users] collector can't find/use RRDs.pm
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; When you built RRDTool, did you go into each of the perl-* 
+</EM><BR>
+<EM>&gt; directories and run a &quot;make install&quot; to install the Perl 
+</EM><BR>
+<EM>&gt; components into your Perl installation.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Matt Birkner wrote:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; From: Matt Birkner &lt;<A HREF="mailto:mbirkner@talus.net?Subject=RE:%20[cricket-users]%20collector%20can't%20find/use%20RRDs.pm&In-Reply-To=&lt;5DDC98303A22D21180D800A0C9A92FEA940C27@atlxchange.atl.talus.net&gt;">mbirkner@talus.net</A>&gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; I'm trying to get cricket up and running and have reached 
+</EM><BR>
+<EM>&gt; the point where
+</EM><BR>
+<EM>&gt; &gt; I'm trying to run the collector manually to test the 
+</EM><BR>
+<EM>&gt; results.  The first
+</EM><BR>
+<EM>&gt; &gt; time I tried I got:
+</EM><BR>
+<EM>&gt; &gt; # ./collector /router-interface
+</EM><BR>
+<EM>&gt; &gt; Can't locate RRDs.pm in @INC (@INC contains: ././lib 
+</EM><BR>
+<EM>&gt; /usr/local/lib/perl5/sun4-solaris/5.00404 
+</EM><BR>
+<EM>&gt; /usr/local/lib/perl5 
+</EM><BR>
+<EM>&gt; /usr/local/lib/perl5/site_perl/sun4-solaris 
+</EM><BR>
+<EM>&gt; /usr/local/lib/perl5/site_perl .) at ./collector line 28.
+</EM><BR>
+<EM>&gt; &gt; BEGIN failed--compilation aborted at ./collector line 28.
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; So I found the RRDs.pm module in the rrdtool install dir 
+</EM><BR>
+<EM>&gt; (in my case that's
+</EM><BR>
+<EM>&gt; &gt; /usr/local/rrdtool) and copied that to 
+</EM><BR>
+<EM>&gt; /usr/local/lib/perl5/ (which is in the
+</EM><BR>
+<EM>&gt; &gt; @INC list).  Now I'm getting the error:
+</EM><BR>
+<EM>&gt; &gt; # ./collector /router-interface
+</EM><BR>
+<EM>&gt; &gt; Can't locate loadable object for module RRDs in @INC (@INC 
+</EM><BR>
+<EM>&gt; contains: ././lib /usr/local/lib/perl5/sun4-solaris/5.00404 
+</EM><BR>
+<EM>&gt; /usr/local/lib/perl5 
+</EM><BR>
+<EM>&gt; /usr/local/lib/perl5/site_perl/sun4-solaris 
+</EM><BR>
+<EM>&gt; /usr/local/lib/perl5/site_perl .) at ./collector line 28
+</EM><BR>
+<EM>&gt; &gt; BEGIN failed--compilation aborted at ./collector line 28.
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; I think this means that there's a library in the rrdtools 
+</EM><BR>
+<EM>&gt; dir somewhere that I
+</EM><BR>
+<EM>&gt; &gt; need to move/copy someplace else.  Either that, or I need 
+</EM><BR>
+<EM>&gt; to make pathing/@INC
+</EM><BR>
+<EM>&gt; &gt; changes so that the correct locations are included in 
+</EM><BR>
+<EM>&gt; cricket.   I'm just
+</EM><BR>
+<EM>&gt; &gt; not sure what need to go where next.
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; Any assistance would be greatly appreciated.
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; Matt
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; ==============================================================
+</EM><BR>
+<EM>&gt; ==========
+</EM><BR>
+<EM>&gt; &gt; Matt Birkner                  &quot;If they are the pillars of 
+</EM><BR>
+<EM>&gt; our community,
+</EM><BR>
+<EM>&gt; &gt; Systems Administrator          We better keep a sharp eye 
+</EM><BR>
+<EM>&gt; on the roof&quot;
+</EM><BR>
+<EM>&gt; &gt; Talus
+</EM><BR>
+<EM>&gt; &gt; 404-684-2716
+</EM><BR>
+<EM>&gt; &gt; <A HREF="mailto:mbirkner@talus.net?Subject=RE:%20[cricket-users]%20collector%20can't%20find/use%20RRDs.pm&In-Reply-To=&lt;5DDC98303A22D21180D800A0C9A92FEA940C27@atlxchange.atl.talus.net&gt;">mbirkner@talus.net</A>                [Standard Views 
+</EM><BR>
+<EM>&gt; Disclaimer applies]
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; ==============================================================
+</EM><BR>
+<EM>&gt; ==========
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; --------------------------- ONElist Sponsor 
+</EM><BR>
+<EM>&gt; ----------------------------
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; ONElist:  your connection to like-minds and kindred spirits.
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; --------------------------------------------------------------
+</EM><BR>
+<EM>&gt; ----------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --
+</EM><BR>
+<EM>&gt; Matthew Lee Stier                  *  Fujitsu Network Communications
+</EM><BR>
+<EM>&gt; Unix Systems Administrator         |  Two Blue Hill Plaza
+</EM><BR>
+<EM>&gt; Ph: 914-731-2097 Fx: 914-731-2011  |  Sixth Floor
+</EM><BR>
+<EM>&gt; <A HREF="mailto:Matthew.Stier@fnc.fujitsu.com?Subject=RE:%20[cricket-users]%20collector%20can't%20find/use%20RRDs.pm&In-Reply-To=&lt;5DDC98303A22D21180D800A0C9A92FEA940C27@atlxchange.atl.talus.net&gt;">Matthew.Stier@fnc.fujitsu.com</A>      *  Pearl River, NY 10965
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist announces &quot;FRIENDS &amp; FAMILY!&quot;
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+See homepage for details, including our weekly drawing!
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0414.html">Alan Nichols: "Re: [cricket-users] Using Cricket without Apache"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0412.html">rose@gerf.org: "[cricket-users] Using Cricket without Apache"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0409.html">Matt Birkner: "[cricket-users] collector can't find/use RRDs.pm"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0415.html">Daniel Spisak: "[cricket-users] Collector issues or is this a Cisco bug? (or both?)"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0415.html">Daniel Spisak: "[cricket-users] Collector issues or is this a Cisco bug? (or both?)"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0426.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] Need help !!!!  problems with cricket setup and grapher.cgi"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#413">[ date ]</A>
+<A HREF="index.html#413">[ thread ]</A>
+<A HREF="subject.html#413">[ subject ]</A>
+<A HREF="author.html#413">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

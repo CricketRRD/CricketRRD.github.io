@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Direct access to config.db</TITLE>
+<META NAME="Author" CONTENT="Peter Bogdanovic (peter@gstworld.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Direct access to config.db">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Direct access to config.db</H1>
+<!-- received="Wed Jan 19 12:00:43 2000" -->
+<!-- isoreceived="20000119200043" -->
+<!-- sent="Wed, 19 Jan 2000 08:59:15 -0800" -->
+<!-- isosent="20000119165915" -->
+<!-- name="Peter Bogdanovic" -->
+<!-- email="peter@gstworld.net" -->
+<!-- subject="Re: [cricket-users] Direct access to config.db" -->
+<!-- id="200001191659.IAA14965@wahrheit.gstworld" -->
+<!-- inreplyto="Pine.LNX.4.21.0001191137150.8186-100000@penguin.circa.ufl.edu" -->
+<STRONG>From:</STRONG> Peter Bogdanovic (<A HREF="mailto:peter@gstworld.net?Subject=Re:%20[cricket-users]%20Direct%20access%20to%20config.db&In-Reply-To=&lt;200001191659.IAA14965@wahrheit.gstworld&gt;"><EM>peter@gstworld.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jan 19 2000 - 08:59:15 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0941.html">Dennis: "[cricket-users] ATM"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0939.html">Alexander Reelsen: "Re: [cricket-users] Direct access to config.db"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0938.html">James Moore: "[cricket-users] Direct access to config.db"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#940">[ date ]</A>
+<A HREF="index.html#940">[ thread ]</A>
+<A HREF="subject.html#940">[ subject ]</A>
+<A HREF="author.html#940">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Peter Bogdanovic &lt;<A HREF="mailto:peter@gstworld.net?Subject=Re:%20[cricket-users]%20Direct%20access%20to%20config.db&In-Reply-To=&lt;200001191659.IAA14965@wahrheit.gstworld&gt;">peter@gstworld.net</A>&gt;
+<BR>
+<P><P>Well, I don't claim to know much about cricket but db files are a snap. The 
+<BR>
+config.db is just a berkeley db file.
+<BR>
+<P>#!/opt/local/bin/perl
+<BR>
+<P>use DB_File;
+<BR>
+<P>tie(%cricketconf, 'DB_File', '/u/peter/cricket-config/config.db');
+<BR>
+<P>foreach $k (keys %cricketconf) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;printf &quot;key: %s\nvalue: %s\n\n&quot;, $k, $cricketconf{$k};
+<BR>
+}
+<BR>
+<P>Peter
+<BR>
+<P>In message &lt;<A HREF="mailto:Pine.LNX.4.21.0001191137150.8186-100000@penguin.circa.ufl.edu?Subject=Re:%20[cricket-users]%20Direct%20access%20to%20config.db&In-Reply-To=&lt;200001191659.IAA14965@wahrheit.gstworld&gt;">Pine.LNX.4.21.0001191137150.8186-100000@penguin.circa.ufl.edu</A>&gt;, Jam
+<BR>
+es Moore writes:
+<BR>
+<EM>&gt;From: James Moore &lt;<A HREF="mailto:jm@ufl.edu?Subject=Re:%20[cricket-users]%20Direct%20access%20to%20config.db&In-Reply-To=&lt;200001191659.IAA14965@wahrheit.gstworld&gt;">jm@ufl.edu</A>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Is there anyone out there that has a quick perl script to dump the
+</EM><BR>
+<EM>&gt;contents of config.db? Is there a document out there that describes the
+</EM><BR>
+<EM>&gt;structure of config.db?
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;-- 
+</EM><BR>
+<EM>&gt;James Moore -- <A HREF="mailto:jm@ufl.edu?Subject=Re:%20[cricket-users]%20Direct%20access%20to%20config.db&In-Reply-To=&lt;200001191659.IAA14965@wahrheit.gstworld&gt;">jm@ufl.edu</A>
+</EM><BR>
+<EM>&gt;CIRCA Telecommunications
+</EM><BR>
+<EM>&gt;University of Florida
+</EM><BR>
+<EM>&gt;voice: 392-2007 fax: 392-3760
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;--------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;  Hey Freelancers:  Find your next project through JobSwarm!  
+</EM><BR>
+<EM>&gt;  You can even make money in your sleep by referring friends.
+</EM><BR>
+<EM>&gt;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0941.html">Dennis: "[cricket-users] ATM"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0939.html">Alexander Reelsen: "Re: [cricket-users] Direct access to config.db"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0938.html">James Moore: "[cricket-users] Direct access to config.db"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#940">[ date ]</A>
+<A HREF="index.html#940">[ thread ]</A>
+<A HREF="subject.html#940">[ subject ]</A>
+<A HREF="author.html#940">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:11 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

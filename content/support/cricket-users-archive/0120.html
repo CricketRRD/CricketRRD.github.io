@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] drawing on the same graph th</TITLE>
+<META NAME="Author" CONTENT="Kirby Krueger (kirbyk@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] drawing on the same graph the max also">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] drawing on the same graph the max also</H1>
+<!-- received="Mon May 24 19:57:35 1999" -->
+<!-- isoreceived="19990525025735" -->
+<!-- sent="Mon, 24 May 1999 16:57:03 -0700" -->
+<!-- isosent="19990524235703" -->
+<!-- name="Kirby Krueger" -->
+<!-- email="kirbyk@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] drawing on the same graph the max also" -->
+<!-- id="3749E74F.58F94FDB@corp.webtv.net" -->
+<!-- inreplyto="199905242348.QAA15168@oops.artemis.com" -->
+<STRONG>From:</STRONG> Kirby Krueger (<A HREF="mailto:kirbyk@corp.webtv.net?Subject=Re:%20[cricket-users]%20drawing%20on%20the%20same%20graph%20the%20max%20also&In-Reply-To=&lt;3749E74F.58F94FDB@corp.webtv.net&gt;"><EM>kirbyk@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon May 24 1999 - 16:57:03 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0121.html">Jeff Allen: "Re: [cricket-users] (Cricket 0.65) Forcing the graphing range"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0119.html">Jeff Allen: "Re: [cricket-users] (Cricket 0.65) router-interfaces doesn't work."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0118.html">Jeff Allen: "Re: [cricket-users] drawing on the same graph the max also"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#120">[ date ]</A>
+<A HREF="index.html#120">[ thread ]</A>
+<A HREF="subject.html#120">[ subject ]</A>
+<A HREF="author.html#120">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Kirby Krueger &lt;<A HREF="mailto:kirbyk@corp.webtv.net?Subject=Re:%20[cricket-users]%20drawing%20on%20the%20same%20graph%20the%20max%20also&In-Reply-To=&lt;3749E74F.58F94FDB@corp.webtv.net&gt;">kirbyk@corp.webtv.net</A>&gt;
+<BR>
+<P>Jeff Allen wrote:
+<BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20drawing%20on%20the%20same%20graph%20the%20max%20also&In-Reply-To=&lt;3749E74F.58F94FDB@corp.webtv.net&gt;">jra@corp.webtv.net</A>&gt;
+</EM><BR>
+<P><EM>&gt; &gt; data? So is it better to have a complete different cricket for different
+</EM><BR>
+<EM>&gt; &gt; polling intervals?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; It's definately possible to use a separate Cricket setup to do fast
+</EM><BR>
+<EM>&gt; polling.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Cricket is designed to be able to poll different subtrees on different
+</EM><BR>
+<EM>&gt; rates, but this is not a function we have completely tested and gotten
+</EM><BR>
+<EM>&gt; working. A critical change to make this work was to reformat the
+</EM><BR>
+<EM>&gt; targetType dictionary, which is done. You need to be certain to reset
+</EM><BR>
+<EM>&gt; &quot;rrd-poll-interval&quot; in the root Defaults file to reflect the shorter
+</EM><BR>
+<EM>&gt; polling rate.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+I'm actually doing this.  It's not really too hard.  I'm graphing some
+<BR>
+data about blocked mail from syslog output, which is due to the nature
+<BR>
+of the logfiles easiest to get at in 12 hour bundles.  My Defaults file
+<BR>
+in the spam-stats directory contains:
+<BR>
+<P># Polling every 12 hours, for 600 days of data
+<BR>
+rra             12hour  AVERAGE:0.5:1:1200
+<BR>
+<P>targetType spam-stats
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rra = &quot;12hour&quot;
+<BR>
+<P>graph --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default-ranges  =       &quot;m:y&quot;
+<BR>
+<P><P>We decided that, due to the relatively small number of data points
+<BR>
+needed to keep 600 days, we didn't need to roll the data for the
+<BR>
+longer-term graphs.  Note the default-ranges set to m:y - that makes the
+<BR>
+graphs that show up default to the long-term values, which are more
+<BR>
+interesting for data coming in this sparsely.
+<BR>
+<P>The only other difference to make the polling rate different is to
+<BR>
+create a different set in subtree-sets (or subtrees, for pre-0.65
+<BR>
+installations) and have cron run that at the correct increments.
+<BR>
+<P>This is a fairly experimental fringe of cricket, admittedly, but it
+<BR>
+seems to be working for me just fine so far.
+<BR>
+<P>-- Kirby
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+Campaign 2000 is here!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Discuss your thoughts; get informed at ONElist.  See our homepage.
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0121.html">Jeff Allen: "Re: [cricket-users] (Cricket 0.65) Forcing the graphing range"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0119.html">Jeff Allen: "Re: [cricket-users] (Cricket 0.65) router-interfaces doesn't work."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0118.html">Jeff Allen: "Re: [cricket-users] drawing on the same graph the max also"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#120">[ date ]</A>
+<A HREF="index.html#120">[ thread ]</A>
+<A HREF="subject.html#120">[ subject ]</A>
+<A HREF="author.html#120">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:50 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

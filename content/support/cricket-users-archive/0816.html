@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Tricky ATM OID</TITLE>
+<META NAME="Author" CONTENT="Loucks Guy (Guy.Loucks@det.nsw.edu.au)">
+<META NAME="Subject" CONTENT="[cricket-users] Tricky ATM OID">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Tricky ATM OID</H1>
+<!-- received="Wed Dec 29 09:50:17 1999" -->
+<!-- isoreceived="19991229175017" -->
+<!-- sent="Wed, 29 Dec 1999 11:02:20 +1100" -->
+<!-- isosent="19991229000220" -->
+<!-- name="Loucks Guy" -->
+<!-- email="Guy.Loucks@det.nsw.edu.au" -->
+<!-- subject="[cricket-users] Tricky ATM OID" -->
+<!-- id="0927641E8B07D311BE4C0008C7894E916D0E1A@itfexch5.itbemail.det.nsw.EDU.AU" -->
+<STRONG>From:</STRONG> Loucks Guy (<A HREF="mailto:Guy.Loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Tricky%20ATM%20OID&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0E1A@itfexch5.itbemail.det.nsw.EDU.AU&gt;"><EM>Guy.Loucks@det.nsw.edu.au</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Dec 28 1999 - 16:02:20 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0817.html">Tod E. Kurt: "[cricket-users] Choosing switch-ports by instance 'short-desc'?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0815.html">Nathan Alan Haneysmith: "[cricket-users] generate-statics"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#816">[ date ]</A>
+<A HREF="index.html#816">[ thread ]</A>
+<A HREF="subject.html#816">[ subject ]</A>
+<A HREF="author.html#816">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Loucks Guy &lt;<A HREF="mailto:Guy.Loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Tricky%20ATM%20OID&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0E1A@itfexch5.itbemail.det.nsw.EDU.AU&gt;">Guy.Loucks@det.nsw.edu.au</A>&gt;
+<BR>
+<P>People,
+<BR>
+<P>I would welcome suggestions around the following:
+<BR>
+<P>This works:
+<BR>
+OID     caal5vccInPkts          1.3.6.1.4.1.9.9.66.1.1.1.1.1.2.0
+<BR>
+OID     caal5VccOutPkts         1.3.6.1.4.1.9.9.66.1.1.1.1.2.2.0
+<BR>
+OID     caal5VccInOctets        1.3.6.1.4.1.9.9.66.1.1.1.1.3.2.0
+<BR>
+OID     caal5VccOutOctets       1.3.6.1.4.1.9.9.66.1.1.1.1.4.2.0
+<BR>
+dataSource  caal5VccOutOctets
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source               =   snmp://%snmp%/caal5VccOutOctets.%inst%
+<BR>
+<P>This is what I would like to do:
+<BR>
+OID     caal5vccInPkts2         1.3.6.1.4.1.9.9.66.1.1.1.1.1
+<BR>
+OID     caal5VccOutPkts2        1.3.6.1.4.1.9.9.66.1.1.1.1.2
+<BR>
+OID     caal5VccInOctets2       1.3.6.1.4.1.9.9.66.1.1.1.1.3
+<BR>
+OID     caal5VccOutOctets2      1.3.6.1.4.1.9.9.66.1.1.1.1.4
+<BR>
+<P>dataSource  caal5VccInPkts2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source               =
+<BR>
+snmp://%snmp%/caal5VccInPkts2.%inst%.0.%atm-inst%
+<BR>
+<P>This is from the config file:
+<BR>
+<P>target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = isbr10.isd.tafensw.edu.au
+<BR>
+<P>target ATM1_1_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       ATM1/1/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;&quot;
+<BR>
+<P>target ATM1_1_0.35
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       &quot;ATM1/1/0.35&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;ATM/FR Link to Castle Hill 1.16&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       atm-sub-interface2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atm-inst        =       35
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst            =       2
+<BR>
+<P>target ATM1_1_0.41
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       &quot;ATM1/1/0.41&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;ATM/FR Link to Nth Wagga 0/0.16&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       atm-sub-interface2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atm-inst        =       41
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst            =       2
+<BR>
+<P>Now what I would like to do would be something like:
+<BR>
+<P>target ATM1_1_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       ATM1/1/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atm-sii	=	%inst%
+<BR>
+<P>target ATM1_1_0.35
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       &quot;ATM1/1/0.35&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;ATM/FR Link to Castle Hill 1.16&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       atm-sub-interface2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atm-inst        =       35
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst            =       %atm-sii%
+<BR>
+<P>I can just use hard coded values, but this seems like a step backwards. It
+<BR>
+is time to crawl through the doco again, I am pretty sure there is an
+<BR>
+elegant way to do this.
+<BR>
+<P>The OID of interest is:
+<BR>
+OID     caal5vccInPkts          1.3.6.1.4.1.9.9.66.1.1.1.1.1.[int-index].0
+<BR>
+Where the int-index is the interface ATM1_1_0 above. As the version of IOS
+<BR>
+we are running is limited in its ATM implementation we have had to use this
+<BR>
+MIB. If I could have the file dynamic, this would be ideal.
+<BR>
+<P>I just can not think of a way to define a variable based on the results of a
+<BR>
+previous query, and have it remain for the next query.
+<BR>
+<P>Any thought would be most welcome.
+<BR>
+<P>Regs,
+<BR>
+<P>Guy
+<BR>
+<P>Guy R. Loucks
+<BR>
+Senior Unix Systems Administrator
+<BR>
+Networks Branch
+<BR>
+NSW Department of Education &amp; Training
+<BR>
+Information Technology Bureau
+<BR>
+Direct +61 2 9942 9887
+<BR>
+Fax +61 2 9942 9600
+<BR>
+Mobile +61 (0)18 041 186
+<BR>
+Email <A HREF="mailto:guy.loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Tricky%20ATM%20OID&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0E1A@itfexch5.itbemail.det.nsw.EDU.AU&gt;">guy.loucks@det.nsw.edu.au</A>
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0817.html">Tod E. Kurt: "[cricket-users] Choosing switch-ports by instance 'short-desc'?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0815.html">Nathan Alan Haneysmith: "[cricket-users] generate-statics"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#816">[ date ]</A>
+<A HREF="index.html#816">[ thread ]</A>
+<A HREF="subject.html#816">[ subject ]</A>
+<A HREF="author.html#816">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

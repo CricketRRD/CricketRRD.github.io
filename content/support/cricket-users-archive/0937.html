@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Some things I've discovered.</TITLE>
+<META NAME="Author" CONTENT="Matt Raykowski (mattr@spacestar.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Some things I've discovered.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Some things I've discovered.</H1>
+<!-- received="Tue Jan 18 19:59:42 2000" -->
+<!-- isoreceived="20000119035942" -->
+<!-- sent="Tue, 18 Jan 2000 18:59:41 -0600" -->
+<!-- isosent="20000119005941" -->
+<!-- name="Matt Raykowski" -->
+<!-- email="mattr@spacestar.net" -->
+<!-- subject="[cricket-users] Some things I've discovered." -->
+<!-- id="HHEILEOELNBPDCKJADALIEDNCAAA.mattr@spacestar.net" -->
+<STRONG>From:</STRONG> Matt Raykowski (<A HREF="mailto:mattr@spacestar.net?Subject=Re:%20[cricket-users]%20Some%20things%20I've%20discovered.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALIEDNCAAA.mattr@spacestar.net&gt;"><EM>mattr@spacestar.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jan 18 2000 - 16:59:41 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0938.html">James Moore: "[cricket-users] Direct access to config.db"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0936.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#937">[ date ]</A>
+<A HREF="index.html#937">[ thread ]</A>
+<A HREF="subject.html#937">[ subject ]</A>
+<A HREF="author.html#937">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Matt Raykowski&quot; &lt;<A HREF="mailto:mattr@spacestar.net?Subject=Re:%20[cricket-users]%20Some%20things%20I've%20discovered.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALIEDNCAAA.mattr@spacestar.net&gt;">mattr@spacestar.net</A>&gt;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I've discarded the idea of using generate-statics to make static GIF files
+<BR>
+for use in the &quot;Description&quot; field of a target.  I've figured out that if I
+<BR>
+remove the &amp;rand=765 or whatever the number happens to be, from the URL to
+<BR>
+an image, it gives me the current image.  So I right-clicked and choose
+<BR>
+&quot;Copy Image Source&quot; from my interface summary for my hourly graph, and
+<BR>
+pasted that into my &quot;short-desc&quot; field in my target file, and remove the
+<BR>
+&amp;rand argument.  Now I'm not wasting CPU time generating static images every
+<BR>
+five minutes.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This has worked for all my interfaces, and targets.  However, I am getting
+<BR>
+this error message an awful lot from most of my routers:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[18-Jan-2000 18:53:53*] Variable expansion uses undefined variable: domain.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm not entirely sure what's generating it, but I'm getting a similar one
+<BR>
+from pasting my URLs to the images in there - it's trying to expand the %2F
+<BR>
+in the URL to a variable.  As long as you ignore it, it still works just
+<BR>
+fine - all of my graphs are accurate, and showing up correctly. However, I'm
+<BR>
+not sure where that error message above is coming from yet.  It seems to be
+<BR>
+yet another minor annoyance, but I thought I'd bring some stuff to light, to
+<BR>
+the list.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another thing that we're doing with MRTG that Cricket wasn't doing by
+<BR>
+default was that we had: &lt;META HTTP-EQUIV=&quot;Refresh&quot; CONTENT=300 &gt; in our
+<BR>
+head, so the page automatically refreshed.  I added this myself with a
+<BR>
+simple html dictionary, but for future reference, maybe something like this
+<BR>
+should be put in by default, or suggested in a FAQ or something of the
+<BR>
+sorts?  Just trying to cater to the non-system engineers out there.  (;
+<BR>
+<P>Matt Raykowski - Level Two Technician
+<BR>
+Spacestar Communications, Inc.
+<BR>
+Dial-up to DS-3 Serving - MN WI ND MI IL
+<BR>
+Voice (612) 996-0000 / Fax (612) 996-0123
+<BR>
+www.spacestar.net / <A HREF="mailto:mattr@spacestar.net?Subject=Re:%20[cricket-users]%20Some%20things%20I've%20discovered.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALIEDNCAAA.mattr@spacestar.net&gt;">mattr@spacestar.net</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0938.html">James Moore: "[cricket-users] Direct access to config.db"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0936.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#937">[ date ]</A>
+<A HREF="index.html#937">[ thread ]</A>
+<A HREF="subject.html#937">[ subject ]</A>
+<A HREF="author.html#937">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:11 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

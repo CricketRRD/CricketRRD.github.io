@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Collector issues or is this a Ci</TITLE>
+<META NAME="Author" CONTENT="Daniel Spisak (dspisak@mminternet.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Collector issues or is this a Cisco bug? (or both?)">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Collector issues or is this a Cisco bug? (or both?)</H1>
+<!-- received="Thu Jul 22 22:27:07 1999" -->
+<!-- isoreceived="19990723052707" -->
+<!-- sent="Thu, 22 Jul 1999 19:25:56 -0700" -->
+<!-- isosent="19990723022556" -->
+<!-- name="Daniel Spisak" -->
+<!-- email="dspisak@mminternet.com" -->
+<!-- subject="[cricket-users] Collector issues or is this a Cisco bug? (or both?)" -->
+<!-- id="014101bed4b2$b26233c0$d748afcf@mminternet.com" -->
+<!-- inreplyto="5DDC98303A22D21180D800A0C9A92FEA940C27@atlxchange.atl.talus.net" -->
+<STRONG>From:</STRONG> Daniel Spisak (<A HREF="mailto:dspisak@mminternet.com?Subject=Re:%20[cricket-users]%20Collector%20issues%20or%20is%20this%20a%20Cisco%20bug?%20(or%20both?)&In-Reply-To=&lt;014101bed4b2$b26233c0$d748afcf@mminternet.com&gt;"><EM>dspisak@mminternet.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jul 22 1999 - 19:25:56 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0416.html">Zebee Johnstone: "[cricket-users] what does Gauge do?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0414.html">Alan Nichols: "Re: [cricket-users] Using Cricket without Apache"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0413.html">Matt Birkner: "RE: [cricket-users] collector can't find/use RRDs.pm"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0426.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] Need help !!!!  problems with cricket setup and grapher.cgi"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#415">[ date ]</A>
+<A HREF="index.html#415">[ thread ]</A>
+<A HREF="subject.html#415">[ subject ]</A>
+<A HREF="author.html#415">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Daniel Spisak&quot; &lt;<A HREF="mailto:dspisak@mminternet.com?Subject=Re:%20[cricket-users]%20Collector%20issues%20or%20is%20this%20a%20Cisco%20bug?%20(or%20both?)&In-Reply-To=&lt;014101bed4b2$b26233c0$d748afcf@mminternet.com&gt;">dspisak@mminternet.com</A>&gt;
+<BR>
+<P>Ok I have cricket working now but I am running into an issues that is
+<BR>
+somewhat annoying and I am not sure which to investigate more closely.
+<BR>
+Apparently when collector runs sometimes it seems to be unable to grab SNMP
+<BR>
+data from my Cisco router.  I don't know if this is caused because of:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;A. SNMP having a low priority on the Cisco and collector timing out too
+<BR>
+soon?
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;B. My Cisco's CPU is too busy?
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;C. A bug in the version of IOS I am running? (11.3.9T)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;D. Something wrong with DNS resolution?
+<BR>
+<P>To see an example of what this is doing to the grtaphs take a look here:
+<BR>
+<P><A HREF="http://207.175.72.214/~cricket/cricket/grapher.cgi?target=%2Frouter-interfac">http://207.175.72.214/~cricket/cricket/grapher.cgi?target=%2Frouter-interfac</A>
+<BR>
+es%2Fserial0_1&amp;ranges=d%3Aw&amp;view=Octets
+<BR>
+<P>Below are the error messages I get from Cricket's cron job
+<BR>
+<P>Error and the lines leading up to it(keep in mind this is a sample message):
+<BR>
+[22-Jul-1999 19:00:08 ] Retrieved data for portmaster1 (): 9
+<BR>
+[22-Jul-1999 19:00:08 ] Retrieving data (EXEC:
+<BR>
+/home/cricket/cricket/util/pmlines.pl <A HREF="mailto:public@portmaster2.mminternet.com?Subject=Re:%20[cricket-users]%20Collector%20issues%20or%20is%20this%20a%20Cisco%20bug?%20(or%20both?)&In-Reply-To=&lt;014101bed4b2$b26233c0$d748afcf@mminternet.com&gt;">public@portmaster2.mminternet.com</A>) for
+<BR>
+portmaster2
+<BR>
+[22-Jul-1999 19:00:10 ] Retrieved data for portmaster2 (): 2
+<BR>
+[22-Jul-1999 19:00:16 ] Retrieved data for millenium-gw ():
+<BR>
+84,89,1,41631072,45165724
+<BR>
+[22-Jul-1999 19:00:26*] no response received &quot;millenium-gw&quot;
+<BR>
+[207.175.72.1].161
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[22-Jul-1999 19:00:10 ] Retrieved data for portmaster2 (): 2
+<BR>
+[22-Jul-1999 19:00:16 ] Retrieved data for millenium-gw ():
+<BR>
+84,89,1,41631072,45165724
+<BR>
+[22-Jul-1999 19:00:26*] no response received &quot;millenium-gw&quot;
+<BR>
+[207.175.72.1].161
+<BR>
+[22-Jul-1999 19:00:26 ] Walking ifDescr for millenium-gw:161 to resolve
+<BR>
+interface-name mapping
+<BR>
+[22-Jul-1999 19:00:37*] no response received &quot;millenium-gw&quot;
+<BR>
+[207.175.72.1].161
+<BR>
+[22-Jul-1999 19:00:37*] Failed to map instance for ethernet0_0. Instance is
+<BR>
+now
+<BR>
+set to nothing.
+<BR>
+[22-Jul-1999 19:00:43*] Received SNMP response with error code noSuchName
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[22-Jul-1999 19:00:43 ] Retrieved data for ethernet0_0 (): U,U,U,U,U,U
+<BR>
+[22-Jul-1999 19:00:43 ] Some data is missing for ethernet0_0 ().
+<BR>
+[22-Jul-1999 19:00:43 ] Retrieved data for ethernet0_0 (1): U,U,U,U,U,U
+<BR>
+[22-Jul-1999 19:00:43 ] Some data is missing for ethernet0_0 (1).
+<BR>
+[22-Jul-1999 19:00:44*] Received SNMP response with error code noSuchName
+<BR>
+[22-Jul-1999 19:00:44*] Failed to map instance for serial0_0. Instance is
+<BR>
+now
+<BR>
+set to nothing.
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[22-Jul-1999 19:00:44 ] Retrieved data for serial0_0 (): U,U,U,U,U,U
+<BR>
+[22-Jul-1999 19:00:44 ] Some data is missing for serial0_0 ().
+<BR>
+[22-Jul-1999 19:00:44 ] Retrieved data for serial0_0 (2): U,U,U,U,U,U
+<BR>
+[22-Jul-1999 19:00:44 ] Some data is missing for serial0_0 (2).
+<BR>
+[22-Jul-1999 19:00:44*] Received SNMP response with error code noSuchName
+<BR>
+[22-Jul-1999 19:00:44*] Failed to map instance for serial0_1. Instance is
+<BR>
+now
+<BR>
+set to nothing.
+<BR>
+[22-Jul-1999 19:00:45*] Received SNMP response with error code noSuchName
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[22-Jul-1999 19:00:45 ] Retrieved data for serial0_1 (): U,U,U,U,U,U
+<BR>
+[22-Jul-1999 19:00:45 ] Some data is missing for serial0_1 ().
+<BR>
+[22-Jul-1999 19:00:45 ] Retrieved data for serial0_1 (4): U,U,U,U,U,U
+<BR>
+[22-Jul-1999 19:00:45 ] Some data is missing for serial0_1 (4).
+<BR>
+[22-Jul-1999 19:00:46*] Received SNMP response with error code noSuchName
+<BR>
+[22-Jul-1999 19:00:46*] Failed to map instance for serial2_1. Instance is
+<BR>
+now
+<BR>
+set to nothing.
+<BR>
+[22-Jul-1999 19:00:47*] Received SNMP response with error code noSuchName
+<BR>
+<P>I am a bit confused about these error messages because some of the things it
+<BR>
+complains about don't make sense. For eaxmple in this email it mentions my
+<BR>
+portmaster stuff, but that script has been working fine.  It just seems like
+<BR>
+sometimes its unable to get an instance mapping from my Cisco?  Anyone got
+<BR>
+any ideas what I am dealing with here?  Thanks in advance!
+<BR>
+<P>Daniel E. Spisak
+<BR>
+Senior Network Administrator
+<BR>
+MM Internet
+<BR>
+<A HREF="http://www.mminternet.com/">http://www.mminternet.com/</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist:  your connection to people who share your interests.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0416.html">Zebee Johnstone: "[cricket-users] what does Gauge do?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0414.html">Alan Nichols: "Re: [cricket-users] Using Cricket without Apache"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0413.html">Matt Birkner: "RE: [cricket-users] collector can't find/use RRDs.pm"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0426.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] Need help !!!!  problems with cricket setup and grapher.cgi"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#415">[ date ]</A>
+<A HREF="index.html#415">[ thread ]</A>
+<A HREF="subject.html#415">[ subject ]</A>
+<A HREF="author.html#415">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

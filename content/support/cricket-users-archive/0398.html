@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: Help with Cricket-0.69 for n</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: Help with Cricket-0.69 for newbie">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: Help with Cricket-0.69 for newbie</H1>
+<!-- received="Tue Jul 20 21:12:27 1999" -->
+<!-- isoreceived="19990721041227" -->
+<!-- sent="Tue, 20 Jul 1999 16:09:30 -0700 (PDT)" -->
+<!-- isosent="19990720230930" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="[cricket-users] Re: Help with Cricket-0.69 for newbie" -->
+<!-- id="199907202309.QAA18825@oops.artemis.com" -->
+<!-- inreplyto="00cb01bed2f0$15901260$d748afcf@mminternet.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Help%20with%20Cricket-0.69%20for%20newbie&In-Reply-To=&lt;199907202309.QAA18825@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jul 20 1999 - 16:09:30 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0399.html">¹ÚÀç¹: "[cricket-users] cricket 0.69"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0397.html">Daniel Spisak: "Re: [cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0395.html">Daniel Spisak: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0396.html">Berg, Ivan: "RE: [cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0396.html">Berg, Ivan: "RE: [cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0402.html">Berg, Ivan: "RE: [cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#398">[ date ]</A>
+<A HREF="index.html#398">[ thread ]</A>
+<A HREF="subject.html#398">[ subject ]</A>
+<A HREF="author.html#398">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Help%20with%20Cricket-0.69%20for%20newbie&In-Reply-To=&lt;199907202309.QAA18825@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Daniel Spisak wrote:
+<BR>
+<EM>&gt; [20-Jul-1999 13:31:55 ] target millenium-gw
+</EM><BR>
+<EM>&gt;         auto-base = /root/cricket/cricket-config/routers/
+</EM><BR>
+<EM>&gt;         auto-root = /
+</EM><BR>
+<EM>&gt;         auto-target-path = /
+</EM><BR>
+<EM>&gt;         domain = mminternet.com
+</EM><BR>
+<EM>&gt;         inst =
+</EM><BR>
+<EM>&gt;         router = millenium-gw
+</EM><BR>
+<EM>&gt;         short-desc = Main Cisco Router for MM Internet Los Al
+</EM><BR>
+<EM>&gt;         snmp-host = millenium-gw.mminternet.com
+</EM><BR>
+<EM>&gt;         target-type = Cisco-3600-Router
+</EM><BR>
+<P>There has to be a tag somewhere in there called
+<BR>
+&quot;rrd-datafile&quot;. Compare the sample-config root Defaults file to your
+<BR>
+root Defaults file. Yours probably does not have a definition of
+<BR>
+rrd-datafile. That's at least part of your problem.
+<BR>
+<P>You also should probably not be running Cricket as root. It's designed
+<BR>
+to run as it's own user, or under your userid. It is not tested
+<BR>
+running as root.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Help%20with%20Cricket-0.69%20for%20newbie&In-Reply-To=&lt;199907202309.QAA18825@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>ONElist:  your connection to people who share your interests.
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0399.html">¹ÚÀç¹: "[cricket-users] cricket 0.69"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0397.html">Daniel Spisak: "Re: [cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0395.html">Daniel Spisak: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0396.html">Berg, Ivan: "RE: [cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0396.html">Berg, Ivan: "RE: [cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0402.html">Berg, Ivan: "RE: [cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#398">[ date ]</A>
+<A HREF="index.html#398">[ thread ]</A>
+<A HREF="subject.html#398">[ subject ]</A>
+<A HREF="author.html#398">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

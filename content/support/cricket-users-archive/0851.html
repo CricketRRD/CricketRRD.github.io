@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] SNMP_Session.pm and unformat</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] SNMP_Session.pm and unformatted timeticks">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] SNMP_Session.pm and unformatted timeticks</H1>
+<!-- received="Thu Jan  6 21:02:01 2000" -->
+<!-- isoreceived="20000107050201" -->
+<!-- sent="Thu, 6 Jan 2000 17:59:48 -0800 (PST)" -->
+<!-- isosent="20000107015948" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] SNMP_Session.pm and unformatted timeticks" -->
+<!-- id="200001070159.RAA06957@oops.artemis.com" -->
+<!-- inreplyto="Pine.GSO.4.10.9908021435190.2927-100000@the.satanic.org" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20SNMP_Session.pm%20and%20unformatted%20timeticks&In-Reply-To=&lt;200001070159.RAA06957@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jan 06 2000 - 17:59:48 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0852.html">Bert Driehuis: "Re: [cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0850.html">Michael S. Fischer: "[cricket-users] Annoying SI units issue"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0456.html">roofpig@the.satanic.org: "[cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0852.html">Bert Driehuis: "Re: [cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0852.html">Bert Driehuis: "Re: [cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#851">[ date ]</A>
+<A HREF="index.html#851">[ thread ]</A>
+<A HREF="subject.html#851">[ subject ]</A>
+<A HREF="author.html#851">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+<A HREF="mailto:roofpig@the.satanic.org?Subject=Re:%20[cricket-users]%20SNMP_Session.pm%20and%20unformatted%20timeticks&In-Reply-To=&lt;200001070159.RAA06957@oops.artemis.com&gt;">roofpig@the.satanic.org</A> wrote:
+<BR>
+<EM>&gt; 	By setting the following variable to zero (I choose to do this in
+</EM><BR>
+<EM>&gt; cricket/lib/snmpUtils.pm), you will get the raw TimeTicks value, rather
+</EM><BR>
+<EM>&gt; that the pretty_print formatted version:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; $BER::pretty_print_timeticks = 0;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 	Jeff, I would image that, with this new variable, you'll be able
+</EM><BR>
+<EM>&gt; to integrate support for this feature, since it's no longer necessary to
+</EM><BR>
+<EM>&gt; whack BER.pm directly.
+</EM><BR>
+<P>Hmm, ok, but I don't remember what the feature was... :) I squirreled
+<BR>
+your mail away without enough context.
+<BR>
+<P>If I simply add that line, will it affect anyone badly? I don't think
+<BR>
+so... I think I can simply add that line, and them _if_ someone tries
+<BR>
+to graph a timeticks, then the right thing will happen. Which, I'm
+<BR>
+beginning to recall, is what you were trying to get me to do. :)
+<BR>
+<P>What do you think?
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20SNMP_Session.pm%20and%20unformatted%20timeticks&In-Reply-To=&lt;200001070159.RAA06957@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>  Hey Freelancers:  Find your next project through JobSwarm!  
+  You can even make money in your sleep by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0852.html">Bert Driehuis: "Re: [cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0850.html">Michael S. Fischer: "[cricket-users] Annoying SI units issue"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0456.html">roofpig@the.satanic.org: "[cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0852.html">Bert Driehuis: "Re: [cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0852.html">Bert Driehuis: "Re: [cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#851">[ date ]</A>
+<A HREF="index.html#851">[ thread ]</A>
+<A HREF="subject.html#851">[ subject ]</A>
+<A HREF="author.html#851">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:08 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

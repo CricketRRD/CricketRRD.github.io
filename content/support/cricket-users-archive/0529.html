@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] No Hourly Graphs...</TITLE>
+<META NAME="Author" CONTENT="Matt Duggan (matt@insnet.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] No Hourly Graphs...">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] No Hourly Graphs...</H1>
+<!-- received="Mon Aug 23 15:19:52 1999" -->
+<!-- isoreceived="19990823221952" -->
+<!-- sent="Mon, 23 Aug 1999 20:18:58 +0100" -->
+<!-- isosent="19990823191858" -->
+<!-- name="Matt Duggan" -->
+<!-- email="matt@insnet.net" -->
+<!-- subject="Re: [cricket-users] No Hourly Graphs..." -->
+<!-- id="37C19EA2.288F4540@insnet.net" -->
+<!-- inreplyto="Pine.GSO.4.10.9908232002001.5694-100000@engelberg.ee.ethz.ch" -->
+<STRONG>From:</STRONG> Matt Duggan (<A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;37C19EA2.288F4540@insnet.net&gt;"><EM>matt@insnet.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Aug 23 1999 - 12:18:58 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0530.html">Tobias Oetiker: "Re: [cricket-users] No Hourly Graphs..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0528.html">Doherty, Niall: "[cricket-users] Counter Overflows"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0527.html">Tobias Oetiker: "Re: [cricket-users] No Hourly Graphs..."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0530.html">Tobias Oetiker: "Re: [cricket-users] No Hourly Graphs..."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0530.html">Tobias Oetiker: "Re: [cricket-users] No Hourly Graphs..."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#529">[ date ]</A>
+<A HREF="index.html#529">[ thread ]</A>
+<A HREF="subject.html#529">[ subject ]</A>
+<A HREF="author.html#529">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Matt Duggan &lt;<A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;37C19EA2.288F4540@insnet.net&gt;">matt@insnet.net</A>&gt;
+<BR>
+<P>Hi Tobi,
+<BR>
+<P>Thanks for the reply... I was/am using 1.0.6. I got the patch and followed the
+<BR>
+instructions (i.e. copied it to the rrd directory) but upon executing the
+<BR>
+install
+<BR>
+I get lots of errors like the following:
+<BR>
+<P># gunzip -c 1.0.6-fixes.patch.gz   | patch -p1
+<BR>
+#  Looks like a unified context diff.
+<BR>
+Hunk #2 failed at line 4.
+<BR>
+Hunk #3 failed at line 34.
+<BR>
+Hunk #4 failed at line 76.
+<BR>
+Hunk #5 failed at line 78.
+<BR>
+Hunk #6 failed at line 109.
+<BR>
+Hunk #7 failed at line 276.
+<BR>
+Hunk #8 failed at line 339.
+<BR>
+Hunk #9 failed at line 382.
+<BR>
+Hunk #10 failed at line 424.
+<BR>
+Hunk #11 failed at line 15.
+<BR>
+Hunk #12 failed at line 113.
+<BR>
+<P>etc ....
+<BR>
+<P>This normal!? or is it me being dumb! ... it's been a long day!
+<BR>
+<P>Thanks for all the help, keep up the good work.
+<BR>
+<P>Regards,
+<BR>
+Matt.
+<BR>
+<P>p.s. I saw the rrdtool demo on the mailing list and think it's great,
+<BR>
+would there be any chance of seeing the config files etc for it?
+<BR>
+<P><P>Tobias Oetiker wrote:
+<BR>
+<P><EM>&gt; From: Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;37C19EA2.288F4540@insnet.net&gt;">oetiker@ee.ethz.ch</A>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; 7Today you sent me mail regarding [cricket-users] No Hourly Graphs...:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; *&gt; From: <A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;37C19EA2.288F4540@insnet.net&gt;">matt@insnet.net</A>
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt; Hi,
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt; I am using the latest version of Cricket and RRDTOOL
+</EM><BR>
+<EM>&gt; *&gt; on a Sun Ultra 1 (fully patches Solaris 2.6) and
+</EM><BR>
+<EM>&gt; *&gt; have an odd issue.
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt; Everything appears to be working fine, however
+</EM><BR>
+<EM>&gt; *&gt; upon clicking on a target (specifically router-
+</EM><BR>
+<EM>&gt; *&gt; interfaces) results in a list of ports...great...
+</EM><BR>
+<EM>&gt; *&gt; but!
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt; When I click octects to view the graph I get
+</EM><BR>
+<EM>&gt; *&gt; a screen showing avg, max, cur and the graphs...
+</EM><BR>
+<EM>&gt; *&gt; but the hourly graph is blank. However Daily
+</EM><BR>
+<EM>&gt; *&gt; graphs are fine.
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt; I have tried reinstalling cricket, recompiling,
+</EM><BR>
+<EM>&gt; *&gt; rebuiling the config-tree, all sorts but still
+</EM><BR>
+<EM>&gt; *&gt; no luck.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; make sure you get the latest rrdtool ...
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; cheers
+</EM><BR>
+<EM>&gt; tobi
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; *&gt; Any advice on this would be much appreciated.
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt; Regards,
+</EM><BR>
+<EM>&gt; *&gt; Matt.
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt; Matt Duggan,
+</EM><BR>
+<EM>&gt; *&gt; Internet Network Services.
+</EM><BR>
+<EM>&gt; *&gt; mailto:<A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;37C19EA2.288F4540@insnet.net&gt;">matt@insnet.net</A>
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt; GET WHAT YOU DESERVE! A NextCard Platinum VISA: DOUBLE Rewards points,
+</EM><BR>
+<EM>&gt; *&gt;        NO annual fee &amp; rates as low as 9.9 percent FIXED APR.
+</EM><BR>
+<EM>&gt; *&gt; Apply online today!                <A HREF="http://www.onelist.com/ad/nextcard1">http://www.onelist.com/ad/nextcard1</A>
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt; *&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; *&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; --
+</EM><BR>
+<EM>&gt;  ______    __   _
+</EM><BR>
+<EM>&gt; /_  __/_  / /  (_) Oetiker, Timelord &amp; SysMgr @ EE-Dept ETH-Zurich
+</EM><BR>
+<EM>&gt;  / // _ \/ _ \/ / TEL: +41(0)1-6325286  FAX:...1517  ICQ: 10419518
+</EM><BR>
+<EM>&gt; /_/ \.__/_.__/_/ <A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;37C19EA2.288F4540@insnet.net&gt;">oetiker@ee.ethz.ch</A> <A HREF="http://ee-staff.ethz.ch/~oetiker">http://ee-staff.ethz.ch/~oetiker</A>
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Show your ONElist SPIRIT!
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/tshirt2">http://clickme.onelist.com/ad/tshirt2</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; With a new ONElist SHIRT available through our website.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Congrats to our GROW TO GIVE winners, ZENtertainment &amp; ROTInews!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Check out ONElist's latest program, FRIENDS &amp; FAMILY.  See homepage.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0530.html">Tobias Oetiker: "Re: [cricket-users] No Hourly Graphs..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0528.html">Doherty, Niall: "[cricket-users] Counter Overflows"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0527.html">Tobias Oetiker: "Re: [cricket-users] No Hourly Graphs..."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0530.html">Tobias Oetiker: "Re: [cricket-users] No Hourly Graphs..."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0530.html">Tobias Oetiker: "Re: [cricket-users] No Hourly Graphs..."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#529">[ date ]</A>
+<A HREF="index.html#529">[ thread ]</A>
+<A HREF="subject.html#529">[ subject ]</A>
+<A HREF="author.html#529">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

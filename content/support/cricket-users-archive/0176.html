@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Other problems with Cricket 0.66</TITLE>
+<META NAME="Author" CONTENT="Gildas PERROT (perrot@FranceNet.fr)">
+<META NAME="Subject" CONTENT="[cricket-users] Other problems with Cricket 0.66">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Other problems with Cricket 0.66</H1>
+<!-- received="Wed Jun  9 04:58:59 1999" -->
+<!-- isoreceived="19990609115859" -->
+<!-- sent="Wed, 09 Jun 1999 10:58:29 +0200" -->
+<!-- isosent="19990609085829" -->
+<!-- name="Gildas PERROT" -->
+<!-- email="perrot@FranceNet.fr" -->
+<!-- subject="[cricket-users] Other problems with Cricket 0.66" -->
+<!-- id="199906090858.KAA14059@breizh.francenet.fr" -->
+<STRONG>From:</STRONG> Gildas PERROT (<A HREF="mailto:perrot@FranceNet.fr?Subject=Re:%20[cricket-users]%20Other%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;199906090858.KAA14059@breizh.francenet.fr&gt;"><EM>perrot@FranceNet.fr</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jun 09 1999 - 01:58:29 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0177.html">James Pichardo: "[cricket-users] Need help..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0175.html">S. John Banner: "[cricket-users] Could not resolve OID for ifAlias"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0178.html">jari: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0178.html">jari: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0179.html">Jeff Allen: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#176">[ date ]</A>
+<A HREF="index.html#176">[ thread ]</A>
+<A HREF="subject.html#176">[ subject ]</A>
+<A HREF="author.html#176">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Gildas PERROT &lt;<A HREF="mailto:perrot@FranceNet.fr?Subject=Re:%20[cricket-users]%20Other%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;199906090858.KAA14059@breizh.francenet.fr&gt;">perrot@FranceNet.fr</A>&gt;
+<BR>
+<P>Hi,
+<BR>
+<P>I just installed Cricket 0.66 on FreeBSD 3.2 host and I have a problem with 
+<BR>
+collecting data for router-interfaces even after the patch for common.pm.
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[09-Jun-1999 10:51:11 ] Starting collector: Cricket version 0.66 ( Thu Jun 3 
+<BR>
+00:22:40 PDT 1999 )
+<BR>
+[09-Jun-1999 10:51:12 ] Retrieved data for ourrouter (): 
+<BR>
+14,14,42849728,16028636
+<BR>
+[09-Jun-1999 10:51:12*] Could not resolve OID for ifDescr
+<BR>
+Use of uninitialized value at /home/cricket/cricket/././lib/common.pm line 302.
+<BR>
+[09-Jun-1999 10:51:12*] Missing base-oid in interface-name map entry.
+<BR>
+[09-Jun-1999 10:51:12*] Failed to map instance for ethernet0. Instance is now 
+<BR>
+set to nothing.
+<BR>
+[09-Jun-1999 10:51:13*] Received SNMP response with error code noSuchName
+<BR>
+<P>However, the interfaces file I got by 'listInterface' seems correct :
+<BR>
+<P>target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = ourrouter
+<BR>
+<P>target Ethernet0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Ethernet0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;BACKBONE-DIRECT&quot;
+<BR>
+<P>Thanks in advance for your help.		Gildas.
+<BR>
+<P><PRE>
+-- 
+Gildas PERROT, <A HREF="mailto:perrot@francenet.fr?Subject=Re:%20[cricket-users]%20Other%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;199906090858.KAA14059@breizh.francenet.fr&gt;">perrot@francenet.fr</A>         __o
+FranceNet, 28 rue Desaix, 75015 Paris ---_ \&lt;,_
+<A HREF="http://www.francenet.fr">http://www.francenet.fr</A>            ---- (_)/ (_)
+<P><P><P>------------------------------------------------------------------------
+Have you entered ONElist's &quot;Grow to Give&quot; program?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Deadline is June 19.  Join now to win $5000 for your charity of choice.
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0177.html">James Pichardo: "[cricket-users] Need help..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0175.html">S. John Banner: "[cricket-users] Could not resolve OID for ifAlias"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0178.html">jari: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0178.html">jari: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0179.html">Jeff Allen: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#176">[ date ]</A>
+<A HREF="index.html#176">[ thread ]</A>
+<A HREF="subject.html#176">[ subject ]</A>
+<A HREF="author.html#176">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:53 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

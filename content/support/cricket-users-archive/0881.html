@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] ugrading to cricket ver 0.71</TITLE>
+<META NAME="Author" CONTENT="Phil Pierotti (phil.pierotti@QUOKKA.com)">
+<META NAME="Subject" CONTENT="[cricket-users] ugrading to cricket ver 0.71">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] ugrading to cricket ver 0.71</H1>
+<!-- received="Mon Jan 10 11:39:03 2000" -->
+<!-- isoreceived="20000110193903" -->
+<!-- sent="Mon, 10 Jan 2000 08:38:56 -0800" -->
+<!-- isosent="20000110163856" -->
+<!-- name="Phil Pierotti" -->
+<!-- email="phil.pierotti@QUOKKA.com" -->
+<!-- subject="[cricket-users] ugrading to cricket ver 0.71" -->
+<!-- id="E19A882C6CD5D211A8A70008C75B6AF40122AEDE@pcmail.quokka.com" -->
+<STRONG>From:</STRONG> Phil Pierotti (<A HREF="mailto:phil.pierotti@QUOKKA.com?Subject=Re:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;E19A882C6CD5D211A8A70008C75B6AF40122AEDE@pcmail.quokka.com&gt;"><EM>phil.pierotti@QUOKKA.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jan 10 2000 - 08:38:56 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0882.html">shanman@shanman.net: "Re: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0880.html">Hugo Gayosso: "RE: [cricket-users] Problem encountered while viewing the graph"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0882.html">shanman@shanman.net: "Re: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0882.html">shanman@shanman.net: "Re: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0883.html">Phil Pierotti: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0886.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0889.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0890.html">Honermann Tom A.: "FW: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0892.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0896.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0904.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0936.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#881">[ date ]</A>
+<A HREF="index.html#881">[ thread ]</A>
+<A HREF="subject.html#881">[ subject ]</A>
+<A HREF="author.html#881">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Phil Pierotti &lt;<A HREF="mailto:phil.pierotti@QUOKKA.com?Subject=Re:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;E19A882C6CD5D211A8A70008C75B6AF40122AEDE@pcmail.quokka.com&gt;">phil.pierotti@QUOKKA.com</A>&gt;
+<BR>
+<P>Ok, so I upgraded RRDTool from 1.09 to 1.10 - and everything is fine.
+<BR>
+Then I installed cricket 0.71 (previously 0.70 with &quot;crashing grapher&quot; fix).
+<BR>
+Not fine.
+<BR>
+Everything works except I get empty graphs.
+<BR>
+Error messages in httpd/error_log saying things like....
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operator or semicolon missing before %numDSs at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 1412.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ambiguous use of % resolved as operator % at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 1412.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[10-Jan-2000 08:29:46*] Failed to get dslist from view name.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use of uninitialized value at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 795.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operator or semicolon missing before %numDSs at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 1412.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ambiguous use of % resolved as operator % at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 1412.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operator or semicolon missing before %numDSs at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 1412.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ambiguous use of % resolved as operator % at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 1412.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use of uninitialized value at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 1194.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use of uninitialized value at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 1194.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use of uninitialized value at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 1278.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use of uninitialized value at
+<BR>
+/home/cricket/public_html/./grapher.cgi line 1278.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[10-Jan-2000 08:29:48*] No graph to make?
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[10-Jan-2000 08:29:48*] No graph to make?
+<BR>
+<P>And then , the usual
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[10-Jan-2000 08:29:48*] Actual graph width (595) differs from
+<BR>
+width-hint (596).
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[10-Jan-2000 08:29:48*] Actual graph height (255) differs from
+<BR>
+height-hint (267).
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[10-Jan-2000 08:29:48*] Actual graph width (595) differs from
+<BR>
+width-hint (596).
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[10-Jan-2000 08:29:48*] Actual graph height (255) differs from
+<BR>
+height-hint (267).
+<BR>
+<P><P>The code where line 1412 is says:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while ($i &lt; ($ct-1))  {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$i++;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($nameme);
+<BR>
+# 1412 follows
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($scaled{$dslist[$i %numDSs]}) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$nameme = &quot;sds&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$nameme = &quot;ds&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push @{$dsnames[$i % $numDSs]}, &quot;$nameme$i&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push @{$mxnames[$i % $numDSs]}, &quot;mx$i&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+<P><P>Looks like a missing $ after the % on line 1412 - however I tried that and
+<BR>
+it didn't fix the problem.
+<BR>
+<P>Ideas, anyone?
+<BR>
+<P>Thanks,
+<BR>
+Phil P
+<BR>
+----------------------------------------------------------------------------
+<BR>
+<PRE>
+----
+      Speak, friend, and enter. If you don`t press enter, nothing happens.
+----------------------------------------------------------------------------
+----
+Quokka Sports, Inc.                      Phil Pierotti
+Ground Floor,                            Senior Network Engineer 
+525 Brannan St,                          <A HREF="mailto:phil.pierotti@quokka.com?Subject=Re:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;E19A882C6CD5D211A8A70008C75B6AF40122AEDE@pcmail.quokka.com&gt;">phil.pierotti@quokka.com</A>
+San Francisco CA 94107                   Ph: +1 415 977 2390
+                                         Fx: +1 415 908 1841
+<P>                                               o_o  
+<A HREF="http://www.quokka.com/">http://www.quokka.com/</A>                         / )o  
+                                              (_/    
+<P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>  Hey Freelancers:  Find your next project through JobSwarm!  
+  You can even make money in your sleep by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0882.html">shanman@shanman.net: "Re: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0880.html">Hugo Gayosso: "RE: [cricket-users] Problem encountered while viewing the graph"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0882.html">shanman@shanman.net: "Re: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0882.html">shanman@shanman.net: "Re: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0883.html">Phil Pierotti: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0886.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0889.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0890.html">Honermann Tom A.: "FW: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0892.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0896.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0904.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0936.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#881">[ date ]</A>
+<A HREF="index.html#881">[ thread ]</A>
+<A HREF="subject.html#881">[ subject ]</A>
+<A HREF="author.html#881">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:09 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

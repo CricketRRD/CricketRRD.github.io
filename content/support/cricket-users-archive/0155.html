@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] grapher.cgi problems</TITLE>
+<META NAME="Author" CONTENT="David Koski (dkoski@noc.ns.itd.umich.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] grapher.cgi problems">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] grapher.cgi problems</H1>
+<!-- received="Thu Jun  3 11:45:11 1999" -->
+<!-- isoreceived="19990603184511" -->
+<!-- sent="Thu, 3 Jun 1999 11:44:35 -0400 (EDT)" -->
+<!-- isosent="19990603154435" -->
+<!-- name="David Koski" -->
+<!-- email="dkoski@noc.ns.itd.umich.edu" -->
+<!-- subject="[cricket-users] grapher.cgi problems" -->
+<!-- id="Pine.GSO.4.10.9906031139540.1910-100000@strangelove.ns.itd.umich.edu" -->
+<STRONG>From:</STRONG> David Koski (<A HREF="mailto:dkoski@noc.ns.itd.umich.edu?Subject=Re:%20[cricket-users]%20grapher.cgi%20problems&In-Reply-To=&lt;Pine.GSO.4.10.9906031139540.1910-100000@strangelove.ns.itd.umich.edu&gt;"><EM>dkoski@noc.ns.itd.umich.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jun 03 1999 - 08:44:35 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0156.html">Alan Lichty: "Re: [cricket-users] grapher.cgi problems"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0154.html">Jeff Allen: "[cricket-announce] Cricket 0.66 is released"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0156.html">Alan Lichty: "Re: [cricket-users] grapher.cgi problems"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0156.html">Alan Lichty: "Re: [cricket-users] grapher.cgi problems"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0157.html">Matthew Stier: "Re: [cricket-users] grapher.cgi problems"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0200.html">Campbell Simpson: "[cricket-users] grapher.cgi problems"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#155">[ date ]</A>
+<A HREF="index.html#155">[ thread ]</A>
+<A HREF="subject.html#155">[ subject ]</A>
+<A HREF="author.html#155">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: David Koski &lt;<A HREF="mailto:dkoski@noc.ns.itd.umich.edu?Subject=Re:%20[cricket-users]%20grapher.cgi%20problems&In-Reply-To=&lt;Pine.GSO.4.10.9906031139540.1910-100000@strangelove.ns.itd.umich.edu&gt;">dkoski@noc.ns.itd.umich.edu</A>&gt;
+<BR>
+<P>Anyone been having cgi problems with router interfaces.  I've upgraded to
+<BR>
+0.66 (0.65 was giving me some problems but couldn't replicate it running
+<BR>
+the cgi offline).  I've tried using the sample tree configs and get the
+<BR>
+same results.  My upper level Default files are pretty much the same as
+<BR>
+the sample tree as well, here's my errors in offline.  As you can see it
+<BR>
+is producing the CGI headers and output, but the error is causing it never
+<BR>
+to go to the browser.  The barword &quot;interface&quot; not allowed while &quot;strict
+<BR>
+subs&quot; is the same thing show up in my Netscape server logs.  0.63 works
+<BR>
+like a dream but 0.65 and 0.66 (Which is where the database was added)
+<BR>
+dies miserably.  It only does this for router interfaces.  My router
+<BR>
+specific graph displays work fine.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thanks
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;David
+<BR>
+<P>%./grapher.cgi 
+<BR>
+(offline mode: enter name=value pairs on standard input)
+<BR>
+target=%2Frouter-interfaces%2Fethernet3_0_0&amp;ranges=d%3Aw&amp;view=Bits%2FSec
+<BR>
+Bareword &quot;interface&quot; not allowed while &quot;strict subs&quot; in use at (eval 4)
+<BR>
+line 1, &lt;STDIN&gt; chunk 1.
+<BR>
+Unquoted string &quot;interface&quot; may clash with future reserved word at (eval
+<BR>
+4) line 1, &lt;STDIN&gt; chunk 1.
+<BR>
+DOH!Content-Type: text/html
+<BR>
+<P>&lt;html&gt;
+<BR>
+&lt;head&gt;
+<BR>
+&lt;title&gt;Graphs for ethernet3_0_0&lt;/title&gt;
+<BR>
+&lt;meta name=&quot;generator&quot; content=&quot;Cricket version 0.66 ( Thu Jun 3 00:22:40
+<BR>
+PDT 1999 )&quot;&gt;
+<BR>
+&lt;/head&gt;
+<BR>
+&lt;body bgcolor=white&gt;
+<BR>
+&lt;!-- you could put your company logo on every page here: --&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- &lt;img src=&quot;images/company-logo.gif&quot; align=left&gt; --&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Graphs for ethernet3_0_0&lt;/h1&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;br clear=left&gt;
+<BR>
+&lt;table width=100% cellpadding=5 padding=3 border&gt;
+<BR>
+&lt;tr&gt;&lt;td width=70%&gt;
+<BR>
+&lt;h3&gt;Summary&lt;/h3&gt;
+<BR>
+&lt;font color=red&gt;Current values not available.&lt;/font&gt;
+<BR>
+(Architecture sun4-solaris-thread not supported yet.)
+<BR>
+&lt;p&gt;&lt;/td&gt;&lt;td&gt;&lt;center&gt;
+<BR>
+&lt;i&gt;Time Ranges:&lt;/i&gt;&lt;p&gt;
+<BR>
+&lt;a
+<BR>
+href=&quot;<A HREF="http://localhost/./grapher.cgi?target=%2Frouter-interfaces%2Fethernet3_0_0&ranges=d&view=Bits%2FSec">http://localhost/./grapher.cgi?target=%2Frouter-interfaces%2Fethernet3_0_0&ranges=d&view=Bits%2FSec</A>&quot;&gt;Hourly&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+<BR>
+&lt;a
+<BR>
+href=&quot;<A HREF="http://localhost/./grapher.cgi?target=%2Frouter-interfaces%2Fethernet3_0_0&ranges=w&view=Bits%2FSec">http://localhost/./grapher.cgi?target=%2Frouter-interfaces%2Fethernet3_0_0&ranges=w&view=Bits%2FSec</A>&quot;&gt;Daily&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+<BR>
+&lt;a
+<BR>
+href=&quot;<A HREF="http://localhost/./grapher.cgi?target=%2Frouter-interfaces%2Fethernet3_0_0&ranges=d%3Aw&view=Bits%2FSec">http://localhost/./grapher.cgi?target=%2Frouter-interfaces%2Fethernet3_0_0&ranges=d%3Aw&view=Bits%2FSec</A>&quot;&gt;Short-Term&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+<BR>
+&lt;a
+<BR>
+href=&quot;<A HREF="http://localhost/./grapher.cgi?target=%2Frouter-interfaces%2Fethernet3_0_0&ranges=m%3Ay&view=Bits%2FSec">http://localhost/./grapher.cgi?target=%2Frouter-interfaces%2Fethernet3_0_0&ranges=m%3Ay&view=Bits%2FSec</A>&quot;&gt;Long-Term&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+<BR>
+&lt;a
+<BR>
+href=&quot;<A HREF="http://localhost/./grapher.cgi?target=%2Frouter-interfaces%2Fethernet3_0_0&ranges=d%3Aw%3Am%3Ay&view=Bits%2FSec">http://localhost/./grapher.cgi?target=%2Frouter-interfaces%2Fethernet3_0_0&ranges=d%3Aw%3Am%3Ay&view=Bits%2FSec</A>&quot;&gt;All&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/center&gt;&lt;/td&gt;
+<BR>
+&lt;/tr&gt;&lt;/table&gt;
+<BR>
+&lt;h3&gt;Hourly graph&lt;/h3&gt;
+<BR>
+&lt;img width=596 height=267
+<BR>
+src=&quot;<A HREF="http://localhost/./mini-graph.cgi?type=gif&target=%2Frouter-interfaces%2Fethernet3_0_0&inst=map%28interface-name%29&dslist=ifInOctets%2CifOutOctets&range=151200&rand=404">http://localhost/./mini-graph.cgi?type=gif&target=%2Frouter-interfaces%2Fethernet3_0_0&inst=map%28interface-name%29&dslist=ifInOctets%2CifOutOctets&range=151200&rand=404</A>&quot;&gt;
+<BR>
+&lt;p&gt;&lt;h3&gt;Daily graph&lt;/h3&gt;
+<BR>
+&lt;img width=596 height=267
+<BR>
+src=&quot;<A HREF="http://localhost/./mini-graph.cgi?type=gif&target=%2Frouter-interfaces%2Fethernet3_0_0&inst=map%28interface-name%29&dslist=ifInOctets%2CifOutOctets&range=864000&rand=95">http://localhost/./mini-graph.cgi?type=gif&target=%2Frouter-interfaces%2Fethernet3_0_0&inst=map%28interface-name%29&dslist=ifInOctets%2CifOutOctets&range=864000&rand=95</A>&quot;&gt;
+<BR>
+&lt;p&gt;&lt;table width=100% cellpadding=3&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;<A HREF="http://www.munitions.com/~jra/cricket">http://www.munitions.com/~jra/cricket</A>&quot;&gt;&lt;img
+<BR>
+align=left width=58 height=55 src=&quot;images/cricket-sm.gif&quot; border=0&gt;&lt;/a&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=15% valign=center&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p align=left&gt;&lt;font size=+2&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a
+<BR>
+href=&quot;<A HREF="http://www.munitions.com/~jra/cricket">http://www.munitions.com/~jra/cricket</A>&quot;&gt;Cricket&lt;/a&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font size=2&gt;&lt;br&gt;Version 0.66&lt;/font&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For questions or comments about this data, contact 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;mailto:cricket&quot;&gt;the Cricket Admins&lt;/a&gt;.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=120 valign=center&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;center&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a
+<BR>
+href=&quot;<A HREF="http://ee-staff.ethz.ch/~oetiker/webtools/rrdtool">http://ee-staff.ethz.ch/~oetiker/webtools/rrdtool</A>&quot;&gt;&lt;img width=120
+<BR>
+height=34 src=&quot;images/rrdtool.gif&quot; border=0&gt;&lt;/a&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/table&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font color=red&gt;&lt;/font&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<BR>
+&lt;/body&gt;
+<BR>
+&lt;/html&gt;
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+UMNet                         MichNet                         Merit RSNG
+<BR>
+------------------------------------------------------------------------
+<BR>
+<A HREF="mailto:dkoski@umich.edu?Subject=Re:%20[cricket-users]%20grapher.cgi%20problems&In-Reply-To=&lt;Pine.GSO.4.10.9906031139540.1910-100000@strangelove.ns.itd.umich.edu&gt;">dkoski@umich.edu</A>                       			    Technologist
+<BR>
+Unix Administration                                Technical Team Leader 
+<BR>
+Phone: (734)/647-8993                          Network Operations Center 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;U of M Information Technology Division
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+&quot;Congratulations to 'Voice-Diary,' our latest ONElist of the Week. 
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A> 
+<BR>
+Visit our homepage and share with us how ONElist is changing YOUR life!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0156.html">Alan Lichty: "Re: [cricket-users] grapher.cgi problems"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0154.html">Jeff Allen: "[cricket-announce] Cricket 0.66 is released"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0156.html">Alan Lichty: "Re: [cricket-users] grapher.cgi problems"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0156.html">Alan Lichty: "Re: [cricket-users] grapher.cgi problems"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0157.html">Matthew Stier: "Re: [cricket-users] grapher.cgi problems"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0200.html">Campbell Simpson: "[cricket-users] grapher.cgi problems"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#155">[ date ]</A>
+<A HREF="index.html#155">[ thread ]</A>
+<A HREF="subject.html#155">[ subject ]</A>
+<A HREF="author.html#155">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:52 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

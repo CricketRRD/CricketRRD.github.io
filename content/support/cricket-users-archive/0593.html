@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Cricket 0.70 graph problems</TITLE>
+<META NAME="Author" CONTENT="rose@gerf.org (rose@gerf.org)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Cricket 0.70 graph problems">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Cricket 0.70 graph problems</H1>
+<!-- received="Tue Sep 14 15:19:35 1999" -->
+<!-- isoreceived="19990914221935" -->
+<!-- sent="Tue, 14 Sep 1999 14:18:00 -0500 (CDT)" -->
+<!-- isosent="19990914191800" -->
+<!-- name="rose@gerf.org" -->
+<!-- email="rose@gerf.org" -->
+<!-- subject="Re: [cricket-users] Cricket 0.70 graph problems" -->
+<!-- id="199909141918.OAA07610@gerf.gerf.org" -->
+<!-- inreplyto="s7dd2e8f.012@groupwise.telecom.co.nz" -->
+<STRONG>From:</STRONG> <A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;199909141918.OAA07610@gerf.gerf.org&gt;"><EM>rose@gerf.org</EM></A><BR>
+<STRONG>Date:</STRONG> Tue Sep 14 1999 - 12:18:00 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0594.html">Warren Vanichuk: "Re: [cricket-users] Unknown subtree error?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0592.html">Brad S. Dreisbach: "[cricket-users] Unknown subtree error?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0585.html">Campbell Simpson: "[cricket-users] Cricket 0.70 graph problems"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0615.html">Adam B. Meltzer (KF6PDH): "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#593">[ date ]</A>
+<A HREF="index.html#593">[ thread ]</A>
+<A HREF="subject.html#593">[ subject ]</A>
+<A HREF="author.html#593">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;199909141918.OAA07610@gerf.gerf.org&gt;">rose@gerf.org</A>
+<BR>
+<P><P>Check that the /tmp/cricket-cache directory is writeable by whatever
+<BR>
+user runs apache on your server.  This usually is the www user.
+<BR>
+<P>The CGI scripts are run as the www user, so they are the ones writing 
+<BR>
+the pictures to the /tmp/cricket-cache directory.  Try chown'ing
+<BR>
+the directory to the www user, and see if that solves your problem.
+<BR>
+<P>Cheers,
+<BR>
+&nbsp;&nbsp;Rose
+<BR>
+<P><EM>&gt; From: &quot;Campbell Simpson&quot; &lt;<A HREF="mailto:Campbell.Simpson@telecom.co.nz?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;199909141918.OAA07610@gerf.gerf.org&gt;">Campbell.Simpson@telecom.co.nz</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I have just upgraded to RRD 1.0.7 and Cricket 0.70 and have a problem with the graphs being created (doesn't seem to matter if they are GIF or PNG). For some reason grapher is complaining about generating the graphs with the following as output if you right click on the graphic and choose to view it:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; /tmp/cricket-cache/cricket-c512ca3f.png[13-Sep-1999 16:58:35*] Could not open /tmp/cricket-cache/cricket-c512ca3f.png: No such file or directory
+</EM><BR>
+<EM>&gt; Content-Type: image/gif GIF87a_ ]
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The directory /tmp/cricket-cache exists and I have migrated my existing cricket-config and cricket-data files which were working with 0.69 to the new version of cricket. I'm running Solaris 2.6 and have all the perl modules installed but did not update any when I upgraded from 0.69 to 0.70 (do I need to?).
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Can anyone out there help me please?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Thanks in advance
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Campbell Simpson 
+</EM><BR>
+<EM>&gt; Service Platforms
+</EM><BR>
+<EM>&gt; Centralised Maintain &amp; Support
+</EM><BR>
+<EM>&gt; Telecom NZ Ltd.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ATTN ONELIST USERS: stay current on the latest activities,
+<BR>
+programs, &amp; features at ONElist by joining our member newsletter at
+<BR>
+&lt;a href=&quot; <A HREF="http://www.onelist.com/subscribe/onelist_announce">http://www.onelist.com/subscribe/onelist_announce</A> &quot;&gt;Click&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0594.html">Warren Vanichuk: "Re: [cricket-users] Unknown subtree error?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0592.html">Brad S. Dreisbach: "[cricket-users] Unknown subtree error?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0585.html">Campbell Simpson: "[cricket-users] Cricket 0.70 graph problems"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0615.html">Adam B. Meltzer (KF6PDH): "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#593">[ date ]</A>
+<A HREF="index.html#593">[ thread ]</A>
+<A HREF="subject.html#593">[ subject ]</A>
+<A HREF="author.html#593">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

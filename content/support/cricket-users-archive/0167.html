@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Cricket 0.66 is released</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Cricket 0.66 is released">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Cricket 0.66 is released</H1>
+<!-- received="Tue Jun  8 11:57:49 1999" -->
+<!-- isoreceived="19990608185749" -->
+<!-- sent="Tue, 8 Jun 1999 08:55:21 -0700 (PDT)" -->
+<!-- isosent="19990608155521" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Cricket 0.66 is released" -->
+<!-- id="199906081555.IAA14411@oops.artemis.com" -->
+<!-- inreplyto="375691D7.79D8DD6D@tddny.fujitsu.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Cricket%200.66%20is%20released&In-Reply-To=&lt;199906081555.IAA14411@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jun 08 1999 - 08:55:21 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0168.html">Jeff Allen: "Re: [cricket-users] Migrating old data from MRTG..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0166.html">Jeff Allen: "Re: [cricket-users] Error:  can't resolve &quot;isdn-gw.&quot; to IP address"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#167">[ date ]</A>
+<A HREF="index.html#167">[ thread ]</A>
+<A HREF="subject.html#167">[ subject ]</A>
+<A HREF="author.html#167">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Cricket%200.66%20is%20released&In-Reply-To=&lt;199906081555.IAA14411@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Matthew Stier wrote:
+<BR>
+<EM>&gt; This patch to grapher.cgi fixes the &quot;grapher.cgi did not produce a valid
+</EM><BR>
+<EM>&gt; header (name without value: got line &quot;bareword &quot;interface&quot; not allowed
+</EM><BR>
+<EM>&gt; while &quot;strict subs&quot; in use at (eval 4) line 1.&quot;) &quot; problem.
+</EM><BR>
+<P>I agree that the following patch will solve the symptom. But I'm still
+<BR>
+not quite certain I understand the cause enough to slap a bandaid on
+<BR>
+it.
+<BR>
+<P>To all users: if you need this patch, please, by all means, use it. I
+<BR>
+will make a decision about this for the next version and get it
+<BR>
+solved.
+<BR>
+<P>The patch is included again below:
+<BR>
+<P><EM>&gt; 
+</EM><BR>
+<EM>&gt; *** grapher.cgi Thu Jun  3 10:27:27 1999
+</EM><BR>
+<EM>&gt; --- grapher.cgi.sav     Thu Jun  3 10:26:39 1999
+</EM><BR>
+<EM>&gt; ***************
+</EM><BR>
+<EM>&gt; *** 156,165 ****
+</EM><BR>
+<EM>&gt;                 };
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;                 my(@inst) = ();
+</EM><BR>
+<EM>&gt; !               if ($needEval) {
+</EM><BR>
+<EM>&gt; !                       $inst =~ s/^map\((.*)\)$/map(qw($1))/;
+</EM><BR>
+<EM>&gt; !                       @inst = eval($inst);
+</EM><BR>
+<EM>&gt; !               }
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;                 if ($#inst+1 &gt; 1) {
+</EM><BR>
+<EM>&gt;                         # make the instance selection widget...
+</EM><BR>
+<EM>&gt; --- 156,162 ----
+</EM><BR>
+<EM>&gt;                 };
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;                 my(@inst) = ();
+</EM><BR>
+<EM>&gt; !               @inst = eval($inst) if ($needEval);
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;                 if ($#inst+1 &gt; 1) {
+</EM><BR>
+<EM>&gt;                         # make the instance selection widget...
+</EM><BR>
+<P>Thanks, Matthew, for looking into it and finding this workaround.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Cricket%200.66%20is%20released&In-Reply-To=&lt;199906081555.IAA14411@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>------------------------------------------------------------------------
+ONElist:  the best source for group communications.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Join a new list today!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0168.html">Jeff Allen: "Re: [cricket-users] Migrating old data from MRTG..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0166.html">Jeff Allen: "Re: [cricket-users] Error:  can't resolve &quot;isdn-gw.&quot; to IP address"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#167">[ date ]</A>
+<A HREF="index.html#167">[ thread ]</A>
+<A HREF="subject.html#167">[ subject ]</A>
+<A HREF="author.html#167">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:52 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: How to graph only 9am-3pm?</TITLE>
+<META NAME="Author" CONTENT="Steve Evans (sevans@richmond.k12.va.us)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: How to graph only 9am-3pm?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: How to graph only 9am-3pm?</H1>
+<!-- received="Fri Dec 17 16:20:35 1999" -->
+<!-- isoreceived="19991218002035" -->
+<!-- sent="Fri, 17 Dec 1999 16:21:03 -0500" -->
+<!-- isosent="19991217212103" -->
+<!-- name="Steve Evans" -->
+<!-- email="sevans@richmond.k12.va.us" -->
+<!-- subject="[cricket-users] Re: How to graph only 9am-3pm?" -->
+<!-- id="3.0.6.32.19991217162103.008ade90@richmond.k12.va.us" -->
+<STRONG>From:</STRONG> Steve Evans (<A HREF="mailto:sevans@richmond.k12.va.us?Subject=Re:%20[cricket-users]%20Re:%20How%20to%20graph%20only%209am-3pm?&In-Reply-To=&lt;3.0.6.32.19991217162103.008ade90@richmond.k12.va.us&gt;"><EM>sevans@richmond.k12.va.us</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Dec 17 1999 - 13:21:03 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0806.html">brett: "[cricket-users] cisco localdiretor/pix configs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0804.html">Hugo Gayosso: "Re: [cricket-users] Suggestion and Clarification"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#805">[ date ]</A>
+<A HREF="index.html#805">[ thread ]</A>
+<A HREF="subject.html#805">[ subject ]</A>
+<A HREF="author.html#805">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Steve Evans &lt;<A HREF="mailto:sevans@richmond.k12.va.us?Subject=Re:%20[cricket-users]%20Re:%20How%20to%20graph%20only%209am-3pm?&In-Reply-To=&lt;3.0.6.32.19991217162103.008ade90@richmond.k12.va.us&gt;">sevans@richmond.k12.va.us</A>&gt;
+<BR>
+<P>At 09:21 PM 12/8/99 +0900, you wrote:
+<BR>
+<EM>&gt;I'm not a export for Cricket and RRD tool, but...
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;How about disable probing during your off time?
+</EM><BR>
+<EM>&gt;i.e. for cron on system like UNIX:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;0,5,10,15,...,55,9-14,*,*,* $HOME/cricket/collect-subtrees normal
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<P>Not sure if this would work as I'm not yet familiar with the way RDD stores
+<BR>
+its data...I know it didn't work on mrtg because of the way the logfile
+<BR>
+stores info, you just get the last value sampled repeated for the times
+<BR>
+which MRTG was not running.   
+<BR>
+<P>Someone suggested writing another program to parse the mrtg's logfiles,
+<BR>
+calulate the average between 9-3, then write that agerage back to the
+<BR>
+logfile for all other times so it would then figure the weekly,monthly,and
+<BR>
+yearly averages correctly.  I'll be honest...I not THAT good.  
+<BR>
+<P>Someone said that I could do it with RDD, here is their note:
+<BR>
+<P><EM>&gt; Start using RRDtool (see contrib/14all/) and learn how to use RRDtool.
+</EM><BR>
+<EM>&gt; With this tool you can specify what interval you would like to use when
+</EM><BR>
+<EM>&gt; doing all sorts of things, including this particular calculation.
+</EM><BR>
+<EM>&gt; You could also display 8 to 3, even at 4 or 5 o'clock.
+</EM><BR>
+<EM>&gt; With some efford from your side you could also display max/min/avg from
+</EM><BR>
+<EM>&gt; 8 to 9, from 9 to 10 etcetera.
+</EM><BR>
+<P>No idea what I can do at this point.  I may go ahead and try the cron
+<BR>
+method. Thanks for your input!
+<BR>
+<P>-Steve
+<BR>
+<P><P><P><EM>&gt; &gt; From: <A HREF="mailto:sevans@richmond.k12.va.us?Subject=Re:%20[cricket-users]%20Re:%20How%20to%20graph%20only%209am-3pm?&In-Reply-To=&lt;3.0.6.32.19991217162103.008ade90@richmond.k12.va.us&gt;">sevans@richmond.k12.va.us</A>
+</EM><BR>
+<EM>&gt; &gt; Hello All - If this question is answered in the archive, please excuse
+</EM><BR>
+me, as I could not find it.
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; &gt; We are a school district and as such only operate mainly between 9am
+</EM><BR>
+and 3pm.  I want to
+<BR>
+<EM>&gt; &gt; get an average utilization of our 60 circuit bandwidth only between
+</EM><BR>
+those hours.
+<BR>
+<EM>&gt; &gt; Can Cricket do this?  If so, where do I begin?  I've got Cricket 0.70
+</EM><BR>
+installed and graphing
+<BR>
+<EM>&gt; &gt; the router interfaces.  Thanks!
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;_/  Steve Evans                 804-780-7898 Voice / 804-780-4593 Fax
+<BR>
+&nbsp;&nbsp;&nbsp;_/  Network Analyst             <A HREF="mailto:sevans@richmond.k12.va.us?Subject=Re:%20[cricket-users]%20Re:%20How%20to%20graph%20only%209am-3pm?&In-Reply-To=&lt;3.0.6.32.19991217162103.008ade90@richmond.k12.va.us&gt;">sevans@richmond.k12.va.us</A>
+<BR>
+&nbsp;&nbsp;_/  Richmond Public Schools     <A HREF="http://richmond.k12.va.us/">http://richmond.k12.va.us/</A>
+<BR>
+&nbsp;_/  
+<BR>
+_/  PGP Key Finger Print:1F1C 9EEA 282A 4F19 14E0  763B 03F2 81D1 C135 2878 
+<BR>
+/  PGP Public Key at <A HREF="http://richmond.k12.va.us/services/dit/pgp/sevans.txt">http://richmond.k12.va.us/services/dit/pgp/sevans.txt</A>
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make $$$ in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0806.html">brett: "[cricket-users] cisco localdiretor/pix configs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0804.html">Hugo Gayosso: "Re: [cricket-users] Suggestion and Clarification"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#805">[ date ]</A>
+<A HREF="index.html#805">[ thread ]</A>
+<A HREF="subject.html#805">[ subject ]</A>
+<A HREF="author.html#805">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

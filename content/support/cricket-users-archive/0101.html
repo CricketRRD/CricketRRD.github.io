@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Defaults file problem</TITLE>
+<META NAME="Author" CONTENT="Timothy Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Defaults file problem">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Defaults file problem</H1>
+<!-- received="Thu May 20 19:40:11 1999" -->
+<!-- isoreceived="19990521024011" -->
+<!-- sent="Thu, 20 May 1999 19:38:40 -0400 (EDT)" -->
+<!-- isosent="19990520233840" -->
+<!-- name="Timothy Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="Re: [cricket-users] Defaults file problem" -->
+<!-- id="Pine.LNX.3.96.990520192652.373B-100000@gunslinger.hate.org" -->
+<!-- inreplyto="199905202252.PAA08550@oops.artemis.com" -->
+<STRONG>From:</STRONG> Timothy Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.LNX.3.96.990520192652.373B-100000@gunslinger.hate.org&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu May 20 1999 - 16:38:40 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0102.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0100.html">Jeff Allen: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0100.html">Jeff Allen: "Re: [cricket-users] Defaults file problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0102.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0102.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#101">[ date ]</A>
+<A HREF="index.html#101">[ thread ]</A>
+<A HREF="subject.html#101">[ subject ]</A>
+<A HREF="author.html#101">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Timothy Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.LNX.3.96.990520192652.373B-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P>On Thu, 20 May 1999, Jeff Allen wrote:
+<BR>
+<P><EM>&gt; From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.LNX.3.96.990520192652.373B-100000@gunslinger.hate.org&gt;">jra@corp.webtv.net</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; First, the map() trick only works with the tag named 'inst'. So that's
+</EM><BR>
+<EM>&gt; why things aren't working for you -- you were expecting it to work for
+</EM><BR>
+<EM>&gt; any tag. Gotcha! (Sorry, I wasn't trying to getcha...)
+</EM><BR>
+<P>Well, that certainly explains it. :)
+<BR>
+&nbsp;
+<BR>
+<EM>&gt; The question is, can you use map() to solve your problem?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I think you can. Bascially, the interface table in a Cisco router with
+</EM><BR>
+<EM>&gt; an interface with frame relay on it looks like this:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 		1		Serial0
+</EM><BR>
+<EM>&gt; 		2		Serial0.1
+</EM><BR>
+<EM>&gt; 		3		Serial0.2
+</EM><BR>
+<P>Except for the transmission.frame-relay statistics.  Because the ifIndex
+<BR>
+for Serial0.2 = 3.  But the frame stats come under
+<BR>
+transmission.frameRelay...frInOctets.1.2, where the first numeral is the
+<BR>
+ifIndex of the frmae host interface, and the second is the instance
+<BR>
+sub-identifier index doohickey.  So I need to find a way to tell it how to
+<BR>
+find the host instance and sub-instance and use those to to the work with.
+<BR>
+<P><EM>&gt; So, you should be able to set inst to map(interface-name) and set
+</EM><BR>
+<EM>&gt; interface-name to Serial0.2, and then inst will get set to 3. I know
+</EM><BR>
+<EM>&gt; you have the right data to be able to put &quot;Serial0.2&quot; into the target
+</EM><BR>
+<EM>&gt; file, since your example shows you were ready to do that with frhost
+</EM><BR>
+<EM>&gt; and frinst. In fact, if you really want to keep using frhost and
+</EM><BR>
+<EM>&gt; frinst, you can do this:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 		instance-name	=	&quot;%frhost%.%frinst%&quot;
+</EM><BR>
+<P>The problem there is that if I just use %inst%, then I am looking for 
+<BR>
+transmission.frameRelay...frInOctets.3   
+<BR>
+<P>&nbsp;
+<BR>
+<EM>&gt; Assuming you are using the default ds-sources, this will result in an
+</EM><BR>
+<EM>&gt; OID being created that works right.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; However, I think I can tell from the OID's you are getting that your
+</EM><BR>
+<EM>&gt; ds-source looks something like this:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 		ds-source	=	snmp://%snmp%/ifInOctets.%frhost%.%frinst%
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; That would seem to be your problem.
+</EM><BR>
+<P><P>Yes it would.  Is there a way to pull a value directly out of the 
+<BR>
+interfaces file and pass it's value to the Defaults file for use?
+<BR>
+<P>It's seems so close, yet so far.  :)
+<BR>
+<P>Thanks for the help Jeff.  By the way, if your looking for suggestions for
+<BR>
+the suggestion box ,how about beign able to use map() with other than
+<BR>
+inst.  :)
+<BR>
+<P>-Tim
+<BR>
+<P>Tim Kennedy
+<BR>
+<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.LNX.3.96.990520192652.373B-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>
+<BR>
+<P>Disclaimer:  since this came from this me, not that ---&gt; me, 
+<BR>
+it is persona mail, and in no way reflects any opinions or
+<BR>
+policies of my employer, whom I won't mention here, just to 
+<BR>
+keep things clear of them. (new email policy at work)
+<BR>
+Usual stuff about confidentiality and whatnot... intended
+<BR>
+receivers, blah, blah, etc., etc.
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+Looking to expand your world?
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+ONElist has nearly 150,000 e-mail communities from which to chose!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0102.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0100.html">Jeff Allen: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0100.html">Jeff Allen: "Re: [cricket-users] Defaults file problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0102.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0102.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#101">[ date ]</A>
+<A HREF="index.html#101">[ thread ]</A>
+<A HREF="subject.html#101">[ subject ]</A>
+<A HREF="author.html#101">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

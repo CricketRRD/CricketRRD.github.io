@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Problem with RRDs::graph in grap</TITLE>
+<META NAME="Author" CONTENT="Bjorn Nordbo (bn@nextel.no)">
+<META NAME="Subject" CONTENT="[cricket-users] Problem with RRDs::graph in grapher.cgi">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Problem with RRDs::graph in grapher.cgi</H1>
+<!-- received="Thu Dec 16 05:03:40 1999" -->
+<!-- isoreceived="19991216130340" -->
+<!-- sent="Thu, 16 Dec 1999 11:02:55 +0100" -->
+<!-- isosent="19991216100255" -->
+<!-- name="Bjorn Nordbo" -->
+<!-- email="bn@nextel.no" -->
+<!-- subject="[cricket-users] Problem with RRDs::graph in grapher.cgi" -->
+<!-- id="19991216110255.E542@nextel.no" -->
+<STRONG>From:</STRONG> Bjorn Nordbo (<A HREF="mailto:bn@nextel.no?Subject=Re:%20[cricket-users]%20Problem%20with%20RRDs::graph%20in%20grapher.cgi&In-Reply-To=&lt;19991216110255.E542@nextel.no&gt;"><EM>bn@nextel.no</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Dec 16 1999 - 02:02:55 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0800.html">Bjorn Nordbo: "Re: [cricket-users] Problem with RRDs::graph in grapher.cgi"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0798.html">James R Grinter: "Re: [cricket-users] How do I get started w/OIDs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0800.html">Bjorn Nordbo: "Re: [cricket-users] Problem with RRDs::graph in grapher.cgi"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0800.html">Bjorn Nordbo: "Re: [cricket-users] Problem with RRDs::graph in grapher.cgi"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#799">[ date ]</A>
+<A HREF="index.html#799">[ thread ]</A>
+<A HREF="subject.html#799">[ subject ]</A>
+<A HREF="author.html#799">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Bjorn Nordbo &lt;<A HREF="mailto:bn@nextel.no?Subject=Re:%20[cricket-users]%20Problem%20with%20RRDs::graph%20in%20grapher.cgi&In-Reply-To=&lt;19991216110255.E542@nextel.no&gt;">bn@nextel.no</A>&gt;
+<BR>
+<P>I am having serious trouble with this chunk of code:
+<BR>
+<P>Line 878 - 887:
+<BR>
+<P>my(@args) = (
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;/dev/null&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;DEF:ds0=$rrdfile:ds$dsnum:AVERAGE&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;DEF:ds1=$rrdfile:ds$dsnum:MAX&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;CDEF:sds0=ds0,$scale&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;CDEF:sds1=ds1,$scale&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;PRINT:sds0:AVERAGE:\%f&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;PRINT:sds1:MAX:\%f&quot; );
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;($mmax, undef, undef) = RRDs::graph @args;
+<BR>
+<P>At my system, this RRDs::graph returns undef, meaning an error has
+<BR>
+occured. When I check RRDs::error, it is set to &quot;can't make a graph
+<BR>
+without contents&quot;. I don't get it. No matter what I do, I can't make
+<BR>
+RRDs::graph graph. Naturally, this leads to a lot of warnings in the
+<BR>
+logs, and the Max and Average values are set to zero. OTOH, the graphs
+<BR>
+show up nicely on the web page, it's only this average and max value
+<BR>
+fetching &quot;graph&quot; that doesn't work properly.
+<BR>
+<P>This is for Cricket 0.70, rrdtool 1.0.8 and Perl 5.002 on Solaris
+<BR>
+2.6/UltraII.
+<BR>
+<P>BTW, isn't %lf right, not %f?
+<BR>
+<P>This script fail here. Could anyone please tell me if they can make
+<BR>
+it work?
+<BR>
+<P><P>#!/local/bin/perl5.005 -w
+<BR>
+<P>use lib '/local/net/experimental/bn/lib/perl';
+<BR>
+use RRDs;
+<BR>
+<P>$rrdfile = '/local/net/experimental/bn/cricket-data/router-interfaces/serial11_1
+<BR>
+_3.rrd';
+<BR>
+$dsnum = 1;
+<BR>
+$scale = 8;
+<BR>
+<P>my($args) =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;/dev/null
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEF:ds0=$rrdfile:ds$dsnum:AVERAGE
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEF:ds1=$rrdfile:ds$dsnum:MAX
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDEF:sds0=ds0,$scale
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDEF:sds1=ds1,$scale
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT:sds0:AVERAGE:\%f
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT:sds1:MAX:\%f&quot;;
+<BR>
+<P>($mmax, undef, undef) = RRDs::graph $args;
+<BR>
+$error = RRDs::error;
+<BR>
+print &quot;$error\n&quot; if (defined $error);
+<BR>
+print $mmax;
+<BR>
+<P><P>Any help greatly appreciated!
+<BR>
+<P>Yours,
+<BR>
+<P>Bjørn Nordbo &lt;<A HREF="mailto:bn@nextel.no?Subject=Re:%20[cricket-users]%20Problem%20with%20RRDs::graph%20in%20grapher.cgi&In-Reply-To=&lt;19991216110255.E542@nextel.no&gt;">bn@nextel.no</A>&gt;
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make $$$ by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0800.html">Bjorn Nordbo: "Re: [cricket-users] Problem with RRDs::graph in grapher.cgi"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0798.html">James R Grinter: "Re: [cricket-users] How do I get started w/OIDs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0800.html">Bjorn Nordbo: "Re: [cricket-users] Problem with RRDs::graph in grapher.cgi"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0800.html">Bjorn Nordbo: "Re: [cricket-users] Problem with RRDs::graph in grapher.cgi"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#799">[ date ]</A>
+<A HREF="index.html#799">[ thread ]</A>
+<A HREF="subject.html#799">[ subject ]</A>
+<A HREF="author.html#799">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

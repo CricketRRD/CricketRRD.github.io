@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>cricket-users: RE: [cricket-users] Strange output from cron</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Strange output from cron">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Strange output from cron</H1>
+<!-- received="Fri Oct 29 16:04:33 1999" -->
+<!-- isoreceived="19991029230433" -->
+<!-- sent="Fri, 29 Oct 1999 13:59:05 -0600" -->
+<!-- isosent="19991029195905" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="RE: [cricket-users] Strange output from cron" -->
+<!-- id="6388138ED485D311B7230000F804A4DF5D8B32@amethyst.msu.montana.edu" -->
+<!-- charset="windows-1252" -->
+<!-- inreplyto="[cricket-users] Strange output from cron" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Strange%20output%20from%20cron&In-Reply-To=&lt;6388138ED485D311B7230000F804A4DF5D8B32@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Oct 29 1999 - 12:59:05 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0695.html">Ambrose Chiu: "[cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0693.html">the+cricket@llama.com: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0692.html">Pradeep Subramaniam: "[cricket-users] Strange output from cron"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#694">[ date ]</A>
+<A HREF="index.html#694">[ thread ]</A>
+<A HREF="subject.html#694">[ subject ]</A>
+<A HREF="author.html#694">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Strange%20output%20from%20cron&In-Reply-To=&lt;6388138ED485D311B7230000F804A4DF5D8B32@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>This is because the interfaces are named the same and cricket stores
+<BR>
+data files based on the target name which is the same on both routers.  
+<BR>
+It is giving a error because you get data, then attempt to overwrite the
+<BR>
+data right after with more data from the other router.
+<BR>
+<P>To solve this:
+<BR>
+Create two seperate directory's under cricket-config for each router.
+<BR>
+Then place the Targets file for each router under their own directories.
+<BR>
+Then cricket will create unique data files.
+<BR>
+<P>-----Original Message-----
+<BR>
+From: <A HREF="mailto:pradeep@tradeit.com?Subject=RE:%20[cricket-users]%20Strange%20output%20from%20cron&In-Reply-To=&lt;6388138ED485D311B7230000F804A4DF5D8B32@amethyst.msu.montana.edu&gt;">pradeep@tradeit.com</A>
+<BR>
+To: <A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20Strange%20output%20from%20cron&In-Reply-To=&lt;6388138ED485D311B7230000F804A4DF5D8B32@amethyst.msu.montana.edu&gt;">cricket-users@onelist.com</A>
+<BR>
+Sent: 10/29/99 1:13 PM
+<BR>
+Subject: [cricket-users] Strange output from cron
+<BR>
+<P>From: <A HREF="mailto:pradeep@tradeit.com?Subject=RE:%20[cricket-users]%20Strange%20output%20from%20cron&In-Reply-To=&lt;6388138ED485D311B7230000F804A4DF5D8B32@amethyst.msu.montana.edu&gt;">pradeep@tradeit.com</A> (Pradeep Subramaniam)
+<BR>
+<P><P>I get the following message every now and then from the cron job, which
+<BR>
+runs every 5 minutes.
+<BR>
+<P>I am monitoring two routers on our network, one have two ethernet ports
+<BR>
+(0 and 1) while the other has only one ethernet (0) and the other is
+<BR>
+the serial (BRI0) connection to the ISDN line.
+<BR>
+<P>Can anyone out there tell me what I may be doing wrong?
+<BR>
+<P>I would also like to know the best way to do this. Both E0 interfaces
+<BR>
+come up with the same description as one of them. How can I monitor
+<BR>
+similarly named interfaces on different routers?
+<BR>
+<P>Thanks in advance.
+<BR>
+<P>Pradeep.
+<BR>
+<P><EM>&gt; Your &quot;cron&quot; job on radar
+</EM><BR>
+<EM>&gt; $HOME/cricket/collect-subtrees normal 2&gt;&amp;1 &gt; /dev/null
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; produced the following output:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Error and the lines leading up to it:
+</EM><BR>
+<EM>&gt; [29-Oct-1999 15:00:03 ] Retrieved data for ethernet0 (4):
+</EM><BR>
+899778571,1879796060,0,18,3623716,3416987
+<BR>
+<EM>&gt; [29-Oct-1999 15:00:03 ] Retrieved data for ethernet1 (2):
+</EM><BR>
+2283352642,369100938,17,8887,212624644,175882823
+<BR>
+<EM>&gt; [29-Oct-1999 15:00:03 ] Retrieved data for bri0 (1):
+</EM><BR>
+148814,176489,0,0,30204,37145
+<BR>
+<EM>&gt; [29-Oct-1999 15:00:03 ] Retrieved data for ethernet0 (4):
+</EM><BR>
+899788733,1879809942,0,18,3623734,3417003
+<BR>
+<EM>&gt; [29-Oct-1999 15:00:03*] Cannot update
+</EM><BR>
+/home/cricket/cricket-config/../cricket-data//router-interfaces/ethernet
+<BR>
+0.rrd: illegal attempt to update using time 941223603 when last update
+<BR>
+time is 941223603 (minimum one second step)
+<BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P><PRE>
+-- 
+Pradeep Subramaniam,                    | 
+Senior Systems Administrator    	| You can fool some of the
+people
+Versus Technologies  Inc.		|   all the time, but not all
+the
+e-mail: <A HREF="mailto:pradeep@tradeit.com?Subject=RE:%20[cricket-users]%20Strange%20output%20from%20cron&In-Reply-To=&lt;6388138ED485D311B7230000F804A4DF5D8B32@amethyst.msu.montana.edu&gt;">pradeep@tradeit.com</A>		|   people all the time.
+phone: (416) 214 7979 			|
+fax:   (416) 214 9065                   | - Yet another brilliant
+philosopher
+cell:  (416) 991 9625			|
+************************************************************************
+*******
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>  Hey Freelancers:  Find your next project through JobSwarm!  
+  You can even make $$$ in your sleep by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0695.html">Ambrose Chiu: "[cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0693.html">the+cricket@llama.com: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0692.html">Pradeep Subramaniam: "[cricket-users] Strange output from cron"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#694">[ date ]</A>
+<A HREF="index.html#694">[ thread ]</A>
+<A HREF="subject.html#694">[ subject ]</A>
+<A HREF="author.html#694">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

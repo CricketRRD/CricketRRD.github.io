@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: [Question about subtree]</TITLE>
+<META NAME="Author" CONTENT="Alan Lichty (alan_lichty@eli.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: [Question about subtree]">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: [Question about subtree]</H1>
+<!-- received="Tue May  4 16:26:56 1999" -->
+<!-- isoreceived="19990504232656" -->
+<!-- sent="Tue, 4 May 1999 13:24:45 -0700 (PDT)" -->
+<!-- isosent="19990504202445" -->
+<!-- name="Alan Lichty" -->
+<!-- email="alan_lichty@eli.net" -->
+<!-- subject="[cricket-users] Re: [Question about subtree]" -->
+<!-- id="Pine.GSO.4.05.9905041302580.19575-100000@mars.eli.net" -->
+<!-- inreplyto="199905041930.MAA14679@oops.artemis.com" -->
+<STRONG>From:</STRONG> Alan Lichty (<A HREF="mailto:alan_lichty@eli.net?Subject=Re:%20[cricket-users]%20Re:%20[Question%20about%20subtree]&In-Reply-To=&lt;Pine.GSO.4.05.9905041302580.19575-100000@mars.eli.net&gt;"><EM>alan_lichty@eli.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue May 04 1999 - 13:24:45 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0021.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0019.html">Jeff Allen: "[cricket-users] Re: [Question about subtree]"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0019.html">Jeff Allen: "[cricket-users] Re: [Question about subtree]"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#20">[ date ]</A>
+<A HREF="index.html#20">[ thread ]</A>
+<A HREF="subject.html#20">[ subject ]</A>
+<A HREF="author.html#20">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Alan Lichty&quot; &lt;<A HREF="mailto:alan_lichty@eli.net?Subject=Re:%20[cricket-users]%20Re:%20[Question%20about%20subtree]&In-Reply-To=&lt;Pine.GSO.4.05.9905041302580.19575-100000@mars.eli.net&gt;">alan_lichty@eli.net</A>&gt;
+<BR>
+<P>Jeff -
+<BR>
+<P>I am glad to see this posting.  I am just now getting near to my final
+<BR>
+version of how to configure Cricket to take over my old MRTG tasks and
+<BR>
+this is one point that has been a problem for me.  
+<BR>
+<P>I want to be able to parallelize the data collection process by
+<BR>
+launching a separate collector run for each router in my list from a
+<BR>
+script at 2 second intervals.  I got around the bug you describe below
+<BR>
+by making a script that calls collector directly instead of using
+<BR>
+collect-subtree and then having a -base option to switch the config
+<BR>
+tree base.  This results in being able to collect the interface data
+<BR>
+for 35 routers in less than 1 minute (roughly 1400 interfaces).
+<BR>
+<P>The downside is that I have to use my own graphing tools, 'cuz
+<BR>
+grapher.cgi doesn't like the base= option and gives the following
+<BR>
+error:
+<BR>
+<P>/usr/local/cricket/public_html/grapher.cgi did not produce a valid
+<BR>
+header (name without value: got line &quot;can't use an undefined value as
+<BR>
+a symbol reference at /usr/local/cricket/public_html/./lib/rrd/file.pm
+<BR>
+line 75.&quot;) 
+<BR>
+<P>I would love to scrap this data collection technique and use the
+<BR>
+subtree stuff directly, but need to be able to go farther down the
+<BR>
+tree than 1 subdirectory - preferably up to 2 or 3 levels down.  This
+<BR>
+would allow for something like the following:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router chassis      router1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/                   / 
+<BR>
+$HOME/cricket-config/routers - router interfaces - router2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router3
+<BR>
+<P>where a new collect-subtree is launched for each router subdirectory. 
+<BR>
+My tree is more elaborate than the one shown above, but there are
+<BR>
+practical limits to ascii art.
+<BR>
+<P>I do have some new graphing tools that allow for frame based
+<BR>
+navigation through my devices and interfaces, but the version I have
+<BR>
+so far is a prototype that is specific to my config tree.  You had
+<BR>
+mentioned that you had a new version of ConfigTree.pm at the NetA
+<BR>
+conference, so I was waiting to see that one before trying to make it
+<BR>
+more generic.
+<BR>
+<P>I also have tweaked an old version of log2rrd.pl from an early release
+<BR>
+of rrdtool to function with the RRDs perl interface to convert old
+<BR>
+MRTG logs if anyone is interested.  I am keeping track of the steps to
+<BR>
+moving an entrenched MRTG site over to Cricket and will submit the
+<BR>
+whole pile when I get done.
+<BR>
+<P>Alan Lichty
+<BR>
+Internetworking Planner
+<BR>
+Electric Lightwave, Inc.
+<BR>
+(360)816-4167
+<BR>
+<P><P>On Tue, 4 May 1999, Jeff Allen wrote:
+<BR>
+<P><EM>&gt; From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20[Question%20about%20subtree]&In-Reply-To=&lt;Pine.GSO.4.05.9905041302580.19575-100000@mars.eli.net&gt;">jra@corp.webtv.net</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; jmpark wrote:
+</EM><BR>
+<EM>&gt; &gt; Is it possible to define subdirectory in file &quot;subtrees&quot;
+</EM><BR>
+<EM>&gt; &gt; like this
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; subtree normal:
+</EM><BR>
+<EM>&gt; &gt; 	device
+</EM><BR>
+<EM>&gt; &gt; 	traffic/lan
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; No, there's a bug (misdesign, actually) in the ConfigTree.pm module
+</EM><BR>
+<EM>&gt; that keeps this kind of thing from working right. You can specify
+</EM><BR>
+<EM>&gt; subtrees one subdirectoy donw only at this point.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I am working on a spiffy replacement for the ConfigTree.pm module that
+</EM><BR>
+<EM>&gt; will make it possible to process any subtree individually. It's not
+</EM><BR>
+<EM>&gt; done yet. :)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -- 
+</EM><BR>
+<EM>&gt; Jeff R. Allen                   |   <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20[Question%20about%20subtree]&In-Reply-To=&lt;Pine.GSO.4.05.9905041302580.19575-100000@mars.eli.net&gt;">jra@corp.webtv.net</A> (work)
+</EM><BR>
+<EM>&gt; WebTV Networks, Inc.            |   <A HREF="mailto:jeff.allen@acm.org?Subject=Re:%20[cricket-users]%20Re:%20[Question%20about%20subtree]&In-Reply-To=&lt;Pine.GSO.4.05.9905041302580.19575-100000@mars.eli.net&gt;">jeff.allen@acm.org</A> (personal)
+</EM><BR>
+<EM>&gt; Service Operations Toolsmith    |   <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; With more than 14 million emails exchanged monthly.
+</EM><BR>
+<EM>&gt; <A HREF="http://www.ONElist.com">http://www.ONElist.com</A>
+</EM><BR>
+<EM>&gt; ONElist is truly helping connect the world!
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+ONElist:  bringing the world together.
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Join today!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0021.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0019.html">Jeff Allen: "[cricket-users] Re: [Question about subtree]"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0019.html">Jeff Allen: "[cricket-users] Re: [Question about subtree]"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#20">[ date ]</A>
+<A HREF="index.html#20">[ thread ]</A>
+<A HREF="subject.html#20">[ subject ]</A>
+<A HREF="author.html#20">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:47 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Another problem with cricket-0.68</TITLE>
+<META NAME="Author" CONTENT="Matthew Stier (Matthew.Stier@tddny.fujitsu.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Another problem with cricket-0.68">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Another problem with cricket-0.68</H1>
+<!-- received="Mon Jul 12 17:36:33 1999" -->
+<!-- isoreceived="19990713003633" -->
+<!-- sent="Mon, 12 Jul 1999 17:34:51 -0400" -->
+<!-- isosent="19990712213451" -->
+<!-- name="Matthew Stier" -->
+<!-- email="Matthew.Stier@tddny.fujitsu.com" -->
+<!-- subject="[cricket-users] Another problem with cricket-0.68" -->
+<!-- id="378A5F7B.9F1B445A@tddny.fujitsu.com" -->
+<STRONG>From:</STRONG> Matthew Stier (<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=Re:%20[cricket-users]%20Another%20problem%20with%20cricket-0.68&In-Reply-To=&lt;378A5F7B.9F1B445A@tddny.fujitsu.com&gt;"><EM>Matthew.Stier@tddny.fujitsu.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jul 12 1999 - 14:34:51 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0305.html">Berg, Ivan: "[cricket-users] Possible feature?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0303.html">Jeff Allen: "[cricket-users] Re: [rrd-users] Will there be a front-end for rrdtool that uses MRTG cfg files?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#304">[ date ]</A>
+<A HREF="index.html#304">[ thread ]</A>
+<A HREF="subject.html#304">[ subject ]</A>
+<A HREF="author.html#304">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Matthew Stier &lt;<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=Re:%20[cricket-users]%20Another%20problem%20with%20cricket-0.68&In-Reply-To=&lt;378A5F7B.9F1B445A@tddny.fujitsu.com&gt;">Matthew.Stier@tddny.fujitsu.com</A>&gt;
+<BR>
+<P>Okay, I've run into another problem with cricket-0.68.
+<BR>
+<P>I am receiving this message when trying to access the webpage for a
+<BR>
+Cisco Catalyst 5000 EtherSwitch.
+<BR>
+<P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[12/Jul/1999:17:22:44] failure (  263): for host
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;167.254.240.152 trying to GET /~cricket/cricket/grapher.cgi,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cgieng_scan_headers reports: the CGI program
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/d0/cricket/public_html/cricket/grapher.cgi did not produce a
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid header (name without value: got line &quot;use of
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uninitialized value at
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/d0/cricket/public_html/cricket/./lib/configtree/cache.pm line
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;222.&quot;)
+<BR>
+<P>I am using the same instance technique &quot;(1..4)&quot; as the sample config
+<BR>
+file to specify multiple interfaces.  When I change the
+<BR>
+&quot;inst&quot; declaration to a single number, grapher.cgi is able to create the
+<BR>
+graph. (So that tells me that &quot;collector&quot; is working, and the problem is
+<BR>
+strickly in graphing.)
+<BR>
+<P>The following clipping demonstrates the problem. The target c5k-a
+<BR>
+works.  The target c5k-b generates the error message above.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target c5k-a
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      = &quot;Cisco Catalyst 5000 in west wiring
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;closet&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst=1
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target c5k-b
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      = &quot;Cisco Catalyst 5000 in central
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wiring closet&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst=(1..4)
+<BR>
+<P><P>I have not had sufficient time today to identify the cause.
+<BR>
+<P><PRE>
+--
+Matthew Lee Stier                  *  Fujitsu Network Communications
+Unix Systems Administrator         |  Two Blue Hill Plaza
+Ph: 914-731-2097 Fx: 914-731-2011  |  Sixth Floor
+<A HREF="mailto:Matthew.Stier@fnc.fujitsu.com?Subject=Re:%20[cricket-users]%20Another%20problem%20with%20cricket-0.68&In-Reply-To=&lt;378A5F7B.9F1B445A@tddny.fujitsu.com&gt;">Matthew.Stier@fnc.fujitsu.com</A>      *  Pearl River, NY 10965
+<P><P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>How has ONElist changed your life?
+Share your story with us at <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0305.html">Berg, Ivan: "[cricket-users] Possible feature?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0303.html">Jeff Allen: "[cricket-users] Re: [rrd-users] Will there be a front-end for rrdtool that uses MRTG cfg files?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#304">[ date ]</A>
+<A HREF="index.html#304">[ thread ]</A>
+<A HREF="subject.html#304">[ subject ]</A>
+<A HREF="author.html#304">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:56 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

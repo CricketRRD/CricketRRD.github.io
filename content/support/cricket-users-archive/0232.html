@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] help: now where to look</TITLE>
+<META NAME="Author" CONTENT="Pantazis, Dionysios J. (DPantazis@tt-cbm.com)">
+<META NAME="Subject" CONTENT="[cricket-users] help: now where to look">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] help: now where to look</H1>
+<!-- received="Wed Jun 23 16:41:25 1999" -->
+<!-- isoreceived="19990623234125" -->
+<!-- sent="Wed, 23 Jun 1999 15:37:59 -0500" -->
+<!-- isosent="19990623203759" -->
+<!-- name="Pantazis, Dionysios J." -->
+<!-- email="DPantazis@tt-cbm.com" -->
+<!-- subject="[cricket-users] help: now where to look" -->
+<!-- id="77D0520E20F0D21193C300A0C96B754F10F6C4@lza-chicago.com" -->
+<STRONG>From:</STRONG> Pantazis, Dionysios J. (<A HREF="mailto:DPantazis@tt-cbm.com?Subject=Re:%20[cricket-users]%20help:%20now%20where%20to%20look&In-Reply-To=&lt;77D0520E20F0D21193C300A0C96B754F10F6C4@lza-chicago.com&gt;"><EM>DPantazis@tt-cbm.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jun 23 1999 - 13:37:59 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0233.html">James Pichardo: "[cricket-users] HELP"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0231.html">Berg, Ivan: "[cricket-users] Data combination"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0245.html">Jeff Allen: "Re: [cricket-users] help: now where to look"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0245.html">Jeff Allen: "Re: [cricket-users] help: now where to look"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#232">[ date ]</A>
+<A HREF="index.html#232">[ thread ]</A>
+<A HREF="subject.html#232">[ subject ]</A>
+<A HREF="author.html#232">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Pantazis, Dionysios J.&quot; &lt;<A HREF="mailto:DPantazis@tt-cbm.com?Subject=Re:%20[cricket-users]%20help:%20now%20where%20to%20look&In-Reply-To=&lt;77D0520E20F0D21193C300A0C96B754F10F6C4@lza-chicago.com&gt;">DPantazis@tt-cbm.com</A>&gt;
+<BR>
+<P>first off, is there a list archive somewhere? i tried to search for one at
+<BR>
+onelist but no luck. 
+<BR>
+(really i would have searched the archive to answer my questions if i could
+<BR>
+find one before posting)
+<BR>
+<P>I figured our what/where extra perl modules i needed, thanks to Mike Jones
+<BR>
+(DB_File, Time::Date, db-2.7.4)
+<BR>
+<P>from CHANGES.txt instructions, run the following to check for DB_File, perl
+<BR>
+-MDB_File -e {}
+<BR>
+<P>i get no response, what should I get?
+<BR>
+<P>[cricket@dudok1 cricket]$  perl -MDB_File -e {}
+<BR>
+[cricket@dudok1 cricket]$
+<BR>
+<P>I am still getting errors even though i compile and collect.  screen dump to
+<BR>
+follow..it appears that the base dir is not passed on correctly (I created a
+<BR>
+user cricket, with homedir /home/cricket and then gzip|tar'd the file =&gt;
+<BR>
+cricket-0.67/, which i then linked that to cricket /home/cricket/cricket)
+<BR>
+<P>the 'missing' file is actually there, only its in 
+<BR>
+/home/cricket/cricket/cricket-config/config.db
+<BR>
+<P>collector is looking for it in
+<BR>
+/home/cricket/cricket-config/config.db
+<BR>
+<P>where does the gBase variable get defined/modified?
+<BR>
+i suppose that i could fudge it and move things around but that is seems to
+<BR>
+be too much of a hack
+<BR>
+what is the best way to fix?
+<BR>
+also, should i get and extended output here by useing the -logLevel debug
+<BR>
+option?
+<BR>
+<P>TIA
+<BR>
+<P>dennis
+<BR>
+<P><P>[cricket@dudok1 cricket]$ ls
+<BR>
+CHANGES            README             VERSION
+<BR>
+compile*           doc/               lib/               subtree-sets
+<BR>
+COPYING            THANKS             collect-subtrees*  configure*
+<BR>
+grapher.cgi*       mini-graph.cgi*    util/
+<BR>
+FAQ                TODO               collector*         cricket-config/
+<BR>
+images/            sample-config/
+<BR>
+[cricket@dudok1 cricket]$ ./compile -base cricket-config
+<BR>
+[23-Jun-1999 11:28:29 ] Starting compile: Cricket version 0.67 ( Mon Jun 21
+<BR>
+17:23:58 CDT 1999 )
+<BR>
+[23-Jun-1999 11:28:31 ] Processed 50 nodes (in 25 files) in 4 seconds.
+<BR>
+[cricket@dudok1 cricket]$ ls cricket-config/ -l
+<BR>
+total 143
+<BR>
+-rw-rw-r--   1 cricket  cricket      6358 Jun 21 17:50 Defaults
+<BR>
+drwxrwsr-x   5 cricket  cricket      1024 Jun 21 17:49 atm-interfaces/
+<BR>
+-rw-r--r--   1 cricket  cricket    167936 Jun 23 11:28 config.db
+<BR>
+drwxrwsr-x   2 cricket  cricket      1024 Jun 21 17:49 http-performance/
+<BR>
+drwxrwsr-x   2 cricket  cricket      1024 Jun 21 17:49 news-server/
+<BR>
+drwxrwsr-x   2 cricket  cricket      1024 Jun 21 17:49 portmasters/
+<BR>
+drwxrwsr-x   2 cricket  cricket      1024 Jun 21 17:49 router-interfaces/
+<BR>
+drwxrwsr-x   2 cricket  cricket      1024 Jun 23 10:43 routers/
+<BR>
+drwxrwsr-x   2 cricket  cricket      1024 Jun 21 17:49 routing/
+<BR>
+drwxrwsr-x   2 cricket  cricket      1024 Jun 21 17:49 squid-proxy/
+<BR>
+drwxrwsr-x   2 cricket  cricket      1024 Jun 21 17:49 switch-ports/
+<BR>
+drwxrwsr-x   2 cricket  cricket      1024 Jun 21 17:49 switches/
+<BR>
+<P>&lt;cool, i get the config.db file generated&gt;
+<BR>
+<P>[cricket@dudok1 cricket]$ ./collector /routers
+<BR>
+[23-Jun-1999 11:30:54 ] Starting collector: Cricket version 0.67 ( Mon Jun
+<BR>
+21 17:23:58 CDT 1999 )
+<BR>
+[23-Jun-1999 11:30:54*] Failed to open compiled config tree from
+<BR>
+/home/cricket/cricket-config/config.db: No such file or directory
+<BR>
+Exiting due to unrecoverble error.
+<BR>
+[cricket@dudok1 cricket]$ ./collector -logLevel debug /routers
+<BR>
+[23-Jun-1999 11:31:22 ] Starting collector: Cricket version 0.67 ( Mon Jun
+<BR>
+21 17:23:58 CDT 1999 )
+<BR>
+[23-Jun-1999 11:31:22*] Failed to open compiled config tree from
+<BR>
+/home/cricket/cricket-config/config.db: No such file or directory
+<BR>
+Exiting due to unrecoverble error.
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Find people who care about what you care about.
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+At ONElist:  your connection to community.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0233.html">James Pichardo: "[cricket-users] HELP"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0231.html">Berg, Ivan: "[cricket-users] Data combination"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0245.html">Jeff Allen: "Re: [cricket-users] help: now where to look"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0245.html">Jeff Allen: "Re: [cricket-users] help: now where to look"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#232">[ date ]</A>
+<A HREF="index.html#232">[ thread ]</A>
+<A HREF="subject.html#232">[ subject ]</A>
+<A HREF="author.html#232">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:54 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

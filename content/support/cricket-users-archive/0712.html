@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Monitoring Load Average</TITLE>
+<META NAME="Author" CONTENT="Hugo Gayosso (qztf7k@powertrain.mpg.gm.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Monitoring Load Average">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Monitoring Load Average</H1>
+<!-- received="Wed Nov  3 08:58:24 1999" -->
+<!-- isoreceived="19991103165824" -->
+<!-- sent="Wed, 03 Nov 1999 08:50:26 -0500 (EST)" -->
+<!-- isosent="19991103135026" -->
+<!-- name="Hugo Gayosso" -->
+<!-- email="qztf7k@powertrain.mpg.gm.com" -->
+<!-- subject="RE: [cricket-users] Monitoring Load Average" -->
+<!-- id="XFMail.991103085026.qztf7k@powertrain.mpg.gm.com" -->
+<!-- inreplyto="941602625.20948@onelist.com" -->
+<STRONG>From:</STRONG> Hugo Gayosso (<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20Monitoring%20Load%20Average&In-Reply-To=&lt;XFMail.991103085026.qztf7k@powertrain.mpg.gm.com&gt;"><EM>qztf7k@powertrain.mpg.gm.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Nov 03 1999 - 05:50:26 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0713.html">Mark Skinner: "[cricket-users] Saving 5 min samples"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0711.html">shane@bratnet.net: "[cricket-users] Monitoring Load Average"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0711.html">shane@bratnet.net: "[cricket-users] Monitoring Load Average"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0714.html">Mark Krenz: "Re: [cricket-users] Monitoring Load Average"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#712">[ date ]</A>
+<A HREF="index.html#712">[ thread ]</A>
+<A HREF="subject.html#712">[ subject ]</A>
+<A HREF="author.html#712">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Hugo Gayosso &lt;<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20Monitoring%20Load%20Average&In-Reply-To=&lt;XFMail.991103085026.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>&gt;
+<BR>
+<P>-----BEGIN PGP SIGNED MESSAGE-----
+<BR>
+Hash: SHA1
+<BR>
+<P>I am monitoring the load average for some HP-UX machines, and I only have that
+<BR>
+problem of the &quot;mili&quot; in one server, the rest are fine, here is my config file:
+<BR>
+<P><P>~/cricket-config/servers/Defaults
+<BR>
+<P># server-load sub-tree
+<BR>
+#
+<BR>
+# This is were we collect data from SNMP agents on HP-UX machines
+<BR>
+<P>Target  --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server-load             = %auto-target-name%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host               = %server-load%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# you could set a router-specific community string here:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# snmp-community        = not-public
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Provide no default type, since each router will be different,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# and if we want to specify each model explicitly, or
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# get a warning.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type             = undef
+<BR>
+<P># OID's we'll be using in this tree
+<BR>
+OID             cpu1min         1.3.6.1.4.1.11.2.3.1.1.3.0
+<BR>
+OID             cpu5min         1.3.6.1.4.1.11.2.3.1.1.4.0
+<BR>
+OID             cpu15min        1.3.6.1.4.1.11.2.3.1.1.5.0
+<BR>
+OID             freemem         1.3.6.1.4.1.11.2.3.1.1.7.0
+<BR>
+<P>datasource      --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type             =       GAUGE
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-heartbeat   =       1800
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-min                 =       undef
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-max                 =       undef
+<BR>
+<P>datasource      cpu1min         ds-source       =       snmp://%snmp%/cpu1min
+<BR>
+datasource      cpu5min         ds-source       =       snmp://%snmp%/cpu5min
+<BR>
+datasource      freemem         ds-source       =       snmp://%snmp%/freemem
+<BR>
+datasource      freeswap        ds-source       =       snmp://%snmp%/freeswap
+<BR>
+<P>targetType      HP-UX
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds      =       &quot;cpu1min, cpu5min, freemem&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view    =       &quot;cpu: cpu1min cpu5min, memory: freemem&quot;
+<BR>
+<P><P>html short-desc                 &quot;HP-UX based machine&quot;
+<BR>
+<P>graph   cpu1min
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   &quot;loads&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Machine Load&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;1 minute Load&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;scale   =   &quot;100,/&quot;
+<BR>
+<P>graph   cpu5min
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   &quot;loads&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   blue
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Machine Load&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;5 minute Load&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;scale   =   &quot;100,/&quot;
+<BR>
+<P>graph   freemem
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   blue
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   LINE2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Bytes&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;Free Memory&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;bytes   =   true
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;scale   =   &quot;1024,*&quot;
+<BR>
+<P><P><P><P><P><P>P.S.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you can provide me with an example to monitor Disk space, I would
+<BR>
+appreciate it :)
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I have been busy to do some research about this using SNMP. Right now I
+<BR>
+use Netsaint for that, and it uses a Perl daemon running in the server, but I
+<BR>
+would like to do it via SNMP so I don't run two daemons (SNMP and Perl).
+<BR>
+<P>Greetings,
+<BR>
+<P><P><P><P>On 03-Nov-99 <A HREF="mailto:shane@bratnet.net?Subject=RE:%20[cricket-users]%20Monitoring%20Load%20Average&In-Reply-To=&lt;XFMail.991103085026.qztf7k@powertrain.mpg.gm.com&gt;">shane@bratnet.net</A> wrote:
+<BR>
+<EM>&gt; From: <A HREF="mailto:shane@bratnet.net?Subject=RE:%20[cricket-users]%20Monitoring%20Load%20Average&In-Reply-To=&lt;XFMail.991103085026.qztf7k@powertrain.mpg.gm.com&gt;">shane@bratnet.net</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Does anyone have the tricks needed to make rrdtool graph 
+</EM><BR>
+<EM>&gt; loadaverages corectly, as opposed to scalling them to 1 - 100mili etc.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I have seen someone on this list ask this before, but I couldn't find the
+</EM><BR>
+<EM>&gt; answer posted to the list. I am trying to make a set of config files to 
+</EM><BR>
+<EM>&gt; graph usage of my server for disk/memory/load average using UCD-SNMP, to
+</EM><BR>
+<EM>&gt; monitor 
+</EM><BR>
+<EM>&gt; about 50 servers. I have all working except Getting the load average to graph
+</EM><BR>
+<EM>&gt; corectly.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Has anyone else set this up? Care to share your configs with me or the list?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; <A HREF="mailto:shane@bratnet.net?Subject=RE:%20[cricket-users]%20Monitoring%20Load%20Average&In-Reply-To=&lt;XFMail.991103085026.qztf7k@powertrain.mpg.gm.com&gt;">shane@bratnet.net</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+- --
+<BR>
+Hugo Gayosso                            |      Free Software implies
+<BR>
+Controls Process Support                | 
+<BR>
+Electronics Integration and Software    |      &quot;Free speech&quot;
+<BR>
+GM Powertrain                           |
+<BR>
+Brighton, MI                            |      NOT
+<BR>
+USA                                     |
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|      &quot;Free beer&quot; !!!
+<BR>
+E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20Monitoring%20Load%20Average&In-Reply-To=&lt;XFMail.991103085026.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>    |
+<BR>
+&nbsp;Phone: (810) 220-2635                  |      <A HREF="http://www.gnu.org">http://www.gnu.org</A>
+<BR>
+&nbsp;&nbsp;&nbsp;Fax: (810) 220-2663                  |
+<BR>
+<P><P><P>-----BEGIN PGP SIGNATURE-----
+<BR>
+Version: GnuPG v1.0.0 (GNU/Linux)
+<BR>
+Comment: For info see <A HREF="http://www.gnupg.org">http://www.gnupg.org</A>
+<BR>
+<P>iD8DBQE4ID2ix2JZtTN6co8RAqsRAJ9p+ORSzWxTWk898jeM2VIiiTmZUQCfVoCh
+<BR>
+5JcYOaPioLUJFhBUPnBZfJU=
+<BR>
+=Wztg
+<BR>
+-----END PGP SIGNATURE-----
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make $$$ by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0713.html">Mark Skinner: "[cricket-users] Saving 5 min samples"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0711.html">shane@bratnet.net: "[cricket-users] Monitoring Load Average"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0711.html">shane@bratnet.net: "[cricket-users] Monitoring Load Average"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0714.html">Mark Krenz: "Re: [cricket-users] Monitoring Load Average"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#712">[ date ]</A>
+<A HREF="index.html#712">[ thread ]</A>
+<A HREF="subject.html#712">[ subject ]</A>
+<A HREF="author.html#712">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

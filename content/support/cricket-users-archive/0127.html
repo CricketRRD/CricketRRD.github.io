@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] graphing problem... &amp; sw</TITLE>
+<META NAME="Author" CONTENT="Jeff Johnson (jeff@websitefactory.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] graphing problem... &amp; switch setup.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] graphing problem... &amp; switch setup.</H1>
+<!-- received="Tue May 25 11:15:04 1999" -->
+<!-- isoreceived="19990525181504" -->
+<!-- sent="Tue, 25 May 1999 11:13:29 -0400" -->
+<!-- isosent="19990525151329" -->
+<!-- name="Jeff Johnson" -->
+<!-- email="jeff@websitefactory.net" -->
+<!-- subject="Re: [cricket-users] graphing problem... &amp; switch setup." -->
+<!-- id="19990525111329.B19301@websitefactory.net" -->
+<!-- inreplyto="Pine.GSO.4.10.9905250958350.14615-100000@engelberg.ee.ethz.ch" -->
+<STRONG>From:</STRONG> Jeff Johnson (<A HREF="mailto:jeff@websitefactory.net?Subject=Re:%20[cricket-users]%20graphing%20problem...%20&amp;%20switch%20setup.&In-Reply-To=&lt;19990525111329.B19301@websitefactory.net&gt;"><EM>jeff@websitefactory.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue May 25 1999 - 08:13:29 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0128.html">roofpig@the.satanic.org: "Re: [cricket-users] graphing problem..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0126.html">Tobias Oetiker: "Re: [cricket-users] graphing problem..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0126.html">Tobias Oetiker: "Re: [cricket-users] graphing problem..."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0128.html">roofpig@the.satanic.org: "Re: [cricket-users] graphing problem..."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#127">[ date ]</A>
+<A HREF="index.html#127">[ thread ]</A>
+<A HREF="subject.html#127">[ subject ]</A>
+<A HREF="author.html#127">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:jeff@websitefactory.net?Subject=Re:%20[cricket-users]%20graphing%20problem...%20&amp;%20switch%20setup.&In-Reply-To=&lt;19990525111329.B19301@websitefactory.net&gt;">jeff@websitefactory.net</A> (Jeff Johnson)
+<BR>
+<P>I was having the exact same problem, updating Cricket to 0.65 from 0.63
+<BR>
+and RRD-Tool to 0.99.29.1 fixed the problems.  Now I just need to know
+<BR>
+how to correctly setup my switch without using the (1..24) method (
+<BR>
+because we have virtual ports setup too).
+<BR>
+<P>When using (1..24), the VLAN1 interface looks like it's 1, VLAN2 is 2,
+<BR>
+real REAL port 1 is port 3, etc.  When we remove VLAN1, all the graphs
+<BR>
+get messed up because the data for all the graphs gets corrupted, from
+<BR>
+being moved `back`.  Also, going (1..26) won't work, but it SHOULD
+<BR>
+because there are really 26 instances... 24 ports and two virtuals.
+<BR>
+<P>Any suggestions for this?  It's a Catalyst switch.
+<BR>
+<P><EM>&gt; From: Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20graphing%20problem...%20&amp;%20switch%20setup.&In-Reply-To=&lt;19990525111329.B19301@websitefactory.net&gt;">oetiker@ee.ethz.ch</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Today you sent me mail regarding [cricket-users] graphing problem...:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; *&gt; From: <A HREF="mailto:roofpig@the.satanic.org?Subject=Re:%20[cricket-users]%20graphing%20problem...%20&amp;%20switch%20setup.&In-Reply-To=&lt;19990525111329.B19301@websitefactory.net&gt;">roofpig@the.satanic.org</A>
+</EM><BR>
+<EM>&gt; *&gt; 
+</EM><BR>
+<EM>&gt; *&gt; 	
+</EM><BR>
+<EM>&gt; *&gt; 	I keep getting one of my graphs generated with no data points.
+</EM><BR>
+<EM>&gt; *&gt; The summary section shows the right info, and an &quot;rrdtool fetch&quot; run by
+</EM><BR>
+<EM>&gt; *&gt; hand shows me all that the data is in the rrd file.  An &quot;rrdtool
+</EM><BR>
+<EM>&gt; *&gt; graph&quot; run by hand, however, generates the same empty graph that
+</EM><BR>
+<EM>&gt; *&gt; RRDs::graph generates.  Since the values graphed generally only change
+</EM><BR>
+<EM>&gt; *&gt; by very small ammounts (often &lt; 1.00), perhaps this has something to
+</EM><BR>
+<EM>&gt; *&gt; do with it.
+</EM><BR>
+<EM>&gt; *&gt; 
+</EM><BR>
+<EM>&gt; *&gt; 	Rather than try to explain any further, I've made all the data
+</EM><BR>
+<EM>&gt; *&gt; and configs available.  The cricket frontend is avaiable at:
+</EM><BR>
+<EM>&gt; *&gt; 
+</EM><BR>
+<EM>&gt; *&gt; 	<A HREF="http://highly.explosive.net/~cricket/grapher.cgi">http://highly.explosive.net/~cricket/grapher.cgi</A>
+</EM><BR>
+<EM>&gt; *&gt; 
+</EM><BR>
+<EM>&gt; *&gt; The configs and rrd files are available at:
+</EM><BR>
+<EM>&gt; *&gt; 
+</EM><BR>
+<EM>&gt; *&gt; 	<A HREF="http://highly.explosive.net/~cricket/data">http://highly.explosive.net/~cricket/data</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; make sure you are using the most recent rrdtool there was a but in the
+</EM><BR>
+<EM>&gt; datafetcher in earlier versions ... 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; cheers
+</EM><BR>
+<EM>&gt; tobi
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; *&gt; 
+</EM><BR>
+<EM>&gt; *&gt; 
+</EM><BR>
+<EM>&gt; *&gt; Pre-thanks for any help...
+</EM><BR>
+<EM>&gt; *&gt; 
+</EM><BR>
+<EM>&gt; *&gt; 
+</EM><BR>
+<EM>&gt; *&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; *&gt; ONElist:  the best source for group communications.
+</EM><BR>
+<EM>&gt; *&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+</EM><BR>
+<EM>&gt; *&gt; Join a new list today!
+</EM><BR>
+<EM>&gt; *&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -- 
+</EM><BR>
+<EM>&gt;  ______    __   _
+</EM><BR>
+<EM>&gt; /_  __/_  / /  (_) Oetiker, Timelord &amp; SysMgr @ EE-Dept ETH-Zurich
+</EM><BR>
+<EM>&gt;  / // _ \/ _ \/ / TEL: +41(0)1-6325286  FAX:...1517  ICQ: 10419518 
+</EM><BR>
+<EM>&gt; /_/ \.__/_.__/_/ <A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20graphing%20problem...%20&amp;%20switch%20setup.&In-Reply-To=&lt;19990525111329.B19301@websitefactory.net&gt;">oetiker@ee.ethz.ch</A> <A HREF="http://ee-staff.ethz.ch/~oetiker">http://ee-staff.ethz.ch/~oetiker</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; What do lizards and rock music have in common?
+</EM><BR>
+<EM>&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+</EM><BR>
+<EM>&gt; They both have communities at ONElist.  Find yours today!
+</EM><BR>
+<P><PRE>
+-- 
+Jeffrey H. Johnson, <A HREF="mailto:jeff@websitefactory.net?Subject=Re:%20[cricket-users]%20graphing%20problem...%20&amp;%20switch%20setup.&In-Reply-To=&lt;19990525111329.B19301@websitefactory.net&gt;">jeff@websitefactory.net</A>
+The Web Site Factory, <A HREF="http://www.websitefactory.net">http://www.websitefactory.net</A>
+<P>------------------------------------------------------------------------
+What do lizards and rock music have in common?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+They both have communities at ONElist.  Find yours today!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0128.html">roofpig@the.satanic.org: "Re: [cricket-users] graphing problem..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0126.html">Tobias Oetiker: "Re: [cricket-users] graphing problem..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0126.html">Tobias Oetiker: "Re: [cricket-users] graphing problem..."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0128.html">roofpig@the.satanic.org: "Re: [cricket-users] graphing problem..."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#127">[ date ]</A>
+<A HREF="index.html#127">[ thread ]</A>
+<A HREF="subject.html#127">[ subject ]</A>
+<A HREF="author.html#127">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:50 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

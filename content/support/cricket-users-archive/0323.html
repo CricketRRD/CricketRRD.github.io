@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Querying Routers with IP Add</TITLE>
+<META NAME="Author" CONTENT="Stephen Carville (carville@ugsolutions.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Querying Routers with IP Addresses">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Querying Routers with IP Addresses</H1>
+<!-- received="Thu Jul 15 16:21:15 1999" -->
+<!-- isoreceived="19990715232115" -->
+<!-- sent="Thu, 15 Jul 1999 11:34:26 -0700" -->
+<!-- isosent="19990715183426" -->
+<!-- name="Stephen Carville" -->
+<!-- email="carville@ugsolutions.com" -->
+<!-- subject="Re: [cricket-users] Querying Routers with IP Addresses" -->
+<!-- id="99071513200101.08293@cypci319" -->
+<!-- inreplyto="199907151701.MAA05683@gerf.gerf.org" -->
+<STRONG>From:</STRONG> Stephen Carville (<A HREF="mailto:carville@ugsolutions.com?Subject=Re:%20[cricket-users]%20Querying%20Routers%20with%20IP%20Addresses&In-Reply-To=&lt;99071513200101.08293@cypci319&gt;"><EM>carville@ugsolutions.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jul 15 1999 - 11:34:26 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0324.html">Glenn MacGregor: "[cricket-users] gd lib"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0322.html">trygvelu@bug.itea.ntnu.no: "Re: [cricket-users] common.pm"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0319.html">rose@gerf.org: "[cricket-users] Querying Routers with IP Addresses"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#323">[ date ]</A>
+<A HREF="index.html#323">[ thread ]</A>
+<A HREF="subject.html#323">[ subject ]</A>
+<A HREF="author.html#323">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Stephen Carville &lt;<A HREF="mailto:carville@ugsolutions.com?Subject=Re:%20[cricket-users]%20Querying%20Routers%20with%20IP%20Addresses&In-Reply-To=&lt;99071513200101.08293@cypci319&gt;">carville@ugsolutions.com</A>&gt;
+<BR>
+<P>On Thu, 15 Jul 1999, you wrote:
+<BR>
+-From: <A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20Querying%20Routers%20with%20IP%20Addresses&In-Reply-To=&lt;99071513200101.08293@cypci319&gt;">rose@gerf.org</A>
+<BR>
+-
+<BR>
+-Hi all,
+<BR>
+-  I've been struggling with the installation of cricket because of a very
+<BR>
+-basic configuration problem.
+<BR>
+-  I need to specify the routers I will query by IP address, *not* by hostname,
+<BR>
+-and I do not know how to do this.
+<BR>
+-The beginner.txt file mentions that this is possible, but does not give
+<BR>
+-any clue as to how it is done.
+<BR>
+-
+<BR>
+-  I have already aliased the router's ip address to a hostname in my
+<BR>
+-/etc/hosts file, and I have set up the domain lookups to check files
+<BR>
+-before checking dns, and none of this has helped.
+<BR>
+-
+<BR>
+-  Cricket just runs, complains it can't resolve the ip address with
+<BR>
+-gethostbyname and dies.
+<BR>
+-
+<BR>
+-  Can anyone help me with this simple bit of information?  
+<BR>
+-It would surely prevent further hair tearing, and binge drinking.
+<BR>
+<P>Here is my &quot;solution&quot; for a Cisco 5500
+<BR>
+<P>In my main Defaults file:
+<BR>
+<P>datasource     Traffic-In
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = &quot;snmp://public@%switch%/ifInOctets.%port%&quot;
+<BR>
+<P>datasource     Traffic-Out
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = &quot;snmp://public@%switch%/ifOutOctets.%port%&quot;      
+<BR>
+<P>targetType      port-traffic
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds = &quot;Traffic-In, Traffic-Out&quot;     
+<BR>
+<P>In the drectory Defaults file
+<BR>
+<P>Target  --default--                                                                     
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile = %dataDir%/%auto-target-name%.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directory-desc = &quot;St. Louis Switch at ip.add.for.switch&quot;      
+<BR>
+<P>The switches file
+<BR>
+<P>target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch = ip.add.for.switch
+<BR>
+<P># stlntx - attached to 2/6 -- 14
+<BR>
+target  &quot;stlntx&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type = port-traffic
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;St. Louis Exchange Server&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port = 14
+<BR>
+<P># slmis3 - port 2/5 -- 13
+<BR>
+target &quot;slmis3&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type = port-traffic
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-Desc = &quot;stmis3&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port = 13                                            
+<BR>
+<P>(etc)
+<BR>
+<P><P><PRE>
+--
+Stephen Carville
+--
+Good News! NT is now approaching 23x6 availability!
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>What is &quot;FRIENDS &amp; FAMILY?&quot;
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+It's a new program at ONElist.  See homepage for details.
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0324.html">Glenn MacGregor: "[cricket-users] gd lib"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0322.html">trygvelu@bug.itea.ntnu.no: "Re: [cricket-users] common.pm"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0319.html">rose@gerf.org: "[cricket-users] Querying Routers with IP Addresses"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#323">[ date ]</A>
+<A HREF="index.html#323">[ thread ]</A>
+<A HREF="subject.html#323">[ subject ]</A>
+<A HREF="author.html#323">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:56 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

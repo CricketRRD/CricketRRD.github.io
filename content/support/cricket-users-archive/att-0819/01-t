@@ -1,0 +1,110 @@
+*** grapher.cgi.org	Mon Dec 27 18:40:50 1999
+--- grapher.cgi	Fri Dec 31 00:16:12 1999
+***************
+*** 835,841 ****
+  				if (defined($value) && !isnan($value) && defined($scale)) {
+  					my($rpn) = new RPN;
+! 					my($res) = $rpn->run("$value,$scale");
+  
+! 					if (! defined($res)) {
+  						Warn("Problem scaling value. " .
+  							 "Reverting to unscaled value.");
+--- 835,844 ----
+  				if (defined($value) && !isnan($value) && defined($scale)) {
+  					my($rpn) = new RPN;
+! 					my $cdefv = $scale;
+! 					$cdefv =~ s/ds#/$value/g;
+! 					my($res) = $rpn->run("$value,$cdefv");
+! 					$res = "NaN" if $res eq "UNKN";
+  
+! 					if (! defined($res) && $res ne "NaN") {
+  						Warn("Problem scaling value. " .
+  							 "Reverting to unscaled value.");
+***************
+*** 874,877 ****
+--- 878,885 ----
+                              $scale = "1,*";
+                          }
++ 			my $cdefv1 = $scale;
++ 			$cdefv1 =~ s/#/0/g;
++ 			my $cdefv2 = $scale;
++ 			$cdefv2 =~ s/#/1/g;
+  
+  						my(@args) = (
+***************
+*** 879,884 ****
+  							"DEF:ds0=$rrdfile:ds$dsnum:AVERAGE",
+  							"DEF:ds1=$rrdfile:ds$dsnum:MAX",
+! 							"CDEF:sds0=ds0,$scale",
+! 							"CDEF:sds1=ds1,$scale",
+  							"PRINT:sds0:AVERAGE:\%f",
+  							"PRINT:sds1:MAX:\%f" );
+--- 887,892 ----
+  							"DEF:ds0=$rrdfile:ds$dsnum:AVERAGE",
+  							"DEF:ds1=$rrdfile:ds$dsnum:MAX",
+! 							"CDEF:sds0=ds0,$cdefv1",
+! 							"CDEF:sds1=ds1,$cdefv2",
+  							"PRINT:sds0:AVERAGE:\%f",
+  							"PRINT:sds1:MAX:\%f" );
+***************
+*** 1363,1368 ****
+  				my($mod) = $ct % $numDSs;
+  				if (defined($scale)) {
+! 					push @cdefs, "CDEF:smx$ct=mx$ct,$scale" if ($mx);
+! 					push @cdefs, "CDEF:sds$ct=ds$ct,$scale";
+  					if ($isMTargetsOps) {
+  						if (!$linePushed[$mod])  {
+--- 1372,1379 ----
+  				my($mod) = $ct % $numDSs;
+  				if (defined($scale)) {
+! 					my $cdefv = $scale;
+! 					$cdefv =~ s/#/$ct/;
+! 					push @cdefs, "CDEF:smx$ct=mx$ct,$cdefv" if ($mx);
+! 					push @cdefs, "CDEF:sds$ct=ds$ct,$cdefv";
+  					if ($isMTargetsOps) {
+  						if (!$linePushed[$mod])  {
+*** lib/RPN.pm.org	Wed Jun 16 04:28:00 1999
+--- lib/RPN.pm	Fri Dec 31 00:11:15 1999
+***************
+*** 71,74 ****
+--- 71,97 ----
+  			$self->push(undef);
+  		}
++ 	} elsif ($op eq 'IF') {
++ 		my($b) = $self->pop();
++ 		my($a) = $self->pop();
++ 		my($res) = $self->pop();
++ 		return unless (defined($res) && defined($a) && defined($b));
++ 
++ 		if ($res) {
++ 			$self->push($a);
++ 		} else {
++ 			$self->push($b);
++ 		}
++ 	} elsif ($op eq 'LT') {
++ 		my($a) = $self->pop();
++ 		my($b) = $self->pop();
++ 		return unless (defined($a) && defined($b));
++ 
++ 		$self->push($b lt $a ? 1 : 0);
++ 	} elsif ($op eq 'GT') {
++ 		my($a) = $self->pop();
++ 		my($b) = $self->pop();
++ 		return unless (defined($a) && defined($b));
++ 
++ 		$self->push($b gt $a ? 1 : 0);
+  	}
+  }
+***************
+*** 91,95 ****
+  	my($item);
+  	foreach $item (split(/,/, $string)) {
+! 		if ($item =~ /^[\+\*\/\-]/ || $item =~ /^log$/i) {
+  			$self->op($item);
+  		} else {
+--- 114,118 ----
+  	my($item);
+  	foreach $item (split(/,/, $string)) {
+! 		if ($item =~ /^[\+\*\/\-]/ || $item =~ /^log|lt|gt|if$/i) {
+  			$self->op($item);
+  		} else {

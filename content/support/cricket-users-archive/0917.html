@@ -1,0 +1,404 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Spike suppression</TITLE>
+<META NAME="Author" CONTENT="Bert Driehuis (driehuis@playbeing.org)">
+<META NAME="Subject" CONTENT="[cricket-users] Spike suppression">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Spike suppression</H1>
+<!-- received="Fri Jan 14 08:41:06 2000" -->
+<!-- isoreceived="20000114164106" -->
+<!-- sent="Fri, 14 Jan 2000 14:40:11 +0100" -->
+<!-- isosent="20000114134011" -->
+<!-- name="Bert Driehuis" -->
+<!-- email="driehuis@playbeing.org" -->
+<!-- subject="[cricket-users] Spike suppression" -->
+<!-- id="387F273B.7FDA3D7A@playbeing.org" -->
+<STRONG>From:</STRONG> Bert Driehuis (<A HREF="mailto:driehuis@playbeing.org?Subject=Re:%20[cricket-users]%20Spike%20suppression&In-Reply-To=&lt;387F273B.7FDA3D7A@playbeing.org&gt;"><EM>driehuis@playbeing.org</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jan 14 2000 - 05:40:11 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0918.html">Jeff Younker: "RE: [cricket-users] Spike suppression"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0916.html">Grimshaw Stuart: "[cricket-users] Defaults file for HP printers."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0918.html">Jeff Younker: "RE: [cricket-users] Spike suppression"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0918.html">Jeff Younker: "RE: [cricket-users] Spike suppression"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#917">[ date ]</A>
+<A HREF="index.html#917">[ thread ]</A>
+<A HREF="subject.html#917">[ subject ]</A>
+<A HREF="author.html#917">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Bert Driehuis &lt;<A HREF="mailto:driehuis@playbeing.org?Subject=Re:%20[cricket-users]%20Spike%20suppression&In-Reply-To=&lt;387F273B.7FDA3D7A@playbeing.org&gt;">driehuis@playbeing.org</A>&gt;
+<BR>
+<P>When an SNMP agent restarts, this will show up as a spike on the Cricket
+<BR>
+graphs because of the way RRDTOOL handles SNMP counter values. Of
+<BR>
+course, they can be suppressed by defining a maximum value for the
+<BR>
+datasource, but doing that sort of sucks because you need a very precise
+<BR>
+understanding of the ranges that your data can take (which, in
+<BR>
+particular for things like monitoring a Squid cache, if often
+<BR>
+information you don't have at the outset).
+<BR>
+<P>The attached diff collects the agent uptime as part of the collection
+<BR>
+process, and inserts a dummy record into RRD to clear the counter
+<BR>
+history.
+<BR>
+<P>I have also attached an updated version of the CDEF fix I sent before
+<BR>
+Y2K, this time using the proper PERL comparison operators.
+<BR>
+<P>If either of these patches makes it into Cricket, I'm willing to do the
+<BR>
+documentation update for it as well.
+<BR>
+<P>There is more info in the diff files themselves.
+<BR>
+<P>Oh, and if you're stuck with existing rrd archives with spike, I've
+<BR>
+quickly hacked together a script that can read an &quot;rrdtool dump&quot;, ditch
+<BR>
+the worst records, and writes an output .xml file suitable for reading
+<BR>
+back with &quot;rrdtool restore&quot;.
+<BR>
+<P>Cheers,
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- Bert
+<BR>
+<PRE>
+-- 
+Bert Driehuis -- <A HREF="mailto:driehuis@playbeing.org?Subject=Re:%20[cricket-users]%20Spike%20suppression&In-Reply-To=&lt;387F273B.7FDA3D7A@playbeing.org&gt;">driehuis@playbeing.org</A> -- +31-20-3116119
+The grand leap of the whale up the Fall of Niagara is esteemed, by all
+who have seen it, as one of the finest spectacles in nature.
+                -- Benjamin Franklin.
+--------------------------- ONElist Sponsor ----------------------------
+<P>  Hey Freelancers:  Find your next project through JobSwarm!  
+  You can even make money in your sleep by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+<P><P>
+</PRE>
+<P>
+	Spike suppression.
+<P>	This patch addresses the problem of SNMP agent restarts. It
+	works by requesting the agent uptime, and comparing it to the
+	poll interval. If the uptime is less than the poll interval, it
+	will inject a record of all &quot;U&quot; (unknown value) right before the
+	current sample into the RRA. This makes sure that RRD will not
+	store a bogus value for counters (gauges are not affected, as
+	the record with the current timestamp will overwrite the unknown
+	data).
+<P>	When (and if) RRD gets a flag to clear the old counters, that
+	should be used instead of a dummy record and Cricket should be
+	modified to suit then. For now, this sure beats having to use
+	a maximum defined range in RRD, because reality will eventually
+	catch up with you if you define the range inappropriately.
+<P>	It is imperative that the BER pretty timeticks misfeature is
+	disabled, which is why that patch is also in here. Using pretty
+	timeticks will bite us in the ass anyway, so we might as well
+	bite the bullit and change it now.
+<P>	To activate, add the appropriate OID to your Defaults files as
+	follows:
+<P>	target  --default--
+		[...]
+		snmp-uptime     = 1.3.6.1.2.1.1.3.0
+<P>	The reason it is not hardcoded is that some SNMP agents (e.g., the
+	Squid agent) do not implement the default system.sysUpTime OID, and
+	in the scenario of a host with multiple agents with possibly different
+	uptimes, you want to specify which to use anyway (e.g., on a host with
+	both a Squid SNMP agent and a UCD SNMP agent, with Squid forwarding
+	unknown OID's to UCD SNMP, the UCD agent uptime is completely
+	irrelevant to Squids counters).
+<P>	Bert Driehuis, &lt;<A HREF="mailto:driehuis@playbeing.org?Subject=Re:%20[cricket-users]%20Spike%20suppression&In-Reply-To=&lt;387F273B.7FDA3D7A@playbeing.org&gt;">driehuis@playbeing.org</A>&gt;
+<P>diff -rc2 cricket-0.71/collector ./collector
+*** cricket-0.71/collector	Mon Jan 10 06:37:37 2000
+--- ./collector	Thu Jan 13 17:15:13 2000
+***************
+*** 158,162 ****
+  	}
+  
+! 	my(@data) = retrieveData($name, $target);
+  	if ($#data+1 == 0) {
+  		Warn(&quot;No data retrieved. Skipping RRD update.&quot;);
+--- 158,163 ----
+  	}
+  
+! 	my $agent_restart = 0;
+! 	my(@data) = retrieveData($name, $target, \$agent_restart);
+  	if ($#data+1 == 0) {
+  		Warn(&quot;No data retrieved. Skipping RRD update.&quot;);
+***************
+*** 185,188 ****
+--- 186,202 ----
+  	}
+  
++ 	# If an SNMP agent restart occurred, insert a dummy record consisting
++ 	# of all &quot;U&quot; one second before the current sample. This causes RRD
++ 	# to set the previous value of counters to undefined, avoiding weird
++ 	# results when a counter goes negative because of a restart.
++ 
++ 	if ($agent_restart &amp;&amp; $when eq &quot;N&quot;) {
++ 		my @dummyresults = @data2;
++ 		grep { $_ = 'U'} @dummyresults;
++ 		Info(&quot;Inserting dummy record because of agent restart&quot;);
++ 		my $now = time();
++ 		RRDs::update($datafile, join(&quot;:&quot;, $now - 1, @dummyresults));
++ 	}
++ 
+  	RRDs::update($datafile, join(&quot;:&quot;, $when, @data2));
+  	if (my $error = RRDs::error()) {
+***************
+*** 220,224 ****
+  
+  sub retrieveData {
+!     my($name, $target) = @_;
+  
+  	my($tname) = $target-&gt;{'auto-target-name'};
+--- 234,238 ----
+  
+  sub retrieveData {
+!     my($name, $target, $restart_ref) = @_;
+  
+  	my($tname) = $target-&gt;{'auto-target-name'};
+***************
+*** 282,285 ****
+--- 296,303 ----
+  		}
+  	}
++ 	if (defined($target-&gt;{'snmp-uptime'})) {
++ 		my $ds = &quot;--snmp://$target-&gt;{'snmp'}/$target-&gt;{'snmp-uptime'}&quot;;
++ 		push @targetDSs, $ds;
++ 	}
+  
+  	# this will hold a hash of ds-method names. the values will
+***************
+*** 366,369 ****
+--- 384,400 ----
+  	}
+  
++ 	# Check the agent uptime with the poll interval. If the uptime is
++ 	# less then one poll interval, notify our caller of the restart.
++ 
++ 	if (defined($target-&gt;{'snmp-uptime'})) {
++ 		my($agent_uptime) = pop @results;
++ 		my($poll) = $target-&gt;{'rrd-poll-interval'};
++ 		$poll = 300 unless (defined($poll));
++ 		if ($agent_uptime ne &quot;U&quot; &amp;&amp; $agent_uptime &lt; $poll * 100) {
++ 			Info(&quot;Agent uptime is less than poll interval&quot;);
++ 			$$restart_ref = 1 if (defined($restart_ref))
++ 		}
++ 	}
++ 
+  	# if we are verifying, check the
+  	# fetched mapping key to make certain it's right
+***************
+*** 391,395 ****
+  				# (this time there is no need to verify)
+  				delete($target-&gt;{'--verify-mapkey--'});
+! 				@results = retrieveData($name, $target);
+  			} else {
+  				# fill in all unknown, since the mapping key seems
+--- 422,426 ----
+  				# (this time there is no need to verify)
+  				delete($target-&gt;{'--verify-mapkey--'});
+! 				@results = retrieveData($name, $target, undef);
+  			} else {
+  				# fill in all unknown, since the mapping key seems
+diff -rc2 cricket-0.71/lib/snmpUtils.pm ./lib/snmpUtils.pm
+*** cricket-0.71/lib/snmpUtils.pm	Wed Jun 16 04:28:00 1999
+--- ./lib/snmpUtils.pm	Mon Dec 27 18:12:47 1999
+***************
+*** 16,19 ****
+--- 16,20 ----
+  	$main::DEBUG = 0;
+  }
++ $BER::pretty_print_timeticks = 0;
+  
+  my($err) = '';
+<P>
+<P>
+	An updated diff for handling self-referential RPN code for
+	scaling, allowing statements like
+<P>	graph           --default--
+		scale = 1000000,GT,UNKN,ds#,IF
+<P>	in the config file (with ds# replaced automagically with the
+	proper datasource).
+<P>	The previous diff got its math wrong (I used &quot;gt&quot; rather then &quot;&gt;&quot;,
+	sigh).
+<P>	To discuss: is &quot;ds#&quot; the proper syntax for &quot;The current datasource&quot;?
+	Alternate suggestions: &quot;this&quot;, &quot;the_ds&quot;, &quot;self&quot;.
+<P>	Bert Driehuis &lt;<A HREF="mailto:driehuis@Playbeing.org?Subject=Re:%20[cricket-users]%20Spike%20suppression&In-Reply-To=&lt;387F273B.7FDA3D7A@playbeing.org&gt;">driehuis@Playbeing.org</A>&gt;
+<P>diff -rc2 cricket-0.71/grapher.cgi ./grapher.cgi
+*** cricket-0.71/grapher.cgi	Fri Jan 14 10:25:20 2000
+--- ./grapher.cgi	Fri Jan 14 10:26:22 2000
+***************
+*** 835,839 ****
+  				if (defined($value) &amp;&amp; !isnan($value) &amp;&amp; defined($scale)) {
+  					my($rpn) = new RPN;
+! 					my($res) = $rpn-&gt;run(&quot;$value,$scale&quot;);
+  
+  					if (! defined($res)) {
+--- 835,843 ----
+  				if (defined($value) &amp;&amp; !isnan($value) &amp;&amp; defined($scale)) {
+  					my($rpn) = new RPN;
+! 					my $cdefv = $scale;
+! 					$cdefv =~ s/ds#/$value/g;
+! 					my($res) = $rpn-&gt;run(&quot;$value,$cdefv&quot;);
+! 					Debug(&quot;RPN: $value $cdefv-&gt;$res\n)&quot;;
+! 					$res = &quot;NaN&quot; if $res eq &quot;UNKN&quot;;
+  
+  					if (! defined($res)) {
+***************
+*** 874,877 ****
+--- 878,885 ----
+                              $scale = &quot;1,*&quot;;
+                          }
++ 			my $cdefv1 = $scale;
++ 			$cdefv1 =~ s/#/0/g;
++ 			my $cdefv2 = $scale;
++ 			$cdefv2 =~ s/#/1/g;
+  
+  						my(@args) = (
+***************
+*** 879,886 ****
+  							&quot;DEF:ds0=$rrdfile:ds$dsnum:AVERAGE&quot;,
+  							&quot;DEF:ds1=$rrdfile:ds$dsnum:MAX&quot;,
+! 							&quot;CDEF:sds0=ds0,$scale&quot;,
+! 							&quot;CDEF:sds1=ds1,$scale&quot;,
+! 							&quot;PRINT:sds0:AVERAGE:\%lf&quot;,
+! 							&quot;PRINT:sds1:MAX:\%lf&quot; );
+  
+  						($mmax, undef, undef) = RRDs::graph @args;
+--- 887,894 ----
+  							&quot;DEF:ds0=$rrdfile:ds$dsnum:AVERAGE&quot;,
+  							&quot;DEF:ds1=$rrdfile:ds$dsnum:MAX&quot;,
+! 							&quot;CDEF:sds0=ds0,$cdefv1&quot;,
+! 							&quot;CDEF:sds1=ds1,$cdefv2&quot;,
+! 							&quot;PRINT:sds0:AVERAGE:\%f&quot;,
+! 							&quot;PRINT:sds1:MAX:\%f&quot; );
+  
+  						($mmax, undef, undef) = RRDs::graph @args;
+***************
+*** 1363,1368 ****
+  				my($mod) = $ct % $numDSs;
+  				if (defined($scale)) {
+! 					push @cdefs, &quot;CDEF:smx$ct=mx$ct,$scale&quot; if ($mx);
+! 					push @cdefs, &quot;CDEF:sds$ct=ds$ct,$scale&quot;;
+  					if ($isMTargetsOps) {
+  						if (!$linePushed[$mod])  {
+--- 1371,1378 ----
+  				my($mod) = $ct % $numDSs;
+  				if (defined($scale)) {
+! 					my $cdefv = $scale;
+! 					$cdefv =~ s/#/$ct/;
+! 					push @cdefs, &quot;CDEF:smx$ct=mx$ct,$cdefv&quot; if ($mx);
+! 					push @cdefs, &quot;CDEF:sds$ct=ds$ct,$cdefv&quot;;
+  					if ($isMTargetsOps) {
+  						if (!$linePushed[$mod])  {
+***************
+*** 1410,1414 ****
+  			$i++;
+  			my($nameme);
+! 			if ($scaled{$dslist[$i %numDSs]}) {
+  				$nameme = &quot;sds&quot;;
+  			} else {
+--- 1420,1424 ----
+  			$i++;
+  			my($nameme);
+! 			if ($scaled{$dslist[$i % numDSs]}) {
+  				$nameme = &quot;sds&quot;;
+  			} else {
+diff -rc2 cricket-0.71/lib/RPN.pm ./lib/RPN.pm
+*** cricket-0.71/lib/RPN.pm	Wed Jun 16 04:28:00 1999
+--- ./lib/RPN.pm	Thu Jan 13 21:09:39 2000
+***************
+*** 71,74 ****
+--- 71,97 ----
+  			$self-&gt;push(undef);
+  		}
++ 	} elsif ($op eq 'IF') {
++ 		my($b) = $self-&gt;pop();
++ 		my($a) = $self-&gt;pop();
++ 		my($res) = $self-&gt;pop();
++ 		return unless (defined($res) &amp;&amp; defined($a) &amp;&amp; defined($b));
++ 
++ 		if ($res) {
++ 			$self-&gt;push($a);
++ 		} else {
++ 			$self-&gt;push($b);
++ 		}
++ 	} elsif ($op eq 'LT') {
++ 		my($a) = $self-&gt;pop();
++ 		my($b) = $self-&gt;pop();
++ 		return unless (defined($a) &amp;&amp; defined($b));
++ 
++ 		$self-&gt;push($b &lt; $a ? 1 : 0);
++ 	} elsif ($op eq 'GT') {
++ 		my($a) = $self-&gt;pop();
++ 		my($b) = $self-&gt;pop();
++ 		return unless (defined($a) &amp;&amp; defined($b));
++ 
++ 		$self-&gt;push($b &gt; $a ? 1 : 0);
+  	}
+  }
+***************
+*** 91,95 ****
+  	my($item);
+  	foreach $item (split(/,/, $string)) {
+! 		if ($item =~ /^[\+\*\/\-]/ || $item =~ /^log$/i) {
+  			$self-&gt;op($item);
+  		} else {
+--- 114,118 ----
+  	my($item);
+  	foreach $item (split(/,/, $string)) {
+! 		if ($item =~ /^[\+\*\/\-]/ || $item =~ /^log|lt|gt|if$/i) {
+  			$self-&gt;op($item);
+  		} else {
+<P>
+<HR NOSHADE>
+<UL>
+<LI>application/x-perl attachment: <A HREF="att-0917/03-killspike.pl">killspike.pl</A>
+</UL>
+<!-- attachment="03-killspike.pl" -->
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0918.html">Jeff Younker: "RE: [cricket-users] Spike suppression"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0916.html">Grimshaw Stuart: "[cricket-users] Defaults file for HP printers."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0918.html">Jeff Younker: "RE: [cricket-users] Spike suppression"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0918.html">Jeff Younker: "RE: [cricket-users] Spike suppression"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#917">[ date ]</A>
+<A HREF="index.html#917">[ thread ]</A>
+<A HREF="subject.html#917">[ subject ]</A>
+<A HREF="author.html#917">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:10 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

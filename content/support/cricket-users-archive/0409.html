@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] collector can't find/use RRDs.pm</TITLE>
+<META NAME="Author" CONTENT="Matt Birkner (mbirkner@talus.net)">
+<META NAME="Subject" CONTENT="[cricket-users] collector can't find/use RRDs.pm">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] collector can't find/use RRDs.pm</H1>
+<!-- received="Wed Jul 21 17:13:53 1999" -->
+<!-- isoreceived="19990722001353" -->
+<!-- sent="Wed, 21 Jul 1999 16:13:18 -0400" -->
+<!-- isosent="19990721201318" -->
+<!-- name="Matt Birkner" -->
+<!-- email="mbirkner@talus.net" -->
+<!-- subject="[cricket-users] collector can't find/use RRDs.pm" -->
+<!-- id="199907212013.QAA04471@banzai.talus.net" -->
+<STRONG>From:</STRONG> Matt Birkner (<A HREF="mailto:mbirkner@talus.net?Subject=Re:%20[cricket-users]%20collector%20can't%20find/use%20RRDs.pm&In-Reply-To=&lt;199907212013.QAA04471@banzai.talus.net&gt;"><EM>mbirkner@talus.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jul 21 1999 - 13:13:18 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0410.html">Michael P. Burton: "[cricket-users] Getting switches to work"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0408.html">Tim Kennedy: "Re: [cricket-users]"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0411.html">Gaylin Yee: "Re: [cricket-users] collector can't find/use RRDs.pm"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0411.html">Gaylin Yee: "Re: [cricket-users] collector can't find/use RRDs.pm"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0413.html">Matt Birkner: "RE: [cricket-users] collector can't find/use RRDs.pm"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#409">[ date ]</A>
+<A HREF="index.html#409">[ thread ]</A>
+<A HREF="subject.html#409">[ subject ]</A>
+<A HREF="author.html#409">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Matt Birkner &lt;<A HREF="mailto:mbirkner@talus.net?Subject=Re:%20[cricket-users]%20collector%20can't%20find/use%20RRDs.pm&In-Reply-To=&lt;199907212013.QAA04471@banzai.talus.net&gt;">mbirkner@talus.net</A>&gt;
+<BR>
+<P>I'm trying to get cricket up and running and have reached the point where
+<BR>
+I'm trying to run the collector manually to test the results.  The first
+<BR>
+time I tried I got:
+<BR>
+# ./collector /router-interface
+<BR>
+Can't locate RRDs.pm in @INC (@INC contains: ././lib /usr/local/lib/perl5/sun4-solaris/5.00404 /usr/local/lib/perl5 /usr/local/lib/perl5/site_perl/sun4-solaris /usr/local/lib/perl5/site_perl .) at ./collector line 28.
+<BR>
+BEGIN failed--compilation aborted at ./collector line 28.
+<BR>
+<P>So I found the RRDs.pm module in the rrdtool install dir (in my case that's 
+<BR>
+/usr/local/rrdtool) and copied that to /usr/local/lib/perl5/ (which is in the
+<BR>
+@INC list).  Now I'm getting the error:
+<BR>
+# ./collector /router-interface
+<BR>
+Can't locate loadable object for module RRDs in @INC (@INC contains: ././lib /usr/local/lib/perl5/sun4-solaris/5.00404 /usr/local/lib/perl5 /usr/local/lib/perl5/site_perl/sun4-solaris /usr/local/lib/perl5/site_perl .) at ./collector line 28
+<BR>
+BEGIN failed--compilation aborted at ./collector line 28.
+<BR>
+<P>I think this means that there's a library in the rrdtools dir somewhere that I 
+<BR>
+need to move/copy someplace else.  Either that, or I need to make pathing/@INC
+<BR>
+changes so that the correct locations are included in cricket.   I'm just 
+<BR>
+not sure what need to go where next.
+<BR>
+<P>Any assistance would be greatly appreciated.
+<BR>
+<P>Matt
+<BR>
+========================================================================
+<BR>
+Matt Birkner                  &quot;If they are the pillars of our community,
+<BR>
+Systems Administrator          We better keep a sharp eye on the roof&quot;
+<BR>
+Talus
+<BR>
+404-684-2716
+<BR>
+<A HREF="mailto:mbirkner@talus.net?Subject=Re:%20[cricket-users]%20collector%20can't%20find/use%20RRDs.pm&In-Reply-To=&lt;199907212013.QAA04471@banzai.talus.net&gt;">mbirkner@talus.net</A>                [Standard Views Disclaimer applies]
+<BR>
+========================================================================
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist:  your connection to like-minds and kindred spirits.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0410.html">Michael P. Burton: "[cricket-users] Getting switches to work"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0408.html">Tim Kennedy: "Re: [cricket-users]"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0411.html">Gaylin Yee: "Re: [cricket-users] collector can't find/use RRDs.pm"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0411.html">Gaylin Yee: "Re: [cricket-users] collector can't find/use RRDs.pm"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0413.html">Matt Birkner: "RE: [cricket-users] collector can't find/use RRDs.pm"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#409">[ date ]</A>
+<A HREF="index.html#409">[ thread ]</A>
+<A HREF="subject.html#409">[ subject ]</A>
+<A HREF="author.html#409">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Segmentation Fault</TITLE>
+<META NAME="Author" CONTENT="James Moore (jm@ufl.edu)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Segmentation Fault">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Segmentation Fault</H1>
+<!-- received="Thu Oct 28 12:55:01 1999" -->
+<!-- isoreceived="19991028195501" -->
+<!-- sent="Thu, 28 Oct 1999 12:51:52 -0400 (EDT)" -->
+<!-- isosent="19991028165152" -->
+<!-- name="James Moore" -->
+<!-- email="jm@ufl.edu" -->
+<!-- subject="Re: [cricket-users] Segmentation Fault" -->
+<!-- id="Pine.LNX.4.20.9910281243510.7861-100000@penguin.circa.ufl.edu" -->
+<!-- inreplyto="941123624.24304@onelist.com" -->
+<STRONG>From:</STRONG> James Moore (<A HREF="mailto:jm@ufl.edu?Subject=Re:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;Pine.LNX.4.20.9910281243510.7861-100000@penguin.circa.ufl.edu&gt;"><EM>jm@ufl.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Oct 28 1999 - 09:51:52 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0683.html">James Moore: "Re: [cricket-users] Segmentation Fault"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0681.html">bobo709394@yahoo.com: "[cricket-users] Segmentation Fault"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0681.html">bobo709394@yahoo.com: "[cricket-users] Segmentation Fault"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0683.html">James Moore: "Re: [cricket-users] Segmentation Fault"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0683.html">James Moore: "Re: [cricket-users] Segmentation Fault"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#682">[ date ]</A>
+<A HREF="index.html#682">[ thread ]</A>
+<A HREF="subject.html#682">[ subject ]</A>
+<A HREF="author.html#682">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: James Moore &lt;<A HREF="mailto:jm@ufl.edu?Subject=Re:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;Pine.LNX.4.20.9910281243510.7861-100000@penguin.circa.ufl.edu&gt;">jm@ufl.edu</A>&gt;
+<BR>
+<P>On 28 Oct 1999 <A HREF="mailto:bobo709394@yahoo.com?Subject=Re:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;Pine.LNX.4.20.9910281243510.7861-100000@penguin.circa.ufl.edu&gt;">bobo709394@yahoo.com</A> wrote:
+<BR>
+<P>|From: <A HREF="mailto:bobo709394@yahoo.com?Subject=Re:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;Pine.LNX.4.20.9910281243510.7861-100000@penguin.circa.ufl.edu&gt;">bobo709394@yahoo.com</A>
+<BR>
+|
+<BR>
+|I am getting the exact same problem with the same error. 
+<BR>
+|
+<BR>
+|Are you running cricket from a special cricket user or from root?? I was
+<BR>
+|using root to run but ran into some error so I created a cricket account
+<BR>
+|and these errors showed up!!
+<BR>
+<P>Running this stuff as root is not a good idea. If its misconfigured or
+<BR>
+buggy you've given it permission to trash any file or directory on your
+<BR>
+file system. I created a cricket account and have had no problems.
+<BR>
+<P>Did you then set the permissions on the cricket directories to allow write
+<BR>
+access for the user 'cricket'? If you cd to the directory above all of the
+<BR>
+cricket stuff and type 'chown -R cricket &lt;cricket directory&gt;' you will
+<BR>
+recursively change the owner of all of the files in the cricket directory
+<BR>
+to cricket. This command should work under linux; YMMV for other OSs.
+<BR>
+<P>|What I don't get is the directory path cricket is trying to create the
+<BR>
+|cricket-data in &quot;/home/cricket/cricket-config/../cricket-data&quot;. What
+<BR>
+|does the &quot;/../&quot; mean??
+<BR>
+<P>'/../' means parent of current directory. If you read the path from left
+<BR>
+to right and imagine typing 'cd' before each directory you'll see the path
+<BR>
+as the program does. The whole mess translates to
+<BR>
+'/home/cricket/cricket-data'.
+<BR>
+<P><PRE>
+-- 
+James Moore -- <A HREF="mailto:jm@ufl.edu?Subject=Re:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;Pine.LNX.4.20.9910281243510.7861-100000@penguin.circa.ufl.edu&gt;">jm@ufl.edu</A>
+CIRCA Telecommunications
+voice: 392-2007 fax: 392-3760
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Was the salesman clueless? Productopia has the answers.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/Productopia1">http://clickme.onelist.com/ad/Productopia1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0683.html">James Moore: "Re: [cricket-users] Segmentation Fault"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0681.html">bobo709394@yahoo.com: "[cricket-users] Segmentation Fault"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0681.html">bobo709394@yahoo.com: "[cricket-users] Segmentation Fault"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0683.html">James Moore: "Re: [cricket-users] Segmentation Fault"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0683.html">James Moore: "Re: [cricket-users] Segmentation Fault"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#682">[ date ]</A>
+<A HREF="index.html#682">[ thread ]</A>
+<A HREF="subject.html#682">[ subject ]</A>
+<A HREF="author.html#682">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:04 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] help: now where to look</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] help: now where to look">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] help: now where to look</H1>
+<!-- received="Fri Jun 25 07:39:49 1999" -->
+<!-- isoreceived="19990625143949" -->
+<!-- sent="Fri, 25 Jun 1999 04:38:32 -0700 (PDT)" -->
+<!-- isosent="19990625113832" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] help: now where to look" -->
+<!-- id="199906251138.EAA21128@oops.artemis.com" -->
+<!-- inreplyto="77D0520E20F0D21193C300A0C96B754F10F6C4@lza-chicago.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20help:%20now%20where%20to%20look&In-Reply-To=&lt;199906251138.EAA21128@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jun 25 1999 - 04:38:32 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0246.html">Tim Kennedy: "Re: [cricket-users] help: now where to look"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0244.html">Jeff Allen: "Re: [cricket-users] Another question..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0232.html">Pantazis, Dionysios J.: "[cricket-users] help: now where to look"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0246.html">Tim Kennedy: "Re: [cricket-users] help: now where to look"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0246.html">Tim Kennedy: "Re: [cricket-users] help: now where to look"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#245">[ date ]</A>
+<A HREF="index.html#245">[ thread ]</A>
+<A HREF="subject.html#245">[ subject ]</A>
+<A HREF="author.html#245">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20help:%20now%20where%20to%20look&In-Reply-To=&lt;199906251138.EAA21128@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Pantazis, Dionysios J. wrote:
+<BR>
+<EM>&gt; first off, is there a list archive somewhere? i tried to search for one at
+</EM><BR>
+<EM>&gt; onelist but no luck. 
+</EM><BR>
+<P>You get to the list archive on onelist like this:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. enter username and password
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. click &quot;log in&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. click on &quot;cricket-users&quot;, near the bottom.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. click on View Archives
+<BR>
+<P>I am not very happy with their archive format. If someone else would
+<BR>
+like to make a hypermail (etc...) archive of this list, I'd be
+<BR>
+grateful. I am not willing to take the time to deal with it, when
+<BR>
+OneList at least sort of has an archive.
+<BR>
+<P><EM>&gt; i get no response, what should I get?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; [cricket@dudok1 cricket]$  perl -MDB_File -e {}
+</EM><BR>
+<P>You should not get an error. So no response is good. In the document
+<BR>
+rewrite that I hope to do sometime this summer, I'll explain all this
+<BR>
+a bit more clearly.
+<BR>
+<P><EM>&gt; collector is looking for it in
+</EM><BR>
+<EM>&gt; /home/cricket/cricket-config/config.db
+</EM><BR>
+<P>collector takes a -base argument, just like compile. (Ok, ok, I know,
+<BR>
+if there were manpages, you'd know that without me having to tell
+<BR>
+you.) When you are running it interactively in your non-standard
+<BR>
+install, you will always need to use the -base option.
+<BR>
+<P>Also, make sure you edit subtree-sets to tell collect-subtrees where the config
+<BR>
+tree root is. That way, it will know what to pass to the collector for
+<BR>
+the -base argument.
+<BR>
+<P>You are close... keep pushing, and it'll start working soon, I promise!
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20help:%20now%20where%20to%20look&In-Reply-To=&lt;199906251138.EAA21128@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Books, music, videos, gifts, e-cards, auctions-find them at AMAZON.COM.
+Browse Earth's Biggest Selection!  Enjoy everyday savings of up to 50%!
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/amazon1">http://clickme.onelist.com/ad/amazon1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0246.html">Tim Kennedy: "Re: [cricket-users] help: now where to look"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0244.html">Jeff Allen: "Re: [cricket-users] Another question..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0232.html">Pantazis, Dionysios J.: "[cricket-users] help: now where to look"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0246.html">Tim Kennedy: "Re: [cricket-users] help: now where to look"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0246.html">Tim Kennedy: "Re: [cricket-users] help: now where to look"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#245">[ date ]</A>
+<A HREF="index.html#245">[ thread ]</A>
+<A HREF="subject.html#245">[ subject ]</A>
+<A HREF="author.html#245">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:54 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

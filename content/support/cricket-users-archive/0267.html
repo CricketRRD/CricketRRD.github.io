@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Multiple targets</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Multiple targets">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Multiple targets</H1>
+<!-- received="Wed Jun 30 13:16:27 1999" -->
+<!-- isoreceived="19990630201627" -->
+<!-- sent="Wed, 30 Jun 1999 10:14:27 -0700 (PDT)" -->
+<!-- isosent="19990630171427" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Multiple targets" -->
+<!-- id="199906301714.KAA07997@oops.artemis.com" -->
+<!-- inreplyto="377900C3.E81FE97B@oracom.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;199906301714.KAA07997@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jun 30 1999 - 10:14:27 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0268.html">Glenn MacGregor: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0266.html">Glenn MacGregor: "[cricket-users] sysUptime note"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0265.html">Glenn MacGregor: "[cricket-users] Multiple targets"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0268.html">Glenn MacGregor: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0268.html">Glenn MacGregor: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0271.html">roofpig@the.satanic.org: "Re: [cricket-users] Multiple targets"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#267">[ date ]</A>
+<A HREF="index.html#267">[ thread ]</A>
+<A HREF="subject.html#267">[ subject ]</A>
+<A HREF="author.html#267">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;199906301714.KAA07997@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Glenn MacGregor wrote:
+<BR>
+<EM>&gt;         Sorry to keep bothering the list, but I have a couple more
+</EM><BR>
+<EM>&gt; questions.  How do I use the targets or mtargets (what is the
+</EM><BR>
+<EM>&gt; difference)?
+</EM><BR>
+<P>They are the same in that they are both poorly named and incompletely
+<BR>
+implemented. :( Jeff Jensen and I tried to think it through and do it
+<BR>
+right, but we simply couldn't predict all the features we'd want, nor
+<BR>
+could we come up with a syntax that put rolled them all together. When
+<BR>
+the revolution comes and we rewrite the grapher, these tags will be
+<BR>
+the first into the guillotine! Let them eat cake! Or something...
+<BR>
+<P>So, here's a consise explanation of the difference:
+<BR>
+<P>&quot;targets&quot; lets you put multiple targets together on one page -- sorta
+<BR>
+like opening up several browsers and navigating to several targets,
+<BR>
+but all on one HTML page.
+<BR>
+<P>&quot;mtargets&quot; lets you take the data from several targets and assemble a
+<BR>
+new graph out of that data -- either in aggregate (i.e. the sum of all
+<BR>
+WAN links) or overlayed.
+<BR>
+<P><EM>&gt; graph say packets in from two different routers on the same graph.
+</EM><BR>
+<EM>&gt; Really what is the syntax of that, ie where does the mtargets or target
+</EM><BR>
+<EM>&gt; go.
+</EM><BR>
+<P>To do this, you'd make a new target, for example &quot;both&quot;:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target both
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtarget = &quot;target-1; target-2&quot;
+<BR>
+<P><EM>&gt; Also if I try to get sysUptime I get an error message saying 2:24:55
+</EM><BR>
+<EM>&gt; (uptime) is not numeric, is there a way around this?
+</EM><BR>
+<P>You are trying to put a string into an RRD, which is not possible. You
+<BR>
+could use an EXEC script to fetch the value then do pre-processing on
+<BR>
+it -- in this case the pre-processing would be to turn the formatted
+<BR>
+time string into a number of seconds.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;199906301714.KAA07997@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Attention ONElist list owners.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+We've just added a &quot;NO ATTACHMENTS&quot; option.  See homepage for details.
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0268.html">Glenn MacGregor: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0266.html">Glenn MacGregor: "[cricket-users] sysUptime note"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0265.html">Glenn MacGregor: "[cricket-users] Multiple targets"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0268.html">Glenn MacGregor: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0268.html">Glenn MacGregor: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0271.html">roofpig@the.satanic.org: "Re: [cricket-users] Multiple targets"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#267">[ date ]</A>
+<A HREF="index.html#267">[ thread ]</A>
+<A HREF="subject.html#267">[ subject ]</A>
+<A HREF="author.html#267">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:55 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

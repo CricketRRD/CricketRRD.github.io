@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] password protection for cust</TITLE>
+<META NAME="Author" CONTENT="Nathan Alan Haneysmith (nathan@cybertrails.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] password protection for customer">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] password protection for customer</H1>
+<!-- received="Thu Jan  6 20:31:13 2000" -->
+<!-- isoreceived="20000107043113" -->
+<!-- sent="Thu, 6 Jan 2000 18:30:35 -0700" -->
+<!-- isosent="20000107013035" -->
+<!-- name="Nathan Alan Haneysmith" -->
+<!-- email="nathan@cybertrails.com" -->
+<!-- subject="Re: [cricket-users] password protection for customer" -->
+<!-- id="20000106183035.B20999@cybertrails.com" -->
+<!-- inreplyto="947198799.22672@onelist.com" -->
+<STRONG>From:</STRONG> Nathan Alan Haneysmith (<A HREF="mailto:nathan@cybertrails.com?Subject=Re:%20[cricket-users]%20password%20protection%20for%20customer&In-Reply-To=&lt;20000106183035.B20999@cybertrails.com&gt;"><EM>nathan@cybertrails.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jan 06 2000 - 17:30:35 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0849.html">Nathan Alan Haneysmith: "Re: [cricket-users] Current path patch"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0847.html">ghong@iasiaworks.com: "[cricket-users] password protection for customer"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0847.html">ghong@iasiaworks.com: "[cricket-users] password protection for customer"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0862.html">Nathan Alan Haneysmith: "Re: [cricket-users] password protection for customer"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#848">[ date ]</A>
+<A HREF="index.html#848">[ thread ]</A>
+<A HREF="subject.html#848">[ subject ]</A>
+<A HREF="author.html#848">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+Hi George,
+<BR>
+<P>I just went through this here at my company. The solution I came up with is as follows:
+<BR>
+<P>Use the &quot;generate-static = true&quot; in the Defaults files where you want to display to customers
+<BR>
+and setup the cron job to run the generate-statics program (I run it every hour).
+<BR>
+<P>I then setup a separate link in apache (<A HREF="http://www.yourserver.com/customer/">http://www.yourserver.com/customer/</A>) that points to the
+<BR>
+point in the config tree you want them to have access to
+<BR>
+(/home/cricket/public_html/static/router-interfaces/customer/) and put in a .htaccess file in
+<BR>
+this directory that has the customers (and admins) username/password. This got me to the point
+<BR>
+where I could see raw directories and individual gifs.
+<BR>
+<P>Final set was to whip up some quick perl that generated index.html's in each directory that
+<BR>
+have the same &quot;look and feel&quot; as my normal cricket pages and have links appropriate to the
+<BR>
+content of that directory :-) ie if the top dir has 3 sub dir's it has links to the
+<BR>
+index.html's in those subdir's auto-named according the sub-dir name. The final step was to
+<BR>
+generate an index at the target level with links to all the appropriate targets in the final
+<BR>
+directory and individual html files for each target. 
+<BR>
+<P>&lt;pauses to catch breath&gt;
+<BR>
+<P>If you or anyone else on the list is interested the quick and dirty perl scripts I used to do
+<BR>
+this, lemme know and I'll put them up on my FTP server :-)
+<BR>
+<P>The documentation for generating statics says &quot;Making HTML pages that incorporate the generated
+<BR>
+image files is left as an exercise to the reader.&quot; heh heh heh, so if you want to save some
+<BR>
+time I have done this exercise and can share :-)
+<BR>
+<P>&nbsp;
+<BR>
+On Thu, Jan 06, 2000 at 10:46:39PM -0000, <A HREF="mailto:ghong@iasiaworks.com?Subject=Re:%20[cricket-users]%20password%20protection%20for%20customer&In-Reply-To=&lt;20000106183035.B20999@cybertrails.com&gt;">ghong@iasiaworks.com</A> wrote:
+<BR>
+<EM>&gt; Hi there,
+</EM><BR>
+<EM>&gt;   I tried to search the archives to find the answer, but the search engine on
+</EM><BR>
+<EM>&gt; onelist is to difficult to use. So it's asked before, I apologize here.
+</EM><BR>
+<EM>&gt;   Is there a way that I can limit my customers to only see the router-interfaces 
+</EM><BR>
+<EM>&gt; they are using? In MRTG, it's simple because it's static page. Is there anyway
+</EM><BR>
+<EM>&gt; I can do it with the graph.cgi in cricket? Or there are other ways to set it up?
+</EM><BR>
+<EM>&gt;   Thanks.
+</EM><BR>
+<EM>&gt; --George
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;   Hey Freelancers:  Find your next project through JobSwarm!  
+</EM><BR>
+<EM>&gt;   You can even make money in your sleep by referring friends.
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><PRE>
+-- 
+Nathan Alan Haneysmith
+Systems Administrator
+Cybertrails
+*******************************
+Be Here Now. If you do not live in the future, there is nothing to fear. If you
+do not live in the past, there is nothing to regret or feel guilty about.
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>  Hey Freelancers:  Find your next project through JobSwarm!  
+  You can even make money in your sleep by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0849.html">Nathan Alan Haneysmith: "Re: [cricket-users] Current path patch"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0847.html">ghong@iasiaworks.com: "[cricket-users] password protection for customer"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0847.html">ghong@iasiaworks.com: "[cricket-users] password protection for customer"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0862.html">Nathan Alan Haneysmith: "Re: [cricket-users] password protection for customer"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#848">[ date ]</A>
+<A HREF="index.html#848">[ thread ]</A>
+<A HREF="subject.html#848">[ subject ]</A>
+<A HREF="author.html#848">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:08 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

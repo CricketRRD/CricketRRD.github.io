@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: Cricket &amp; IP</TITLE>
+<META NAME="Author" CONTENT="Utsav Ratti (Utsav_Ratti@MCKINSEY.COM)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: Cricket &amp; IP">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: Cricket &amp; IP</H1>
+<!-- received="Thu Jul 29 15:39:35 1999" -->
+<!-- isoreceived="19990729223935" -->
+<!-- sent="Thu, 29 Jul 1999 15:36:51 -0400" -->
+<!-- isosent="19990729193651" -->
+<!-- name="Utsav Ratti" -->
+<!-- email="Utsav_Ratti@MCKINSEY.COM" -->
+<!-- subject="[cricket-users] Re: Cricket &amp; IP" -->
+<!-- id="852567BD.0068A722.00@NA-GATEWAYS02.NOTES.MCKINSEY.COM" -->
+<STRONG>From:</STRONG> Utsav Ratti (<A HREF="mailto:Utsav_Ratti@MCKINSEY.COM?Subject=Re:%20[cricket-users]%20Re:%20Cricket%20&amp;%20IP&In-Reply-To=&lt;852567BD.0068A722.00@NA-GATEWAYS02.NOTES.MCKINSEY.COM&gt;"><EM>Utsav_Ratti@MCKINSEY.COM</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jul 29 1999 - 12:36:51 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0444.html">Jeff Allen: "Re: [cricket-users] grapher.cgi question"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0442.html">Jeff Allen: "Re: [cricket-users] Multiple graphs over multiple targets...all on one page?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0445.html">Jeff Allen: "Re: [cricket-users] Re: Cricket &amp; IP"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0445.html">Jeff Allen: "Re: [cricket-users] Re: Cricket &amp; IP"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#443">[ date ]</A>
+<A HREF="index.html#443">[ thread ]</A>
+<A HREF="subject.html#443">[ subject ]</A>
+<A HREF="author.html#443">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Utsav Ratti&quot; &lt;<A HREF="mailto:Utsav_Ratti@MCKINSEY.COM?Subject=Re:%20[cricket-users]%20Re:%20Cricket%20&amp;%20IP&In-Reply-To=&lt;852567BD.0068A722.00@NA-GATEWAYS02.NOTES.MCKINSEY.COM&gt;">Utsav_Ratti@MCKINSEY.COM</A>&gt;
+<BR>
+<P>Sorry Jeff, I should have been clearer. I need to reference a router I'm
+<BR>
+trying to monitor via its IP address instead of hostname because it doesn't
+<BR>
+have a hostname assigned and it would be a bit of a pain to get this done
+<BR>
+since I don't have direct access to it. Even if I did have a hostname
+<BR>
+assigned, I'm not sure about the nameserver setup and hence whether name
+<BR>
+resolution will work correctly.
+<BR>
+<P>You mentioned in your beginner's guide to cricket that using an IP address
+<BR>
+is possible, but in any of the subsequent documents there is no
+<BR>
+explanation. I followed all of the instructions in the beginner's guide
+<BR>
+(you didn't have defaults for a Cisco 4500 so I used the 2500 as you
+<BR>
+suggested). Then...
+<BR>
+<P>Stephen Carville posted his method
+<BR>
+(<A HREF="http://www.sugarat.net/hypermail/cricket/0075.html">http://www.sugarat.net/hypermail/cricket/0075.html</A>) for a switch, which I
+<BR>
+attempted to adapt for my router (in other words, instead of modifying the
+<BR>
+switches file he mentions, I modified the /routers/Targets file. When I try
+<BR>
+to recompile the config, I get the following errors:
+<BR>
+<P>[utsav@redhat utsav]$ ~/cricket/compile
+<BR>
+[29-Jul-1999 14:55:27 ] Starting compile: Cricket version 0.69 ( Fri Jul 16
+<BR>
+&nbsp;00:37:23 PDT 1999 )
+<BR>
+Use of uninitialized value at /home/utsav/cricket/./lib/ConfigTree/Node.pm
+<BR>
+line 481, &lt;GEN17&gt; chunk 49.
+<BR>
+Use of uninitialized value at /home/utsav/cricket/./lib/ConfigTree/Node.pm
+<BR>
+line 481, &lt;GEN17&gt; chunk 51.
+<BR>
+Use of uninitialized value at /home/utsav/cricket/./lib/ConfigTree/Node.pm
+<BR>
+line 230.
+<BR>
+Use of uninitialized value at /home/utsav/cricket/./lib/ConfigTree/Node.pm
+<BR>
+line 230.
+<BR>
+[29-Jul-1999 14:55:30 ] Processed 55 nodes (in 28 files) in 4 seconds.
+<BR>
+<P>If I then try to run the collector script, the following errors occur:
+<BR>
+<P>[utsav@redhat utsav]$ ~/cricket/collector /routers
+<BR>
+[29-Jul-1999 14:59:34 ] Starting collector: Cricket version 0.69 ( Fri Jul
+<BR>
+16 00:37:23 PDT 1999 )
+<BR>
+Use of uninitialized value at /home/utsav/cricket/collector line 318.
+<BR>
+Use of uninitialized value at /home/utsav/cricket/collector line 318.
+<BR>
+[29-Jul-1999 14:59:34*] Could not find a fetcher with type  to fetch data
+<BR>
+for mckinsey-rmu ().
+<BR>
+[29-Jul-1999 14:59:34*] 2 datasources required, 0 results returned!
+<BR>
+[29-Jul-1999 14:59:34 ] Retrieved data for mckinsey-rmu ():
+<BR>
+[29-Jul-1999 14:59:34*] No data retrieved. Skipping RRD update.
+<BR>
+[29-Jul-1999 14:59:34 ] Processed 1 targets in 1 seconds.
+<BR>
+[utsav@redhat utsav]$
+<BR>
+<P>Here's how I've set up the relevant config files:
+<BR>
+<P>~/cricket-config/Defaults:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;#
+<BR>
+&nbsp;&nbsp;&nbsp;# Top Level Defaults
+<BR>
+&nbsp;&nbsp;&nbsp;#
+<BR>
+<P>&nbsp;&nbsp;&nbsp;Target  --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataDir                         =
+<BR>
+&nbsp;&nbsp;&nbsp;%auto-base%/../cricket-data/%auto-target-path%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile            = %dataDir%/%auto-target-name%.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-poll-interval       = 300
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host                       = %auto-target-name%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-community          = public
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-port                       = 161
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp                            =
+<BR>
+&nbsp;&nbsp;&nbsp;%snmp-community%@%snmp-host%:%snmp-port%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directory-desc          = &quot;CIS4500 at 157.191.175.11&quot;
+<BR>
+&lt;etc.&gt;
+<BR>
+<P>~/cricket-config/routers/Defaults    (I added the following lines in the
+<BR>
+appropriate places)
+<BR>
+<P>&nbsp;&nbsp;&nbsp;datasource      Traffic-In      ds-source
+<BR>
+&nbsp;&nbsp;&nbsp;=snmp://public@%switch%/ifInOctets.%port%
+<BR>
+&nbsp;&nbsp;&nbsp;datasource      Traffic-Out     ds-source
+<BR>
+&nbsp;&nbsp;&nbsp;=snmp://public@%switch%/ifOutOctets.%port%
+<BR>
+<P>&nbsp;&nbsp;&nbsp;targetType      port-traffic
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds  =   &quot;Traffic-In, Traffic-Out&quot;
+<BR>
+<P>~/cricket-config/routers/targets
+<BR>
+<P>&nbsp;&nbsp;&nbsp;target  &quot;McKinsey-RMU&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       port-traffic
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-Desc      =       &quot;CIS4500&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port            =       10
+<BR>
+<P>~/cricket-config/router-interfaces/interfaces
+<BR>
+<P>&nbsp;&nbsp;&nbsp;target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#router = bsn-router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = 157.191.175.11
+<BR>
+<P><P>Any help would be appreciated.
+<BR>
+<P>Cheers,
+<BR>
+Utsav
+<BR>
+<P><P><P><P><P><P>Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Cricket%20&amp;%20IP&In-Reply-To=&lt;852567BD.0068A722.00@NA-GATEWAYS02.NOTES.MCKINSEY.COM&gt;">jra@corp.webtv.net</A>&gt; on 07/29/99 02:52:47 PM
+<BR>
+<P>Please respond to Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Cricket%20&amp;%20IP&In-Reply-To=&lt;852567BD.0068A722.00@NA-GATEWAYS02.NOTES.MCKINSEY.COM&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+To:   Utsav Ratti
+<BR>
+cc:
+<BR>
+Subject:  Re: Cricket &amp; IP
+<BR>
+<P><P>Utsav Ratti wrote:
+<BR>
+<EM>&gt; Is there a new release of Cricket on the horizon that supports IP
+</EM><BR>
+directly?
+<BR>
+<EM>&gt; There is a rather crude hack in the mailing list archive, but...
+</EM><BR>
+<P>Uh, I don't understand your question. Cricket sends messages via SNMP,
+<BR>
+which travels as UDP packets over IP. So in that sense, it uses
+<BR>
+IP. It can measure traffic across interfaces, but the measurement is
+<BR>
+independent of the kind of traffic. If you have 5 mb/s of neware
+<BR>
+traffic and 2 mb/s of IP traffic, Cricket will measure that at 7 mb/s.
+<BR>
+<P><PRE>
+--
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Cricket%20&amp;%20IP&In-Reply-To=&lt;852567BD.0068A722.00@NA-GATEWAYS02.NOTES.MCKINSEY.COM&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P><P><P><P><P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>Show your ONElist SPIRIT!
+<A HREF="http://www.onelist.com/store/tshirts.html">http://www.onelist.com/store/tshirts.html</A>
+With a new ONElist SHIRT available through our website.
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0444.html">Jeff Allen: "Re: [cricket-users] grapher.cgi question"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0442.html">Jeff Allen: "Re: [cricket-users] Multiple graphs over multiple targets...all on one page?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0445.html">Jeff Allen: "Re: [cricket-users] Re: Cricket &amp; IP"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0445.html">Jeff Allen: "Re: [cricket-users] Re: Cricket &amp; IP"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#443">[ date ]</A>
+<A HREF="index.html#443">[ thread ]</A>
+<A HREF="subject.html#443">[ subject ]</A>
+<A HREF="author.html#443">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:59 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

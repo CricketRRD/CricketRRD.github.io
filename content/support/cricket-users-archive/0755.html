@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: SOLVED: Premature end of scr</TITLE>
+<META NAME="Author" CONTENT="Jim Johnson (johnsojr@pluto.dsu.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: SOLVED: Premature end of script headers  ??">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: SOLVED: Premature end of script headers  ??</H1>
+<!-- received="Sat Nov 20 00:08:48 1999" -->
+<!-- isoreceived="19991120080848" -->
+<!-- sent="Fri, 19 Nov 1999 23:09:38 -0600" -->
+<!-- isosent="19991120050938" -->
+<!-- name="Jim Johnson" -->
+<!-- email="johnsojr@pluto.dsu.edu" -->
+<!-- subject="[cricket-users] Re: SOLVED: Premature end of script headers  ??" -->
+<!-- id="4.2.0.58.19991119222057.00978100@138.247.68.110" -->
+<STRONG>From:</STRONG> Jim Johnson (<A HREF="mailto:johnsojr@pluto.dsu.edu?Subject=Re:%20[cricket-users]%20Re:%20SOLVED:%20Premature%20end%20of%20script%20headers%20%20??&In-Reply-To=&lt;4.2.0.58.19991119222057.00978100@138.247.68.110&gt;"><EM>johnsojr@pluto.dsu.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Nov 19 1999 - 21:09:38 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0756.html">Pradeep Subramaniam: "[cricket-users] Defaults file for Solaris systems"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0754.html">Jim Johnson: "[cricket-users] SOLVED (kinda) Re: DB_File needs compatible versions of libdb &amp; db.h?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#755">[ date ]</A>
+<A HREF="index.html#755">[ thread ]</A>
+<A HREF="subject.html#755">[ subject ]</A>
+<A HREF="author.html#755">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jim Johnson &lt;<A HREF="mailto:johnsojr@pluto.dsu.edu?Subject=Re:%20[cricket-users]%20Re:%20SOLVED:%20Premature%20end%20of%20script%20headers%20%20??&In-Reply-To=&lt;4.2.0.58.19991119222057.00978100@138.247.68.110&gt;">johnsojr@pluto.dsu.edu</A>&gt;
+<BR>
+<P>Wow, I've never had someone have the same problem as me at the exact same 
+<BR>
+time, thanks!  :)  After reading the suExec web page I was able to get my 
+<BR>
+own simple cgi sripts to work, but not the linked scripts.  My solution was 
+<BR>
+to just forget about running the scripts out of the cricket's home 
+<BR>
+directory and instead run them (via the standard links) in 
+<BR>
+/home/httpd/html/cricket instead.  (Personally I've never liked having to 
+<BR>
+type in that tilde any ways. :) )  I'm pretty new to Linux, but it seems to 
+<BR>
+me that suExec isn't ran for any scripts that are run of the standard 
+<BR>
+/home/httpd directory.  Maybe the beginner.txt file should be changed so 
+<BR>
+that this (http/html/cricket) is the standard install location for the web 
+<BR>
+files?  It might help RedHat Linux beginners like me any ways.
+<BR>
+<P>Thanks,
+<BR>
+JIM
+<BR>
+<P>PS. I've recently change from digest to plain email for this mailing list, 
+<BR>
+but now I don't receive any emails from the list, other than my own.  Has 
+<BR>
+this happened to anyone else?
+<BR>
+<P><P>Message: 5
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;Date: Thu, 18 Nov 1999 15:38:51 -0500 (EST)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;From: Hugo Gayosso &lt;qztf7k@xxxxxxxxxx.xxx.xx.xxxx
+<BR>
+Subject: SOLVED: Premature end of script headers  ??
+<BR>
+<P>-----BEGIN PGP SIGNED MESSAGE-----
+<BR>
+Hash: SHA1
+<BR>
+<P>mmmm, the new machine has RedHat 6.1 and the old has RH 6.0.
+<BR>
+<P>RH 6.1 comes with a wrapper, and this wrapper doesn't like the idea of having
+<BR>
+links in public_html pointing to CGIs, I just copied the files and they 
+<BR>
+worked!!
+<BR>
+<P><P><P>Here is the file where suexec logs the errors:
+<BR>
+/var/log/httpd/suexec_log
+<BR>
+<P><P>And here are the errors:
+<BR>
+[1999-11-18 11:33:19]: uid: (cricket/cricket) gid: (cricket/cricket) cmd:
+<BR>
+grapher.cgi
+<BR>
+[1999-11-18 11:33:19]: cannot stat program: (grapher.cgi)
+<BR>
+<P><P>After copying these files:
+<BR>
+[1999-11-18 11:35:26]: uid: (cricket/cricket) gid: (cricket/cricket) cmd:
+<BR>
+grapher.cgi
+<BR>
+<P><P>Greetings,
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make $$$ by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0756.html">Pradeep Subramaniam: "[cricket-users] Defaults file for Solaris systems"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0754.html">Jim Johnson: "[cricket-users] SOLVED (kinda) Re: DB_File needs compatible versions of libdb &amp; db.h?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#755">[ date ]</A>
+<A HREF="index.html#755">[ thread ]</A>
+<A HREF="subject.html#755">[ subject ]</A>
+<A HREF="author.html#755">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:06 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

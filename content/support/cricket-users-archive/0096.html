@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Defaults file problem</TITLE>
+<META NAME="Author" CONTENT="Timothy Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Defaults file problem">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Defaults file problem</H1>
+<!-- received="Wed May 19 21:14:38 1999" -->
+<!-- isoreceived="19990520041438" -->
+<!-- sent="Wed, 19 May 1999 21:13:41 -0400 (EDT)" -->
+<!-- isosent="19990520011341" -->
+<!-- name="Timothy Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="[cricket-users] Defaults file problem" -->
+<!-- id="Pine.LNX.3.96.990519205212.5742E-100000@gunslinger.hate.org" -->
+<STRONG>From:</STRONG> Timothy Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.LNX.3.96.990519205212.5742E-100000@gunslinger.hate.org&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed May 19 1999 - 18:13:41 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0097.html">David Koski: "Re: [cricket-users] Cricket 0.65 re-released"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0095.html">Jeff Allen: "Re: [cricket-users] cricket uses"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0100.html">Jeff Allen: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0100.html">Jeff Allen: "Re: [cricket-users] Defaults file problem"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#96">[ date ]</A>
+<A HREF="index.html#96">[ thread ]</A>
+<A HREF="subject.html#96">[ subject ]</A>
+<A HREF="author.html#96">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Timothy Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.LNX.3.96.990519205212.5742E-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P><P><P>Ok folks.  Here's one for you.
+<BR>
+It relates to being able to add new entries under the 
+<BR>
+Target	--default-- line in the Defaults file under
+<BR>
+the router-interfaces subtree.
+<BR>
+<P>I notice that inst is mapped via map(interface-name).
+<BR>
+Which I am assuming, after reading the icky and ickiest details
+<BR>
+is gotten from the &quot;interfaces&quot; file.
+<BR>
+<P>My interface file has two extra lines for all the frame-relay interfaces.
+<BR>
+(which I already changed to show up as &quot;target-type  =  frame-relay&quot;)
+<BR>
+These are
+<BR>
+frame-host	=	Serial0 (or whatever is the frame host interface)
+<BR>
+frame-inst	=	34	(or whatever the proper inst is)
+<BR>
+<P>in the top level cricket-config/Defaults file I added
+<BR>
+<P>map frame-host
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;base-oid	=   ifDescr
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;match	=   %frame-host%
+<BR>
+<P>since I need to get the instance for the host interface, then append the
+<BR>
+sub-instance to that to be able to grab interface stats for the
+<BR>
+frame-relay hosts.  (turns out I haven't been getting data recently) :)
+<BR>
+<P>The problem is that those maps aren't mapped properly.  Right now I am 
+<BR>
+getting errors like:
+<BR>
+<P>[19-May-1999 20:51:10*] Could not resolve OID for
+<BR>
+..1.3.6.1.2.1.10.32.2.1.9.map(interface-name).map(frame-inst)
+<BR>
+Use of uninitialized value at /usr/local/cricket/cricket/./lib/common.pm
+<BR>
+line 462.
+<BR>
+[19-May-1999 20:51:10*] Could not find an OID in
+<BR>
+<A HREF="mailto:srvr-status@gw1.nyw.ny.rcn.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.LNX.3.96.990519205212.5742E-100000@gunslinger.hate.org&gt;">srvr-status@gw1.nyw.ny.rcn.net</A>:161/frInOctets.map(interface-name).map(frame-inst)
+<BR>
+Use of uninitialized value at /usr/local/cricket/cricket/collector line
+<BR>
+283.
+<BR>
+<P>and with debug turned on i get
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frame-host = Serial0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frame-inst = 18
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frhost = map(interface-name)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frinst = map(frame-inst)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst = 6
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = Serial0.18
+<BR>
+<P>in the Defaults file I have:
+<BR>
+<P>Target  --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile    =       %dataDir%/%router%.%auto-target-name%.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst            =       map(interface-name)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frhost          =       map(interface-name)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frinst          =       map(frame-inst)
+<BR>
+<P><P>And that's where it doesn't work.  I can see that &quot;inst&quot; mapping is
+<BR>
+working using &quot;inst = map(interface-name)&quot;, but why isn't 
+<BR>
+&quot;frhost = map(interface-name)&quot; giving me the same information?
+<BR>
+<P>(that's not the way it'll be, I just used the map(interface-name) to
+<BR>
+compare it to teh way inst is mapping)
+<BR>
+<P>Any ideas?
+<BR>
+<P>Thanks,
+<BR>
+<P>Tim
+<BR>
+<P>Tim Kennedy
+<BR>
+<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.LNX.3.96.990519205212.5742E-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>
+<BR>
+<P>Disclaimer:  since this came from this me, not that ---&gt; me, 
+<BR>
+it is persona mail, and in no way reflects any opinions or
+<BR>
+policies of my employer, whom I won't mention here, just to 
+<BR>
+keep things clear of them. (new email policy at work)
+<BR>
+Usual stuff about confidentiality and whatnot... intended
+<BR>
+receivers, blah, blah, etc., etc.
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+ONElist:  where the world talks!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Join a new list today.
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0097.html">David Koski: "Re: [cricket-users] Cricket 0.65 re-released"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0095.html">Jeff Allen: "Re: [cricket-users] cricket uses"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0100.html">Jeff Allen: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0100.html">Jeff Allen: "Re: [cricket-users] Defaults file problem"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#96">[ date ]</A>
+<A HREF="index.html#96">[ thread ]</A>
+<A HREF="subject.html#96">[ subject ]</A>
+<A HREF="author.html#96">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] How do I get started w/OIDs</TITLE>
+<META NAME="Author" CONTENT="James R Grinter (jrg@blodwen.demon.co.uk)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] How do I get started w/OIDs">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] How do I get started w/OIDs</H1>
+<!-- received="Wed Dec 15 19:01:18 1999" -->
+<!-- isoreceived="19991216030118" -->
+<!-- sent="Thu, 16 Dec 1999 00:03:41 +0000" -->
+<!-- isosent="19991216000341" -->
+<!-- name="James R Grinter" -->
+<!-- email="jrg@blodwen.demon.co.uk" -->
+<!-- subject="Re: [cricket-users] How do I get started w/OIDs" -->
+<!-- id="E11yOOU-0004Gq-00@blodwen.watching.org" -->
+<!-- inreplyto="3.0.6.32.19991215093852.00862780@richmond.k12.va.us" -->
+<STRONG>From:</STRONG> James R Grinter (<A HREF="mailto:jrg@blodwen.demon.co.uk?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20started%20w/OIDs&In-Reply-To=&lt;E11yOOU-0004Gq-00@blodwen.watching.org&gt;"><EM>jrg@blodwen.demon.co.uk</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Dec 15 1999 - 16:03:41 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0799.html">Bjorn Nordbo: "[cricket-users] Problem with RRDs::graph in grapher.cgi"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0797.html">theresa.hilding@gcmail.maricopa.edu: "[cricket-users] Modifications made to Defaults file not visible on graphs"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0796.html">Steve Evans: "[cricket-users] How do I get started w/OIDs"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#798">[ date ]</A>
+<A HREF="index.html#798">[ thread ]</A>
+<A HREF="subject.html#798">[ subject ]</A>
+<A HREF="author.html#798">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:jrg@blodwen.demon.co.uk?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20started%20w/OIDs&In-Reply-To=&lt;E11yOOU-0004Gq-00@blodwen.watching.org&gt;">jrg@blodwen.demon.co.uk</A> (James R Grinter)
+<BR>
+<P>On Wed 15 Dec, 1999, Steve Evans &lt;<A HREF="mailto:sevans@richmond.k12.va.us?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20started%20w/OIDs&In-Reply-To=&lt;E11yOOU-0004Gq-00@blodwen.watching.org&gt;">sevans@richmond.k12.va.us</A>&gt; wrote:
+<BR>
+<EM>&gt;cool things like disk space usage on some of our Solaris servers.  Is there
+</EM><BR>
+<EM>&gt;a FAQ to explain how I would go about doing this?  From finding the OIDs
+</EM><BR>
+<EM>&gt;to defining the targets and cricket config files?  I wish to learn this but
+</EM><BR>
+<P>The key to this is having the source of that data - eg an agent running on
+<BR>
+the servers that will produce the answer when correctly queried.
+<BR>
+<P>Many people report success with the CMU SNMP agent - once configured to
+<BR>
+watch specific filesystems it will report the disk usage to you: there
+<BR>
+are some sample cricket configurations for that in the mailing list
+<BR>
+archives (middle of november, I think).
+<BR>
+<P>Deducing the OIDs can be done in many ways, from understanding how to
+<BR>
+read a MIB file and doing it by hand, to using a MIB file browser that
+<BR>
+lets you find the item you're interested in and read off the OID. I tend
+<BR>
+to use a combination of the MIB file and snmpwalk/snmptranslate.
+<BR>
+(but there's even a shareware Windows-based one out there if you prefer
+<BR>
+that sort of thing.)
+<BR>
+<P>James.
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make $$$ in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0799.html">Bjorn Nordbo: "[cricket-users] Problem with RRDs::graph in grapher.cgi"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0797.html">theresa.hilding@gcmail.maricopa.edu: "[cricket-users] Modifications made to Defaults file not visible on graphs"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0796.html">Steve Evans: "[cricket-users] How do I get started w/OIDs"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#798">[ date ]</A>
+<A HREF="index.html#798">[ thread ]</A>
+<A HREF="subject.html#798">[ subject ]</A>
+<A HREF="author.html#798">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

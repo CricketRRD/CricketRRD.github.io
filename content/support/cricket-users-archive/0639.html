@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Graphing multiple views on o</TITLE>
+<META NAME="Author" CONTENT="pmckenna (pmckenna@uswest.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Graphing multiple views on one page.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Graphing multiple views on one page.</H1>
+<!-- received="Tue Oct  5 22:28:21 1999" -->
+<!-- isoreceived="19991006052821" -->
+<!-- sent="Tue, 05 Oct 1999 21:23:39 -0500" -->
+<!-- isosent="19991006022339" -->
+<!-- name="pmckenna" -->
+<!-- email="pmckenna@uswest.net" -->
+<!-- subject="Re: [cricket-users] Graphing multiple views on one page." -->
+<!-- id="37FAB2AB.7FD9357@uswest.net" -->
+<!-- inreplyto="199909291416.KAA28056@cae209.ed.ray.com" -->
+<STRONG>From:</STRONG> pmckenna (<A HREF="mailto:pmckenna@uswest.net?Subject=Re:%20[cricket-users]%20Graphing%20multiple%20views%20on%20one%20page.&In-Reply-To=&lt;37FAB2AB.7FD9357@uswest.net&gt;"><EM>pmckenna@uswest.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Oct 05 1999 - 19:23:39 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0640.html">Berg, Ivan: "RE: [cricket-users] Yearly graph"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0638.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Collector / CISCO Router errors"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0627.html">Neal S. Pressman: "Re: [cricket-users] Graphing multiple views on one page."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#639">[ date ]</A>
+<A HREF="index.html#639">[ thread ]</A>
+<A HREF="subject.html#639">[ subject ]</A>
+<A HREF="author.html#639">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: pmckenna &lt;<A HREF="mailto:pmckenna@uswest.net?Subject=Re:%20[cricket-users]%20Graphing%20multiple%20views%20on%20one%20page.&In-Reply-To=&lt;37FAB2AB.7FD9357@uswest.net&gt;">pmckenna@uswest.net</A>&gt;
+<BR>
+<P>Neal this is cool and thanks.
+<BR>
+<P>I had kinda started a similar thing but got hung up on the fact that the rand arg to rrd was different for every graph I wanted to display. In this file yours
+<BR>
+are all the same. What's the trick to this ?
+<BR>
+This would certainly make life easier as I have hundreds of hosts to keep an eye on.
+<BR>
+<P>Thanks
+<BR>
+<P>Pete
+<BR>
+<P>&quot;Neal S. Pressman&quot; wrote:
+<BR>
+<P><EM>&gt; -&gt; The later, many of the views allready have multiple datasources.
+</EM><BR>
+<EM>&gt; -&gt; I wish to have a single HTML page with all the views for a given target.
+</EM><BR>
+<EM>&gt; -&gt; Something like 12 datasources 3 or 4 views and all graphs generated for
+</EM><BR>
+<EM>&gt; -&gt; the views on the same html page.
+</EM><BR>
+<EM>&gt; -&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; you will probally need to write your own script to build your custom
+</EM><BR>
+<EM>&gt; pages.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; for example I user cricket to monitor my solaris servers i have 6 trees
+</EM><BR>
+<EM>&gt; 2 of which may have multiple instances.  to meet my needs i made a perl
+</EM><BR>
+<EM>&gt; script to read my subtrees and fill in the blanks on a template.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; #!/bin/perl
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; $cell=&quot;left&quot;;
+</EM><BR>
+<EM>&gt; $HOST=$ARGV[0];
+</EM><BR>
+<EM>&gt; print &quot;&lt;HTML&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;HEAD&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;TITLE&gt;System usage $HOST&lt;/TITLE&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;META HTTP-EQUIV=\&quot;Refresh\&quot; CONTENT=300 &gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;META HTTP-EQUIV=\&quot;Expires\&quot; CONTENT=\&quot;Wed, 29 Oct 1997 21:00:00 GMT\&quot;&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;/HEAD&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;BODY bgcolor=#ffffff&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;H1&gt;System Usage $HOST&lt;/H1&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;table border=0 width=\&quot;100%\&quot;&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;\n&quot;;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; open (TARGETS , &quot;cricket-config/CPU-USAGE/cpus&quot; );
+</EM><BR>
+<EM>&gt; while (&lt;TARGETS&gt;){
+</EM><BR>
+<EM>&gt;         chop;
+</EM><BR>
+<EM>&gt;         if ( $_ =~ /^target/ ) {
+</EM><BR>
+<EM>&gt;                 ($JNK , $target) = split ( ' ' , $_ );
+</EM><BR>
+<EM>&gt;                 next if ( $target !~ /$HOST/ );
+</EM><BR>
+<EM>&gt;                 ($mach , $cpu ) = split ( /_/ , $target );
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;                         if ( &quot;$cell&quot; eq &quot;left&quot; ){
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;tr&gt;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FCPU-USAGE%2F$target&amp;ranges=d%3Aw&amp;view=Usage\&quot;&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FCPU-USAGE%2F$target&amp;dslist=WT%2CIDL%2CUSR%2CSYS&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;/td&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 $cell = &quot;right&quot;;
+</EM><BR>
+<EM>&gt;                                 next;
+</EM><BR>
+<EM>&gt;                                 }
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;                         if ( &quot;$cell&quot; eq &quot;right&quot; ){
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FCPU-USAGE%2F$target&amp;ranges=d%3Aw&amp;view=Usage\&quot;&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FCPU-USAGE%2F$target&amp;dslist=WT%2CIDL%2CUSR%2CSYS&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;/td&gt;&lt;/tr&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 $cell = &quot;left&quot;;
+</EM><BR>
+<EM>&gt;                                 next;
+</EM><BR>
+<EM>&gt;                                 }
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;                 }
+</EM><BR>
+<EM>&gt; }
+</EM><BR>
+<EM>&gt; close (TARGETS);
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;tr&gt;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FMEM-USAGE%2F${HOST}_mem&amp;ranges=d%3Aw&amp;view=Memory\&quot;&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FMEM-USAGE%2F${HOST}_mem&amp;dslist=MEM%2CFREEMEM%2CSWAP%2CFREESWAP&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;/td&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FCACHE%2F${HOST}_cache&amp;ranges=d%3Aw&amp;view=Cache\&quot;&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FCACHE%2F${HOST}_cache&amp;dslist=DNLC%2CINODE&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;/td&gt;&lt;/tr&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;tr&gt;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FVMSTAT%2F${HOST}_vmstat&amp;ranges=d%3Aw&amp;view=Vmstat\&quot;&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FVMSTAT%2F${HOST}_vmstat&amp;dslist=RUN%2CBLOCK%2CWAIT&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;/td&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FLOADAVE%2F${HOST}_loadave&amp;ranges=d%3Aw&amp;view=LoadAverage\&quot;&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FLOADAVE%2F${HOST}_loadave&amp;dslist=ONE%2CFIVE%2CFIFTEEN&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;/td&gt;&lt;/tr&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; open (TARGETS , &quot;cricket-config/DUN/disks&quot; );
+</EM><BR>
+<EM>&gt; while (&lt;TARGETS&gt;){
+</EM><BR>
+<EM>&gt;         chop;
+</EM><BR>
+<EM>&gt;         if ( $_ =~ /^target/ ) {
+</EM><BR>
+<EM>&gt;                 ($JNK , $target) = split ( ' ' , $_ );
+</EM><BR>
+<EM>&gt;                 next if ( $target !~ /$HOST/ );
+</EM><BR>
+<EM>&gt;                 ($mach , $cpu ) = split ( /_/ , $target );
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;                         if ( &quot;$cell&quot; eq &quot;left&quot; ){
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;tr&gt;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FDUN%2F$target&amp;ranges=d%3Aw&amp;view=Usage\&quot;&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FDUN%2F$target&amp;dslist=DISK%2CMAX&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;/td&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 $cell = &quot;right&quot;;
+</EM><BR>
+<EM>&gt;                                 next;
+</EM><BR>
+<EM>&gt;                                 }
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;                         if ( &quot;$cell&quot; eq &quot;right&quot; ){
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FDUN%2F$target&amp;ranges=d%3Aw&amp;view=Usage\&quot;&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FDUN%2F$target&amp;dslist=DISK%2CMAX&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;/td&gt;&lt;/tr&gt;\n&quot;;
+</EM><BR>
+<EM>&gt;                                 $cell = &quot;left&quot;;
+</EM><BR>
+<EM>&gt;                                 next;
+</EM><BR>
+<EM>&gt;                                 }
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;                 }
+</EM><BR>
+<EM>&gt; }
+</EM><BR>
+<EM>&gt; close (TARGETS);
+</EM><BR>
+<EM>&gt;                                 print &quot;&lt;tr&gt;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;/table&gt;\n&quot;;
+</EM><BR>
+<EM>&gt; print &quot;&lt;/BODY&gt;&lt;/HTML&gt;\n&quot;;
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Does Windows keep &quot;&quot;bugging&quot;&quot; you?  Can't get that PowerPoint slide to fit?
+<BR>
+Get FREE real-time live expert support over the Internet at expertcity.com.  
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity7">http://clickme.onelist.com/ad/expertcity7</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0640.html">Berg, Ivan: "RE: [cricket-users] Yearly graph"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0638.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Collector / CISCO Router errors"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0627.html">Neal S. Pressman: "Re: [cricket-users] Graphing multiple views on one page."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#639">[ date ]</A>
+<A HREF="index.html#639">[ thread ]</A>
+<A HREF="subject.html#639">[ subject ]</A>
+<A HREF="author.html#639">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

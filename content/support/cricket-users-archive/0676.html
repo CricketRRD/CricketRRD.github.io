@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Improving SNMP collection</TITLE>
+<META NAME="Author" CONTENT="James R Grinter (jrg@blodwen.demon.co.uk)">
+<META NAME="Subject" CONTENT="[cricket-users] Improving SNMP collection">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Improving SNMP collection</H1>
+<!-- received="Mon Oct 25 20:02:07 1999" -->
+<!-- isoreceived="19991026030207" -->
+<!-- sent="Tue, 26 Oct 1999 00:51:52 +0100" -->
+<!-- isosent="19991025235152" -->
+<!-- name="James R Grinter" -->
+<!-- email="jrg@blodwen.demon.co.uk" -->
+<!-- subject="[cricket-users] Improving SNMP collection" -->
+<!-- id="E11ftu5-000423-00@blodwen.watching.org" -->
+<STRONG>From:</STRONG> James R Grinter (<A HREF="mailto:jrg@blodwen.demon.co.uk?Subject=Re:%20[cricket-users]%20Improving%20SNMP%20collection&In-Reply-To=&lt;E11ftu5-000423-00@blodwen.watching.org&gt;"><EM>jrg@blodwen.demon.co.uk</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Oct 25 1999 - 16:51:52 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0677.html">roofpig@the.satanic.org: "[cricket-users] graph Y-labels..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0675.html">Josh Rivel: "[cricket-users] 95th percentile measurement?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0697.html">James R Grinter: "Re: [cricket-users] Improving SNMP collection"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0697.html">James R Grinter: "Re: [cricket-users] Improving SNMP collection"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#676">[ date ]</A>
+<A HREF="index.html#676">[ thread ]</A>
+<A HREF="subject.html#676">[ subject ]</A>
+<A HREF="author.html#676">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:jrg@blodwen.demon.co.uk?Subject=Re:%20[cricket-users]%20Improving%20SNMP%20collection&In-Reply-To=&lt;E11ftu5-000423-00@blodwen.watching.org&gt;">jrg@blodwen.demon.co.uk</A> (James R Grinter)
+<BR>
+<P>Ignoring some of the architectural problems with collector (it'll request
+<BR>
+all values for a target at once, but not at the host level; it
+<BR>
+serialises the requests), I've been trying to make SNMP collection more
+<BR>
+efficient in the face of unavailable hosts/agents.
+<BR>
+<P>At present, each snmp-walk or snmp-get to a non-responding agent (dead
+<BR>
+host or dead agent) costs around 10 seconds. If you have multiple
+<BR>
+targets per host, as I do in my situation (configuring filesystems,
+<BR>
+interfaces as seperate targets to make it easier to add new ones) then
+<BR>
+this can make it very hard to collect everything inside 5 minutes.
+<BR>
+<P>As a bit of a temporary hack, I've implemented (and am currently
+<BR>
+testing) a &quot;deadhost&quot; check in snmpUtils.pm, which will add the
+<BR>
+host/port combination into a list of non responding hosts.
+<BR>
+<P>Problems:
+<BR>
+- the SNMP Session routines don't make it easy to differentiate between
+<BR>
+no response (at all, or UDP port unreachable), or noSuchName (invalid OID,
+<BR>
+eg because someone removed the filesystem, interface, etc).
+<BR>
+- because we call the collector afresh each 5 minutes, this 'dead host'
+<BR>
+only persists for one collection cycle.
+<BR>
+<P>With point 1 in mind, I'm currently checking to see if the operation
+<BR>
+takes over 5 seconds: assuming that if it does it was probably a
+<BR>
+timeout and so the entire agent is to be considered dead. But is there
+<BR>
+a correct way?
+<BR>
+<P>Point 2 is probably not really a problem, at the moment, as long as there
+<BR>
+aren't 30 hosts down in one collection cycle.
+<BR>
+<P>Anyone else concerned about this sort of thing? Or have you approached
+<BR>
+the variable-number of targets per host differently?
+<BR>
+<P>I'll post the small patch to snmpUtils.pm, when I'm sure it's working.
+<BR>
+<P>James.
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thinking about putting your business on the Web? 
+<BR>
+MindSpring Biz has helped over 100,000 businesses get their .com.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join MindSpring Biz and save $50!  
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/mindspring3">http://clickme.onelist.com/ad/mindspring3</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0677.html">roofpig@the.satanic.org: "[cricket-users] graph Y-labels..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0675.html">Josh Rivel: "[cricket-users] 95th percentile measurement?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0697.html">James R Grinter: "Re: [cricket-users] Improving SNMP collection"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0697.html">James R Grinter: "Re: [cricket-users] Improving SNMP collection"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#676">[ date ]</A>
+<A HREF="index.html#676">[ thread ]</A>
+<A HREF="subject.html#676">[ subject ]</A>
+<A HREF="author.html#676">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:04 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Graphing peak (MAX) values like</TITLE>
+<META NAME="Author" CONTENT="Dave Caplinger (dcaplinger@orent.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Graphing peak (MAX) values like MRTG does">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Graphing peak (MAX) values like MRTG does</H1>
+<!-- received="Fri Jul 23 18:41:43 1999" -->
+<!-- isoreceived="19990724014143" -->
+<!-- sent="Fri, 23 Jul 1999 17:40:22 -0500" -->
+<!-- isosent="19990723224022" -->
+<!-- name="Dave Caplinger" -->
+<!-- email="dcaplinger@orent.com" -->
+<!-- subject="[cricket-users] Graphing peak (MAX) values like MRTG does" -->
+<!-- id="3798EF4F.DCB32B7E@orent.com" -->
+<STRONG>From:</STRONG> Dave Caplinger (<A HREF="mailto:dcaplinger@orent.com?Subject=Re:%20[cricket-users]%20Graphing%20peak%20(MAX)%20values%20like%20MRTG%20does&In-Reply-To=&lt;3798EF4F.DCB32B7E@orent.com&gt;"><EM>dcaplinger@orent.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jul 23 1999 - 15:40:22 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0421.html">Michael P. Burton: "[cricket-users] Gathering Switch Data (Part III)"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0419.html">Ragnar Kjørstad: "[cricket-users] Bareword &quot;context_flag&quot; not allowed while &quot;strict subs&quot; in use at SNMP_Session.pm"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#420">[ date ]</A>
+<A HREF="index.html#420">[ thread ]</A>
+<A HREF="subject.html#420">[ subject ]</A>
+<A HREF="author.html#420">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+It appears that Cricket is set up by default (i.e. in the sample-config)
+<BR>
+to collect maximal values during data reduction for 50-day and 600-day
+<BR>
+graphs (i.e. &quot;monthly&quot; and &quot;yearly&quot;), because I see them in the root
+<BR>
+level Defaults file:  (they're the ones that say &quot;MAX&quot; instead of
+<BR>
+&quot;AVERAGE&quot;)
+<BR>
+<P># one point per 5 minutes, spanning 50 hours
+<BR>
+rra             5minAve         AVERAGE:0.5:1:600
+<BR>
+# one point per 30 minutes, spanning 12 days
+<BR>
+rra             30minAve        AVERAGE:0.5:6:600
+<BR>
+# one point every 2 hours, spanning 50 days
+<BR>
+rra             2hrAve          AVERAGE:0.5:24:600
+<BR>
+rra             2hrMax          MAX:0.5:24:600
+<BR>
+# one point every day, spanning 600 days
+<BR>
+rra             1dayAve         AVERAGE:0.5:288:600
+<BR>
+rra             1dayMax         MAX:0.5:288:600
+<BR>
+<P>But what I don't follow is how can I get cricket to put this data on a
+<BR>
+graph?  I don't understand how graphing is tied back to RRAs that have
+<BR>
+been stored for the item being graphed.  Graphs for router-interfaces
+<BR>
+(for example, since that's what's most like MRTG) are defined like:
+<BR>
+<P>graph   ifInUcastPackets
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color       =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as     =   AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis      =   &quot;packets per second&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units       =   &quot;pkt/sec&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend      =   &quot;Average num Packets In&quot;
+<BR>
+<P>But I don't see how this correlates back to the RRAs like 5minAve,
+<BR>
+30minAve, 2hrAve, 1dayAve (which is what Cricket is plotting now).  In
+<BR>
+fact, I can't see how those 'rra' lines in the root Defaults file are
+<BR>
+used anywhere at all.  It seems to me that if I can figure this part
+<BR>
+out, I should be able to make a graph that plots data from the 2hrMax
+<BR>
+RRA instead of (or in addition to) the 2hrAve RRA and I'd be able to get
+<BR>
+the same functionality that I had in MRTG.
+<BR>
+<P>Am I missing something obvious?  Every indication I've seen is that
+<BR>
+Cricket is supposed to do this (why put the MAX data into those RRAs
+<BR>
+otherwise?) but the few times I've seen this question come up on the
+<BR>
+mailing list archives, it's never been answered as far as I could tell.
+<BR>
+I'd rather not have to manually invoke rrdtool to make those graphs if I
+<BR>
+don't have to, but if that really is the only way to do it...  (FYI, I'm
+<BR>
+running Cricket 0.67 and rrdtool 0.99.49.)
+<BR>
+<P>- Dave
+<BR>
+<P>
+<BR><HR NOSHADE>
+<UL>
+<LI>text/x-vcard attachment: <A HREF="att-0420/01-dcaplinger.vcf">Card for Dave Caplinger</A>
+</UL>
+<!-- attachment="01-dcaplinger.vcf" -->
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0421.html">Michael P. Burton: "[cricket-users] Gathering Switch Data (Part III)"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0419.html">Ragnar Kjørstad: "[cricket-users] Bareword &quot;context_flag&quot; not allowed while &quot;strict subs&quot; in use at SNMP_Session.pm"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#420">[ date ]</A>
+<A HREF="index.html#420">[ thread ]</A>
+<A HREF="subject.html#420">[ subject ]</A>
+<A HREF="author.html#420">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

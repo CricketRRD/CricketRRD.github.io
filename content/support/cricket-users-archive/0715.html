@@ -1,0 +1,444 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Saving 5 min samples</TITLE>
+<META NAME="Author" CONTENT="shanman@shanman.net (shanman@shanman.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Saving 5 min samples">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Saving 5 min samples</H1>
+<!-- received="Wed Nov  3 11:38:35 1999" -->
+<!-- isoreceived="19991103193835" -->
+<!-- sent="Wed, 3 Nov 1999 10:36:01 -0600 (CST)" -->
+<!-- isosent="19991103163601" -->
+<!-- name="shanman@shanman.net" -->
+<!-- email="shanman@shanman.net" -->
+<!-- subject="Re: [cricket-users] Saving 5 min samples" -->
+<!-- id="Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net" -->
+<!-- inreplyto="027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net" -->
+<STRONG>From:</STRONG> <A HREF="mailto:shanman@shanman.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;"><EM>shanman@shanman.net</EM></A><BR>
+<STRONG>Date:</STRONG> Wed Nov 03 1999 - 08:36:01 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0716.html">Utsav_Ratti@mckinsey.com: "Re: [cricket-users] Cricket and Bay"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0714.html">Mark Krenz: "Re: [cricket-users] Monitoring Load Average"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0713.html">Mark Skinner: "[cricket-users] Saving 5 min samples"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#715">[ date ]</A>
+<A HREF="index.html#715">[ thread ]</A>
+<A HREF="subject.html#715">[ subject ]</A>
+<A HREF="author.html#715">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:shanman@shanman.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">shanman@shanman.net</A>
+<BR>
+<P>Assuming that you are doing 5 minute polls, you could add an average CF 
+<BR>
+RRA:
+<BR>
+rra TotMonthAvg AVERAGE:0.5:1:8064
+<BR>
+<P>and maybe a max RRA:
+<BR>
+rra TotMonthMax MAX:0.5:2:4032
+<BR>
+<P>Then you need to add them to the targetType dicts that you will be using.
+<BR>
+The default target type lists:
+<BR>
+rra     =       &quot;5minAve, 30minAve, 2hrAve, 2hrMax, 1dayAve, 1dayMax&quot;
+<BR>
+<P>So, you need to overwrite the 5MinAve with the TotMonthAvg.  And the
+<BR>
+30minAve as well since you are basically covering the same period. So:
+<BR>
+rra     =       &quot;TotMonthAvg, TotMonthMax, 2hrAve, 2hrMax, 1dayAve, 1dayMax&quot;
+<BR>
+<P>This will grow your rrd file quite dramatically.  So, try it on a test
+<BR>
+datasource first.  I haven't had good success with resizing current rrd
+<BR>
+files with new rra's.  So, I recommend you archive your old rrd's (if you
+<BR>
+have a lot of data in them), and let cricket create new ones.
+<BR>
+<P>Shannon
+<BR>
+<P>On Wed, 3 Nov 1999, Mark Skinner wrote:
+<BR>
+<P><EM>&gt; From: &quot;Mark Skinner&quot; &lt;<A HREF="mailto:mskinner@verio.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">mskinner@verio.net</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Has anyone added or configured RRD to save _All_ the 5 min samples?
+</EM><BR>
+<EM>&gt; I am hoping to save all the samples for a month to calculate 95% percentile
+</EM><BR>
+<EM>&gt; values.
+</EM><BR>
+<EM>&gt; also, it would be nice to calculate from the beginning of the month the
+</EM><BR>
+<EM>&gt; current 95% percentile and put that on the graph as a bright red line.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; thanks
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Mark
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; From: Hugo Gayosso &lt;<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">qztf7k@powertrain.mpg.gm.com</A>&gt;
+</EM><BR>
+<EM>&gt; To: <A HREF="mailto:shane@bratnet.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">shane@bratnet.net</A> &lt;<A HREF="mailto:shane@bratnet.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">shane@bratnet.net</A>&gt;
+</EM><BR>
+<EM>&gt; Cc: <A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">cricket-users@onelist.com</A> &lt;<A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">cricket-users@onelist.com</A>&gt;
+</EM><BR>
+<EM>&gt; Date: Wednesday, November 03, 1999 5:58 AM
+</EM><BR>
+<EM>&gt; Subject: RE: [cricket-users] Monitoring Load Average
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt;From: Hugo Gayosso &lt;<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">qztf7k@powertrain.mpg.gm.com</A>&gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;-----BEGIN PGP SIGNED MESSAGE-----
+</EM><BR>
+<EM>&gt; &gt;Hash: SHA1
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;I am monitoring the load average for some HP-UX machines, and I only have
+</EM><BR>
+<EM>&gt; that
+</EM><BR>
+<EM>&gt; &gt;problem of the &quot;mili&quot; in one server, the rest are fine, here is my config
+</EM><BR>
+<EM>&gt; file:
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;~/cricket-config/servers/Defaults
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;# server-load sub-tree
+</EM><BR>
+<EM>&gt; &gt;#
+</EM><BR>
+<EM>&gt; &gt;# This is were we collect data from SNMP agents on HP-UX machines
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;Target  --default--
+</EM><BR>
+<EM>&gt; &gt;        server-load             = %auto-target-name%
+</EM><BR>
+<EM>&gt; &gt;        snmp-host               = %server-load%
+</EM><BR>
+<EM>&gt; &gt;        # you could set a router-specific community string here:
+</EM><BR>
+<EM>&gt; &gt;        # snmp-community        = not-public
+</EM><BR>
+<EM>&gt; &gt;        #
+</EM><BR>
+<EM>&gt; &gt;        # Provide no default type, since each router will be different,
+</EM><BR>
+<EM>&gt; &gt;        # and if we want to specify each model explicitly, or
+</EM><BR>
+<EM>&gt; &gt;        # get a warning.
+</EM><BR>
+<EM>&gt; &gt;        target-type             = undef
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;# OID's we'll be using in this tree
+</EM><BR>
+<EM>&gt; &gt;OID             cpu1min         1.3.6.1.4.1.11.2.3.1.1.3.0
+</EM><BR>
+<EM>&gt; &gt;OID             cpu5min         1.3.6.1.4.1.11.2.3.1.1.4.0
+</EM><BR>
+<EM>&gt; &gt;OID             cpu15min        1.3.6.1.4.1.11.2.3.1.1.5.0
+</EM><BR>
+<EM>&gt; &gt;OID             freemem         1.3.6.1.4.1.11.2.3.1.1.7.0
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;datasource      --default--
+</EM><BR>
+<EM>&gt; &gt;        rrd-ds-type             =       GAUGE
+</EM><BR>
+<EM>&gt; &gt;        rrd-heartbeat   =       1800
+</EM><BR>
+<EM>&gt; &gt;        rrd-min                 =       undef
+</EM><BR>
+<EM>&gt; &gt;        rrd-max                 =       undef
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;datasource      cpu1min         ds-source       =
+</EM><BR>
+<EM>&gt; snmp://%snmp%/cpu1min
+</EM><BR>
+<EM>&gt; &gt;datasource      cpu5min         ds-source       =
+</EM><BR>
+<EM>&gt; snmp://%snmp%/cpu5min
+</EM><BR>
+<EM>&gt; &gt;datasource      freemem         ds-source       =
+</EM><BR>
+<EM>&gt; snmp://%snmp%/freemem
+</EM><BR>
+<EM>&gt; &gt;datasource      freeswap        ds-source       =
+</EM><BR>
+<EM>&gt; snmp://%snmp%/freeswap
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;targetType      HP-UX
+</EM><BR>
+<EM>&gt; &gt;        ds      =       &quot;cpu1min, cpu5min, freemem&quot;
+</EM><BR>
+<EM>&gt; &gt;        view    =       &quot;cpu: cpu1min cpu5min, memory: freemem&quot;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;html short-desc                 &quot;HP-UX based machine&quot;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;graph   cpu1min
+</EM><BR>
+<EM>&gt; &gt;    units   =   &quot;loads&quot;
+</EM><BR>
+<EM>&gt; &gt;    color   =   dark-green
+</EM><BR>
+<EM>&gt; &gt;    draw-as =   AREA
+</EM><BR>
+<EM>&gt; &gt;    y-axis  =   &quot;Machine Load&quot;
+</EM><BR>
+<EM>&gt; &gt;    legend  =   &quot;1 minute Load&quot;
+</EM><BR>
+<EM>&gt; &gt;    scale   =   &quot;100,/&quot;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;graph   cpu5min
+</EM><BR>
+<EM>&gt; &gt;    units   =   &quot;loads&quot;
+</EM><BR>
+<EM>&gt; &gt;    color   =   blue
+</EM><BR>
+<EM>&gt; &gt;    y-axis  =   &quot;Machine Load&quot;
+</EM><BR>
+<EM>&gt; &gt;    legend  =   &quot;5 minute Load&quot;
+</EM><BR>
+<EM>&gt; &gt;    scale   =   &quot;100,/&quot;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;graph   freemem
+</EM><BR>
+<EM>&gt; &gt;    color   =   blue
+</EM><BR>
+<EM>&gt; &gt;    draw-as =   LINE2
+</EM><BR>
+<EM>&gt; &gt;    y-axis  =   &quot;Bytes&quot;
+</EM><BR>
+<EM>&gt; &gt;    legend  =   &quot;Free Memory&quot;
+</EM><BR>
+<EM>&gt; &gt;    bytes   =   true
+</EM><BR>
+<EM>&gt; &gt;    scale   =   &quot;1024,*&quot;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;P.S.
+</EM><BR>
+<EM>&gt; &gt;        If you can provide me with an example to monitor Disk space, I
+</EM><BR>
+<EM>&gt; would
+</EM><BR>
+<EM>&gt; &gt;appreciate it :)
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;        I have been busy to do some research about this using SNMP. Right
+</EM><BR>
+<EM>&gt; now I
+</EM><BR>
+<EM>&gt; &gt;use Netsaint for that, and it uses a Perl daemon running in the server, but
+</EM><BR>
+<EM>&gt; I
+</EM><BR>
+<EM>&gt; &gt;would like to do it via SNMP so I don't run two daemons (SNMP and Perl).
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;Greetings,
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;On 03-Nov-99 <A HREF="mailto:shane@bratnet.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">shane@bratnet.net</A> wrote:
+</EM><BR>
+<EM>&gt; &gt;&gt; From: <A HREF="mailto:shane@bratnet.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">shane@bratnet.net</A>
+</EM><BR>
+<EM>&gt; &gt;&gt;
+</EM><BR>
+<EM>&gt; &gt;&gt; Does anyone have the tricks needed to make rrdtool graph
+</EM><BR>
+<EM>&gt; &gt;&gt; loadaverages corectly, as opposed to scalling them to 1 - 100mili etc.
+</EM><BR>
+<EM>&gt; &gt;&gt;
+</EM><BR>
+<EM>&gt; &gt;&gt; I have seen someone on this list ask this before, but I couldn't find the
+</EM><BR>
+<EM>&gt; &gt;&gt; answer posted to the list. I am trying to make a set of config files to
+</EM><BR>
+<EM>&gt; &gt;&gt; graph usage of my server for disk/memory/load average using UCD-SNMP, to
+</EM><BR>
+<EM>&gt; &gt;&gt; monitor
+</EM><BR>
+<EM>&gt; &gt;&gt; about 50 servers. I have all working except Getting the load average to
+</EM><BR>
+<EM>&gt; graph
+</EM><BR>
+<EM>&gt; &gt;&gt; corectly.
+</EM><BR>
+<EM>&gt; &gt;&gt;
+</EM><BR>
+<EM>&gt; &gt;&gt;
+</EM><BR>
+<EM>&gt; &gt;&gt; Has anyone else set this up? Care to share your configs with me or the
+</EM><BR>
+<EM>&gt; list?
+</EM><BR>
+<EM>&gt; &gt;&gt;
+</EM><BR>
+<EM>&gt; &gt;&gt; <A HREF="mailto:shane@bratnet.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">shane@bratnet.net</A>
+</EM><BR>
+<EM>&gt; &gt;&gt;
+</EM><BR>
+<EM>&gt; &gt;&gt;
+</EM><BR>
+<EM>&gt; &gt;- --
+</EM><BR>
+<EM>&gt; &gt;Hugo Gayosso                            |      Free Software implies
+</EM><BR>
+<EM>&gt; &gt;Controls Process Support                |
+</EM><BR>
+<EM>&gt; &gt;Electronics Integration and Software    |      &quot;Free speech&quot;
+</EM><BR>
+<EM>&gt; &gt;GM Powertrain                           |
+</EM><BR>
+<EM>&gt; &gt;Brighton, MI                            |      NOT
+</EM><BR>
+<EM>&gt; &gt;USA                                     |
+</EM><BR>
+<EM>&gt; &gt;                                        |      &quot;Free beer&quot; !!!
+</EM><BR>
+<EM>&gt; &gt;E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;Pine.LNX.4.10.9911031015580.19085-100000@shanhat.shanman.net&gt;">qztf7k@powertrain.mpg.gm.com</A>    |
+</EM><BR>
+<EM>&gt; &gt; Phone: (810) 220-2635                  |      <A HREF="http://www.gnu.org">http://www.gnu.org</A>
+</EM><BR>
+<EM>&gt; &gt;   Fax: (810) 220-2663                  |
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;-----BEGIN PGP SIGNATURE-----
+</EM><BR>
+<EM>&gt; &gt;Version: GnuPG v1.0.0 (GNU/Linux)
+</EM><BR>
+<EM>&gt; &gt;Comment: For info see <A HREF="http://www.gnupg.org">http://www.gnupg.org</A>
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;iD8DBQE4ID2ix2JZtTN6co8RAqsRAJ9p+ORSzWxTWk898jeM2VIiiTmZUQCfVoCh
+</EM><BR>
+<EM>&gt; &gt;5JcYOaPioLUJFhBUPnBZfJU=
+</EM><BR>
+<EM>&gt; &gt;=Wztg
+</EM><BR>
+<EM>&gt; &gt;-----END PGP SIGNATURE-----
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make $$$ by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0716.html">Utsav_Ratti@mckinsey.com: "Re: [cricket-users] Cricket and Bay"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0714.html">Mark Krenz: "Re: [cricket-users] Monitoring Load Average"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0713.html">Mark Skinner: "[cricket-users] Saving 5 min samples"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#715">[ date ]</A>
+<A HREF="index.html#715">[ thread ]</A>
+<A HREF="subject.html#715">[ subject ]</A>
+<A HREF="author.html#715">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

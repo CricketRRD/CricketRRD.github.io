@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] min/max/avg.</TITLE>
+<META NAME="Author" CONTENT="Jeff Johnson (jeff@websitefactory.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] min/max/avg.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] min/max/avg.</H1>
+<!-- received="Wed Jun  2 19:12:41 1999" -->
+<!-- isoreceived="19990603021241" -->
+<!-- sent="Wed, 2 Jun 1999 19:12:00 -0400" -->
+<!-- isosent="19990602231200" -->
+<!-- name="Jeff Johnson" -->
+<!-- email="jeff@websitefactory.net" -->
+<!-- subject="Re: [cricket-users] min/max/avg." -->
+<!-- id="19990602191200.A6611@websitefactory.net" -->
+<!-- inreplyto="[cricket-users] min/max/avg." -->
+<STRONG>From:</STRONG> Jeff Johnson (<A HREF="mailto:jeff@websitefactory.net?Subject=Re:%20[cricket-users]%20min/max/avg.&In-Reply-To=&lt;19990602191200.A6611@websitefactory.net&gt;"><EM>jeff@websitefactory.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jun 02 1999 - 16:12:00 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0150.html">Jeff Allen: "Re: [cricket-users] min/max/avg."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0148.html">sugarat@thunderhold.sugarat.net: "[cricket-users] min/max/avg"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0150.html">Jeff Allen: "Re: [cricket-users] min/max/avg."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0150.html">Jeff Allen: "Re: [cricket-users] min/max/avg."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#149">[ date ]</A>
+<A HREF="index.html#149">[ thread ]</A>
+<A HREF="subject.html#149">[ subject ]</A>
+<A HREF="author.html#149">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:jeff@websitefactory.net?Subject=Re:%20[cricket-users]%20min/max/avg.&In-Reply-To=&lt;19990602191200.A6611@websitefactory.net&gt;">jeff@websitefactory.net</A> (Jeff Johnson)
+<BR>
+<P>I'm going to start coding this support next week if nobody gives me any
+<BR>
+response the the message I sent last week, included here since you
+<BR>
+unfortunetly lost your mail:
+<BR>
+<P>On Tue, Jun 01, 1999 at 11:12:44AM -0400, Jeff Johnson wrote:
+<BR>
+<EM>&gt; User-Agent: Mutt/0.96.2i
+</EM><BR>
+<EM>&gt; Delivered-To: mailing list <A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20min/max/avg.&In-Reply-To=&lt;19990602191200.A6611@websitefactory.net&gt;">cricket-users@onelist.com</A>
+</EM><BR>
+<EM>&gt; Reply-To: <A HREF="mailto:jeff@websitefactory.net?Subject=Re:%20[cricket-users]%20min/max/avg.&In-Reply-To=&lt;19990602191200.A6611@websitefactory.net&gt;">jeff@websitefactory.net</A> (Jeff Johnson)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I've just been informed that we require some of our old MRTG
+</EM><BR>
+<EM>&gt; data, such as the usage:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Max In:
+</EM><BR>
+<EM>&gt; 174.4 kB/s (90.3%) 
+</EM><BR>
+<EM>&gt; Average In:
+</EM><BR>
+<EM>&gt; 10.2 kB/s (5.3%) 
+</EM><BR>
+<EM>&gt; Current In:
+</EM><BR>
+<EM>&gt; 3420.0 B/s (1.8%) 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Max Out:
+</EM><BR>
+<EM>&gt; 20.0 kB/s (10.4%) 
+</EM><BR>
+<EM>&gt; Average Out:
+</EM><BR>
+<EM>&gt; 6182.0 B/s (3.2%) 
+</EM><BR>
+<EM>&gt; Current Out:
+</EM><BR>
+<EM>&gt; 4491.0 B/s (2.3%) 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; MRTG 2.5.4 is giving this data, and it doesn't seem hard at all to hack
+</EM><BR>
+<EM>&gt; into Cricket, but I thought I'd request here before duplicating work.
+</EM><BR>
+<EM>&gt; This would be really great guys, and its all that prevents me from rm -rf'ing
+</EM><BR>
+<EM>&gt; MRTG competely.  Well, almost....
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; When cricket generates the graphs, I have 4 perl processes taking loads of
+</EM><BR>
+<EM>&gt; CPU time, and it takes a few seconds to load each graph, sometimes up to
+</EM><BR>
+<EM>&gt; 10 seconds.   The server is a P166MMX, slow, but not that slow.  MRTG, because
+</EM><BR>
+<EM>&gt; the gifs aren't generated on the fly, is instant.  Would switching the
+</EM><BR>
+<EM>&gt; server over to FastCGI and mod_perl from CGI help increase the speed?  Is
+</EM><BR>
+<EM>&gt; there ANYTHING I can do?  This is the major #2 issues, especially when you
+</EM><BR>
+<EM>&gt; are navigating the switch-ports pages, with 24 or 48 ports on each switch,
+</EM><BR>
+<EM>&gt; the 2-3 second delays accessing the pages over a 100mbps on the local lan
+</EM><BR>
+<EM>&gt; aren't acceptable to my boss.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Thanks for any help.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; ONElist:  where the world talks!
+</EM><BR>
+<EM>&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+</EM><BR>
+<EM>&gt; Join a new list today.
+</EM><BR>
+<P><PRE>
+-- 
+Jeffrey H. Johnson, <A HREF="mailto:jeff@websitefactory.net?Subject=Re:%20[cricket-users]%20min/max/avg.&In-Reply-To=&lt;19990602191200.A6611@websitefactory.net&gt;">jeff@websitefactory.net</A>
+The Web Site Factory, <A HREF="http://www.websitefactory.net">http://www.websitefactory.net</A>
+<P>------------------------------------------------------------------------
+With more than 18 million e-mails exchanged daily...
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+....ONElist is THE place where the world talks!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0150.html">Jeff Allen: "Re: [cricket-users] min/max/avg."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0148.html">sugarat@thunderhold.sugarat.net: "[cricket-users] min/max/avg"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0150.html">Jeff Allen: "Re: [cricket-users] min/max/avg."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0150.html">Jeff Allen: "Re: [cricket-users] min/max/avg."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#149">[ date ]</A>
+<A HREF="index.html#149">[ thread ]</A>
+<A HREF="subject.html#149">[ subject ]</A>
+<A HREF="author.html#149">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:52 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

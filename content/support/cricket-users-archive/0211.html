@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Migrating old data from MRTG</TITLE>
+<META NAME="Author" CONTENT="Marcelo A. Ferreira Gomes (mgomes@trip.com.br)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Migrating old data from MRTG...">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Migrating old data from MRTG...</H1>
+<!-- received="Thu Jun 17 20:31:40 1999" -->
+<!-- isoreceived="19990618033140" -->
+<!-- sent="Fri, 11 Jun 1999 01:52:28 -0300" -->
+<!-- isosent="19990611045228" -->
+<!-- name="Marcelo A. Ferreira Gomes" -->
+<!-- email="mgomes@trip.com.br" -->
+<!-- subject="Re: [cricket-users] Migrating old data from MRTG..." -->
+<!-- id="l03130301b3861c1450c2@[192.168.0.24]" -->
+<!-- inreplyto="928912436.5010@onelist.com" -->
+<STRONG>From:</STRONG> Marcelo A. Ferreira Gomes (<A HREF="mailto:mgomes@trip.com.br?Subject=Re:%20[cricket-users]%20Migrating%20old%20data%20from%20MRTG...&In-Reply-To=&lt;l03130301b3861c1450c2@[192.168.0.24]&gt;"><EM>mgomes@trip.com.br</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jun 10 1999 - 21:52:28 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0212.html">Marcelo A. Ferreira Gomes: "[cricket-users] Zeroed out graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0210.html">Stephen Carville: "[cricket-users] What am I missing?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#211">[ date ]</A>
+<A HREF="index.html#211">[ thread ]</A>
+<A HREF="subject.html#211">[ subject ]</A>
+<A HREF="author.html#211">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Marcelo A. Ferreira Gomes&quot; &lt;<A HREF="mailto:mgomes@trip.com.br?Subject=Re:%20[cricket-users]%20Migrating%20old%20data%20from%20MRTG...&In-Reply-To=&lt;l03130301b3861c1450c2@[192.168.0.24]&gt;">mgomes@trip.com.br</A>&gt;
+<BR>
+<P>On Tue, 8 Jun 1999 09:02:05 -0700, Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Migrating%20old%20data%20from%20MRTG...&In-Reply-To=&lt;l03130301b3861c1450c2@[192.168.0.24]&gt;">jra@corp.webtv.net</A>&gt; wrote:
+<BR>
+<EM>&gt;Rocky - Rakesh Patel wrote:
+</EM><BR>
+<EM>&gt;&gt; I have a situation where some information was gathered via MRTG and
+</EM><BR>
+<EM>&gt;&gt; needs to be integrated into the current data files under cricket.  In
+</EM><BR>
+<EM>&gt;&gt; particular, I want to update the &quot;yearly averages&quot; information to fill
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;It sounds like you need a tool called &quot;rrd-poke&quot; which would let you
+</EM><BR>
+<EM>&gt;frob arbitrary items in the RRD file, so that oyu could put in your
+</EM><BR>
+<EM>&gt;old data into a new file. That tool does not exist, that I know of.
+</EM><BR>
+<P>Well, I could volunteer to write such a tool, if given some resources.
+<BR>
+Namely, I would LOVE to know the exact format of the (binary) RRD files. Is
+<BR>
+there any documentation about it? Tobias?
+<BR>
+<P>If there's no such documentation, I'd like to know at least what part of
+<BR>
+RRDTool's source to look into.
+<BR>
+<P><EM>&gt;Alternatively, you could build a new file by replaying the oldest data
+</EM><BR>
+<EM>&gt;first (from MRTG) then replaying the data from Cricket, then finally
+</EM><BR>
+<EM>&gt;swapping the current Cricket file for the one you built up by
+</EM><BR>
+<EM>&gt;replaying the data. It'd be a bit tricky, though.
+</EM><BR>
+<P>Too tricky. I tried that way, and it did work to some extent. But only for
+<BR>
+too short amounts of time backward (like a day for fast interfaces, no more
+<BR>
+than a couple of months for slow ones).
+<BR>
+<P>First there's the heartbeat and xff problem (the heartbeat and/or the
+<BR>
+X-files factor in RRDTool must be large enough to accept data averaged over
+<BR>
+a large amount of time). And RRDTool's tune function won't let me alter the
+<BR>
+xff parameter later on, when the conversion is done (at least, I see no
+<BR>
+documentation on doing that).
+<BR>
+<P>Then, there's the problem that MRTG stores deltas, NOT the original sampled
+<BR>
+data, forcing you to start from the last point (which is the ONLY point
+<BR>
+that gets stored literally) backwards.
+<BR>
+<P>This is the biggest problem. When backtracking, you always get to some time
+<BR>
+when there's just too much data averaged and things start not to fit in the
+<BR>
+machine's binary numeric representation (32 bits on the Sparc Ultra?). On
+<BR>
+fast interfaces, this problem shows up sooner, but if you have more than a
+<BR>
+couple of months worth of data, even slow interfaces do show this behavior.
+<BR>
+<P>I then tried to work around this problem by &quot;de-averaging&quot; the data
+<BR>
+(generating fake data points that amount to the same average) so as to deal
+<BR>
+with numbers that could actually fit in (my machine's) 32 bits. But even
+<BR>
+then, if the data was averaged over such a big amount of time as to have
+<BR>
+more than one numeric overflow between two consecutive averaged points, you
+<BR>
+start having no way to backtrack without a VERY complex scheme. I then
+<BR>
+abandoned the idea.
+<BR>
+<P>That was when I saw your mailing. And that's why I volunteer to write the
+<BR>
+&quot;rrd-poke&quot; tool. Any help on doing that would be MUCH appreciated.
+<BR>
+<P>Thanks in advance.
+<BR>
+<P><PRE>
+--
+Marcelo A. Ferreira Gomes &lt;mailto:<A HREF="mailto:mgomes@trip.com.br?Subject=Re:%20[cricket-users]%20Migrating%20old%20data%20from%20MRTG...&In-Reply-To=&lt;l03130301b3861c1450c2@[192.168.0.24]&gt;">mgomes@trip.com.br</A>&gt;
+Analista de sistemas e consultor em Informática
+(Systems analist and CS consultant)
+Rio de Janeiro, RJ, Brasil
+<P><P><P>------------------------------------------------------------------------
+Looking to expand your world?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+ONElist has 170,000 e-mail communities from which to choose!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0212.html">Marcelo A. Ferreira Gomes: "[cricket-users] Zeroed out graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0210.html">Stephen Carville: "[cricket-users] What am I missing?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#211">[ date ]</A>
+<A HREF="index.html#211">[ thread ]</A>
+<A HREF="subject.html#211">[ subject ]</A>
+<A HREF="author.html#211">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:53 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

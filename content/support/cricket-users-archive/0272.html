@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Multiple targets</TITLE>
+<META NAME="Author" CONTENT="R.P. Aditya (aditya@dnai.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Multiple targets">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Multiple targets</H1>
+<!-- received="Fri Jul  2 13:16:58 1999" -->
+<!-- isoreceived="19990702201658" -->
+<!-- sent="Fri, 02 Jul 1999 10:16:29 -0700" -->
+<!-- isosent="19990702171629" -->
+<!-- name="R.P. Aditya" -->
+<!-- email="aditya@dnai.com" -->
+<!-- subject="Re: [cricket-users] Multiple targets" -->
+<!-- id="199907021716.KAA18886@mercury.dnai.com" -->
+<!-- inreplyto="Pine.GSO.4.10.9907020953320.24602-100000@the.satanic.org" -->
+<STRONG>From:</STRONG> R.P. Aditya (<A HREF="mailto:aditya@dnai.com?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;199907021716.KAA18886@mercury.dnai.com&gt;"><EM>aditya@dnai.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jul 02 1999 - 10:16:29 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0273.html">Matthew Stier: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0271.html">roofpig@the.satanic.org: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0271.html">roofpig@the.satanic.org: "Re: [cricket-users] Multiple targets"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0273.html">Matthew Stier: "Re: [cricket-users] Multiple targets"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#272">[ date ]</A>
+<A HREF="index.html#272">[ thread ]</A>
+<A HREF="subject.html#272">[ subject ]</A>
+<A HREF="author.html#272">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;R.P. Aditya&quot; &lt;<A HREF="mailto:aditya@dnai.com?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;199907021716.KAA18886@mercury.dnai.com&gt;">aditya@dnai.com</A>&gt;
+<BR>
+<P><P>The problem is in BER.pm (part of the SNMP Perl stuff) -- you can change
+<BR>
+<P>sub pretty_uptime ($) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my ($packet,$uptime);
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;($uptime,$packet) = &amp;decode_unsignedlike (@_);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;pretty_uptime_value ($uptime);
+<BR>
+}
+<BR>
+<P>to be
+<BR>
+<P>sub pretty_uptime ($) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my ($packet,$uptime);
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;($uptime,$packet) = &amp;decode_unsignedlike (@_);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;$uptime = int($uptime / 100);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;return ($uptime);
+<BR>
+}
+<BR>
+<P>and you'll get a numeric uptime in seconds...
+<BR>
+<P>Adi
+<BR>
+<P>--------------------------------------------------------------------------------
+<BR>
+sub pretty_uptime_value ($) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my ($uptime) = @_;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my ($seconds,$minutes,$hours,$days,$result);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;## We divide the uptime by hundred since we're not interested in
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;## sub-second precision.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;$uptime = int ($uptime / 100);
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;$days = int ($uptime / (60 * 60 * 24));
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;$uptime %= (60 * 60 * 24);
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;$hours = int ($uptime / (60 * 60));
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;$uptime %= (60 * 60);
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;$minutes = int ($uptime / 60);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;$seconds = $uptime % 60;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;if ($days == 0){
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = sprintf (&quot;%d:%02d:%02d&quot;, $hours, $minutes, $seconds);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;} elsif ($days == 1) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = sprintf (&quot;%d day, %d:%02d:%02d&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$days, $hours, $minutes, $seconds);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = sprintf (&quot;%d days, %d:%02d:%02d&quot;,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$days, $hours, $minutes, $seconds);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;return $result;
+<BR>
+}
+<BR>
+<P><P>In message &lt;<A HREF="mailto:Pine.GSO.4.10.9907020953320.24602-100000@the.satanic.org?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;199907021716.KAA18886@mercury.dnai.com&gt;">Pine.GSO.4.10.9907020953320.24602-100000@the.satanic.org</A>&gt;, roofpig@the.satani
+<BR>
+c.org writes:
+<BR>
+<EM>&gt; From: &lt;<A HREF="mailto:roofpig@the.satanic.org?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;199907021716.KAA18886@mercury.dnai.com&gt;">roofpig@the.satanic.org</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; On Wed, 30 Jun 1999, Jeff Allen wrote:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;199907021716.KAA18886@mercury.dnai.com&gt;">jra@corp.webtv.net</A>&gt;
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Glenn MacGregor wrote:
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; Also if I try to get sysUptime I get an error message saying 2:24:55
+</EM><BR>
+<EM>&gt; &gt; &gt; (uptime) is not numeric, is there a way around this?
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; You are trying to put a string into an RRD, which is not possible. You
+</EM><BR>
+<EM>&gt; &gt; could use an EXEC script to fetch the value then do pre-processing on
+</EM><BR>
+<EM>&gt; &gt; it -- in this case the pre-processing would be to turn the formatted
+</EM><BR>
+<EM>&gt; &gt; time string into a number of seconds.
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 	I know the SNMP perl module (the UCD one, not the SNMP_Session
+</EM><BR>
+<EM>&gt; that cricket uses) allows you to tell it to return the unenumerated
+</EM><BR>
+<EM>&gt; value.  So instead of the formated 2:24:55, you'll get the timeticks
+</EM><BR>
+<EM>&gt; value.  Perhaps the SNMP_Session module has a similar option?  I, for one,
+</EM><BR>
+<EM>&gt; have several things that I'd like to graph that are timetick (NetApp CPU
+</EM><BR>
+<EM>&gt; busy seconds, APC seconds remaining on battery, APC seconds on battery,
+</EM><BR>
+<EM>&gt; etc.).  It seems unfortunate that I would have to write a special EXEC to
+</EM><BR>
+<EM>&gt; get these values via a different SNMP method just to unformat them.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; How has ONElist changed your life?
+</EM><BR>
+<EM>&gt; Share your story with us at <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Who is the most visited e-mail list community Web Service?
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+ONElist.com - where more than 20 million e-mails are exchanged each day!
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0273.html">Matthew Stier: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0271.html">roofpig@the.satanic.org: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0271.html">roofpig@the.satanic.org: "Re: [cricket-users] Multiple targets"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0273.html">Matthew Stier: "Re: [cricket-users] Multiple targets"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#272">[ date ]</A>
+<A HREF="index.html#272">[ thread ]</A>
+<A HREF="subject.html#272">[ subject ]</A>
+<A HREF="author.html#272">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:55 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

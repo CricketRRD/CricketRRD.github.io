@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Frame-relay sub-interface co</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Frame-relay sub-interface configs">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Frame-relay sub-interface configs</H1>
+<!-- received="Wed Jul 28 11:00:18 1999" -->
+<!-- isoreceived="19990728180018" -->
+<!-- sent="Wed, 28 Jul 1999 08:58:15 -0600" -->
+<!-- isosent="19990728145815" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="RE: [cricket-users] Frame-relay sub-interface configs" -->
+<!-- id="8B069C65F931D111B6E10000F804A4DF770373@amethyst.msu.montana.edu" -->
+<!-- inreplyto="[cricket-users] Frame-relay sub-interface configs" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Frame-relay%20sub-interface%20configs&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770373@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jul 28 1999 - 07:58:15 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0436.html">Berg, Ivan: "RE: [cricket-users] Multiple graphs over multiple targets...all o n one page?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0434.html">Matt Birkner: "[cricket-users] Frame-relay sub-interface configs"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0434.html">Matt Birkner: "[cricket-users] Frame-relay sub-interface configs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0439.html">Tim Kennedy: "RE: [cricket-users] Frame-relay sub-interface configs"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0439.html">Tim Kennedy: "RE: [cricket-users] Frame-relay sub-interface configs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#435">[ date ]</A>
+<A HREF="index.html#435">[ thread ]</A>
+<A HREF="subject.html#435">[ subject ]</A>
+<A HREF="author.html#435">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Frame-relay%20sub-interface%20configs&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770373@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>Try this guy out, pretty easy, list-interfaces should do it for ya.
+<BR>
+target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = router.domain.edu
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directory-desc      =       &quot;Cisco 4700 Router&quot;
+<BR>
+<P>target Ethernet0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name	=	Ethernet0
+<BR>
+<P>target Ethernet1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name	=	Ethernet1
+<BR>
+<P>target Serial0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name	=	Serial0
+<BR>
+<P>target Serial1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name	=	Serial1
+<BR>
+<P>target Serial0.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name	=	Serial0.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type	=	sub-interface
+<BR>
+<P>target Serial1.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name	=	Serial1.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type	=	sub-interface
+<BR>
+<P>target Serial1.2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name	=	Serial1.2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type	=	sub-interface
+<BR>
+<P>target Serial1.3
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name	=	Serial1.3
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type	=	sub-interface
+<BR>
+<P><P><A HREF="mailto:mbirkner@talus.net?Subject=RE:%20[cricket-users]%20Frame-relay%20sub-interface%20configs&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770373@amethyst.msu.montana.edu&gt;">mbirkner@talus.net</A>                [Standard Views Disclaimer applies]
+<BR>
+========================================================================
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Start a new ONElist list &amp; you can WIN great prizes!
+<BR>
+For details on ONElist?s NEW FRIENDS &amp; FAMILY program, go to
+<BR>
+<A HREF="http://www.onelist.com/info/onereachsplash3.html">http://www.onelist.com/info/onereachsplash3.html</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Congratulations DALMATIANRESCUE. Our latest ONElist of the week.
+<BR>
+To see full story and submit YOUR ONElist story, go to
+<BR>
+<A HREF="http://www.onelist.com/info/ootw_19.html">http://www.onelist.com/info/ootw_19.html</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0436.html">Berg, Ivan: "RE: [cricket-users] Multiple graphs over multiple targets...all o n one page?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0434.html">Matt Birkner: "[cricket-users] Frame-relay sub-interface configs"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0434.html">Matt Birkner: "[cricket-users] Frame-relay sub-interface configs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0439.html">Tim Kennedy: "RE: [cricket-users] Frame-relay sub-interface configs"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0439.html">Tim Kennedy: "RE: [cricket-users] Frame-relay sub-interface configs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#435">[ date ]</A>
+<A HREF="index.html#435">[ thread ]</A>
+<A HREF="subject.html#435">[ subject ]</A>
+<A HREF="author.html#435">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:59 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Fwd: cricket config diffs</TITLE>
+<META NAME="Author" CONTENT="Brad Knowles (brad@shub-internet.org)">
+<META NAME="Subject" CONTENT="[cricket-users] Fwd: cricket config diffs">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Fwd: cricket config diffs</H1>
+<!-- received="Tue Aug 17 04:27:28 1999" -->
+<!-- isoreceived="19990817112728" -->
+<!-- sent="Tue, 17 Aug 1999 10:26:08 +0200" -->
+<!-- isosent="19990817082608" -->
+<!-- name="Brad Knowles" -->
+<!-- email="brad@shub-internet.org" -->
+<!-- subject="[cricket-users] Fwd: cricket config diffs" -->
+<!-- id="v0420550bb3decc1964fc@[195.238.1.121]" -->
+<STRONG>From:</STRONG> Brad Knowles (<A HREF="mailto:brad@shub-internet.org?Subject=Re:%20[cricket-users]%20Fwd:%20cricket%20config%20diffs&In-Reply-To=&lt;v0420550bb3decc1964fc@[195.238.1.121]&gt;"><EM>brad@shub-internet.org</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Aug 17 1999 - 01:26:08 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0500.html">Brad Knowles: "[cricket-users] Using named OIDs?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0498.html">Berg, Ivan: "RE: [cricket-users] Error..."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#499">[ date ]</A>
+<A HREF="index.html#499">[ thread ]</A>
+<A HREF="subject.html#499">[ subject ]</A>
+<A HREF="author.html#499">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Brad Knowles &lt;<A HREF="mailto:brad@shub-internet.org?Subject=Re:%20[cricket-users]%20Fwd:%20cricket%20config%20diffs&In-Reply-To=&lt;v0420550bb3decc1964fc@[195.238.1.121]&gt;">brad@shub-internet.org</A>&gt;
+<BR>
+<P>Folks,
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Found some minor issues with the default graph sizes as suggested 
+<BR>
+in the sample-config/Defaults file.  I kept getting errors like this:
+<BR>
+<P>[17-Aug-1999 09:50:15*] Actual graph width (595) differs from width-hint (596).
+<BR>
+[17-Aug-1999 09:50:15*] Actual graph height (255) differs from 
+<BR>
+height-hint (267)
+<BR>
+..
+<BR>
+[17-Aug-1999 09:50:15*] Actual graph width (595) differs from width-hint (596).
+<BR>
+[17-Aug-1999 09:50:15*] Actual graph height (255) differs from 
+<BR>
+height-hint (267)
+<BR>
+..
+<BR>
+[17-Aug-1999 09:50:24*] Actual graph width (595) differs from width-hint (596).
+<BR>
+[17-Aug-1999 09:50:24*] Actual graph height (255) differs from 
+<BR>
+height-hint (267)
+<BR>
+..
+<BR>
+[17-Aug-1999 09:50:24*] Actual graph width (595) differs from width-hint (596).
+<BR>
+[17-Aug-1999 09:50:24*] Actual graph height (255) differs from 
+<BR>
+height-hint (267)
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So, I found out where the problems were and fixed them.  Here's my diffs:
+<BR>
+<P>diff -u -r cricket-config/Defaults ./cricket/sample-config/Defaults
+<BR>
+--- cricket-config/Defaults	Tue Aug 17 09:54:04 1999
+<BR>
++++ ./cricket/sample-config/Defaults	Sat Jul 10 04:38:55 1999
+<BR>
+@@ -170,8 +170,8 @@
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# finished graphs. It's too much trouble to try to calculate
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# them at runtime. If there is any doubt, don't set them. Bad hints
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# are worse than no hints!
+<BR>
+-	width-hint	= 595
+<BR>
+-	height-hint	= 255
+<BR>
++	width-hint	= 596
+<BR>
++	height-hint	= 267
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# if this attribute exists, then vertical rules will be placed
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# on the graphs at every zero-time, i.e. midnight, Monday, first of
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# the month, first of the year.
+<BR>
+<P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I can tell you that cricket 0.70 seems to work okay with rrdtool 
+<BR>
+1.06, although I haven't really created any real configuration 
+<BR>
+information (I'm still stepping through doc/beginner.txt trying to 
+<BR>
+learn how everything goes together).
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I guess I have the &quot;advantage&quot; that I'm not trying to bring 
+<BR>
+forward old configurations, nor am I &quot;hampered&quot; by previous 
+<BR>
+experience with mrtg.  ;-)
+<BR>
+<P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thanks for all your hard work!
+<BR>
+<P><PRE>
+-- 
+Brad Knowles &lt;<A HREF="mailto:brad@shub-internet.org?Subject=Re:%20[cricket-users]%20Fwd:%20cricket%20config%20diffs&In-Reply-To=&lt;v0420550bb3decc1964fc@[195.238.1.121]&gt;">brad@shub-internet.org</A>&gt; &lt;<A HREF="http://www.shub-internet.org/brad/">http://www.shub-internet.org/brad/</A>&gt;
+     &lt;<A HREF="http://wwwkeys.pgp.net:11371/pks/lookup?op=get&search=0xE38CCEF1">http://wwwkeys.pgp.net:11371/pks/lookup?op=get&search=0xE38CCEF1</A>&gt;
+<P>Your mouse has moved.   Windows NT must be restarted for the change to
+take effect.   Reboot now?  [ OK ]
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>ONElist now has T-SHIRTS!
+For details and to order, go to:
+<A HREF="http://www.onelist.com/store/tshirts.html">http://www.onelist.com/store/tshirts.html</A>
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0500.html">Brad Knowles: "[cricket-users] Using named OIDs?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0498.html">Berg, Ivan: "RE: [cricket-users] Error..."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#499">[ date ]</A>
+<A HREF="index.html#499">[ thread ]</A>
+<A HREF="subject.html#499">[ subject ]</A>
+<A HREF="author.html#499">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

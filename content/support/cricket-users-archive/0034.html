@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] not reading config file and</TITLE>
+<META NAME="Author" CONTENT="S. John Banner (jbanner@UVic.Ca)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] not reading config file and RRDp?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] not reading config file and RRDp?</H1>
+<!-- received="Thu May  6 15:56:40 1999" -->
+<!-- isoreceived="19990506225640" -->
+<!-- sent="Thu, 6 May 1999 12:54:48 -0700" -->
+<!-- isosent="19990506195448" -->
+<!-- name="S. John Banner" -->
+<!-- email="jbanner@UVic.Ca" -->
+<!-- subject="Re: [cricket-users] not reading config file and RRDp?" -->
+<!-- id="005501be97fa$4c0a6380$1a16688e@NS.UVic.Ca" -->
+<!-- inreplyto="Pine.A41.4.10.9905061345080.53848-100000@yuma.ACNS.ColoState.EDU" -->
+<STRONG>From:</STRONG> S. John Banner (<A HREF="mailto:jbanner@UVic.Ca?Subject=Re:%20[cricket-users]%20not%20reading%20config%20file%20and%20RRDp?&In-Reply-To=&lt;005501be97fa$4c0a6380$1a16688e@NS.UVic.Ca&gt;"><EM>jbanner@UVic.Ca</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu May 06 1999 - 12:54:48 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0035.html">Greg Redder: "Re: [cricket-users] not reading config file and RRDp?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0033.html">Greg Redder: "[cricket-users] not reading config file and RRDp?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0033.html">Greg Redder: "[cricket-users] not reading config file and RRDp?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0035.html">Greg Redder: "Re: [cricket-users] not reading config file and RRDp?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0035.html">Greg Redder: "Re: [cricket-users] not reading config file and RRDp?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#34">[ date ]</A>
+<A HREF="index.html#34">[ thread ]</A>
+<A HREF="subject.html#34">[ subject ]</A>
+<A HREF="author.html#34">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;S. John Banner&quot; &lt;<A HREF="mailto:jbanner@UVic.Ca?Subject=Re:%20[cricket-users]%20not%20reading%20config%20file%20and%20RRDp?&In-Reply-To=&lt;005501be97fa$4c0a6380$1a16688e@NS.UVic.Ca&gt;">jbanner@UVic.Ca</A>&gt;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;When I get that behaviour, nine times out of ten it is because I have the
+<BR>
+wrong permissions/owners on the config directories...  The directories and
+<BR>
+files need to be readable (and the data files writeable, but that is usually
+<BR>
+more obvious), by the user running the cricket program.
+<BR>
+&nbsp;&nbsp;&nbsp;The clue is &quot;0 targets processed&quot;...
+<BR>
+<P><EM>&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; From: Greg Redder [mailto:<A HREF="mailto:redder@yuma.ACNS.ColoState.EDU?Subject=Re:%20[cricket-users]%20not%20reading%20config%20file%20and%20RRDp?&In-Reply-To=&lt;005501be97fa$4c0a6380$1a16688e@NS.UVic.Ca&gt;">redder@yuma.ACNS.ColoState.EDU</A>]
+</EM><BR>
+<EM>&gt; Sent: Thursday, May 06, 1999 12:51 PM
+</EM><BR>
+<EM>&gt; To: <A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20not%20reading%20config%20file%20and%20RRDp?&In-Reply-To=&lt;005501be97fa$4c0a6380$1a16688e@NS.UVic.Ca&gt;">cricket-users@onelist.com</A>
+</EM><BR>
+<EM>&gt; Subject: [cricket-users] not reading config file and RRDp?
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; From: Greg Redder &lt;<A HREF="mailto:redder@yuma.ACNS.ColoState.EDU?Subject=Re:%20[cricket-users]%20not%20reading%20config%20file%20and%20RRDp?&In-Reply-To=&lt;005501be97fa$4c0a6380$1a16688e@NS.UVic.Ca&gt;">redder@yuma.ACNS.ColoState.EDU</A>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; My config files are in the standard location.  I haven't changed
+</EM><BR>
+<EM>&gt; anything in the subtrees file and I have two entries in the
+</EM><BR>
+<EM>&gt; cricket-config/routers/Targets file:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; target  csu-gw-2.ACNS.ColoState.EDU
+</EM><BR>
+<EM>&gt;         target-type=Cisco-2500-Router
+</EM><BR>
+<EM>&gt;         short-desc      =       &quot;Serial Router&quot;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; target  nesb-gw.ACNS.ColoState.EDU
+</EM><BR>
+<EM>&gt;         target-type=Cisco-7500-Router
+</EM><BR>
+<EM>&gt;         short-desc      =       &quot;NESB&quot;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; I also made sure I'm using the correct community string in the
+</EM><BR>
+<EM>&gt; top level Default file.
+</EM><BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+Who offers the richest group communications tools on the Internet?
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Answer:  ONElist.  Check out our homepage for details!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0035.html">Greg Redder: "Re: [cricket-users] not reading config file and RRDp?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0033.html">Greg Redder: "[cricket-users] not reading config file and RRDp?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0033.html">Greg Redder: "[cricket-users] not reading config file and RRDp?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0035.html">Greg Redder: "Re: [cricket-users] not reading config file and RRDp?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0035.html">Greg Redder: "Re: [cricket-users] not reading config file and RRDp?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#34">[ date ]</A>
+<A HREF="index.html#34">[ thread ]</A>
+<A HREF="subject.html#34">[ subject ]</A>
+<A HREF="author.html#34">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:48 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

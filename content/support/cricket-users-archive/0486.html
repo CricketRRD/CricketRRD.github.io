@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: monitor relative</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: monitor relative">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: monitor relative</H1>
+<!-- received="Thu Aug 12 21:14:37 1999" -->
+<!-- isoreceived="19990813041437" -->
+<!-- sent="Thu, 12 Aug 1999 18:11:57 -0700 (PDT)" -->
+<!-- isosent="19990813011157" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="[cricket-users] Re: monitor relative" -->
+<!-- id="199908130111.SAA23127@oops.artemis.com" -->
+<!-- inreplyto="19990812170755.R25749@corp.webtv.net" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20monitor%20relative&In-Reply-To=&lt;199908130111.SAA23127@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Aug 12 1999 - 18:11:57 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0487.html">Kevin Fenn: "[cricket-users] Changing graph ranges."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0485.html">Michael P. Burton: "[cricket-users] further errors with grapher.cgi?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#486">[ date ]</A>
+<A HREF="index.html#486">[ thread ]</A>
+<A HREF="subject.html#486">[ subject ]</A>
+<A HREF="author.html#486">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+Jeff asked for a little more detail on the monitoring stuff, and I
+<BR>
+decided this was generally useful, so I'm sending it to everyone.
+<BR>
+<P>Jeff Jensen wrote:
+<BR>
+<EM>&gt; You were putting together an example of a relative monitor.  Did you ever
+</EM><BR>
+<EM>&gt; get that put together?
+</EM><BR>
+<P>I decided to rewrite a bunch of version 0.70's Monitor.pm to make it
+<BR>
+more tolerant of syntax errors. You'll want to replace the v0.70
+<BR>
+Monitor.pm with the one attached before you play around with Monitors
+<BR>
+much.
+<BR>
+<P>Here's an example of a relation monitor:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target control-ds-4
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;monitor-thresholds  =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;cricket-control:relation:0.01 pct:control-ds-9&quot;
+<BR>
+<P>The arguments are:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the ds we are looking at in the current target
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the monitor type (relation)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the threshold
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the target you want to compare to
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(defaults to the same target)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the datasource in the target that you want to compare to
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(defaults to the same datasource)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the number of seconds back in time you want to compare to
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(defaults to 0)
+<BR>
+<P>So, in the example above, we are comparing to 0 seconds ago, in the
+<BR>
+same cricket-control ds in the target called &quot;control-ds-9&quot; (assumed
+<BR>
+to exist in the same subtree as this target).
+<BR>
+<P>The threshold is compared to the difference between the absolute value
+<BR>
+of the difference between the compaison value and the current
+<BR>
+value. The comparison function defaults to '&gt;' (strictly greater
+<BR>
+than), thus an alert will be triggered if the difference is less than
+<BR>
+or equal to the threshold value. You can change the comparision
+<BR>
+function by prepending a '&lt;' or a '&gt;' to the threshold value.
+<BR>
+<P>If the threshold is followed by ' pct', then it's compared to the
+<BR>
+ratio of the difference to the comparison value, expressed as a
+<BR>
+percent. The stuff about the comparison function from above applies
+<BR>
+here too. So if the value is 7 and the comparison value is 10, the
+<BR>
+percent difference is ((7-10)/10) = 30%.
+<BR>
+<P>There is currently no choice about what kind of alert you get. I'll
+<BR>
+make it easier to control the kind of alerts you get (i.e. syslog,
+<BR>
+e-mail, trap) in an upcoming version (probably 0.71, but don't quote
+<BR>
+me on it).
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20monitor%20relative&In-Reply-To=&lt;199908130111.SAA23127@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P><P>
+</PRE>
+<HR NOSHADE>
+<UL>
+<LI>application/octet-stream attachment: <A HREF="att-0486/01-Monitor.pm">Monitor.pm</A>
+</UL>
+<!-- attachment="01-Monitor.pm" -->
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0487.html">Kevin Fenn: "[cricket-users] Changing graph ranges."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0485.html">Michael P. Burton: "[cricket-users] further errors with grapher.cgi?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#486">[ date ]</A>
+<A HREF="index.html#486">[ thread ]</A>
+<A HREF="subject.html#486">[ subject ]</A>
+<A HREF="author.html#486">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

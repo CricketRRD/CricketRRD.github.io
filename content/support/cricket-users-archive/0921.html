@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Value monitors for thresholds in</TITLE>
+<META NAME="Author" CONTENT="Jeff Younker (Jeff@mdli.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Value monitors for thresholds in 0.70 and 0.71">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Value monitors for thresholds in 0.70 and 0.71</H1>
+<!-- received="Sat Jan 15 09:37:27 2000" -->
+<!-- isoreceived="20000115173727" -->
+<!-- sent="Sat, 15 Jan 2000 03:21:21 -0800" -->
+<!-- isosent="20000115112121" -->
+<!-- name="Jeff Younker" -->
+<!-- email="Jeff@mdli.com" -->
+<!-- subject="[cricket-users] Value monitors for thresholds in 0.70 and 0.71" -->
+<!-- id="8E13FBBA26A9DA119ED400A0C9AB2CE5036AC55F@shepherd.mdli.com" -->
+<STRONG>From:</STRONG> Jeff Younker (<A HREF="mailto:Jeff@mdli.com?Subject=Re:%20[cricket-users]%20Value%20monitors%20for%20thresholds%20in%200.70%20and%200.71&In-Reply-To=&lt;8E13FBBA26A9DA119ED400A0C9AB2CE5036AC55F@shepherd.mdli.com&gt;"><EM>Jeff@mdli.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sat Jan 15 2000 - 03:21:21 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0922.html">Steve Carter: "[cricket-users] Cricket 0.71 version conflicts?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0920.html">Jeff Younker: "[cricket-users] Format.pm values for OpenBSD"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#921">[ date ]</A>
+<A HREF="index.html#921">[ thread ]</A>
+<A HREF="subject.html#921">[ subject ]</A>
+<A HREF="author.html#921">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Younker &lt;<A HREF="mailto:Jeff@mdli.com?Subject=Re:%20[cricket-users]%20Value%20monitors%20for%20thresholds%20in%200.70%20and%200.71&In-Reply-To=&lt;8E13FBBA26A9DA119ED400A0C9AB2CE5036AC55F@shepherd.mdli.com&gt;">Jeff@mdli.com</A>&gt;
+<BR>
+<P>I have a cisco router which I'm monitoring.  Essentially I'm using the
+<BR>
+configuration right out of the sample tree for /routers, collecting cpu and
+<BR>
+memory statistics.  These targets have been accumulating data for quite some
+<BR>
+time, the graphs are viewable, the collector is happy, etc.
+<BR>
+<P>Now I toss the following monitor in a targets definition:
+<BR>
+<P>monitor-thresholds = &quot;cpu5min:value:10:12&quot;
+<BR>
+<P>And after recompiling the tree I get the following:
+<BR>
+<P>orwell.mdli.com &gt; /usr/local/cricket/collector /routers
+<BR>
+[15-Jan-2000 03:06:41 ] Starting collector: Cricket version 0.71 ( Sun Jan 9
+<BR>
+21:50:46 PST 2000 )
+<BR>
+[15-Jan-2000 03:06:42 ] Retrieved data for ciscosl1 ():
+<BR>
+30,30,5389428,4280752
+<BR>
+[15-Jan-2000 03:06:44 ] Retrieved data for ciscosl2 ():
+<BR>
+16,17,5338464,4331696
+<BR>
+Use of uninitialized value at /usr/local/cricket/./lib/Monitor.pm line 264.
+<BR>
+[15-Jan-2000 03:06:44*] Skipping: Couldn't fetch last value from datafile.
+<BR>
+[15-Jan-2000 03:06:44 ] Processed 2 targets in 5 seconds.
+<BR>
+<P><P>Does anyone have any clue what I'm doing wrong here, or where I should look
+<BR>
+for further clues?  I've been staring at it for a while, and I'm stopping
+<BR>
+just short of a full debugging run.  (That would be more than I'm capable of
+<BR>
+dealing with at the moment.)  Am I missing something obvious here?
+<BR>
+<P>- Jeff Younker - <A HREF="mailto:jeff@mdli.com?Subject=Re:%20[cricket-users]%20Value%20monitors%20for%20thresholds%20in%200.70%20and%200.71&In-Reply-To=&lt;8E13FBBA26A9DA119ED400A0C9AB2CE5036AC55F@shepherd.mdli.com&gt;">jeff@mdli.com</A> - These are my opinions, not MDL's -
+<BR>
+&nbsp;&nbsp;
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Want to send money instantly to anyone, anywhere, anytime?
+<BR>
+You can today at X.com - and we'll give you $20 to try it.  Sign
+<BR>
+up today at X.com.  It's quick, free, &amp; there's no obligation.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/xcom">http://clickme.onelist.com/ad/xcom</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0922.html">Steve Carter: "[cricket-users] Cricket 0.71 version conflicts?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0920.html">Jeff Younker: "[cricket-users] Format.pm values for OpenBSD"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#921">[ date ]</A>
+<A HREF="index.html#921">[ thread ]</A>
+<A HREF="subject.html#921">[ subject ]</A>
+<A HREF="author.html#921">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:10 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

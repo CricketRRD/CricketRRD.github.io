@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Determining bandwidth usage</TITLE>
+<META NAME="Author" CONTENT="shanman@shanman.net (shanman@shanman.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Determining bandwidth usage">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Determining bandwidth usage</H1>
+<!-- received="Thu Oct 28 19:10:53 1999" -->
+<!-- isoreceived="19991029021053" -->
+<!-- sent="Thu, 28 Oct 1999 18:07:36 -0500 (CDT)" -->
+<!-- isosent="19991028230736" -->
+<!-- name="shanman@shanman.net" -->
+<!-- email="shanman@shanman.net" -->
+<!-- subject="Re: [cricket-users] Determining bandwidth usage" -->
+<!-- id="Pine.LNX.4.10.9910281753470.9666-100000@shanhat.shanman.net" -->
+<!-- inreplyto="6388138ED485D311B7230000F804A4DF5D8B2E@amethyst.msu.montana.edu" -->
+<STRONG>From:</STRONG> <A HREF="mailto:shanman@shanman.net?Subject=Re:%20[cricket-users]%20Determining%20bandwidth%20usage&In-Reply-To=&lt;Pine.LNX.4.10.9910281753470.9666-100000@shanhat.shanman.net&gt;"><EM>shanman@shanman.net</EM></A><BR>
+<STRONG>Date:</STRONG> Thu Oct 28 1999 - 16:07:36 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0689.html">David: "[cricket-users] cricket and apache"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0687.html">Berg, Ivan: "[cricket-users] Determining bandwidth usage"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0687.html">Berg, Ivan: "[cricket-users] Determining bandwidth usage"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0691.html">Ross Lewis: "RE: [cricket-users] Determining bandwidth usage"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#688">[ date ]</A>
+<A HREF="index.html#688">[ thread ]</A>
+<A HREF="subject.html#688">[ subject ]</A>
+<A HREF="author.html#688">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:shanman@shanman.net?Subject=Re:%20[cricket-users]%20Determining%20bandwidth%20usage&In-Reply-To=&lt;Pine.LNX.4.10.9910281753470.9666-100000@shanhat.shanman.net&gt;">shanman@shanman.net</A>
+<BR>
+<P>By default, cricket create's RRA's for keeping the MAX (peaks) during a
+<BR>
+period of time.  Using these default RRA's, you can use the new cricket
+<BR>
+(0.70) to generate MAX's.
+<BR>
+<P>Just set max=1 in a graph dictionary:
+<BR>
+graph ifOutOctets
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max     =       1
+<BR>
+<P>You can also use maxcolor=color to define the color (if you want to
+<BR>
+deviate from auto)
+<BR>
+<P>ShanMan
+<BR>
+<P><P>On Thu, 28 Oct 1999, Berg, Ivan wrote:
+<BR>
+<P><EM>&gt; From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=Re:%20[cricket-users]%20Determining%20bandwidth%20usage&In-Reply-To=&lt;Pine.LNX.4.10.9910281753470.9666-100000@shanhat.shanman.net&gt;">iberg@montana.edu</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Here is the problem:
+</EM><BR>
+<EM>&gt; Cricket averages the data for the long term resulting in a smoothed out
+</EM><BR>
+<EM>&gt; picture that does not accurately give you an idea of peak bandwidth usage
+</EM><BR>
+<EM>&gt; needed to bill or upgrade a network.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; This is due to the bursty nature of LAN traffic, for instance, in one case,
+</EM><BR>
+<EM>&gt; the average for the week is about HALF the size of the peaks in the
+</EM><BR>
+<EM>&gt; day-quite a loss.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Is there other ways for cricket/rrdtool to generate long term data? I.E
+</EM><BR>
+<EM>&gt; instead of averaging, simply throw out every so many points - even this
+</EM><BR>
+<EM>&gt; would preserve peaks better.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Another way would be to increase the data size sets of rrd so it could store
+</EM><BR>
+<EM>&gt; more data points and not average so much.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Anybody have any suggestions to improve the resolution and have cricket
+</EM><BR>
+<EM>&gt; preserve the data more??
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make $$$ in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0689.html">David: "[cricket-users] cricket and apache"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0687.html">Berg, Ivan: "[cricket-users] Determining bandwidth usage"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0687.html">Berg, Ivan: "[cricket-users] Determining bandwidth usage"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0691.html">Ross Lewis: "RE: [cricket-users] Determining bandwidth usage"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#688">[ date ]</A>
+<A HREF="index.html#688">[ thread ]</A>
+<A HREF="subject.html#688">[ subject ]</A>
+<A HREF="author.html#688">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:04 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

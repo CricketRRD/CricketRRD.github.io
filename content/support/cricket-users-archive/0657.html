@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Smoothing &quot;reboot&quot;</TITLE>
+<META NAME="Author" CONTENT="the+cricket@llama.com (the+cricket@llama.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Smoothing &quot;reboot&quot; spikes?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Smoothing &quot;reboot&quot; spikes?</H1>
+<!-- received="Tue Oct 12 14:29:43 1999" -->
+<!-- isoreceived="19991012212943" -->
+<!-- sent="Tue, 12 Oct 1999 11:28:08 -0700 (PDT)" -->
+<!-- isosent="19991012182808" -->
+<!-- name="the+cricket@llama.com" -->
+<!-- email="the+cricket@llama.com" -->
+<!-- subject="Re: [cricket-users] Smoothing &quot;reboot&quot; spikes?" -->
+<!-- id="Pine.BSF.4.10.9910121119220.20250-100000@shell3.ba.best.com" -->
+<!-- inreplyto="38037A0C.BBA1374@devolution.com" -->
+<STRONG>From:</STRONG> <A HREF="mailto:the%2Bcricket@llama.com?Subject=Re:%20[cricket-users]%20Smoothing%20&quot;reboot&quot;%20spikes?&In-Reply-To=&lt;Pine.BSF.4.10.9910121119220.20250-100000@shell3.ba.best.com&gt;"><EM>the+cricket@llama.com</EM></A><BR>
+<STRONG>Date:</STRONG> Tue Oct 12 1999 - 11:28:08 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0658.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] Cisco 5500, switch-ports, instances"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0656.html">Scott Call: "[cricket-users] Smoothing &quot;reboot&quot; spikes?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0656.html">Scott Call: "[cricket-users] Smoothing &quot;reboot&quot; spikes?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#657">[ date ]</A>
+<A HREF="index.html#657">[ thread ]</A>
+<A HREF="subject.html#657">[ subject ]</A>
+<A HREF="author.html#657">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: the+<A HREF="mailto:cricket@llama.com?Subject=Re:%20[cricket-users]%20Smoothing%20&quot;reboot&quot;%20spikes?&In-Reply-To=&lt;Pine.BSF.4.10.9910121119220.20250-100000@shell3.ba.best.com&gt;">cricket@llama.com</A>
+<BR>
+<P>On Tue, 12 Oct 1999, Scott Call wrote:
+<BR>
+<P><EM>&gt; From: Scott Call &lt;<A HREF="mailto:scall@devolution.com?Subject=Re:%20[cricket-users]%20Smoothing%20&quot;reboot&quot;%20spikes?&In-Reply-To=&lt;Pine.BSF.4.10.9910121119220.20250-100000@shell3.ba.best.com&gt;">scall@devolution.com</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; All is working well except that when the counters reset to 0, we get
+</EM><BR>
+<EM>&gt; huge spikes for DSL customers (since they are usually really light
+</EM><BR>
+<EM>&gt; users, a reset to 0 can look like a 90 Mbps  spike).  I was wondering
+</EM><BR>
+<EM>&gt; (and this may be an RRD issue, not a cricket issue) if there was a way
+</EM><BR>
+<EM>&gt; to drop or ignore samples like that.  I'd rather risk missing a 5 minute
+</EM><BR>
+<EM>&gt; spike than have to deal with customers asking why their 384 DSL peaked
+</EM><BR>
+<EM>&gt; at 90Mbps in the middle of the night.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Any ideas?
+</EM><BR>
+<P>This is probably what you want, in lieu of the workaround for very fast
+<BR>
+interfaces which is yet forthcoming.
+<BR>
+<P><EM>&gt;From <A HREF="http://www.munitions.com/~jra/cricket/doc/reference.html">http://www.munitions.com/~jra/cricket/doc/reference.html</A>
+</EM><BR>
+<P>rrd-max
+<BR>
+<P>Default value: U
+<BR>
+This tag is used to set the RRD maximum value parameter. If RRD gets a value 
+<BR>
+higher than this number, it will throw the data away, instead of adding it to 
+<BR>
+the RRA. This can be used to filter bad data, though it could be argued it 
+<BR>
+would be better to simply avoid fetching bad data in the first place. When it 
+<BR>
+is set to &quot;U&quot; (for unknown), RRD does not attempt to check incoming data 
+<BR>
+against an upper bound. 
+<BR>
+<P>If the tag rrd-max is present in the target dictionary, it will override the 
+<BR>
+value found in the datasource dictionary. This makes is possible to assign 
+<BR>
+different maxima to different targets. 
+<BR>
+<P>If this value is changed after the underlying RRD file has been created, the 
+<BR>
+rrd-tune script must be used to apply the changes. 
+<BR>
+<P>Take care,
+<BR>
+<P>--Sam
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>??? Computer Questions  ==&gt; Free Answers From Live Experts ! ! !
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;go to EXPERTCITY.COM
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity15">http://clickme.onelist.com/ad/expertcity15</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0658.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] Cisco 5500, switch-ports, instances"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0656.html">Scott Call: "[cricket-users] Smoothing &quot;reboot&quot; spikes?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0656.html">Scott Call: "[cricket-users] Smoothing &quot;reboot&quot; spikes?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#657">[ date ]</A>
+<A HREF="index.html#657">[ thread ]</A>
+<A HREF="subject.html#657">[ subject ]</A>
+<A HREF="author.html#657">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

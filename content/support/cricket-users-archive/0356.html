@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] A fix for the Network Appliance</TITLE>
+<META NAME="Author" CONTENT="Matthew Stier (Matthew.Stier@tddny.fujitsu.com)">
+<META NAME="Subject" CONTENT="[cricket-users] A fix for the Network Appliance filer.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] A fix for the Network Appliance filer.</H1>
+<!-- received="Mon Jul 19 10:54:29 1999" -->
+<!-- isoreceived="19990719175429" -->
+<!-- sent="Mon, 19 Jul 1999 10:52:46 -0400" -->
+<!-- isosent="19990719145246" -->
+<!-- name="Matthew Stier" -->
+<!-- email="Matthew.Stier@tddny.fujitsu.com" -->
+<!-- subject="[cricket-users] A fix for the Network Appliance filer." -->
+<!-- id="37933BBE.81B3C6EF@tddny.fujitsu.com" -->
+<STRONG>From:</STRONG> Matthew Stier (<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=Re:%20[cricket-users]%20A%20fix%20for%20the%20Network%20Appliance%20filer.&In-Reply-To=&lt;37933BBE.81B3C6EF@tddny.fujitsu.com&gt;"><EM>Matthew.Stier@tddny.fujitsu.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jul 19 1999 - 07:52:46 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0357.html">David Koski: "Re: [cricket-users] Empty Graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0355.html">Craig Mckenna: "RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#356">[ date ]</A>
+<A HREF="index.html#356">[ thread ]</A>
+<A HREF="subject.html#356">[ subject ]</A>
+<A HREF="author.html#356">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+For those you that may be interested, here is a workaround I hacked
+<BR>
+together last night, to get Network Appliance filer OID's to be have
+<BR>
+under Cricket.
+<BR>
+<P>The file &quot;netapp&quot; belongs under cricket/util.  The file &quot;Default&quot; is the
+<BR>
+default file from my installation.  It is provided as a sample of what
+<BR>
+can be done.
+<BR>
+<P>Note: By using the &quot;netapp&quot; script, I also eliminated my BER.pm hack,
+<BR>
+since I am now getting the cputime counter directly, rather than through
+<BR>
+the SNMP_sessions package.
+<BR>
+<P><PRE>
+--
+Matthew Lee Stier                  *  Fujitsu Network Communications
+Unix Systems Administrator         |  Two Blue Hill Plaza
+Ph: 914-731-2097 Fx: 914-731-2011  |  Sixth Floor
+<A HREF="mailto:Matthew.Stier@fnc.fujitsu.com?Subject=Re:%20[cricket-users]%20A%20fix%20for%20the%20Network%20Appliance%20filer.&In-Reply-To=&lt;37933BBE.81B3C6EF@tddny.fujitsu.com&gt;">Matthew.Stier@fnc.fujitsu.com</A>      *  Pearl River, NY 10965
+<P><P><P>
+</PRE>
+<P>
+#!/opt/local/bin/perl -w
+# -*- perl -*-
+<P># Cricket: a configuration, polling and data display wrapper for RRD files
+#
+#    Copyright (C) 1998 Jeff R. Allen and WebTV Networks, Inc.
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program; if not, write to the Free Software
+#    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+<P>BEGIN {
+	$gInstallRoot = (($0 =~ m:^(.*/):)[0] || &quot;./&quot;) . &quot;..&quot;;
+}
+<P>use lib &quot;$gInstallRoot/lib&quot;;
+use strict;
+<P>use snmpUtils;
+<P>if ($#ARGV+1 &lt; 1 || $#ARGV+1 &gt; 2) {
+	print STDERR &quot;usage: $0 hostname [community]\n&quot;;
+	print STDERR &quot;\tcommunity will default to public if you don't give it.\n&quot;;
+	exit 1;
+}
+<P>my($filer) = $ARGV[0];
+my($community) = &quot;public&quot;;
+$community = $ARGV[1] unless (! defined($ARGV[1]));
+my($snmp) = &quot;$community\@$filer&quot;;
+<P>my($cpuusage)	= &quot;1.3.6.1.4.1.789.1.2.1.2.0&quot;;
+my($netsent)	= &quot;1.3.6.1.4.1.789.1.2.2.2.0&quot;;
+my($netrcvd)	= &quot;1.3.6.1.4.1.789.1.2.2.3.0&quot;;
+<P>my(@ret)	= snmpUtils::get($snmp, $cpuusage, $netsent, $netrcvd);
+<P>print $ret[0] . &quot;\n&quot;;
+print $ret[1] * 1024 . &quot;\n&quot;;
+print $ret[2] * 1024 . &quot;\n&quot;;
+<P><P>
+<P>
+# filer sub-tree
+#
+# This is where we collect stats on the chassis of our filers
+# (i.e. memory, CPU, temperature). These are kept separate from
+# the interfaces themselves since they have quite different
+# configuration needs.
+<P># All the root target defaults are appropriate here, except
+# that we want an entry named &quot;filer&quot; available to make things more
+# readable. This also shows an example of using &quot;forward
+# references&quot; to the domain variable, which gets set in
+# each of the target files.
+<P>Target	--default--
+	directory-desc	= &quot;Network Appliance filers&quot;
+	filer		= %auto-target-name%
+	snmp-host	= %filer%.%domain%
+	target-type	= undef
+	util-dir	= %auto-base%/../cricket/util
+<P># OID's we'll be using in this tree
+OID		cpuusage	1.3.6.1.4.1.789.1.2.1.2.0
+OID		nfsops		1.3.6.1.4.1.789.1.2.2.1.0
+OID		netsent		1.3.6.1.4.1.789.1.2.2.2.0
+OID		netrcvd		1.3.6.1.4.1.789.1.2.2.3.0
+OID		volume0		1.3.6.1.4.1.789.1.5.4.1.6.1
+OID		snapshot0	1.3.6.1.4.1.789.1.5.4.1.6.2
+OID		volume1		1.3.6.1.4.1.789.1.5.4.1.6.3
+OID		snapshot1	1.3.6.1.4.1.789.1.5.4.1.6.4
+OID		cifsread	1.3.6.1.4.1.789.1.1000.1.2.3.0
+OID		cifswrite	1.3.6.1.4.1.789.1.1000.1.2.4.0
+<P>datasource	--default--
+	rrd-ds-type	= GAUGE
+	rrd-heartbeat	= 1800
+	rrd-min		= undef
+	rrd-max		= undef
+	
+datasource	cpuusage
+	ds-source	= &quot;exec:0:%util-dir%/netapp %snmp-host%&quot;
+	rrd-ds-type	= COUNTER
+<P>datasource	nfsops
+	ds-source	= snmp://%snmp%/nfsops
+	rrd-ds-type	= COUNTER
+<P>datasource	netsent
+	ds-source	= &quot;exec:1:%util-dir%/netapp %snmp-host%&quot;
+	rrd-ds-type	= COUNTER
+<P>datasource	netrcvd
+	ds-source	= &quot;exec:2:%util-dir%/netapp %snmp-host%&quot;
+	rrd-ds-type	= COUNTER
+<P>datasource	cifsread
+	ds-source	= snmp://%snmp%/cifsread
+	rrd-ds-type	= COUNTER
+<P>datasource	cifswrite
+	ds-source	= snmp://%snmp%/cifswrite
+	rrd-ds-type	= COUNTER
+<P>datasource	volume0
+	ds-source	= snmp://%snmp%/volume0
+	rrd-ds-type	= GAUGE
+<P>datasource	snapshot0
+	ds-source	= snmp://%snmp%/snapshot0
+	rrd-ds-type	= GAUGE
+<P>datasource	volume1
+	ds-source	= snmp://%snmp%/volume1
+	rrd-ds-type	= GAUGE
+<P>datasource	snapshot1
+	ds-source	= snmp://%snmp%/snapshot1
+	rrd-ds-type	= GAUGE
+<P>targetType	NetApp-F330
+	ds		= &quot;cpuusage, 
+			   netrcvd, netsent, 
+			   nfsops, 
+			   cifsread, cifswrite,
+			   volume0, snapshot0&quot;
+	view		= &quot;cpu: cpuusage,
+			   network: netrcvd netsent,
+			   nfs: nfsops,
+			   cifs: cifsread cifswrite,
+			   volume0: volume0 snapshot0&quot;
+targetType	NetApp-F740
+	ds		= &quot;cpuusage, 
+			   netsent, netrcvd, 
+			   nfsops, 
+			   cifsread, cifswrite,
+			   volume0, snapshot0,
+			   volume1, snapshot1&quot;
+	view		= &quot;cpu: cpuusage,
+			   network: netrcvd netsent,
+			   nfs: nfsops,
+			   cifs: cifsread cifswrite,
+			   volume0: volume0 snapshot0,
+			   volume1: volume1 snapshot1&quot;
+<P># CPU
+graph   cpuusage
+	units		= &quot;%&quot;
+	color		= dark-green
+	draw-as		= AREA
+	legend		= &quot;Percent CPU utilization&quot;
+	y-axis		= &quot;Percent CPU utilization&quot;
+<P># Network Data
+graph   netrcvd
+	units		= &quot;bytes per second&quot;
+	color		= &quot;dark-green&quot;
+	draw-as		= AREA
+	y-axis		= &quot;Network Data&quot;
+	legend		= &quot;Network Data received&quot;
+<P>graph   netsent
+	units		= &quot;bytes per second&quot;
+	color		= &quot;blue&quot;
+	draw-as		= LINE2
+	legend		= &quot;Network Data sent&quot;
+<P># NFS
+graph   nfsops
+	units		= &quot;operations per second&quot;
+	color		= &quot;dark-green&quot;
+	draw-as		= AREA
+	y-axis		= &quot;NFS operations&quot;
+	legend		= &quot;NFS operations&quot;
+<P># CIFS
+graph   cifsread
+	units		= &quot;operations per second&quot;
+	color		= &quot;dark-green&quot;
+	draw-as		= AREA
+	y-axis		= &quot;CIFS operations&quot;
+	legend		= &quot;CIFS Data received&quot;
+<P>graph   cifswrite
+	units		= &quot;operations per second&quot;
+	color		= &quot;blue&quot;
+	draw-as		= LINE2
+	legend		= &quot;CIFS Data sent&quot;
+<P># Disk Volume0
+graph   volume0
+	units		= &quot;%&quot;
+	color		= dark-green
+	draw-as		= AREA
+	legend		= &quot;volume0&quot;
+	y-axis		= &quot;Percent Disk utilization&quot;
+<P>graph   snapshot0
+	units		= &quot;%&quot;
+	color		= blue
+	draw-as		= LINE2
+	legend		= &quot;snapshot0&quot;
+<P># Disk Volume1
+graph   volume1
+	units		= &quot;%&quot;
+	color		= dark-green
+	draw-as		= AREA
+	y-axis		= &quot;Percent Disk utilization&quot;
+	legend		= &quot;volume1&quot;
+<P>graph   snapshot1
+	units		= &quot;%&quot;
+	color		= blue
+	draw-as		= LINE2
+	legend		= &quot;snapshot1&quot;
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0357.html">David Koski: "Re: [cricket-users] Empty Graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0355.html">Craig Mckenna: "RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#356">[ date ]</A>
+<A HREF="index.html#356">[ thread ]</A>
+<A HREF="subject.html#356">[ subject ]</A>
+<A HREF="author.html#356">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:57 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Defaults file problem</TITLE>
+<META NAME="Author" CONTENT="Alan Lichty (alan_lichty@eli.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Defaults file problem">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Defaults file problem</H1>
+<!-- received="Thu May 20 22:35:05 1999" -->
+<!-- isoreceived="19990521053505" -->
+<!-- sent="Thu, 20 May 1999 19:33:42 -0700 (PDT)" -->
+<!-- isosent="19990521023342" -->
+<!-- name="Alan Lichty" -->
+<!-- email="alan_lichty@eli.net" -->
+<!-- subject="Re: [cricket-users] Defaults file problem" -->
+<!-- id="Pine.GSO.4.05.9905201926520.28588-100000@mars.eli.net" -->
+<!-- inreplyto="Pine.LNX.3.96.990520195714.373F-100000@gunslinger.hate.org" -->
+<STRONG>From:</STRONG> Alan Lichty (<A HREF="mailto:alan_lichty@eli.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.GSO.4.05.9905201926520.28588-100000@mars.eli.net&gt;"><EM>alan_lichty@eli.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu May 20 1999 - 19:33:42 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0104.html">Nicolas Miyazaki: "[MRTG] cricket: drawing on the same graph the max also"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0102.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0102.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0105.html">Timothy Kennedy: "[cricket-users] New listInterfaces is finally working for frame-relay. :)"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0105.html">Timothy Kennedy: "[cricket-users] New listInterfaces is finally working for frame-relay. :)"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#103">[ date ]</A>
+<A HREF="index.html#103">[ thread ]</A>
+<A HREF="subject.html#103">[ subject ]</A>
+<A HREF="author.html#103">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Alan Lichty&quot; &lt;<A HREF="mailto:alan_lichty@eli.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.GSO.4.05.9905201926520.28588-100000@mars.eli.net&gt;">alan_lichty@eli.net</A>&gt;
+<BR>
+<P>Tim -
+<BR>
+<P>Take a look at the following files in sample-config/atm-interfaces:
+<BR>
+<P>sample-config/atm-interfaces/Defaults
+<BR>
+<P>and
+<BR>
+<P>sample-config/atm-interfaces/atm-intb-pvc/interfaces
+<BR>
+<P>Ascend/Cascade ATM switches use a fixed VPI/VCI number as their MIB
+<BR>
+ifIndex in their counter tables and I had to hard code in the
+<BR>
+interface numbers instead of using the instance mapping tool.  In this
+<BR>
+case, I have a template for inst as:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst            =       %InterfaceID%
+<BR>
+<P>and hard code the entry per interface in the interfaces file:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InterfaceID = &quot;3.65579&quot;
+<BR>
+<P>I have a script that regularly rebuilds the interfaces file with new
+<BR>
+circuit updates every hour.  
+<BR>
+<P>Alan Lichty
+<BR>
+Internetworking Planner
+<BR>
+Electric Lightwave, Inc.
+<BR>
+(360)816-4167
+<BR>
+<P><P>On Thu, 20 May 1999, Timothy Kennedy wrote:
+<BR>
+<P><EM>&gt; From: Timothy Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.GSO.4.05.9905201926520.28588-100000@mars.eli.net&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; On Thu, 20 May 1999, Timothy Kennedy wrote:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; Yes it would.  Is there a way to pull a value directly out of the 
+</EM><BR>
+<EM>&gt; &gt; interfaces file and pass it's value to the Defaults file for use?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Forget I asked that.  :)   Not sure what I was thinking. :)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I think what I'm asking is where specific, non default stuff could go.
+</EM><BR>
+<EM>&gt; for instance.  I note that at the top it's &quot;Target --default--&quot;
+</EM><BR>
+<EM>&gt; Does that mean that there is someway to set non-defaultl values?
+</EM><BR>
+<EM>&gt; Are these the values pulled directly from the file?
+</EM><BR>
+<EM>&gt; Can I write a different inst value in the interfaces file?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I am gonna try these things and see.  
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Cheers,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -Timothy
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Tim Kennedy
+</EM><BR>
+<EM>&gt; <A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;Pine.GSO.4.05.9905201926520.28588-100000@mars.eli.net&gt;">sugarat@thunderhold.sugarat.net</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Disclaimer:  since this came from this me, not that ---&gt; me, 
+</EM><BR>
+<EM>&gt; it is persona mail, and in no way reflects any opinions or
+</EM><BR>
+<EM>&gt; policies of my employer, whom I won't mention here, just to 
+</EM><BR>
+<EM>&gt; keep things clear of them. (new email policy at work)
+</EM><BR>
+<EM>&gt; Usual stuff about confidentiality and whatnot... intended
+</EM><BR>
+<EM>&gt; receivers, blah, blah, etc., etc.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; Looking to expand your world?
+</EM><BR>
+<EM>&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+</EM><BR>
+<EM>&gt; ONElist has nearly 150,000 e-mail communities from which to chose!
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+Give back to your community through &quot;Grow to Give.&quot;
+<BR>
+<A HREF="http://www.ONElist.com">http://www.ONElist.com</A>
+<BR>
+See homepage for details.
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0104.html">Nicolas Miyazaki: "[MRTG] cricket: drawing on the same graph the max also"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0102.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0102.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0105.html">Timothy Kennedy: "[cricket-users] New listInterfaces is finally working for frame-relay. :)"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0105.html">Timothy Kennedy: "[cricket-users] New listInterfaces is finally working for frame-relay. :)"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#103">[ date ]</A>
+<A HREF="index.html#103">[ thread ]</A>
+<A HREF="subject.html#103">[ subject ]</A>
+<A HREF="author.html#103">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

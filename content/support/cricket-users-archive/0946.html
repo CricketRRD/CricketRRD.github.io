@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] No data in graphs</TITLE>
+<META NAME="Author" CONTENT="Dustin Slater (dustins@staff.texas.net)">
+<META NAME="Subject" CONTENT="[cricket-users] No data in graphs">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] No data in graphs</H1>
+<!-- received="Thu Jan 20 22:28:21 2000" -->
+<!-- isoreceived="20000121062821" -->
+<!-- sent="Thu, 20 Jan 2000 21:27:11 -0600" -->
+<!-- isosent="20000121032711" -->
+<!-- name="Dustin Slater" -->
+<!-- email="dustins@staff.texas.net" -->
+<!-- subject="[cricket-users] No data in graphs" -->
+<!-- id="20000120212711.D32277@staff.texas.net" -->
+<STRONG>From:</STRONG> Dustin Slater (<A HREF="mailto:dustins@staff.texas.net?Subject=Re:%20[cricket-users]%20No%20data%20in%20graphs&In-Reply-To=&lt;20000120212711.D32277@staff.texas.net&gt;"><EM>dustins@staff.texas.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jan 20 2000 - 19:27:11 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0947.html">selena: "Re: [cricket-users] Adding a DS to a .rrd"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0945.html">Grimshaw Stuart: "[cricket-users] Adding a DS to a .rrd"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0949.html">Bernie Ledwick: "RE: [cricket-users] No data in graphs"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0949.html">Bernie Ledwick: "RE: [cricket-users] No data in graphs"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0951.html">Jeff Younker: "RE: [cricket-users] No data in graphs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#946">[ date ]</A>
+<A HREF="index.html#946">[ thread ]</A>
+<A HREF="subject.html#946">[ subject ]</A>
+<A HREF="author.html#946">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Dustin Slater &lt;<A HREF="mailto:dustins@staff.texas.net?Subject=Re:%20[cricket-users]%20No%20data%20in%20graphs&In-Reply-To=&lt;20000120212711.D32277@staff.texas.net&gt;">dustins@staff.texas.net</A>&gt;
+<BR>
+<P>Think I have everything setup pretty good.
+<BR>
+although i will mention that cricket is not set up in the default
+<BR>
+install directory.
+<BR>
+<P>I have collector cronned for every five minutes, and i'm getting emails like
+<BR>
+this one:
+<BR>
+<P>[20-Jan-2000 21:20:01 ] Starting collector: Cricket version 0.71 ( Sun Jan 9    
+<BR>
++21:50:46 PST 2000 )                                                            
+<BR>
+[20-Jan-2000 21:20:02 ] Retrieved data for gigabitethernet1_0_0 (1):            
+<BR>
++1370871622,659761955,0,0,448534341,2231075670                                  
+<BR>
+[20-Jan-2000 21:20:02 ] Retrieved data for ethernet3_0 (2):                     
+<BR>
++650910832,536178972,0,0,8065926,7779453                                        
+<BR>
+[20-Jan-2000 21:20:03 ] Retrieved data for ethernet3_2 (4):                     
+<BR>
++95057730,1190290114,0,0,514602,78922936                                        
+<BR>
+[20-Jan-2000 21:20:04 ] Retrieved data for fastethernet5_0_0 (6):               
+<BR>
++1472771868,3012848897,0,0,1512697842,930567340                                 
+<BR>
+[20-Jan-2000 21:20:04 ] Retrieved data for serial8_0_0 (7):                     
+<BR>
++4054713221,1916820215,1007,0,1048617761,1480935932                             
+<BR>
+[20-Jan-2000 21:20:05 ] Retrieved data for serial8_0_1 (8):                     
+<BR>
++3959743584,2492232959,1,0,117854516,188456499                                  
+<BR>
+[20-Jan-2000 21:20:05 ] Retrieved data for serial10_0_1 (10):                   
+<BR>
++189946694,886051897,0,0,2083167,1669812                                        
+<BR>
+[20-Jan-2000 21:20:06 ] Retrieved data for pos10_1_0 (11):                      
+<BR>
++15804791,4094766075,60,0,541261234,623918362                                   
+<BR>
+[20-Jan-2000 21:20:06 ] Retrieved data for gigabitethernet11_0_0 (12):          
+<BR>
++523299323,442452950,0,0,2825620146,938947283                                   
+<BR>
+[20-Jan-2000 21:20:06 ] Retrieved data for serial5_1_0_1_0 (15): 5441853,7902066[20-Jan-2000 21:20:07serial5_1_0_3_0 (17):                                      
+<BR>
++58431248,278122959                                                             
+<BR>
+[20-Jan-2000 21:20:07 ] Retrieved data for serial5_1_0_4_0 (18):                
+<BR>
++409481748,1383736217                                                           
+<BR>
+[20-Jan-2000 21:20:07 ] Retrieved data for serial5_1_0_5_0 (19):                
+<BR>
++6912898,12511401                                                               
+<BR>
+[20-Jan-2000 21:20:08 ] Processed 14 targets in 8 seconds.            
+<BR>
+<P>So that seems to look good.
+<BR>
+When i link to grapher.cgi it lists everything, and graphs appear.
+<BR>
+In the &quot;Summary&quot; box it has the correct date for &quot;Last updated at&quot;
+<BR>
+<P><P>However, in that same box the &quot;values at last update&quot; is blank, 
+<BR>
+and the graphs are empty.
+<BR>
+<P>Any pointers?
+<BR>
+<P>-Dustin
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0947.html">selena: "Re: [cricket-users] Adding a DS to a .rrd"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0945.html">Grimshaw Stuart: "[cricket-users] Adding a DS to a .rrd"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0949.html">Bernie Ledwick: "RE: [cricket-users] No data in graphs"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0949.html">Bernie Ledwick: "RE: [cricket-users] No data in graphs"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0951.html">Jeff Younker: "RE: [cricket-users] No data in graphs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#946">[ date ]</A>
+<A HREF="index.html#946">[ thread ]</A>
+<A HREF="subject.html#946">[ subject ]</A>
+<A HREF="author.html#946">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:11 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

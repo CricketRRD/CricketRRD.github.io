@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Error: &quot;Can't locate LW</TITLE>
+<META NAME="Author" CONTENT="the+cricket@llama.com (the+cricket@llama.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;</H1>
+<!-- received="Fri Oct 29 17:23:28 1999" -->
+<!-- isoreceived="19991030002328" -->
+<!-- sent="Fri, 29 Oct 1999 14:22:07 -0700 (PDT)" -->
+<!-- isosent="19991029212207" -->
+<!-- name="the+cricket@llama.com" -->
+<!-- email="the+cricket@llama.com" -->
+<!-- subject="Re: [cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;" -->
+<!-- id="Pine.BSF.4.10.9910291418180.28739-100000@shell3.ba.best.com" -->
+<!-- inreplyto="19991029133443.10357.rocketmail@web1403.mail.yahoo.com" -->
+<STRONG>From:</STRONG> <A HREF="mailto:the%2Bcricket@llama.com?Subject=Re:%20[cricket-users]%20Error:%20&quot;Can't%20locate%20LWP/UserAgent.pm&quot;&In-Reply-To=&lt;Pine.BSF.4.10.9910291418180.28739-100000@shell3.ba.best.com&gt;"><EM>the+cricket@llama.com</EM></A><BR>
+<STRONG>Date:</STRONG> Fri Oct 29 1999 - 14:22:07 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0697.html">James R Grinter: "Re: [cricket-users] Improving SNMP collection"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0695.html">Ambrose Chiu: "[cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0695.html">Ambrose Chiu: "[cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#696">[ date ]</A>
+<A HREF="index.html#696">[ thread ]</A>
+<A HREF="subject.html#696">[ subject ]</A>
+<A HREF="author.html#696">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: the+<A HREF="mailto:cricket@llama.com?Subject=Re:%20[cricket-users]%20Error:%20&quot;Can't%20locate%20LWP/UserAgent.pm&quot;&In-Reply-To=&lt;Pine.BSF.4.10.9910291418180.28739-100000@shell3.ba.best.com&gt;">cricket@llama.com</A>
+<BR>
+<P>It looks like the program isn't able to find the perl
+<BR>
+modules it needs.  If somehow you can't get the modules in
+<BR>
+your @INC path, you can add the following line to
+<BR>
+your scripts, above the 'use' lines for individual modules.
+<BR>
+<P>use lib &quot;/path/to/perl5lib/files&quot;;
+<BR>
+<P>--Sam
+<BR>
+<P>On Fri, 29 Oct 1999, Ambrose Chiu wrote:
+<BR>
+<P><EM>&gt; From: Ambrose Chiu &lt;<A HREF="mailto:bobo709394@yahoo.com?Subject=Re:%20[cricket-users]%20Error:%20&quot;Can't%20locate%20LWP/UserAgent.pm&quot;&In-Reply-To=&lt;Pine.BSF.4.10.9910291418180.28739-100000@shell3.ba.best.com&gt;">bobo709394@yahoo.com</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Hi Everyone,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Has anybody seen this error before? I get this error
+</EM><BR>
+<EM>&gt; when &quot;test-url&quot; is executed to monitor
+</EM><BR>
+<EM>&gt; &quot;http-performance&quot;. I have seen something like this
+</EM><BR>
+<EM>&gt; before with the &quot;RRDs.pm&quot; but solved it with a symlink
+</EM><BR>
+<EM>&gt; to the cricket-config dir from the /home/cricket/!! 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Retrieving data (EXEC:
+</EM><BR>
+<EM>&gt; /home/cricket/cricket-config/../util/test-url
+</EM><BR>
+<EM>&gt; <A HREF="http://10.0.1.200">http://10.0.1.200</A>) for home
+</EM><BR>
+<EM>&gt; Can't locate LWP/UserAgent.pm in @INC (@INC contains:
+</EM><BR>
+<EM>&gt; /usr/local/lib/perl5/5.00561/i686-linux
+</EM><BR>
+<EM>&gt; /usr/local/lib/perl5/5.00561
+</EM><BR>
+<EM>&gt; /usr/local/lib/site_perl/5.00561/i686-linux
+</EM><BR>
+<EM>&gt; /usr/local/lib/site_perl .) at
+</EM><BR>
+<EM>&gt; /home/cricket/cricket-config/../util/test-url line 22.
+</EM><BR>
+<EM>&gt; BEGIN failed--compilation aborted at
+</EM><BR>
+<EM>&gt; /home/cricket/cricket-config/../util/test-url line 22.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I have already solved 3 error messages but still stuck
+</EM><BR>
+<EM>&gt; on this....please help me get cricket up for the first
+</EM><BR>
+<EM>&gt; time!!! 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Ambrose Chiu
+</EM><BR>
+<EM>&gt; Gibraltar Solutions
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; =====
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Was the salesman clueless? Productopia has the answers.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/Productopia1">http://clickme.onelist.com/ad/Productopia1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0697.html">James R Grinter: "Re: [cricket-users] Improving SNMP collection"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0695.html">Ambrose Chiu: "[cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0695.html">Ambrose Chiu: "[cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#696">[ date ]</A>
+<A HREF="index.html#696">[ thread ]</A>
+<A HREF="subject.html#696">[ subject ]</A>
+<A HREF="author.html#696">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

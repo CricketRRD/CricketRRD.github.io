@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Problems with reading data f</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Problems with reading data from Cisco 2500">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Problems with reading data from Cisco 2500</H1>
+<!-- received="Sat Jan  8 23:27:22 2000" -->
+<!-- isoreceived="20000109072722" -->
+<!-- sent="Sat, 8 Jan 2000 20:26:29 -0800 (PST)" -->
+<!-- isosent="20000109042629" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Problems with reading data from Cisco 2500" -->
+<!-- id="200001090426.UAA11929@oops.artemis.com" -->
+<!-- inreplyto="20000108143059.A12774@joker.rhwd.owl.de" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Problems%20with%20reading%20data%20from%20Cisco%202500&In-Reply-To=&lt;200001090426.UAA11929@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sat Jan 08 2000 - 20:26:29 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0867.html">Alexander Reelsen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0865.html">Alexander Reelsen: "[cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0865.html">Alexander Reelsen: "[cricket-users] Problems with reading data from Cisco 2500"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0867.html">Alexander Reelsen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0867.html">Alexander Reelsen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#866">[ date ]</A>
+<A HREF="index.html#866">[ thread ]</A>
+<A HREF="subject.html#866">[ subject ]</A>
+<A HREF="author.html#866">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Problems%20with%20reading%20data%20from%20Cisco%202500&In-Reply-To=&lt;200001090426.UAA11929@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Alexander Reelsen wrote:
+<BR>
+<EM>&gt; [08-Jan-2000 14:24:15 ] target bri0_1
+</EM><BR>
+<EM>&gt;         router = heaven.rhwd.net
+</EM><BR>
+<EM>&gt;         snmp = community@bri0_1:161
+</EM><BR>
+<EM>&gt;         snmp-community = community
+</EM><BR>
+<EM>&gt;         snmp-host = bri0_1
+</EM><BR>
+<EM>&gt;         snmp-port = 161
+</EM><BR>
+<P><EM>&gt; Especially &quot;snmp = community@bri0_1:161&quot; - Shouldn't that be
+</EM><BR>
+<EM>&gt; community@heaven then?  This problem could be fixed in
+</EM><BR>
+<EM>&gt; cricket-config/Defaults by setting snmp value to something other.
+</EM><BR>
+<P>The tag snmp is derived from this definition high in the config tree:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;snmp = %snmp-community%@%snmp-host%:%snmp-port%
+<BR>
+<P>So, if you want to send packets to a host named &quot;heaven&quot;, you need to
+<BR>
+set snmp-host to &quot;heaven&quot;. In your case, the best way to do this would
+<BR>
+probably be to use &quot;snmp-host = %router%&quot;. See why?
+<BR>
+<P>I'm wondering if you accidentally removed that line from one of your
+<BR>
+installations, since the router-interfaces subtree of the sample tree
+<BR>
+has that line it it.
+<BR>
+<P>Have fun...
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Problems%20with%20reading%20data%20from%20Cisco%202500&In-Reply-To=&lt;200001090426.UAA11929@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Independent contractors: Find your next project gig through JobSwarm!
+        You can even make money by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0867.html">Alexander Reelsen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0865.html">Alexander Reelsen: "[cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0865.html">Alexander Reelsen: "[cricket-users] Problems with reading data from Cisco 2500"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0867.html">Alexander Reelsen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0867.html">Alexander Reelsen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#866">[ date ]</A>
+<A HREF="index.html#866">[ thread ]</A>
+<A HREF="subject.html#866">[ subject ]</A>
+<A HREF="author.html#866">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:09 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

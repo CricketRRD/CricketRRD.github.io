@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>cricket-users: RE: [cricket-users] Multiple graphs over multipl</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Multiple graphs over multiple targets...all o n one page?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Multiple graphs over multiple targets...all o n one page?</H1>
+<!-- received="Wed Jul 28 11:04:27 1999" -->
+<!-- isoreceived="19990728180427" -->
+<!-- sent="Wed, 28 Jul 1999 09:02:19 -0600" -->
+<!-- isosent="19990728150219" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="RE: [cricket-users] Multiple graphs over multiple targets...all o n one page?" -->
+<!-- id="8B069C65F931D111B6E10000F804A4DF770374@amethyst.msu.montana.edu" -->
+<!-- charset="windows-1252" -->
+<!-- inreplyto="[cricket-users] Multiple graphs over multiple targets...all o n one page?" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Multiple%20graphs%20over%20multiple%20targets...all%20o%20n%20one%20page?&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770374@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jul 28 1999 - 08:02:19 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0437.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] IT WORKED!!!!!!"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0435.html">Berg, Ivan: "RE: [cricket-users] Frame-relay sub-interface configs"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#436">[ date ]</A>
+<A HREF="index.html#436">[ thread ]</A>
+<A HREF="subject.html#436">[ subject ]</A>
+<A HREF="author.html#436">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Multiple%20graphs%20over%20multiple%20targets...all%20o%20n%20one%20page?&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770374@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>Hmm.., never tried it, but that is the way it supposed to work(specify full
+<BR>
+path starting from router-config directory).  A thing that got me on targets
+<BR>
+was making the list of items all lowercase even though the actual targets
+<BR>
+had uppercase characters in them. In other words, a target &quot;Test&quot; would not
+<BR>
+work when accessed with targets = &quot;Test;blah...&quot;
+<BR>
+<P>-----Original Message-----
+<BR>
+From: Matt Duggan
+<BR>
+To: <A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20Multiple%20graphs%20over%20multiple%20targets...all%20o%20n%20one%20page?&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770374@amethyst.msu.montana.edu&gt;">cricket-users@onelist.com</A>
+<BR>
+Sent: 7/28/99 5:34 AM
+<BR>
+Subject: [cricket-users] Multiple graphs over multiple targets...all on one
+<BR>
+page?
+<BR>
+<P>From: Matt Duggan &lt;<A HREF="mailto:matt@insnet.net?Subject=RE:%20[cricket-users]%20Multiple%20graphs%20over%20multiple%20targets...all%20o%20n%20one%20page?&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770374@amethyst.msu.montana.edu&gt;">matt@insnet.net</A>&gt;
+<BR>
+<P>Hi,
+<BR>
+<P>I have managed to get cricket/rrdtool running on a Sun Ultra 1 as a
+<BR>
+replacement for our current MRTG system.
+<BR>
+<P>The multiple target option is great, and exactly what we need...but...
+<BR>
+<P>I have managed to get multiple graphs on one page for ONE router, i.e.
+<BR>
+router a's fast ethernet ports, however we really need to have all of 
+<BR>
+our routers fast ethernet ports on one page, perhaps smaller graphs too.
+<BR>
+<P>I have tried creating an interfaces file in
+<BR>
+cricket-config/router-interfaces/
+<BR>
+with the targets pointing toward the other routers
+<BR>
+sub-directories...i.e.
+<BR>
+<P>target All-FEs
+<BR>
+targets -
+<BR>
+&quot;/router-interfaces/routera/fastethernet0_0_0;/router-interfaces/routerb
+<BR>
+/fastethernet1_0_0&quot;
+<BR>
+<P>however, this does not work. Any suggestions on how to do this would be
+<BR>
+much
+<BR>
+appreciated.
+<BR>
+<P>Also, I know of the issue with spikes appearing on graphs with cisco's
+<BR>
+and am
+<BR>
+thinking of using the rrd-max = x method. Does this entry go in the
+<BR>
+targets in
+<BR>
+an interfaces file? i.e.
+<BR>
+<P>target Serial0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name	=	Serial0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc	=	&quot;a description&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-max		=	value
+<BR>
+<P>?
+<BR>
+<P>if so, how does the rrd max value pan-out? for example, of bytes
+<BR>
+in/bytes out graphs
+<BR>
+the values are multiplied by 8 so would a rrd-max for a 10mb ethernet
+<BR>
+port be 10mb/8?
+<BR>
+<P>thanks in advance,
+<BR>
+Matt.
+<BR>
+<P><PRE>
+-- 
+Matt Duggan, Internet Network Services Ltd. 
+Tel: +44 (0)1203 723 030, Fax: +44 (0)1203 723 049
+mailto: <A HREF="mailto:matt@insnet.net?Subject=RE:%20[cricket-users]%20Multiple%20graphs%20over%20multiple%20targets...all%20o%20n%20one%20page?&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770374@amethyst.msu.montana.edu&gt;">matt@insnet.net</A>
+www.insnet.net
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>ONElist now has T-SHIRTS!
+For details and to order, go to:
+<A HREF="http://www.onelist.com/store/tshirts.html">http://www.onelist.com/store/tshirts.html</A>
+<P>------------------------------------------------------------------------
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Create a list for FRIENDS &amp; FAMILY...
+....and YOU can WIN $100 to Amazon.com.  For details, go to
+<A HREF="http://www.onelist.com/info/onereachsplash3.html">http://www.onelist.com/info/onereachsplash3.html</A>
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0437.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] IT WORKED!!!!!!"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0435.html">Berg, Ivan: "RE: [cricket-users] Frame-relay sub-interface configs"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#436">[ date ]</A>
+<A HREF="index.html#436">[ thread ]</A>
+<A HREF="subject.html#436">[ subject ]</A>
+<A HREF="author.html#436">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:59 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

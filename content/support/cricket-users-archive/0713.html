@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Saving 5 min samples</TITLE>
+<META NAME="Author" CONTENT="Mark Skinner (mskinner@verio.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Saving 5 min samples">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Saving 5 min samples</H1>
+<!-- received="Wed Nov  3 11:02:03 1999" -->
+<!-- isoreceived="19991103190203" -->
+<!-- sent="Wed, 3 Nov 1999 07:54:46 -0800" -->
+<!-- isosent="19991103155446" -->
+<!-- name="Mark Skinner" -->
+<!-- email="mskinner@verio.net" -->
+<!-- subject="[cricket-users] Saving 5 min samples" -->
+<!-- id="027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net" -->
+<STRONG>From:</STRONG> Mark Skinner (<A HREF="mailto:mskinner@verio.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;"><EM>mskinner@verio.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Nov 03 1999 - 07:54:46 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0714.html">Mark Krenz: "Re: [cricket-users] Monitoring Load Average"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0712.html">Hugo Gayosso: "RE: [cricket-users] Monitoring Load Average"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0715.html">shanman@shanman.net: "Re: [cricket-users] Saving 5 min samples"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0715.html">shanman@shanman.net: "Re: [cricket-users] Saving 5 min samples"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#713">[ date ]</A>
+<A HREF="index.html#713">[ thread ]</A>
+<A HREF="subject.html#713">[ subject ]</A>
+<A HREF="author.html#713">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Mark Skinner&quot; &lt;<A HREF="mailto:mskinner@verio.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">mskinner@verio.net</A>&gt;
+<BR>
+<P>Has anyone added or configured RRD to save _All_ the 5 min samples?
+<BR>
+I am hoping to save all the samples for a month to calculate 95% percentile
+<BR>
+values.
+<BR>
+also, it would be nice to calculate from the beginning of the month the
+<BR>
+current 95% percentile and put that on the graph as a bright red line.
+<BR>
+<P>thanks
+<BR>
+<P>Mark
+<BR>
+<P>-----Original Message-----
+<BR>
+From: Hugo Gayosso &lt;<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">qztf7k@powertrain.mpg.gm.com</A>&gt;
+<BR>
+To: <A HREF="mailto:shane@bratnet.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">shane@bratnet.net</A> &lt;<A HREF="mailto:shane@bratnet.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">shane@bratnet.net</A>&gt;
+<BR>
+Cc: <A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">cricket-users@onelist.com</A> &lt;<A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">cricket-users@onelist.com</A>&gt;
+<BR>
+Date: Wednesday, November 03, 1999 5:58 AM
+<BR>
+Subject: RE: [cricket-users] Monitoring Load Average
+<BR>
+<P><P><EM>&gt;From: Hugo Gayosso &lt;<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">qztf7k@powertrain.mpg.gm.com</A>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;-----BEGIN PGP SIGNED MESSAGE-----
+</EM><BR>
+<EM>&gt;Hash: SHA1
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;I am monitoring the load average for some HP-UX machines, and I only have
+</EM><BR>
+that
+<BR>
+<EM>&gt;problem of the &quot;mili&quot; in one server, the rest are fine, here is my config
+</EM><BR>
+file:
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;~/cricket-config/servers/Defaults
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;# server-load sub-tree
+</EM><BR>
+<EM>&gt;#
+</EM><BR>
+<EM>&gt;# This is were we collect data from SNMP agents on HP-UX machines
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Target  --default--
+</EM><BR>
+<EM>&gt;        server-load             = %auto-target-name%
+</EM><BR>
+<EM>&gt;        snmp-host               = %server-load%
+</EM><BR>
+<EM>&gt;        # you could set a router-specific community string here:
+</EM><BR>
+<EM>&gt;        # snmp-community        = not-public
+</EM><BR>
+<EM>&gt;        #
+</EM><BR>
+<EM>&gt;        # Provide no default type, since each router will be different,
+</EM><BR>
+<EM>&gt;        # and if we want to specify each model explicitly, or
+</EM><BR>
+<EM>&gt;        # get a warning.
+</EM><BR>
+<EM>&gt;        target-type             = undef
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;# OID's we'll be using in this tree
+</EM><BR>
+<EM>&gt;OID             cpu1min         1.3.6.1.4.1.11.2.3.1.1.3.0
+</EM><BR>
+<EM>&gt;OID             cpu5min         1.3.6.1.4.1.11.2.3.1.1.4.0
+</EM><BR>
+<EM>&gt;OID             cpu15min        1.3.6.1.4.1.11.2.3.1.1.5.0
+</EM><BR>
+<EM>&gt;OID             freemem         1.3.6.1.4.1.11.2.3.1.1.7.0
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;datasource      --default--
+</EM><BR>
+<EM>&gt;        rrd-ds-type             =       GAUGE
+</EM><BR>
+<EM>&gt;        rrd-heartbeat   =       1800
+</EM><BR>
+<EM>&gt;        rrd-min                 =       undef
+</EM><BR>
+<EM>&gt;        rrd-max                 =       undef
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;datasource      cpu1min         ds-source       =
+</EM><BR>
+snmp://%snmp%/cpu1min
+<BR>
+<EM>&gt;datasource      cpu5min         ds-source       =
+</EM><BR>
+snmp://%snmp%/cpu5min
+<BR>
+<EM>&gt;datasource      freemem         ds-source       =
+</EM><BR>
+snmp://%snmp%/freemem
+<BR>
+<EM>&gt;datasource      freeswap        ds-source       =
+</EM><BR>
+snmp://%snmp%/freeswap
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;targetType      HP-UX
+</EM><BR>
+<EM>&gt;        ds      =       &quot;cpu1min, cpu5min, freemem&quot;
+</EM><BR>
+<EM>&gt;        view    =       &quot;cpu: cpu1min cpu5min, memory: freemem&quot;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;html short-desc                 &quot;HP-UX based machine&quot;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;graph   cpu1min
+</EM><BR>
+<EM>&gt;    units   =   &quot;loads&quot;
+</EM><BR>
+<EM>&gt;    color   =   dark-green
+</EM><BR>
+<EM>&gt;    draw-as =   AREA
+</EM><BR>
+<EM>&gt;    y-axis  =   &quot;Machine Load&quot;
+</EM><BR>
+<EM>&gt;    legend  =   &quot;1 minute Load&quot;
+</EM><BR>
+<EM>&gt;    scale   =   &quot;100,/&quot;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;graph   cpu5min
+</EM><BR>
+<EM>&gt;    units   =   &quot;loads&quot;
+</EM><BR>
+<EM>&gt;    color   =   blue
+</EM><BR>
+<EM>&gt;    y-axis  =   &quot;Machine Load&quot;
+</EM><BR>
+<EM>&gt;    legend  =   &quot;5 minute Load&quot;
+</EM><BR>
+<EM>&gt;    scale   =   &quot;100,/&quot;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;graph   freemem
+</EM><BR>
+<EM>&gt;    color   =   blue
+</EM><BR>
+<EM>&gt;    draw-as =   LINE2
+</EM><BR>
+<EM>&gt;    y-axis  =   &quot;Bytes&quot;
+</EM><BR>
+<EM>&gt;    legend  =   &quot;Free Memory&quot;
+</EM><BR>
+<EM>&gt;    bytes   =   true
+</EM><BR>
+<EM>&gt;    scale   =   &quot;1024,*&quot;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;P.S.
+</EM><BR>
+<EM>&gt;        If you can provide me with an example to monitor Disk space, I
+</EM><BR>
+would
+<BR>
+<EM>&gt;appreciate it :)
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;        I have been busy to do some research about this using SNMP. Right
+</EM><BR>
+now I
+<BR>
+<EM>&gt;use Netsaint for that, and it uses a Perl daemon running in the server, but
+</EM><BR>
+I
+<BR>
+<EM>&gt;would like to do it via SNMP so I don't run two daemons (SNMP and Perl).
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Greetings,
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;On 03-Nov-99 <A HREF="mailto:shane@bratnet.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">shane@bratnet.net</A> wrote:
+</EM><BR>
+<EM>&gt;&gt; From: <A HREF="mailto:shane@bratnet.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">shane@bratnet.net</A>
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; Does anyone have the tricks needed to make rrdtool graph
+</EM><BR>
+<EM>&gt;&gt; loadaverages corectly, as opposed to scalling them to 1 - 100mili etc.
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; I have seen someone on this list ask this before, but I couldn't find the
+</EM><BR>
+<EM>&gt;&gt; answer posted to the list. I am trying to make a set of config files to
+</EM><BR>
+<EM>&gt;&gt; graph usage of my server for disk/memory/load average using UCD-SNMP, to
+</EM><BR>
+<EM>&gt;&gt; monitor
+</EM><BR>
+<EM>&gt;&gt; about 50 servers. I have all working except Getting the load average to
+</EM><BR>
+graph
+<BR>
+<EM>&gt;&gt; corectly.
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; Has anyone else set this up? Care to share your configs with me or the
+</EM><BR>
+list?
+<BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; <A HREF="mailto:shane@bratnet.net?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">shane@bratnet.net</A>
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;- --
+</EM><BR>
+<EM>&gt;Hugo Gayosso                            |      Free Software implies
+</EM><BR>
+<EM>&gt;Controls Process Support                |
+</EM><BR>
+<EM>&gt;Electronics Integration and Software    |      &quot;Free speech&quot;
+</EM><BR>
+<EM>&gt;GM Powertrain                           |
+</EM><BR>
+<EM>&gt;Brighton, MI                            |      NOT
+</EM><BR>
+<EM>&gt;USA                                     |
+</EM><BR>
+<EM>&gt;                                        |      &quot;Free beer&quot; !!!
+</EM><BR>
+<EM>&gt;E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20Saving%205%20min%20samples&In-Reply-To=&lt;027c01bf2613$c0909c40$9bfc43cf@mark.atmnet.net&gt;">qztf7k@powertrain.mpg.gm.com</A>    |
+</EM><BR>
+<EM>&gt; Phone: (810) 220-2635                  |      <A HREF="http://www.gnu.org">http://www.gnu.org</A>
+</EM><BR>
+<EM>&gt;   Fax: (810) 220-2663                  |
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;-----BEGIN PGP SIGNATURE-----
+</EM><BR>
+<EM>&gt;Version: GnuPG v1.0.0 (GNU/Linux)
+</EM><BR>
+<EM>&gt;Comment: For info see <A HREF="http://www.gnupg.org">http://www.gnupg.org</A>
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;iD8DBQE4ID2ix2JZtTN6co8RAqsRAJ9p+ORSzWxTWk898jeM2VIiiTmZUQCfVoCh
+</EM><BR>
+<EM>&gt;5JcYOaPioLUJFhBUPnBZfJU=
+</EM><BR>
+<EM>&gt;=Wztg
+</EM><BR>
+<EM>&gt;-----END PGP SIGNATURE-----
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make $$$ by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0714.html">Mark Krenz: "Re: [cricket-users] Monitoring Load Average"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0712.html">Hugo Gayosso: "RE: [cricket-users] Monitoring Load Average"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0715.html">shanman@shanman.net: "Re: [cricket-users] Saving 5 min samples"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0715.html">shanman@shanman.net: "Re: [cricket-users] Saving 5 min samples"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#713">[ date ]</A>
+<A HREF="index.html#713">[ thread ]</A>
+<A HREF="subject.html#713">[ subject ]</A>
+<A HREF="author.html#713">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

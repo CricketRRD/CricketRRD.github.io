@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title>Cricket FAQ</title>
+    <meta name="GENERATOR" content=
+    "Modular DocBook HTML Stylesheet Version 1.71 ">
+  </head>
+
+  <body class="ARTICLE" bgcolor="#FFFFFF" text="#000000" link=
+  "#0000FF" vlink="#840084" alink="#0000FF">
+    <div class="ARTICLE">
+      <div class="TITLEPAGE">
+        <h1 class="TITLE"><a name="AEN1">Cricket FAQ</a></h1>
+
+        <h3 class="AUTHOR"><a name="AEN4">Sasha Mikheev</a></h3>
+        <hr>
+      </div>
+
+      <div class="SECT1">
+        <h1 class="SECT1"><a name="AEN8">1. General
+        Questions</a></h1>
+
+        <div class="SECT2">
+          <h2 class="SECT2"><a name="AEN10">1.1. What is cricket
+          ?</a></h2>
+
+          <p>Cricket is a high performance, extremely flexible
+          system for monitoring trends in time-series data. Cricket
+          was expressly developed to help network managers
+          visualize and understand the traffic on their networks,
+          but it can be used all kinds of other jobs, as well.</p>
+
+          <p>Cricket has two components, a collector and a grapher.
+          The collector runs from cron every 5 minutes (or at a
+          different rate, if you want), and stores data into a data
+          structure managed by RRD Tool. Later, when you want to
+          check on the data you have collected, you can use a
+          web-based interface to view graphs of the data.</p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN14">1.2. How does Cricket
+          differ from MRTG ?</a></h2>
+
+          <p>Short answer: in more ways than meet the eye. The most
+          noticable are that Cricket has built in magic to look up
+          and verify SNMP instances (MRTG only verifies instances).
+          Cricket does away with creating the images every five
+          minutes, which should allow your management station to
+          monitor more datasources with fewer resources. Cricket
+          also has built in threshold monitoring.</p>
+
+          <p>In practice, MRTG has involved since Cricket began,
+          and other alternatives appeared. Choosing between network
+          monitoring tools requires more decisions than this FAQ
+          can deal with.</p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN18">1.3. What is rrdtool
+          ?</a></h2>
+
+          <p>RRD is the Acronym for Round Robin Database. RRD is
+          system to store and display time-series data (i.e.
+          network bandwidth, machine-room temperature, server load
+          average). It stores the data in a very compact way that
+          will not expand over time, and it presents useful graphs
+          by processing the data to enforce a certain data density.
+          It can be used either via simple wrapper scripts (from
+          shell or Perl) or via frontends that poll network devices
+          and put a friendly user interface on it. Check out <a
+          href="http://www.rrdtool.org" target=
+          "_top">http://www.rrdtool.org</a> for more
+          information</p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN22">1.4. How do I bill
+          customers with Cricket ?</a></h2>
+
+          <p>The main answer is: <i class="EMPHASIS">Don't do
+          it!</i> Why: It's not supported... it's not designed for
+          this, nor is it tested for this. There's no warranty, so
+          if you customers sue you, don't expect to sue the Cricket
+          maintainers. It would be good to provide a list of
+          alternative systems that can be trusted for billing
+          purposes, or documentation from Cricket users who have
+          successfully done so.</p>
+        </div>
+      </div>
+
+      <div class="SECT1">
+        <hr>
+
+        <h1 class="SECT1"><a name="AEN26">2. Installation and
+        Configuration</a></h1>
+
+        <div class="SECT2">
+          <h2 class="SECT2"><a name="AEN28">2.1. How I install
+          cricket on Unix ?</a></h2>
+
+          <p>Follow steps described in <span class=
+          "QUOTE">"Installing Cricket for Complete
+          Beginner"</span>article which is available from <a href=
+          "http://cricket.sourceforge.net/support/doc/beginner.html"
+           target=
+          "_top">http://cricket.sourceforge.net/support/doc/beginner.html</a></p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN33">2.2. How I install
+          cricket on NT ?</a></h2>
+
+          <p>There are rumors about working NT installations. If
+          you have Cricket running on NT please contribute.</p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN36">2.3. Can I import my
+          MRTG config files and data into Cricket ?</a></h2>
+
+          <p>Short answer is <i class="EMPHASIS">NO</i>.</p>
+
+          <p>Cricket configuration tree is completely incompatible
+          with MRTG config file. Also MRTG stores measurements in
+          text files while RRDtool uses binary files.</p>
+
+          <p>In theory it is possible to write a script which will
+          convert MRTG config files into cricket subtree, parse
+          MRTG data files and fill up relevant RRD data file. In
+          practice, no one bothered to do this yet.</p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN42">2.4. Is there a central
+          repository of useful configurations</a></h2>
+
+          <p>Check out <a href=
+          "http://www.certaintysolutions.com/tech-advice/cricket-contrib/"
+           target=
+          "_top">http://www.certaintysolutions.com/tech-advice/cricket-contrib/</a></p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN46">2.5. How I improve CGI
+          performance on Unix ?</a></h2>
+
+          <p>Cricket can be run under mod_perl module for Apache
+          web server. Check out <a href=
+          "http://cricket.sourceforge.net/support/doc/modperl.html"
+          target=
+          "_top">http://cricket.sourceforge.net/support/doc/modperl.html</a></p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN50">2.6. How I add new
+          device to Cricket</a></h2>
+
+          <p>There are detailed instructions at <a href=
+          "http://cricket.sourceforge.net/support/doc/new-devices.html"
+           target=
+          "_top">http://cricket.sourceforge.net/support/doc/new-devices.html</a></p>
+        </div>
+      </div>
+
+      <div class="SECT1">
+        <hr>
+
+        <h1 class="SECT1"><a name="AEN54">3. Common
+        Problems</a></h1>
+
+        <div class="SECT2">
+          <h2 class="SECT2"><a name="AEN56">3.1. FAQ: mega = 10^6
+          vs 2^20</a></h2>
+
+          <p>While it is a common knowledge that byte has 8 bits
+          many people think that Kilobyte has 1000 bytes and
+          Megabyte has 1 000 000 bytes. This is wrong. Kilobyte has
+          1024 bytes and Megabyte has 1024 * 1024 = 1048576 bytes.
+          This is about 4.9% difference.</p>
+
+          <p>By default cricket uses powers of 10 to convert
+          measurement data to SI units. This is OK for most things.
+          However network traffic is measured in bits per second so
+          cricket should use powers of 2 to scale this data. bytes
+          tag tells cricket to use powers of 2 instead of powers of
+          10.</p>
+
+          <p>See definition of ifInOctets and ifOutOctets in the
+          default config tree.</p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN61">3.2. Why HP OpenView
+          measurements differ from Cricket ?</a></h2>
+
+          <p>HP OpenView assumes that mega = 10^6. See answer to
+          previous question.</p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN64">3.3. I see huge spikes
+          on my graphs for Netapp filer. What is going on
+          ?</a></h2>
+
+          <p>Apparently, the Netapp stores counters internally as
+          unsigned integers (Counter32 or just plain Counter in
+          SNMP parlance), but sends them out as signed integers
+          (INTEGER in SNMP parlance). Cricket collects its data
+          using Perl, which (unlike C) will not fix the corruption
+          caused by Netapp`s goof, so it will blithely operate on
+          the large negative values it retrieves and (not
+          surprisingly) come up with wrong values.</p>
+
+          <p>Solution: add 2^31 to the collected value. Following
+          code fragment donated by Matthew Stier
+          &lt;Matthew.Stier@fnc.fujitsu.com&gt; illustrates it:</p>
+<pre class="PROGRAMLISTING">
+    my($cpuusage)  = "1.3.6.1.4.1.789.1.2.1.2.0";
+    my($netsent)    = "1.3.6.1.4.1.789.1.2.2.2.0";
+    my($netrcvd)    = "1.3.6.1.4.1.789.1.2.2.3.0";
+    
+    my(@ret)    = snmpUtils::get($snmp, $cpuusage, $netsent, $netrcvd);
+    
+    print $ret[0] . "\n";
+    print 2147483648 + $ret[1] * 1024 . "\n";
+    print 2147483648 + $ret[2] * 1024 . "\n";
+   
+</pre>
+
+          <p>Matthew says: <span class="QUOTE">" I've had
+          discussions with Network Appliance, and they have added
+          additional OID's to the MIB to provide the same
+          information, in the more common "Counter32" format. These
+          OID's are available in ONTAP 6."</span></p>
+        </div>
+      </div>
+
+      <div class="SECT1">
+        <hr>
+
+        <h1 class="SECT1"><a name="AEN71">4. Miscellaneous
+        questions</a></h1>
+
+        <div class="SECT2">
+          <h2 class="SECT2"><a name="AEN73">4.1. NT SNMP
+          resources</a></h2>
+
+          <p>From: "William Schwartz"
+          &lt;WSchwartz@apz-applied.com&gt;</p>
+
+          <p><a href="http://www.wtcs.org/snmp4tpc/" target=
+          "_top">http://www.wtcs.org/snmp4tpc/</a> Is a great place
+          for info on SNMP for NT. It is for MRTG specifically, but
+          I think you can make the "conversion" in your mind. Its
+          has a great tutorial for setting up SNMP properly on your
+          boxes.</p>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN78">4.2. What are perl mode
+          indentation setting for emacs ?</a></h2>
+
+          <p>Try these:</p>
+<pre class="PROGRAMLISTING">
+    # Local Variables:
+    # mode: perl
+    # indent-tabs-mode: nil
+    # tab-width: 4
+    # perl-indent-level: 4
+    # End:
+</pre>
+          <br>
+          <br>
+        </div>
+
+        <div class="SECT2">
+          <hr>
+
+          <h2 class="SECT2"><a name="AEN82">4.3. How do I change my
+          config tree to use the view dictionary entries introduced
+          in 1.0.4? (added by jakeb 6/7/02)</a></h2>
+
+          <p>This is best illustrated via example. Suppose this is
+          your existing (pre-1.0.4) targettype dictionary and graph
+          --default-- dictionary:</p>
+<pre class="PROGRAMLISTING">
+    graph --default--
+        default-ranges = "d"
+        show-avg-max = false
+    
+    targettype process
+        ds = "usertime, kerneltime, utilization, workingsetsize, 
+              reads, writes, pagefaults"
+        view = "processor: usertime kerneltime utilization,
+                memory: workingsetsize,
+                io: reads writes,
+                swapping: pagefaults"
+</pre>
+
+          <p>Here is the translation to the 1.0.4 syntax:</p>
+<pre class="PROGRAMLISTING">
+    graph --default--
+    # datasource specific, remains in graph --default--
+        show-avg-max = false
+    
+    view --default--
+    # non-datasource specific, goes to view --default--
+        default-ranges = "d"
+    
+    targettype process
+        ds = "usertime, kerneltime, utilization, workingsetsize, 
+              reads, writes, pagefaults"
+        view = "processor, memory, io, swapping"
+    
+    view processor
+        elements = "usertime,kerneltime,utilization"
+    
+    view memory
+        elements = "workingsetsize"
+                         
+    view io
+        elements = "reads,writes"
+    
+    view swapping
+        elements = "pagefaults"
+</pre>
+
+          <p>And now for some advance features using the same
+          example:</p>
+<pre class="PROGRAMLISTING">
+    view processor
+        elements = "usertime,kerneltime,utilization"
+    # assume these are on the percentage scale, force y-axis
+        y-min = 0
+        y-max = 100
+    
+    view memory
+        elements = "workingsetsize"
+    # assume aberrant behavior detection rras are define for this target
+        holtwinters = true
+                         
+    view io
+        elements = "reads,writes"
+    # choose a different font (RRDtool 1.1.x)
+    # Win32 Note:
+    # RRDTOOL seems to have difficulty if the font path contains a colon 
+    # so times.ttf is in the working directory (crickethome)
+        rrd-graph-args      = "--font DEFAULT:12:times.ttf"
+    
+    view swapping
+        elements = "pagefaults"
+    # change the default-range for this view
+        default-ranges      = "d:w"
+</pre>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </body>
+</html>
+

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Monitoring a Network Applian</TITLE>
+<META NAME="Author" CONTENT="Matthew Stier (Matthew.Stier@tddny.fujitsu.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Monitoring a Network Appliance">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Monitoring a Network Appliance</H1>
+<!-- received="Sat Jul 17 15:34:17 1999" -->
+<!-- isoreceived="19990717223417" -->
+<!-- sent="Sat, 17 Jul 1999 15:33:51 -0400" -->
+<!-- isosent="19990717193351" -->
+<!-- name="Matthew Stier" -->
+<!-- email="Matthew.Stier@tddny.fujitsu.com" -->
+<!-- subject="Re: [cricket-users] Monitoring a Network Appliance" -->
+<!-- id="3790DA9F.2A083F60@tddny.fujitsu.com" -->
+<!-- inreplyto="199907162235.SAA42099@cc158233-a.catv1.md.home.com" -->
+<STRONG>From:</STRONG> Matthew Stier (<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=Re:%20[cricket-users]%20Monitoring%20a%20Network%20Appliance&In-Reply-To=&lt;3790DA9F.2A083F60@tddny.fujitsu.com&gt;"><EM>Matthew.Stier@tddny.fujitsu.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sat Jul 17 1999 - 12:33:51 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0346.html">Stephen J. Roznowski: "Re: [cricket-users] Monitoring a Network Appliance"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0344.html">Stephen J. Roznowski: "RE: [cricket-users] COUNTER wrapping"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0346.html">Stephen J. Roznowski: "Re: [cricket-users] Monitoring a Network Appliance"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0346.html">Stephen J. Roznowski: "Re: [cricket-users] Monitoring a Network Appliance"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#345">[ date ]</A>
+<A HREF="index.html#345">[ thread ]</A>
+<A HREF="subject.html#345">[ subject ]</A>
+<A HREF="author.html#345">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Matthew Stier &lt;<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=Re:%20[cricket-users]%20Monitoring%20a%20Network%20Appliance&In-Reply-To=&lt;3790DA9F.2A083F60@tddny.fujitsu.com&gt;">Matthew.Stier@tddny.fujitsu.com</A>&gt;
+<BR>
+<P>I don't think the &quot;spikes&quot; are Tobin's issue. I suspect that Cricket is the
+<BR>
+cause here, compounded by the fact that what Network Appliance has in there
+<BR>
+MIB is not typical units. Most systems report &quot;octets&quot;.  The NetApp is
+<BR>
+reporting kilobytes of traffic.  Since Cricket is assuming octet counts,
+<BR>
+when the counter rolls over, Cricket is trying to compensate by
+<BR>
+&quot;guessing&quot; the counters maximun value, and correct the received value for
+<BR>
+the roll over.
+<BR>
+<P>What we need from Jeff, is a method to either set a maximum value for a
+<BR>
+counter, on a target by target base, or a means to scale the incoming values
+<BR>
+on SNMP obtained data, without having to resort to external scripts.
+<BR>
+<P><P>&quot;Stephen J. Roznowski&quot; wrote:
+<BR>
+<P><EM>&gt; On 16 Jul, Matthew Stier wrote:
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; I've got ths spikes.
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &quot;Stephen J. Roznowski&quot; wrote:
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;&gt; Thanks for the Defaults file. Do you see spikes on your network plots?
+</EM><BR>
+<EM>&gt; &gt;&gt; If not, what version of software are you running?
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; It's funny, but MRTG seems to handle this correctly -- I'm running them
+</EM><BR>
+<EM>&gt; in parallel until I get cricket all figured out..... Guess that I'll
+</EM><BR>
+<EM>&gt; have to go look at some code....
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; I've sent a note to Tobi, and he is going to incorporate my suggestion
+</EM><BR>
+<EM>&gt; in a future release of rrdtool. Also, I've had my local NetApp engineer
+</EM><BR>
+<EM>&gt; send in something to tech support about getting it fixed.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Thanks,
+</EM><BR>
+<EM>&gt; -SR
+</EM><BR>
+<P><PRE>
+--
+Matthew Lee Stier                  *  Fujitsu Network Communications
+Unix Systems Administrator         |  Two Blue Hill Plaza
+Ph: 914-731-2097 Fx: 914-731-2011  |  Sixth Floor
+<A HREF="mailto:Matthew.Stier@fnc.fujitsu.com?Subject=Re:%20[cricket-users]%20Monitoring%20a%20Network%20Appliance&In-Reply-To=&lt;3790DA9F.2A083F60@tddny.fujitsu.com&gt;">Matthew.Stier@fnc.fujitsu.com</A>      *  Pearl River, NY 10965
+<P><P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>Get $20 off all MotherNature brand products!
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/mothernature1">http://clickme.onelist.com/ad/mothernature1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0346.html">Stephen J. Roznowski: "Re: [cricket-users] Monitoring a Network Appliance"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0344.html">Stephen J. Roznowski: "RE: [cricket-users] COUNTER wrapping"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0346.html">Stephen J. Roznowski: "Re: [cricket-users] Monitoring a Network Appliance"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0346.html">Stephen J. Roznowski: "Re: [cricket-users] Monitoring a Network Appliance"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#345">[ date ]</A>
+<A HREF="index.html#345">[ thread ]</A>
+<A HREF="subject.html#345">[ subject ]</A>
+<A HREF="author.html#345">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:56 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

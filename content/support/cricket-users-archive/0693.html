@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] generate statics runs, but i</TITLE>
+<META NAME="Author" CONTENT="the+cricket@llama.com (the+cricket@llama.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] generate statics runs, but i get no data/pics">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] generate statics runs, but i get no data/pics</H1>
+<!-- received="Fri Oct 29 15:39:58 1999" -->
+<!-- isoreceived="19991029223958" -->
+<!-- sent="Fri, 29 Oct 1999 12:38:00 -0700 (PDT)" -->
+<!-- isosent="19991029193800" -->
+<!-- name="the+cricket@llama.com" -->
+<!-- email="the+cricket@llama.com" -->
+<!-- subject="Re: [cricket-users] generate statics runs, but i get no data/pics" -->
+<!-- id="Pine.BSF.4.10.9910291211160.29705-100000@shell3.ba.best.com" -->
+<!-- inreplyto="015301bf2194$397e05e0$9bfc43cf@mark.atmnet.net" -->
+<STRONG>From:</STRONG> <A HREF="mailto:the%2Bcricket@llama.com?Subject=Re:%20[cricket-users]%20generate%20statics%20runs,%20but%20i%20get%20no%20data/pics&In-Reply-To=&lt;Pine.BSF.4.10.9910291211160.29705-100000@shell3.ba.best.com&gt;"><EM>the+cricket@llama.com</EM></A><BR>
+<STRONG>Date:</STRONG> Fri Oct 29 1999 - 12:38:00 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0694.html">Berg, Ivan: "RE: [cricket-users] Strange output from cron"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0692.html">Pradeep Subramaniam: "[cricket-users] Strange output from cron"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0686.html">Mark Skinner: "[cricket-users] generate statics runs, but i get no data/pics"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0698.html">Mark Skinner: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#693">[ date ]</A>
+<A HREF="index.html#693">[ thread ]</A>
+<A HREF="subject.html#693">[ subject ]</A>
+<A HREF="author.html#693">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: the+<A HREF="mailto:cricket@llama.com?Subject=Re:%20[cricket-users]%20generate%20statics%20runs,%20but%20i%20get%20no%20data/pics&In-Reply-To=&lt;Pine.BSF.4.10.9910291211160.29705-100000@shell3.ba.best.com&gt;">cricket@llama.com</A>
+<BR>
+<P>Hi Mark,
+<BR>
+<P>I think the problem is that all the generate-static tags should
+<BR>
+be defined in the target file, not in the Defaults file, like
+<BR>
+this:
+<BR>
+<P><EM>&gt; head -6 interfaces
+</EM><BR>
+target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router          =       some.random.router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generate-static = &quot;1&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static-ranges = &quot;d:w:m&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static-path   = %auto-base%/../public_html/static/%auto-target-path%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static-name   = %auto-target-name%
+<BR>
+<P>The next problem is that the MkDir subroutine seems not to be defined.
+<BR>
+It's a minor problem though, you can create the directory manually and
+<BR>
+it works fine.
+<BR>
+<P>On Thu, 28 Oct 1999, Mark Skinner wrote:
+<BR>
+ct-1999 12:13:06 ] Working on target pos1_0_0.
+<BR>
+[29-Oct-1999 12:13:06 ] Retrieving graph for pos1_0_0-Octets-Hourly
+<BR>
+[29-Oct-1999 12:13:07 ] Making directory /export/home/monitor/cricket-config/../
+<BR>
+public_html/static//router-interfaces/some.random.router to hold file /export/home/monitor /cricket-config/../public_html/static//router-interfaces/some.random.router/pos1_0_0-Octets-Hourly.gif.
+<BR>
+<P>Undefined subroutine &amp;main::MkDir called at ./generate-statics line 244.
+<BR>
+<P>The only thing missing is accompanying html, though just browing
+<BR>
+the directory these appear in works just as well.  
+<BR>
+<P>Having the ability to generate static graphs is useful for the
+<BR>
+specific reason of giving *customer* access to throughput statistics,
+<BR>
+or to store snapshots.  I notice that this script takes about 4 minutes
+<BR>
+to generate 135 graphs, so this is not something you want to do
+<BR>
+in near-real-time, otherwise you have MRTG all over again. :-)
+<BR>
+<P>Take care,
+<BR>
+<P>--Sam
+<BR>
+<P><EM>&gt; From: &quot;Mark Skinner&quot; &lt;<A HREF="mailto:mskinner@verio.net?Subject=Re:%20[cricket-users]%20generate%20statics%20runs,%20but%20i%20get%20no%20data/pics&In-Reply-To=&lt;Pine.BSF.4.10.9910291211160.29705-100000@shell3.ba.best.com&gt;">mskinner@verio.net</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Hi,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I have gotten one router interfaces setup for the generate-static script
+</EM><BR>
+<EM>&gt; to get data for, but it runs with no output.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; here is what I get.
+</EM><BR>
+<EM>&gt; [httpd@rrd util]$ ./generate-statics /cr3.irvnca
+</EM><BR>
+<EM>&gt; [27-Oct-1999 12:18:20 ] Working on target fastethernet4_1_0.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; here  is the end of the Defaults file where /cr3.irvnca interfaces file is:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; [httpd@rrd cr3.irvnca]$ tail Defaults
+</EM><BR>
+<EM>&gt; &lt;snip&gt;
+</EM><BR>
+<EM>&gt;     y-axis      =   &quot;errors per second&quot;
+</EM><BR>
+<EM>&gt;     legend      =   &quot;Average Errors Out&quot;
+</EM><BR>
+<EM>&gt;     units       =   &quot;err/sec&quot;
+</EM><BR>
+<EM>&gt; #add to support Generate statics script
+</EM><BR>
+<EM>&gt; static-ranges = &quot;d:w:m&quot;
+</EM><BR>
+<EM>&gt; static-path   = %auto-base%/../public_html/static/%auto-target-path%
+</EM><BR>
+<EM>&gt; static-name   = %auto-target-name% 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; and a head of the interfaces file 
+</EM><BR>
+<EM>&gt; target --default--
+</EM><BR>
+<EM>&gt;         router = cr3.irvnca.foobar.net
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; target FastEthernet4_1_0
+</EM><BR>
+<EM>&gt;         interface-name  =       FastEthernet4/1/0
+</EM><BR>
+<EM>&gt;         short-desc      =       &quot;bigcust Colo&quot;
+</EM><BR>
+<EM>&gt;         generate-static = &quot;1&quot;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; any ideas why the program spots the target but doesn't get the data.
+</EM><BR>
+<EM>&gt; I even did a lynx <A HREF="http://localhost/~httpd/cricket/grapher.cgi">http://localhost/~httpd/cricket/grapher.cgi</A>
+</EM><BR>
+<EM>&gt; to confirm that the BaseUrl was okay and it was ok.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; thanks!
+</EM><BR>
+<EM>&gt; Mark Skinner
+</EM><BR>
+<EM>&gt; p.s. did Jeff Allen write this script?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make $$$ by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0694.html">Berg, Ivan: "RE: [cricket-users] Strange output from cron"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0692.html">Pradeep Subramaniam: "[cricket-users] Strange output from cron"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0686.html">Mark Skinner: "[cricket-users] generate statics runs, but i get no data/pics"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0698.html">Mark Skinner: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#693">[ date ]</A>
+<A HREF="index.html#693">[ thread ]</A>
+<A HREF="subject.html#693">[ subject ]</A>
+<A HREF="author.html#693">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

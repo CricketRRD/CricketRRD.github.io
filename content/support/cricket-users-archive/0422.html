@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>cricket-users: RE: [cricket-users] Gathering Switch Data (Part</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Gathering Switch Data (Part III)">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Gathering Switch Data (Part III)</H1>
+<!-- received="Sat Jul 24 17:11:08 1999" -->
+<!-- isoreceived="19990725001108" -->
+<!-- sent="Sat, 24 Jul 1999 15:09:10 -0600" -->
+<!-- isosent="19990724210910" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="RE: [cricket-users] Gathering Switch Data (Part III)" -->
+<!-- id="8B069C65F931D111B6E10000F804A4DF77036F@amethyst.msu.montana.edu" -->
+<!-- charset="windows-1252" -->
+<!-- inreplyto="[cricket-users] Gathering Switch Data (Part III)" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Gathering%20Switch%20Data%20(Part%20III)&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77036F@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sat Jul 24 1999 - 14:09:10 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0423.html">Timothy Demarest: "[cricket-users] Any other samples out there?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0421.html">Michael P. Burton: "[cricket-users] Gathering Switch Data (Part III)"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0421.html">Michael P. Burton: "[cricket-users] Gathering Switch Data (Part III)"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#422">[ date ]</A>
+<A HREF="index.html#422">[ thread ]</A>
+<A HREF="subject.html#422">[ subject ]</A>
+<A HREF="author.html#422">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Gathering%20Switch%20Data%20(Part%20III)&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77036F@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>Sounds like you don't have your the switch-ports listed under the items
+<BR>
+to be collected. By default, collect-subtrees with normal option only
+<BR>
+grabs stuff under the /router-intefaces config. Add the stuff you want
+<BR>
+to monitor to the subtree-sets file. For instance use the following in
+<BR>
+there:
+<BR>
+<P>set normal:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/routers
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/switch-ports
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/routing
+<BR>
+<P>-----Original Message-----
+<BR>
+From: Michael P. Burton
+<BR>
+To: <A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20Gathering%20Switch%20Data%20(Part%20III)&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77036F@amethyst.msu.montana.edu&gt;">cricket-users@onelist.com</A>
+<BR>
+Sent: 7/23/99 6:17 PM
+<BR>
+Subject: [cricket-users] Gathering Switch Data (Part III)
+<BR>
+<P>From: &quot;Michael P. Burton&quot; &lt;<A HREF="mailto:mpburton@teleport.com?Subject=RE:%20[cricket-users]%20Gathering%20Switch%20Data%20(Part%20III)&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77036F@amethyst.msu.montana.edu&gt;">mpburton@teleport.com</A>&gt;
+<BR>
+<P><P>Ok - so I have a switch I'm monitoring via the following entry into
+<BR>
+switch-ports/switches:
+<BR>
+<P>target 131.252.45.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type= switch-port
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst       = (1..24)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;XSB BET&quot;   
+<BR>
+<P>When I run &quot;collector&quot; then information is collected on the port, and
+<BR>
+all is well - it shows the device, and shows that it's gathering stats
+<BR>
+for each interface I stipulate, making the correct .rrd files. However,
+<BR>
+if I delete the .rrd files, and just run &quot;collect-subtrees normal&quot; then
+<BR>
+no data is collected, no .rrd files are created. Any ideas?
+<BR>
+<P>Michael
+<BR>
+________________________________________________________________________
+<BR>
+Michael P. Burton          &quot;Love is like racing across the frozen tundra
+<BR>
+<P>Network Engineer, DCII      on a snowmobile which flips over, 
+<BR>
+Portland State University   trapping you underneath. 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At night, the ice-weasels come.&quot; - Nietchze
+<BR>
+------------------------------------------------------------------------
+<BR>
+-
+<BR>
+GCS d---- H--- s g+ !p au a25 w+++ v++ C++ UL++ P+ L++ 3 E---- N+ K- W+
+<BR>
+M
+<BR>
+V po--- Y+ t++ 5 j R++ G+ tv b++ D+ B--- e+++ u++ h-- f+ r+++ n--- z+++ 
+<BR>
+Decode at: <A HREF="http://pcd.stanford.edu/mogens/geek2.html">http://pcd.stanford.edu/mogens/geek2.html</A>
+<BR>
+------------------------------------------------------------------------
+<BR>
+-
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>You can WIN $100 to Amazon.com!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+If you join ONElist’s FRIENDS &amp; FAMILY program.  See homepage.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Congratulations to RON MARTINO 
+<BR>
+This week's FRIENDS &amp; FAMILY WINNER! 
+<BR>
+To join ONElist's Friends &amp; Family program, go to <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0423.html">Timothy Demarest: "[cricket-users] Any other samples out there?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0421.html">Michael P. Burton: "[cricket-users] Gathering Switch Data (Part III)"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0421.html">Michael P. Burton: "[cricket-users] Gathering Switch Data (Part III)"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#422">[ date ]</A>
+<A HREF="index.html#422">[ thread ]</A>
+<A HREF="subject.html#422">[ subject ]</A>
+<A HREF="author.html#422">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

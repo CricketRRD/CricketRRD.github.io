@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Strange output from cron</TITLE>
+<META NAME="Author" CONTENT="Pradeep Subramaniam (pradeep@tradeit.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Strange output from cron">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Strange output from cron</H1>
+<!-- received="Fri Oct 29 15:15:38 1999" -->
+<!-- isoreceived="19991029221538" -->
+<!-- sent="Fri, 29 Oct 1999 15:13:48 -0400 (EDT)" -->
+<!-- isosent="19991029191348" -->
+<!-- name="Pradeep Subramaniam" -->
+<!-- email="pradeep@tradeit.com" -->
+<!-- subject="[cricket-users] Strange output from cron" -->
+<!-- id="199910291913.PAA20564@radar.vtidev.ca" -->
+<STRONG>From:</STRONG> Pradeep Subramaniam (<A HREF="mailto:pradeep@tradeit.com?Subject=Re:%20[cricket-users]%20Strange%20output%20from%20cron&In-Reply-To=&lt;199910291913.PAA20564@radar.vtidev.ca&gt;"><EM>pradeep@tradeit.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Oct 29 1999 - 12:13:48 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0693.html">the+cricket@llama.com: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0691.html">Ross Lewis: "RE: [cricket-users] Determining bandwidth usage"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0694.html">Berg, Ivan: "RE: [cricket-users] Strange output from cron"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0694.html">Berg, Ivan: "RE: [cricket-users] Strange output from cron"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#692">[ date ]</A>
+<A HREF="index.html#692">[ thread ]</A>
+<A HREF="subject.html#692">[ subject ]</A>
+<A HREF="author.html#692">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:pradeep@tradeit.com?Subject=Re:%20[cricket-users]%20Strange%20output%20from%20cron&In-Reply-To=&lt;199910291913.PAA20564@radar.vtidev.ca&gt;">pradeep@tradeit.com</A> (Pradeep Subramaniam)
+<BR>
+<P><P>I get the following message every now and then from the cron job, which
+<BR>
+runs every 5 minutes.
+<BR>
+<P>I am monitoring two routers on our network, one have two ethernet ports
+<BR>
+(0 and 1) while the other has only one ethernet (0) and the other is
+<BR>
+the serial (BRI0) connection to the ISDN line.
+<BR>
+<P>Can anyone out there tell me what I may be doing wrong?
+<BR>
+<P>I would also like to know the best way to do this. Both E0 interfaces
+<BR>
+come up with the same description as one of them. How can I monitor
+<BR>
+similarly named interfaces on different routers?
+<BR>
+<P>Thanks in advance.
+<BR>
+<P>Pradeep.
+<BR>
+<P><EM>&gt; Your &quot;cron&quot; job on radar
+</EM><BR>
+<EM>&gt; $HOME/cricket/collect-subtrees normal 2&gt;&amp;1 &gt; /dev/null
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; produced the following output:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Error and the lines leading up to it:
+</EM><BR>
+<EM>&gt; [29-Oct-1999 15:00:03 ] Retrieved data for ethernet0 (4): 899778571,1879796060,0,18,3623716,3416987
+</EM><BR>
+<EM>&gt; [29-Oct-1999 15:00:03 ] Retrieved data for ethernet1 (2): 2283352642,369100938,17,8887,212624644,175882823
+</EM><BR>
+<EM>&gt; [29-Oct-1999 15:00:03 ] Retrieved data for bri0 (1): 148814,176489,0,0,30204,37145
+</EM><BR>
+<EM>&gt; [29-Oct-1999 15:00:03 ] Retrieved data for ethernet0 (4): 899788733,1879809942,0,18,3623734,3417003
+</EM><BR>
+<EM>&gt; [29-Oct-1999 15:00:03*] Cannot update /home/cricket/cricket-config/../cricket-data//router-interfaces/ethernet0.rrd: illegal attempt to update using time 941223603 when last update time is 941223603 (minimum one second step)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P><PRE>
+-- 
+Pradeep Subramaniam,                    | 
+Senior Systems Administrator    	| You can fool some of the people
+Versus Technologies  Inc.		|   all the time, but not all the
+e-mail: <A HREF="mailto:pradeep@tradeit.com?Subject=Re:%20[cricket-users]%20Strange%20output%20from%20cron&In-Reply-To=&lt;199910291913.PAA20564@radar.vtidev.ca&gt;">pradeep@tradeit.com</A>		|   people all the time.
+phone: (416) 214 7979 			|
+fax:   (416) 214 9065                   | - Yet another brilliant philosopher
+cell:  (416) 991 9625			|
+*******************************************************************************
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>*** Get 300 FREE Personalized Address Labels from iPrint.com! ***
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/iprint6">http://clickme.onelist.com/ad/iprint6</A> &quot;&gt;FREE OFFER&lt;/a&gt;
+Offer for new iPrint.com customers only.  Shipping as low as $1.45.
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0693.html">the+cricket@llama.com: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0691.html">Ross Lewis: "RE: [cricket-users] Determining bandwidth usage"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0694.html">Berg, Ivan: "RE: [cricket-users] Strange output from cron"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0694.html">Berg, Ivan: "RE: [cricket-users] Strange output from cron"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#692">[ date ]</A>
+<A HREF="index.html#692">[ thread ]</A>
+<A HREF="subject.html#692">[ subject ]</A>
+<A HREF="author.html#692">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

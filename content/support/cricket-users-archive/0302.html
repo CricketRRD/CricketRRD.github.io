@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Bug in 0.68</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Bug in 0.68">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Bug in 0.68</H1>
+<!-- received="Mon Jul 12 16:41:57 1999" -->
+<!-- isoreceived="19990712234157" -->
+<!-- sent="Mon, 12 Jul 1999 13:41:01 -0700 (PDT)" -->
+<!-- isosent="19990712204101" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Bug in 0.68" -->
+<!-- id="199907122041.NAA23919@oops.artemis.com" -->
+<!-- inreplyto="8B069C65F931D111B6E10000F804A4DF77034B@amethyst.msu.montana.edu" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Bug%20in%200.68&In-Reply-To=&lt;199907122041.NAA23919@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jul 12 1999 - 13:41:01 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0303.html">Jeff Allen: "[cricket-users] Re: [rrd-users] Will there be a front-end for rrdtool that uses MRTG cfg files?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0301.html">Tobias Oetiker: "[cricket-users] Re: [rrd-developers] Cricket and RRDTOOL major problems"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0295.html">Berg, Ivan: "[cricket-users] Bug in 0.68"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0308.html">roofpig@the.satanic.org: "[cricket-users] Unformatted timeticks"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0308.html">roofpig@the.satanic.org: "[cricket-users] Unformatted timeticks"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#302">[ date ]</A>
+<A HREF="index.html#302">[ thread ]</A>
+<A HREF="subject.html#302">[ subject ]</A>
+<A HREF="author.html#302">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+Berg, Ivan wrote:
+<BR>
+<EM>&gt; I get the error message:  Can't call method &quot;configHash&quot; on an undefined
+</EM><BR>
+<EM>&gt; value at /home/cricket/cricket/lib/Common/Map.pm line 116
+</EM><BR>
+<P>Yeah, I forgot to change a reference to gCT. Use the included patch.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Bug%20in%200.68&In-Reply-To=&lt;199907122041.NAA23919@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P><P>
+</PRE>
+<P>
+==== //depot/operations/nsgtools/cricket/lib/Common/Map.pm#2 - /home/jra/operations/nsgtools/cricket/lib/Common/Map.pm ====
+*** /tmp/tmp.19611.0	Mon Jul 12 13:40:06 1999
+--- /home/jra/operations/nsgtools/cricket/lib/Common/Map.pm	Mon Jul 12 13:39:42 1999
+***************
+*** 113,119 ****
+  	my($mapkey) = $target-&gt;{'--mapkey--'};
+  	return unless defined($mapkey);
+  
+! 	my($mapRef) = $gCT-&gt;configHash($name, 'map', $mapkey, $target);
+  	my($match) = $mapRef-&gt;{'match'};
+  	if (! defined($match)) {
+  		Warn(&quot;No match tag found in map entry $mapkey&quot;);
+--- 113,120 ----
+  	my($mapkey) = $target-&gt;{'--mapkey--'};
+  	return unless defined($mapkey);
+  
+! 	my($mapRef) = $Common::global::gCT-&gt;configHash($name,
+! 		'map', $mapkey, $target);
+  	my($match) = $mapRef-&gt;{'match'};
+  	if (! defined($match)) {
+  		Warn(&quot;No match tag found in map entry $mapkey&quot;);
+***************
+*** 128,134 ****
+  		# cache does not exist, so try to load it
+  		my($baseOID) = $mapRef-&gt;{'base-oid'};
+  
+! 		my($oidMap) = $main::gCT-&gt;configHash($name, 'oid');
+  		my($oid) = mapOid($oidMap, $baseOID);
+  
+  		if (! defined($oid)) {
+--- 129,135 ----
+  		# cache does not exist, so try to load it
+  		my($baseOID) = $mapRef-&gt;{'base-oid'};
+  
+! 		my($oidMap) = $Common::global::gCT-&gt;configHash($name, 'oid');
+  		my($oid) = mapOid($oidMap, $baseOID);
+  
+  		if (! defined($oid)) {
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0303.html">Jeff Allen: "[cricket-users] Re: [rrd-users] Will there be a front-end for rrdtool that uses MRTG cfg files?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0301.html">Tobias Oetiker: "[cricket-users] Re: [rrd-developers] Cricket and RRDTOOL major problems"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0295.html">Berg, Ivan: "[cricket-users] Bug in 0.68"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0308.html">roofpig@the.satanic.org: "[cricket-users] Unformatted timeticks"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0308.html">roofpig@the.satanic.org: "[cricket-users] Unformatted timeticks"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#302">[ date ]</A>
+<A HREF="index.html#302">[ thread ]</A>
+<A HREF="subject.html#302">[ subject ]</A>
+<A HREF="author.html#302">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:55 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Multiple targets</TITLE>
+<META NAME="Author" CONTENT="Glenn MacGregor (gtm@oracom.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Multiple targets">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Multiple targets</H1>
+<!-- received="Wed Jun 30 13:52:45 1999" -->
+<!-- isoreceived="19990630205245" -->
+<!-- sent="Wed, 30 Jun 1999 13:47:00 -0400" -->
+<!-- isosent="19990630174700" -->
+<!-- name="Glenn MacGregor" -->
+<!-- email="gtm@oracom.com" -->
+<!-- subject="Re: [cricket-users] Multiple targets" -->
+<!-- id="377A5813.97AD90F7@oracom.com" -->
+<!-- inreplyto="199906301714.KAA07997@oops.artemis.com" -->
+<STRONG>From:</STRONG> Glenn MacGregor (<A HREF="mailto:gtm@oracom.com?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;377A5813.97AD90F7@oracom.com&gt;"><EM>gtm@oracom.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jun 30 1999 - 10:47:00 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0269.html">Jeff Allen: "Re: [cricket-users] indirect interface adressing with cisco catalyst 5x00"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0267.html">Jeff Allen: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0267.html">Jeff Allen: "Re: [cricket-users] Multiple targets"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0271.html">roofpig@the.satanic.org: "Re: [cricket-users] Multiple targets"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#268">[ date ]</A>
+<A HREF="index.html#268">[ thread ]</A>
+<A HREF="subject.html#268">[ subject ]</A>
+<A HREF="author.html#268">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Glenn MacGregor &lt;<A HREF="mailto:gtm@oracom.com?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;377A5813.97AD90F7@oracom.com&gt;">gtm@oracom.com</A>&gt;
+<BR>
+<P>Jeff Allen wrote:
+<BR>
+<P><EM>&gt; Glenn MacGregor wrote:
+</EM><BR>
+<EM>&gt; &gt;         Sorry to keep bothering the list, but I have a couple more
+</EM><BR>
+<EM>&gt; &gt; questions.  How do I use the targets or mtargets (what is the
+</EM><BR>
+<EM>&gt; &gt; difference)?
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; They are the same in that they are both poorly named and incompletely
+</EM><BR>
+<EM>&gt; implemented. :( Jeff Jensen and I tried to think it through and do it
+</EM><BR>
+<EM>&gt; right, but we simply couldn't predict all the features we'd want, nor
+</EM><BR>
+<EM>&gt; could we come up with a syntax that put rolled them all together. When
+</EM><BR>
+<EM>&gt; the revolution comes and we rewrite the grapher, these tags will be
+</EM><BR>
+<EM>&gt; the first into the guillotine! Let them eat cake! Or something...
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; So, here's a consise explanation of the difference:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; &quot;targets&quot; lets you put multiple targets together on one page -- sorta
+</EM><BR>
+<EM>&gt; like opening up several browsers and navigating to several targets,
+</EM><BR>
+<EM>&gt; but all on one HTML page.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; &quot;mtargets&quot; lets you take the data from several targets and assemble a
+</EM><BR>
+<EM>&gt; new graph out of that data -- either in aggregate (i.e. the sum of all
+</EM><BR>
+<EM>&gt; WAN links) or overlayed.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; &gt; graph say packets in from two different routers on the same graph.
+</EM><BR>
+<EM>&gt; &gt; Really what is the syntax of that, ie where does the mtargets or target
+</EM><BR>
+<EM>&gt; &gt; go.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; To do this, you'd make a new target, for example &quot;both&quot;:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;                 target both
+</EM><BR>
+<EM>&gt;                                 mtarget = &quot;target-1; target-2&quot;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; &gt; Also if I try to get sysUptime I get an error message saying 2:24:55
+</EM><BR>
+<EM>&gt; &gt; (uptime) is not numeric, is there a way around this?
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; You are trying to put a string into an RRD, which is not possible. You
+</EM><BR>
+<EM>&gt; could use an EXEC script to fetch the value then do pre-processing on
+</EM><BR>
+<EM>&gt; it -- in this case the pre-processing would be to turn the formatted
+</EM><BR>
+<EM>&gt; time string into a number of seconds.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; --
+</EM><BR>
+<EM>&gt; Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Multiple%20targets&In-Reply-To=&lt;377A5813.97AD90F7@oracom.com&gt;">jra@corp.webtv.net</A>
+</EM><BR>
+<EM>&gt; WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+</EM><BR>
+<P>Jeff,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;Not sure, will mtarget work or not?
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Glenn
+<BR>
+<P><P><PRE>
+--
+<P>Glenn MacGregor
+<P>Applications Engineer
+Oracom, Inc.
+<A HREF="http://www.oracom.com">http://www.oracom.com</A>
+<P>Tel. +1 978.557.5710 Ext. 302
+Fax  +1 978.557.5716
+<P><P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>Attention ONElist list owners.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+We've just added a &quot;NO ATTACHMENTS&quot; option.  See homepage for details.
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0269.html">Jeff Allen: "Re: [cricket-users] indirect interface adressing with cisco catalyst 5x00"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0267.html">Jeff Allen: "Re: [cricket-users] Multiple targets"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0267.html">Jeff Allen: "Re: [cricket-users] Multiple targets"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0271.html">roofpig@the.satanic.org: "Re: [cricket-users] Multiple targets"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#268">[ date ]</A>
+<A HREF="index.html#268">[ thread ]</A>
+<A HREF="subject.html#268">[ subject ]</A>
+<A HREF="author.html#268">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:55 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

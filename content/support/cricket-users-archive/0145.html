@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] running on Solaris - DB_File</TITLE>
+<META NAME="Author" CONTENT="Matthew Stier (Matthew.Stier@tddny.fujitsu.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] running on Solaris - DB_File">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] running on Solaris - DB_File</H1>
+<!-- received="Thu May 27 07:47:42 1999" -->
+<!-- isoreceived="19990527144742" -->
+<!-- sent="Thu, 27 May 1999 07:44:25 -0400" -->
+<!-- isosent="19990527114425" -->
+<!-- name="Matthew Stier" -->
+<!-- email="Matthew.Stier@tddny.fujitsu.com" -->
+<!-- subject="Re: [cricket-users] running on Solaris - DB_File" -->
+<!-- id="374D3019.D0963F99@tddny.fujitsu.com" -->
+<!-- inreplyto="19990527172614.B24163@cse.unsw.edu.au" -->
+<STRONG>From:</STRONG> Matthew Stier (<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=Re:%20[cricket-users]%20running%20on%20Solaris%20-%20DB_File&In-Reply-To=&lt;374D3019.D0963F99@tddny.fujitsu.com&gt;"><EM>Matthew.Stier@tddny.fujitsu.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu May 27 1999 - 04:44:25 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0146.html">Zebee Johnstone: "[cricket-users] running from a different place"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0144.html">Zebee Johnstone: "[cricket-users] running on Solaris - DB_File"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0144.html">Zebee Johnstone: "[cricket-users] running on Solaris - DB_File"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#145">[ date ]</A>
+<A HREF="index.html#145">[ thread ]</A>
+<A HREF="subject.html#145">[ subject ]</A>
+<A HREF="author.html#145">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+I've been successful in getting the Berkeley DB package to run under Solaris
+<BR>
+2.6.
+<BR>
+<P>First I downloaded the 'db.1.86' package from &quot;<A HREF="ftp://sleepy.vwh.net/pub/">ftp://sleepy.vwh.net/pub/</A>&quot;
+<BR>
+<P>Then I extracted and tried building the sunos52 port. I ran into four errors
+<BR>
+with signed integer types in include/db.h.  I commented those out and
+<BR>
+successfully built libdb.a. I then copied libdb.a to /usr/local/lib, and
+<BR>
+db.h to /usr/local/include, and cdefs.h to /usr/local/include/sys.
+<BR>
+<P>I then tried building and installing the DB_File module.  However, I had
+<BR>
+repeated problems running perl with it.
+<BR>
+<P>I then stepped back, and rebuilt perl from scratch.(I deleted the build
+<BR>
+directory I had been using, and extracted the tar anew.) Configure was able
+<BR>
+to detect the correct db library version and correctly built itself.
+<BR>
+<P>I have been using it since.
+<BR>
+<P>Zebee Johnstone wrote:
+<BR>
+<P><EM>&gt; From: Zebee Johnstone &lt;<A HREF="mailto:zebee@cse.unsw.edu.au?Subject=Re:%20[cricket-users]%20running%20on%20Solaris%20-%20DB_File&In-Reply-To=&lt;374D3019.D0963F99@tddny.fujitsu.com&gt;">zebee@cse.unsw.edu.au</A>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Looking in the archives, other people have it running on Solaris...
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; I'm using PC Solaris, 2.6
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Trouble is that this installation does not have the Berkely DB
+</EM><BR>
+<EM>&gt; database stuff, but the gnu one, gdbm.  So the module DB_file.pm
+</EM><BR>
+<EM>&gt; can't be compiled, so the bits of cricket that need that don't
+</EM><BR>
+<EM>&gt; work.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; I have collection working fine, but setting up the graphing is
+</EM><BR>
+<EM>&gt; not.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Can cricket be set up to use AnyDB_pm instead of DB_File.pm?  If not,
+</EM><BR>
+<EM>&gt; can someone point me to a copy of the db stuff I can compile and
+</EM><BR>
+<EM>&gt; install (I need db.h and libdb.a) on this box?  I got the &quot;latest&quot;
+</EM><BR>
+<EM>&gt; from a gnu mirror and it was for Solaris 2.2 and required header
+</EM><BR>
+<EM>&gt; files I don't have...
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Zebee
+</EM><BR>
+<EM>&gt; --
+</EM><BR>
+<EM>&gt; Zebee Johnstone                 <A HREF="mailto:zebee@cse.unsw.edu.au?Subject=Re:%20[cricket-users]%20running%20on%20Solaris%20-%20DB_File&In-Reply-To=&lt;374D3019.D0963F99@tddny.fujitsu.com&gt;">zebee@cse.unsw.edu.au</A>
+</EM><BR>
+<EM>&gt; System/Network Administrator
+</EM><BR>
+<EM>&gt; School of Computer Science and Engineering
+</EM><BR>
+<EM>&gt; University of New South Wales Kensington  NSW  2052  Australia
+</EM><BR>
+<EM>&gt; Phone: +61-2-9385-4781
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; ONElist members are using Shared Files in great ways!
+</EM><BR>
+<EM>&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+</EM><BR>
+<EM>&gt; Are you?  If not, see our homepage for details.
+</EM><BR>
+<P><PRE>
+--
+Matthew Lee Stier                  *  Fujitsu Network Communications
+Unix Systems Administrator         |  Two Blue Hill Plaza
+Ph: 914-731-2097 Fx: 914-731-2011  |  Sixth Floor
+<A HREF="mailto:Matthew.Stier@fnc.fujitsu.com?Subject=Re:%20[cricket-users]%20running%20on%20Solaris%20-%20DB_File&In-Reply-To=&lt;374D3019.D0963F99@tddny.fujitsu.com&gt;">Matthew.Stier@fnc.fujitsu.com</A>      *  Pearl River, NY 10965
+<P><P>
+</PRE>
+<HR NOSHADE>
+<UL>
+<LI>text/x-vcard attachment: <A HREF="att-0145/01-Matthew.Stier.vcf">Card for Matthew Stier</A>
+</UL>
+<!-- attachment="01-Matthew.Stier.vcf" -->
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0146.html">Zebee Johnstone: "[cricket-users] running from a different place"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0144.html">Zebee Johnstone: "[cricket-users] running on Solaris - DB_File"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0144.html">Zebee Johnstone: "[cricket-users] running on Solaris - DB_File"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#145">[ date ]</A>
+<A HREF="index.html#145">[ thread ]</A>
+<A HREF="subject.html#145">[ subject ]</A>
+<A HREF="author.html#145">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:51 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

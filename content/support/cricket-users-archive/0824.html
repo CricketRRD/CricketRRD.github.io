@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] multi-row snmp responses?</TITLE>
+<META NAME="Author" CONTENT="Marg Suarez (marg@columbia.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] multi-row snmp responses?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] multi-row snmp responses?</H1>
+<!-- received="Tue Jan  4 15:52:02 2000" -->
+<!-- isoreceived="20000104235202" -->
+<!-- sent="Tue, 4 Jan 2000 15:48:07 EST" -->
+<!-- isosent="20000104204807" -->
+<!-- name="Marg Suarez" -->
+<!-- email="marg@columbia.edu" -->
+<!-- subject="[cricket-users] multi-row snmp responses?" -->
+<!-- id="CMM.0.90.4.947018887.marg@manila" -->
+<STRONG>From:</STRONG> Marg Suarez (<A HREF="mailto:marg@columbia.edu?Subject=Re:%20[cricket-users]%20multi-row%20snmp%20responses?&In-Reply-To=&lt;CMM.0.90.4.947018887.marg@manila&gt;"><EM>marg@columbia.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jan 04 2000 - 12:48:07 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0825.html">phil.pierotti@quokka.com: "[cricket-users] Segmentation Fault"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0823.html">Hugo Gayosso: "RE: [cricket-users] grapher.cgi fails to produce graphs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0828.html">Hugo Gayosso: "RE: [cricket-users] multi-row snmp responses?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0828.html">Hugo Gayosso: "RE: [cricket-users] multi-row snmp responses?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#824">[ date ]</A>
+<A HREF="index.html#824">[ thread ]</A>
+<A HREF="subject.html#824">[ subject ]</A>
+<A HREF="author.html#824">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Marg Suarez &lt;<A HREF="mailto:marg@columbia.edu?Subject=Re:%20[cricket-users]%20multi-row%20snmp%20responses?&In-Reply-To=&lt;CMM.0.90.4.947018887.marg@manila&gt;">marg@columbia.edu</A>&gt;
+<BR>
+<P>hi all,
+<BR>
+<P>i tried to search the archives, but i find the search engine at onelist
+<BR>
+to be pretty unwieldy.  so i apologize if this question has been
+<BR>
+answered already...
+<BR>
+<P>i'm trying to make cricket graph performance stats for my UNIX
+<BR>
+workstations.  i have UCD-SNMP-4.0.1 running on my Solaris 2.7 box and i
+<BR>
+am able to pull out various data, e.g., # of users, # of procs,
+<BR>
+available memory, and available swap.
+<BR>
+<P>however, i am having trouble pulling out the load average.  it seem that
+<BR>
+the load average is reported as 3 numbers (3 rows):
+<BR>
+<P>&nbsp;&nbsp;# snmpwalk localhost pooblick .1.3.6.1.4.1.2021.10.1.6
+<BR>
+&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoadFloat.1 = Opaque: Float: 0.171875
+<BR>
+&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoadFloat.2 = Opaque: Float: 0.230469
+<BR>
+&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoadFloat.3 = Opaque: Float: 0.187500
+<BR>
+<P>in the MIB, laLoadFloat is defined as follows:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;laLoadFloat OBJECT-TYPE
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SYNTAX Float
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACCESS read-only
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS mandatory
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIPTION
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;The 1,5 and 10 minute load averages as an opaquely
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wrapped floating point number.&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::= { laEntry 6 }
+<BR>
+<P>cricket does not like this.  if i try to run the collector using OID
+<BR>
+1.3.6.1.4.1.2021.10.1.6.0, the data retrieved shows up as
+<BR>
+&quot;#&lt;unprintable&quot; (output of collector).
+<BR>
+<P>does anybody know how i can graph the load successfully?  better yet,
+<BR>
+has anyone already written a Defaults file for UNIX hosts running
+<BR>
+UCD-SNMPD that they would be willing to share?
+<BR>
+<P>thanks
+<BR>
+marg
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0825.html">phil.pierotti@quokka.com: "[cricket-users] Segmentation Fault"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0823.html">Hugo Gayosso: "RE: [cricket-users] grapher.cgi fails to produce graphs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0828.html">Hugo Gayosso: "RE: [cricket-users] multi-row snmp responses?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0828.html">Hugo Gayosso: "RE: [cricket-users] multi-row snmp responses?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#824">[ date ]</A>
+<A HREF="index.html#824">[ thread ]</A>
+<A HREF="subject.html#824">[ subject ]</A>
+<A HREF="author.html#824">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

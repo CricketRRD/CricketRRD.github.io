@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] GOT IT!!!</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] GOT IT!!!">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] GOT IT!!!</H1>
+<!-- received="Mon Jul 12 12:06:05 1999" -->
+<!-- isoreceived="19990712190605" -->
+<!-- sent="Fri, 9 Jul 1999 20:01:34 -0600 " -->
+<!-- isosent="19990710020134" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="[cricket-users] GOT IT!!!" -->
+<!-- id="8B069C65F931D111B6E10000F804A4DF77034A@amethyst.msu.montana.edu" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=Re:%20[cricket-users]%20GOT%20IT!!!&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77034A@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jul 09 1999 - 19:01:34 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0291.html">Jeff Allen: "[cricket-announce] Cricket 0.68 released"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0289.html">Jeff Allen: "Re: [cricket-users] cricket weirdness"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#290">[ date ]</A>
+<A HREF="index.html#290">[ thread ]</A>
+<A HREF="subject.html#290">[ subject ]</A>
+<A HREF="author.html#290">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=Re:%20[cricket-users]%20GOT%20IT!!!&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77034A@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>Whew!! I have been trying to get targets and mtargets working for a couple
+<BR>
+weeks now and have had no luck. But I finally figured it out. Let me share
+<BR>
+the wisdom as it seems others have had problems also.
+<BR>
+<P>Here is the key:  DON'T capitalize any letters when listed multiple items
+<BR>
+that you are working on.  Let me give an example.
+<BR>
+<P>target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = router.somewhere.edu
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directory-desc      =       &quot;Cisco Router&quot;
+<BR>
+<P>target Serial0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;Interface 1&quot;
+<BR>
+<P>target Serial0_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial0/1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;Interface 2&quot;
+<BR>
+<P><P>target T1_All
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtargets = &quot;serial0_0;serial0_1&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtargets-ops = &quot;sum()&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;Combined T1's&quot;
+<BR>
+<P>target Serial0_Comb
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targets = &quot;serial0_0;serial0_1&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;All T1's on 1 Page&quot;
+<BR>
+<P>Notice how the targets are Serial0_0 and Serial0_1 but when doing targets
+<BR>
+and mtargets they are all in lowercase.  That does the trick, I don't know
+<BR>
+why they have it this way, but that's the way it is. 
+<BR>
+<P>Make sure to replace convertOps in grapher.cgi if you have version 0.67 and
+<BR>
+are having problems with sum().  Replace it with the following
+<BR>
+<P>sub convertOps { 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my($mto, $num) = @_; 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;if (lc($mto) eq 'sum()') { 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($i, @plusses); 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ($i = 0; $i &lt; $num-1; $i++) { 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push @plusses, '+'; 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return join(',', @plusses); 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;} 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;return $mto; 
+<BR>
+} 
+<BR>
+<P>Good luck
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Attention ONElist list owners.
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+We've just added a &quot;NO ATTACHMENTS&quot; option.  See homepage for details.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0291.html">Jeff Allen: "[cricket-announce] Cricket 0.68 released"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0289.html">Jeff Allen: "Re: [cricket-users] cricket weirdness"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#290">[ date ]</A>
+<A HREF="index.html#290">[ thread ]</A>
+<A HREF="subject.html#290">[ subject ]</A>
+<A HREF="author.html#290">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:55 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] No Hourly Graphs...</TITLE>
+<META NAME="Author" CONTENT="Tobias Oetiker (oetiker@ee.ethz.ch)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] No Hourly Graphs...">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] No Hourly Graphs...</H1>
+<!-- received="Mon Aug 23 15:52:06 1999" -->
+<!-- isoreceived="19990823225206" -->
+<!-- sent="Mon, 23 Aug 1999 21:51:14 +0200 (MET DST)" -->
+<!-- isosent="19990823195114" -->
+<!-- name="Tobias Oetiker" -->
+<!-- email="oetiker@ee.ethz.ch" -->
+<!-- subject="Re: [cricket-users] No Hourly Graphs..." -->
+<!-- id="Pine.GSO.4.10.9908232149240.5744-100000@engelberg.ee.ethz.ch" -->
+<!-- inreplyto="37C19EA2.288F4540@insnet.net" -->
+<STRONG>From:</STRONG> Tobias Oetiker (<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;Pine.GSO.4.10.9908232149240.5744-100000@engelberg.ee.ethz.ch&gt;"><EM>oetiker@ee.ethz.ch</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Aug 23 1999 - 12:51:14 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0531.html">Brad Knowles: "[cricket-users] mtargets w/ vector instances versus scalar instances..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0529.html">Matt Duggan: "Re: [cricket-users] No Hourly Graphs..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0529.html">Matt Duggan: "Re: [cricket-users] No Hourly Graphs..."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#530">[ date ]</A>
+<A HREF="index.html#530">[ thread ]</A>
+<A HREF="subject.html#530">[ subject ]</A>
+<A HREF="author.html#530">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;Pine.GSO.4.10.9908232149240.5744-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A>&gt;
+<BR>
+<P>Today you sent me mail regarding Re: [cricket-users] No Hourly Graphs...:
+<BR>
+<P>*&gt; Hi Tobi,
+<BR>
+*&gt; 
+<BR>
+*&gt; Thanks for the reply... I was/am using 1.0.6. I got the patch and followed the
+<BR>
+*&gt; instructions (i.e. copied it to the rrd directory) but upon executing the
+<BR>
+*&gt; install
+<BR>
+*&gt; I get lots of errors like the following:
+<BR>
+*&gt; 
+<BR>
+*&gt; # gunzip -c 1.0.6-fixes.patch.gz   | patch -p1
+<BR>
+*&gt; #  Looks like a unified context diff.
+<BR>
+*&gt; Hunk #2 failed at line 4.
+<BR>
+*&gt; Hunk #3 failed at line 34.
+<BR>
+*&gt; Hunk #4 failed at line 76.
+<BR>
+*&gt; Hunk #5 failed at line 78.
+<BR>
+*&gt; Hunk #6 failed at line 109.
+<BR>
+*&gt; Hunk #7 failed at line 276.
+<BR>
+*&gt; Hunk #8 failed at line 339.
+<BR>
+*&gt; Hunk #9 failed at line 382.
+<BR>
+*&gt; Hunk #10 failed at line 424.
+<BR>
+*&gt; Hunk #11 failed at line 15.
+<BR>
+*&gt; Hunk #12 failed at line 113.
+<BR>
+*&gt; 
+<BR>
+*&gt; etc ....
+<BR>
+*&gt; 
+<BR>
+*&gt; This normal!? or is it me being dumb! ... it's been a long day!
+<BR>
+<P>nope it is not ... it should just work .. .maybe you are not using a new
+<BR>
+1.0.6 ?
+<BR>
+<P>in any event the blank graph problem is not related to the 1.0.6 patch ...
+<BR>
+it was fixed even before 1.0.6
+<BR>
+<P>could it be that you are using a perl module version which is much older ?
+<BR>
+It might be installed in your site-perl ... 
+<BR>
+<P>cheers
+<BR>
+tobi
+<BR>
+*&gt; 
+<BR>
+*&gt; Thanks for all the help, keep up the good work.
+<BR>
+*&gt; 
+<BR>
+*&gt; Regards,
+<BR>
+*&gt; Matt.
+<BR>
+*&gt; 
+<BR>
+*&gt; p.s. I saw the rrdtool demo on the mailing list and think it's great,
+<BR>
+*&gt; would there be any chance of seeing the config files etc for it?
+<BR>
+*&gt; 
+<BR>
+*&gt; 
+<BR>
+*&gt; Tobias Oetiker wrote:
+<BR>
+*&gt; 
+<BR>
+*&gt; &gt; From: Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;Pine.GSO.4.10.9908232149240.5744-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A>&gt;
+<BR>
+*&gt; &gt;
+<BR>
+*&gt; &gt; 7Today you sent me mail regarding [cricket-users] No Hourly Graphs...:
+<BR>
+*&gt; &gt;
+<BR>
+*&gt; &gt; *&gt; From: <A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;Pine.GSO.4.10.9908232149240.5744-100000@engelberg.ee.ethz.ch&gt;">matt@insnet.net</A>
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt; Hi,
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt; I am using the latest version of Cricket and RRDTOOL
+<BR>
+*&gt; &gt; *&gt; on a Sun Ultra 1 (fully patches Solaris 2.6) and
+<BR>
+*&gt; &gt; *&gt; have an odd issue.
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt; Everything appears to be working fine, however
+<BR>
+*&gt; &gt; *&gt; upon clicking on a target (specifically router-
+<BR>
+*&gt; &gt; *&gt; interfaces) results in a list of ports...great...
+<BR>
+*&gt; &gt; *&gt; but!
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt; When I click octects to view the graph I get
+<BR>
+*&gt; &gt; *&gt; a screen showing avg, max, cur and the graphs...
+<BR>
+*&gt; &gt; *&gt; but the hourly graph is blank. However Daily
+<BR>
+*&gt; &gt; *&gt; graphs are fine.
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt; I have tried reinstalling cricket, recompiling,
+<BR>
+*&gt; &gt; *&gt; rebuiling the config-tree, all sorts but still
+<BR>
+*&gt; &gt; *&gt; no luck.
+<BR>
+*&gt; &gt;
+<BR>
+*&gt; &gt; make sure you get the latest rrdtool ...
+<BR>
+*&gt; &gt;
+<BR>
+*&gt; &gt; cheers
+<BR>
+*&gt; &gt; tobi
+<BR>
+*&gt; &gt;
+<BR>
+*&gt; &gt; *&gt; Any advice on this would be much appreciated.
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt; Regards,
+<BR>
+*&gt; &gt; *&gt; Matt.
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt; Matt Duggan,
+<BR>
+*&gt; &gt; *&gt; Internet Network Services.
+<BR>
+*&gt; &gt; *&gt; mailto:<A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;Pine.GSO.4.10.9908232149240.5744-100000@engelberg.ee.ethz.ch&gt;">matt@insnet.net</A>
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt; --------------------------- ONElist Sponsor ----------------------------
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt; GET WHAT YOU DESERVE! A NextCard Platinum VISA: DOUBLE Rewards points,
+<BR>
+*&gt; &gt; *&gt;        NO annual fee &amp; rates as low as 9.9 percent FIXED APR.
+<BR>
+*&gt; &gt; *&gt; Apply online today!                <A HREF="http://www.onelist.com/ad/nextcard1">http://www.onelist.com/ad/nextcard1</A>
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt; *&gt; ------------------------------------------------------------------------
+<BR>
+*&gt; &gt; *&gt;
+<BR>
+*&gt; &gt;
+<BR>
+*&gt; &gt; --
+<BR>
+*&gt; &gt;  ______    __   _
+<BR>
+*&gt; &gt; /_  __/_  / /  (_) Oetiker, Timelord &amp; SysMgr @ EE-Dept ETH-Zurich
+<BR>
+*&gt; &gt;  / // _ \/ _ \/ / TEL: +41(0)1-6325286  FAX:...1517  ICQ: 10419518
+<BR>
+*&gt; &gt; /_/ \.__/_.__/_/ <A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;Pine.GSO.4.10.9908232149240.5744-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A> <A HREF="http://ee-staff.ethz.ch/~oetiker">http://ee-staff.ethz.ch/~oetiker</A>
+<BR>
+*&gt; &gt;
+<BR>
+*&gt; &gt; --------------------------- ONElist Sponsor ----------------------------
+<BR>
+*&gt; &gt;
+<BR>
+*&gt; &gt; Show your ONElist SPIRIT!
+<BR>
+*&gt; &gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/tshirt2">http://clickme.onelist.com/ad/tshirt2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+*&gt; &gt; With a new ONElist SHIRT available through our website.
+<BR>
+*&gt; &gt;
+<BR>
+*&gt; &gt; ------------------------------------------------------------------------
+<BR>
+*&gt; 
+<BR>
+<P><PRE>
+-- 
+ ______    __   _
+/_  __/_  / /  (_) Oetiker, Timelord &amp; SysMgr @ EE-Dept ETH-Zurich
+ / // _ \/ _ \/ / TEL: +41(0)1-6325286  FAX:...1517  ICQ: 10419518 
+/_/ \.__/_.__/_/ <A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20No%20Hourly%20Graphs...&In-Reply-To=&lt;Pine.GSO.4.10.9908232149240.5744-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A> <A HREF="http://ee-staff.ethz.ch/~oetiker">http://ee-staff.ethz.ch/~oetiker</A>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>ONElist:  your connection to like-minds and kindred spirits.
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0531.html">Brad Knowles: "[cricket-users] mtargets w/ vector instances versus scalar instances..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0529.html">Matt Duggan: "Re: [cricket-users] No Hourly Graphs..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0529.html">Matt Duggan: "Re: [cricket-users] No Hourly Graphs..."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#530">[ date ]</A>
+<A HREF="index.html#530">[ thread ]</A>
+<A HREF="subject.html#530">[ subject ]</A>
+<A HREF="author.html#530">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

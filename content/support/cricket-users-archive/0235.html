@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Help needed for a cricket ne</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Help needed for a cricket newbie">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Help needed for a cricket newbie</H1>
+<!-- received="Wed Jun 23 20:01:19 1999" -->
+<!-- isoreceived="19990624030119" -->
+<!-- sent="Wed, 23 Jun 1999 16:59:18 -0700 (PDT)" -->
+<!-- isosent="19990623235918" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Help needed for a cricket newbie" -->
+<!-- id="199906232359.QAA14789@oops.artemis.com" -->
+<!-- inreplyto="039d01bebdd1$b8bd97c0$c0b6afcf@mminternet.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Help%20needed%20for%20a%20cricket%20newbie&In-Reply-To=&lt;199906232359.QAA14789@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jun 23 1999 - 16:59:18 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0236.html">Jeff Allen: "Re: [cricket-users] HELP"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0234.html">Daniel Spisak: "[cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0234.html">Daniel Spisak: "[cricket-users] Help needed for a cricket newbie"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0236.html">Jeff Allen: "Re: [cricket-users] HELP"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#235">[ date ]</A>
+<A HREF="index.html#235">[ thread ]</A>
+<A HREF="subject.html#235">[ subject ]</A>
+<A HREF="author.html#235">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Help%20needed%20for%20a%20cricket%20newbie&In-Reply-To=&lt;199906232359.QAA14789@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Daniel Spisak wrote:
+<BR>
+<EM>&gt; [dspisak@andromeda cricket-config]$ ~/cricket/compile /routers
+</EM><BR>
+<EM>&gt; DB_File object version 1.67 does not match bootstrap parameter 1.15 at
+</EM><BR>
+<EM>&gt; /usr/lib/perl5/i386-linux/5.00405/DynaLoader.pm line 188.
+</EM><BR>
+<P>You need to focus on this bug, and get it solved before Cricket will
+<BR>
+work for you. I think this problem is related to your install of
+<BR>
+DB_File and/or Perl. You need to write a tiny test program which uses
+<BR>
+DB_File -- just copy the minimal amount of test code out of the
+<BR>
+DB_File docs:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use DB_File;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tie %hash,  'DB_File', 'test';
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$hash{'foo'} = &quot;bar&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;result is: &quot;, $hash{'foo'}, &quot;\n&quot;;
+<BR>
+<P>If that program will not run correctly, Cricket won't work either.
+<BR>
+<P>I'm sorry the beginner.txt file is out of date. I plan to release a
+<BR>
+new version soon, but some other work related things are preventing me
+<BR>
+from spending time on Cricket. :(
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Help%20needed%20for%20a%20cricket%20newbie&In-Reply-To=&lt;199906232359.QAA14789@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>What do fashion and football have in common?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+They both have communities at ONElist.  Find yours today!
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0236.html">Jeff Allen: "Re: [cricket-users] HELP"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0234.html">Daniel Spisak: "[cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0234.html">Daniel Spisak: "[cricket-users] Help needed for a cricket newbie"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0236.html">Jeff Allen: "Re: [cricket-users] HELP"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#235">[ date ]</A>
+<A HREF="index.html#235">[ thread ]</A>
+<A HREF="subject.html#235">[ subject ]</A>
+<A HREF="author.html#235">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:54 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

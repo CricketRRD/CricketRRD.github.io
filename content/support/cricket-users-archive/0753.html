@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] DB_File needs compatible version</TITLE>
+<META NAME="Author" CONTENT="johnsojr@pluto.dsu.edu (johnsojr@pluto.dsu.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] DB_File needs compatible versions of libdb &amp; db.h?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] DB_File needs compatible versions of libdb &amp; db.h?</H1>
+<!-- received="Thu Nov 18 18:28:04 1999" -->
+<!-- isoreceived="19991119022804" -->
+<!-- sent="18 Nov 1999 23:25:13 -0000" -->
+<!-- isosent="19991118232513" -->
+<!-- name="johnsojr@pluto.dsu.edu" -->
+<!-- email="johnsojr@pluto.dsu.edu" -->
+<!-- subject="[cricket-users] DB_File needs compatible versions of libdb &amp; db.h?" -->
+<!-- id="942967513.23429@onelist.com" -->
+<STRONG>From:</STRONG> <A HREF="mailto:johnsojr@pluto.dsu.edu?Subject=Re:%20[cricket-users]%20DB_File%20needs%20compatible%20versions%20of%20libdb%20&amp;%20db.h?&In-Reply-To=&lt;942967513.23429@onelist.com&gt;"><EM>johnsojr@pluto.dsu.edu</EM></A><BR>
+<STRONG>Date:</STRONG> Thu Nov 18 1999 - 15:25:13 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0754.html">Jim Johnson: "[cricket-users] SOLVED (kinda) Re: DB_File needs compatible versions of libdb &amp; db.h?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0752.html">Hugo Gayosso: "RE: [cricket-users] Premature end of script headers ??"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#753">[ date ]</A>
+<A HREF="index.html#753">[ thread ]</A>
+<A HREF="subject.html#753">[ subject ]</A>
+<A HREF="author.html#753">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:johnsojr@pluto.dsu.edu?Subject=Re:%20[cricket-users]%20DB_File%20needs%20compatible%20versions%20of%20libdb%20&amp;%20db.h?&In-Reply-To=&lt;942967513.23429@onelist.com&gt;">johnsojr@pluto.dsu.edu</A>
+<BR>
+<P>When I make DB_File, everything works fine, passes all the tests.
+<BR>
+However when I run grapher.cgi I get the following error in my Apache
+<BR>
+error_log file:
+<BR>
+<P>*********error**************
+<BR>
+[Thu Nov 18 16:36:11 1999] [error] 
+<BR>
+DB_File needs compatible versions of libdb &amp; db.h
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;you have db.h version 2.7.7 and libdb version 2.4.14
+<BR>
+BEGIN failed--compilation aborted at /home/cricket/public_html/cricket/./lib/ConfigTree/Cache.pm line 21.
+<BR>
+BEGIN failed--compilation aborted at /home/cricket/public_html/cricket/grapher.cgi line 53.
+<BR>
+*********error**************
+<BR>
+<P>In an effort to get DB_File to use the correct libdb I renamed
+<BR>
+/usr/lib/libdb.a to /usr/lib/libdb.a.back.  This didn't work
+<BR>
+and since I really don't know what I'm doing, I don't want to 
+<BR>
+mess with any of the many other libdb files I found on my system
+<BR>
+(listed below).  At the end of this post is some code that does
+<BR>
+work, and the versions of all the relevant software.  Has anyone
+<BR>
+had this problem before, can anyone help me?
+<BR>
+<P>/usr/lib/libdb.so
+<BR>
+/usr/lib/libdb1.a
+<BR>
+/usr/lib/libdb1.so
+<BR>
+/usr/lib/libdb.a.back
+<BR>
+/usr/local/BerkeleyDB/lib/libdb.a
+<BR>
+/usr/i386-glibc20-linux/lib/libdb-2.0.7.so
+<BR>
+/usr/i386-glibc20-linux/lib/libdb.so
+<BR>
+/usr/i386-glibc20-linux/lib/libdb.so.2
+<BR>
+/usr/i486-linux-libc5/lib/libdb.so.2.0.0
+<BR>
+/usr/i486-linux-libc5/lib/libdb.so.2
+<BR>
+/lib/libdb-2.1.2.so
+<BR>
+/lib/libdb.so.2
+<BR>
+/lib/libdb.so.3
+<BR>
+/lib/libdb1-2.1.2.so
+<BR>
+/lib/libdb1.so.2
+<BR>
+<P><P>********This code works************
+<BR>
+use DB_File;
+<BR>
+tie %hash,  'DB_File', 'test';
+<BR>
+$hash{'foo'} = &quot;bar&quot;;
+<BR>
+print &quot;result is: &quot;, $hash{'foo'}, &quot;\n&quot;;
+<BR>
+********This code works************
+<BR>
+<P>Below are the versions of all (I think) relevant software.
+<BR>
+DB_File-1.71
+<BR>
+db-2.7.7
+<BR>
+cricket-0.70
+<BR>
+rrdtool-1.0.7
+<BR>
+<P>RedHat 6.1
+<BR>
+apache_1.3.9
+<BR>
+mod_perl
+<BR>
+Time-HiRes-01.20
+<BR>
+MD5-1.7
+<BR>
+libwww-perl-5.46
+<BR>
+TimeDate-1.08
+<BR>
+SNMP_Session-0.75
+<BR>
+lwp
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thinking about putting your business on the Web? 
+<BR>
+MindSpring Biz has helped over 100,000 businesses get their .com.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join MindSpring Biz and save $50!  
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/mindspring4">http://clickme.onelist.com/ad/mindspring4</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0754.html">Jim Johnson: "[cricket-users] SOLVED (kinda) Re: DB_File needs compatible versions of libdb &amp; db.h?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0752.html">Hugo Gayosso: "RE: [cricket-users] Premature end of script headers ??"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#753">[ date ]</A>
+<A HREF="index.html#753">[ thread ]</A>
+<A HREF="subject.html#753">[ subject ]</A>
+<A HREF="author.html#753">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:06 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

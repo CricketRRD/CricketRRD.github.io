@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Apache Setup for user with C</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Apache Setup for user with Cricket">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Apache Setup for user with Cricket</H1>
+<!-- received="Mon Jul 19 13:58:09 1999" -->
+<!-- isoreceived="19990719205809" -->
+<!-- sent="Mon, 19 Jul 1999 10:55:03 -0700 (PDT)" -->
+<!-- isosent="19990719175503" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Apache Setup for user with Cricket" -->
+<!-- id="199907191755.KAA29242@oops.artemis.com" -->
+<!-- inreplyto="000101bed17e$3977f580$ec64a8c0@craiglap.craigm.tintz.co.nz" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Apache%20Setup%20for%20user%20with%20Cricket&In-Reply-To=&lt;199907191755.KAA29242@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jul 19 1999 - 10:55:03 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0363.html">Berg, Ivan: "RE: [cricket-users] Re: Cricket issues..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0361.html">Jeff Allen: "[cricket-users] Re: Cricket issues..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0348.html">Craig Mckenna: "[cricket-users] Apache Setup for user with Cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0365.html">Daniel Spisak: "[cricket-users] Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0365.html">Daniel Spisak: "[cricket-users] Help with Cricket-0.69 for newbie"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#362">[ date ]</A>
+<A HREF="index.html#362">[ thread ]</A>
+<A HREF="subject.html#362">[ subject ]</A>
+<A HREF="author.html#362">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Apache%20Setup%20for%20user%20with%20Cricket&In-Reply-To=&lt;199907191755.KAA29242@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Craig Mckenna wrote:
+<BR>
+<EM>&gt; [19-Jul-1999 12:21:48*] Unable to create graph: rrdopen can't open
+</EM><BR>
+<EM>&gt; '/home/cricket/cricket-config/../cricket-data//routers/router.tin
+</EM><BR>
+<EM>&gt; tz.co.nz.rrd'
+</EM><BR>
+<P>It looks to me like the user that runs the CGI scripts (usually
+<BR>
+nobody) does not have permission to read the RRD files. Check that first.
+<BR>
+<P><EM>&gt; [19-Jul-1999 12:21:49*] Could not open
+</EM><BR>
+<EM>&gt; /tmp/cricket-cache/cricket-fa9a83ce.gif: No such file or directory
+</EM><BR>
+<P>Make certain that the users nobody will have permission to write to
+<BR>
+this directory too. This error is not surprising in light of the
+<BR>
+previous error -- the GIF did not get written, since the RRD file
+<BR>
+could not be read.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Apache%20Setup%20for%20user%20with%20Cricket&In-Reply-To=&lt;199907191755.KAA29242@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Why do WOMEN ASTRONAUTS have such BAD HAIRCUTS?
+What happens if you CLEAN your self-cleaning OVEN?  
+The DR. has answers:&lt;a href=&quot; <A HREF="http://www.drscience.com/u">http://www.drscience.com/u</A> &quot;&gt;Click&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0363.html">Berg, Ivan: "RE: [cricket-users] Re: Cricket issues..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0361.html">Jeff Allen: "[cricket-users] Re: Cricket issues..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0348.html">Craig Mckenna: "[cricket-users] Apache Setup for user with Cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0365.html">Daniel Spisak: "[cricket-users] Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0365.html">Daniel Spisak: "[cricket-users] Help with Cricket-0.69 for newbie"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#362">[ date ]</A>
+<A HREF="index.html#362">[ thread ]</A>
+<A HREF="subject.html#362">[ subject ]</A>
+<A HREF="author.html#362">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:57 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] multi-row snmp responses?</TITLE>
+<META NAME="Author" CONTENT="Hugo Gayosso (qztf7k@powertrain.mpg.gm.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] multi-row snmp responses?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] multi-row snmp responses?</H1>
+<!-- received="Wed Jan  5 08:34:20 2000" -->
+<!-- isoreceived="20000105163420" -->
+<!-- sent="Wed, 05 Jan 2000 08:33:07 -0500 (EST)" -->
+<!-- isosent="20000105133307" -->
+<!-- name="Hugo Gayosso" -->
+<!-- email="qztf7k@powertrain.mpg.gm.com" -->
+<!-- subject="RE: [cricket-users] multi-row snmp responses?" -->
+<!-- id="XFMail.20000105083307.qztf7k@powertrain.mpg.gm.com" -->
+<!-- inreplyto="CMM.0.90.4.947018887.marg@manila" -->
+<STRONG>From:</STRONG> Hugo Gayosso (<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20multi-row%20snmp%20responses?&In-Reply-To=&lt;XFMail.20000105083307.qztf7k@powertrain.mpg.gm.com&gt;"><EM>qztf7k@powertrain.mpg.gm.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jan 05 2000 - 05:33:07 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0829.html">stuart.grimshaw@blackburn.gov.uk: "[cricket-users] SNMP Tutorial."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0827.html">Grimshaw Stuart: "[cricket-users] Solution: Segmentation Fault."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0824.html">Marg Suarez: "[cricket-users] multi-row snmp responses?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0836.html">Marg Suarez: "RE: [cricket-users] multi-row snmp responses?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0836.html">Marg Suarez: "RE: [cricket-users] multi-row snmp responses?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#828">[ date ]</A>
+<A HREF="index.html#828">[ thread ]</A>
+<A HREF="subject.html#828">[ subject ]</A>
+<A HREF="author.html#828">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+-----BEGIN PGP SIGNED MESSAGE-----
+<BR>
+Hash: SHA1
+<BR>
+<P>I monitor the CPU of HP-UX machines this way:
+<BR>
+<P>OID             cpu1min         1.3.6.1.4.1.11.2.3.1.1.3.0
+<BR>
+OID             cpu5min         1.3.6.1.4.1.11.2.3.1.1.4.0
+<BR>
+OID             cpu15min        1.3.6.1.4.1.11.2.3.1.1.5.0
+<BR>
+OID             freemem         1.3.6.1.4.1.11.2.3.1.1.7.0
+<BR>
+<P><P>datasource      cpu1min         ds-source       =       snmp://%snmp%/cpu1min
+<BR>
+datasource      cpu5min         ds-source       =       snmp://%snmp%/cpu5min
+<BR>
+datasource      freemem         ds-source       =       snmp://%snmp%/freemem
+<BR>
+<P>targetType      HP-UX
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds      =       &quot;cpu1min, cpu5min, freemem&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view    =       &quot;cpu: cpu1min cpu5min, memory: freemem&quot;
+<BR>
+<P><P>graph   cpu1min
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   &quot;loads&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Machine Load&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;1 minute Load&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;scale   =   &quot;100,/&quot;
+<BR>
+<P>graph   cpu5min
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   &quot;loads&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   blue
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Machine Load&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;5 minute Load&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;scale   =   &quot;100,/&quot;
+<BR>
+<P>graph   freemem
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   blue
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   LINE2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Bytes&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;Free Memory&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;bytes   =   true
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;scale   =   &quot;1024,*&quot;
+<BR>
+<P><P><P><P>Hope it helps
+<BR>
+<P><P>On 04-Jan-2000 Marg Suarez wrote:
+<BR>
+<EM>&gt; From: Marg Suarez &lt;<A HREF="mailto:marg@columbia.edu?Subject=RE:%20[cricket-users]%20multi-row%20snmp%20responses?&In-Reply-To=&lt;XFMail.20000105083307.qztf7k@powertrain.mpg.gm.com&gt;">marg@columbia.edu</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; hi all,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; i tried to search the archives, but i find the search engine at onelist
+</EM><BR>
+<EM>&gt; to be pretty unwieldy.  so i apologize if this question has been
+</EM><BR>
+<EM>&gt; answered already...
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; i'm trying to make cricket graph performance stats for my UNIX
+</EM><BR>
+<EM>&gt; workstations.  i have UCD-SNMP-4.0.1 running on my Solaris 2.7 box and i
+</EM><BR>
+<EM>&gt; am able to pull out various data, e.g., # of users, # of procs,
+</EM><BR>
+<EM>&gt; available memory, and available swap.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; however, i am having trouble pulling out the load average.  it seem that
+</EM><BR>
+<EM>&gt; the load average is reported as 3 numbers (3 rows):
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;   # snmpwalk localhost pooblick .1.3.6.1.4.1.2021.10.1.6
+</EM><BR>
+<EM>&gt;   enterprises.ucdavis.loadTable.laEntry.laLoadFloat.1 = Opaque: Float:
+</EM><BR>
+<EM>&gt; 0.171875
+</EM><BR>
+<EM>&gt;   enterprises.ucdavis.loadTable.laEntry.laLoadFloat.2 = Opaque: Float:
+</EM><BR>
+<EM>&gt; 0.230469
+</EM><BR>
+<EM>&gt;   enterprises.ucdavis.loadTable.laEntry.laLoadFloat.3 = Opaque: Float:
+</EM><BR>
+<EM>&gt; 0.187500
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; in the MIB, laLoadFloat is defined as follows:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;       laLoadFloat OBJECT-TYPE
+</EM><BR>
+<EM>&gt;               SYNTAX Float
+</EM><BR>
+<EM>&gt;               ACCESS read-only
+</EM><BR>
+<EM>&gt;               STATUS mandatory
+</EM><BR>
+<EM>&gt;               DESCRIPTION
+</EM><BR>
+<EM>&gt;                       &quot;The 1,5 and 10 minute load averages as an opaquely
+</EM><BR>
+<EM>&gt;                       wrapped floating point number.&quot;
+</EM><BR>
+<EM>&gt;::= { laEntry 6 }
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; cricket does not like this.  if i try to run the collector using OID
+</EM><BR>
+<EM>&gt; 1.3.6.1.4.1.2021.10.1.6.0, the data retrieved shows up as
+</EM><BR>
+<EM>&gt; &quot;#&lt;unprintable&quot; (output of collector).
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; does anybody know how i can graph the load successfully?  better yet,
+</EM><BR>
+<EM>&gt; has anyone already written a Defaults file for UNIX hosts running
+</EM><BR>
+<EM>&gt; UCD-SNMPD that they would be willing to share?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; thanks
+</EM><BR>
+<EM>&gt; marg
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;   Hey Freelancers:  Find your next project through JobSwarm!  
+</EM><BR>
+<EM>&gt;   You can even make money in your sleep by referring friends.
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<P>- -- 
+<BR>
+Hugo Gayosso                            |  The ultimate result is that some  
+<BR>
+Controls Process Support                |  innovations that would truly 
+<BR>
+Electronics Integration and Software    |  benefit consumers never occur 
+<BR>
+GM Powertrain                           |  for the sole reason that they
+<BR>
+Brighton, MI                            |  do not coincide with Microsoft's 
+<BR>
+USA                                     |  self-interest.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|      
+<BR>
+E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20multi-row%20snmp%20responses?&In-Reply-To=&lt;XFMail.20000105083307.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>    |            Thomas Penfield Jackson
+<BR>
+&nbsp;Phone: (810) 220-2635                  |              U.S. District Judge
+<BR>
+&nbsp;&nbsp;&nbsp;Fax: (810) 220-2663                  |
+<BR>
+<P><P><P>-----BEGIN PGP SIGNATURE-----
+<BR>
+Version: GnuPG v1.0.0 (GNU/Linux)
+<BR>
+Comment: For info see <A HREF="http://www.gnupg.org">http://www.gnupg.org</A>
+<BR>
+<P>iD8DBQE4c0gTx2JZtTN6co8RApGlAKCSpLyjSl+taZ9dYJEMYORNnNoYzwCg4Qmx
+<BR>
+1FfZcUSlG6Tt65fKUxFE7+Y=
+<BR>
+=hRG7
+<BR>
+-----END PGP SIGNATURE-----
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><PRE>
+--
+<P><P>========================================================================
+To UNSUBSCRIBE from this community, send an email to: 
+  <A HREF="mailto:cricket-users-unsubscribe@onelist.com?Subject=RE:%20[cricket-users]%20multi-row%20snmp%20responses?&In-Reply-To=&lt;XFMail.20000105083307.qztf7k@powertrain.mpg.gm.com&gt;">cricket-users-unsubscribe@onelist.com</A>
+and reply to the confirmation email we send you.
+========================================================================
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0829.html">stuart.grimshaw@blackburn.gov.uk: "[cricket-users] SNMP Tutorial."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0827.html">Grimshaw Stuart: "[cricket-users] Solution: Segmentation Fault."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0824.html">Marg Suarez: "[cricket-users] multi-row snmp responses?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0836.html">Marg Suarez: "RE: [cricket-users] multi-row snmp responses?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0836.html">Marg Suarez: "RE: [cricket-users] multi-row snmp responses?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#828">[ date ]</A>
+<A HREF="index.html#828">[ thread ]</A>
+<A HREF="subject.html#828">[ subject ]</A>
+<A HREF="author.html#828">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:08 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Help getting started</TITLE>
+<META NAME="Author" CONTENT="Gavin Tweedie (tweedie@nw.com.au)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Help getting started">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Help getting started</H1>
+<!-- received="Tue Dec 14 10:20:58 1999" -->
+<!-- isoreceived="19991214182058" -->
+<!-- sent="Tue, 14 Dec 1999 23:15:03 +0800 (WST)" -->
+<!-- isosent="19991214151503" -->
+<!-- name="Gavin Tweedie" -->
+<!-- email="tweedie@nw.com.au" -->
+<!-- subject="RE: [cricket-users] Help getting started" -->
+<!-- id="Pine.LNX.3.96.991214231422.272A-100000@plex" -->
+<!-- inreplyto="XFMail.19991214091806.qztf7k@powertrain.mpg.gm.com" -->
+<STRONG>From:</STRONG> Gavin Tweedie (<A HREF="mailto:tweedie@nw.com.au?Subject=RE:%20[cricket-users]%20Help%20getting%20started&In-Reply-To=&lt;Pine.LNX.3.96.991214231422.272A-100000@plex&gt;"><EM>tweedie@nw.com.au</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Dec 14 1999 - 07:15:03 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0787.html">Neal, Ken: "[cricket-users] Summary Reports"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0785.html">Hugo Gayosso: "RE: [cricket-users] Help getting started"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0785.html">Hugo Gayosso: "RE: [cricket-users] Help getting started"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#786">[ date ]</A>
+<A HREF="index.html#786">[ thread ]</A>
+<A HREF="subject.html#786">[ subject ]</A>
+<A HREF="author.html#786">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Gavin Tweedie &lt;<A HREF="mailto:tweedie@nw.com.au?Subject=RE:%20[cricket-users]%20Help%20getting%20started&In-Reply-To=&lt;Pine.LNX.3.96.991214231422.272A-100000@plex&gt;">tweedie@nw.com.au</A>&gt;
+<BR>
+<P>Yep, all fixed now, thanks to the people who gave me suggestions.
+<BR>
+<P><P>Whats the easiest way to get numerical data (for accounting/billing
+<BR>
+purposes) out of it? just use rrdtool directly or is there a better way?
+<BR>
+<P><P>ta.
+<BR>
+<P><P>Gavin
+<BR>
+<P>On Tue, 14 Dec 1999, Hugo Gayosso wrote:
+<BR>
+<P><EM>&gt; -----BEGIN PGP SIGNED MESSAGE-----
+</EM><BR>
+<EM>&gt; Hash: SHA1
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; On 14-Dec-1999 Gavin Tweedie wrote:
+</EM><BR>
+<EM>&gt; &gt; From: Gavin Tweedie &lt;<A HREF="mailto:tweedie@nw.com.au?Subject=RE:%20[cricket-users]%20Help%20getting%20started&In-Reply-To=&lt;Pine.LNX.3.96.991214231422.272A-100000@plex&gt;">tweedie@nw.com.au</A>&gt;
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Ive installed the debian debs of cricket and followed in the install
+</EM><BR>
+<EM>&gt; &gt; directions, however when I attempt to run the collector I always get the
+</EM><BR>
+<EM>&gt; &gt; following message:
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Plex:/usr/share/cricket# ./collector /
+</EM><BR>
+<EM>&gt; &gt; [14-Dec-1999 08:35:59 ] Starting collector: Cricket version 0.70 ( Wed Aug
+</EM><BR>
+<EM>&gt; &gt; 11 11:33:37 PDT 1999 )
+</EM><BR>
+<EM>&gt; &gt; [14-Dec-1999 08:35:59*] No ds tag found for target type cisco-7500-router.
+</EM><BR>
+<EM>&gt; &gt; [14-Dec-1999 08:35:59 ] Processed 1 targets in 1 seconds.
+</EM><BR>
+<EM>&gt; &gt; Plex:/usr/share/cricket#
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Can anyone tell me what &quot;No ds tag&quot; means, and idealy how to fix it?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ds stands for datasource.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I am not sure, but I think that you haven't defined the type
+</EM><BR>
+<EM>&gt; 'cisco-7500-router', and the 'ds' associated with it.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Check in your Defaults, and add it.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; - -- 
+</EM><BR>
+<EM>&gt; Hugo Gayosso                            |  The ultimate result is that some  
+</EM><BR>
+<EM>&gt; Controls Process Support                |  innovations that would truly 
+</EM><BR>
+<EM>&gt; Electronics Integration and Software    |  benefit consumers never occur 
+</EM><BR>
+<EM>&gt; GM Powertrain                           |  for the sole reason that they
+</EM><BR>
+<EM>&gt; Brighton, MI                            |  do not coincide with Microsoft's 
+</EM><BR>
+<EM>&gt; USA                                     |  self-interest.
+</EM><BR>
+<EM>&gt;                                         |      
+</EM><BR>
+<EM>&gt; E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20Help%20getting%20started&In-Reply-To=&lt;Pine.LNX.3.96.991214231422.272A-100000@plex&gt;">qztf7k@powertrain.mpg.gm.com</A>    |            Thomas Penfield Jackson
+</EM><BR>
+<EM>&gt;  Phone: (810) 220-2635                  |              U.S. District Judge
+</EM><BR>
+<EM>&gt;    Fax: (810) 220-2663                  |
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -----BEGIN PGP SIGNATURE-----
+</EM><BR>
+<EM>&gt; Version: GnuPG v1.0.0 (GNU/Linux)
+</EM><BR>
+<EM>&gt; Comment: For info see <A HREF="http://www.gnupg.org">http://www.gnupg.org</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; iD8DBQE4VlGex2JZtTN6co8RAvUZAKDBGIfwpTVGcHXSkkkpmORqydWLDwCcC8hp
+</EM><BR>
+<EM>&gt; Fntl8SESKwOyM6N3gANwFR4=
+</EM><BR>
+<EM>&gt; =TD6/
+</EM><BR>
+<EM>&gt; -----END PGP SIGNATURE-----
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>*** Make holiday parties more fun, less stress ***
+<BR>
+Try seeUthere.com: the easier way to organize great events.
+<BR>
+Click on &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/sut4">http://clickme.onelist.com/ad/sut4</A> &quot;&gt;FREE OFFER&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0787.html">Neal, Ken: "[cricket-users] Summary Reports"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0785.html">Hugo Gayosso: "RE: [cricket-users] Help getting started"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0785.html">Hugo Gayosso: "RE: [cricket-users] Help getting started"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#786">[ date ]</A>
+<A HREF="index.html#786">[ thread ]</A>
+<A HREF="subject.html#786">[ subject ]</A>
+<A HREF="author.html#786">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

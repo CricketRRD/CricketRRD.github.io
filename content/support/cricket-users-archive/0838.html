@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Monitoring Cricket</TITLE>
+<META NAME="Author" CONTENT="James R Grinter (jrg@blodwen.demon.co.uk)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Monitoring Cricket">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Monitoring Cricket</H1>
+<!-- received="Wed Jan  5 15:31:07 2000" -->
+<!-- isoreceived="20000105233107" -->
+<!-- sent="Wed, 5 Jan 2000 20:30:54 +0000" -->
+<!-- isosent="20000105203054" -->
+<!-- name="James R Grinter" -->
+<!-- email="jrg@blodwen.demon.co.uk" -->
+<!-- subject="Re: [cricket-users] Monitoring Cricket" -->
+<!-- id="E125x54-0006T8-00@blodwen.watching.org" -->
+<!-- inreplyto="20000105125832.A26716@cybertrails.com" -->
+<STRONG>From:</STRONG> James R Grinter (<A HREF="mailto:jrg@blodwen.demon.co.uk?Subject=Re:%20[cricket-users]%20Monitoring%20Cricket&In-Reply-To=&lt;E125x54-0006T8-00@blodwen.watching.org&gt;"><EM>jrg@blodwen.demon.co.uk</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jan 05 2000 - 12:30:54 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0839.html">Michael S. Fischer: "[cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0837.html">Nathan Alan Haneysmith: "[cricket-users] Monitoring Cricket"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0837.html">Nathan Alan Haneysmith: "[cricket-users] Monitoring Cricket"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#838">[ date ]</A>
+<A HREF="index.html#838">[ thread ]</A>
+<A HREF="subject.html#838">[ subject ]</A>
+<A HREF="author.html#838">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+On Wed 5 Jan, 2000, Nathan Alan Haneysmith &lt;<A HREF="mailto:nathan@cybertrails.com?Subject=Re:%20[cricket-users]%20Monitoring%20Cricket&In-Reply-To=&lt;E125x54-0006T8-00@blodwen.watching.org&gt;">nathan@cybertrails.com</A>&gt; wrote:
+<BR>
+<EM>&gt;their request). About the same time, the load on my monitoring server
+</EM><BR>
+<EM>&gt;sky-rocketed. By the time I got the page from Netsaint, whatever process it was
+</EM><BR>
+<EM>&gt;had finished, but I think it is/was Cricket.
+</EM><BR>
+<P>If you're fetching as seperate targets many things from each router
+<BR>
+(such as interface stats) then try my patch that spots when a router
+<BR>
+is not responding:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="http://www.gbnet.net/~jrg/cricket/snmpUtils.pm.diff">http://www.gbnet.net/~jrg/cricket/snmpUtils.pm.diff</A>
+<BR>
+<P>this fixes it to not try a second snmp-get for the same hostname when
+<BR>
+the first one times out. It's not elegant, but neither are the return
+<BR>
+codes from &amp;snmpwalk and &amp;snmpget.
+<BR>
+<P><EM>&gt;(WebTV) where monitoring how long Cricket took to run. Anyone else have
+</EM><BR>
+<EM>&gt;something setup to do this? I know that when those routers went down, it was
+</EM><BR>
+<EM>&gt;taking just 15 seconds shy of 5 minutes to finish collecting everything
+</EM><BR>
+<P>It shouldn't be too hard to write a script to 'tail -1' the &lt;logfile&gt;.1
+<BR>
+and convert into a number and time that is plottable. 
+<BR>
+<P>If you make it run directly after the normal collect (collect-subtree
+<BR>
+foo &amp;&amp; collect-subtree timing/foo) then it's guaranteed to run each
+<BR>
+time at the correct time.
+<BR>
+<P>James.
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><PRE>
+--
+<P><P>========================================================================
+To UNSUBSCRIBE from this community, send an email to: 
+  <A HREF="mailto:cricket-users-unsubscribe@onelist.com?Subject=Re:%20[cricket-users]%20Monitoring%20Cricket&In-Reply-To=&lt;E125x54-0006T8-00@blodwen.watching.org&gt;">cricket-users-unsubscribe@onelist.com</A>
+and reply to the confirmation email we send you.
+========================================================================
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0839.html">Michael S. Fischer: "[cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0837.html">Nathan Alan Haneysmith: "[cricket-users] Monitoring Cricket"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0837.html">Nathan Alan Haneysmith: "[cricket-users] Monitoring Cricket"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#838">[ date ]</A>
+<A HREF="index.html#838">[ thread ]</A>
+<A HREF="subject.html#838">[ subject ]</A>
+<A HREF="author.html#838">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:08 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

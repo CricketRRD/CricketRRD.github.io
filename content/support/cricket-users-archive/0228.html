@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Ideas for Grapher's future</TITLE>
+<META NAME="Author" CONTENT="Tod E. Kurt (tod@goto.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Ideas for Grapher's future">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Ideas for Grapher's future</H1>
+<!-- received="Mon Jun 21 20:27:09 1999" -->
+<!-- isoreceived="19990622032709" -->
+<!-- sent="Tue, 22 Jun 1999 00:24:43 +0000" -->
+<!-- isosent="19990622002443" -->
+<!-- name="Tod E. Kurt" -->
+<!-- email="tod@goto.com" -->
+<!-- subject="[cricket-users] Ideas for Grapher's future" -->
+<!-- id="376ED7CB.5FC1737A@goto.com" -->
+<STRONG>From:</STRONG> Tod E. Kurt (<A HREF="mailto:tod@goto.com?Subject=Re:%20[cricket-users]%20Ideas%20for%20Grapher's%20future&In-Reply-To=&lt;376ED7CB.5FC1737A@goto.com&gt;"><EM>tod@goto.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jun 21 1999 - 17:24:43 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0229.html">Daniel Spisak: "Re: [cricket-users] help: config.db"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0227.html">Mike Jones: "Re: [cricket-users] help: config.db ?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#228">[ date ]</A>
+<A HREF="index.html#228">[ thread ]</A>
+<A HREF="subject.html#228">[ subject ]</A>
+<A HREF="author.html#228">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Tod E. Kurt&quot; &lt;<A HREF="mailto:tod@goto.com?Subject=Re:%20[cricket-users]%20Ideas%20for%20Grapher's%20future&In-Reply-To=&lt;376ED7CB.5FC1737A@goto.com&gt;">tod@goto.com</A>&gt;
+<BR>
+<P>Cricket is a wonderful tool.  We use it to monitor network devices,
+<BR>
+protocol-level (HTTP, IP) functionality, and internal state of our
+<BR>
+application servers.  In all we probably monitor around 300-400
+<BR>
+different values.
+<BR>
+<P>The biggest functionality area I'd like to see improved upon is the
+<BR>
+interactiveness of the Grapher.  Here's some scenarios of what I'm
+<BR>
+thinking about:
+<BR>
+<P>Scenario 1: interactive scaling
+<BR>
+-----------
+<BR>
+Occasionally, we'll have a situation where a value that normally
+<BR>
+fluctuates around 50% of its median value will shoot up to 1000% of the
+<BR>
+median because of a counter roll-over problem (RRD still seems to have
+<BR>
+problems with this), or because of a true transient.  The problem is
+<BR>
+that now the graphs are 'squashed', making it hard to read the normal
+<BR>
+variation that occurs.
+<BR>
+<P>It would be very useful to be able to somehow click on some 'range'
+<BR>
+setting that would effectively set 'y-max' on a per-request basis.  It's
+<BR>
+not useful hard-code 'y-max' in the config file, because it disables the
+<BR>
+nice autoscaling that normally happens.  It might also hide some
+<BR>
+problems that go above 'y-max'.
+<BR>
+<P><P>Scenario 2: adding 'event's interactively
+<BR>
+-----------
+<BR>
+Let's say we've a graph of ping times to some external service. (Maybe
+<BR>
+it's an NTP server or a DNS server).  We notice (from both Cricket and
+<BR>
+'mon') that our connectivity to that service is degraded. At the same
+<BR>
+time, we get a call from our network provider saying they are upgrading
+<BR>
+a switch, and that's causing our problem.
+<BR>
+<P>So, to log this in Cricket, we just click on the ping-time graph at the
+<BR>
+time the service degradation occured, type in a description (with the
+<BR>
+ticket number from our provider), and click 'add event'.  From that
+<BR>
+point on, anyone viewing that graph will see that event in the graphs.
+<BR>
+<P><P>I'm not sure how either of these would be done, but it would be cool to
+<BR>
+have both!
+<BR>
+<P><EM>&gt;From my limited knowledge of Cricket, both of these would currently be
+</EM><BR>
+hard to do, since it seems they both would need to make modifications to
+<BR>
+the information in 'config.db'.  Even if the grapher _could_ make
+<BR>
+changes to the config.db, it shouldn't because a) it's a security risk,
+<BR>
+grapher should be a read-only user of config.db, b) there's no easy way
+<BR>
+to go from 'config.db' to a config tree, and c) it's just aesthetically
+<BR>
+displeasing.
+<BR>
+<P><P>Jeff, have you considered similar things?  To me, having the graphs
+<BR>
+generated dynamically (unlike MRTG), just begs for them to be made more
+<BR>
+interactive. :)
+<BR>
+<P><P>-=tod
+<BR>
+<P><PRE>
+-- 
+<A HREF="mailto:tod@alumni.caltech.edu?Subject=Re:%20[cricket-users]%20Ideas%20for%20Grapher's%20future&In-Reply-To=&lt;376ED7CB.5FC1737A@goto.com&gt;">tod@alumni.caltech.edu</A>             <A HREF="mailto:tod@goto.com?Subject=Re:%20[cricket-users]%20Ideas%20for%20Grapher's%20future&In-Reply-To=&lt;376ED7CB.5FC1737A@goto.com&gt;">tod@goto.com</A>
+Tod E. Kurt                        <A HREF="http://goto.com/">http://goto.com/</A>
+<A HREF="http://todbot.com/">http://todbot.com/</A>                 GoTo.com: Search made simple
+<P>------------------------------------------------------------------------
+Campaign 2000 is here!
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Discuss your thoughts; get informed at ONElist.  See our homepage.
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0229.html">Daniel Spisak: "Re: [cricket-users] help: config.db"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0227.html">Mike Jones: "Re: [cricket-users] help: config.db ?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#228">[ date ]</A>
+<A HREF="index.html#228">[ thread ]</A>
+<A HREF="subject.html#228">[ subject ]</A>
+<A HREF="author.html#228">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:54 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

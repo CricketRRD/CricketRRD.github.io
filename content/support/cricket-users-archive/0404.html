@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] rough day trying to set up rrdto</TITLE>
+<META NAME="Author" CONTENT="Rob Windsor (windsor@adc.com)">
+<META NAME="Subject" CONTENT="[cricket-users] rough day trying to set up rrdtool/cricket">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] rough day trying to set up rrdtool/cricket</H1>
+<!-- received="Wed Jul 21 12:32:51 1999" -->
+<!-- isoreceived="19990721193251" -->
+<!-- sent="Wed, 21 Jul 1999 11:31:50 -0500" -->
+<!-- isosent="19990721163150" -->
+<!-- name="Rob Windsor" -->
+<!-- email="windsor@adc.com" -->
+<!-- subject="[cricket-users] rough day trying to set up rrdtool/cricket" -->
+<!-- id="199907211631.LAA14062@bbg.adc.com" -->
+<STRONG>From:</STRONG> Rob Windsor (<A HREF="mailto:windsor@adc.com?Subject=Re:%20[cricket-users]%20rough%20day%20trying%20to%20set%20up%20rrdtool/cricket&In-Reply-To=&lt;199907211631.LAA14062@bbg.adc.com&gt;"><EM>windsor@adc.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jul 21 1999 - 09:31:50 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0405.html">Daniel Spisak: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0403.html">Neal S. Pressman: "[cricket-users] grapher.cgi question"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0405.html">Daniel Spisak: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0405.html">Daniel Spisak: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0430.html">Jeff Allen: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#404">[ date ]</A>
+<A HREF="index.html#404">[ thread ]</A>
+<A HREF="subject.html#404">[ subject ]</A>
+<A HREF="author.html#404">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Rob Windsor &lt;<A HREF="mailto:windsor@adc.com?Subject=Re:%20[cricket-users]%20rough%20day%20trying%20to%20set%20up%20rrdtool/cricket&In-Reply-To=&lt;199907211631.LAA14062@bbg.adc.com&gt;">windsor@adc.com</A>&gt;
+<BR>
+<P>[I apologize for hitting both lists, but I'm not exactly sure which tool does 
+<BR>
+the snmp chatter.  -- Rob ]
+<BR>
+<P>Heyyo,
+<BR>
+<P>After fighting perl modules, BerkeleyDB, and the lack of caffeine all day 
+<BR>
+yesterday, I still haven't gotten rrdtool/cricket to behave.
+<BR>
+<P>Configuration info:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;Solaris 2.6/sparc
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;perl 5.004001 (upgrading to 5.004_004 would take some effort since
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perl is deeply rooted in our environment)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;latest required perl modules as of yesterday
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;I was following the steps in cricket's doc/beginner.txt...
+<BR>
+<P>First up, I have to put the FQDN in the config file.  This is more annoying 
+<BR>
+than 'broken', but I'd rather not have to do that.
+<BR>
+<P>Secondly, where can I hardcode the 'home directory' for cricket so that I 
+<BR>
+don't have to create a new user?  I'm currently running mrtg as myself and I 
+<BR>
+really don't want to create *yet* *another* application-specific account on 
+<BR>
+our systems.  (My temporary fix is by doing &quot;HOME=/foo ../compile&quot;)  This is 
+<BR>
+probably a simple thing to chase down, but I haven't had a chance to do it yet 
+<BR>
+and figured that I would ask while I'm here.
+<BR>
+<P>Thirdly (and most importantly), I get the following, regardless of whether I 
+<BR>
+point it at a solaris box (yeah, I know Solaris 2.6 smpdx is less than 
+<BR>
+optimum) or either of our two NetApps:
+<BR>
+<P>[20-Jul-1999 17:55:18*] Received SNMP response with error code noSuchName
+<BR>
+[20-Jul-1999 17:55:18 ] Got: 
+<BR>
+[20-Jul-1999 17:55:18 ] Retrieved data for na1.bbg.adc.com (): U,U,U,U
+<BR>
+<P>Thanks in advance.
+<BR>
+<P>obtw, 'hi' to fellow former-Synopsys-ites.
+<BR>
+<P>-- Rob
+<BR>
+----------------------------------------
+<BR>
+Rob Windsor                            E-Mail - mailto:<A HREF="mailto:windsor@adc.com?Subject=Re:%20[cricket-users]%20rough%20day%20trying%20to%20set%20up%20rrdtool/cricket&In-Reply-To=&lt;199907211631.LAA14062@bbg.adc.com&gt;">windsor@adc.com</A>
+<BR>
+Senior Unix Systems Administrator      Voice  -  phone:972-680-6919
+<BR>
+Computer Services                      Fax    -  phone:972-680-0370
+<BR>
+Business Broadband Group                                         __o
+<BR>
+ADC Telecommunications                                         _`\&lt;,_
+<BR>
+Richardson, TX  75082                                         (_)/ (_)
+<BR>
+<P><P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Create a list for FRIENDS &amp; FAMILY...
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+....and you can WIN $100 to Amazon.com.  See homepage for details.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0405.html">Daniel Spisak: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0403.html">Neal S. Pressman: "[cricket-users] grapher.cgi question"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0405.html">Daniel Spisak: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0405.html">Daniel Spisak: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0430.html">Jeff Allen: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#404">[ date ]</A>
+<A HREF="index.html#404">[ thread ]</A>
+<A HREF="subject.html#404">[ subject ]</A>
+<A HREF="author.html#404">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

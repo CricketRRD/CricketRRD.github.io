@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] How to Get Max Values Graphed</TITLE>
+<META NAME="Author" CONTENT="rose@gerf.org (rose@gerf.org)">
+<META NAME="Subject" CONTENT="[cricket-users] How to Get Max Values Graphed">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] How to Get Max Values Graphed</H1>
+<!-- received="Thu Aug 26 13:06:52 1999" -->
+<!-- isoreceived="19990826200652" -->
+<!-- sent="Thu, 26 Aug 1999 12:05:39 -0500 (CDT)" -->
+<!-- isosent="19990826170539" -->
+<!-- name="rose@gerf.org" -->
+<!-- email="rose@gerf.org" -->
+<!-- subject="[cricket-users] How to Get Max Values Graphed" -->
+<!-- id="199908261705.MAA22246@gerf.gerf.org" -->
+<!-- inreplyto="3227885B4692D2118D4600A0C9DD534C01D34023@norm.bluebunny.com" -->
+<STRONG>From:</STRONG> <A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20How%20to%20Get%20Max%20Values%20Graphed&In-Reply-To=&lt;199908261705.MAA22246@gerf.gerf.org&gt;"><EM>rose@gerf.org</EM></A><BR>
+<STRONG>Date:</STRONG> Thu Aug 26 1999 - 10:05:39 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0548.html">Stephen Carville: "[cricket-users] New OID's"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0546.html">Michael P. Burton: "Re: [cricket-users] example of multiple targets on one page?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0539.html">Jim D. Kirby: "RE: [cricket-users] Cricket 0.70 available"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0550.html">roofpig@the.satanic.org: "Re: [cricket-users] How to Get Max Values Graphed"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0550.html">roofpig@the.satanic.org: "Re: [cricket-users] How to Get Max Values Graphed"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0554.html">Jim D. Kirby: "RE: [cricket-users] How to Get Max Values Graphed"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#547">[ date ]</A>
+<A HREF="index.html#547">[ thread ]</A>
+<A HREF="subject.html#547">[ subject ]</A>
+<A HREF="author.html#547">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20How%20to%20Get%20Max%20Values%20Graphed&In-Reply-To=&lt;199908261705.MAA22246@gerf.gerf.org&gt;">rose@gerf.org</A>
+<BR>
+<P>[Charset iso-8859-1 unsupported, filtering to ASCII...]
+<BR>
+<EM>&gt; From: &quot;Jim D. Kirby&quot; &lt;<A HREF="mailto:jdkirby@bluebunny.com?Subject=Re:%20[cricket-users]%20How%20to%20Get%20Max%20Values%20Graphed&In-Reply-To=&lt;199908261705.MAA22246@gerf.gerf.org&gt;">jdkirby@bluebunny.com</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I&quot;m kinda confused about the &quot;show-avg-max&quot; graph tag.  According to the
+</EM><BR>
+<EM>&gt; refrence doc it's supposed to turn on and off avg/max display in the page
+</EM><BR>
+<EM>&gt; header.  Is this the MRTG style avg/max or is this the same old Cricket
+</EM><BR>
+<EM>&gt; &quot;values at last update&quot; averages with some new switch?
+</EM><BR>
+<P>Trouble is that this tag appears in the grapher.cgi, but that's not what 
+<BR>
+turns on the graphing.
+<BR>
+<P>To turn on graphing, you need to change the line below in grapher.cgi:
+<BR>
+<P>&nbsp;# default to not doing max stuff, since it's still a bit
+<BR>
+&nbsp;# messy -- due to bad deafault RRA setup, etc.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$mx = isTrue(graphParam($gRef, 'show-max', 0));
+<BR>
+<P>Change the 0 to 1, and you will see that indeed the graphs are messy, because 
+<BR>
+two of the graph colors are the same.  I will have to look into how to change
+<BR>
+'Max Average Bits In' to something other than blue.
+<BR>
+<P>And what does 'max average bits in' mean?  What's a max average?
+<BR>
+<P><P>&nbsp;&nbsp;Btw, cricket is designed to not call up the same picture twice, so clearing
+<BR>
+your netscape cache is not going to make new pictures appear that wouldn't 
+<BR>
+have appeared by just hitting refresh.
+<BR>
+&nbsp;&nbsp;The key to making new pictures appear is to muck with the code.
+<BR>
+<P>Good luck!
+<BR>
+&nbsp;&nbsp;-- Rose
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist:  the best place to EXPLORE topics, SHARE ideas, and 
+<BR>
+CONNECT to people with the same interests.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0548.html">Stephen Carville: "[cricket-users] New OID's"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0546.html">Michael P. Burton: "Re: [cricket-users] example of multiple targets on one page?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0539.html">Jim D. Kirby: "RE: [cricket-users] Cricket 0.70 available"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0550.html">roofpig@the.satanic.org: "Re: [cricket-users] How to Get Max Values Graphed"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0550.html">roofpig@the.satanic.org: "Re: [cricket-users] How to Get Max Values Graphed"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0554.html">Jim D. Kirby: "RE: [cricket-users] How to Get Max Values Graphed"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#547">[ date ]</A>
+<A HREF="index.html#547">[ thread ]</A>
+<A HREF="subject.html#547">[ subject ]</A>
+<A HREF="author.html#547">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

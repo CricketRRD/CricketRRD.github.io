@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] bugfix - for rrd-tune</TITLE>
+<META NAME="Author" CONTENT="James R Grinter (jrg@blodwen.demon.co.uk)">
+<META NAME="Subject" CONTENT="[cricket-users] bugfix - for rrd-tune">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] bugfix - for rrd-tune</H1>
+<!-- received="Mon Dec 13 17:25:21 1999" -->
+<!-- isoreceived="19991214012521" -->
+<!-- sent="Mon, 13 Dec 1999 22:27:57 +0000" -->
+<!-- isosent="19991213222757" -->
+<!-- name="James R Grinter" -->
+<!-- email="jrg@blodwen.demon.co.uk" -->
+<!-- subject="[cricket-users] bugfix - for rrd-tune" -->
+<!-- id="E11xdwj-0001G5-00@blodwen.watching.org" -->
+<STRONG>From:</STRONG> James R Grinter (<A HREF="mailto:jrg@blodwen.demon.co.uk?Subject=Re:%20[cricket-users]%20bugfix%20-%20for%20rrd-tune&In-Reply-To=&lt;E11xdwj-0001G5-00@blodwen.watching.org&gt;"><EM>jrg@blodwen.demon.co.uk</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Dec 13 1999 - 14:27:57 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0784.html">Gavin Tweedie: "[cricket-users] Help getting started"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0782.html">Ivan Berg: "Re: [cricket-users] Graph Problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0784.html">Gavin Tweedie: "[cricket-users] Help getting started"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0784.html">Gavin Tweedie: "[cricket-users] Help getting started"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#783">[ date ]</A>
+<A HREF="index.html#783">[ thread ]</A>
+<A HREF="subject.html#783">[ subject ]</A>
+<A HREF="author.html#783">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:jrg@blodwen.demon.co.uk?Subject=Re:%20[cricket-users]%20bugfix%20-%20for%20rrd-tune&In-Reply-To=&lt;E11xdwj-0001G5-00@blodwen.watching.org&gt;">jrg@blodwen.demon.co.uk</A> (James R Grinter)
+<BR>
+<P>Here's a fix for a bug I encountered today - nearly all my GAUGEs turned
+<BR>
+into COUNTERs (70M% was an interesting value) when I ran rrd-tune.
+<BR>
+<P>This brings the split() into line with that used elsewhere within the code.
+<BR>
+<P>--- rrd-tune.orig       Thu Jul 29 05:34:31 1999
+<BR>
++++ rrd-tune    Mon Dec 13 22:13:52 1999
+<BR>
+@@ -113,7 +113,7 @@
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($dsnum) = 0;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($dsname);
+<BR>
+&nbsp;
+<BR>
+-       foreach $dsname (split(&quot;,&quot;, $dslist)) {
+<BR>
++       foreach $dsname (split(/\s*,\s*/, $dslist)) {
+<BR>
+&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($ds) = $main::gCT-&gt;configHash($name, 'datasource',
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lc($dsname), $target);
+<BR>
+<P><P>To allow for whitespace mangling, I've also put the patch up at 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="http://www.gbnet.net/~jrg/cricket/rrd-tune.diff">http://www.gbnet.net/~jrg/cricket/rrd-tune.diff</A>
+<BR>
+(and I've checked that I've got the url correct, this time)
+<BR>
+<P>James.
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make $$$ in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0784.html">Gavin Tweedie: "[cricket-users] Help getting started"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0782.html">Ivan Berg: "Re: [cricket-users] Graph Problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0784.html">Gavin Tweedie: "[cricket-users] Help getting started"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0784.html">Gavin Tweedie: "[cricket-users] Help getting started"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#783">[ date ]</A>
+<A HREF="index.html#783">[ thread ]</A>
+<A HREF="subject.html#783">[ subject ]</A>
+<A HREF="author.html#783">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

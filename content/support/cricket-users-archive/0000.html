@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: getting an aggregate</TITLE>
+<META NAME="Author" CONTENT="Jeff Jensen (jpj@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: getting an aggregate">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: getting an aggregate</H1>
+<!-- received="Tue Apr 27 19:37:35 1999" -->
+<!-- isoreceived="19990428023735" -->
+<!-- sent="Tue, 27 Apr 1999 16:36:38 -0700" -->
+<!-- isosent="19990427233638" -->
+<!-- name="Jeff Jensen" -->
+<!-- email="jpj@corp.webtv.net" -->
+<!-- subject="[cricket-users] Re: getting an aggregate" -->
+<!-- id="19990427163637.C16238@corp.webtv.net" -->
+<!-- inreplyto="199904262208.SAA13548@dn.net" -->
+<STRONG>From:</STRONG> Jeff Jensen (<A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;19990427163637.C16238@corp.webtv.net&gt;"><EM>jpj@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Apr 27 1999 - 16:36:38 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0001.html">Steen Linden: "[cricket-users] grapher.cgi problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0002.html">Brad S. Dreisbach: "[cricket-users] Re: getting an aggregate"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0002.html">Brad S. Dreisbach: "[cricket-users] Re: getting an aggregate"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#0">[ date ]</A>
+<A HREF="index.html#0">[ thread ]</A>
+<A HREF="subject.html#0">[ subject ]</A>
+<A HREF="author.html#0">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Jensen &lt;<A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;19990427163637.C16238@corp.webtv.net&gt;">jpj@corp.webtv.net</A>&gt;
+<BR>
+<P>Hi,
+<BR>
+<P>If you have a relatively recent version of Cricket, you can do something
+<BR>
+like this:
+<BR>
+<P>target sum-of-connections
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;Sum of our two interfaces&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtargets = &quot;/router-interfaces/interface-1;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/interface-2&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtargets-ops = &quot;+&quot;
+<BR>
+<P>This will have the grapher present you a target which sums the information
+<BR>
+from these two interfaces.  This can also work for more than 2 interfaces,
+<BR>
+or different operations.
+<BR>
+<P>This functionality is still rather new.  It's working for me, but your
+<BR>
+milage may vary...
+<BR>
+<P>-Jeff
+<BR>
+<P>On Mon, Apr 26, 1999 at 06:08:29PM -0400, Brad S. Dreisbach wrote:
+<BR>
+<EM>&gt; From: &quot;Brad S. Dreisbach&quot; &lt;<A HREF="mailto:bradd@dn.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;19990427163637.C16238@corp.webtv.net&gt;">bradd@dn.net</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Is there a way to make cricket graph the total number of octets for each 
+</EM><BR>
+<EM>&gt; interface in the router-interfaces/interfaces file???  thus getting a total 
+</EM><BR>
+<EM>&gt; bandwidth graph of all interfaces?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; brad
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ________________________________________________
+</EM><BR>
+<EM>&gt; Brad Dreisbach ~ Unix Systems Engineer
+</EM><BR>
+<EM>&gt; digitalNATION ~ www.dedicatedserver.com
+</EM><BR>
+<EM>&gt; Phone: 703-642-2800 ~ Fax: 703-642-3747
+</EM><BR>
+<EM>&gt; Work: www.dn.net ~ Personal: home.dn.net/~bradd
+</EM><BR>
+<EM>&gt; ICQ:  22031613
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; Tired of empty chat rooms and out of date bulletin boards?
+</EM><BR>
+<EM>&gt; <A HREF="http://www.ONElist.com">http://www.ONElist.com</A> 
+</EM><BR>
+<EM>&gt; ONElist: Making the Internet Intimate
+</EM><BR>
+<P><PRE>
+-- 
+Jeff Jensen                             <A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;19990427163637.C16238@corp.webtv.net&gt;">jpj@corp.webtv.net</A>
+Network Engineer                        WebTV Networks
+Phone: (650) 614-7802                   305 Lytton Avenue
+FAX:   (650) 614-8451                   Palo Alto, CA  94301
+<P>------------------------------------------------------------------------
+You can now easily share photos and documents with your fellow list members
+<A HREF="http://www.ONElist.com">http://www.ONElist.com</A>
+Check out our homepage for details on how to use our new shared files feature!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0001.html">Steen Linden: "[cricket-users] grapher.cgi problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0002.html">Brad S. Dreisbach: "[cricket-users] Re: getting an aggregate"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0002.html">Brad S. Dreisbach: "[cricket-users] Re: getting an aggregate"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#0">[ date ]</A>
+<A HREF="index.html#0">[ thread ]</A>
+<A HREF="subject.html#0">[ subject ]</A>
+<A HREF="author.html#0">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:47 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

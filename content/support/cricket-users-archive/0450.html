@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Not parsing switch-port targets</TITLE>
+<META NAME="Author" CONTENT="rose@gerf.org (rose@gerf.org)">
+<META NAME="Subject" CONTENT="[cricket-users] Not parsing switch-port targets correctly">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Not parsing switch-port targets correctly</H1>
+<!-- received="Fri Jul 30 16:13:35 1999" -->
+<!-- isoreceived="19990730231335" -->
+<!-- sent="Fri, 30 Jul 1999 15:11:04 -0500 (CDT)" -->
+<!-- isosent="19990730201104" -->
+<!-- name="rose@gerf.org" -->
+<!-- email="rose@gerf.org" -->
+<!-- subject="[cricket-users] Not parsing switch-port targets correctly" -->
+<!-- id="199907302011.PAA16623@gerf.gerf.org" -->
+<STRONG>From:</STRONG> <A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20Not%20parsing%20switch-port%20targets%20correctly&In-Reply-To=&lt;199907302011.PAA16623@gerf.gerf.org&gt;"><EM>rose@gerf.org</EM></A><BR>
+<STRONG>Date:</STRONG> Fri Jul 30 1999 - 13:11:04 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0451.html">Ryan Conolley: "[cricket-users] usage of cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0449.html">Utsav Ratti: "[cricket-users] listInterfaces with IP address?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#450">[ date ]</A>
+<A HREF="index.html#450">[ thread ]</A>
+<A HREF="subject.html#450">[ subject ]</A>
+<A HREF="author.html#450">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20Not%20parsing%20switch-port%20targets%20correctly&In-Reply-To=&lt;199907302011.PAA16623@gerf.gerf.org&gt;">rose@gerf.org</A>
+<BR>
+<P>Hello all,
+<BR>
+&nbsp;&nbsp;I have cricket collecting data for some switch-ports, and originally
+<BR>
+had the targets in the switches file setup like this:
+<BR>
+<P>target 111.111.11.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type= switch-port
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst = (1..70)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-community = public
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;ctc-2&quot;
+<BR>
+<P>&nbsp;&nbsp;This target configuration was producing SNMP NoSuchName errors.
+<BR>
+After performing an SNMP walk, I surmised that cricket was looking
+<BR>
+for all ports between 1-70, and some of those ports didn't exist.
+<BR>
+<P>&nbsp;&nbsp;So I edited the switches file to only look for certain ranges of 
+<BR>
+ports.  So now the target declaration looks like this:
+<BR>
+<P>target 111.111.11.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type= switch-port
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst = (1..7, 20..67, 69..70)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;ctc-3&quot;
+<BR>
+<P>&nbsp;&nbsp;However now I am getting even wierder errors.  These are the errors:
+<BR>
+<P>Use of uninitialized value at /home/cricket/cricket/lib/ConfigTree/Cache.pm line
+<BR>
+&nbsp;210.
+<BR>
+Use of uninitialized value at /home/cricket/cricket/lib/ConfigTree/Cache.pm line
+<BR>
+&nbsp;224.
+<BR>
+Use of uninitialized value at /home/cricket/cricket/lib/ConfigTree/Cache.pm line
+<BR>
+&nbsp;234.
+<BR>
+[30-Jul-1999 14:45:11*] Received SNMP response with error code noSuchName
+<BR>
+<P>And then NO data from that switch will be collected at all. 
+<BR>
+When I look at the graph for that switch, then I get a Current Values
+<BR>
+Not Available Error.
+<BR>
+<P>Even the documentation at the top of the switches file says that you 
+<BR>
+can specify port ranges the way that I did above, but it clearly 
+<BR>
+doesn't work as documented.
+<BR>
+<P>It looks like a simple perl mistake.  I will research it myself sometime
+<BR>
+next week. 
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>You can WIN $100 to Amazon.com by starting a new list at ONElist.
+<BR>
+Drawing is held each week through August 20.  For details, go to
+<BR>
+<A HREF="http://www.onelist.com/info/onereachsplash3.html">http://www.onelist.com/info/onereachsplash3.html</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0451.html">Ryan Conolley: "[cricket-users] usage of cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0449.html">Utsav Ratti: "[cricket-users] listInterfaces with IP address?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#450">[ date ]</A>
+<A HREF="index.html#450">[ thread ]</A>
+<A HREF="subject.html#450">[ subject ]</A>
+<A HREF="author.html#450">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:59 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

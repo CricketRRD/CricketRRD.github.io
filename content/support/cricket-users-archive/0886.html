@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] ugrading to cricket ver 0.71</TITLE>
+<META NAME="Author" CONTENT="Honermann Tom A. (TA.Honermann@hosp.wisc.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] ugrading to cricket ver 0.71">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] ugrading to cricket ver 0.71</H1>
+<!-- received="Mon Jan 10 14:25:33 2000" -->
+<!-- isoreceived="20000110222533" -->
+<!-- sent="Mon, 10 Jan 2000 13:24:05 -0600" -->
+<!-- isosent="20000110192405" -->
+<!-- name="Honermann Tom A." -->
+<!-- email="TA.Honermann@hosp.wisc.edu" -->
+<!-- subject="RE: [cricket-users] ugrading to cricket ver 0.71" -->
+<!-- id="4DCF9508FC7FD211BF2F00A0C9E9378401C14C2C@xchng1.hosp.wisc.edu" -->
+<!-- inreplyto="[cricket-users] ugrading to cricket ver 0.71" -->
+<STRONG>From:</STRONG> Honermann Tom A. (<A HREF="mailto:TA.Honermann@hosp.wisc.edu?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C2C@xchng1.hosp.wisc.edu&gt;"><EM>TA.Honermann@hosp.wisc.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jan 10 2000 - 11:24:05 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0887.html">Matt Zimmerman: "Re: [cricket-users] Graphing Real values."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0885.html">Nathan Alan Haneysmith: "Re: [cricket-users] Graphing Problem."</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0881.html">Phil Pierotti: "[cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0888.html">Jeff Allen: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0888.html">Jeff Allen: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#886">[ date ]</A>
+<A HREF="index.html#886">[ thread ]</A>
+<A HREF="subject.html#886">[ subject ]</A>
+<A HREF="author.html#886">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Honermann Tom A.&quot; &lt;<A HREF="mailto:TA.Honermann@hosp.wisc.edu?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C2C@xchng1.hosp.wisc.edu&gt;">TA.Honermann@hosp.wisc.edu</A>&gt;
+<BR>
+<P>I'm willing to bet that that line should be changed to:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($vname, $dss) = split(/\s*:\s*/, $v, 2);
+<BR>
+I suspect it was a typo that the \s* was typed \*.
+<BR>
+<P>There is another point in the file which uses the form as I typed it above.
+<BR>
+<P>BTW, the line in question is at line 273.
+<BR>
+<P><EM>&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; From:	<A HREF="mailto:shanman@shanman.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C2C@xchng1.hosp.wisc.edu&gt;">shanman@shanman.net</A> [SMTP:<A HREF="mailto:shanman@shanman.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C2C@xchng1.hosp.wisc.edu&gt;">shanman@shanman.net</A>]
+</EM><BR>
+<EM>&gt; Sent:	Monday, January 10, 2000 10:44 AM
+</EM><BR>
+<EM>&gt; To:	'<A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C2C@xchng1.hosp.wisc.edu&gt;">cricket-users@onelist.com</A>'
+</EM><BR>
+<EM>&gt; Subject:	Re: [cricket-users] ugrading to cricket ver 0.71
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; From: <A HREF="mailto:shanman@shanman.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C2C@xchng1.hosp.wisc.edu&gt;">shanman@shanman.net</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I had the same problem.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Tracked it down to the line (in grapher.cgi):
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; my($vname, $dss) = split(/\*:\s*/, $v, 2);
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Which I changed to (the previous version):
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; my($vname, $dss) = split(/:\s+/, $v, 2);
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I don't think that any of our ds lines start with an *, so the first
+</EM><BR>
+<EM>&gt; pattern match never matches anything.  
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Shannon
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; On Mon, 10 Jan 2000, Phil Pierotti wrote:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; From: Phil Pierotti &lt;<A HREF="mailto:phil.pierotti@QUOKKA.com?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C2C@xchng1.hosp.wisc.edu&gt;">phil.pierotti@QUOKKA.com</A>&gt;
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Ok, so I upgraded RRDTool from 1.09 to 1.10 - and everything is fine.
+</EM><BR>
+<EM>&gt; &gt; Then I installed cricket 0.71 (previously 0.70 with &quot;crashing grapher&quot;
+</EM><BR>
+<EM>&gt; fix).
+</EM><BR>
+<EM>&gt; &gt; Not fine.
+</EM><BR>
+<EM>&gt; &gt; Everything works except I get empty graphs.
+</EM><BR>
+<EM>&gt; &gt; Error messages in httpd/error_log saying things like....
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; 	Operator or semicolon missing before %numDSs at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 1412.
+</EM><BR>
+<EM>&gt; &gt; 	Ambiguous use of % resolved as operator % at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 1412.
+</EM><BR>
+<EM>&gt; &gt; 	[10-Jan-2000 08:29:46*] Failed to get dslist from view name.
+</EM><BR>
+<EM>&gt; &gt; 	Use of uninitialized value at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 795.
+</EM><BR>
+<EM>&gt; &gt; 	Operator or semicolon missing before %numDSs at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 1412.
+</EM><BR>
+<EM>&gt; &gt; 	Ambiguous use of % resolved as operator % at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 1412.
+</EM><BR>
+<EM>&gt; &gt; 	Operator or semicolon missing before %numDSs at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 1412.
+</EM><BR>
+<EM>&gt; &gt; 	Ambiguous use of % resolved as operator % at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 1412.
+</EM><BR>
+<EM>&gt; &gt; 	Use of uninitialized value at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 1194.
+</EM><BR>
+<EM>&gt; &gt; 	Use of uninitialized value at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 1194.
+</EM><BR>
+<EM>&gt; &gt; 	Use of uninitialized value at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 1278.
+</EM><BR>
+<EM>&gt; &gt; 	Use of uninitialized value at
+</EM><BR>
+<EM>&gt; &gt; /home/cricket/public_html/./grapher.cgi line 1278.
+</EM><BR>
+<EM>&gt; &gt; 	[10-Jan-2000 08:29:48*] No graph to make?
+</EM><BR>
+<EM>&gt; &gt; 	[10-Jan-2000 08:29:48*] No graph to make?
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; And then , the usual
+</EM><BR>
+<EM>&gt; &gt; 	[10-Jan-2000 08:29:48*] Actual graph width (595) differs from
+</EM><BR>
+<EM>&gt; &gt; width-hint (596).
+</EM><BR>
+<EM>&gt; &gt; 	[10-Jan-2000 08:29:48*] Actual graph height (255) differs from
+</EM><BR>
+<EM>&gt; &gt; height-hint (267).
+</EM><BR>
+<EM>&gt; &gt; 	[10-Jan-2000 08:29:48*] Actual graph width (595) differs from
+</EM><BR>
+<EM>&gt; &gt; width-hint (596).
+</EM><BR>
+<EM>&gt; &gt; 	[10-Jan-2000 08:29:48*] Actual graph height (255) differs from
+</EM><BR>
+<EM>&gt; &gt; height-hint (267).
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; The code where line 1412 is says:
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt;                 while ($i &lt; ($ct-1))  {
+</EM><BR>
+<EM>&gt; &gt;                         $i++;
+</EM><BR>
+<EM>&gt; &gt;                         my($nameme);
+</EM><BR>
+<EM>&gt; &gt; # 1412 follows
+</EM><BR>
+<EM>&gt; &gt;                         if ($scaled{$dslist[$i %numDSs]}) {
+</EM><BR>
+<EM>&gt; &gt;                                 $nameme = &quot;sds&quot;;
+</EM><BR>
+<EM>&gt; &gt;                         } else {
+</EM><BR>
+<EM>&gt; &gt;                                 $nameme = &quot;ds&quot;;
+</EM><BR>
+<EM>&gt; &gt;                         }
+</EM><BR>
+<EM>&gt; &gt;                         push @{$dsnames[$i % $numDSs]}, &quot;$nameme$i&quot;;
+</EM><BR>
+<EM>&gt; &gt;                         push @{$mxnames[$i % $numDSs]}, &quot;mx$i&quot;;
+</EM><BR>
+<EM>&gt; &gt;                 }
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Looks like a missing $ after the % on line 1412 - however I tried that
+</EM><BR>
+<EM>&gt; and
+</EM><BR>
+<EM>&gt; &gt; it didn't fix the problem.
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Ideas, anyone?
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Thanks,
+</EM><BR>
+<EM>&gt; &gt; Phil P
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; --------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; --
+</EM><BR>
+<EM>&gt; &gt; ----
+</EM><BR>
+<EM>&gt; &gt;       Speak, friend, and enter. If you don`t press enter, nothing
+</EM><BR>
+<EM>&gt; happens.
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; --------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; --
+</EM><BR>
+<EM>&gt; &gt; ----
+</EM><BR>
+<EM>&gt; &gt; Quokka Sports, Inc.                      Phil Pierotti
+</EM><BR>
+<EM>&gt; &gt; Ground Floor,                            Senior Network Engineer 
+</EM><BR>
+<EM>&gt; &gt; 525 Brannan St,                          <A HREF="mailto:phil.pierotti@quokka.com?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C2C@xchng1.hosp.wisc.edu&gt;">phil.pierotti@quokka.com</A>
+</EM><BR>
+<EM>&gt; &gt; San Francisco CA 94107                   Ph: +1 415 977 2390
+</EM><BR>
+<EM>&gt; &gt;                                          Fx: +1 415 908 1841
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt;                                                o_o  
+</EM><BR>
+<EM>&gt; &gt; <A HREF="http://www.quokka.com/">http://www.quokka.com/</A>                         / )o  
+</EM><BR>
+<EM>&gt; &gt;                                               (_/    
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt;   Hey Freelancers:  Find your next project through JobSwarm!  
+</EM><BR>
+<EM>&gt; &gt;   You can even make money in your sleep by referring friends.
+</EM><BR>
+<EM>&gt; &gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Independent contractors: Find your next project gig through JobSwarm!
+</EM><BR>
+<EM>&gt;         You can even make money by referring friends.
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0887.html">Matt Zimmerman: "Re: [cricket-users] Graphing Real values."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0885.html">Nathan Alan Haneysmith: "Re: [cricket-users] Graphing Problem."</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0881.html">Phil Pierotti: "[cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0888.html">Jeff Allen: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0888.html">Jeff Allen: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#886">[ date ]</A>
+<A HREF="index.html#886">[ thread ]</A>
+<A HREF="subject.html#886">[ subject ]</A>
+<A HREF="author.html#886">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:09 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

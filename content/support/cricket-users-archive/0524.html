@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] SUMMARY: &quot;inst&quot; proble</TITLE>
+<META NAME="Author" CONTENT="Matthew Stier (Matthew.Stier@tddny.fujitsu.com)">
+<META NAME="Subject" CONTENT="[cricket-users] SUMMARY: &quot;inst&quot; problem still present in Cricket-0.70.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] SUMMARY: &quot;inst&quot; problem still present in Cricket-0.70.</H1>
+<!-- received="Sun Aug 22 05:27:27 1999" -->
+<!-- isoreceived="19990822122727" -->
+<!-- sent="Sun, 22 Aug 1999 02:57:11 -0400" -->
+<!-- isosent="19990822065711" -->
+<!-- name="Matthew Stier" -->
+<!-- email="Matthew.Stier@tddny.fujitsu.com" -->
+<!-- subject="[cricket-users] SUMMARY: &quot;inst&quot; problem still present in Cricket-0.70." -->
+<!-- id="37BF9F47.72724769@tddny.fujitsu.com" -->
+<!-- inreplyto="37B883AC.EA78CCE5@tddny.fujitsu.com" -->
+<STRONG>From:</STRONG> Matthew Stier (<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=Re:%20[cricket-users]%20SUMMARY:%20&quot;inst&quot;%20problem%20still%20present%20in%20Cricket-0.70.&In-Reply-To=&lt;37BF9F47.72724769@tddny.fujitsu.com&gt;"><EM>Matthew.Stier@tddny.fujitsu.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sat Aug 21 1999 - 23:57:11 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0525.html">Eric Kozowski: "[cricket-users] graphing max (peak) values?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0523.html">Denise Sandell: "[cricket-users] sock5 support"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0496.html">Matthew Stier: "[cricket-users] &quot;inst&quot; problem still present in Cricket-0.70."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#524">[ date ]</A>
+<A HREF="index.html#524">[ thread ]</A>
+<A HREF="subject.html#524">[ subject ]</A>
+<A HREF="author.html#524">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+I was finally able to spend some time and isolate this problem.
+<BR>
+<P>The problem is in grapher.cgi.  At line 185, the scripts attempts to do
+<BR>
+'inst' to 'inst-names' mapping.  My problem is, that I don't have
+<BR>
+&quot;inst-names&quot; tags in my target dictionary, and when grapher.cgi attempted to
+<BR>
+get the &quot;inst-names&quot; values and assign them to $ins, it received an
+<BR>
+undefined variable. (Which is correct.)  The problem is that the variable
+<BR>
+$ins is then handed to the function &quot;expandStrings()&quot; which will choke on
+<BR>
+undefined variables.
+<BR>
+<P>The workaround I implemented, is redefine $ins to a null length string, if
+<BR>
+it is undefined.
+<BR>
+<P>$ diff -c grapher.cgi.sav grapher.cgi
+<BR>
+*** grapher.cgi.sav     Sun Aug 22 02:03:10 1999
+<BR>
+--- grapher.cgi Sun Aug 22 02:07:40 1999
+<BR>
+***************
+<BR>
+*** 181,186 ****
+<BR>
+--- 181,187 ----
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;center&gt;&lt;table width=80%&gt;&quot;;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($ins) = $targRef-&gt;{'inst-names'};
+<BR>
++                      $ins = &quot;&quot; unless defined $ins;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ins = ConfigTree::Cache::expandString($ins,
+<BR>
+$targRef);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($instNameMap) = makeInstMap($ins, $inst);
+<BR>
+<P>$
+<BR>
+<P><P>Matthew Stier wrote:
+<BR>
+<P><EM>&gt; From: Matthew Stier &lt;<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=Re:%20[cricket-users]%20SUMMARY:%20&quot;inst&quot;%20problem%20still%20present%20in%20Cricket-0.70.&In-Reply-To=&lt;37BF9F47.72724769@tddny.fujitsu.com&gt;">Matthew.Stier@tddny.fujitsu.com</A>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; I've updated my installation of Cricket to version 0.70, and RRDTool to
+</EM><BR>
+<EM>&gt; version 1.0.6.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; I am trying to use the &quot;inst = (1..4)&quot; to monitor a range of etherswitch
+</EM><BR>
+<EM>&gt; interfaces.  The Cricket collector has no problems with this syntax, but
+</EM><BR>
+<EM>&gt; the grapher.cgi fails.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; The  config and log files are:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; cricket-config/switch-interfaces:
+</EM><BR>
+<EM>&gt; target c5k-cr
+</EM><BR>
+<EM>&gt;         short-desc      = &quot;Cisco Catalyst 5000 in computer room&quot;
+</EM><BR>
+<EM>&gt;         inst            = (1..4)
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; cricket-logs/switches.0
+</EM><BR>
+<EM>&gt; [16-Aug-1999 17:25:07 ] Retrieved data for c5k-cr (1): 2960536368,0
+</EM><BR>
+<EM>&gt; [16-Aug-1999 17:25:07 ] Retrieved data for c5k-cr (2): 0,0
+</EM><BR>
+<EM>&gt; [16-Aug-1999 17:25:07 ] Retrieved data for c5k-cr (3):
+</EM><BR>
+<EM>&gt; 4044936577,4189170045
+</EM><BR>
+<EM>&gt; [16-Aug-1999 17:25:07 ] Retrieved data for c5k-cr (4):
+</EM><BR>
+<EM>&gt; 3575559438,43343089
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; The webserver log file entry is:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; [16/Aug/1999:15:49:27] failure (  273): for host 167.254.240.152 trying
+</EM><BR>
+<EM>&gt; to GET /~cricket/cricket/grapher.cgi, cgieng_scan_headers reports: the
+</EM><BR>
+<EM>&gt; CGI program /d0/cricket/public_html/cricket/grapher.cgi did not produce
+</EM><BR>
+<EM>&gt; a valid header (name without value: got line &quot;use of uninitialized value
+</EM><BR>
+<EM>&gt; at /d0/cricket/public_html/cricket/./lib/configtree/cache.pm line 222.&quot;)
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Notes:
+</EM><BR>
+<EM>&gt;     The Cricket server is a Ultra-2 server (clone) running Solaris 2.6.
+</EM><BR>
+<EM>&gt;     The webserver is Netscape Enterprise Server 3.61.
+</EM><BR>
+<EM>&gt;     The version of Perl is 5.005_03
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; --
+</EM><BR>
+<EM>&gt; Matthew Lee Stier                  *  Fujitsu Network Communications
+</EM><BR>
+<EM>&gt; Unix Systems Administrator         |  Two Blue Hill Plaza
+</EM><BR>
+<EM>&gt; Ph: 914-731-2097 Fx: 914-731-2011  |  Sixth Floor
+</EM><BR>
+<EM>&gt; <A HREF="mailto:Matthew.Stier@fnc.fujitsu.com?Subject=Re:%20[cricket-users]%20SUMMARY:%20&quot;inst&quot;%20problem%20still%20present%20in%20Cricket-0.70.&In-Reply-To=&lt;37BF9F47.72724769@tddny.fujitsu.com&gt;">Matthew.Stier@fnc.fujitsu.com</A>      *  Pearl River, NY 10965
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; ONElist:  home to the world's liveliest email communities.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<P><PRE>
+--
+Matthew Lee Stier                  *  Fujitsu Network Communications
+Unix Systems Administrator         |  Two Blue Hill Plaza
+Ph: 914-731-2097 Fx: 914-731-2011  |  Sixth Floor
+<A HREF="mailto:Matthew.Stier@fnc.fujitsu.com?Subject=Re:%20[cricket-users]%20SUMMARY:%20&quot;inst&quot;%20problem%20still%20present%20in%20Cricket-0.70.&In-Reply-To=&lt;37BF9F47.72724769@tddny.fujitsu.com&gt;">Matthew.Stier@fnc.fujitsu.com</A>      *  Pearl River, NY 10965
+<P><P>
+</PRE>
+<HR NOSHADE>
+<UL>
+<LI>text/x-vcard attachment: <A HREF="att-0524/01-Matthew.Stier.vcf">Card for Matthew Stier</A>
+</UL>
+<!-- attachment="01-Matthew.Stier.vcf" -->
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0525.html">Eric Kozowski: "[cricket-users] graphing max (peak) values?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0523.html">Denise Sandell: "[cricket-users] sock5 support"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0496.html">Matthew Stier: "[cricket-users] &quot;inst&quot; problem still present in Cricket-0.70."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#524">[ date ]</A>
+<A HREF="index.html#524">[ thread ]</A>
+<A HREF="subject.html#524">[ subject ]</A>
+<A HREF="author.html#524">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

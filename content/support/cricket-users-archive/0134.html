@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] graphing problem...</TITLE>
+<META NAME="Author" CONTENT="Tobias Oetiker (oetiker@ee.ethz.ch)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] graphing problem...">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] graphing problem...</H1>
+<!-- received="Tue May 25 17:41:17 1999" -->
+<!-- isoreceived="19990526004117" -->
+<!-- sent="Tue, 25 May 1999 23:07:06 +0200 (MET DST)" -->
+<!-- isosent="19990525210706" -->
+<!-- name="Tobias Oetiker" -->
+<!-- email="oetiker@ee.ethz.ch" -->
+<!-- subject="Re: [cricket-users] graphing problem..." -->
+<!-- id="Pine.GSO.4.10.9905252305100.17354-100000@engelberg.ee.ethz.ch" -->
+<!-- inreplyto="Pine.GSO.4.10.9905250924390.18438-100000@the.satanic.org" -->
+<STRONG>From:</STRONG> Tobias Oetiker (<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20graphing%20problem...&In-Reply-To=&lt;Pine.GSO.4.10.9905252305100.17354-100000@engelberg.ee.ethz.ch&gt;"><EM>oetiker@ee.ethz.ch</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue May 25 1999 - 14:07:06 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0135.html">Jost Krieger: "[cricket-users] CDB Version of 0.65"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0133.html">Alan Lichty: "Re: [cricket-users] Convert mrtg to rrd tool?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0128.html">roofpig@the.satanic.org: "Re: [cricket-users] graphing problem..."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#134">[ date ]</A>
+<A HREF="index.html#134">[ thread ]</A>
+<A HREF="subject.html#134">[ subject ]</A>
+<A HREF="author.html#134">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20graphing%20problem...&In-Reply-To=&lt;Pine.GSO.4.10.9905252305100.17354-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A>&gt;
+<BR>
+<P>Today you sent me mail regarding Re: [cricket-users] graphing problem...:
+<BR>
+<P>*&gt; From: &lt;<A HREF="mailto:roofpig@the.satanic.org?Subject=Re:%20[cricket-users]%20graphing%20problem...&In-Reply-To=&lt;Pine.GSO.4.10.9905252305100.17354-100000@engelberg.ee.ethz.ch&gt;">roofpig@the.satanic.org</A>&gt;
+<BR>
+*&gt; 
+<BR>
+*&gt; On Tue, 25 May 1999, Tobias Oetiker wrote:
+<BR>
+*&gt; 
+<BR>
+*&gt; 
+<BR>
+*&gt; 	I'm running rrdtool 0.99.29.1.  Someone else suggested that
+<BR>
+*&gt; I upgrad to Cricket 0.65 (which I will anyway), but I get this problem 
+<BR>
+*&gt; at the rrdtool level, i.e., running &quot;rrdtool graph&quot; on the command line
+<BR>
+*&gt; generates a blank graph.  Using rrdfetch returns the expected data
+<BR>
+*&gt; though.  Perhaps it has something to do with the fact that the change
+<BR>
+*&gt; in value is usually between 0.1 and 0.9?
+<BR>
+<P>if you want to help me debug this, I need a commandline example aswell as an
+<BR>
+rrd to go with it ... this should be either in intel or sparc architecture
+<BR>
+....
+<BR>
+<P>&nbsp;
+<BR>
+<P>cheers
+<BR>
+tobi
+<BR>
+*&gt; 
+<BR>
+*&gt; 	thanks
+<BR>
+*&gt; 
+<BR>
+*&gt; &gt; Today you sent me mail regarding [cricket-users] graphing problem...:
+<BR>
+*&gt; &gt; 
+<BR>
+*&gt; &gt; *&gt; 	I keep getting one of my graphs generated with no data points.
+<BR>
+*&gt; &gt; *&gt; The summary section shows the right info, and an &quot;rrdtool fetch&quot; run by
+<BR>
+*&gt; &gt; *&gt; hand shows me all that the data is in the rrd file.  An &quot;rrdtool
+<BR>
+*&gt; &gt; *&gt; graph&quot; run by hand, however, generates the same empty graph that
+<BR>
+*&gt; &gt; *&gt; RRDs::graph generates.  Since the values graphed generally only change
+<BR>
+*&gt; &gt; *&gt; by very small ammounts (often &lt; 1.00), perhaps this has something to
+<BR>
+*&gt; &gt; *&gt; do with it.
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; *&gt; 	Rather than try to explain any further, I've made all the data
+<BR>
+*&gt; &gt; *&gt; and configs available.  The cricket frontend is avaiable at:
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; *&gt; 	<A HREF="http://highly.explosive.net/~cricket/grapher.cgi">http://highly.explosive.net/~cricket/grapher.cgi</A>
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; *&gt; The configs and rrd files are available at:
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; *&gt; 	<A HREF="http://highly.explosive.net/~cricket/data">http://highly.explosive.net/~cricket/data</A>
+<BR>
+*&gt; &gt; 
+<BR>
+*&gt; &gt; make sure you are using the most recent rrdtool there was a but in the
+<BR>
+*&gt; &gt; datafetcher in earlier versions ... 
+<BR>
+*&gt; &gt; 
+<BR>
+*&gt; &gt; cheers
+<BR>
+*&gt; &gt; tobi
+<BR>
+*&gt; &gt; 
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; *&gt; Pre-thanks for any help...
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; *&gt; ------------------------------------------------------------------------
+<BR>
+*&gt; &gt; *&gt; ONElist:  the best source for group communications.
+<BR>
+*&gt; &gt; *&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+*&gt; &gt; *&gt; Join a new list today!
+<BR>
+*&gt; &gt; *&gt; 
+<BR>
+*&gt; &gt; 
+<BR>
+*&gt; &gt; -- 
+<BR>
+*&gt; &gt;  ______    __   _
+<BR>
+*&gt; &gt; /_  __/_  / /  (_) Oetiker, Timelord &amp; SysMgr @ EE-Dept ETH-Zurich
+<BR>
+*&gt; &gt;  / // _ \/ _ \/ / TEL: +41(0)1-6325286  FAX:...1517  ICQ: 10419518 
+<BR>
+*&gt; &gt; /_/ \.__/_.__/_/ <A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20graphing%20problem...&In-Reply-To=&lt;Pine.GSO.4.10.9905252305100.17354-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A> <A HREF="http://ee-staff.ethz.ch/~oetiker">http://ee-staff.ethz.ch/~oetiker</A>
+<BR>
+*&gt; &gt; 
+<BR>
+*&gt; 
+<BR>
+*&gt; 
+<BR>
+*&gt; 
+<BR>
+*&gt; 
+<BR>
+*&gt; 
+<BR>
+*&gt; ------------------------------------------------------------------------
+<BR>
+*&gt; Looking for a new hobby?  Want to make a new friend? 
+<BR>
+*&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+*&gt; Come join one of over 150,000 e-mail communities at ONElist!
+<BR>
+*&gt; 
+<BR>
+<P><PRE>
+-- 
+ ______    __   _
+/_  __/_  / /  (_) Oetiker, Timelord &amp; SysMgr @ EE-Dept ETH-Zurich
+ / // _ \/ _ \/ / TEL: +41(0)1-6325286  FAX:...1517  ICQ: 10419518 
+/_/ \.__/_.__/_/ <A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20graphing%20problem...&In-Reply-To=&lt;Pine.GSO.4.10.9905252305100.17354-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A> <A HREF="http://ee-staff.ethz.ch/~oetiker">http://ee-staff.ethz.ch/~oetiker</A>
+<P><P>------------------------------------------------------------------------
+It's finally here!  What's your opinion?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Create a Star Wars discussion group at ONElist.
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0135.html">Jost Krieger: "[cricket-users] CDB Version of 0.65"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0133.html">Alan Lichty: "Re: [cricket-users] Convert mrtg to rrd tool?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0128.html">roofpig@the.satanic.org: "Re: [cricket-users] graphing problem..."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#134">[ date ]</A>
+<A HREF="index.html#134">[ thread ]</A>
+<A HREF="subject.html#134">[ subject ]</A>
+<A HREF="author.html#134">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:51 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

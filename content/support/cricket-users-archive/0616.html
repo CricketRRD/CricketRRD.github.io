@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Digest Number 137</TITLE>
+<META NAME="Author" CONTENT="David Rhodes (drhodes@deakin.edu.au)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Digest Number 137">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Digest Number 137</H1>
+<!-- received="Sun Sep 26 19:11:50 1999" -->
+<!-- isoreceived="19990927021150" -->
+<!-- sent="Mon, 27 Sep 1999 09:10:44 +1000" -->
+<!-- isosent="19990926231044" -->
+<!-- name="David Rhodes" -->
+<!-- email="drhodes@deakin.edu.au" -->
+<!-- subject="Re: [cricket-users] Digest Number 137" -->
+<!-- id="37EEA7F4.DC1D8AFF@deakin.edu.au" -->
+<!-- inreplyto="938338789.23459@onelist.com" -->
+<STRONG>From:</STRONG> David Rhodes (<A HREF="mailto:drhodes@deakin.edu.au?Subject=Re:%20[cricket-users]%20Digest%20Number%20137&In-Reply-To=&lt;37EEA7F4.DC1D8AFF@deakin.edu.au&gt;"><EM>drhodes@deakin.edu.au</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sun Sep 26 1999 - 16:10:44 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0617.html">Pete: "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0615.html">Adam B. Meltzer (KF6PDH): "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#616">[ date ]</A>
+<A HREF="index.html#616">[ thread ]</A>
+<A HREF="subject.html#616">[ subject ]</A>
+<A HREF="author.html#616">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: David Rhodes &lt;<A HREF="mailto:drhodes@deakin.edu.au?Subject=Re:%20[cricket-users]%20Digest%20Number%20137&In-Reply-To=&lt;37EEA7F4.DC1D8AFF@deakin.edu.au&gt;">drhodes@deakin.edu.au</A>&gt;
+<BR>
+<P>Had a similar problem. If you examine the file grapher, the -a flag refers to arguments passed into rrdtool.
+<BR>
+Removing the @fmt to use the default format (gif) fixed the problem for me.  (If you want png you can hardcode this somewhere I guess).
+<BR>
+<P>i.e.
+<BR>
+# DR: modification here. Removed -a flag from args as RRDs doesn't want it!!! :)
+<BR>
+#       my(@args) = ($imageName, @fmt, @rigid, @interlaced,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my(@args) = ($imageName, @rigid, @interlaced,
+<BR>
+<P><P>I'd be interested in comments on this as you are the first I have heard having this problem apart from myself.
+<BR>
+<P>Cheers
+<BR>
+<P>David
+<BR>
+<P><P><EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; Hi everyone
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; I have just upgraded to RRD 1.0.7 and Cricket 0.70 and have a problem with the graphs being created (doesn't seem to matter if they are GIF or PNG). For some reason grapher is complaining about generating the graphs with the following as output if you right click on the graphic and choose to view it:
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; /tmp/cricket-cache/cricket-c512ca3f.png[13-Sep-1999 16:58:35*] Could not open /tmp/cricket-cache/cricket-c512ca3f.png: No such file or directory
+</EM><BR>
+<EM>&gt; &gt; Content-Type: image/gif GIF87a¹ ]
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; The directory /tmp/cricket-cache exists and I have migrated my existing cricket-config and cricket-data files which were working with 0.69 to the new version of cricket. I'm running Solaris 2.6 and have all the perl modules installed but did not update any when I upgraded from 0.69 to 0.70 (do I need to?).
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; I'm having a similar problem. I'm running RRD 1.0.7, and Cricket 0.70.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; [25-Sep-1999 10:12:56 ] RRDs::graph /tmp/cricket-cache/cricket-9d39d974.gif -a GIF --base 1000 --start -151200 --vertical-label  --width 500 --height 200 DEF:ds0=/usr/home/cricket/cricket-config/../cricket-datta//web-server/happydevil.com.rrd:ds0:AVERAGE DEF:ds1=/usr/home/cricket/cricket-config/../cricket-data//web-server/happydevil.com.rrd:ds1:AVERAGE LINE1:ds0#00cc00:Hits to happydevil.com LINE1:ds1#0000ff:Server errors VRULE:938242800#ff0000: VRULE:938156400#ff0000:
+</EM><BR>
+<EM>&gt; [25-Sep-1999 10:12:56*] Unable to create graph: unknown option '-a'
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; [25-Sep-1999 10:12:56*] Could not open /tmp/cricket-cache/cricket-9d39d974.gif: No such file or directory
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; I've tried every version of RRD and can't get past this error. I've tried using
+</EM><BR>
+<EM>&gt; both GIF and PNG.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Any ideas?
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; --
+</EM><BR>
+<EM>&gt;               ._____
+</EM><BR>
+<EM>&gt;     _-_  ____//_/___\_.-=___     Adam Meltzer / KF6PDH
+</EM><BR>
+<EM>&gt;  _-_-_  / ,-.   |`  /  .-.  \    WebTV Tools Engineer
+</EM><BR>
+<EM>&gt; - - _-  `( * )--+--+--( o )-'    <A HREF="mailto:ameltzer@corp.webtv.net?Subject=Re:%20[cricket-users]%20Digest%20Number%20137&In-Reply-To=&lt;37EEA7F4.DC1D8AFF@deakin.edu.au&gt;">ameltzer@corp.webtv.net</A>
+</EM><BR>
+<EM>&gt;       -   `-'          `-'       Voice: 650-470-4828 Cell: 650-280-6402
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; _______________________________________________________________________________
+</EM><BR>
+<EM>&gt; _______________________________________________________________________________
+</EM><BR>
+<P><PRE>
+--
+<P>David Rhodes
+Network Operations Center Co-ordinator
+Information Technology Services
+Deakin University
+<P>____________________________________________________________________
+Important Notice: The contents of this email transmission, including
+attachments, may be privileged and confidential.  Any unauthorised
+use of the contents is expressly prohibited.  If you have received
+this transmission in error, please advise the sender by return email
+or telephone immediately and destroy all versions.
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>??? Computer Questions  ==&gt; Free Answers From Live Experts ! ! !    
+                       go to EXPERTCITY.COM                
+    &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity5">http://clickme.onelist.com/ad/expertcity5</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0617.html">Pete: "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0615.html">Adam B. Meltzer (KF6PDH): "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#616">[ date ]</A>
+<A HREF="index.html#616">[ thread ]</A>
+<A HREF="subject.html#616">[ subject ]</A>
+<A HREF="author.html#616">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

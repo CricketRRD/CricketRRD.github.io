@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Annoying single-inst limitation?</TITLE>
+<META NAME="Author" CONTENT="Michael S. Fischer (michael@auctionwatch.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Annoying single-inst limitation?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Annoying single-inst limitation?</H1>
+<!-- received="Fri Jan  7 21:36:33 2000" -->
+<!-- isoreceived="20000108053633" -->
+<!-- sent="Fri, 7 Jan 2000 18:35:42 -0800 " -->
+<!-- isosent="20000108023542" -->
+<!-- name="Michael S. Fischer" -->
+<!-- email="michael@auctionwatch.com" -->
+<!-- subject="[cricket-users] Annoying single-inst limitation?" -->
+<!-- id="AFB9B03E639DD311ABEA00E081104ADD032981@exchange.auctionwatch.com" -->
+<STRONG>From:</STRONG> Michael S. Fischer (<A HREF="mailto:michael@auctionwatch.com?Subject=Re:%20[cricket-users]%20Annoying%20single-inst%20limitation?&In-Reply-To=&lt;AFB9B03E639DD311ABEA00E081104ADD032981@exchange.auctionwatch.com&gt;"><EM>michael@auctionwatch.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jan 07 2000 - 18:35:42 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0865.html">Alexander Reelsen: "[cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0863.html">George Hong: "[cricket-users] OID for cisco 2900"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#864">[ date ]</A>
+<A HREF="index.html#864">[ thread ]</A>
+<A HREF="subject.html#864">[ subject ]</A>
+<A HREF="author.html#864">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+Is there any simple (!) way to eliminate the single-inst limitation when
+<BR>
+mapping interfaces to OIDs?  
+<BR>
+<P>For example, I really want to be able to view the charts of more than one
+<BR>
+interface's inOctets and outOctets values in the views for a particular
+<BR>
+host.
+<BR>
+<P>I tried to do something like:
+<BR>
+<P>Target --default--
+<BR>
+[snip]
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blue-interface          = eth0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;green-interface         = eth1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;red-interface           = eth2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifIndexBlue             = map(blue-interface)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifIndexGreen            = map(green-interface)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifIndexRed              = map(red-interface)
+<BR>
+<P>map blue-interface
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base-oid        =       ifDescr
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;match           =       %blue-interface%
+<BR>
+<P>map green-interface
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base-oid        =       ifDescr
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;match           =       %green-interface%
+<BR>
+<P>map red-interface
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base-oid        =       ifDescr
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;match           =       %red-interface%
+<BR>
+<P>[snip]
+<BR>
+<P>datasource      ifInOctetsGreen ds-source       =
+<BR>
+snmp://%snmp%/ifInOctets.%ifIndexGreen%
+<BR>
+datasource      ifOutOctetsGreen        ds-source       =
+<BR>
+snmp://%snmp%/ifOutOctets.%ifIndexGreen%
+<BR>
+datasource     ifInOctetsBlue          ds-source       =
+<BR>
+snmp://%snmp%/ifInOctets.%ifIndexBlue%
+<BR>
+datasource     ifOutOctetsBlue ds-source       =
+<BR>
+snmp://%snmp%/ifOutOctets.%ifIndexBlue%
+<BR>
+datasource     ifInOctetsRed           ds-source       =
+<BR>
+snmp://%snmp%/ifInOctets.%ifIndexRed%
+<BR>
+datasource     ifOutOctetsRed          ds-source       =
+<BR>
+snmp://%snmp%/ifOutOctets.%ifIndexRed%
+<BR>
+<P>This failed miserably.  Help!
+<BR>
+<P><PRE>
+--
+Michael S. Fischer  &lt;<A HREF="mailto:michael@auctionwatch.com?Subject=Re:%20[cricket-users]%20Annoying%20single-inst%20limitation?&In-Reply-To=&lt;AFB9B03E639DD311ABEA00E081104ADD032981@exchange.auctionwatch.com&gt;">michael@auctionwatch.com</A>&gt;              
+Sr. Engineer, AuctionWatch.com                               
+Phone: +1 650 808 5842             FAX:   +1 650 875 0915
+require Std::Disclaimer;
+&quot;From the bricks of shame is built the hope&quot;--Alan Wilder
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>  Hey Freelancers:  Find your next project through JobSwarm!  
+  You can even make money in your sleep by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0865.html">Alexander Reelsen: "[cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0863.html">George Hong: "[cricket-users] OID for cisco 2900"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#864">[ date ]</A>
+<A HREF="index.html#864">[ thread ]</A>
+<A HREF="subject.html#864">[ subject ]</A>
+<A HREF="author.html#864">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:09 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

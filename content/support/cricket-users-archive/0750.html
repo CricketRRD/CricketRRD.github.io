@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] SOLVED: Premature end of script</TITLE>
+<META NAME="Author" CONTENT="Hugo Gayosso (qztf7k@powertrain.mpg.gm.com)">
+<META NAME="Subject" CONTENT="[cricket-users] SOLVED: Premature end of script headers  ??">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] SOLVED: Premature end of script headers  ??</H1>
+<!-- received="Thu Nov 18 15:41:47 1999" -->
+<!-- isoreceived="19991118234147" -->
+<!-- sent="Thu, 18 Nov 1999 15:38:51 -0500 (EST)" -->
+<!-- isosent="19991118203851" -->
+<!-- name="Hugo Gayosso" -->
+<!-- email="qztf7k@powertrain.mpg.gm.com" -->
+<!-- subject="[cricket-users] SOLVED: Premature end of script headers  ??" -->
+<!-- id="XFMail.19991118153851.qztf7k@powertrain.mpg.gm.com" -->
+<!-- inreplyto="XFMail.19991118145213.qztf7k@powertrain.mpg.gm.com" -->
+<STRONG>From:</STRONG> Hugo Gayosso (<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20SOLVED:%20Premature%20end%20of%20script%20headers%20%20??&In-Reply-To=&lt;XFMail.19991118153851.qztf7k@powertrain.mpg.gm.com&gt;"><EM>qztf7k@powertrain.mpg.gm.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Nov 18 1999 - 12:38:51 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0751.html">Stephen Carville: "RE: [cricket-users] Premature end of script headers ??"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0749.html">bginter@asicommunications.com: "[cricket-users] Can fetch oid from command line, cricket can't?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0748.html">Hugo Gayosso: "RE: [cricket-users] Premature end of script headers  ??"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0751.html">Stephen Carville: "RE: [cricket-users] Premature end of script headers ??"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#750">[ date ]</A>
+<A HREF="index.html#750">[ thread ]</A>
+<A HREF="subject.html#750">[ subject ]</A>
+<A HREF="author.html#750">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Hugo Gayosso &lt;<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20SOLVED:%20Premature%20end%20of%20script%20headers%20%20??&In-Reply-To=&lt;XFMail.19991118153851.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>&gt;
+<BR>
+<P>-----BEGIN PGP SIGNED MESSAGE-----
+<BR>
+Hash: SHA1
+<BR>
+<P>mmmm, the new machine has RedHat 6.1 and the old has RH 6.0.
+<BR>
+<P>RH 6.1 comes with a wrapper, and this wrapper doesn't like the idea of having
+<BR>
+links in public_html pointing to CGIs, I just copied the files and they worked!!
+<BR>
+<P><P><P>Here is the file where suexec logs the errors:
+<BR>
+/var/log/httpd/suexec_log
+<BR>
+<P><P>And here are the errors:
+<BR>
+[1999-11-18 11:33:19]: uid: (cricket/cricket) gid: (cricket/cricket) cmd:
+<BR>
+grapher.cgi
+<BR>
+[1999-11-18 11:33:19]: cannot stat program: (grapher.cgi)
+<BR>
+<P><P>After copying these files:
+<BR>
+[1999-11-18 11:35:26]: uid: (cricket/cricket) gid: (cricket/cricket) cmd:
+<BR>
+grapher.cgi
+<BR>
+<P><P>Greetings,
+<BR>
+<P><P><P><P>On 18-Nov-1999 Hugo Gayosso wrote:
+<BR>
+<EM>&gt; From: Hugo Gayosso &lt;<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20SOLVED:%20Premature%20end%20of%20script%20headers%20%20??&In-Reply-To=&lt;XFMail.19991118153851.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -----BEGIN PGP SIGNED MESSAGE-----
+</EM><BR>
+<EM>&gt; Hash: SHA1
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I even brought my entire /home/cricket from the machine that is running now
+</EM><BR>
+<EM>&gt; and
+</EM><BR>
+<EM>&gt; it keeps saying the same!!
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; HELP!! :(
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; On 18-Nov-1999 Hugo Gayosso wrote:
+</EM><BR>
+<EM>&gt;&gt; From: Hugo Gayosso &lt;<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20SOLVED:%20Premature%20end%20of%20script%20headers%20%20??&In-Reply-To=&lt;XFMail.19991118153851.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>&gt;
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; Hello guys!!
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt;         I just got a new machine for the monitoring stuff, and I installed
+</EM><BR>
+<EM>&gt;&gt; cricket on this machine,but whenever I access the grapher.cgi it complains
+</EM><BR>
+<EM>&gt;&gt; about an error, if I check the error.log of Apache, I get this:
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; [Thu Nov 18 10:26:38 1999] [error] [client 130.99.99.99] Premature end of
+</EM><BR>
+<EM>&gt;&gt; script headers: /home/cricket/public_html/cricket/grapher.cgi
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; Any ideas??
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; P.S.
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; I have cricket running in another machine just fine, but I remember I had a
+</EM><BR>
+<EM>&gt;&gt; lot
+</EM><BR>
+<EM>&gt;&gt; of trouble setting the web access to grapher.cgi.
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; -- 
+</EM><BR>
+<EM>&gt;&gt; Hugo Gayosso                            |  The ultimate result is that some 
+</EM><BR>
+<EM>&gt;&gt; Controls Process Support                |  innovations that would truly 
+</EM><BR>
+<EM>&gt;&gt; Electronics Integration and Software    |  benefit consumers never occur 
+</EM><BR>
+<EM>&gt;&gt; GM Powertrain                           |  for the sole reason that they
+</EM><BR>
+<EM>&gt;&gt; Brighton, MI                            |  do not coincide with Microsoft's 
+</EM><BR>
+<EM>&gt;&gt; USA                                     |  self-interest.
+</EM><BR>
+<EM>&gt;&gt;                                         |      
+</EM><BR>
+<EM>&gt;&gt; E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20SOLVED:%20Premature%20end%20of%20script%20headers%20%20??&In-Reply-To=&lt;XFMail.19991118153851.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>    |            Thomas Penfield Jackson
+</EM><BR>
+<EM>&gt;&gt;  Phone: (810) 220-2635                  |              U.S. District Judge
+</EM><BR>
+<EM>&gt;&gt;    Fax: (810) 220-2663                  |
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt; - -- 
+</EM><BR>
+<EM>&gt; Hugo Gayosso                            |  The ultimate result is that some  
+</EM><BR>
+<EM>&gt; Controls Process Support                |  innovations that would truly 
+</EM><BR>
+<EM>&gt; Electronics Integration and Software    |  benefit consumers never occur 
+</EM><BR>
+<EM>&gt; GM Powertrain                           |  for the sole reason that they
+</EM><BR>
+<EM>&gt; Brighton, MI                            |  do not coincide with Microsoft's 
+</EM><BR>
+<EM>&gt; USA                                     |  self-interest.
+</EM><BR>
+<EM>&gt;                                         |      
+</EM><BR>
+<EM>&gt; E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20SOLVED:%20Premature%20end%20of%20script%20headers%20%20??&In-Reply-To=&lt;XFMail.19991118153851.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>    |            Thomas Penfield Jackson
+</EM><BR>
+<EM>&gt;  Phone: (810) 220-2635                  |              U.S. District Judge
+</EM><BR>
+<EM>&gt;    Fax: (810) 220-2663                  |
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -----BEGIN PGP SIGNATURE-----
+</EM><BR>
+<EM>&gt; Version: GnuPG v1.0.0 (GNU/Linux)
+</EM><BR>
+<EM>&gt; Comment: For info see <A HREF="http://www.gnupg.org">http://www.gnupg.org</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; iD8DBQE4NFjtx2JZtTN6co8RAjW7AKDGgG3rnB6Oy7DyvrG6yX12u/UmzwCfZ/JW
+</EM><BR>
+<EM>&gt; Vw3XcpwbKQm39iJxSA4SXCs=
+</EM><BR>
+<EM>&gt; =Hbmk
+</EM><BR>
+<EM>&gt; -----END PGP SIGNATURE-----
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+- -- 
+<BR>
+Hugo Gayosso                            |  The ultimate result is that some  
+<BR>
+Controls Process Support                |  innovations that would truly 
+<BR>
+Electronics Integration and Software    |  benefit consumers never occur 
+<BR>
+GM Powertrain                           |  for the sole reason that they
+<BR>
+Brighton, MI                            |  do not coincide with Microsoft's 
+<BR>
+USA                                     |  self-interest.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|      
+<BR>
+E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20SOLVED:%20Premature%20end%20of%20script%20headers%20%20??&In-Reply-To=&lt;XFMail.19991118153851.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>    |            Thomas Penfield Jackson
+<BR>
+&nbsp;Phone: (810) 220-2635                  |              U.S. District Judge
+<BR>
+&nbsp;&nbsp;&nbsp;Fax: (810) 220-2663                  |
+<BR>
+<P><P><P>-----BEGIN PGP SIGNATURE-----
+<BR>
+Version: GnuPG v1.0.0 (GNU/Linux)
+<BR>
+Comment: For info see <A HREF="http://www.gnupg.org">http://www.gnupg.org</A>
+<BR>
+<P>iD8DBQE4NGPbx2JZtTN6co8RAlo3AJ936JfOuH29Lnh1WJKRtmG3EW2kXgCghReY
+<BR>
+ta+aMbUlNEmGi+UsmsSGn84=
+<BR>
+=4he6
+<BR>
+-----END PGP SIGNATURE-----
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make $$$ in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0751.html">Stephen Carville: "RE: [cricket-users] Premature end of script headers ??"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0749.html">bginter@asicommunications.com: "[cricket-users] Can fetch oid from command line, cricket can't?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0748.html">Hugo Gayosso: "RE: [cricket-users] Premature end of script headers  ??"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0751.html">Stephen Carville: "RE: [cricket-users] Premature end of script headers ??"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#750">[ date ]</A>
+<A HREF="index.html#750">[ thread ]</A>
+<A HREF="subject.html#750">[ subject ]</A>
+<A HREF="author.html#750">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:06 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

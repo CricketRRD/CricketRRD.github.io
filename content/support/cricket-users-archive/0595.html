@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Problem getting %inst% variables</TITLE>
+<META NAME="Author" CONTENT="Mark Krenz (mkrenz@kiva.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Problem getting %inst% variables to work with grapher.cgi">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Problem getting %inst% variables to work with grapher.cgi</H1>
+<!-- received="Tue Sep 14 17:57:08 1999" -->
+<!-- isoreceived="19990915005708" -->
+<!-- sent="Tue, 14 Sep 1999 16:55:01 -0500 (EST)" -->
+<!-- isosent="19990914215501" -->
+<!-- name="Mark Krenz" -->
+<!-- email="mkrenz@kiva.net" -->
+<!-- subject="[cricket-users] Problem getting %inst% variables to work with grapher.cgi" -->
+<!-- id="Pine.LNX.4.04.9909141624320.8151-100000@pita.kiva.net" -->
+<STRONG>From:</STRONG> Mark Krenz (<A HREF="mailto:mkrenz@kiva.net?Subject=Re:%20[cricket-users]%20Problem%20getting%20%25inst%25%20variables%20to%20work%20with%20grapher.cgi&In-Reply-To=&lt;Pine.LNX.4.04.9909141624320.8151-100000@pita.kiva.net&gt;"><EM>mkrenz@kiva.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Sep 14 1999 - 14:55:01 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0596.html">Daniel Serna: "Re: [cricket-users] Unknown subtree error?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0594.html">Warren Vanichuk: "Re: [cricket-users] Unknown subtree error?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#595">[ date ]</A>
+<A HREF="index.html#595">[ thread ]</A>
+<A HREF="subject.html#595">[ subject ]</A>
+<A HREF="author.html#595">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Mark Krenz &lt;<A HREF="mailto:mkrenz@kiva.net?Subject=Re:%20[cricket-users]%20Problem%20getting%20%25inst%25%20variables%20to%20work%20with%20grapher.cgi&In-Reply-To=&lt;Pine.LNX.4.04.9909141624320.8151-100000@pita.kiva.net&gt;">mkrenz@kiva.net</A>&gt;
+<BR>
+<P><P>&nbsp;&nbsp;Hello all:
+<BR>
+<P>&nbsp;&nbsp;I've setup a storage subtree for monitoring disk usage and wanted to
+<BR>
+simplify the configuration by using the %inst% and %inst-name% variables.
+<BR>
+I'm running cricket-0.70 and rrdtool-1.0.6 on a RedHat Linux 6.0 machine.  
+<BR>
+<P>&nbsp;&nbsp;My main config tree sits in /home/monitor/cricket-config with the standard
+<BR>
+Default file that comes with cricket.  Under that I have a directory called
+<BR>
+storage that contains a Defaults file with:
+<BR>
+<P>#------------------------------------------------------------
+<BR>
+target  --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type             = diskhost
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host               = %host%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-community          = xxxxxxxx
+<BR>
+<P>OID     diskUsed             1.3.6.1.2.1.25.2.3.1.6
+<BR>
+OID     diskTotal            1.3.6.1.2.1.25.2.3.1.5
+<BR>
+<P>datasource      --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type             =       GAUGE
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-heartbeat           =       1800
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-min                 =       undef
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-max                 =       undef
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+datasource      diskUsed
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/diskUsed.%inst%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      diskTotal
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/diskTotal.%inst%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>targetType      diskhost
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds = &quot;diskUsed, diskTotal&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view = &quot;Disk Space Used: diskUsed diskTotal&quot;
+<BR>
+#----------------------------------------------------------------
+<BR>
+<P>&nbsp;&nbsp;Then there is a directory named by the name of the host I am gathering data
+<BR>
+from(host.kiva.net).  In this directory is another Defaults file with:
+<BR>
+<P>#----------------------------------------------------------------
+<BR>
+target  --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst                    = (1..4)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst-name               = &quot;('/','/var','/usr','/home')&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;host                    = host.kiva.net
+<BR>
+#-----------------------------------------------------------------
+<BR>
+<P>&nbsp;&nbsp;This is so I can setup each host with it's own set of instances.  I've tried
+<BR>
+doing this by putting the inst and inst-name assignments in the Target file
+<BR>
+for the host, but that didn't work either.
+<BR>
+<P>&nbsp;&nbsp;Then there is a Targets file in that sub-directory contains the template
+<BR>
+target for each disk:
+<BR>
+<P>#-----------------------------------------------------------------
+<BR>
+target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collect = yes
+<BR>
+<P>target %inst%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display-name    = &quot;%inst-name%&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  = &quot;%inst-name%&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      = &quot;%inst-name% partition&quot;
+<BR>
+#-----------------------------------------------------------------
+<BR>
+<P>&nbsp;&nbsp;After I run the compiler, collector and collect-subtrees the 1.rrd through
+<BR>
+4.rrd files get created in /home/monitor/cricket-data/storage/host.kiva.net/
+<BR>
+each one a different file(checked it with md5sum) But the grapher.cgi program
+<BR>
+doesn't parse the information right and what should be multiple links to
+<BR>
+different graphs on the host.kiva.net page becomes one single link
+<BR>
+('/','/var','/usr','/home') to a page that obviously doesn't exist. 
+<BR>
+<P>&nbsp;&nbsp;In the webserver's error_log file I get this when I click on the link:
+<BR>
+<P>Use of uninitialized value at /home/monitor/www/grapher.cgi line 288.
+<BR>
+Use of uninitialized value at /home/monitor/www/grapher.cgi line 1012.
+<BR>
+Use of uninitialized value at /home/monitor/www/./grapher.cgi line 1012.
+<BR>
+[14-Sep-1999 16:49:06*] No graph to make?
+<BR>
+[14-Sep-1999 16:49:06*] Unable to create graph: can't make a graph without contents
+<BR>
+[14-Sep-1999 16:49:06*] Could not open /tmp/cricket-cache/cricket-5beed0c7.png: No such file or directory
+<BR>
+Use of uninitialized value at /home/monitor/www/./grapher.cgi line 1012.
+<BR>
+[14-Sep-1999 16:49:06*] No graph to make?
+<BR>
+[14-Sep-1999 16:49:06*] Unable to create graph: can't make a graph without contents
+<BR>
+[14-Sep-1999 16:49:06*] Could not open /tmp/cricket-cache/cricket-4481b639.png: No such file or directory
+<BR>
+<P>&nbsp;&nbsp;I looked at the grapher.cgi code in the locations mentioned above, but am
+<BR>
+lost and would like to get your opinion before diving into it.
+<BR>
+<P>&nbsp;I've tried doing this without the %inst-name% mapping and have the
+<BR>
+same problem.  This seems to me more like a problem with the grapher.cgi
+<BR>
+program than with the collector programs.  But likewise, it could be a
+<BR>
+problem with the way I have the config tree setup.  Can anyone help me
+<BR>
+out or point me in the right direction.
+<BR>
+<P>&nbsp;&nbsp;Thanks for your help and sorry for posting all my files I just knew it would
+<BR>
+be easier for all of you to see what I was doing that way. ;-)
+<BR>
+<P>&nbsp;&nbsp;Mark Krenz
+<BR>
+&nbsp;&nbsp;Kiva Networking
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ATTN ONELIST USERS: stay current on the latest activities,
+<BR>
+programs, &amp; features at ONElist by joining our member newsletter at
+<BR>
+&lt;a href=&quot; <A HREF="http://www.onelist.com/subscribe/onelist_announce">http://www.onelist.com/subscribe/onelist_announce</A> &quot;&gt;Click&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0596.html">Daniel Serna: "Re: [cricket-users] Unknown subtree error?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0594.html">Warren Vanichuk: "Re: [cricket-users] Unknown subtree error?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#595">[ date ]</A>
+<A HREF="index.html#595">[ thread ]</A>
+<A HREF="subject.html#595">[ subject ]</A>
+<A HREF="author.html#595">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] sock5 support</TITLE>
+<META NAME="Author" CONTENT="Denise Sandell (dsandell@execpc.com)">
+<META NAME="Subject" CONTENT="[cricket-users] sock5 support">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] sock5 support</H1>
+<!-- received="Thu Aug 19 17:32:57 1999" -->
+<!-- isoreceived="19990820003257" -->
+<!-- sent="Thu, 19 Aug 1999 16:31:04 -0500" -->
+<!-- isosent="19990819213104" -->
+<!-- name="Denise Sandell" -->
+<!-- email="dsandell@execpc.com" -->
+<!-- subject="[cricket-users] sock5 support" -->
+<!-- id="19990819163104.A25387@earth.execpc.com" -->
+<STRONG>From:</STRONG> Denise Sandell (<A HREF="mailto:dsandell@execpc.com?Subject=Re:%20[cricket-users]%20sock5%20support&In-Reply-To=&lt;19990819163104.A25387@earth.execpc.com&gt;"><EM>dsandell@execpc.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Aug 19 1999 - 14:31:04 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0524.html">Matthew Stier: "[cricket-users] SUMMARY: &quot;inst&quot; problem still present in Cricket-0.70."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0522.html">Michael P. Burton: "[cricket-users] Same problem, or different? (You decide)"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#523">[ date ]</A>
+<A HREF="index.html#523">[ thread ]</A>
+<A HREF="subject.html#523">[ subject ]</A>
+<A HREF="author.html#523">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Denise Sandell &lt;<A HREF="mailto:dsandell@execpc.com?Subject=Re:%20[cricket-users]%20sock5%20support&In-Reply-To=&lt;19990819163104.A25387@earth.execpc.com&gt;">dsandell@execpc.com</A>&gt;
+<BR>
+<P><P>I'm attempting to get cricket running on a new machine here and am running
+<BR>
+into problems with the collector running socksified in version 0.70
+<BR>
+<P>The version I was running on the old one (soon to be retired) was
+<BR>
+cricket-0.61 on Solaris 5.6
+<BR>
+<P>I have a runsocks program to run the collector script socksified, but it
+<BR>
+doesn't seem to work with the newer version of the collector (0.68-0.70,
+<BR>
+actually) on RH-6.0.
+<BR>
+<P>I have included the source for runsocks at the bottom of the message.
+<BR>
+<P>Has anyone else had any experience running the collector successfully with
+<BR>
+runsocks (or something similar)?
+<BR>
+<P>as always, any help would be appreciated (i really want to ditch the Solaris
+<BR>
+machine).
+<BR>
+<P>-- begin file --
+<BR>
+#!/bin/sh
+<BR>
+#
+<BR>
+# Put the path to the socks shared library in our LD_LIBRARY_PATH so when we
+<BR>
+# preload the library, ld.so will find it...
+<BR>
+#
+<BR>
+if test -n &quot;${SOCKS5_SHLIB_RUNPATH}&quot; ; then
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SOCKS5_SHLIB_RUNPATH=&quot;${SOCKS5_SHLIB_RUNPATH}/&quot;
+<BR>
+elif test -n &quot;/usr/local/lib&quot;; then
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SOCKS5_SHLIB_RUNPATH=&quot;/lib/&quot;
+<BR>
+else 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SOCKS5_SHLIB_RUNPATH=&quot;./&quot;
+<BR>
+fi
+<BR>
+<P>#
+<BR>
+# Some OS's use PRELOADS=lib while others use _RLD_LIST=lib:DEFAULT.  Hopefully 
+<BR>
+# this can handle all those cases.  At any rate, this is basically causing the
+<BR>
+# socks5 shared libary to be used to resolve symbols before other libraries,
+<BR>
+# hence we get socks's connect before we get libc's connect...
+<BR>
+#
+<BR>
+# Also, on SunOS 4*, LD_LIBRARY_PATH has no effect on, so we need to put the path
+<BR>
+# in front of it.  We make the path overridable with SOCKS5_SHLIB_RUNPATH...
+<BR>
+#
+<BR>
+case `uname -rs` in
+<BR>
+SunOS*4.*)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LD_PRELOAD=${SOCKS5_SHLIB_RUNPATH}libsocks5_sh.so
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;export LD_PRELOAD
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;
+<BR>
+*)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if test -z &quot;$LD_LIBRARY_PATH&quot; ; then
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LD_LIBRARY_PATH=${SOCKS5_SHLIB_RUNPATH}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LD_LIBRARY_PATH=${SOCKS5_SHLIB_RUNPATH}:${LD_LIBRARY_PATH}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;export LD_LIBRARY_PATH
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fi
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LD_PRELOAD=libsocks5_sh.so
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;export LD_LIBRARY_PATH
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;
+<BR>
+esac
+<BR>
+# 
+<BR>
+# Run the actual program...
+<BR>
+#
+<BR>
+export LD_PRELOAD
+<BR>
+exec $*
+<BR>
+<P>-- end file --
+<BR>
+<P><PRE>
+-- 
+- Denise Sandell                          ExecPC Network Operations -
+- <A HREF="mailto:dsandell@execpc.com?Subject=Re:%20[cricket-users]%20sock5%20support&In-Reply-To=&lt;19990819163104.A25387@earth.execpc.com&gt;">dsandell@execpc.com</A>                       <A HREF="http://home.execpc.com/">http://home.execpc.com/</A> -
+- PGP --               <A HREF="http://www.execpc.com/~dsandell/stuff/PGPpub">http://www.execpc.com/~dsandell/stuff/PGPpub</A> -
+<P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>Create a list for FRIENDS &amp; FAMILY...
+....and YOU can WIN $100 to Amazon.com.  For details, go to
+<A HREF="http://www.onelist.com/info/onereachsplash3.html">http://www.onelist.com/info/onereachsplash3.html</A>
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0524.html">Matthew Stier: "[cricket-users] SUMMARY: &quot;inst&quot; problem still present in Cricket-0.70."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0522.html">Michael P. Burton: "[cricket-users] Same problem, or different? (You decide)"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#523">[ date ]</A>
+<A HREF="index.html#523">[ thread ]</A>
+<A HREF="subject.html#523">[ subject ]</A>
+<A HREF="author.html#523">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

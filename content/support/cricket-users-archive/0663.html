@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Help, broken cricket</TITLE>
+<META NAME="Author" CONTENT="Loucks Guy (Guy.Loucks@det.nsw.edu.au)">
+<META NAME="Subject" CONTENT="[cricket-users] Help, broken cricket">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Help, broken cricket</H1>
+<!-- received="Thu Oct 14 02:39:20 1999" -->
+<!-- isoreceived="19991014093920" -->
+<!-- sent="Thu, 14 Oct 1999 16:37:42 +1000" -->
+<!-- isosent="19991014063742" -->
+<!-- name="Loucks Guy" -->
+<!-- email="Guy.Loucks@det.nsw.edu.au" -->
+<!-- subject="[cricket-users] Help, broken cricket" -->
+<!-- id="0927641E8B07D311BE4C0008C7894E916D0C8D@itfexch5.isd.tafensw.EDU.AU" -->
+<STRONG>From:</STRONG> Loucks Guy (<A HREF="mailto:Guy.Loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Help,%20broken%20cricket&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0C8D@itfexch5.isd.tafensw.EDU.AU&gt;"><EM>Guy.Loucks@det.nsw.edu.au</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Oct 13 1999 - 23:37:42 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0664.html">Eric Kozowski: "[cricket-users] cricket and juniper routers"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0662.html">David Mitchell: "Re: [cricket-users] Cisco 2924 Backplane OID"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#663">[ date ]</A>
+<A HREF="index.html#663">[ thread ]</A>
+<A HREF="subject.html#663">[ subject ]</A>
+<A HREF="author.html#663">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Loucks Guy &lt;<A HREF="mailto:Guy.Loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Help,%20broken%20cricket&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0C8D@itfexch5.isd.tafensw.EDU.AU&gt;">Guy.Loucks@det.nsw.edu.au</A>&gt;
+<BR>
+<P>People,
+<BR>
+<P>I welcome any suggestions, in the process of fixing up our cricket config,
+<BR>
+it has been broke, and I can not see for the life of me what is wrong.
+<BR>
+<P>Here is the log:
+<BR>
+newton.isd.tafensw.EDU.AU&gt; ./collector -logLevel debug /routers/Central
+<BR>
+[14-Oct-1999 16:21:46 ] Starting collector: Cricket version 0.70 ( Wed Aug
+<BR>
+11 11
+<BR>
+:33:37 PDT 1999 )
+<BR>
+[14-Oct-1999 16:21:46 ] Processing
+<BR>
+/routers/Central/isbr01.isd.tafensw.edu.au...
+<BR>
+[14-Oct-1999 16:21:46 ] Preparing map(interface-name)
+<BR>
+[14-Oct-1999 16:21:46 ] Evaling inst which is: 0
+<BR>
+[14-Oct-1999 16:21:46*] Variable expansion uses undefined variable:
+<BR>
+interface-name.
+<BR>
+[14-Oct-1999 16:21:46*] Variable expansion uses undefined variable:
+<BR>
+interface-name.
+<BR>
+[14-Oct-1999 16:21:46 ] Walking ifDescr for isbr01.isd.tafensw.edu.au:161 to
+<BR>
+resolve interface-name mapping
+<BR>
+[14-Oct-1999 16:21:46 ] Attempting lookup on %interface-name%.
+<BR>
+[14-Oct-1999 16:21:46*] Failed to map instance for
+<BR>
+isbr01.isd.tafensw.edu.au. Instance is now set to nothing.
+<BR>
+[14-Oct-1999 16:21:46 ] target isbr01.isd.tafensw.edu.au
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--mapkey-- = interface-name
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /usr/users/cricket/cricket-config
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /../..
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /routers/Central
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datadir =
+<BR>
+/usr/users/cricket/cricket-config/../cricket-data//routers/Central
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = isbr01.isd.tafensw.edu.au
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile =
+<BR>
+/usr/users/cricket/cricket-config/../cricket-data//router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = isbr01.isd.tafensw.edu.au
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile =
+<BR>
+/usr/users/cricket/cricket-config/../cricket-data//routers/Central/isbr01.is
+<BR>
+d.tafensw.edu.au.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-poll-interval = 300
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = isbr01.isd.tafensw.EDU.AU
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp = <A HREF="mailto:xxx@isbr01.isd.tafensw.edu.au?Subject=Re:%20[cricket-users]%20Help,%20broken%20cricket&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0C8D@itfexch5.isd.tafensw.EDU.AU&gt;">xxx@isbr01.isd.tafensw.edu.au</A>:161
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-community = xxx
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = isbr01.isd.tafensw.edu.au
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-port = 161
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type = Cisco-7500-Router
+<BR>
+<P>[14-Oct-1999 16:21:46 ] Retrieving data for target isbr01.isd.tafensw.edu.au
+<BR>
+()
+<BR>
+(cisco-7500-router)
+<BR>
+[14-Oct-1999 16:21:46 ] Getting from <A HREF="mailto:xxx@isbr01.isd.tafensw.edu.au?Subject=Re:%20[cricket-users]%20Help,%20broken%20cricket&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0C8D@itfexch5.isd.tafensw.EDU.AU&gt;">xxx@isbr01.isd.tafensw.edu.au</A>:161 1.3.
+<BR>
+6.1.4.1.9.2.1.56.0 1.3.6.1.4.1.9.2.1.57.0 1.3.6.1.4.1.9.2.1.58.0
+<BR>
+1.3.6.1.4.1.9.9
+<BR>
+..13.1.3.1.3.1 1.3.6.1.4.1.9.9.13.1.3.1.3.3 1.3.6.1.4.1.9.9.48.1.1.1.5.1
+<BR>
+1.3.6.1.
+<BR>
+4.1.9.9.48.1.1.1.6.1
+<BR>
+[14-Oct-1999 16:21:46 ] Got: 4 4 4 22 28 14030460 99059856
+<BR>
+[14-Oct-1999 16:21:46 ] Retrieved data for isbr01.isd.tafensw.edu.au ():
+<BR>
+4,4,4,2
+<BR>
+2,28,14030460,99059856
+<BR>
+[14-Oct-1999 16:21:46 ] Processing
+<BR>
+/routers/Central/isbr02.isd.tafensw.edu.au...
+<BR>
+[14-Oct-1999 16:21:46 ] Preparing map(interface-name)
+<BR>
+[14-Oct-1999 16:21:46 ] Evaling inst which is: 0
+<BR>
+[14-Oct-1999 16:21:46*] Variable expansion uses undefined variable:
+<BR>
+interface-name.
+<BR>
+[[14-Oct-1999 16:21:46*] Variable expansion uses undefined variable:
+<BR>
+interface-name.
+<BR>
+[14-Oct-1999 16:21:46*] Variable expansion uses undefined variable:
+<BR>
+interface-name.
+<BR>
+[14-Oct-1999 16:21:46 ] Walking ifDescr for isbr02.isd.tafensw.edu.au:161 to
+<BR>
+resolve interface-name mapping
+<BR>
+[14-Oct-1999 16:21:47 ] Attempting lookup on %interface-name%.
+<BR>
+[14-Oct-1999 16:21:47*] Failed to map instance for
+<BR>
+isbr02.isd.tafensw.edu.au. Instance is now set to nothing.
+<BR>
+[14-Oct-1999 16:21:47 ] target isbr02.isd.tafensw.edu.au
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--mapkey-- = interface-name
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /usr/users/cricket/cricket-config
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /../..
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /routers/Central
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datadir =
+<BR>
+/usr/users/cricket/cricket-config/../cricket-data//routers/Central
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = isbr02.isd.tafensw.edu.au
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile =
+<BR>
+/usr/users/cricket/cricket-config/../cricket-data//routers/Central/isbr02.is
+<BR>
+d.tafensw.edu.au.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-poll-interval = 300
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = isbr02.isd.tafensw.EDU.AU
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp = <A HREF="mailto:xxx@isbr02.isd.tafensw.edu.au?Subject=Re:%20[cricket-users]%20Help,%20broken%20cricket&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0C8D@itfexch5.isd.tafensw.EDU.AU&gt;">xxx@isbr02.isd.tafensw.edu.au</A>:161
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-community = xxx
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = isbr02.isd.tafensw.edu.au
+<BR>
+....
+<BR>
+<P>I think it is a problem in our Router-Interfaces Defaults file...
+<BR>
+Suggestions welcome.
+<BR>
+<P>Cheers,
+<BR>
+<P>Guy
+<BR>
+<P><P>Guy R. Loucks
+<BR>
+Senior Unix Systems Administrator
+<BR>
+Networks Branch
+<BR>
+NSW Department of Education &amp; Training
+<BR>
+Information Technology Bureau
+<BR>
+Direct +61 2 9942 9887
+<BR>
+Fax +61 2 9942 9600
+<BR>
+Mobile +61 (0)18 041 186
+<BR>
+Email <A HREF="mailto:guy.loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Help,%20broken%20cricket&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0C8D@itfexch5.isd.tafensw.EDU.AU&gt;">guy.loucks@det.nsw.edu.au</A>
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>??? Computer Questions  ==&gt; Free Answers From Live Experts ! ! !
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;go to EXPERTCITY.COM
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity15">http://clickme.onelist.com/ad/expertcity15</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0664.html">Eric Kozowski: "[cricket-users] cricket and juniper routers"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0662.html">David Mitchell: "Re: [cricket-users] Cisco 2924 Backplane OID"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#663">[ date ]</A>
+<A HREF="index.html#663">[ thread ]</A>
+<A HREF="subject.html#663">[ subject ]</A>
+<A HREF="author.html#663">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Slightly corrected squid-proxy/D</TITLE>
+<META NAME="Author" CONTENT="Jost Krieger (Jost.Krieger+onelist@ruhr-uni-bochum.de)">
+<META NAME="Subject" CONTENT="[cricket-users] Slightly corrected squid-proxy/Defaults">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Slightly corrected squid-proxy/Defaults</H1>
+<!-- received="Thu May 20 06:13:21 1999" -->
+<!-- isoreceived="19990520131321" -->
+<!-- sent="20 May 1999 12:11:39 +0200" -->
+<!-- isosent="19990520101139" -->
+<!-- name="Jost Krieger" -->
+<!-- email="Jost.Krieger+onelist@ruhr-uni-bochum.de" -->
+<!-- subject="[cricket-users] Slightly corrected squid-proxy/Defaults" -->
+<!-- id="s5k3e0s59us.fsf@sunu115.rz.ruhr-uni-bochum.de" -->
+<STRONG>From:</STRONG> Jost Krieger (<A HREF="mailto:Jost.Krieger%2Bonelist@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20Slightly%20corrected%20squid-proxy/Defaults&In-Reply-To=&lt;s5k3e0s59us.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;"><EM>Jost.Krieger+onelist@ruhr-uni-bochum.de</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu May 20 1999 - 03:11:39 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0100.html">Jeff Allen: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0098.html">Jost Krieger: "[cricket-users] DB_File in cricket-0.64"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#99">[ date ]</A>
+<A HREF="index.html#99">[ thread ]</A>
+<A HREF="subject.html#99">[ subject ]</A>
+<A HREF="author.html#99">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jost Krieger &lt;Jost.Krieger+<A HREF="mailto:onelist@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20Slightly%20corrected%20squid-proxy/Defaults&In-Reply-To=&lt;s5k3e0s59us.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">onelist@ruhr-uni-bochum.de</A>&gt;
+<BR>
+<P>I just fixed various GAUGE/COUNTER discrepancies
+<BR>
+and made views for the rest of the collected variables.
+<BR>
+<P># squid-proxy sub-tree
+<BR>
+#
+<BR>
+# A contributed config from Ragnar Kjørstad &lt;<A HREF="mailto:ragnark@vestdata.no?Subject=Re:%20[cricket-users]%20Slightly%20corrected%20squid-proxy/Defaults&In-Reply-To=&lt;s5k3e0s59us.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">ragnark@vestdata.no</A>&gt;
+<BR>
+# Minor modifications by Jost Krieger &lt;Jost.Krieger+<A HREF="mailto:cricket@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20Slightly%20corrected%20squid-proxy/Defaults&In-Reply-To=&lt;s5k3e0s59us.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">cricket@ruhr-uni-bochum.de</A>&gt;
+<BR>
+#
+<BR>
+<P>target	--default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type		= squid-proxy
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host		= %auto-target-name%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# you could set a router-specific community string here:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-community	= public
+<BR>
+<P>OID     ClientHttpRequests      1.3.6.1.4.1.3495.1.3.2.1.1 
+<BR>
+OID     HttpHits                        1.3.6.1.4.1.3495.1.3.2.1.2 
+<BR>
+OID     HttpErrors                      1.3.6.1.4.1.3495.1.3.2.1.3 
+<BR>
+OID     HttpInKb                        1.3.6.1.4.1.3495.1.3.2.1.4 
+<BR>
+OID     HttpOutKb                       1.3.6.1.4.1.3495.1.3.2.1.5 
+<BR>
+OID     ICPpktsSent                     1.3.6.1.4.1.3495.1.3.2.1.6 
+<BR>
+OID     ICPpktsRecv                     1.3.6.1.4.1.3495.1.3.2.1.7 
+<BR>
+OID     ICPkbSent                       1.3.6.1.4.1.3495.1.3.2.1.8 
+<BR>
+OID     ICPkbRecv                       1.3.6.1.4.1.3495.1.3.2.1.9 
+<BR>
+OID     ServerRequests                  1.3.6.1.4.1.3495.1.3.2.1.10 
+<BR>
+OID     ServerErrors                    1.3.6.1.4.1.3495.1.3.2.1.11 
+<BR>
+OID     ServerInKb                      1.3.6.1.4.1.3495.1.3.2.1.12 
+<BR>
+OID     ServerOutKb                     1.3.6.1.4.1.3495.1.3.2.1.13 
+<BR>
+OID     CurrentSwapSize                 1.3.6.1.4.1.3495.1.3.2.1.14 
+<BR>
+OID     SysPageFaults                   1.3.6.1.4.1.3495.1.3.1.1 
+<BR>
+OID     MemUsage                        1.3.6.1.4.1.3495.1.3.1.4 
+<BR>
+OID     CpuUsage                        1.3.6.1.4.1.3495.1.3.1.5 
+<BR>
+OID     MaxResSize                      1.3.6.1.4.1.3495.1.3.1.6 
+<BR>
+OID     NumObjCount                     1.3.6.1.4.1.3495.1.3.1.7 
+<BR>
+OID     CurrentUnlinkRequests           1.3.6.1.4.1.3495.1.3.1.9 
+<BR>
+OID     CurrentUnusedFileDescrCount     1.3.6.1.4.1.3495.1.3.1.10 
+<BR>
+OID     CurrentReservedFileDescrCount   1.3.6.1.4.1.3495.1.3.1.11 
+<BR>
+OID     HttpAllSvcTimeFiveMin           1.3.6.1.4.1.3495.1.3.2.2.1.2.5 
+<BR>
+OID     HttpMissSvcTimeFiveMin          1.3.6.1.4.1.3495.1.3.2.2.1.3.5 
+<BR>
+OID     HttpNmSvcTimeFiveMin            1.3.6.1.4.1.3495.1.3.2.2.1.4.5 
+<BR>
+OID     HttpHitSvcTimeFiveMin           1.3.6.1.4.1.3495.1.3.2.2.1.5.5 
+<BR>
+OID     IcpQuerySvcTimeFiveMin          1.3.6.1.4.1.3495.1.3.2.2.1.6.5 
+<BR>
+OID     IcpReplySvcTimeFiveMin          1.3.6.1.4.1.3495.1.3.2.2.1.7.5 
+<BR>
+OID     DnsSvcTimeFiveMin               1.3.6.1.4.1.3495.1.3.2.2.1.8.5 
+<BR>
+OID     HttpAllSvcTimeHourly            1.3.6.1.4.1.3495.1.3.2.2.1.2.60 
+<BR>
+OID     HttpMissSvcTimeHourly           1.3.6.1.4.1.3495.1.3.2.2.1.3.60 
+<BR>
+OID     HttpNmSvcTimeHourly             1.3.6.1.4.1.3495.1.3.2.2.1.4.60 
+<BR>
+OID     HttpHitSvcTimeHourly            1.3.6.1.4.1.3495.1.3.2.2.1.5.60 
+<BR>
+OID     IcpQuerySvcTimeHourly           1.3.6.1.4.1.3495.1.3.2.2.1.6.60 
+<BR>
+OID     IcpReplySvcTimeHourly           1.3.6.1.4.1.3495.1.3.2.2.1.7.60 
+<BR>
+OID     DnsSvcTimeHourly                1.3.6.1.4.1.3495.1.3.2.2.1.8.60 
+<BR>
+<P>datasource	--default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type		=	COUNTER
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-heartbeat	=	1800
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-min			=	undef
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-max			=	undef
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+datasource      ClientHttpRequests
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/ClientHttpRequests
+<BR>
+<P>datasource      HttpHits
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpHits
+<BR>
+<P>datasource      HttpErrors
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpErrors
+<BR>
+<P>datasource      HttpInKb
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpInKb
+<BR>
+<P>datasource      HttpOutKb
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpOutKb
+<BR>
+<P>datasource      ICPpktsSent
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/ICPpktsSent
+<BR>
+<P>datasource      ICPpktsRecv
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/ICPpktsRecv
+<BR>
+<P>datasource      ICPkbSent
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/ICPkbSent
+<BR>
+<P>datasource      ICPkbRecv
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/ICPkbRecv
+<BR>
+<P>datasource      ServerRequests
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/ServerRequests
+<BR>
+<P>datasource      ServerErrors
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/ServerErrors
+<BR>
+<P>datasource      ServerInKb
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/ServerInKb
+<BR>
+<P>datasource      ServerOutKb
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/ServerOutKb
+<BR>
+<P>datasource      CurrentSwapSize
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/CurrentSwapSize
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      SysPageFaults
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/SysPageFaults
+<BR>
+<P>datasource      MemUsage
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/MemUsage
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      CpuUsage
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/CpuUsage
+<BR>
+<P>datasource      MaxResSize
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/MaxResSize
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      NumObjCount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/NumObjCount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      CurrentLRUExpiration
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/CurrentLRUExpiration
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      CurrentUnlinkRequests
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/CurrentUnlinkRequests
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      CurrentUnusedFileDescrCount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/CurrentUnusedFileDescrCount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      CurrentReservedFileDescrCount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/CurrentReservedFileDescrCount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      HttpAllSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpAllSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      HttpMissSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpMissSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      HttpNmSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpNmSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      HttpHitSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpHitSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      IcpQuerySvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/IcpQuerySvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      IcpReplySvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/IcpReplySvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      DnsSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/DnsSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      HttpAllSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpAllSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      HttpMissSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpMissSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      HttpNmSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpNmSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      HttpHitSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/HttpHitSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      IcpQuerySvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/IcpQuerySvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      IcpReplySvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/IcpReplySvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>datasource      DnsSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/DnsSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>targetType	squid-proxy
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds   = &quot;ClientHttpRequests, HttpHits, HttpErrors, HttpInKb,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpOutKb, ICPpktsSent, ICPpktsRecv, ICPkbSent,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICPkbRecv, ServerRequests, ServerErrors, ServerInKb,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ServerOutKb, CurrentSwapSize, SysPageFaults, MemUsage,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CpuUsage, MaxResSize, NumObjCount,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CurrentUnlinkRequests, CurrentUnusedFileDescrCount,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CurrentReservedFileDescrCount, HttpAllSvcTimeFiveMin,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpMissSvcTimeFiveMin, HttpNmSvcTimeFiveMin,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpHitSvcTimeFiveMin, IcpQuerySvcTimeFiveMin,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IcpReplySvcTimeFiveMin, DnsSvcTimeFiveMin,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpAllSvcTimeHourly, HttpMissSvcTimeHourly,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpNmSvcTimeHourly, HttpHitSvcTimeHourly,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IcpQuerySvcTimeHourly, IcpReplySvcTimeHourly,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DnsSvcTimeHourly&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view = &quot;Traffic: ServerInKb ServerOutKb,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICPTraffic: ICPkbSent ICPkbRecv,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClientRequests: ServerRequests ServerErrors,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SwapSize: CurrentSwapSize,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICPPackets: ICPpktsSent ICPpktsRecv,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClientHttpRequests: ClientHttpRequests HttpHits HttpErrors,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpTraffic: HttpInKb HttpOutKb,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SysPageFaults: SysPageFaults,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MemUsage: MemUsage,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CpuUsage: CpuUsage,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileDescr: CurrentUnusedFileDescrCount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CurrentReservedFileDescrCount,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SvcFiveMin: HttpAllSvcTimeFiveMin HttpMissSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpNmSvcTimeFiveMin HttpHitSvcTimeFiveMin
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DnsSvcTimeFiveMin,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IcpSvcFiveMin: IcpQuerySvcTimeFiveMin IcpReplySvcTimeFiveMin,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SvcHourly: HttpAllSvcTimeHourly HttpMissSvcTimeHourly
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpNmSvcTimeHourly HttpHitSvcTimeHourly DnsSvcTimeHourly,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IcpSvcHourly: IcpQuerySvcTimeHourly IcpReplySvcTimeHourly&quot;
+<BR>
+<P><PRE>
+-- 
+| <A HREF="mailto:Jost.Krieger@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20Slightly%20corrected%20squid-proxy/Defaults&In-Reply-To=&lt;s5k3e0s59us.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">Jost.Krieger@ruhr-uni-bochum.de</A>      Please help stamp out spam! |
+| Postmaster, JAPH, resident answer machine          am RZ der RUB |
+| non sunt multiplicanda entia praeter necessitatem                |
+|                                 William of Ockham (1285-1347/49) |
+<P>------------------------------------------------------------------------
+ONElist:  bringing the world together.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Join a new list today!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0100.html">Jeff Allen: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0098.html">Jost Krieger: "[cricket-users] DB_File in cricket-0.64"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#99">[ date ]</A>
+<A HREF="index.html#99">[ thread ]</A>
+<A HREF="subject.html#99">[ subject ]</A>
+<A HREF="author.html#99">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

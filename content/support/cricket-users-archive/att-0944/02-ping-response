@@ -1,0 +1,56 @@
+#!/usr/bin/perl
+
+# ---------------------------------------------
+# ping-response : Script to return any of the
+# 3 response times given by ping. (Min/Avg/Max)
+#
+# Created 20/01/2000 : Stuart Grimshaw
+#	stubbs@stubbynet.org.uk
+#
+# -ma 	: return max response time.
+# -av 	: * Return average response time.
+# -mi 	: return min response time.
+# -s	: * return the value in seconds.
+# -ms	: return the value in miliseconds.
+# ----------------------------------------------
+
+# Parse the command line.
+$value = "av";
+$unit = "sec";
+
+foreach $command (@ARGV) {
+	if($command eq "-ma") {
+		$value = "ma";
+	}
+	elsif($command eq "-av") {
+		$value = "av";
+	}
+	elsif($command eq "-mi") {
+		$value = "mi";
+	}
+	elsif($command eq "-s") {
+		$unit = "sec";
+	}
+	elsif($command eq "-ms") {
+		$unit = "ms";
+	}
+}
+
+while(<STDIN>) {
+	if(/min\/avg\/max/) {
+		($foo, $times) = split(/ = /, $_);
+		($min, $avg, $max) = split(/\//, $times);
+		$max = $max - " ms";
+	}
+}
+
+if($unit eq "sec") {
+	$min = $min / 1000;
+	$max = $max / 1000;
+	$avg = $avg / 1000;
+}
+
+if($value eq "mi") { print $min; }
+if($value eq "av") { print $avg; }
+if($value eq "ma") { print $max; } 
+print "\n";

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] grapher.cgi question</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] grapher.cgi question">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] grapher.cgi question</H1>
+<!-- received="Wed Jul 28 03:12:59 1999" -->
+<!-- isoreceived="19990728101259" -->
+<!-- sent="Tue, 27 Jul 1999 23:01:29 -0700 (PDT)" -->
+<!-- isosent="19990728060129" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] grapher.cgi question" -->
+<!-- id="199907280601.XAA09488@oops.artemis.com" -->
+<!-- inreplyto="199907211542.LAA25692@cae209.ed.ray.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20grapher.cgi%20question&In-Reply-To=&lt;199907280601.XAA09488@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jul 27 1999 - 23:01:29 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0432.html">Matt Duggan: "[cricket-users] Multiple graphs over multiple targets...all on one page?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0430.html">Jeff Allen: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0403.html">Neal S. Pressman: "[cricket-users] grapher.cgi question"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0444.html">Jeff Allen: "Re: [cricket-users] grapher.cgi question"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#431">[ date ]</A>
+<A HREF="index.html#431">[ thread ]</A>
+<A HREF="subject.html#431">[ subject ]</A>
+<A HREF="author.html#431">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20grapher.cgi%20question&In-Reply-To=&lt;199907280601.XAA09488@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Neal S. Pressman wrote:
+<BR>
+<EM>&gt; to add in a description to the top of the image and to change the
+</EM><BR>
+<EM>&gt; background color:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 	'--color', &quot;CANVAS\#c0c0c0&quot;,
+</EM><BR>
+<EM>&gt; 	'--title', &quot;$targRef-&gt;{'long-desc'}&quot;,
+</EM><BR>
+<P>You should be able to add those kinds of things without editing the
+<BR>
+grapher.cgi program. Read up on the rrd-graph-args tag in the graph
+<BR>
+dictionary.
+<BR>
+<P>I'm sorry but I really can't help with the x-axis stuff you were
+<BR>
+asking about. For one thing, I haven't worked with it, so I don't know
+<BR>
+if there are any peculiarities with respect to the way RRD Tool reads
+<BR>
+those arguments. For another, it's not a feature we've needed here at
+<BR>
+WebTV, so I haven't really contemplated it.
+<BR>
+<P>When I am debugging the grapher, I usually turn the log level up to
+<BR>
+debug (search for &quot;warn&quot; in the first 100 lines, and change it to
+<BR>
+debug) and then add Debug() statements to figure out why things are or
+<BR>
+are not getting called. You might find that those techniques will let
+<BR>
+you figure out the problem.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20grapher.cgi%20question&In-Reply-To=&lt;199907280601.XAA09488@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Congratulations DALMATIANRESCUE. Our latest ONElist of the week.
+To see full story and submit YOUR ONElist story, go to
+<A HREF="http://www.onelist.com/info/ootw_19.html">http://www.onelist.com/info/ootw_19.html</A>
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0432.html">Matt Duggan: "[cricket-users] Multiple graphs over multiple targets...all on one page?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0430.html">Jeff Allen: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0403.html">Neal S. Pressman: "[cricket-users] grapher.cgi question"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0444.html">Jeff Allen: "Re: [cricket-users] grapher.cgi question"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#431">[ date ]</A>
+<A HREF="index.html#431">[ thread ]</A>
+<A HREF="subject.html#431">[ subject ]</A>
+<A HREF="author.html#431">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:59 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

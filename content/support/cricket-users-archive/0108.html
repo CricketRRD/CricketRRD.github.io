@@ -1,0 +1,415 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Defaults file for routers subtree</TITLE>
+<META NAME="Author" CONTENT="Timothy Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Defaults file for routers subtree">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Defaults file for routers subtree</H1>
+<!-- received="Fri May 21 04:13:34 1999" -->
+<!-- isoreceived="19990521111334" -->
+<!-- sent="Fri, 21 May 1999 04:13:04 -0400 (EDT)" -->
+<!-- isosent="19990521081304" -->
+<!-- name="Timothy Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="[cricket-users] Defaults file for routers subtree" -->
+<!-- id="Pine.LNX.3.96.990521041056.373K-100000@gunslinger.hate.org" -->
+<STRONG>From:</STRONG> Timothy Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20for%20routers%20subtree&In-Reply-To=&lt;Pine.LNX.3.96.990521041056.373K-100000@gunslinger.hate.org&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri May 21 1999 - 01:13:04 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0109.html">Timothy Kennedy: "[cricket-users] Last file for now."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0107.html">Timothy Kennedy: "[cricket-users] cisco homogenous stuff"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#108">[ date ]</A>
+<A HREF="index.html#108">[ thread ]</A>
+<A HREF="subject.html#108">[ subject ]</A>
+<A HREF="author.html#108">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Timothy Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20for%20routers%20subtree&In-Reply-To=&lt;Pine.LNX.3.96.990521041056.373K-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P><P>here is a diff on the routers/Defaults file tha goes with 
+<BR>
+my cisco homogoenous stuff non-package.
+<BR>
+<P>------------8&lt;cut here 8&lt;-----------
+<BR>
+<P>*** cricket-0.65/sample-config/routers/Defaults Wed Mar 31 00:56:14 1999
+<BR>
+--- cricket-config/routers/Defaults     Fri Apr 30 13:49:44 1999
+<BR>
+***************
+<BR>
+*** 14,20 ****
+<BR>
+&nbsp;&nbsp;Target        --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router                  = %auto-target-name%
+<BR>
+!       snmp-host               = %router%.%domain%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# you could set a router-specific community string here:
+<BR>
+!       # snmp-community        = not-public
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Provide no default type, since each router will be different,
+<BR>
+--- 14,21 ----
+<BR>
+&nbsp;&nbsp;Target        --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router                  = %auto-target-name%
+<BR>
+!       snmp-host               = %router%
+<BR>
+!       #snmp-host              = %router%.%domain%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# you could set a router-specific community string here:
+<BR>
+!       snmp-community          = srvr-status
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Provide no default type, since each router will be different,
+<BR>
+***************
+<BR>
+*** 47,60 ****
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;targetType    Cisco-7200-Router
+<BR>
+!       ds      =       &quot;cpu1min, cpu5min, tempInlet, tempOutlet,
+<BR>
+mem5minUsed, mem5minFree&quot;
+<BR>
+!       view    =       &quot;cpu: cpu1min cpu5min,
+<BR>
+!                                       temperature: tempInlet tempOutlet,
+<BR>
+!                                       memory: mem5minUsed mem5minFree&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;targetType    Cisco-7500-Router
+<BR>
+!     ds  =   &quot;cpu1min, cpu5min, tempInlet, tempOutlet, mem5minUsed,
+<BR>
+mem5minFree&quot;
+<BR>
+!     view    =   &quot;cpu: cpu1min cpu5min,
+<BR>
+!                     temperature: tempInlet tempOutlet,
+<BR>
+!                     memory: mem5minUsed mem5minFree&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;# 3600 routers do not report temperature -- they only
+<BR>
+--- 48,71 ----
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;targetType    Cisco-7200-Router
+<BR>
+!       ds      =       cpu1min
+<BR>
+!       ds      =       cpu5min
+<BR>
+!       ds      =       tempInlet
+<BR>
+!       ds      =       tempOutlet
+<BR>
+!       ds      =       mem5minUsed
+<BR>
+!       ds      =       mem5minFree
+<BR>
+!       view    =       &quot;cpu: cpu1min cpu5min&quot;
+<BR>
+!       view    =       &quot;temperature: tempInlet tempOutlet&quot;
+<BR>
+!       view    =       &quot;memory: mem5minUsed mem5minFree&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;targetType    Cisco-7500-Router
+<BR>
+!       ds      =       cpu1min
+<BR>
+!       ds      =       cpu5min
+<BR>
+!       ds      =       tempInlet
+<BR>
+!       ds      =       tempOutlet
+<BR>
+!       ds      =       mem5minUsed
+<BR>
+!       ds      =       mem5minFree
+<BR>
+!       view    =       &quot;cpu: cpu1min cpu5min&quot;
+<BR>
+!       view    =       &quot;temperature: tempInlet tempOutlet&quot;
+<BR>
+!       view    =       &quot;memory: mem5minUsed mem5minFree&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;# 3600 routers do not report temperature -- they only
+<BR>
+***************
+<BR>
+*** 67,81 ****
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;targetType    Cisco-3600-Router
+<BR>
+!       ds      =       &quot;cpu1min, cpu5min, tempState, mem5minUsed,
+<BR>
+mem5minFree&quot;
+<BR>
+!     view      =       &quot;cpu: cpu1min cpu5min,
+<BR>
+!                                       tempAlarm: tempState,
+<BR>
+!                                       memory: mem5minUsed mem5minFree&quot;
+<BR>
+! 
+<BR>
+! # 2500 routers don't even report the temperature. Feh.
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;targetType Cisco-2500-Router
+<BR>
+!       ds      =       &quot;cpu1min, cpu5min, mem5minUsed, mem5minFree&quot;
+<BR>
+!     view      =       &quot;cpu: cpu1min cpu5min,
+<BR>
+!                                       memory: mem5minUsed mem5minFree&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;html short-desc                 Router Chassis
+<BR>
+--- 78,115 ----
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;targetType    Cisco-3600-Router
+<BR>
+!       ds      =       cpu1min
+<BR>
+!       ds      =       cpu5min
+<BR>
+!       ds      =       tempState
+<BR>
+!       ds      =       mem5minUsed
+<BR>
+!       ds      =       mem5minFree
+<BR>
+!         view  =       &quot;cpu: cpu1min cpu5min&quot;
+<BR>
+!         view  =       &quot;tempAlarm: tempState tempState&quot;
+<BR>
+!         view  =       &quot;memory: mem5minUsed mem5minFree&quot;
+<BR>
+!         
+<BR>
+! # 2500, 4500 &amp; 4700 routers don't even report the temperature. Feh.
+<BR>
+! 
+<BR>
+! targetType Cisco-4500-Router
+<BR>
+!       ds      =       cpu1min
+<BR>
+!       ds      =       cpu5min
+<BR>
+!       ds      =       mem5minUsed
+<BR>
+!       ds      =       mem5minFree
+<BR>
+!         view  =       &quot;cpu: cpu1min cpu5min&quot;
+<BR>
+!         view  =       &quot;memory: mem5minUsed mem5minFree&quot;
+<BR>
+!         
+<BR>
+! targetType Cisco-4700-Router
+<BR>
+!       ds      =       cpu1min
+<BR>
+!       ds      =       cpu5min
+<BR>
+!       ds      =       mem5minUsed
+<BR>
+!       ds      =       mem5minFree
+<BR>
+!         view  =       &quot;cpu: cpu1min cpu5min&quot;
+<BR>
+!         view  =       &quot;memory: mem5minUsed mem5minFree&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;targetType Cisco-2500-Router
+<BR>
+!       ds      =       cpu1min
+<BR>
+!       ds      =       cpu5min
+<BR>
+!       ds      =       mem5minUsed
+<BR>
+!       ds      =       mem5minFree
+<BR>
+!         view  =       &quot;cpu: cpu1min cpu5min&quot;
+<BR>
+!         view  =       &quot;memory: mem5minUsed mem5minFree&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;html short-desc                 Router Chassis
+<BR>
+***************
+<BR>
+*** 97,113 ****
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color   =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   AREA
+<BR>
+!     y-axis  =   &quot;degrees Centigrade&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units   =       &quot;&amp;#176;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;space   =       &quot;&quot;
+<BR>
+!     legend  =   &quot;Inlet temperature in C&quot;
+<BR>
+!       precision       =       integer
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;graph   tempOutlet
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color   =   blue
+<BR>
+!     y-axis  =   &quot;degrees Centigrade&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units   =       &quot;&amp;#176;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;space   =       &quot;&quot;
+<BR>
+!     legend  =   &quot;Outlet temperature in C&quot;
+<BR>
+!       precision       =       integer
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;graph   mem5minUsed
+<BR>
+--- 131,149 ----
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color   =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   AREA
+<BR>
+!     y-axis  =   &quot;degrees Farenheit&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units     =       &quot;&amp;#176;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;space     =       &quot;&quot;
+<BR>
+!     legend      =   &quot;Intake temperature in F&quot;
+<BR>
+!     precision =       1
+<BR>
+!     scale     =       &quot;9,*,5,/,32,+&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;graph   tempOutlet
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color   =   blue
+<BR>
+!     y-axis  =   &quot;degrees Farenheit&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units     =       &quot;&amp;#176;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;space     =       &quot;&quot;
+<BR>
+!     legend      =   &quot;Exhaust temperature in F&quot;
+<BR>
+!     precision =       1
+<BR>
+!     scale     =       &quot;9,*,5,/,32,+&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;graph   mem5minUsed
+<BR>
+<P>----------8&lt; cute here 8&lt;------------
+<BR>
+<P>-Tim
+<BR>
+<P>Tim Kennedy
+<BR>
+<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20for%20routers%20subtree&In-Reply-To=&lt;Pine.LNX.3.96.990521041056.373K-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>
+<BR>
+<P>Disclaimer:  since this came from this me, not that ---&gt; me, 
+<BR>
+it is persona mail, and in no way reflects any opinions or
+<BR>
+policies of my employer, whom I won't mention here, just to 
+<BR>
+keep things clear of them. (new email policy at work)
+<BR>
+Usual stuff about confidentiality and whatnot... intended
+<BR>
+receivers, blah, blah, etc., etc.
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+ONElist:  where real people with real interests get connected.
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Join a new list today!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0109.html">Timothy Kennedy: "[cricket-users] Last file for now."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0107.html">Timothy Kennedy: "[cricket-users] cisco homogenous stuff"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#108">[ date ]</A>
+<A HREF="index.html#108">[ thread ]</A>
+<A HREF="subject.html#108">[ subject ]</A>
+<A HREF="author.html#108">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] rrdtool-1.0.10</TITLE>
+<META NAME="Author" CONTENT="Sam Habash (the+cricket@llama.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] rrdtool-1.0.10">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] rrdtool-1.0.10</H1>
+<!-- received="Wed Jan 12 00:14:04 2000" -->
+<!-- isoreceived="20000112081404" -->
+<!-- sent="Tue, 11 Jan 2000 20:18:41 -0800 (PST)" -->
+<!-- isosent="20000112041841" -->
+<!-- name="Sam Habash" -->
+<!-- email="the+cricket@llama.com" -->
+<!-- subject="Re: [cricket-users] rrdtool-1.0.10" -->
+<!-- id="Pine.BSF.4.21.0001111956520.74181-100000@best.llama.com" -->
+<!-- inreplyto="Pine.BSF.4.21.0001111618390.73140-100000@best.llama.com" -->
+<STRONG>From:</STRONG> Sam Habash (<A HREF="mailto:the%2Bcricket@llama.com?Subject=Re:%20[cricket-users]%20rrdtool-1.0.10&In-Reply-To=&lt;Pine.BSF.4.21.0001111956520.74181-100000@best.llama.com&gt;"><EM>the+cricket@llama.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jan 11 2000 - 20:18:41 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0910.html">Sam Habash: "Re: [cricket-users] rrdtool-1.0.10"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0908.html">Sam Habash: "[cricket-users] rrdtool-1.0.10"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0908.html">Sam Habash: "[cricket-users] rrdtool-1.0.10"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0910.html">Sam Habash: "Re: [cricket-users] rrdtool-1.0.10"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0910.html">Sam Habash: "Re: [cricket-users] rrdtool-1.0.10"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#909">[ date ]</A>
+<A HREF="index.html#909">[ thread ]</A>
+<A HREF="subject.html#909">[ subject ]</A>
+<A HREF="author.html#909">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Sam Habash &lt;the+<A HREF="mailto:cricket@llama.com?Subject=Re:%20[cricket-users]%20rrdtool-1.0.10&In-Reply-To=&lt;Pine.BSF.4.21.0001111956520.74181-100000@best.llama.com&gt;">cricket@llama.com</A>&gt;
+<BR>
+<P>I perhaps spoke too soon, as it appears that cricket doesn't call
+<BR>
+'rrdtool update' to update ts datasources :-) but does it through 
+<BR>
+a Perl module, which I neglected to upgrade (fixed just now) on
+<BR>
+one of my boxes which has a nonstandard install setup due to
+<BR>
+me not wanting to 'pollute' the existing environment.
+<BR>
+<P>RRDs.so
+<BR>
+RRDp.pm
+<BR>
+RRDs.pm
+<BR>
+<P>I'll know if this is effective shortly.
+<BR>
+<P>Take care,
+<BR>
+<P>--Sam
+<BR>
+<P>On Tue, 11 Jan 2000, Sam Habash wrote:
+<BR>
+<P><EM>&gt; From: Sam Habash &lt;the+<A HREF="mailto:cricket@llama.com?Subject=Re:%20[cricket-users]%20rrdtool-1.0.10&In-Reply-To=&lt;Pine.BSF.4.21.0001111956520.74181-100000@best.llama.com&gt;">cricket@llama.com</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Hello,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; For anybody using threshold monitoring, I would advise upgarding
+</EM><BR>
+<EM>&gt; to rrdtool-1.0.10, as prior versions had a bug in 'rrdtool update'
+</EM><BR>
+<EM>&gt; causing a datasource value to not get written every cyclic interval
+</EM><BR>
+<EM>&gt; (50 hours for most of people using Cricket, since that is the default),
+</EM><BR>
+<EM>&gt; causing an SNMP trap to get generated as the monitor stuff polls the
+</EM><BR>
+<EM>&gt; RRD database when it goes to check values.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt;From <A HREF="http://ee-staff.ethz.ch/~oetiker/webtools/rrdtool/pub/CHANGES">http://ee-staff.ethz.ch/~oetiker/webtools/rrdtool/pub/CHANGES</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; CangeLog[sic] for RRDtool 1.0.x
+</EM><BR>
+<EM>&gt; --------------------------
+</EM><BR>
+<EM>&gt; - bugfix, + enhancement, * contrib, = RELEASE
+</EM><BR>
+<EM>&gt; ---------------------------------------------
+</EM><BR>
+<EM>&gt; = 1.0.10 2000/01/07 -- Tobi
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; - 2000/01/07 -- Bill Fenner &lt;<A HREF="mailto:fenner@research.att.com?Subject=Re:%20[cricket-users]%20rrdtool-1.0.10&In-Reply-To=&lt;Pine.BSF.4.21.0001111956520.74181-100000@best.llama.com&gt;">fenner@research.att.com</A>&gt;
+</EM><BR>
+<EM>&gt;   The Update Bug solved ... rrdtool was in violation of the ANSI
+</EM><BR>
+<EM>&gt;   C standard (7.9.5.3) by issuing a fwrite immediately after an
+</EM><BR>
+<EM>&gt;   fread without fseek inbetween
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I have 1.0.10 working with Cricket-0.70 on two machines.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Take care,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --Sam
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Independent contractors: Find your next project gig through JobSwarm!
+</EM><BR>
+<EM>&gt;         You can even make money by referring friends.
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0910.html">Sam Habash: "Re: [cricket-users] rrdtool-1.0.10"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0908.html">Sam Habash: "[cricket-users] rrdtool-1.0.10"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0908.html">Sam Habash: "[cricket-users] rrdtool-1.0.10"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0910.html">Sam Habash: "Re: [cricket-users] rrdtool-1.0.10"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0910.html">Sam Habash: "Re: [cricket-users] rrdtool-1.0.10"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#909">[ date ]</A>
+<A HREF="index.html#909">[ thread ]</A>
+<A HREF="subject.html#909">[ subject ]</A>
+<A HREF="author.html#909">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:10 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

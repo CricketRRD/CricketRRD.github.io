@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Possible feature?</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] Possible feature?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Possible feature?</H1>
+<!-- received="Mon Jul 12 18:19:04 1999" -->
+<!-- isoreceived="19990713011904" -->
+<!-- sent="Mon, 12 Jul 1999 16:17:20 -0600" -->
+<!-- isosent="19990712221720" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="[cricket-users] Possible feature?" -->
+<!-- id="8B069C65F931D111B6E10000F804A4DF77034F@amethyst.msu.montana.edu" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=Re:%20[cricket-users]%20Possible%20feature?&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77034F@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jul 12 1999 - 15:17:20 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0306.html">Jeff Allen: "Re: [cricket-users] Question"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0304.html">Matthew Stier: "[cricket-users] Another problem with cricket-0.68"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0307.html">roofpig@the.satanic.org: "Re: [cricket-users] Possible feature?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0307.html">roofpig@the.satanic.org: "Re: [cricket-users] Possible feature?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0309.html">Jeff Allen: "Re: [cricket-users] Possible feature?"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0310.html">Alan Nichols: "Re: [cricket-users] Possible feature?"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0312.html">Berg, Ivan: "RE: [cricket-users] Possible feature?"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0314.html">Berg, Ivan: "RE: [cricket-users] Possible feature?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#305">[ date ]</A>
+<A HREF="index.html#305">[ thread ]</A>
+<A HREF="subject.html#305">[ subject ]</A>
+<A HREF="author.html#305">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=Re:%20[cricket-users]%20Possible%20feature?&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77034F@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>First of all, thanks Jeff for the quick response time on 0.68.  It is very
+<BR>
+handy being
+<BR>
+able to talk to developers first hand.
+<BR>
+<P>Hey, do you think this could be added in a future version of cricket?
+<BR>
+<P>The problem is when a counter get's reset to zero.  This produces a large
+<BR>
+spike in the
+<BR>
+graph which throws off the range and average's for some time.
+<BR>
+<P>It seems that was is stored in the data file is differences in data and this
+<BR>
+is divided
+<BR>
+by time to give us something like data/sec.  So it works my doing
+<BR>
+(current data - last data)/ time.  Now this value is positive when the
+<BR>
+counter is
+<BR>
+incrementing and only negative when the counter gets reset to zero.  Would
+<BR>
+it be possible
+<BR>
+to add small routine to check if there is a negative difference and account
+<BR>
+for it.
+<BR>
+<P>Here a couple ideas to handle the negative and incorrect values.
+<BR>
+1.  Throw away the data point, i.e  don't store it in the data.
+<BR>
+2.  Set point to 0 to avoid spikes, it would still slightly affect average
+<BR>
+but not as
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;much as large spike.
+<BR>
+3.  If detect negative value, then average the last two data points and
+<BR>
+store that
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;as the current data point.  That would be the most accurate of the three
+<BR>
+and
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;would not throw off the scale at all.
+<BR>
+<P>Thanks
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist members are using Shared Files in great ways!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Are you?  If not, see our homepage for details.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0306.html">Jeff Allen: "Re: [cricket-users] Question"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0304.html">Matthew Stier: "[cricket-users] Another problem with cricket-0.68"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0307.html">roofpig@the.satanic.org: "Re: [cricket-users] Possible feature?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0307.html">roofpig@the.satanic.org: "Re: [cricket-users] Possible feature?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0309.html">Jeff Allen: "Re: [cricket-users] Possible feature?"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0310.html">Alan Nichols: "Re: [cricket-users] Possible feature?"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0312.html">Berg, Ivan: "RE: [cricket-users] Possible feature?"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0314.html">Berg, Ivan: "RE: [cricket-users] Possible feature?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#305">[ date ]</A>
+<A HREF="index.html#305">[ thread ]</A>
+<A HREF="subject.html#305">[ subject ]</A>
+<A HREF="author.html#305">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:56 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

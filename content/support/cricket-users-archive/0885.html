@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Graphing Problem.</TITLE>
+<META NAME="Author" CONTENT="Nathan Alan Haneysmith (nathan@cybertrails.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Graphing Problem.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Graphing Problem.</H1>
+<!-- received="Mon Jan 10 14:01:14 2000" -->
+<!-- isoreceived="20000110220114" -->
+<!-- sent="Mon, 10 Jan 2000 12:00:58 -0700" -->
+<!-- isosent="20000110190058" -->
+<!-- name="Nathan Alan Haneysmith" -->
+<!-- email="nathan@cybertrails.com" -->
+<!-- subject="Re: [cricket-users] Graphing Problem." -->
+<!-- id="20000110120058.B19348@cybertrails.com" -->
+<!-- inreplyto="c=GB%a=_%p=BDBC%l=EXCHANGE1-000110112856Z-15730@mail.blackburn.gov.uk" -->
+<STRONG>From:</STRONG> Nathan Alan Haneysmith (<A HREF="mailto:nathan@cybertrails.com?Subject=Re:%20[cricket-users]%20Graphing%20Problem.&In-Reply-To=&lt;20000110120058.B19348@cybertrails.com&gt;"><EM>nathan@cybertrails.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jan 10 2000 - 11:00:58 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0886.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0884.html">Ivan Berg: "Re: [cricket-users] Problem encountered while viewing the graph"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0872.html">Grimshaw Stuart: "[cricket-users] Graphing Problem."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#885">[ date ]</A>
+<A HREF="index.html#885">[ thread ]</A>
+<A HREF="subject.html#885">[ subject ]</A>
+<A HREF="author.html#885">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Nathan Alan Haneysmith &lt;<A HREF="mailto:nathan@cybertrails.com?Subject=Re:%20[cricket-users]%20Graphing%20Problem.&In-Reply-To=&lt;20000110120058.B19348@cybertrails.com&gt;">nathan@cybertrails.com</A>&gt;
+<BR>
+<P>Greetings,
+<BR>
+<P>In the top-level Defaults file there are 2 lines there you might want to edit:
+<BR>
+width-hint	=	596
+<BR>
+height-hint	=	267
+<BR>
+<P>In the documentation for these(if memory serves) it states that these are used
+<BR>
+to generate the width and height hints for the html that get generated. It also
+<BR>
+says that if these are wrong, not only will it show up in your logs, but it
+<BR>
+will take longer to generate and display the graphs. 
+<BR>
+<P>You can either edit these to match or just comment them out (like I do :)
+<BR>
+<P>Hasta,
+<BR>
+<P>On Mon, Jan 10, 2000 at 11:28:56AM -0000, Grimshaw Stuart wrote:
+<BR>
+<EM>&gt; From: Grimshaw Stuart &lt;<A HREF="mailto:stuart.grimshaw@blackburn.gov.uk?Subject=Re:%20[cricket-users]%20Graphing%20Problem.&In-Reply-To=&lt;20000110120058.B19348@cybertrails.com&gt;">stuart.grimshaw@blackburn.gov.uk</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Having successfully configured cricket to monitor various things,
+</EM><BR>
+<EM>&gt; routers, printers etc, I've gathered my first bit of data over the past
+</EM><BR>
+<EM>&gt; week. However, I'm getting a problem displaying certain graphs...
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I havn't altered the defaults file for the router-interfaces, and the
+</EM><BR>
+<EM>&gt; only thing contained in the interfaces file is the targets themselves,
+</EM><BR>
+<EM>&gt; (see below)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; When I try to view a graph for one of the datasources, (the serial port)
+</EM><BR>
+<EM>&gt; I get these messages in the web servers error log:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; [10-Jan-2000 11:02:56*] Actual graph width (595) differs from width-hint
+</EM><BR>
+<EM>&gt; (596).
+</EM><BR>
+<EM>&gt; [10-Jan-2000 11:02:56*] Actual graph height (255) differs from
+</EM><BR>
+<EM>&gt; height-hint (267
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The other ports on the same device work fine, and I only get this when I
+</EM><BR>
+<EM>&gt; try and display the &quot;Octets&quot; view, the packets and errors view are fine.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I've tried turning off the graph hints in the defaults file now, but all
+</EM><BR>
+<EM>&gt; that changes is the errors dont appear in the log file :) I just get the
+</EM><BR>
+<EM>&gt; good old &quot;Premature end etc etc&quot;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; This problem is hapenning on more than one, but not all of my
+</EM><BR>
+<EM>&gt; router-interfaces.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; interfaces file :
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; target --default--
+</EM><BR>
+<EM>&gt;         router = 10.16.0.1
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; target 3Com_NETBuilderSER_1-1
+</EM><BR>
+<EM>&gt;         interface-name  =       3Com_NETBuilderSER/1-1
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; target 3Com_NETBuilderETH_2-1
+</EM><BR>
+<EM>&gt;         interface-name  =       3Com_NETBuilderETH/2-1
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Stuart Grimshaw,
+</EM><BR>
+<EM>&gt; System Administrator,
+</EM><BR>
+<EM>&gt; Community, Leisure &amp; Cultural Services Dept.
+</EM><BR>
+<EM>&gt; Blackburn with Darwen Borough Council.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; t:01254 587235
+</EM><BR>
+<EM>&gt; f:01254 660236
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;   Hey Freelancers:  Find your next project through JobSwarm!  
+</EM><BR>
+<EM>&gt;   You can even make money in your sleep by referring friends.
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><PRE>
+-- 
+Nathan Alan Haneysmith
+Systems Administrator
+Cybertrails
+*******************************
+Be Here Now. If you do not live in the future, there is nothing to fear. If you
+do not live in the past, there is nothing to regret or feel guilty about.
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Independent contractors: Find your next project gig through JobSwarm!
+        You can even make money by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0886.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0884.html">Ivan Berg: "Re: [cricket-users] Problem encountered while viewing the graph"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0872.html">Grimshaw Stuart: "[cricket-users] Graphing Problem."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#885">[ date ]</A>
+<A HREF="index.html#885">[ thread ]</A>
+<A HREF="subject.html#885">[ subject ]</A>
+<A HREF="author.html#885">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:09 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

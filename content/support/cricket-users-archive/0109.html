@@ -1,0 +1,373 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Last file for now.</TITLE>
+<META NAME="Author" CONTENT="Timothy Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Last file for now.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Last file for now.</H1>
+<!-- received="Fri May 21 04:21:37 1999" -->
+<!-- isoreceived="19990521112137" -->
+<!-- sent="Fri, 21 May 1999 04:21:13 -0400 (EDT)" -->
+<!-- isosent="19990521082113" -->
+<!-- name="Timothy Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="[cricket-users] Last file for now." -->
+<!-- id="Pine.LNX.3.96.990521041607.373L-100000@gunslinger.hate.org" -->
+<STRONG>From:</STRONG> Timothy Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Last%20file%20for%20now.&In-Reply-To=&lt;Pine.LNX.3.96.990521041607.373L-100000@gunslinger.hate.org&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri May 21 1999 - 01:21:13 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0110.html">shawn@unifygroup.com: "[cricket-users] [Q] Cricket collect server/workstation CPU, Memory, etc."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0108.html">Timothy Kennedy: "[cricket-users] Defaults file for routers subtree"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#109">[ date ]</A>
+<A HREF="index.html#109">[ thread ]</A>
+<A HREF="subject.html#109">[ subject ]</A>
+<A HREF="author.html#109">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Timothy Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Last%20file%20for%20now.&In-Reply-To=&lt;Pine.LNX.3.96.990521041607.373L-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P><P>I finally got everything working.  I hope.
+<BR>
+I am off to Seattle for the weekend, so I won't be able to respond to any
+<BR>
+messages.  But if you wanna tell me to shove off and quit flooding the
+<BR>
+list, or ask where I learned my awful perl (Teach Yourself Perl in 24
+<BR>
+hours) or anythign else, you'll just hafta wati till monday for an
+<BR>
+answer.
+<BR>
+<P>Cheers,
+<BR>
+<P>-Tim
+<BR>
+<P><P>A diff on the top level Defaults file, because I forgot I changed some
+<BR>
+things in there too.  
+<BR>
+<P>-------8&lt; cut here *&lt;---------
+<BR>
+<P>*** cricket-0.65/sample-config/Defaults Tue May 18 03:51:03 1999
+<BR>
+--- cricket-config/Defaults     Thu May 20 19:33:43 1999
+<BR>
+***************
+<BR>
+*** 4,8 ****
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;Target        --default--
+<BR>
+!       dataDir                         =
+<BR>
+%auto-base%/../cricket-data/%auto-target-path%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile            = %dataDir%/%auto-target-name%.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-poll-interval       = 300
+<BR>
+--- 4,8 ----
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;Target        --default--
+<BR>
+!       dataDir                 =
+<BR>
+%auto-base%/../cricket-data/%auto-target-path%/%snmp-host%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile            = %dataDir%/%auto-target-name%.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-poll-interval       = 300
+<BR>
+***************
+<BR>
+*** 36,39 ****
+<BR>
+--- 36,41 ----
+<BR>
+&nbsp;&nbsp;OID   ifOutErrors             1.3.6.1.2.1.2.2.1.20
+<BR>
+&nbsp;&nbsp;OID   ifOutQLen               1.3.6.1.2.1.2.2.1.21
+<BR>
++ OID     frIndex                       1.3.6.1.2.1.10.32.2.1.1
+<BR>
++ OID     frDlci                1.3.6.1.2.1.10.32.2.1.2
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;OID     ifAlias                 1.3.6.1.2.1.31.1.1.1.18
+<BR>
+***************
+<BR>
+*** 77,100 ****
+<BR>
+&nbsp;&nbsp;# we will add datasources to each specific target-type later
+<BR>
+&nbsp;&nbsp;targetType    --default--
+<BR>
+!       rra     =       &quot;5minAve, 30minAve, 2hrAve, 2hrMax, 1dayAve, 1dayMax&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;# The HTML dict has bits and pieces of HTML that gets used
+<BR>
+&nbsp;&nbsp;# by the grapher.
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;html  body-options    bgcolor=white
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;html  page-header
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- you could put your company logo on every page here: --&gt;
+<BR>
+!     &lt;!-- &lt;img src=&quot;images/company-logo.gif&quot; align=left&gt; --&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;%auto-title%&lt;/h1&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br clear=left&gt;
+<BR>
+&nbsp;&nbsp;
+<BR>
+- html    contact-name 
+<BR>
+-     &lt;a href=&quot;mailto:smrtg&quot;&gt;the Cricket Admins&lt;/a&gt; 
+<BR>
+-   
+<BR>
+- html    contact 
+<BR>
+-     For questions or comments about this data, contact 
+<BR>
+-     %contact-name%. 
+<BR>
+- 
+<BR>
+&nbsp;&nbsp;html  page-footer
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;table width=100% cellpadding=3&gt;
+<BR>
+--- 79,101 ----
+<BR>
+&nbsp;&nbsp;# we will add datasources to each specific target-type later
+<BR>
+&nbsp;&nbsp;targetType    --default--
+<BR>
+!     rra = 5minAve
+<BR>
+!     rra = 30minAve
+<BR>
+!     rra = 2hrAve       rra = 2hrMax
+<BR>
+!     rra = 1dayAve      rra = 1dayMax
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;# The HTML dict has bits and pieces of HTML that gets used
+<BR>
+&nbsp;&nbsp;# by the grapher.
+<BR>
+&nbsp;&nbsp;
+<BR>
++ html  contact
+<BR>
++       &lt;a href=&quot;mailto:cricket&quot;&gt;the Cricket Admins&lt;/a&gt;
+<BR>
++ 
+<BR>
+&nbsp;&nbsp;html  body-options    bgcolor=white
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;html  page-header
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- you could put your company logo on every page here: --&gt;
+<BR>
+!     &lt;img src=&quot;images/erols.gif&quot; align=left&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;%auto-title%&lt;/h1&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br clear=left&gt;
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;html  page-footer
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;table width=100% cellpadding=3&gt;
+<BR>
+***************
+<BR>
+*** 108,113 ****
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font size=2&gt;&lt;br&gt;Version
+<BR>
+%auto-short-version%&lt;/font&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<BR>
+!               &lt;td&gt;
+<BR>
+!                       %contact%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=120 valign=center&gt;
+<BR>
+--- 109,114 ----
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font size=2&gt;&lt;br&gt;Version
+<BR>
+%auto-short-version%&lt;/font&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<BR>
+!               &lt;td&gt;    For questions or comments about this data,
+<BR>
+!                               contact %contact%.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td width=120 valign=center&gt;
+<BR>
+***************
+<BR>
+*** 117,123 ****
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/table&gt;
+<BR>
+-     &lt;p&gt;
+<BR>
+-         &lt;font color=red&gt;%auto-error%&lt;/font&gt;
+<BR>
+-     &lt;/p&gt;
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;html  target-header
+<BR>
+--- 118,121 ----
+<BR>
+***************
+<BR>
+*** 144,149 ****
+<BR>
+&nbsp;&nbsp;# this tells the grapher which colors to choose first, if
+<BR>
+&nbsp;&nbsp;# it was not given colors
+<BR>
+! color --order--               &quot;dark-green, blue, red, cyan, magenta, yellow,
+<BR>
+!       dark-red, dark-blue&quot;
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;# graph
+<BR>
+--- 142,147 ----
+<BR>
+&nbsp;&nbsp;# this tells the grapher which colors to choose first, if
+<BR>
+&nbsp;&nbsp;# it was not given colors
+<BR>
+! color --order--               dark-green, blue, red, cyan, magenta, yellow,
+<BR>
+!       dark-red, dark-blue
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;# graph
+<BR>
+***************
+<BR>
+*** 161,165 ****
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# are worse than no hints!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width-hint      = 596
+<BR>
+!       height-hint     = 267
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# if this attribute exists, then vertical rules will be placed
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# on the graphs at every zero-time, i.e. midnight, Monday, first of
+<BR>
+--- 159,163 ----
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# are worse than no hints!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width-hint      = 596
+<BR>
+!       height-hint     = 259
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# if this attribute exists, then vertical rules will be placed
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# on the graphs at every zero-time, i.e. midnight, Monday, first of
+<BR>
+<P>-----------8&lt; cut here 8&lt;-------------
+<BR>
+<P><P><P>Tim Kennedy
+<BR>
+<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Last%20file%20for%20now.&In-Reply-To=&lt;Pine.LNX.3.96.990521041607.373L-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>
+<BR>
+<P>Disclaimer:  since this came from this me, not that ---&gt; me, 
+<BR>
+it is persona mail, and in no way reflects any opinions or
+<BR>
+policies of my employer, whom I won't mention here, just to 
+<BR>
+keep things clear of them. (new email policy at work)
+<BR>
+Usual stuff about confidentiality and whatnot... intended
+<BR>
+receivers, blah, blah, etc., etc.
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+How many communities do you think join ONElist each day?
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+More than 1,000!  Create yours now!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0110.html">shawn@unifygroup.com: "[cricket-users] [Q] Cricket collect server/workstation CPU, Memory, etc."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0108.html">Timothy Kennedy: "[cricket-users] Defaults file for routers subtree"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#109">[ date ]</A>
+<A HREF="index.html#109">[ thread ]</A>
+<A HREF="subject.html#109">[ subject ]</A>
+<A HREF="author.html#109">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

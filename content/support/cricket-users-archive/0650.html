@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Graphs Failing on some items</TITLE>
+<META NAME="Author" CONTENT="Ross Lewis (rklewis@blair.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Graphs Failing on some items">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Graphs Failing on some items</H1>
+<!-- received="Fri Oct  8 07:58:07 1999" -->
+<!-- isoreceived="19991008145807" -->
+<!-- sent="Fri, 8 Oct 1999 07:55:15 -0400 " -->
+<!-- isosent="19991008115515" -->
+<!-- name="Ross Lewis" -->
+<!-- email="rklewis@blair.com" -->
+<!-- subject="[cricket-users] Graphs Failing on some items" -->
+<!-- id="F9DA06A15118D311BB5A0020353112EC1D808E@HICKORY" -->
+<STRONG>From:</STRONG> Ross Lewis (<A HREF="mailto:rklewis@blair.com?Subject=Re:%20[cricket-users]%20Graphs%20Failing%20on%20some%20items&In-Reply-To=&lt;F9DA06A15118D311BB5A0020353112EC1D808E@HICKORY&gt;"><EM>rklewis@blair.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Oct 08 1999 - 04:55:15 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0651.html">Ross Lewis: "RE: [cricket-users] Graphs Failing on some items"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0649.html">roofpig@the.satanic.org: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0651.html">Ross Lewis: "RE: [cricket-users] Graphs Failing on some items"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0651.html">Ross Lewis: "RE: [cricket-users] Graphs Failing on some items"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#650">[ date ]</A>
+<A HREF="index.html#650">[ thread ]</A>
+<A HREF="subject.html#650">[ subject ]</A>
+<A HREF="author.html#650">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Ross Lewis &lt;<A HREF="mailto:rklewis@blair.com?Subject=Re:%20[cricket-users]%20Graphs%20Failing%20on%20some%20items&In-Reply-To=&lt;F9DA06A15118D311BB5A0020353112EC1D808E@HICKORY&gt;">rklewis@blair.com</A>&gt;
+<BR>
+<P>Greetings,
+<BR>
+<P>I've successfully setup Cricket on a Linux box a few months ago, but due to
+<BR>
+a job change, I'm now attempting the same thing on a NT box ( I know -
+<BR>
+boo/hiss -  I'm working on getting a Linux box).
+<BR>
+<P>Anyway, I'm running everything under Windows NT and IIS 4.0 and it's running
+<BR>
+pretty good - with one exception (of course).
+<BR>
+<P>The graphs for Router, CPU, Memory, &amp; Temp all work good (although the Avg,
+<BR>
+and Max values are always 0 - the Current is good), but the graphs for the
+<BR>
+router interfaces fail everytime (Failed to draw Graph, check your server
+<BR>
+log for details).  I thought it may have been a problem with the map
+<BR>
+routine, so I created a Test-Interfaces directory and hard coded a couple
+<BR>
+interfaces (no map(interface)), but that gives me the same results.  
+<BR>
+<P>If anyone has any ideas, that would be greatly appreciated.  I've started
+<BR>
+looking at the exec function in mini-graph.cgi, but it works on the Router,
+<BR>
+CPU, Temp, and Memory - so I'm not sure why it would react differently on
+<BR>
+the other items.
+<BR>
+<P>Thanks in advance for any Help
+<BR>
+<P>Info on perl config below
+<BR>
+=====================================
+<BR>
+<P>E:\cricket&gt;perl -V
+<BR>
+Summary of my perl5 (5.0 patchlevel 5 subversion 03) configuration:
+<BR>
+&nbsp;&nbsp;Platform:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;osname=MSWin32, osvers=4.0, archname=MSWin32-x86
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;uname=''
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;hint=recommended, useposix=true, d_sigaction=undef
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;usethreads=undef useperlio=undef d_sfio=undef
+<BR>
+&nbsp;&nbsp;Compiler:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;cc='cl.exe', optimize='-Od -MD -DNDEBUG', gccversion=
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;cppflags='-DWIN32'
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ccflags ='-Od -MD -DNDEBUG -DWIN32 -D_CONSOLE -DNO_STRICT   '
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;stdchar='char', d_stdstdio=define, usevfork=false
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;intsize=4, longsize=4, ptrsize=4, doublesize=8
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;d_longlong=undef, longlongsize=8, d_longdbl=define, longdblsize=10
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;alignbytes=8, usemymalloc=n, prototype=define
+<BR>
+&nbsp;&nbsp;Linker and Libraries:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ld='link', ldflags ='-nologo -nodefaultlib -release -machine:x86'
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;libpth=Z:\VC98\lib
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;libs= oldnames.lib kernel32.lib user32.lib gdi32.lib  winspool.lib
+<BR>
+comdlg32.
+<BR>
+lib advapi32.lib shell32.lib ole32.lib  oleaut32.lib netapi32.lib uuid.lib
+<BR>
+wsock
+<BR>
+32.lib mpr.lib winmm.lib  version.lib odbc32.lib odbccp32.lib msvcrt.lib
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;libc=msvcrt.lib, so=dll, useshrplib=yes, libperl=perl.lib
+<BR>
+&nbsp;&nbsp;Dynamic Linking:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;dlsrc=dl_win32.xs, dlext=dll, d_dlsymun=undef, ccdlflags=' '
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;cccdlflags=' ', lddlflags='-dll -nologo -nodefaultlib -release
+<BR>
+-machine:x86'
+<BR>
+<P><P><P>Characteristics of this binary (from libperl):
+<BR>
+&nbsp;&nbsp;Built under MSWin32
+<BR>
+&nbsp;&nbsp;Compiled at Oct  6 1999 12:19:55
+<BR>
+&nbsp;&nbsp;@INC:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;e:\perl\5.00503\lib/MSWin32-x86
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;e:\perl\5.00503\lib
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;e:\perl\site\5.00503\lib/MSWin32-x86
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;e:\perl\site\5.00503\lib
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;.
+<BR>
+<P><P>Ross K. Lewis
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>??? Computer Questions  ==&gt; Free Answers From Live Experts ! ! !    
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;go to EXPERTCITY.COM                
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity5">http://clickme.onelist.com/ad/expertcity5</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0651.html">Ross Lewis: "RE: [cricket-users] Graphs Failing on some items"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0649.html">roofpig@the.satanic.org: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0651.html">Ross Lewis: "RE: [cricket-users] Graphs Failing on some items"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0651.html">Ross Lewis: "RE: [cricket-users] Graphs Failing on some items"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#650">[ date ]</A>
+<A HREF="index.html#650">[ thread ]</A>
+<A HREF="subject.html#650">[ subject ]</A>
+<A HREF="author.html#650">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

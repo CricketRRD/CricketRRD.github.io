@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Values on web page do not match</TITLE>
+<META NAME="Author" CONTENT="Stephen Carville (carville@ugsolutions.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Values on web page do not match values cricket is getting">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Values on web page do not match values cricket is getting</H1>
+<!-- received="Thu Nov 11 12:39:16 1999" -->
+<!-- isoreceived="19991111203916" -->
+<!-- sent="Thu, 11 Nov 1999 09:26:13 -0800" -->
+<!-- isosent="19991111172613" -->
+<!-- name="Stephen Carville" -->
+<!-- email="carville@ugsolutions.com" -->
+<!-- subject="[cricket-users] Values on web page do not match values cricket is getting" -->
+<!-- id="99111109390900.19183@cypci319" -->
+<STRONG>From:</STRONG> Stephen Carville (<A HREF="mailto:carville@ugsolutions.com?Subject=Re:%20[cricket-users]%20Values%20on%20web%20page%20do%20not%20match%20values%20cricket%20is%20getting&In-Reply-To=&lt;99111109390900.19183@cypci319&gt;"><EM>carville@ugsolutions.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Nov 11 1999 - 09:26:13 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0738.html">Neal, Ken: "[cricket-users]"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0736.html">Michael Little: "Re: [cricket-users] Help"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#737">[ date ]</A>
+<A HREF="index.html#737">[ thread ]</A>
+<A HREF="subject.html#737">[ subject ]</A>
+<A HREF="author.html#737">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Stephen Carville &lt;<A HREF="mailto:carville@ugsolutions.com?Subject=Re:%20[cricket-users]%20Values%20on%20web%20page%20do%20not%20match%20values%20cricket%20is%20getting&In-Reply-To=&lt;99111109390900.19183@cypci319&gt;">carville@ugsolutions.com</A>&gt;
+<BR>
+<P>For some reason the values reported on the webpage d not match the
+<BR>
+values cricket sez it is gathering.
+<BR>
+<P>I have a program that returns one of tow possible value combinations. 
+<BR>
+One is the average of ten quick pings and a zero.  In case there are
+<BR>
+excessive timeouts the program returns 0 and 100.  Cricket seems to be
+<BR>
+getting the data correctly but the values reported on the webpage are
+<BR>
+different.  The values are called &quot;Average&quot; and &quot;Timeout.&quot;
+<BR>
+<P>======================================================
+<BR>
+Cricket reports:
+<BR>
+[11-Nov-1999 09:25:08 ] Retrieved data for houston (): 140.32,0.00 
+<BR>
+<P>Webpage :
+<BR>
+Average round-trip response times for Houston via IPSEC
+<BR>
+<P>Values at last update:
+<BR>
+Average (for the day): 
+<BR>
+Cur: 136.58 ms
+<BR>
+&nbsp;Avg: 101.54 ms
+<BR>
+&nbsp;Max: 278.66 ms
+<BR>
+<P>Timeout (for the day): 
+<BR>
+Cur: 2.67 ms
+<BR>
+&nbsp;Avg: 13.57 ms
+<BR>
+&nbsp;Max: 100.00 ms
+<BR>
+<P>Last updated at Thu Nov 11 09:25:08 1999 
+<BR>
+<P>Cricekt reports:
+<BR>
+[11-Nov-1999 09:25:13 ] Retrieved data for houston-internet  ():0.00,100.00
+<BR>
+<P>Webpage reports:
+<BR>
+Average round-trip response times for Houston via Internet
+<BR>
+<P>Values at last update:
+<BR>
+Average (for the day): 
+<BR>
+Cur: 3.90 ms
+<BR>
+&nbsp;Avg: 96.74 ms
+<BR>
+&nbsp;Max: 219.58 ms
+<BR>
+<P>Timeout (for the day): 
+<BR>
+Cur: 96.67 ms
+<BR>
+&nbsp;Avg: 10.09 ms
+<BR>
+&nbsp;Max: 100.00 ms
+<BR>
+<P>Last updated at Thu Nov 11 09:25:13 1999 
+<BR>
+=====================================================
+<BR>
+<P>The value for &quot;Timeout&quot; can only be 0 or 100 which is how I noticed
+<BR>
+this problem.
+<BR>
+<P>I am using cricket 0.70 with rrdtool 1.07
+<BR>
+<P><PRE>
+--
+Stephen Carville
+Renaissance Geek
+----------------------------------------------------
+A well educated citizenry, being essential to the maintenance of a free
+society, the right of the people, to keep and read books shall not be
+infringed.
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Independent contractors: Find your next project gig through JobSwarm!
+        You can even make $$$ by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0738.html">Neal, Ken: "[cricket-users]"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0736.html">Michael Little: "Re: [cricket-users] Help"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#737">[ date ]</A>
+<A HREF="index.html#737">[ thread ]</A>
+<A HREF="subject.html#737">[ subject ]</A>
+<A HREF="author.html#737">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:06 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

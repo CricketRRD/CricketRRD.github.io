@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Yearly graph</TITLE>
+<META NAME="Author" CONTENT="Smith Colin-WCCS07 (Colin_Smith@europe27.mot.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Yearly graph">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Yearly graph</H1>
+<!-- received="Thu Oct  7 04:27:17 1999" -->
+<!-- isoreceived="19991007112717" -->
+<!-- sent="Thu, 7 Oct 1999 09:19:41 +0100 " -->
+<!-- isosent="19991007081941" -->
+<!-- name="Smith Colin-WCCS07" -->
+<!-- email="Colin_Smith@europe27.mot.com" -->
+<!-- subject="RE: [cricket-users] Yearly graph" -->
+<!-- id="152A67906B5CD31194D000508B0BB845293BE7@zuk29exm01.euro.css.mot.com" -->
+<!-- inreplyto="[cricket-users] Yearly graph" -->
+<STRONG>From:</STRONG> Smith Colin-WCCS07 (<A HREF="mailto:Colin_Smith@europe27.mot.com?Subject=RE:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;152A67906B5CD31194D000508B0BB845293BE7@zuk29exm01.euro.css.mot.com&gt;"><EM>Colin_Smith@europe27.mot.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Oct 07 1999 - 01:19:41 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0648.html">David: "[cricket-users] OID mappings"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0646.html">Berg, Ivan: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0634.html">Aurelio Sanchez: "[cricket-users] Yearly graph"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#647">[ date ]</A>
+<A HREF="index.html#647">[ thread ]</A>
+<A HREF="subject.html#647">[ subject ]</A>
+<A HREF="author.html#647">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Smith Colin-WCCS07 &lt;<A HREF="mailto:Colin_Smith@europe27.mot.com?Subject=RE:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;152A67906B5CD31194D000508B0BB845293BE7@zuk29exm01.euro.css.mot.com&gt;">Colin_Smith@europe27.mot.com</A>&gt;
+<BR>
+<P>Actually I think it's when the Round Robin Database is created that the
+<BR>
+AVERAGE function for the longer term data is defined (check man rrdtool and
+<BR>
+man rrdcreate).  It's the &quot;collector&quot; utility that creates the RRDs.  It
+<BR>
+seems to get the info through the ConfigTree::Cache package which suggests
+<BR>
+it may be a config option.
+<BR>
+<P>Though... On looking through grapher.cgi, it does have AVERAGE defined for
+<BR>
+array @defs around line 1273 (Rev 0.67). You'll really need to ask Jeff
+<BR>
+Allen where the AVERAGE function for the longer term data is defined.
+<BR>
+<P>I've grepped my config tree and it does look like it might be a config
+<BR>
+option. There are a bunch of &quot;rra&quot; entries in the Defaults file at the top
+<BR>
+of my tree which set up various averages.
+<BR>
+<P><PRE>
+--
+Colin Smith				Mobile: +44 (0)7788 926 934
+European Unix systems administrator		Phone: +44 (0)1256 790 261
+Personal Communications Sector Europe	Fax: +44 (0)1256 817 481
+Email: <A HREF="mailto:Colin_Smith@euro.css.mot.com?Subject=RE:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;152A67906B5CD31194D000508B0BB845293BE7@zuk29exm01.euro.css.mot.com&gt;">Colin_Smith@euro.css.mot.com</A>	<A HREF="http://euro.css.mot.com/">http://euro.css.mot.com/</A>
+<P><P>	-----Original Message-----
+	From:	Aurelio Sanchez [SMTP:<A HREF="mailto:asanchez@avantel.net.mx?Subject=RE:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;152A67906B5CD31194D000508B0BB845293BE7@zuk29exm01.euro.css.mot.com&gt;">asanchez@avantel.net.mx</A>]
+	Sent:	Wednesday, October 06, 1999 7:14 PM
+	To:	Smith Colin-WCCS07
+	Subject:	Re: [cricket-users] Yearly graph
+<P>	Collin,
+<P>	  I have been checking my configuration tree but I can find the
+place to do
+	this, or do I need to modify it directly in the grapher.cgi file?
+<P>	  regards,
+<P>	  Aurelio
+<P>	Smith Colin-WCCS07 wrote:
+<P>	&gt; You are running into an averaging issue. It is not appropriate to
+average
+	&gt; periodic signals the way the cricket long term graphs do by
+default.
+	&gt; You should probably change the yearly chart to show the peak value
+sampled,
+	&gt; otherwise the chart may be meaningless, rrdtool can certainly
+chart the peak
+	&gt; values.
+	&gt;
+	&gt; A Sine wave for example will average out to zero in the long term
+graphs on
+	&gt; cricket
+	&gt;
+	&gt; --
+	&gt; Colin Smith                             Mobile: +44 (0)7788 926
+934
+	&gt; European Unix systems administrator             Phone: +44 (0)1256
+790 261
+	&gt; Personal Communications Sector Europe   Fax: +44 (0)1256 817 481
+	&gt; Email: <A HREF="mailto:Colin_Smith@euro.css.mot.com?Subject=RE:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;152A67906B5CD31194D000508B0BB845293BE7@zuk29exm01.euro.css.mot.com&gt;">Colin_Smith@euro.css.mot.com</A>     <A HREF="http://euro.css.mot.com/">http://euro.css.mot.com/</A>
+	&gt;
+	&gt;         -----Original Message-----
+	&gt;         From:   Aurelio Sanchez [SMTP:<A HREF="mailto:asanchez@avantel.net.mx?Subject=RE:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;152A67906B5CD31194D000508B0BB845293BE7@zuk29exm01.euro.css.mot.com&gt;">asanchez@avantel.net.mx</A>]
+	&gt;         Sent:   Tuesday, October 05, 1999 10:55 PM
+	&gt;         To:     <A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;152A67906B5CD31194D000508B0BB845293BE7@zuk29exm01.euro.css.mot.com&gt;">cricket-users@onelist.com</A>
+	&gt;         Subject:        [cricket-users] Yearly graph
+	&gt;
+	&gt;         From: Aurelio Sanchez &lt;<A HREF="mailto:asanchez@avantel.net.mx?Subject=RE:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;152A67906B5CD31194D000508B0BB845293BE7@zuk29exm01.euro.css.mot.com&gt;">asanchez@avantel.net.mx</A>&gt;
+	&gt;
+	&gt;         Hi!
+	&gt;
+	&gt;           I'm using crickte 0.70 with rrdtool 1.07 in a ultra 1
+with solaris
+	&gt;         2.6. Currently I have a DS3 link been graphicated and I'm
+noticing
+	&gt;         something really wierd.
+	&gt;
+	&gt;         The hourly graph shows the link almost full. The summary
+is as
+	&gt; follows:
+	&gt;
+	&gt;         Summary
+	&gt;
+	&gt;           Values at last update:
+	&gt;           Average bits in (for the day):
+	&gt;           Cur: 39.36 Mbits/sec
+	&gt;           Avg: 25.41 Mbits/sec
+	&gt;           Max: 41.17 Mbits/sec
+	&gt;                                                 Average bits out
+(for the
+	&gt; day):
+	&gt;                                                 Cur: 8.84
+Mbits/sec
+	&gt;                                                 Avg: 5.88
+Mbits/sec
+	&gt;                                                 Max: 10.04
+Mbits/sec
+	&gt;
+	&gt;           Last updated at Tue Oct 5 16:45:09 1999
+	&gt;
+	&gt;           However my yearly graph shows the link barely half full
+and this
+	&gt; data
+	&gt;         is not making any sense to my upper management. Can
+anybody explain
+	&gt; me
+	&gt;         why is thios behaviour?, is this correct and I not
+understanding the
+	&gt;         graphs?
+	&gt;
+	&gt;           Any help will be appreciated.
+	&gt;
+	&gt;           Thanks,
+	&gt;
+	&gt;            Aurelio Sanchez
+	&gt;
+	&gt;         --------------------------- ONElist Sponsor
+	&gt; ----------------------------
+	&gt;
+	&gt;         ?? BETA TEST our free, real-time technical support service
+with live
+	&gt; experts !!
+	&gt;                                   go to EXPERTCITY.COM
+	&gt;                &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity6">http://clickme.onelist.com/ad/expertcity6</A>
+&quot;&gt;Click
+	&gt; Here&lt;/a&gt;
+	&gt;
+	&gt;
+	&gt;
+------------------------------------------------------------------------
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>BETA TEST expertcity.com's new online, real-time, technical support service!
+   Let our live experts help you with your computer now. IT'S FREE! ! !
+         &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity8">http://clickme.onelist.com/ad/expertcity8</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0648.html">David: "[cricket-users] OID mappings"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0646.html">Berg, Ivan: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0634.html">Aurelio Sanchez: "[cricket-users] Yearly graph"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#647">[ date ]</A>
+<A HREF="index.html#647">[ thread ]</A>
+<A HREF="subject.html#647">[ subject ]</A>
+<A HREF="author.html#647">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

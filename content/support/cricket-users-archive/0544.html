@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] example of multiple targets</TITLE>
+<META NAME="Author" CONTENT="Matt Duggan (matt@insnet.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] example of multiple targets on one page?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] example of multiple targets on one page?</H1>
+<!-- received="Thu Aug 26 04:26:48 1999" -->
+<!-- isoreceived="19990826112648" -->
+<!-- sent="Thu, 26 Aug 1999 07:55:55 +0000" -->
+<!-- isosent="19990826075555" -->
+<!-- name="Matt Duggan" -->
+<!-- email="matt@insnet.net" -->
+<!-- subject="Re: [cricket-users] example of multiple targets on one page?" -->
+<!-- id="37C4F30B.C8FA1862@insnet.net" -->
+<!-- inreplyto="19990825214310.A24710@zaphod.mps.ohio-state.edu" -->
+<STRONG>From:</STRONG> Matt Duggan (<A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20example%20of%20multiple%20targets%20on%20one%20page?&In-Reply-To=&lt;37C4F30B.C8FA1862@insnet.net&gt;"><EM>matt@insnet.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Aug 26 1999 - 00:55:55 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0545.html">Kevin Fenn: "[cricket-users] Hosts"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0543.html">Dave Alden: "[cricket-users] example of multiple targets on one page?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0543.html">Dave Alden: "[cricket-users] example of multiple targets on one page?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0560.html">Matt Duggan: "[cricket-users] Descriptions of Directories..."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0560.html">Matt Duggan: "[cricket-users] Descriptions of Directories..."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#544">[ date ]</A>
+<A HREF="index.html#544">[ thread ]</A>
+<A HREF="subject.html#544">[ subject ]</A>
+<A HREF="author.html#544">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Matt Duggan &lt;<A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20example%20of%20multiple%20targets%20on%20one%20page?&In-Reply-To=&lt;37C4F30B.C8FA1862@insnet.net&gt;">matt@insnet.net</A>&gt;
+<BR>
+<P>Dave Alden wrote:
+<BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; From: Dave Alden &lt;<A HREF="mailto:alden@math.ohio-state.edu?Subject=Re:%20[cricket-users]%20example%20of%20multiple%20targets%20on%20one%20page?&In-Reply-To=&lt;37C4F30B.C8FA1862@insnet.net&gt;">alden@math.ohio-state.edu</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Hi,
+</EM><BR>
+<EM>&gt;   Can someone send me an example of how to do the multiple targts on
+</EM><BR>
+<EM>&gt; the same page.  I would like to have a page that is similar to mrtg
+</EM><BR>
+<EM>&gt; for my main switch (24 'hourly' graphs on the same page).
+</EM><BR>
+<EM>&gt; ...thnx,
+</EM><BR>
+<EM>&gt; ...dave alden
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Congratulations GENEVINCENT. Our latest ONElist of the week.
+</EM><BR>
+<EM>&gt; For full story and to submit yours, go to
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/ootw23">http://clickme.onelist.com/ad/ootw23</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<P>Hi Dave,
+<BR>
+<P>I have got multi-targets working (i.e. multiple separate graphs) as
+<BR>
+follows:
+<BR>
+<P>target INS_Peering_Points 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;INS Peering Points - all routers&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long-desc = &quot;This page contains multiple graphs for INS
+<BR>
+Peering Interfaces&quot; 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targets = &quot;/router-interfaces/routera/ethernet5_0; 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/routerb/ethernet2_1;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/routerc/ethernet0;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/routerd/ethernet0&quot;
+<BR>
+<P>Hope that helps...
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist announces &quot;FRIENDS &amp; FAMILY!&quot;
+<BR>
+For details, including our weekly drawing, go to
+<BR>
+<A HREF="http://www.onelist.com/info/onereachsplash3.html">http://www.onelist.com/info/onereachsplash3.html</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0545.html">Kevin Fenn: "[cricket-users] Hosts"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0543.html">Dave Alden: "[cricket-users] example of multiple targets on one page?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0543.html">Dave Alden: "[cricket-users] example of multiple targets on one page?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0560.html">Matt Duggan: "[cricket-users] Descriptions of Directories..."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0560.html">Matt Duggan: "[cricket-users] Descriptions of Directories..."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#544">[ date ]</A>
+<A HREF="index.html#544">[ thread ]</A>
+<A HREF="subject.html#544">[ subject ]</A>
+<A HREF="author.html#544">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

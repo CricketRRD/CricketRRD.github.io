@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Problems with reading data from</TITLE>
+<META NAME="Author" CONTENT="Alexander Reelsen (ar@rhwd.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Problems with reading data from Cisco 2500">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Problems with reading data from Cisco 2500</H1>
+<!-- received="Sat Jan  8 08:33:08 2000" -->
+<!-- isoreceived="20000108163308" -->
+<!-- sent="Sat, 8 Jan 2000 14:30:59 +0100" -->
+<!-- isosent="20000108133059" -->
+<!-- name="Alexander Reelsen" -->
+<!-- email="ar@rhwd.net" -->
+<!-- subject="[cricket-users] Problems with reading data from Cisco 2500" -->
+<!-- id="20000108143059.A12774@joker.rhwd.owl.de" -->
+<STRONG>From:</STRONG> Alexander Reelsen (<A HREF="mailto:ar@rhwd.net?Subject=Re:%20[cricket-users]%20Problems%20with%20reading%20data%20from%20Cisco%202500&In-Reply-To=&lt;20000108143059.A12774@joker.rhwd.owl.de&gt;"><EM>ar@rhwd.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sat Jan 08 2000 - 05:30:59 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0866.html">Jeff Allen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0864.html">Michael S. Fischer: "[cricket-users] Annoying single-inst limitation?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0866.html">Jeff Allen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0866.html">Jeff Allen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#865">[ date ]</A>
+<A HREF="index.html#865">[ thread ]</A>
+<A HREF="subject.html#865">[ subject ]</A>
+<A HREF="author.html#865">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Alexander Reelsen &lt;<A HREF="mailto:ar@rhwd.net?Subject=Re:%20[cricket-users]%20Problems%20with%20reading%20data%20from%20Cisco%202500&In-Reply-To=&lt;20000108143059.A12774@joker.rhwd.owl.de&gt;">ar@rhwd.net</A>&gt;
+<BR>
+<P>Hi *
+<BR>
+<P>I got some problems reading snmp data from a Cisco 2500.
+<BR>
+<P>The situation is the following.
+<BR>
+root@joker:/var/lib/cricket# util/listInterfaces heaven community &gt;
+<BR>
+cricket-config/router-interfaces/interfaces
+<BR>
+<P>[Editing router-interfaces/interfaces for the right snmp community]
+<BR>
+<P>root@joker:/var/lib/cricket# ./collector -base cricket-config/ -loglevel debug
+<BR>
+[08-Jan-2000 14:24:15 ] Starting collector: Cricket version 0.70 ( Wed Aug 11
+<BR>
+11:33:37 PDT 1999 )
+<BR>
+[08-Jan-2000 14:24:15 ] Processing /router-interfaces/bri0_1...
+<BR>
+[08-Jan-2000 14:24:15 ] target bri0_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = cricket-config/
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /..
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /router-interfaces
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datadir = cricket-config//../cricket-data//router-interfaces
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = BRI0:1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = heaven.rhwd.net
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile =
+<BR>
+cricket-config//../cricket-data//router-interfaces/bri0_1.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-poll-interval = 300
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = WAN gt.owl.de
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp = community@bri0_1:161
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-community = community
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = bri0_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-port = 161
+<BR>
+<P>[08-Jan-2000 14:24:15*] No ds tag found for target type .
+<BR>
+[08-Jan-2000 14:24:15 ] Processing /router-interfaces/ethernet0...
+<BR>
+<P>[... and so on ...]
+<BR>
+<P>I was wondering about several debug lines.
+<BR>
+Especially &quot;snmp = community@bri0_1:161&quot; - Shouldn't that be community@heaven
+<BR>
+then?
+<BR>
+This problem could be fixed in cricket-config/Defaults by setting snmp value
+<BR>
+to something other.
+<BR>
+<P>And what means &quot;[08-Jan-2000 14:24:15*] No ds tag found for target type .&quot;
+<BR>
+<P>I don't what I could have done wrong, because at work it works, at home it
+<BR>
+doesn't. Same cricket version.
+<BR>
+I assume it's one blind failure, so show me where :)
+<BR>
+<P><P>MfG/Regards, Alexander
+<BR>
+<P><PRE>
+--
+Alexander Reelsen       <A HREF="http://joker.rhwd.owl.de">http://joker.rhwd.owl.de</A> 
+&quot;This manpage is confusing.&quot; -- getopt(3), Section BUGS
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Independent contractors: Find your next project gig through JobSwarm!
+        You can even make money by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0866.html">Jeff Allen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0864.html">Michael S. Fischer: "[cricket-users] Annoying single-inst limitation?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0866.html">Jeff Allen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0866.html">Jeff Allen: "Re: [cricket-users] Problems with reading data from Cisco 2500"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#865">[ date ]</A>
+<A HREF="index.html#865">[ thread ]</A>
+<A HREF="subject.html#865">[ subject ]</A>
+<A HREF="author.html#865">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:09 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

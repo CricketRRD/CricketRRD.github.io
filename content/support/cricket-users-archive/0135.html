@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] CDB Version of 0.65</TITLE>
+<META NAME="Author" CONTENT="Jost Krieger (Jost.Krieger+onelist@ruhr-uni-bochum.de)">
+<META NAME="Subject" CONTENT="[cricket-users] CDB Version of 0.65">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] CDB Version of 0.65</H1>
+<!-- received="Wed May 26 10:05:39 1999" -->
+<!-- isoreceived="19990526170539" -->
+<!-- sent="26 May 1999 16:03:23 +0200" -->
+<!-- isosent="19990526140323" -->
+<!-- name="Jost Krieger" -->
+<!-- email="Jost.Krieger+onelist@ruhr-uni-bochum.de" -->
+<!-- subject="[cricket-users] CDB Version of 0.65" -->
+<!-- id="s5k90acormc.fsf@sunu115.rz.ruhr-uni-bochum.de" -->
+<STRONG>From:</STRONG> Jost Krieger (<A HREF="mailto:Jost.Krieger%2Bonelist@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20CDB%20Version%20of%200.65&In-Reply-To=&lt;s5k90acormc.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;"><EM>Jost.Krieger+onelist@ruhr-uni-bochum.de</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed May 26 1999 - 07:03:23 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0136.html">Jeff Johnson: "[cricket-users] Graph scales after RRD-TOOL 0.99.30 update."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0134.html">Tobias Oetiker: "Re: [cricket-users] graphing problem..."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#135">[ date ]</A>
+<A HREF="index.html#135">[ thread ]</A>
+<A HREF="subject.html#135">[ subject ]</A>
+<A HREF="author.html#135">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jost Krieger &lt;Jost.Krieger+<A HREF="mailto:onelist@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20CDB%20Version%20of%200.65&In-Reply-To=&lt;s5k90acormc.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">onelist@ruhr-uni-bochum.de</A>&gt;
+<BR>
+<P>Since last Friday I have been running a quick-and-dirty CDB version or
+<BR>
+cricket 0.65:
+<BR>
+<P>The dirty part concerns that it compiles to memory. So you probably
+<BR>
+shouldn't use this for really large sites.
+<BR>
+<P>And please don't remove the stringification of $mtime. There seems to
+<BR>
+be a problem in CDB_File with values that have never been strings.
+<BR>
+<P>Here's the patch:
+<BR>
+<P>diff -ur src/cricket-0.65/lib/ConfigTree/Cache.pm cricket/lib/ConfigTree/Cache.pm
+<BR>
+--- src/cricket-0.65/lib/ConfigTree/Cache.pm	Mon May 17 20:54:27 1999
+<BR>
++++ cricket/lib/ConfigTree/Cache.pm	Fri May 21 12:28:17 1999
+<BR>
+@@ -1,6 +1,6 @@
+<BR>
+&nbsp;package ConfigTree::Cache;
+<BR>
+&nbsp;
+<BR>
+-use DB_File;
+<BR>
++use CDB_File;
+<BR>
+&nbsp;use POSIX;
+<BR>
+&nbsp;
+<BR>
+&nbsp;sub DbRef { shift-&gt;_getAndSet('DbRef', @_) };
+<BR>
+@@ -26,7 +26,7 @@
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($self) = @_;
+<BR>
+&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($file) = $self-&gt;Base() . &quot;/config.db&quot;;
+<BR>
+-	my($dbh) = tie %db, 'DB_File', $file, O_RDONLY, 0644, $DB_HASH;
+<BR>
++	my($dbh) = tie %db, 'CDB_File', $file;
+<BR>
+&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$self-&gt;DbRef(\%db);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$self-&gt;Dbh($dbh);
+<BR>
+@@ -135,7 +135,7 @@
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (defined($mtime2)) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($mtime &gt; $mtime2) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (1,
+<BR>
+-							&quot;File $file is newer than the compiled version.&quot;);
+<BR>
++							&quot;File $file is newer ($mtime) than the compiled version ($mtime2).&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (1, &quot;Missing file mtime for file $file&quot;);
+<BR>
+diff -ur src/cricket-0.65/lib/ConfigTree/Node.pm cricket/lib/ConfigTree/Node.pm
+<BR>
+--- src/cricket-0.65/lib/ConfigTree/Node.pm	Thu May 20 00:41:02 1999
+<BR>
++++ cricket/lib/ConfigTree/Node.pm	Wed May 26 16:02:00 1999
+<BR>
+@@ -3,7 +3,7 @@
+<BR>
+&nbsp;use strict;
+<BR>
+&nbsp;use Text::ParseWords;
+<BR>
+&nbsp;use FileHandle;
+<BR>
+-use DB_File;
+<BR>
++use CDB_File;
+<BR>
+&nbsp;use POSIX;
+<BR>
+&nbsp;
+<BR>
+&nbsp;my($gDebug) = 0;
+<BR>
+@@ -156,7 +156,6 @@
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unlink($file);
+<BR>
+&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my(%db);
+<BR>
+-    my($dbh) = tie %db, 'DB_File', $file, O_CREAT|O_RDWR, 0644, $DB_HASH;
+<BR>
+&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($ct) = $self-&gt;compileTree(\%db);
+<BR>
+&nbsp;
+<BR>
+@@ -172,7 +171,7 @@
+<BR>
+&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# we get a message about inner references. Whatever. Forget it.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# untie %db;
+<BR>
+-    rename($file, $finalFile);
+<BR>
++    CDB_File::create %db, $finalFile, $file;
+<BR>
+&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return ($ct, $#f+1);
+<BR>
+&nbsp;}
+<BR>
+@@ -304,10 +303,11 @@
+<BR>
+&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($fd) = $fh-&gt;fileno();
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($mtime) = (POSIX::fstat($fd))[9];
+<BR>
++    # $self-&gt;Debug(&quot;Time is $mtime&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (! defined($mtime)) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$self-&gt;Warn(&quot;Could not get mtime for file $file.&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {
+<BR>
+-		($self-&gt;Files())-&gt;{$file} = $mtime;
+<BR>
++		($self-&gt;Files())-&gt;{$file} = &quot;$mtime&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$fh-&gt;close();
+<BR>
+<P><P><P><PRE>
+-- 
+| <A HREF="mailto:Jost.Krieger@ruhr-uni-bochum.de?Subject=Re:%20[cricket-users]%20CDB%20Version%20of%200.65&In-Reply-To=&lt;s5k90acormc.fsf@sunu115.rz.ruhr-uni-bochum.de&gt;">Jost.Krieger@ruhr-uni-bochum.de</A>      Please help stamp out spam! |
+| Postmaster, JAPH, resident answer machine          am RZ der RUB |
+| non sunt multiplicanda entia praeter necessitatem                |
+|                                 William of Ockham (1285-1347/49) |
+<P>------------------------------------------------------------------------
+What was YOUR favorite part?!
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Tell other Star Wars fans at ONElist!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0136.html">Jeff Johnson: "[cricket-users] Graph scales after RRD-TOOL 0.99.30 update."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0134.html">Tobias Oetiker: "Re: [cricket-users] graphing problem..."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#135">[ date ]</A>
+<A HREF="index.html#135">[ thread ]</A>
+<A HREF="subject.html#135">[ subject ]</A>
+<A HREF="author.html#135">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:51 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

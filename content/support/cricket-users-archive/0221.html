@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] identical routers</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] identical routers">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] identical routers</H1>
+<!-- received="Mon Jun 21 01:44:08 1999" -->
+<!-- isoreceived="19990621084408" -->
+<!-- sent="Sun, 20 Jun 1999 23:43:45 -0600" -->
+<!-- isosent="19990621054345" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="[cricket-users] identical routers" -->
+<!-- id="8B069C65F931D111B6E10000F804A4DF77033D@amethyst.msu.montana.edu" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=Re:%20[cricket-users]%20identical%20routers&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77033D@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sun Jun 20 1999 - 22:43:45 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0222.html">Berg, Ivan: "[cricket-users] (no subject)"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0220.html">Stephen Carville: "Re: [cricket-users] HELP"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#221">[ date ]</A>
+<A HREF="index.html#221">[ thread ]</A>
+<A HREF="subject.html#221">[ subject ]</A>
+<A HREF="author.html#221">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=Re:%20[cricket-users]%20identical%20routers&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77033D@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>Question:
+<BR>
+<P>I have multiple identical routers that I need to monitor. I ran
+<BR>
+listInterfaces on all the routers and gave each router it's own file, I
+<BR>
+placed these files under the router-interfaces directory.  On the generated
+<BR>
+web page, I get all of the interfaces I wanted, however, the description is
+<BR>
+all the same, this is because the target names are identical on all
+<BR>
+different files since they are identical routers.  Each file looks something
+<BR>
+like this:
+<BR>
+<P><P>target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = gwy.blah.blah
+<BR>
+<P>target fddi0_net0_FDDI
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       &quot;fddi0/net0 FDDI&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =   &quot;#1 900EF/MP Router&quot;
+<BR>
+<P>target eth0_net1_Ethernet
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       &quot;eth0/net1 Ethernet&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =   &quot;#1 900EF/MP Router&quot;
+<BR>
+<P>target eth1_net2_Ethernet
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       &quot;eth1/net2 Ethernet&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =   &quot;#1 900EF/MP Router&quot;
+<BR>
+<P>target eth2_net3_Ethernet
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       &quot;eth2/net3 Ethernet&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =   &quot;#1 900EF/MP Router&quot;
+<BR>
+<P>of course, the router= and short-desc is changed in every file.
+<BR>
+<P>How do I get it to uniquely monitor each interface, right now it gives
+<BR>
+duplicate descriptions and brings you to the same page no matter which item
+<BR>
+the group of interfaces you choose.  For instance, there is 5 total routers,
+<BR>
+which gives us 5 total fddi0 interfaces, 1 for each router. However, on web
+<BR>
+page, clicking on any one of them brings you to only 1 page.  This is
+<BR>
+because target names are identical, however, you would think it would know
+<BR>
+the difference since router= is changed in every file.  
+<BR>
+<P>I tried changing target name and interface-name but it just messes up data
+<BR>
+collecting.
+<BR>
+<P>Surely, cricket was meant to grab data from multiple peices of equipment
+<BR>
+that are identical???  Please send any suggestions or sample-config
+<BR>
+<P>Thanks
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+ONElist:  the best source for group communications.
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Join a new list today!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0222.html">Berg, Ivan: "[cricket-users] (no subject)"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0220.html">Stephen Carville: "Re: [cricket-users] HELP"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#221">[ date ]</A>
+<A HREF="index.html#221">[ thread ]</A>
+<A HREF="subject.html#221">[ subject ]</A>
+<A HREF="author.html#221">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:53 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

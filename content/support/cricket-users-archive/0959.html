@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Really wack-ass usage summaries.</TITLE>
+<META NAME="Author" CONTENT="Matt Raykowski (mattr@spacestar.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Really wack-ass usage summaries.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Really wack-ass usage summaries.</H1>
+<!-- received="Fri Jan 21 21:17:40 2000" -->
+<!-- isoreceived="20000122051740" -->
+<!-- sent="Fri, 21 Jan 2000 20:18:40 -0600" -->
+<!-- isosent="20000122021840" -->
+<!-- name="Matt Raykowski" -->
+<!-- email="mattr@spacestar.net" -->
+<!-- subject="[cricket-users] Really wack-ass usage summaries." -->
+<!-- id="HHEILEOELNBPDCKJADALKEFDCAAA.mattr@spacestar.net" -->
+<STRONG>From:</STRONG> Matt Raykowski (<A HREF="mailto:mattr@spacestar.net?Subject=Re:%20[cricket-users]%20Really%20wack-ass%20usage%20summaries.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALKEFDCAAA.mattr@spacestar.net&gt;"><EM>mattr@spacestar.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jan 21 2000 - 18:18:40 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0960.html">Honermann Tom A.: "RE: [cricket-users] Onelist spam"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0958.html">Jeff Younker: "RE: [cricket-users] Do threshold monitors work with gauges"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#959">[ date ]</A>
+<A HREF="index.html#959">[ thread ]</A>
+<A HREF="subject.html#959">[ subject ]</A>
+<A HREF="author.html#959">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Matt Raykowski&quot; &lt;<A HREF="mailto:mattr@spacestar.net?Subject=Re:%20[cricket-users]%20Really%20wack-ass%20usage%20summaries.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALKEFDCAAA.mattr@spacestar.net&gt;">mattr@spacestar.net</A>&gt;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Okay, now I'm just plain frustrated.  I'm trying to combine my interface
+<BR>
+data and my cpu/memory data into one directory, and I get them to show up,
+<BR>
+toss and get the correct data, but when I pull up the actually Octets graph,
+<BR>
+it says my serial interface is pulling 27.4G/s and that's just obviously not
+<BR>
+right.  See if any of you can see what I'm doing wrong:
+<BR>
+<P>interfaces file:
+<BR>
+target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = router-domain-name
+<BR>
+<P>target router-domain-name
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       cisco-2900xl
+<BR>
+<P>target VLAN1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       switch-port
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       VLAN1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;&lt;IMG SRC=\&quot;\&quot;&gt;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst            =       map(interface-name)
+<BR>
+<P>target FastEthernet0_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       switch-port
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       FastEthernet0/1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;&lt;IMG SRC=\&quot;\&quot;&gt;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst            =       map(interface-name)
+<BR>
+<P>Defaults file:
+<BR>
+# switches sub-tree
+<BR>
+#
+<BR>
+# Contributed by Jeff Jensen &lt;<A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Really%20wack-ass%20usage%20summaries.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALKEFDCAAA.mattr@spacestar.net&gt;">jpj@corp.webtv.net</A>&gt;.
+<BR>
+# Hacked by Jeff Allen... any mistakes are mine.
+<BR>
+<P>Target  --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;switch          = %auto-target-name%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;snmp-host       = %router%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# you can set this, if you need to:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# snmp-community  = private
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# we leave this unset here so that we MUST remember to set it later
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;target-type     = undef
+<BR>
+<P>OID c1900Bandwidth              1.3.6.1.4.1.437.1.1.3.7.1.0
+<BR>
+OID c1900BandwidthMax   1.3.6.1.4.1.437.1.1.3.7.5.0
+<BR>
+OID c5000Bandwidth      1.3.6.1.4.1.9.5.1.1.8.0
+<BR>
+OID c5000BandwidthMax   1.3.6.1.4.1.9.5.1.1.19.0
+<BR>
+OID cpu1min                             1.3.6.1.4.1.9.2.1.57.0
+<BR>
+OID cpu5min                             1.3.6.1.4.1.9.2.1.58.0
+<BR>
+OID mem5minUsed                 1.3.6.1.4.1.9.9.48.1.1.1.5.1
+<BR>
+OID mem5minFree                 1.3.6.1.4.1.9.9.48.1.1.1.6.1
+<BR>
+<P><P>datasource  --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type     =   GAUGE
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-heartbeat   =   1800
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-min         =   undef
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-max         =   undef
+<BR>
+<P>datasource  c1900-bandwidth
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds-source       =   snmp://%snmp%/c1900Bandwidth
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;desc            =   &quot;The amount of bandwidth used across the backplane.&quot;
+<BR>
+<P>datasource  c1900-bandwidth-max
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds-source       =   snmp://%snmp%/c1900BandwidthMax
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;desc            =   &quot;The maximum amount of bandwidth used across the
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backplane.&quot;
+<BR>
+<P>datasource c5000-bandwidth
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds-source       =   snmp://%snmp%/c5000Bandwidth
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;desc            =   &quot;The amount of bandwidth used across the backplane.&quot;
+<BR>
+<P>datasource c5000-bandwidth-max
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds-source       =   snmp://%snmp%/c5000BandwidthMax
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-heartbeat   =   1800
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;desc            =   &quot;The maximum amount of bandwidth used across the
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backplane&quot;.
+<BR>
+datasource  cpu1min
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds-source   =   snmp://%snmp%/cpu1min
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type     =   GAUGE
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-heartbeat   =   1800
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;desc            =   &quot;The average usage of the CPU over the last 1
+<BR>
+minute.&quot;
+<BR>
+<P>datasource  cpu5min
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds-source   =   snmp://%snmp%/cpu5min
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type     =   GAUGE
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-heartbeat   =   1800
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;desc            =   &quot;The average usage of the CPU over the last 5
+<BR>
+minutes.&quot;
+<BR>
+<P>datasource  mem5minUsed
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds-source   =   snmp://%snmp%/mem5minUsed
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type     =   GAUGE
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-heartbeat   =   1800
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;desc            =   &quot;The amount of memory used over the last 5 minutes.&quot;
+<BR>
+<P>datasource  mem5minFree
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds-source   =   snmp://%snmp%/mem5minFree
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type     =   GAUGE
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;rrd-heartbeat   =   1800
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;desc            =   &quot;The amount of memory free over the last 5 minutes.&quot;
+<BR>
+graph c1900-bandwidth
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   bs
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Bits&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;Bits/s across backplane&quot;
+<BR>
+<P>graph c1900-bandwidth-max
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   bs
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   blue
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Bits&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;Max bits/s across backplane during interval&quot;
+<BR>
+<P>graph c5000-bandwidth
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   bs
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Percent backplane utilization&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;Percent backplane utilization&quot;
+<BR>
+<P>graph c5000-bandwidth-max
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   bs
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   blue
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Max percentage backplane utilization&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;Max percentage backplane utilization&quot;
+<BR>
+<P>graph   cpu1min
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   %
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Percent CPU utilization&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;1 minute CPU utilization&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;precision   =   integer
+<BR>
+<P>graph   cpu5min
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   %
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color   =   blue
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Percent CPU utilization&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;5 minute CPU utilization&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;precision   =   integer
+<BR>
+<P>graph   mem5minUsed
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   B
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Bytes&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;5 minute used memory&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;precision   =   integer
+<BR>
+<P>graph   mem5minFree
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   B
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Bytes&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;5 minute free memory&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;precision   =   integer
+<BR>
+<P>targetType  cisco-2900xl
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds      =       &quot;cpu1min, cpu5min, mem5minUsed, mem5minFree&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;view    =   &quot;cpu: cpu1min cpu5min,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory: mem5minUsed mem5minFree&quot;
+<BR>
+<P>targetType  cisco-1900
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds  =   &quot;c1900-bandwidth, c1900-bandwidth-max&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;view    =   &quot;backplane: c1900-bandwidth c1900-bandwidth-max&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;5 minute CPU utilization&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;precision   =   integer
+<BR>
+<P>graph   mem5minUsed
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   B
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as =   AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Bytes&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;5 minute used memory&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;precision   =   integer
+<BR>
+<P>graph   mem5minFree
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units   =   B
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =   &quot;Bytes&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend  =   &quot;5 minute free memory&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;precision   =   integer
+<BR>
+<P>targetType  cisco-2900xl
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds      =       &quot;cpu1min, cpu5min, mem5minUsed, mem5minFree&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;view    =   &quot;cpu: cpu1min cpu5min,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory: mem5minUsed mem5minFree&quot;
+<BR>
+<P>targetType  cisco-1900
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds  =   &quot;c1900-bandwidth, c1900-bandwidth-max&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;view    =   &quot;backplane: c1900-bandwidth c1900-bandwidth-max&quot;
+<BR>
+<P>Matt Raykowski - Level Two Technician
+<BR>
+Spacestar Communications, Inc.
+<BR>
+Dial-up to DS-3 Serving - MN WI ND MI IL
+<BR>
+Voice (612) 996-0000 / Fax (612) 996-0123
+<BR>
+www.spacestar.net / <A HREF="mailto:mattr@spacestar.net?Subject=Re:%20[cricket-users]%20Really%20wack-ass%20usage%20summaries.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALKEFDCAAA.mattr@spacestar.net&gt;">mattr@spacestar.net</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0960.html">Honermann Tom A.: "RE: [cricket-users] Onelist spam"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0958.html">Jeff Younker: "RE: [cricket-users] Do threshold monitors work with gauges"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#959">[ date ]</A>
+<A HREF="index.html#959">[ thread ]</A>
+<A HREF="subject.html#959">[ subject ]</A>
+<A HREF="author.html#959">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:11 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] problems with Cricket 0.66</TITLE>
+<META NAME="Author" CONTENT="jari (jari.peuralahti@hpy.fi)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] problems with Cricket 0.66">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] problems with Cricket 0.66</H1>
+<!-- received="Tue Jun  8 15:17:31 1999" -->
+<!-- isoreceived="19990608221731" -->
+<!-- sent="Tue, 08 Jun 1999 14:09:50 +0000" -->
+<!-- isosent="19990608140950" -->
+<!-- name="jari" -->
+<!-- email="jari.peuralahti@hpy.fi" -->
+<!-- subject="Re: [cricket-users] problems with Cricket 0.66" -->
+<!-- id="375D242E.8EA87F21@hpy.fi" -->
+<!-- inreplyto="199906081700.TAA09906@breizh.francenet.fr" -->
+<STRONG>From:</STRONG> jari (<A HREF="mailto:jari.peuralahti@hpy.fi?Subject=Re:%20[cricket-users]%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;375D242E.8EA87F21@hpy.fi&gt;"><EM>jari.peuralahti@hpy.fi</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jun 08 1999 - 07:09:50 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0175.html">S. John Banner: "[cricket-users] Could not resolve OID for ifAlias"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0173.html">jari: "[cricket-users] Error in /lib/Common/Log.pm ?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0170.html">Gildas PERROT: "[cricket-users] problems with Cricket 0.66"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#174">[ date ]</A>
+<A HREF="index.html#174">[ thread ]</A>
+<A HREF="subject.html#174">[ subject ]</A>
+<A HREF="author.html#174">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: jari &lt;<A HREF="mailto:jari.peuralahti@hpy.fi?Subject=Re:%20[cricket-users]%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;375D242E.8EA87F21@hpy.fi&gt;">jari.peuralahti@hpy.fi</A>&gt;
+<BR>
+<P>I had same proplem and what I can found was that ./lib/common.pm in line 236 tryes
+<BR>
+call subroutine what fails
+<BR>
+I looked the hole file trought and found similar line where the subroutine call was
+<BR>
+diffrent:
+<BR>
+ConfigTree::Cache::expandString()
+<BR>
+<P>so I fixed the line before to correspond to this other line. what uses
+<BR>
+expandString() function ..
+<BR>
+<P>[Perl@tecra lib]$ diff ./common.pm /home/cricket/cricket-0.66/lib/common.pm
+<BR>
+88c88
+<BR>
+&lt;         my($inst) = $target-&gt;{'inst'};
+<BR>
+<PRE>
+---
+&gt;         my($inst) = $target-&gt;{'inst'};
+236c236
+&lt;       $match = expandString($match, $target);                &lt;-----------
+original line
+---
+&gt;       $match =  ConfigTree::Cache::expandString($match, $target);  &lt;--- the
+corrected line I suppose.. because no errors after this
+<P>Well I have next proplem to face now.. continuing to search the next fix ...
+-- Jari
+PD. Using SOT Linux (Red Hat 5.2)
+<P><P><P><P><P>Gildas PERROT wrote:
+<P>&gt; From: Gildas PERROT &lt;<A HREF="mailto:perrot@FranceNet.fr?Subject=Re:%20[cricket-users]%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;375D242E.8EA87F21@hpy.fi&gt;">perrot@FranceNet.fr</A>&gt;
+&gt;
+&gt; Hi,
+&gt;
+&gt; I just installed Cricket 0.66 on FreeBSD 3.2 host and I have a problem with
+&gt; collecting data for router-interfaces :
+&gt;
+&gt; [08-Jun-1999 18:50:02 ] Starting collector: Cricket version 0.66 ( Thu Jun 3
+&gt; 00:
+&gt; 22:40 PDT 1999 )
+&gt; [08-Jun-1999 18:50:03 ] Retrieved data for boulette (): 15,14,43411200,15466760
+&gt; Undefined subroutine &amp;main::expandString called at
+&gt; /home/cricket/cricket/././lib
+&gt; /common.pm line 236.
+&gt;
+&gt; Consequently, I can't see any data in grapher.cgi (&quot;Current values not
+&gt; available&quot;).
+&gt;
+&gt; Any idea about that problem ?                   Thanks in advance for your help.
+&gt;
+&gt; Gildas.
+&gt; --
+&gt; Gildas PERROT, <A HREF="mailto:perrot@francenet.fr?Subject=Re:%20[cricket-users]%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;375D242E.8EA87F21@hpy.fi&gt;">perrot@francenet.fr</A>         __o
+&gt; FranceNet, 28 rue Desaix, 75015 Paris ---_ \&lt;,_
+&gt; <A HREF="http://www.francenet.fr">http://www.francenet.fr</A>            ---- (_)/ (_)
+&gt;
+&gt; ------------------------------------------------------------------------
+&gt; How many communities do you think join ONElist each week?
+&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+&gt; More than 5,000!  Create yours now!
+<P><P><P><P>------------------------------------------------------------------------
+Got an opinion?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Make it count!  Sign up for the ONElist Weekly Survey now.
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0175.html">S. John Banner: "[cricket-users] Could not resolve OID for ifAlias"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0173.html">jari: "[cricket-users] Error in /lib/Common/Log.pm ?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0170.html">Gildas PERROT: "[cricket-users] problems with Cricket 0.66"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#174">[ date ]</A>
+<A HREF="index.html#174">[ thread ]</A>
+<A HREF="subject.html#174">[ subject ]</A>
+<A HREF="author.html#174">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:52 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Help needed for a cricket newbie</TITLE>
+<META NAME="Author" CONTENT="Daniel Spisak (dspisak@mminternet.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Help needed for a cricket newbie">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Help needed for a cricket newbie</H1>
+<!-- received="Wed Jun 23 19:33:10 1999" -->
+<!-- isoreceived="19990624023310" -->
+<!-- sent="Wed, 23 Jun 1999 16:40:05 -0700" -->
+<!-- isosent="19990623234005" -->
+<!-- name="Daniel Spisak" -->
+<!-- email="dspisak@mminternet.com" -->
+<!-- subject="[cricket-users] Help needed for a cricket newbie" -->
+<!-- id="039d01bebdd1$b8bd97c0$c0b6afcf@mminternet.com" -->
+<!-- inreplyto="37718289.433957BF@ns.intec.edu.do" -->
+<STRONG>From:</STRONG> Daniel Spisak (<A HREF="mailto:dspisak@mminternet.com?Subject=Re:%20[cricket-users]%20Help%20needed%20for%20a%20cricket%20newbie&In-Reply-To=&lt;039d01bebdd1$b8bd97c0$c0b6afcf@mminternet.com&gt;"><EM>dspisak@mminternet.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jun 23 1999 - 16:40:05 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0235.html">Jeff Allen: "Re: [cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0233.html">James Pichardo: "[cricket-users] HELP"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0233.html">James Pichardo: "[cricket-users] HELP"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0235.html">Jeff Allen: "Re: [cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0235.html">Jeff Allen: "Re: [cricket-users] Help needed for a cricket newbie"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#234">[ date ]</A>
+<A HREF="index.html#234">[ thread ]</A>
+<A HREF="subject.html#234">[ subject ]</A>
+<A HREF="author.html#234">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Daniel Spisak&quot; &lt;<A HREF="mailto:dspisak@mminternet.com?Subject=Re:%20[cricket-users]%20Help%20needed%20for%20a%20cricket%20newbie&In-Reply-To=&lt;039d01bebdd1$b8bd97c0$c0b6afcf@mminternet.com&gt;">dspisak@mminternet.com</A>&gt;
+<BR>
+<P>Ok, I have started going nuts now I think
+<BR>
+I blew away my old cricket files and did a clean install of cricket under a
+<BR>
+non-root user.  I used the CPAN.pm to install the latest versions of
+<BR>
+Time::HiRes, LWP, and MD5.  I have the latest version on RRD and
+<BR>
+SNMP_Session installed.  I did a sh configure sucessfully. However this is
+<BR>
+what happens now when I try to do a complie command as a non-root user(as
+<BR>
+root the errors are the same):
+<BR>
+<P>[dspisak@andromeda cricket-config]$ ~/cricket/compile /routers
+<BR>
+DB_File object version 1.67 does not match bootstrap parameter 1.15 at
+<BR>
+/usr/lib/perl5/i386-linux/5.00405/DynaLoader.pm line 188.
+<BR>
+BEGIN failed--compilation aborted at
+<BR>
+/home/dspisak/cricket/./lib/ConfigTree/Node.pm line 25.
+<BR>
+BEGIN failed--compilation aborted at /home/dspisak/cricket/compile line 29.
+<BR>
+[dspisak@andromeda cricket-config]$
+<BR>
+<P>After looking at line 29 of complie it looks like its looking for
+<BR>
+ConfigTree::Node but not finding it? But its the first error that is
+<BR>
+annoying me, I think its saying that my Perl can't find the proper header
+<BR>
+info for DB_File?  What am I doing wrong?  SO far I haven't heard anything I
+<BR>
+haven't tried yet. Jeff, if you have some time I'd like to talk to you about
+<BR>
+these errors as the beginner.txt file, even with your addendums seems to
+<BR>
+only make things worse for me now :(
+<BR>
+<P>If anyone else has any ideas as to what is wrong with my setup I'd love to
+<BR>
+hear from you.
+<BR>
+So far, getting this working is making maintaining my MRTG config files look
+<BR>
+trivial! I *want* this to work (I am going to need instance mapping in a big
+<BR>
+way soon).
+<BR>
+<P>Daniel E. Spisak
+<BR>
+Senior Network Administrator
+<BR>
+MM Internet
+<BR>
+<A HREF="http://www.mminternet.com/">http://www.mminternet.com/</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist:  the best source for group communications.
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Join a new list today!
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0235.html">Jeff Allen: "Re: [cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0233.html">James Pichardo: "[cricket-users] HELP"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0233.html">James Pichardo: "[cricket-users] HELP"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0235.html">Jeff Allen: "Re: [cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0235.html">Jeff Allen: "Re: [cricket-users] Help needed for a cricket newbie"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#234">[ date ]</A>
+<A HREF="index.html#234">[ thread ]</A>
+<A HREF="subject.html#234">[ subject ]</A>
+<A HREF="author.html#234">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:54 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

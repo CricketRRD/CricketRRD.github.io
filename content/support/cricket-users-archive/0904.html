@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] ugrading to cricket ver 0.71</TITLE>
+<META NAME="Author" CONTENT="Honermann Tom A. (TA.Honermann@hosp.wisc.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] ugrading to cricket ver 0.71">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] ugrading to cricket ver 0.71</H1>
+<!-- received="Tue Jan 11 13:39:05 2000" -->
+<!-- isoreceived="20000111213905" -->
+<!-- sent="Tue, 11 Jan 2000 12:37:42 -0600" -->
+<!-- isosent="20000111183742" -->
+<!-- name="Honermann Tom A." -->
+<!-- email="TA.Honermann@hosp.wisc.edu" -->
+<!-- subject="RE: [cricket-users] ugrading to cricket ver 0.71" -->
+<!-- id="4DCF9508FC7FD211BF2F00A0C9E9378401C14C31@xchng1.hosp.wisc.edu" -->
+<!-- inreplyto="[cricket-users] ugrading to cricket ver 0.71" -->
+<STRONG>From:</STRONG> Honermann Tom A. (<A HREF="mailto:TA.Honermann@hosp.wisc.edu?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C31@xchng1.hosp.wisc.edu&gt;"><EM>TA.Honermann@hosp.wisc.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jan 11 2000 - 10:37:42 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0905.html">Gustavo Torres: "[cricket-users] updated documentation"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0903.html">Matt Zimmerman: "Re: [cricket-users] Graphing Real values."</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0881.html">Phil Pierotti: "[cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0936.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#904">[ date ]</A>
+<A HREF="index.html#904">[ thread ]</A>
+<A HREF="subject.html#904">[ subject ]</A>
+<A HREF="author.html#904">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Honermann Tom A.&quot; &lt;<A HREF="mailto:TA.Honermann@hosp.wisc.edu?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C31@xchng1.hosp.wisc.edu&gt;">TA.Honermann@hosp.wisc.edu</A>&gt;
+<BR>
+<P><EM>&gt; But I don't agree with this one:
+</EM><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Honermann Tom A.]  OK, let me take another shot at it:
+<BR>
+<P><EM>&gt; Honermann Tom A. wrote:
+</EM><BR>
+<EM>&gt; &gt; The fix: change line 1338 from
+</EM><BR>
+<EM>&gt; &gt; 	if (defined($ymin) &amp;&amp; $ymin &gt; $ym) {
+</EM><BR>
+<EM>&gt; &gt; to:
+</EM><BR>
+<EM>&gt; &gt; 	if (defined($ymin) &amp;&amp; $ymin &lt; $ym) {
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Honermann Tom A.] 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This jumped out at me because the same comparison (&gt;) is used at
+<BR>
+line 1324 and line 1333.  These lines are used for finding the _largest_ max
+<BR>
+and the _smallest_ min.  The confusion comes in because the code embraced by
+<BR>
+the if is # nothing.  As the code stands right now, it will select the
+<BR>
+largest y-min amongst a set of data sources.  I have verified this.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The fix above will work, but to enhance readability, I propose the
+<BR>
+block be changed as follows:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change lines 1322-1338 of grapher.cgi from:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ym = graphParam($gRef, 'y-max');
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($ym &amp;&amp; ! $ymaxlck) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (defined($ymax) &amp;&amp; $ymax &gt; $ym) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# nothing
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ymax = $ym;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ym = graphParam($gRef, 'y-min');
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($ym &amp;&amp; ! $yminlck) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (defined($ymin) &amp;&amp; $ymin &gt; $ym) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# nothing
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ymin = $ym;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ym = graphParam($gRef, 'y-max');
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($ym &amp;&amp; ! $ymaxlck) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (! defined($ymax) || $ym &gt; $ymax) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ymax = $ym;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ym = graphParam($gRef, 'y-min');
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($ym &amp;&amp; ! $yminlck) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (! defined($ymin) || $ym &lt; $ymin) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ymin = $ym;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+<P><EM>&gt; In that line, ym is the one we just got fro the config tree. If we
+</EM><BR>
+<EM>&gt; have not yet set a global ymin, then we do so. If the global ymin we
+</EM><BR>
+<EM>&gt; last set is less than the current proposed one, then we ignore the
+</EM><BR>
+<EM>&gt; proposed one. Otherwise, we set the global one (ymin) to the proposed
+</EM><BR>
+<EM>&gt; one (ym).
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; If I'm wrong, explain why, but for now I am leaving it.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Thanks for your help!
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -- 
+</EM><BR>
+<EM>&gt; Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C31@xchng1.hosp.wisc.edu&gt;">jra@corp.webtv.net</A>
+</EM><BR>
+<EM>&gt; WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0905.html">Gustavo Torres: "[cricket-users] updated documentation"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0903.html">Matt Zimmerman: "Re: [cricket-users] Graphing Real values."</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0881.html">Phil Pierotti: "[cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0936.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#904">[ date ]</A>
+<A HREF="index.html#904">[ thread ]</A>
+<A HREF="subject.html#904">[ subject ]</A>
+<A HREF="author.html#904">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:10 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

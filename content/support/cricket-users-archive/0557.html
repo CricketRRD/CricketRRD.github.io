@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] no numbers at all?</TITLE>
+<META NAME="Author" CONTENT="Zebee Johnstone (zebee@cse.unsw.edu.au)">
+<META NAME="Subject" CONTENT="[cricket-users] no numbers at all?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] no numbers at all?</H1>
+<!-- received="Mon Aug 30 01:19:22 1999" -->
+<!-- isoreceived="19990830081922" -->
+<!-- sent="Mon, 30 Aug 1999 15:16:58 +1000" -->
+<!-- isosent="19990830051658" -->
+<!-- name="Zebee Johnstone" -->
+<!-- email="zebee@cse.unsw.edu.au" -->
+<!-- subject="[cricket-users] no numbers at all?" -->
+<!-- id="19990830151658.B11360@cse.unsw.edu.au" -->
+<STRONG>From:</STRONG> Zebee Johnstone (<A HREF="mailto:zebee@cse.unsw.edu.au?Subject=Re:%20[cricket-users]%20no%20numbers%20at%20all?&In-Reply-To=&lt;19990830151658.B11360@cse.unsw.edu.au&gt;"><EM>zebee@cse.unsw.edu.au</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sun Aug 29 1999 - 22:16:58 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0558.html">Dave Alden: "[cricket-users] odd errors"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0556.html">David Mitchell: "[cricket-users] Anyone have a MIB for the monitor-thresholds traps?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#557">[ date ]</A>
+<A HREF="index.html#557">[ thread ]</A>
+<A HREF="subject.html#557">[ subject ]</A>
+<A HREF="author.html#557">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Zebee Johnstone &lt;<A HREF="mailto:zebee@cse.unsw.edu.au?Subject=Re:%20[cricket-users]%20no%20numbers%20at%20all?&In-Reply-To=&lt;19990830151658.B11360@cse.unsw.edu.au&gt;">zebee@cse.unsw.edu.au</A>&gt;
+<BR>
+<P>I am still trying to graph modems....
+<BR>
+<P>The data is in a file.  The defaults page has:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type    =  ModemServer
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE
+<BR>
+<P>dataSource  ModemStaff
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source    =   file:0:/home/stat/services/ModemData
+<BR>
+<P>dataSource  ModemStudent
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source    =   file:1:/home/stat/services/ModemData
+<BR>
+<P>graph   ModemStaff
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color       =   blue
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as     =   LINE1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend      =       &quot;Staff&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis      =   &quot;Modems&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units       =   &quot;Modems&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precision        = integer
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si-units = false
+<BR>
+<P>graph   ModemStudent
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color       =   red
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as     =   LINE1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend      =       &quot;Students&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis      =   &quot;Modems&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units       =   &quot;Modems&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precision        = integer
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si-units = false
+<BR>
+<P><P>The log says:
+<BR>
+[30-Aug-1999 14:55:02 ] Retrieved data for modemserver (): 10,18
+<BR>
+[30-Aug-1999 15:00:03 ] Reading data from /home/stat/services/ModemData for modemserver
+<BR>
+[30-Aug-1999 15:00:03 ] Retrieved data for modemserver (): 10,18
+<BR>
+[30-Aug-1999 15:05:03 ] Reading data from /home/stat/services/ModemData for modemserver
+<BR>
+[30-Aug-1999 15:05:03 ] Retrieved data for modemserver (): 10,18
+<BR>
+[30-Aug-1999 15:10:04 ] Reading data from /home/stat/services/ModemData for modemserver
+<BR>
+[30-Aug-1999 15:10:04 ] Retrieved data for modemserver (): 10,18
+<BR>
+<P><P>But the graph says:
+<BR>
+Values at last update:
+<BR>
+&nbsp;&nbsp;Staff: 0 Modems
+<BR>
+&nbsp;&nbsp;Students: 0 Modems
+<BR>
+<P>So...   why 0?  How do I get it to give me that data?  MRTG did
+<BR>
+it straight up no problem, but cricket is more complex and is 
+<BR>
+harder to make work....
+<BR>
+<P>Is cricket trying to average the data over time or something?
+<BR>
+<P><P>Zebee
+<BR>
+<PRE>
+--
+Zebee Johnstone			<A HREF="mailto:zebee@cse.unsw.edu.au?Subject=Re:%20[cricket-users]%20no%20numbers%20at%20all?&In-Reply-To=&lt;19990830151658.B11360@cse.unsw.edu.au&gt;">zebee@cse.unsw.edu.au</A>
+System/Network Administrator
+School of Computer Science and Engineering 
+University of New South Wales Kensington  NSW  2052  Australia 
+Phone: +61-2-9385-4781
+<P><P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>You can WIN $100 to Amazon.com by starting a new list at ONElist. 
+Drawing is held each week through September 17.  For details go to: 
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/Teaser116">http://clickme.onelist.com/ad/Teaser116</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0558.html">Dave Alden: "[cricket-users] odd errors"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0556.html">David Mitchell: "[cricket-users] Anyone have a MIB for the monitor-thresholds traps?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#557">[ date ]</A>
+<A HREF="index.html#557">[ thread ]</A>
+<A HREF="subject.html#557">[ subject ]</A>
+<A HREF="author.html#557">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

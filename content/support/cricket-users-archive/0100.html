@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Defaults file problem</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Defaults file problem">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Defaults file problem</H1>
+<!-- received="Thu May 20 18:53:46 1999" -->
+<!-- isoreceived="19990521015346" -->
+<!-- sent="Thu, 20 May 1999 15:52:28 -0700 (PDT)" -->
+<!-- isosent="19990520225228" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Defaults file problem" -->
+<!-- id="199905202252.PAA08550@oops.artemis.com" -->
+<!-- inreplyto="Pine.LNX.3.96.990519205212.5742E-100000@gunslinger.hate.org" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;199905202252.PAA08550@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu May 20 1999 - 15:52:28 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0101.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0099.html">Jost Krieger: "[cricket-users] Slightly corrected squid-proxy/Defaults"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0096.html">Timothy Kennedy: "[cricket-users] Defaults file problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0101.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0101.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#100">[ date ]</A>
+<A HREF="index.html#100">[ thread ]</A>
+<A HREF="subject.html#100">[ subject ]</A>
+<A HREF="author.html#100">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;199905202252.PAA08550@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Timothy Kennedy wrote:
+<BR>
+<EM>&gt; Ok folks.  Here's one for you.
+</EM><BR>
+<EM>&gt; It relates to being able to add new entries under the 
+</EM><BR>
+<EM>&gt; Target	--default-- line in the Defaults file under
+</EM><BR>
+<EM>&gt; the router-interfaces subtree.
+</EM><BR>
+<P>OK, I'm not certain I can solve this 100% for you without playing with
+<BR>
+it myself (and, thank God, I don't normally have to deal with frame,
+<BR>
+in addition to the rest of the stuff around here).
+<BR>
+<P>First, the map() trick only works with the tag named 'inst'. So that's
+<BR>
+why things aren't working for you -- you were expecting it to work for
+<BR>
+any tag. Gotcha! (Sorry, I wasn't trying to getcha...)
+<BR>
+<P>The question is, can you use map() to solve your problem?
+<BR>
+<P>I think you can. Bascially, the interface table in a Cisco router with
+<BR>
+an interface with frame relay on it looks like this:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1		Serial0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2		Serial0.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3		Serial0.2
+<BR>
+<P>So, you should be able to set inst to map(interface-name) and set
+<BR>
+interface-name to Serial0.2, and then inst will get set to 3. I know
+<BR>
+you have the right data to be able to put &quot;Serial0.2&quot; into the target
+<BR>
+file, since your example shows you were ready to do that with frhost
+<BR>
+and frinst. In fact, if you really want to keep using frhost and
+<BR>
+frinst, you can do this:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance-name	=	&quot;%frhost%.%frinst%&quot;
+<BR>
+<P>Assuming you are using the default ds-sources, this will result in an
+<BR>
+OID being created that works right.
+<BR>
+<P>However, I think I can tell from the OID's you are getting that your
+<BR>
+ds-source looks something like this:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source	=	snmp://%snmp%/ifInOctets.%frhost%.%frinst%
+<BR>
+<P>That would seem to be your problem.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen                   |   <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;199905202252.PAA08550@oops.artemis.com&gt;">jra@corp.webtv.net</A> (work)
+WebTV Networks, Inc.            |   <A HREF="mailto:jeff.allen@acm.org?Subject=Re:%20[cricket-users]%20Defaults%20file%20problem&In-Reply-To=&lt;199905202252.PAA08550@oops.artemis.com&gt;">jeff.allen@acm.org</A> (personal)
+Service Operations Toolsmith    |   <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>------------------------------------------------------------------------
+Campaign 2000 is here!
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Discuss your thoughts; get informed at ONElist.  See our homepage.
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0101.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0099.html">Jost Krieger: "[cricket-users] Slightly corrected squid-proxy/Defaults"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0096.html">Timothy Kennedy: "[cricket-users] Defaults file problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0101.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0101.html">Timothy Kennedy: "Re: [cricket-users] Defaults file problem"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#100">[ date ]</A>
+<A HREF="index.html#100">[ thread ]</A>
+<A HREF="subject.html#100">[ subject ]</A>
+<A HREF="author.html#100">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

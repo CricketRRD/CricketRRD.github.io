@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Graphing to 100%</TITLE>
+<META NAME="Author" CONTENT="Michael P. Burton (mpburton@teleport.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Graphing to 100%">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Graphing to 100%</H1>
+<!-- received="Mon Jul 19 16:55:41 1999" -->
+<!-- isoreceived="19990719235541" -->
+<!-- sent="Mon, 19 Jul 1999 13:55:17 -0700 (PDT)" -->
+<!-- isosent="19990719205517" -->
+<!-- name="Michael P. Burton" -->
+<!-- email="mpburton@teleport.com" -->
+<!-- subject="Re: [cricket-users] Graphing to 100%" -->
+<!-- id="Pine.GSO.3.96.990719135124.27549b-100000@user2.teleport.com" -->
+<!-- inreplyto="37938F07.A3D110F@tddny.fujitsu.com" -->
+<STRONG>From:</STRONG> Michael P. Burton (<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Graphing%20to%20100%25&In-Reply-To=&lt;Pine.GSO.3.96.990719135124.27549b-100000@user2.teleport.com&gt;"><EM>mpburton@teleport.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jul 19 1999 - 13:55:17 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0371.html">Kilian Weniger: "[cricket-users] monitor linux-interfaces"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0369.html">Michael P. Burton: "[cricket-users] Pruning the Tree"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0368.html">Matthew Stier: "Re: [cricket-users] Graphing to 100%"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0383.html">Jeff Allen: "Re: [cricket-users] Graphing to 100%"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#370">[ date ]</A>
+<A HREF="index.html#370">[ thread ]</A>
+<A HREF="subject.html#370">[ subject ]</A>
+<A HREF="author.html#370">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Michael P. Burton&quot; &lt;<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Graphing%20to%20100%25&In-Reply-To=&lt;Pine.GSO.3.96.990719135124.27549b-100000@user2.teleport.com&gt;">mpburton@teleport.com</A>&gt;
+<BR>
+<P><P>Ok- the thing that is unfortunate about that then is that my memory
+<BR>
+graph (which is over 100meg) now looks stupid...
+<BR>
+<P>Michael
+<BR>
+<P>:From: Matthew Stier &lt;<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=Re:%20[cricket-users]%20Graphing%20to%20100%25&In-Reply-To=&lt;Pine.GSO.3.96.990719135124.27549b-100000@user2.teleport.com&gt;">Matthew.Stier@tddny.fujitsu.com</A>&gt;
+<BR>
+:
+<BR>
+:Re-read the documentation. (The Cricket Reference Guide).
+<BR>
+:
+<BR>
+:The tags 'y-min' and 'y-max' are generic tags, and are only valid in the
+<BR>
+:--default-- dictionary.
+<BR>
+:
+<BR>
+:graph    --default--
+<BR>
+:    y-min    = 0
+<BR>
+:    y-max    = 0
+<BR>
+:
+<BR>
+:This means that they are applied to all graph dictionaries at the same
+<BR>
+:level, and below.
+<BR>
+:
+<BR>
+:&quot;Michael P. Burton&quot; wrote:
+<BR>
+:
+<BR>
+:&gt; From: &quot;Michael P. Burton&quot; &lt;<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Graphing%20to%20100%25&In-Reply-To=&lt;Pine.GSO.3.96.990719135124.27549b-100000@user2.teleport.com&gt;">mpburton@teleport.com</A>&gt;
+<BR>
+:&gt;
+<BR>
+:&gt; I'm graphing CPU and I want the graph to go to 100%, non-scaled. I
+<BR>
+:&gt; modified the Default file in the Routers subdir to following, adding
+<BR>
+:&gt; y-max, and y-min - but no difference was made. (frown) Any ideas?
+<BR>
+:&gt;
+<BR>
+:&gt; ------------------------------------------------------------------------
+<BR>
+:&gt; graph   cpu5min
+<BR>
+:&gt;     units   =   &quot;%&quot;
+<BR>
+:&gt;     draw-as =   LINE2
+<BR>
+:&gt;     color   =   blue
+<BR>
+:&gt;     y-axis  =   &quot;Percent CPU utilization&quot;
+<BR>
+:&gt;     legend  =   &quot;5 minute CPU utilization&quot;
+<BR>
+:&gt;     y-max   =   100
+<BR>
+:&gt;     y-min   =   0
+<BR>
+:&gt;
+<BR>
+:&gt; ________________________________________________________________________
+<BR>
+:&gt; Michael P. Burton          &quot;Love is like racing across the frozen tundra
+<BR>
+:&gt; Network Engineer, DCII      on a snowmobile which flips over,
+<BR>
+:&gt; Portland State University   trapping you underneath.
+<BR>
+:&gt;                             At night, the ice-weasels come.&quot; - Nietchze
+<BR>
+:&gt; -------------------------------------------------------------------------
+<BR>
+:&gt; GCS d---- H--- s g+ !p au a25 w+++ v++ C++ UL++ P+ L++ 3 E---- N+ K- W+ M
+<BR>
+:&gt; V po--- Y+ t++ 5 j R++ G+ tv b++ D+ B--- e+++ u++ h-- f+ r+++ n--- z+++
+<BR>
+:&gt; Decode at: <A HREF="http://pcd.stanford.edu/mogens/geek2.html">http://pcd.stanford.edu/mogens/geek2.html</A>
+<BR>
+:&gt; -------------------------------------------------------------------------
+<BR>
+:&gt;
+<BR>
+:&gt; --------------------------- ONElist Sponsor ----------------------------
+<BR>
+:&gt;
+<BR>
+:&gt; ONElist users:  YOU can win a $100 gift certificate to Amazon.com.
+<BR>
+:&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+:&gt; Check out the FRIENDS &amp; FAMILY program to find out how.  See homepage.
+<BR>
+:&gt;
+<BR>
+:&gt; ------------------------------------------------------------------------
+<BR>
+:
+<BR>
+:--
+<BR>
+:Matthew Lee Stier                  *  Fujitsu Network Communications
+<BR>
+:Unix Systems Administrator         |  Two Blue Hill Plaza
+<BR>
+:Ph: 914-731-2097 Fx: 914-731-2011  |  Sixth Floor
+<BR>
+:<A HREF="mailto:Matthew.Stier@fnc.fujitsu.com?Subject=Re:%20[cricket-users]%20Graphing%20to%20100%25&In-Reply-To=&lt;Pine.GSO.3.96.990719135124.27549b-100000@user2.teleport.com&gt;">Matthew.Stier@fnc.fujitsu.com</A>      *  Pearl River, NY 10965
+<BR>
+:
+<BR>
+:
+<BR>
+:
+<BR>
+:
+<BR>
+:--------------------------- ONElist Sponsor ----------------------------
+<BR>
+:
+<BR>
+:Get $20 off all MotherNature brand products!
+<BR>
+:&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/mothernature1">http://clickme.onelist.com/ad/mothernature1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+:
+<BR>
+:------------------------------------------------------------------------
+<BR>
+:
+<BR>
+<P>________________________________________________________________________
+<BR>
+Michael P. Burton          &quot;Love is like racing across the frozen tundra 
+<BR>
+Network Engineer, DCII      on a snowmobile which flips over, 
+<BR>
+Portland State University   trapping you underneath. 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At night, the ice-weasels come.&quot; - Nietchze
+<BR>
+-------------------------------------------------------------------------
+<BR>
+GCS d---- H--- s g+ !p au a25 w+++ v++ C++ UL++ P+ L++ 3 E---- N+ K- W+ M
+<BR>
+V po--- Y+ t++ 5 j R++ G+ tv b++ D+ B--- e+++ u++ h-- f+ r+++ n--- z+++ 
+<BR>
+Decode at: <A HREF="http://pcd.stanford.edu/mogens/geek2.html">http://pcd.stanford.edu/mogens/geek2.html</A>
+<BR>
+-------------------------------------------------------------------------
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist now has T-SHIRTS!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Check out homepage for details.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0371.html">Kilian Weniger: "[cricket-users] monitor linux-interfaces"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0369.html">Michael P. Burton: "[cricket-users] Pruning the Tree"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0368.html">Matthew Stier: "Re: [cricket-users] Graphing to 100%"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0383.html">Jeff Allen: "Re: [cricket-users] Graphing to 100%"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#370">[ date ]</A>
+<A HREF="index.html#370">[ thread ]</A>
+<A HREF="subject.html#370">[ subject ]</A>
+<A HREF="author.html#370">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:57 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Graphing multiple views on o</TITLE>
+<META NAME="Author" CONTENT="Neal S. Pressman (nsp83273@melsud.res.ray.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Graphing multiple views on one page.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Graphing multiple views on one page.</H1>
+<!-- received="Wed Sep 29 10:18:57 1999" -->
+<!-- isoreceived="19990929171857" -->
+<!-- sent="Wed, 29 Sep 1999 10:16:55 -0400 (EDT)" -->
+<!-- isosent="19990929141655" -->
+<!-- name="Neal S. Pressman" -->
+<!-- email="nsp83273@melsud.res.ray.com" -->
+<!-- subject="Re: [cricket-users] Graphing multiple views on one page." -->
+<!-- id="199909291416.KAA28056@cae209.ed.ray.com" -->
+<!-- inreplyto="[cricket-users] Graphing multiple views on one page." -->
+<STRONG>From:</STRONG> Neal S. Pressman (<A HREF="mailto:nsp83273@melsud.res.ray.com?Subject=Re:%20[cricket-users]%20Graphing%20multiple%20views%20on%20one%20page.&In-Reply-To=&lt;199909291416.KAA28056@cae209.ed.ray.com&gt;"><EM>nsp83273@melsud.res.ray.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Sep 29 1999 - 07:16:55 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0628.html">dusteur@excite.com: "[cricket-users] Re: Bug fix for &quot;show max&quot;"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0626.html">Pete Mckenna: "Re: [cricket-users] Graphing multiple views on one page."</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0623.html">Pete Mckenna: "[cricket-users] Graphing multiple views on one page."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0639.html">pmckenna: "Re: [cricket-users] Graphing multiple views on one page."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0639.html">pmckenna: "Re: [cricket-users] Graphing multiple views on one page."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#627">[ date ]</A>
+<A HREF="index.html#627">[ thread ]</A>
+<A HREF="subject.html#627">[ subject ]</A>
+<A HREF="author.html#627">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Neal S. Pressman&quot; &lt;<A HREF="mailto:nsp83273@melsud.res.ray.com?Subject=Re:%20[cricket-users]%20Graphing%20multiple%20views%20on%20one%20page.&In-Reply-To=&lt;199909291416.KAA28056@cae209.ed.ray.com&gt;">nsp83273@melsud.res.ray.com</A>&gt;
+<BR>
+<P><P>-&gt; The later, many of the views allready have multiple datasources.
+<BR>
+-&gt; I wish to have a single HTML page with all the views for a given target.
+<BR>
+-&gt; Something like 12 datasources 3 or 4 views and all graphs generated for
+<BR>
+-&gt; the views on the same html page.
+<BR>
+-&gt; 
+<BR>
+<P>you will probally need to write your own script to build your custom
+<BR>
+pages.
+<BR>
+<P>for example I user cricket to monitor my solaris servers i have 6 trees
+<BR>
+2 of which may have multiple instances.  to meet my needs i made a perl
+<BR>
+script to read my subtrees and fill in the blanks on a template.
+<BR>
+<P>#!/bin/perl
+<BR>
+<P>$cell=&quot;left&quot;;
+<BR>
+$HOST=$ARGV[0];
+<BR>
+print &quot;&lt;HTML&gt;\n&quot;;
+<BR>
+print &quot;&lt;HEAD&gt;\n&quot;;
+<BR>
+print &quot;&lt;TITLE&gt;System usage $HOST&lt;/TITLE&gt;\n&quot;;
+<BR>
+print &quot;&lt;META HTTP-EQUIV=\&quot;Refresh\&quot; CONTENT=300 &gt;\n&quot;;
+<BR>
+print &quot;&lt;META HTTP-EQUIV=\&quot;Expires\&quot; CONTENT=\&quot;Wed, 29 Oct 1997 21:00:00 GMT\&quot;&gt;\n&quot;;
+<BR>
+print &quot;&lt;/HEAD&gt;\n&quot;;
+<BR>
+print &quot;&lt;BODY bgcolor=#ffffff&gt;\n&quot;;
+<BR>
+print &quot;\n&quot;;
+<BR>
+print &quot;&lt;H1&gt;System Usage $HOST&lt;/H1&gt;\n&quot;;
+<BR>
+print &quot;&lt;table border=0 width=\&quot;100%\&quot;&gt;\n&quot;;
+<BR>
+print &quot;\n&quot;;
+<BR>
+<P>open (TARGETS , &quot;cricket-config/CPU-USAGE/cpus&quot; );
+<BR>
+while (&lt;TARGETS&gt;){
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chop;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( $_ =~ /^target/ ) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;($JNK , $target) = split ( ' ' , $_ );
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next if ( $target !~ /$HOST/ );
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;($mach , $cpu ) = split ( /_/ , $target );
+<BR>
+<P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( &quot;$cell&quot; eq &quot;left&quot; ){
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;tr&gt;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+<BR>
+print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FCPU-USAGE%2F$target&amp;ranges=d%3Aw&amp;view=Usage\&quot;&gt;\n&quot;;
+<BR>
+print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FCPU-USAGE%2F$target&amp;dslist=WT%2CIDL%2CUSR%2CSYS&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;/td&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$cell = &quot;right&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( &quot;$cell&quot; eq &quot;right&quot; ){
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+<BR>
+print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FCPU-USAGE%2F$target&amp;ranges=d%3Aw&amp;view=Usage\&quot;&gt;\n&quot;;
+<BR>
+print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FCPU-USAGE%2F$target&amp;dslist=WT%2CIDL%2CUSR%2CSYS&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;/td&gt;&lt;/tr&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$cell = &quot;left&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+}
+<BR>
+close (TARGETS);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;tr&gt;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+<BR>
+print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FMEM-USAGE%2F${HOST}_mem&amp;ranges=d%3Aw&amp;view=Memory\&quot;&gt;\n&quot;;
+<BR>
+print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FMEM-USAGE%2F${HOST}_mem&amp;dslist=MEM%2CFREEMEM%2CSWAP%2CFREESWAP&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;/td&gt;\n&quot;;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+<BR>
+print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FCACHE%2F${HOST}_cache&amp;ranges=d%3Aw&amp;view=Cache\&quot;&gt;\n&quot;;
+<BR>
+print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FCACHE%2F${HOST}_cache&amp;dslist=DNLC%2CINODE&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;/td&gt;&lt;/tr&gt;\n&quot;;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;tr&gt;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+<BR>
+print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FVMSTAT%2F${HOST}_vmstat&amp;ranges=d%3Aw&amp;view=Vmstat\&quot;&gt;\n&quot;;
+<BR>
+print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FVMSTAT%2F${HOST}_vmstat&amp;dslist=RUN%2CBLOCK%2CWAIT&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;/td&gt;\n&quot;;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+<BR>
+print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FLOADAVE%2F${HOST}_loadave&amp;ranges=d%3Aw&amp;view=LoadAverage\&quot;&gt;\n&quot;;
+<BR>
+print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FLOADAVE%2F${HOST}_loadave&amp;dslist=ONE%2CFIVE%2CFIFTEEN&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;/td&gt;&lt;/tr&gt;\n&quot;;
+<BR>
+<P><P>open (TARGETS , &quot;cricket-config/DUN/disks&quot; );
+<BR>
+while (&lt;TARGETS&gt;){
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chop;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( $_ =~ /^target/ ) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;($JNK , $target) = split ( ' ' , $_ );
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next if ( $target !~ /$HOST/ );
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;($mach , $cpu ) = split ( /_/ , $target );
+<BR>
+<P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( &quot;$cell&quot; eq &quot;left&quot; ){
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;tr&gt;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+<BR>
+print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FDUN%2F$target&amp;ranges=d%3Aw&amp;view=Usage\&quot;&gt;\n&quot;;
+<BR>
+print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FDUN%2F$target&amp;dslist=DISK%2CMAX&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;/td&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$cell = &quot;right&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( &quot;$cell&quot; eq &quot;right&quot; ){
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+<BR>
+print &quot;&lt;A HREF=\&quot;../grapher.cgi?target=%2FDUN%2F$target&amp;ranges=d%3Aw&amp;view=Usage\&quot;&gt;\n&quot;;
+<BR>
+print &quot;&lt;IMG BORDER=0 SRC=\&quot;../grapher.cgi?type=gif&amp;target=%2FDUN%2F$target&amp;dslist=DISK%2CMAX&amp;range=88000&amp;rand=309\&quot;&gt;&lt;/A&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;/td&gt;&lt;/tr&gt;\n&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$cell = &quot;left&quot;;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+}
+<BR>
+close (TARGETS);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;&lt;tr&gt;&lt;td&gt;&lt;P&gt;&lt;B&gt;\n&quot;;
+<BR>
+print &quot;&lt;/table&gt;\n&quot;;
+<BR>
+print &quot;&lt;/BODY&gt;&lt;/HTML&gt;\n&quot;;
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GET 2 FREE MUSIC CDS AND LOWER YOUR PHONE BILL!  ACT NOW!
+<BR>
+Sign up for Qwest long distance at Shopnow.com and receive 2 free music
+<BR>
+CDs, huge savings on long distance, plus special deals! Expires 9/30!
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/shopnow1">http://clickme.onelist.com/ad/shopnow1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0628.html">dusteur@excite.com: "[cricket-users] Re: Bug fix for &quot;show max&quot;"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0626.html">Pete Mckenna: "Re: [cricket-users] Graphing multiple views on one page."</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0623.html">Pete Mckenna: "[cricket-users] Graphing multiple views on one page."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0639.html">pmckenna: "Re: [cricket-users] Graphing multiple views on one page."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0639.html">pmckenna: "Re: [cricket-users] Graphing multiple views on one page."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#627">[ date ]</A>
+<A HREF="index.html#627">[ thread ]</A>
+<A HREF="subject.html#627">[ subject ]</A>
+<A HREF="author.html#627">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Improving SNMP collection</TITLE>
+<META NAME="Author" CONTENT="James R Grinter (jrg@blodwen.demon.co.uk)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Improving SNMP collection">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Improving SNMP collection</H1>
+<!-- received="Fri Oct 29 18:30:11 1999" -->
+<!-- isoreceived="19991030013011" -->
+<!-- sent="Fri, 29 Oct 1999 23:31:42 +0100" -->
+<!-- isosent="19991029223142" -->
+<!-- name="James R Grinter" -->
+<!-- email="jrg@blodwen.demon.co.uk" -->
+<!-- subject="Re: [cricket-users] Improving SNMP collection" -->
+<!-- id="E11hKYh-0004Os-00@blodwen.watching.org" -->
+<!-- inreplyto="E11ftu5-000423-00@blodwen.watching.org" -->
+<STRONG>From:</STRONG> James R Grinter (<A HREF="mailto:jrg@blodwen.demon.co.uk?Subject=Re:%20[cricket-users]%20Improving%20SNMP%20collection&In-Reply-To=&lt;E11hKYh-0004Os-00@blodwen.watching.org&gt;"><EM>jrg@blodwen.demon.co.uk</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Oct 29 1999 - 15:31:42 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0698.html">Mark Skinner: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0696.html">the+cricket@llama.com: "Re: [cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0676.html">James R Grinter: "[cricket-users] Improving SNMP collection"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0700.html">James R Grinter: "Re: [cricket-users] Improving SNMP collection"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0700.html">James R Grinter: "Re: [cricket-users] Improving SNMP collection"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#697">[ date ]</A>
+<A HREF="index.html#697">[ thread ]</A>
+<A HREF="subject.html#697">[ subject ]</A>
+<A HREF="author.html#697">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:jrg@blodwen.demon.co.uk?Subject=Re:%20[cricket-users]%20Improving%20SNMP%20collection&In-Reply-To=&lt;E11hKYh-0004Os-00@blodwen.watching.org&gt;">jrg@blodwen.demon.co.uk</A> (James R Grinter)
+<BR>
+<P>On Tue 26 Oct, 1999, <A HREF="mailto:jrg@blodwen.demon.co.uk?Subject=Re:%20[cricket-users]%20Improving%20SNMP%20collection&In-Reply-To=&lt;E11hKYh-0004Os-00@blodwen.watching.org&gt;">jrg@blodwen.demon.co.uk</A> (James R Grinter) wrote:
+<BR>
+<EM>&gt;As a bit of a temporary hack, I've implemented (and am currently
+</EM><BR>
+<EM>&gt;testing) a &quot;deadhost&quot; check in snmpUtils.pm, which will add the
+</EM><BR>
+<EM>&gt;host/port combination into a list of non responding hosts.
+</EM><BR>
+<P>Ok, patch for cheap and cheerful 'deadhost' implementation, subject
+<BR>
+to the caveats I spoke of before:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;URL:<A HREF="http://www.gbnet.net/~jrg/cricket/snmpUtils.pm.diff">http://www.gbnet.net/~jrg/cricket/snmpUtils.pm.diff</A>&gt;
+<BR>
+<P>Also, digging through the archives at onelist (dreadful interface) I
+<BR>
+found someone's pointers to how to get the max-plotting working
+<BR>
+correctly (the subject of a recent discussion)
+<BR>
+<P>Firstly, apply this patch (which also fixes a problem I had with failure.gif)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;URL:<A HREF="http://www.gbnet.net/~jrg/cricket/grapher.cgi">http://www.gbnet.net/~jrg/cricket/grapher.cgi</A>&gt;
+<BR>
+<P>and then put the following in any graph section that you wish to plot
+<BR>
+maximums for:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;graph &lt;whatever&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;show-max = true
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max-color = &lt;what-colour&gt;
+<BR>
+<P>or it will pick the first colour and shift all the rest along if you
+<BR>
+don't (but if you've hard coded any, anywhere, that's not good)
+<BR>
+<P>You don't have to alter the default in the code to get it to work, as 
+<BR>
+another poster implied.
+<BR>
+<P>James.
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thinking about putting your business on the Web? 
+<BR>
+MindSpring Biz has helped over 100,000 businesses get their .com.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join MindSpring Biz and save $50!  
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/mindspring3">http://clickme.onelist.com/ad/mindspring3</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0698.html">Mark Skinner: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0696.html">the+cricket@llama.com: "Re: [cricket-users] Error: &quot;Can't locate LWP/UserAgent.pm&quot;"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0676.html">James R Grinter: "[cricket-users] Improving SNMP collection"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0700.html">James R Grinter: "Re: [cricket-users] Improving SNMP collection"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0700.html">James R Grinter: "Re: [cricket-users] Improving SNMP collection"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#697">[ date ]</A>
+<A HREF="index.html#697">[ thread ]</A>
+<A HREF="subject.html#697">[ subject ]</A>
+<A HREF="author.html#697">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

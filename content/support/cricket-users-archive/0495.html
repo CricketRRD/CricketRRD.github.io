@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Error...</TITLE>
+<META NAME="Author" CONTENT="Aurelio Sanchez (asanchez@avantel.net.mx)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Error...">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Error...</H1>
+<!-- received="Mon Aug 16 17:18:50 1999" -->
+<!-- isoreceived="19990817001850" -->
+<!-- sent="Mon, 16 Aug 1999 16:20:54 -0500" -->
+<!-- isosent="19990816212054" -->
+<!-- name="Aurelio Sanchez" -->
+<!-- email="asanchez@avantel.net.mx" -->
+<!-- subject="Re: [cricket-users] Error..." -->
+<!-- id="37B880B6.374B2E6C@avantel.net.mx" -->
+<!-- inreplyto="Pine.GSO.3.96.990816131751.13295F-100000@user2.teleport.com" -->
+<STRONG>From:</STRONG> Aurelio Sanchez (<A HREF="mailto:asanchez@avantel.net.mx?Subject=Re:%20[cricket-users]%20Error...&In-Reply-To=&lt;37B880B6.374B2E6C@avantel.net.mx&gt;"><EM>asanchez@avantel.net.mx</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Aug 16 1999 - 14:20:54 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0496.html">Matthew Stier: "[cricket-users] &quot;inst&quot; problem still present in Cricket-0.70."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0494.html">Michael P. Burton: "Re: [cricket-users] Error..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0494.html">Michael P. Burton: "Re: [cricket-users] Error..."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0497.html">Aurelio Sanchez: "[cricket-users] How to inverse the values"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0497.html">Aurelio Sanchez: "[cricket-users] How to inverse the values"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#495">[ date ]</A>
+<A HREF="index.html#495">[ thread ]</A>
+<A HREF="subject.html#495">[ subject ]</A>
+<A HREF="author.html#495">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Aurelio Sanchez &lt;<A HREF="mailto:asanchez@avantel.net.mx?Subject=Re:%20[cricket-users]%20Error...&In-Reply-To=&lt;37B880B6.374B2E6C@avantel.net.mx&gt;">asanchez@avantel.net.mx</A>&gt;
+<BR>
+<P>Hi there!!!
+<BR>
+<P>&nbsp;&nbsp;I uninstalled cricket 0.70 and reinstalled it but grapher.cgi doesn't show
+<BR>
+the graphs. I redirected the cricket link to point to version 0.69 and
+<BR>
+grapher started to work just fine again. Any ideas?
+<BR>
+<P>&nbsp;&nbsp;Other problem, in the Netscape server log I'm receiving the following:
+<BR>
+<P>[16/Aug/1999:16:01:46] catastrophe ( 5766): for host 200.33.231.16 trying to
+<BR>
+GET /~cricket/cricket/images/cricket-sm.gif, cgieng_start_output reports:
+<BR>
+could not fork new process (exec() failure [Exec format error])
+<BR>
+[16/Aug/1999:16:01:47] catastrophe ( 5766): for host 200.33.231.16 trying to
+<BR>
+GET /~cricket/cricket/images/rrdtool.gif, cgieng_start_output reports: could
+<BR>
+not fork new process (exec() failure [Exec format error])
+<BR>
+<P><P>&nbsp;&nbsp;Why it is trying to execute the gif files?
+<BR>
+<P>&nbsp;&nbsp;Hope you can help me.
+<BR>
+<P><P>&nbsp;&nbsp;Aurelio Sanchez
+<BR>
+<P><P><P>&quot;Michael P. Burton&quot; wrote:
+<BR>
+<P><EM>&gt; Ok - I uninstalled, and reinstalled the files, and most of the graphs
+</EM><BR>
+<EM>&gt; could be created. However, it really chokes on the &quot;targets&quot; tag. Ie:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; target --default--
+</EM><BR>
+<EM>&gt;         router = psur2.dmz.pdx.edu
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; target All
+</EM><BR>
+<EM>&gt;         targets         =       &quot;Vlan1;Vlan9;Vlan30;Vlan35;
+</EM><BR>
+<EM>&gt;                                 Vlan40;Vlan45;Vlan50;Vlan55;
+</EM><BR>
+<EM>&gt;                                 Vlan60;Vlan65;Vlan70;Vlan90;
+</EM><BR>
+<EM>&gt;                                 Vlan95;Vlan120;Vlan128;Vlan129;
+</EM><BR>
+<EM>&gt;                                 Vlan135;Vlan224&quot;
+</EM><BR>
+<EM>&gt;         short-desc      =       &quot;All VLAN ports&quot;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; target Vlan1
+</EM><BR>
+<EM>&gt;         interface-name  =       Vlan1
+</EM><BR>
+<EM>&gt;         short-desc      =       &quot;*** DMZ Network ***&quot;
+</EM><BR>
+<EM>&gt;         target-type     =       sub-interface
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; ...
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; used to work, but it now no longer does - while the indivual maps do
+</EM><BR>
+<EM>&gt; work...
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Michael
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; :Michael,
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :  I upgraded to version 0.70 and I'm having the same problem you have,
+</EM><BR>
+<EM>&gt; :with grapher.cgi  not showing the graphs at all. Have you been able to
+</EM><BR>
+<EM>&gt; :find the error? I woud appreciate all the help you can give me.
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :  Regards,
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :  Aurelio Sanchez
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :From: &quot;Michael P. Burton&quot; &lt;<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Error...&In-Reply-To=&lt;37B880B6.374B2E6C@avantel.net.mx&gt;">mpburton@teleport.com</A>&gt;
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :I'm upgrading from .69 to .70 - and after following all the instructions
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :of a clean install, then porting over my config files, I'm getting error
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :messages on the web-page, though there are no errors in the logs or
+</EM><BR>
+<EM>&gt; :cron.
+</EM><BR>
+<EM>&gt; :It is odd that Max is not mapping for any of my interfaces or for
+</EM><BR>
+<EM>&gt; :memory.
+</EM><BR>
+<EM>&gt; :Am I missing something?
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :Michael
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :--------------------------
+</EM><BR>
+<EM>&gt; :Summary
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; : Values at last update:
+</EM><BR>
+<EM>&gt; :  Average bits in (for the day):
+</EM><BR>
+<EM>&gt; :  Cur: 190.09 bits/sec
+</EM><BR>
+<EM>&gt; :  Avg: 190.09 bits/sec
+</EM><BR>
+<EM>&gt; :  Max: NaN bits/sec
+</EM><BR>
+<EM>&gt; :                                  Average bits out (for the day):
+</EM><BR>
+<EM>&gt; :                                  Cur: 13.45 kbits/sec
+</EM><BR>
+<EM>&gt; :                                  Avg: 13.45 kbits/sec
+</EM><BR>
+<EM>&gt; :                                  Max: NaN bits/sec
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :[FAILED TO DRAW GRAPH. SEE ERROR LOG FOR DETAILS.}
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :________________________________________________________________________
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt; :Michael P. Burton &quot;Love is like racing across the frozen tundra
+</EM><BR>
+<EM>&gt; :Network Engineer, DCII on a snowmobile which flips over,
+</EM><BR>
+<EM>&gt; :Portland State University trapping you underneath.
+</EM><BR>
+<EM>&gt; :                            At night, the ice-weasels come.&quot; - Nietchze
+</EM><BR>
+<EM>&gt; :-------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; :
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; ________________________________________________________________________
+</EM><BR>
+<EM>&gt; Michael P. Burton          &quot;Love is like racing across the frozen tundra
+</EM><BR>
+<EM>&gt; Network Engineer, DCII      on a snowmobile which flips over,
+</EM><BR>
+<EM>&gt; Portland State University   trapping you underneath.
+</EM><BR>
+<EM>&gt;                             At night, the ice-weasels come.&quot; - Nietchze
+</EM><BR>
+<EM>&gt; -------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; GCS d---- H--- s g+ !p au a25 w+++ v++ C++ UL++ P+ L++ 3 E---- N+ K- W+ M
+</EM><BR>
+<EM>&gt; V po--- Y+ t++ 5 j R++ G+ tv b++ D+ B--- e+++ u++ h-- f+ r+++ n--- z+++
+</EM><BR>
+<EM>&gt; Decode at: <A HREF="http://pcd.stanford.edu/mogens/geek2.html">http://pcd.stanford.edu/mogens/geek2.html</A>
+</EM><BR>
+<EM>&gt; -------------------------------------------------------------------------
+</EM><BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Transfer your big list to ONElist and earn $500!
+<BR>
+For program details, go to
+<BR>
+<A HREF="http://www.onelist.com/info/biglistbon_intro.html">http://www.onelist.com/info/biglistbon_intro.html</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0496.html">Matthew Stier: "[cricket-users] &quot;inst&quot; problem still present in Cricket-0.70."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0494.html">Michael P. Burton: "Re: [cricket-users] Error..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0494.html">Michael P. Burton: "Re: [cricket-users] Error..."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0497.html">Aurelio Sanchez: "[cricket-users] How to inverse the values"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0497.html">Aurelio Sanchez: "[cricket-users] How to inverse the values"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#495">[ date ]</A>
+<A HREF="index.html#495">[ thread ]</A>
+<A HREF="subject.html#495">[ subject ]</A>
+<A HREF="author.html#495">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

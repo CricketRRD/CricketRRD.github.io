@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: aggregate bandwidth cont.</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: aggregate bandwidth cont.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: aggregate bandwidth cont.</H1>
+<!-- received="Wed Apr 28 14:15:33 1999" -->
+<!-- isoreceived="19990428211533" -->
+<!-- sent="Wed, 28 Apr 1999 11:14:37 -0700 (PDT)" -->
+<!-- isosent="19990428181437" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="[cricket-users] Re: aggregate bandwidth cont." -->
+<!-- id="199904281814.LAA02135@oops.artemis.com" -->
+<!-- inreplyto="199904281708.NAA19006@dn.net" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20aggregate%20bandwidth%20cont.&In-Reply-To=&lt;199904281814.LAA02135@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Apr 28 1999 - 11:14:37 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0005.html">Jeff Jensen: "[cricket-users] Re: aggregate bandwidth cont."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0003.html">Brad S. Dreisbach: "[cricket-users] aggregate bandwidth cont."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0003.html">Brad S. Dreisbach: "[cricket-users] aggregate bandwidth cont."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0006.html">Brad S. Dreisbach: "[cricket-users] Re: aggregate bandwidth cont."</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0006.html">Brad S. Dreisbach: "[cricket-users] Re: aggregate bandwidth cont."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#4">[ date ]</A>
+<A HREF="index.html#4">[ thread ]</A>
+<A HREF="subject.html#4">[ subject ]</A>
+<A HREF="author.html#4">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20aggregate%20bandwidth%20cont.&In-Reply-To=&lt;199904281814.LAA02135@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Brad S. Dreisbach wrote:
+<BR>
+<EM>&gt; I had some email dialog with a list member this morning.
+</EM><BR>
+<EM>&gt; Trying to figure out how to combine targets into an aggregate.
+</EM><BR>
+<P><EM>&gt; He informed me that I should put
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; mtargets-ops = &quot;++++&quot; 
+</EM><BR>
+<P>Close. That should be:
+<BR>
+<P><EM>&gt; mtargets-ops = &quot;+,+,+,+&quot; 
+</EM><BR>
+<P>What's really happening inside Cricket is that mtargets-ops is getting
+<BR>
+added to the end of the list of datasources, which are getting
+<BR>
+processed by RRD Tool as an RPN expression:
+<BR>
+<P><EM>&gt; [28-Apr-1999 13:05:31*] Unable to create graph: invalid rpn expression 
+</EM><BR>
+<EM>&gt; 'sds0,sds2,sds4,sds6,sds8,++++'
+</EM><BR>
+<P>This is not documented very well since we are still experimenting with
+<BR>
+it here. Sorry.
+<BR>
+<P>I'm thinking that for the common case of summing all the targets, we
+<BR>
+should provide some syntactic sugar that turns 'mtargets-ops = &quot;sum&quot;'
+<BR>
+into the right number of +'s automatically.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen                   |   <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20aggregate%20bandwidth%20cont.&In-Reply-To=&lt;199904281814.LAA02135@oops.artemis.com&gt;">jra@corp.webtv.net</A> (work)
+WebTV Networks, Inc.            |   <A HREF="mailto:jeff.allen@acm.org?Subject=Re:%20[cricket-users]%20Re:%20aggregate%20bandwidth%20cont.&In-Reply-To=&lt;199904281814.LAA02135@oops.artemis.com&gt;">jeff.allen@acm.org</A> (personal)
+Service Operations Toolsmith    |   <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>------------------------------------------------------------------------
+You can now easily share photos and documents with your fellow list members
+<A HREF="http://www.ONElist.com">http://www.ONElist.com</A>
+Check out our homepage for details on how to use our new shared files feature!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0005.html">Jeff Jensen: "[cricket-users] Re: aggregate bandwidth cont."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0003.html">Brad S. Dreisbach: "[cricket-users] aggregate bandwidth cont."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0003.html">Brad S. Dreisbach: "[cricket-users] aggregate bandwidth cont."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0006.html">Brad S. Dreisbach: "[cricket-users] Re: aggregate bandwidth cont."</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0006.html">Brad S. Dreisbach: "[cricket-users] Re: aggregate bandwidth cont."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#4">[ date ]</A>
+<A HREF="index.html#4">[ thread ]</A>
+<A HREF="subject.html#4">[ subject ]</A>
+<A HREF="author.html#4">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:47 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Switch-ports Description</TITLE>
+<META NAME="Author" CONTENT="Josh Rivel (jrivel@dti.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Switch-ports Description">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Switch-ports Description</H1>
+<!-- received="Mon Sep 27 06:46:25 1999" -->
+<!-- isoreceived="19990927134625" -->
+<!-- sent="Mon, 27 Sep 1999 06:45:41 -0400" -->
+<!-- isosent="19990927104541" -->
+<!-- name="Josh Rivel" -->
+<!-- email="jrivel@dti.net" -->
+<!-- subject="Re: [cricket-users] Switch-ports Description" -->
+<!-- id="19990927064541.D23088@dti.net" -->
+<!-- inreplyto="NDBBJCDOMJOLMHEFKGABCEGNCOAA.mksmith@semaphore.com" -->
+<STRONG>From:</STRONG> Josh Rivel (<A HREF="mailto:jrivel@dti.net?Subject=Re:%20[cricket-users]%20Switch-ports%20Description&In-Reply-To=&lt;19990927064541.D23088@dti.net&gt;"><EM>jrivel@dti.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Sep 27 1999 - 03:45:41 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0619.html">Chris Adams: "[cricket-users] Problem with mtargets"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0617.html">Pete: "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0614.html">Michael K. Smith: "[cricket-users] Switch-ports Description"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#618">[ date ]</A>
+<A HREF="index.html#618">[ thread ]</A>
+<A HREF="subject.html#618">[ subject ]</A>
+<A HREF="author.html#618">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Josh Rivel &lt;<A HREF="mailto:jrivel@dti.net?Subject=Re:%20[cricket-users]%20Switch-ports%20Description&In-Reply-To=&lt;19990927064541.D23088@dti.net&gt;">jrivel@dti.net</A>&gt;
+<BR>
+<P>Michael K. Smith wrote...
+<BR>
+<EM>&gt; I am using Cricket to monitor the ports on a Catalyst 2924.  Is there a way
+</EM><BR>
+<EM>&gt; to get the &quot;description&quot; field from each of the ports?  At present, they
+</EM><BR>
+<EM>&gt; show up as &quot;1 2 3 ...&quot;, so I cannot tell which port belongs to which
+</EM><BR>
+<EM>&gt; customer.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Any help would be greatly appreciated.  I have included a copy of my config
+</EM><BR>
+<EM>&gt; file from the switch-ports subdirectory.
+</EM><BR>
+<P>Mike -
+<BR>
+Here's the config we used, I don't think cricket can get the description
+<BR>
+fields automatically, I just manually entered them myself - Here's a snippet
+<BR>
+of my config.
+<BR>
+<P>target  name.of.switch
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type = switch-port
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst=(1..24)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst-names = &quot;('PORT1', 'PORT2', 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'PORT3', 'PORT4', 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;etc. etc. etc.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'PORT24')&quot;
+<BR>
+<P><P>Also, does anyone have a working config for a Cisco 2948 switch?
+<BR>
+The configuration is different that on a 2924 I'm pretty sure.
+<BR>
+<P>Josh
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Share your special moments with family and friends- send PHOTO Greetings
+<BR>
+at Zing.com! Use your own photos or choose from a variety of funny,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cute, cool and animated cards.       
+<BR>
+&nbsp;&nbsp;&nbsp;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/zing14">http://clickme.onelist.com/ad/zing14</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0619.html">Chris Adams: "[cricket-users] Problem with mtargets"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0617.html">Pete: "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0614.html">Michael K. Smith: "[cricket-users] Switch-ports Description"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#618">[ date ]</A>
+<A HREF="index.html#618">[ thread ]</A>
+<A HREF="subject.html#618">[ subject ]</A>
+<A HREF="author.html#618">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

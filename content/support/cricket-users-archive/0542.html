@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] archiving data</TITLE>
+<META NAME="Author" CONTENT="Kirby Krueger (kirbyk@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] archiving data">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] archiving data</H1>
+<!-- received="Wed Aug 25 17:30:01 1999" -->
+<!-- isoreceived="19990826003001" -->
+<!-- sent="Wed, 25 Aug 1999 14:28:10 -0700" -->
+<!-- isosent="19990825212810" -->
+<!-- name="Kirby Krueger" -->
+<!-- email="kirbyk@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] archiving data" -->
+<!-- id="37C45FEA.1B9DBFC2@corp.webtv.net" -->
+<!-- inreplyto="37C451EA.329CDCCE@ncren.net" -->
+<STRONG>From:</STRONG> Kirby Krueger (<A HREF="mailto:kirbyk@corp.webtv.net?Subject=Re:%20[cricket-users]%20archiving%20data&In-Reply-To=&lt;37C45FEA.1B9DBFC2@corp.webtv.net&gt;"><EM>kirbyk@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Aug 25 1999 - 14:28:10 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0543.html">Dave Alden: "[cricket-users] example of multiple targets on one page?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0541.html">Richard Misenheimer: "[cricket-users] archiving data"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0541.html">Richard Misenheimer: "[cricket-users] archiving data"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#542">[ date ]</A>
+<A HREF="index.html#542">[ thread ]</A>
+<A HREF="subject.html#542">[ subject ]</A>
+<A HREF="author.html#542">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Kirby Krueger &lt;<A HREF="mailto:kirbyk@corp.webtv.net?Subject=Re:%20[cricket-users]%20archiving%20data&In-Reply-To=&lt;37C45FEA.1B9DBFC2@corp.webtv.net&gt;">kirbyk@corp.webtv.net</A>&gt;
+<BR>
+<P>Richard Misenheimer wrote:
+<BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; From: Richard Misenheimer &lt;<A HREF="mailto:richm@ncren.net?Subject=Re:%20[cricket-users]%20archiving%20data&In-Reply-To=&lt;37C45FEA.1B9DBFC2@corp.webtv.net&gt;">richm@ncren.net</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; i now have a new requirement. in addition to the &quot;mrtg-style&quot; of
+</EM><BR>
+<EM>&gt; configuration, i need to keep my five minute interval data for at least
+</EM><BR>
+<EM>&gt; a year. yes, i need to archive my data.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; so i looked at the Defaults file and i saw the following lines:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; # one point per 5 minutes, spanning 50 hours
+</EM><BR>
+<EM>&gt; rra             5minAve     AVERAGE:0.5:1:600
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; would i be able to change the 600(50 hrs) above to a big number, like
+</EM><BR>
+<EM>&gt; 105120 (1year) and still get my mrtg-style graphs? or would i need to
+</EM><BR>
+<EM>&gt; have another subtree (hence, another Defaults file) to collect this
+</EM><BR>
+<EM>&gt; archive data? or do i run another instance of cricket? or should i just
+</EM><BR>
+<EM>&gt; load mysql and xfer my rrd numbers into there for later inspection?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+If you change the 600, this will indeed change the number of data points
+<BR>
+that rrd stores.  You'll need to recreate your rrd files, either by
+<BR>
+deleting them or by doing some rrd-magic that is probably explained in
+<BR>
+rrd documents to change the settings after creation.
+<BR>
+<P>This will use more disk space - possibly a lot more.  And all at once,
+<BR>
+too - rrd file sizes are static, so they're as big as they're going to
+<BR>
+get when you create them.  This might not be the easiest way to get to
+<BR>
+this data, either, so an actual archival database might make sense.  Or,
+<BR>
+depending on why you need data, an old-fashioned archive of the rrd
+<BR>
+files that you could pull back from tape in a rare occurrence might
+<BR>
+suffice and be easy to set up.
+<BR>
+<P>I do have one target running that gets numbers once per day, that I
+<BR>
+decided just to keep a year's worth of data points (365) and not bother
+<BR>
+with rolling up, so this does work.
+<BR>
+<P>-- Kirby
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist members, don't miss out on the latest news at ONElist!
+<BR>
+Join our community member news update  
+<BR>
+&lt;a href=&quot; <A HREF="http://www.onelist.com/subscribe/onelist_announce">http://www.onelist.com/subscribe/onelist_announce</A> &quot;here&lt;/A&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0543.html">Dave Alden: "[cricket-users] example of multiple targets on one page?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0541.html">Richard Misenheimer: "[cricket-users] archiving data"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0541.html">Richard Misenheimer: "[cricket-users] archiving data"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#542">[ date ]</A>
+<A HREF="index.html#542">[ thread ]</A>
+<A HREF="subject.html#542">[ subject ]</A>
+<A HREF="author.html#542">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

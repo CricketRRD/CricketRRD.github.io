@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] file.pm</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-users] file.pm">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] file.pm</H1>
+<!-- received="Tue Jul 13 18:12:17 1999" -->
+<!-- isoreceived="19990714011217" -->
+<!-- sent="Tue, 13 Jul 1999 15:10:08 -0700 (PDT)" -->
+<!-- isosent="19990713221008" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="[cricket-users] file.pm" -->
+<!-- id="199907132210.PAA24213@oops.artemis.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20file.pm&In-Reply-To=&lt;199907132210.PAA24213@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jul 13 1999 - 15:10:08 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0316.html">pat.west@lmco.com: "[cricket-users] Empty Graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0314.html">Berg, Ivan: "RE: [cricket-users] Possible feature?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#315">[ date ]</A>
+<A HREF="index.html#315">[ thread ]</A>
+<A HREF="subject.html#315">[ subject ]</A>
+<A HREF="author.html#315">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+In the continuing saga of the namespace bugs I created in Cricket
+<BR>
+0.68, here's a new copy of file.pm which you should install into your
+<BR>
+copy of Cricket 0.68 if you use the &quot;file&quot; ds-source anywhere in your
+<BR>
+config tree.
+<BR>
+<P>I will be releasing Cricket 0.69 tomorrow with all of these bugfixes I
+<BR>
+have been sending in the last few days. Sorry it's gotten a little
+<BR>
+unstable recently -- it should be fixed soon.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20file.pm&In-Reply-To=&lt;199907132210.PAA24213@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P><P>
+</PRE>
+<P>
+# -*-perl-*-
+<P># Cricket: a configuration, polling and data display wrapper for RRD files
+#
+#    Copyright (C) 1998 Jeff R. Allen and WebTV Networks, Inc.
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program; if not, write to the Free Software
+#    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+<P>use Common::Log;
+<P>$main::gDSFetch{'file'} = \&amp;fileFetch;
+<P>sub fileFetch {
+	# This procedure is passed a REFERENCE to an array of file datasources.
+	# The line consists of &quot;index:line-num:shell command&quot;
+	#
+	# There can and will be spaces in the shell command. If line-num
+	# is missing it is assumed to be the first output line.
+	#
+	# VERY IMPORTANT: The index MUST be returned with the corresponding value,
+	# otherwise it'll get put back into the wrong spot in the RRD.
+<P>	my($dsList, $name, $target) = @_;
+<P>	my(@results, %files);
+<P>	my($line);
+	foreach $line (@{$dsList}) {
+		my(@components) = split(/:/, $line, 3);
+		my($index, $lineno, $file);
+<P>		if ($#components+1 == 3) {
+			($index, $lineno, $file) = @components;
+		} elsif ($#components == 1) {
+			($index, $file) = @components;
+			$lineno = 0;
+		} else {
+			Error(&quot;Malformed datasource source: $line.&quot;);
+			return ();
+		}
+		push(@{ $files{$file} }, &quot;$index:$lineno&quot;);
+	}
+<P>	my($file, $ilRef, $il);
+<P>	while (($file, $ilRef) = each %files) {
+		Info(&quot;Reading data from $file for &quot; .
+							 $target-&gt;{'auto-target-name'});
+<P>		if (open(F, &quot;&lt;$file&quot;)) {
+			my(@lines);
+			chomp(@lines = &lt;F&gt;);
+			close(F);
+<P>			while ($il = shift @{ $ilRef } ) {
+				my($index, $lineno) = split(/:/, $il, 2);
+				if (defined($lines[$lineno])) {
+					push @results, &quot;$index:$lines[$lineno]&quot;;
+				} else {
+					push @results, &quot;$index:U&quot;;
+				}
+			}
+		} else {
+			Error(&quot;Could not fetch data for &quot; .
+					$target-&gt;{'auto-target-name'} .
+					&quot; from file $file: $!.&quot;);
+		}
+	}
+<P>	return @results;
+}
+<P>1;
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0316.html">pat.west@lmco.com: "[cricket-users] Empty Graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0314.html">Berg, Ivan: "RE: [cricket-users] Possible feature?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#315">[ date ]</A>
+<A HREF="index.html#315">[ thread ]</A>
+<A HREF="subject.html#315">[ subject ]</A>
+<A HREF="author.html#315">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:56 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

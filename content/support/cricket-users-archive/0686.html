@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] generate statics runs, but i get</TITLE>
+<META NAME="Author" CONTENT="Mark Skinner (mskinner@verio.net)">
+<META NAME="Subject" CONTENT="[cricket-users] generate statics runs, but i get no data/pics">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] generate statics runs, but i get no data/pics</H1>
+<!-- received="Thu Oct 28 18:36:40 1999" -->
+<!-- isoreceived="19991029013640" -->
+<!-- sent="Thu, 28 Oct 1999 15:31:48 -0700" -->
+<!-- isosent="19991028223148" -->
+<!-- name="Mark Skinner" -->
+<!-- email="mskinner@verio.net" -->
+<!-- subject="[cricket-users] generate statics runs, but i get no data/pics" -->
+<!-- id="015301bf2194$397e05e0$9bfc43cf@mark.atmnet.net" -->
+<STRONG>From:</STRONG> Mark Skinner (<A HREF="mailto:mskinner@verio.net?Subject=Re:%20[cricket-users]%20generate%20statics%20runs,%20but%20i%20get%20no%20data/pics&In-Reply-To=&lt;015301bf2194$397e05e0$9bfc43cf@mark.atmnet.net&gt;"><EM>mskinner@verio.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Oct 28 1999 - 15:31:48 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0687.html">Berg, Ivan: "[cricket-users] Determining bandwidth usage"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0685.html">Tim Kennedy: "[cricket-users] Mail Archive going down."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0693.html">the+cricket@llama.com: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0693.html">the+cricket@llama.com: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0698.html">Mark Skinner: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#686">[ date ]</A>
+<A HREF="index.html#686">[ thread ]</A>
+<A HREF="subject.html#686">[ subject ]</A>
+<A HREF="author.html#686">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Mark Skinner&quot; &lt;<A HREF="mailto:mskinner@verio.net?Subject=Re:%20[cricket-users]%20generate%20statics%20runs,%20but%20i%20get%20no%20data/pics&In-Reply-To=&lt;015301bf2194$397e05e0$9bfc43cf@mark.atmnet.net&gt;">mskinner@verio.net</A>&gt;
+<BR>
+<P>Hi,
+<BR>
+<P>I have gotten one router interfaces setup for the generate-static script
+<BR>
+to get data for, but it runs with no output.
+<BR>
+<P>here is what I get.
+<BR>
+[httpd@rrd util]$ ./generate-statics /cr3.irvnca
+<BR>
+[27-Oct-1999 12:18:20 ] Working on target fastethernet4_1_0.
+<BR>
+<P>here  is the end of the Defaults file where /cr3.irvnca interfaces file is:
+<BR>
+<P>[httpd@rrd cr3.irvnca]$ tail Defaults
+<BR>
+&lt;snip&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis      =   &quot;errors per second&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend      =   &quot;Average Errors Out&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units       =   &quot;err/sec&quot;
+<BR>
+#add to support Generate statics script
+<BR>
+static-ranges = &quot;d:w:m&quot;
+<BR>
+static-path   = %auto-base%/../public_html/static/%auto-target-path%
+<BR>
+static-name   = %auto-target-name% 
+<BR>
+<P>and a head of the interfaces file 
+<BR>
+target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = cr3.irvnca.foobar.net
+<BR>
+<P>target FastEthernet4_1_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       FastEthernet4/1/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;bigcust Colo&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generate-static = &quot;1&quot;
+<BR>
+<P>any ideas why the program spots the target but doesn't get the data.
+<BR>
+I even did a lynx <A HREF="http://localhost/~httpd/cricket/grapher.cgi">http://localhost/~httpd/cricket/grapher.cgi</A>
+<BR>
+to confirm that the BaseUrl was okay and it was ok.
+<BR>
+<P>thanks!
+<BR>
+Mark Skinner
+<BR>
+p.s. did Jeff Allen write this script?
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thinking about putting your business on the Web? 
+<BR>
+MindSpring Biz has helped over 100,000 businesses get their .com.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join MindSpring Biz and save $50!  
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/mindspring3">http://clickme.onelist.com/ad/mindspring3</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0687.html">Berg, Ivan: "[cricket-users] Determining bandwidth usage"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0685.html">Tim Kennedy: "[cricket-users] Mail Archive going down."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0693.html">the+cricket@llama.com: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0693.html">the+cricket@llama.com: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0698.html">Mark Skinner: "Re: [cricket-users] generate statics runs, but i get no data/pics"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#686">[ date ]</A>
+<A HREF="index.html#686">[ thread ]</A>
+<A HREF="subject.html#686">[ subject ]</A>
+<A HREF="author.html#686">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:04 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

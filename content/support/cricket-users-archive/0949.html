@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] No data in graphs</TITLE>
+<META NAME="Author" CONTENT="Bernie Ledwick (bl@man.fraser-williams.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] No data in graphs">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] No data in graphs</H1>
+<!-- received="Fri Jan 21 03:33:02 2000" -->
+<!-- isoreceived="20000121113302" -->
+<!-- sent="Fri, 21 Jan 2000 08:01:12 -0000" -->
+<!-- isosent="20000121080112" -->
+<!-- name="Bernie Ledwick" -->
+<!-- email="bl@man.fraser-williams.com" -->
+<!-- subject="RE: [cricket-users] No data in graphs" -->
+<!-- id="C1B70390092BD311BBA200A024565F1021DB48@fwma_pc100" -->
+<!-- inreplyto="[cricket-users] No data in graphs" -->
+<STRONG>From:</STRONG> Bernie Ledwick (<A HREF="mailto:bl@man.fraser-williams.com?Subject=RE:%20[cricket-users]%20No%20data%20in%20graphs&In-Reply-To=&lt;C1B70390092BD311BBA200A024565F1021DB48@fwma_pc100&gt;"><EM>bl@man.fraser-williams.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jan 21 2000 - 00:01:12 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0950.html">Peter Bogdanovic: "Re: [cricket-users] No data in graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0948.html">Emmett Hogan: "Re: [cricket-users] Adding a DS to a .rrd"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0946.html">Dustin Slater: "[cricket-users] No data in graphs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0950.html">Peter Bogdanovic: "Re: [cricket-users] No data in graphs"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0950.html">Peter Bogdanovic: "Re: [cricket-users] No data in graphs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#949">[ date ]</A>
+<A HREF="index.html#949">[ thread ]</A>
+<A HREF="subject.html#949">[ subject ]</A>
+<A HREF="author.html#949">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Bernie Ledwick &lt;<A HREF="mailto:bl@man.fraser-williams.com?Subject=RE:%20[cricket-users]%20No%20data%20in%20graphs&In-Reply-To=&lt;C1B70390092BD311BBA200A024565F1021DB48@fwma_pc100&gt;">bl@man.fraser-williams.com</A>&gt;
+<BR>
+<P>There is an error at line 1412 of grapher.cgi - needs a space after the
+<BR>
+%.
+<BR>
+<P>There is another error in that Views are not displayed correctly (they
+<BR>
+are OK in 0.70), but I do not know enough perl to be able to debug.
+<BR>
+Anyone any ideas?
+<BR>
+<P>-----Original Message-----
+<BR>
+From: Dustin Slater [mailto:<A HREF="mailto:dustins@staff.texas.net?Subject=RE:%20[cricket-users]%20No%20data%20in%20graphs&In-Reply-To=&lt;C1B70390092BD311BBA200A024565F1021DB48@fwma_pc100&gt;">dustins@staff.texas.net</A>]
+<BR>
+Sent: 21 January 2000 03:27
+<BR>
+To: <A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20No%20data%20in%20graphs&In-Reply-To=&lt;C1B70390092BD311BBA200A024565F1021DB48@fwma_pc100&gt;">cricket-users@onelist.com</A>
+<BR>
+Subject: [cricket-users] No data in graphs
+<BR>
+<P><P><EM>&gt;From: Dustin Slater &lt;<A HREF="mailto:dustins@staff.texas.net?Subject=RE:%20[cricket-users]%20No%20data%20in%20graphs&In-Reply-To=&lt;C1B70390092BD311BBA200A024565F1021DB48@fwma_pc100&gt;">dustins@staff.texas.net</A>&gt;
+</EM><BR>
+<P>Think I have everything setup pretty good.
+<BR>
+although i will mention that cricket is not set up in the default
+<BR>
+install directory.
+<BR>
+<P>I have collector cronned for every five minutes, and i'm getting emails
+<BR>
+like
+<BR>
+this one:
+<BR>
+<P>[20-Jan-2000 21:20:01 ] Starting collector: Cricket version 0.71 ( Sun
+<BR>
+Jan 9    
+<BR>
++21:50:46 PST 2000 )
+<BR>
+<P>[20-Jan-2000 21:20:02 ] Retrieved data for gigabitethernet1_0_0 (1):
+<BR>
+<P>+1370871622,659761955,0,0,448534341,2231075670
+<BR>
+<P>[20-Jan-2000 21:20:02 ] Retrieved data for ethernet3_0 (2):
+<BR>
+<P>+650910832,536178972,0,0,8065926,7779453
+<BR>
+<P>[20-Jan-2000 21:20:03 ] Retrieved data for ethernet3_2 (4):
+<BR>
+<P>+95057730,1190290114,0,0,514602,78922936
+<BR>
+<P>[20-Jan-2000 21:20:04 ] Retrieved data for fastethernet5_0_0 (6):
+<BR>
+<P>+1472771868,3012848897,0,0,1512697842,930567340
+<BR>
+<P>[20-Jan-2000 21:20:04 ] Retrieved data for serial8_0_0 (7):
+<BR>
+<P>+4054713221,1916820215,1007,0,1048617761,1480935932
+<BR>
+<P>[20-Jan-2000 21:20:05 ] Retrieved data for serial8_0_1 (8):
+<BR>
+<P>+3959743584,2492232959,1,0,117854516,188456499
+<BR>
+<P>[20-Jan-2000 21:20:05 ] Retrieved data for serial10_0_1 (10):
+<BR>
+<P>+189946694,886051897,0,0,2083167,1669812
+<BR>
+<P>[20-Jan-2000 21:20:06 ] Retrieved data for pos10_1_0 (11):
+<BR>
+<P>+15804791,4094766075,60,0,541261234,623918362
+<BR>
+<P>[20-Jan-2000 21:20:06 ] Retrieved data for gigabitethernet11_0_0 (12):
+<BR>
+<P>+523299323,442452950,0,0,2825620146,938947283
+<BR>
+<P>[20-Jan-2000 21:20:06 ] Retrieved data for serial5_1_0_1_0 (15):
+<BR>
+5441853,7902066[20-Jan-2000 21:20:07serial5_1_0_3_0 (17):
+<BR>
+<P>+58431248,278122959
+<BR>
+<P>[20-Jan-2000 21:20:07 ] Retrieved data for serial5_1_0_4_0 (18):
+<BR>
+<P>+409481748,1383736217
+<BR>
+<P>[20-Jan-2000 21:20:07 ] Retrieved data for serial5_1_0_5_0 (19):
+<BR>
+<P>+6912898,12511401
+<BR>
+<P>[20-Jan-2000 21:20:08 ] Processed 14 targets in 8 seconds.            
+<BR>
+<P>So that seems to look good.
+<BR>
+When i link to grapher.cgi it lists everything, and graphs appear.
+<BR>
+In the &quot;Summary&quot; box it has the correct date for &quot;Last updated at&quot;
+<BR>
+<P><P>However, in that same box the &quot;values at last update&quot; is blank, 
+<BR>
+and the graphs are empty.
+<BR>
+<P>Any pointers?
+<BR>
+<P>-Dustin
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0950.html">Peter Bogdanovic: "Re: [cricket-users] No data in graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0948.html">Emmett Hogan: "Re: [cricket-users] Adding a DS to a .rrd"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0946.html">Dustin Slater: "[cricket-users] No data in graphs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0950.html">Peter Bogdanovic: "Re: [cricket-users] No data in graphs"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0950.html">Peter Bogdanovic: "Re: [cricket-users] No data in graphs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#949">[ date ]</A>
+<A HREF="index.html#949">[ thread ]</A>
+<A HREF="subject.html#949">[ subject ]</A>
+<A HREF="author.html#949">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:11 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

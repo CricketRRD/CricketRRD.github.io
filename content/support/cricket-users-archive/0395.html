@@ -1,0 +1,412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: Help with Cricket-0.69 for n</TITLE>
+<META NAME="Author" CONTENT="Daniel Spisak (dspisak@mminternet.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: Help with Cricket-0.69 for newbie">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: Help with Cricket-0.69 for newbie</H1>
+<!-- received="Tue Jul 20 17:04:35 1999" -->
+<!-- isoreceived="19990721000435" -->
+<!-- sent="Tue, 20 Jul 1999 13:40:16 -0700" -->
+<!-- isosent="19990720204016" -->
+<!-- name="Daniel Spisak" -->
+<!-- email="dspisak@mminternet.com" -->
+<!-- subject="[cricket-users] Re: Help with Cricket-0.69 for newbie" -->
+<!-- id="00cb01bed2f0$15901260$d748afcf@mminternet.com" -->
+<!-- inreplyto="199907200138.SAA22488@oops.artemis.com" -->
+<STRONG>From:</STRONG> Daniel Spisak (<A HREF="mailto:dspisak@mminternet.com?Subject=Re:%20[cricket-users]%20Re:%20Help%20with%20Cricket-0.69%20for%20newbie&In-Reply-To=&lt;00cb01bed2f0$15901260$d748afcf@mminternet.com&gt;"><EM>dspisak@mminternet.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jul 20 1999 - 13:40:16 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0396.html">Berg, Ivan: "RE: [cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0394.html">Michael P. Burton: "[cricket-users] multiple graphs"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0384.html">Jeff Allen: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0398.html">Jeff Allen: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0398.html">Jeff Allen: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#395">[ date ]</A>
+<A HREF="index.html#395">[ thread ]</A>
+<A HREF="subject.html#395">[ subject ]</A>
+<A HREF="author.html#395">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Daniel Spisak&quot; &lt;<A HREF="mailto:dspisak@mminternet.com?Subject=Re:%20[cricket-users]%20Re:%20Help%20with%20Cricket-0.69%20for%20newbie&In-Reply-To=&lt;00cb01bed2f0$15901260$d748afcf@mminternet.com&gt;">dspisak@mminternet.com</A>&gt;
+<BR>
+<P>Ok here is where I stand now.
+<BR>
+To make compile work I have to explicitly set the base directory always as
+<BR>
+so:
+<BR>
+<P>[root@paraguay cricket]# pwd
+<BR>
+/root/cricket
+<BR>
+[root@paraguay cricket]# ./compile -base
+<BR>
+/root/cricket/cricket-config/routers /root/cricket/cricket-config/routers/
+<BR>
+[20-Jul-1999 13:21:15 ] Starting compile: Cricket version 0.69 ( Fri Jul 16
+<BR>
+00:37:23 PDT 1999 )
+<BR>
+[20-Jul-1999 13:21:16 ] Processed 9 nodes (in 3 files) in 5 seconds.
+<BR>
+<P>The three files in the routers subdir is:
+<BR>
+Defaults
+<BR>
+Targets
+<BR>
+<P>The only change I made to the main Deafult files (besides the correct
+<BR>
+snmp-community) was:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataDir                         =
+<BR>
+/root/cricket-logs%auto-target-path%
+<BR>
+<P>The only change I made to the routers subdir Defaults was:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain                  = &quot;mminternet.com&quot;
+<BR>
+<P>Targets has only a few target:
+<BR>
+target  millenium-gw
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type=Cisco-3600-Router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;Main Cisco Router for MM Internet Los Al&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router          =       millenium-gw
+<BR>
+<P>target Ethernet0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Ethernet0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       DMZ
+<BR>
+<P>target Serial0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       GTE-ADSL2
+<BR>
+<P>target Serial0_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial0/1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       GTE-Internet
+<BR>
+<P>target Serial0_1.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial0/1.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       sub-interface
+<BR>
+<P>target Serial2_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial2/1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;GTE-ADSL1 &quot;
+<BR>
+<P>target Serial2_2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial2/2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;Covad Frame Relay T1 Interface for DSL&quot;
+<BR>
+<P>target Serial2_3
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial2/3
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =        &quot;Qwest T1&quot;
+<BR>
+<P>[root@paraguay cricket]# ./collector -logLevel debug -base
+<BR>
+~/cricket/cricket-config/routers/
+<BR>
+[20-Jul-1999 13:31:55 ] Starting collector: Cricket version 0.69 ( Fri Jul
+<BR>
+16 00:37:23 PDT 1999 )
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://millenium-gw">file://millenium-gw</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] target millenium-gw
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /root/cricket/cricket-config/routers/
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain = mminternet.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = millenium-gw
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = Main Cisco Router for MM Internet Los Al
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = millenium-gw.mminternet.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type = Cisco-3600-Router
+<BR>
+<P>[20-Jul-1999 13:31:55*] Could not find a datafile for millenium-gw.
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://ethernet0_0">file://ethernet0_0</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] target ethernet0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /root/cricket/cricket-config/routers/
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain = mminternet.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = Ethernet0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = ethernet0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = DMZ
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = ethernet0_0.mminternet.com
+<BR>
+<P>[20-Jul-1999 13:31:55*] Could not find a datafile for ethernet0_0.
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial0_0">file://serial0_0</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] target serial0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /root/cricket/cricket-config/routers/
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain = mminternet.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = Serial0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = serial0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = GTE-ADSL2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = serial0_0.mminternet.com
+<BR>
+<P>[20-Jul-1999 13:31:55*] Could not find a datafile for serial0_0.
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial0_1">file://serial0_1</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] target serial0_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /root/cricket/cricket-config/routers/
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain = mminternet.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = Serial0/1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = serial0_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = GTE-Internet
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = serial0_1.mminternet.com
+<BR>
+<P>[20-Jul-1999 13:31:55*] Could not find a datafile for serial0_1.
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial0_1.1">file://serial0_1.1</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] target serial0_1.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /root/cricket/cricket-config/routers/
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain = mminternet.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = Serial0/1.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = serial0_1.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = serial0_1.1.mminternet.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type = sub-interface
+<BR>
+<P>[20-Jul-1999 13:31:55*] Could not find a datafile for serial0_1.1.
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial2_1">file://serial2_1</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] target serial2_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /root/cricket/cricket-config/routers/
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain = mminternet.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = Serial2/1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = serial2_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = GTE-ADSL1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = serial2_1.mminternet.com
+<BR>
+<P>[20-Jul-1999 13:31:55*] Could not find a datafile for serial2_1.
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial2_2">file://serial2_2</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] target serial2_2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /root/cricket/cricket-config/routers/
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain = mminternet.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = Serial2/2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = serial2_2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = Covad Frame Relay T1 Interface for DSL
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = serial2_2.mminternet.com
+<BR>
+<P>[20-Jul-1999 13:31:55*] Could not find a datafile for serial2_2.
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial2_3">file://serial2_3</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] target serial2_3
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /root/cricket/cricket-config/routers/
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain = mminternet.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = Serial2/3
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = serial2_3
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = Qwest T1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = serial2_3.mminternet.com
+<BR>
+<P>[20-Jul-1999 13:31:55*] Could not find a datafile for serial2_3.
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://millenium-gw">file://millenium-gw</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://ethernet0_0">file://ethernet0_0</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial0_0">file://serial0_0</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial0_1">file://serial0_1</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial0_1.1">file://serial0_1.1</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial2_1">file://serial2_1</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial2_2">file://serial2_2</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] Processing <A HREF="file://serial2_3">file://serial2_3</A>...
+<BR>
+[20-Jul-1999 13:31:55 ] Processed 8 targets in 4 seconds.
+<BR>
+<P>I can't seem to find where Cricket is putting the data....if it even is.  I
+<BR>
+created a cricket-logs dir under the the main cricket dir but I don't see
+<BR>
+any files being created there. What am I missing here? Where can I setup the
+<BR>
+base dirs properly so I don't have to explicity set them every time I run
+<BR>
+compile or collector?  What am I doing wrong?  Any help appriciated, thanks
+<BR>
+in advance!
+<BR>
+<P>Daniel E. Spisak
+<BR>
+Senior Network Administrator
+<BR>
+MM Internet
+<BR>
+<A HREF="http://www.mminternet.com/">http://www.mminternet.com/</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>You can WIN $100 to Amazon.com!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+If you join ONElist’s FRIENDS &amp; FAMILY program.  See homepage.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0396.html">Berg, Ivan: "RE: [cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0394.html">Michael P. Burton: "[cricket-users] multiple graphs"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0384.html">Jeff Allen: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0398.html">Jeff Allen: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0398.html">Jeff Allen: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#395">[ date ]</A>
+<A HREF="index.html#395">[ thread ]</A>
+<A HREF="subject.html#395">[ subject ]</A>
+<A HREF="author.html#395">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

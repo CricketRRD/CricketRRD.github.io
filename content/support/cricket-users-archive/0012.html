@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Zeroed out graphs</TITLE>
+<META NAME="Author" CONTENT="Marcelo A. Ferreira Gomes (mgomes@trip.com.br)">
+<META NAME="Subject" CONTENT="[cricket-users] Zeroed out graphs">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Zeroed out graphs</H1>
+<!-- received="Sat May  1 02:31:23 1999" -->
+<!-- isoreceived="19990501093123" -->
+<!-- sent="Sat, 01 May 1999 03:27:48 -0300" -->
+<!-- isosent="19990501062748" -->
+<!-- name="Marcelo A. Ferreira Gomes" -->
+<!-- email="mgomes@trip.com.br" -->
+<!-- subject="[cricket-users] Zeroed out graphs" -->
+<!-- id="3.0.1.32.19990501032748.006ec1ec@pop3.trip.com.br" -->
+<STRONG>From:</STRONG> Marcelo A. Ferreira Gomes (<A HREF="mailto:mgomes@trip.com.br?Subject=Re:%20[cricket-users]%20Zeroed%20out%20graphs&In-Reply-To=&lt;3.0.1.32.19990501032748.006ec1ec@pop3.trip.com.br&gt;"><EM>mgomes@trip.com.br</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Apr 30 1999 - 23:27:48 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0013.html">Jeff Allen: "[cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0011.html">Marcelo A. Ferreira Gomes: "[cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0212.html">Marcelo A. Ferreira Gomes: "[cricket-users] Zeroed out graphs"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0212.html">Marcelo A. Ferreira Gomes: "[cricket-users] Zeroed out graphs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#12">[ date ]</A>
+<A HREF="index.html#12">[ thread ]</A>
+<A HREF="subject.html#12">[ subject ]</A>
+<A HREF="author.html#12">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Marcelo A. Ferreira Gomes&quot; &lt;<A HREF="mailto:mgomes@trip.com.br?Subject=Re:%20[cricket-users]%20Zeroed%20out%20graphs&In-Reply-To=&lt;3.0.1.32.19990501032748.006ec1ec@pop3.trip.com.br&gt;">mgomes@trip.com.br</A>&gt;
+<BR>
+<P>Sorry, folks. The subject of my last msg should be the above. That's why
+<BR>
+I'm sending it again. Please disregard my last posting.
+<BR>
+<P>I must be *VERY* sleepy: it's almost 3:30 in the morning here as I write
+<BR>
+this. The original posting follows:
+<BR>
+<P><EM>&gt;I've got a problem here and would like to know whether anyone has
+</EM><BR>
+experienced it before and/or has come up with a solution.
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;The thing is: my collector gathers up the data from the routers and
+</EM><BR>
+everything looks ok in the data files (*.rrd) as far as I can tell by using
+<BR>
+rrdtool dump.
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;But sometimes, some of the graphs will only show zeroes (a flat horizontal
+</EM><BR>
+line covering the x axis). For instance, the hourly and weekly are zeroed
+<BR>
+out and the daily and monthly are ok. Sometime later (after another sample
+<BR>
+has been taken from the routers), everything is fine. Or even worse, some
+<BR>
+of the graphs that were ok come up zeroed out and some come up fine. I see
+<BR>
+no pattern as to which graphs will come up ok and which won't. And the
+<BR>
+error isn't even consistent among all interfaces of a single router: at the
+<BR>
+same moment when some interfaces have all graphs ok, some some others have
+<BR>
+zeroed graphs.
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;What thrills me is that, even though it's intermitent, it's not a cacheing
+</EM><BR>
+problem. I've even tried deleting all of the /tmp/cricket-cache/* and all
+<BR>
+of my browser's cache, and there's no proxy between me and the server machine.
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;My setup:
+</EM><BR>
+<EM>&gt;- Solaris 2.6 on a Sun Ultra 2,
+</EM><BR>
+<EM>&gt;- Perl 5.0 patchlevel 4 subversion 4,
+</EM><BR>
+<EM>&gt;- cricket-0.63,
+</EM><BR>
+<EM>&gt;- rrdtool-0.99.22,
+</EM><BR>
+<EM>&gt;- Digest-MD5-2.06,
+</EM><BR>
+<EM>&gt;- SNMP_Session-0.70,
+</EM><BR>
+<EM>&gt;- libwww-perl-5.42,
+</EM><BR>
+<EM>&gt;- Time-HiRes-01.20,
+</EM><BR>
+<EM>&gt;- HTML-Parser-2.22,
+</EM><BR>
+<EM>&gt;- URI-1.02,
+</EM><BR>
+<EM>&gt;- MIME-Base64-2.11,
+</EM><BR>
+<EM>&gt;- libnet-1.0606.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Do I miss something? I'm aware of rrdtool-0.99.25, but it's the above
+</EM><BR>
+setup that's giving me the problem. Since I don't see anything that could
+<BR>
+have been the cause of my problem in the CHANGES file that comes whith
+<BR>
+0.99.25, I thought it was worth asking you before installing the new version.
+<BR>
+<EM>&gt;
+</EM><BR>
+<PRE>
+-- 
+Marcelo Amarante Ferreira Gomes
+Computer Science analist and consultant
+&lt;mailto:<A HREF="mailto:mgomes@trip.com.br?Subject=Re:%20[cricket-users]%20Zeroed%20out%20graphs&In-Reply-To=&lt;3.0.1.32.19990501032748.006ec1ec@pop3.trip.com.br&gt;">mgomes@trip.com.br</A>&gt;
+<P><P>------------------------------------------------------------------------
+Share the wealth!
+<A HREF="http://www.ONElist.com">http://www.ONElist.com</A>
+Tell a friend about ONElist's 130,000 free e-mail communities!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0013.html">Jeff Allen: "[cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0011.html">Marcelo A. Ferreira Gomes: "[cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0212.html">Marcelo A. Ferreira Gomes: "[cricket-users] Zeroed out graphs"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0212.html">Marcelo A. Ferreira Gomes: "[cricket-users] Zeroed out graphs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#12">[ date ]</A>
+<A HREF="index.html#12">[ thread ]</A>
+<A HREF="subject.html#12">[ subject ]</A>
+<A HREF="author.html#12">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:47 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

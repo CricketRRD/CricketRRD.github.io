@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] grapher for a BPX trunk</TITLE>
+<META NAME="Author" CONTENT="Palomino Gutierrez, Kleiber (KPALOMINO@firstcom.com.pe)">
+<META NAME="Subject" CONTENT="[cricket-users] grapher for a BPX trunk">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] grapher for a BPX trunk</H1>
+<!-- received="Tue Jan  4 15:13:41 2000" -->
+<!-- isoreceived="20000104231341" -->
+<!-- sent="Tue, 4 Jan 2000 15:11:13 -0500 " -->
+<!-- isosent="20000104201113" -->
+<!-- name="Palomino Gutierrez, Kleiber" -->
+<!-- email="KPALOMINO@firstcom.com.pe" -->
+<!-- subject="[cricket-users] grapher for a BPX trunk" -->
+<!-- id="C0851660E62BD311ABE20050040D2EDB13D234@FSMAIL" -->
+<STRONG>From:</STRONG> Palomino Gutierrez, Kleiber (<A HREF="mailto:KPALOMINO@firstcom.com.pe?Subject=Re:%20[cricket-users]%20grapher%20for%20a%20BPX%20trunk&In-Reply-To=&lt;C0851660E62BD311ABE20050040D2EDB13D234@FSMAIL&gt;"><EM>KPALOMINO@firstcom.com.pe</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jan 04 2000 - 12:11:13 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0822.html">phil.pierotti@quokka.com: "[cricket-users] grapher.cgi fails to produce graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0820.html">Mark Skinner: "[cricket-users] Baynetworks Accellars aka Nortel"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#821">[ date ]</A>
+<A HREF="index.html#821">[ thread ]</A>
+<A HREF="subject.html#821">[ subject ]</A>
+<A HREF="author.html#821">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Palomino Gutierrez, Kleiber&quot; &lt;<A HREF="mailto:KPALOMINO@firstcom.com.pe?Subject=Re:%20[cricket-users]%20grapher%20for%20a%20BPX%20trunk&In-Reply-To=&lt;C0851660E62BD311ABE20050040D2EDB13D234@FSMAIL&gt;">KPALOMINO@firstcom.com.pe</A>&gt;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hi,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;does anyone have the Cisco BPX 8400?
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am not getting the grapher of load bpxs trunks , I dont't
+<BR>
+know what  the problem is, maybe I need add some command or data in the
+<BR>
+configurations.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the trunk is a OC3  and  its mib for the load is
+<BR>
+1.3.6.1.4.1.351.100.4.2.4.2.1.6
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this is the directory tree	:
+<BR>
+test-tree:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- troncalload:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Defaults
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- atm-trunks : - Defaults
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- interfaces
+<BR>
+<P><P>here show you with more details the files:
+<BR>
+1)
+<BR>
+../test-tree/troncalload/Defaults
+<BR>
+&nbsp;target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;%swname%:  %interface-desc%&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long-desc       =       %interface-desc%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;util-dir        =       %auto-base%/../cricket/util
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst            =       %InterfaceID%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host       =       %swname%
+<BR>
+<P><P>oid     trocal_load     1.3.6.1.4.1.351.100.4.2.4.2.1.6
+<BR>
+<P># graph defaults for all ATM stats
+<BR>
+# always convert ATM cells to bits for graphing (53 * 8 = 424)
+<BR>
+<P>graph   --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;scale       =  8,*
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;bytes       =  true
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis      =  &quot;bits per second&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units       =  &quot;bits/sec&quot;
+<BR>
+2)
+<BR>
+../test-tree/troncalload/atm-trunks/Defaults
+<BR>
+<P>datasource      ATMTroncalLoad
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source       =       &quot;snmp://%snmp%/trocal_load.%inst%&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desc            =       &quot;BPX Troncal Load&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type     =       COUNTER
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-heartbeat   =       1800
+<BR>
+<P>targetType      atm-trunk
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds      =       &quot;ATMTroncalLoad&quot;
+<BR>
+<P>graph   ATMTroncalLoad
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as     =  AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color       =  dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend      =  ATMTroncalLoad
+<BR>
+<P><P>3)
+<BR>
+../test-tree/troncalload/atm-trunks/interfaces
+<BR>
+<P>target  pechib1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-desc = &quot;Trocal hacia ......&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swname = &quot;pechib1&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-max = 300000
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InterfaceID = &quot;6010000&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type = atm-trunk
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+<P>someone could help me, please.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Regards,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kleiber	
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0822.html">phil.pierotti@quokka.com: "[cricket-users] grapher.cgi fails to produce graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0820.html">Mark Skinner: "[cricket-users] Baynetworks Accellars aka Nortel"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#821">[ date ]</A>
+<A HREF="index.html#821">[ thread ]</A>
+<A HREF="subject.html#821">[ subject ]</A>
+<A HREF="author.html#821">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

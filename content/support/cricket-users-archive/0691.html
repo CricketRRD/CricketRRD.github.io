@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>cricket-users: RE: [cricket-users] Determining bandwidth usage</TITLE>
+<META NAME="Author" CONTENT="Ross Lewis (rklewis@blair.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Determining bandwidth usage">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Determining bandwidth usage</H1>
+<!-- received="Fri Oct 29 13:05:58 1999" -->
+<!-- isoreceived="19991029200558" -->
+<!-- sent="Fri, 29 Oct 1999 06:35:37 -0400" -->
+<!-- isosent="19991029103537" -->
+<!-- name="Ross Lewis" -->
+<!-- email="rklewis@blair.com" -->
+<!-- subject="RE: [cricket-users] Determining bandwidth usage" -->
+<!-- id="F9DA06A15118D311BB5A0020353112EC1D8119@HICKORY" -->
+<!-- charset="windows-1252" -->
+<!-- inreplyto="[cricket-users] Determining bandwidth usage" -->
+<STRONG>From:</STRONG> Ross Lewis (<A HREF="mailto:rklewis@blair.com?Subject=RE:%20[cricket-users]%20Determining%20bandwidth%20usage&In-Reply-To=&lt;F9DA06A15118D311BB5A0020353112EC1D8119@HICKORY&gt;"><EM>rklewis@blair.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Oct 29 1999 - 03:35:37 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0692.html">Pradeep Subramaniam: "[cricket-users] Strange output from cron"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0690.html">Selena M Brewington: "Re: [cricket-users] cricket and apache"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0687.html">Berg, Ivan: "[cricket-users] Determining bandwidth usage"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#691">[ date ]</A>
+<A HREF="index.html#691">[ thread ]</A>
+<A HREF="subject.html#691">[ subject ]</A>
+<A HREF="author.html#691">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Ross Lewis &lt;<A HREF="mailto:rklewis@blair.com?Subject=RE:%20[cricket-users]%20Determining%20bandwidth%20usage&In-Reply-To=&lt;F9DA06A15118D311BB5A0020353112EC1D8119@HICKORY&gt;">rklewis@blair.com</A>&gt;
+<BR>
+<P>Perhaps another rrd target could be created that consists of ONLY the daily
+<BR>
+peaks.  The update interval would be once a day , and you would need to find
+<BR>
+the peak for that day (fetch it from the rrd).  With an update interval of
+<BR>
+that size, you could keep all the daily peaks for a couple years.
+<BR>
+<P>I'm not quite sure how you could implement this easily.  To keep the
+<BR>
+existing targets &quot;pure&quot;, you might consider creating a new target with a new
+<BR>
+&quot;collection&quot; exec.
+<BR>
+<P>Just a thought
+<BR>
+<P>Ross
+<BR>
+<P>-----Original Message-----
+<BR>
+From: Berg, Ivan [mailto:<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Determining%20bandwidth%20usage&In-Reply-To=&lt;F9DA06A15118D311BB5A0020353112EC1D8119@HICKORY&gt;">iberg@montana.edu</A>]
+<BR>
+Sent: Thursday, October 28, 1999 6:54 PM
+<BR>
+To: '<A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20Determining%20bandwidth%20usage&In-Reply-To=&lt;F9DA06A15118D311BB5A0020353112EC1D8119@HICKORY&gt;">cricket-users@onelist.com</A>'
+<BR>
+Subject: [cricket-users] Determining bandwidth usage
+<BR>
+<P><P>From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Determining%20bandwidth%20usage&In-Reply-To=&lt;F9DA06A15118D311BB5A0020353112EC1D8119@HICKORY&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>Here is the problem:
+<BR>
+Cricket averages the data for the long term resulting in a smoothed out
+<BR>
+picture that does not accurately give you an idea of peak bandwidth usage
+<BR>
+needed to bill or upgrade a network.
+<BR>
+<P>This is due to the bursty nature of LAN traffic, for instance, in one case,
+<BR>
+the average for the week is about HALF the size of the peaks in the
+<BR>
+day-quite a loss.
+<BR>
+<P>Is there other ways for cricket/rrdtool to generate long term data? I.E
+<BR>
+instead of averaging, simply throw out every so many points - even this
+<BR>
+would preserve peaks better.
+<BR>
+<P>Another way would be to increase the data size sets of rrd so it could store
+<BR>
+more data points and not average so much.
+<BR>
+<P>Anybody have any suggestions to improve the resolution and have cricket
+<BR>
+preserve the data more??
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thinking about putting your business on the Web? 
+<BR>
+MindSpring Biz has helped over 100,000 businesses get their .com.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join MindSpring Biz and save $50!  
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/mindspring3">http://clickme.onelist.com/ad/mindspring3</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0692.html">Pradeep Subramaniam: "[cricket-users] Strange output from cron"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0690.html">Selena M Brewington: "Re: [cricket-users] cricket and apache"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0687.html">Berg, Ivan: "[cricket-users] Determining bandwidth usage"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#691">[ date ]</A>
+<A HREF="index.html#691">[ thread ]</A>
+<A HREF="subject.html#691">[ subject ]</A>
+<A HREF="author.html#691">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

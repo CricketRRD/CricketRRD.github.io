@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] rrdtool-1.0.10</TITLE>
+<META NAME="Author" CONTENT="Sam Habash (the+cricket@llama.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] rrdtool-1.0.10">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] rrdtool-1.0.10</H1>
+<!-- received="Wed Jan 12 06:29:42 2000" -->
+<!-- isoreceived="20000112142942" -->
+<!-- sent="Wed, 12 Jan 2000 03:28:07 -0800 (PST)" -->
+<!-- isosent="20000112112807" -->
+<!-- name="Sam Habash" -->
+<!-- email="the+cricket@llama.com" -->
+<!-- subject="Re: [cricket-users] rrdtool-1.0.10" -->
+<!-- id="Pine.BSF.4.21.0001120308460.75169-100000@best.llama.com" -->
+<!-- inreplyto="Pine.BSF.4.21.0001111956520.74181-100000@best.llama.com" -->
+<STRONG>From:</STRONG> Sam Habash (<A HREF="mailto:the%2Bcricket@llama.com?Subject=Re:%20[cricket-users]%20rrdtool-1.0.10&In-Reply-To=&lt;Pine.BSF.4.21.0001120308460.75169-100000@best.llama.com&gt;"><EM>the+cricket@llama.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jan 12 2000 - 03:28:07 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0911.html">Ivan Berg: "Re: [cricket-users] RRD Max"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0909.html">Sam Habash: "Re: [cricket-users] rrdtool-1.0.10"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0909.html">Sam Habash: "Re: [cricket-users] rrdtool-1.0.10"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#910">[ date ]</A>
+<A HREF="index.html#910">[ thread ]</A>
+<A HREF="subject.html#910">[ subject ]</A>
+<A HREF="author.html#910">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Sam Habash &lt;the+<A HREF="mailto:cricket@llama.com?Subject=Re:%20[cricket-users]%20rrdtool-1.0.10&In-Reply-To=&lt;Pine.BSF.4.21.0001120308460.75169-100000@best.llama.com&gt;">cricket@llama.com</A>&gt;
+<BR>
+<P>On Tue, 11 Jan 2000, Sam Habash wrote:
+<BR>
+<P><EM>&gt; From: Sam Habash &lt;the+<A HREF="mailto:cricket@llama.com?Subject=Re:%20[cricket-users]%20rrdtool-1.0.10&In-Reply-To=&lt;Pine.BSF.4.21.0001120308460.75169-100000@best.llama.com&gt;">cricket@llama.com</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I perhaps spoke too soon, as it appears that cricket doesn't call
+</EM><BR>
+<EM>&gt; 'rrdtool update' to update ts datasources :-) but does it through 
+</EM><BR>
+<EM>&gt; a Perl module, which I neglected to upgrade (fixed just now) on
+</EM><BR>
+<EM>&gt; one of my boxes which has a nonstandard install setup due to
+</EM><BR>
+<EM>&gt; me not wanting to 'pollute' the existing environment.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; RRDs.so
+</EM><BR>
+<EM>&gt; RRDp.pm
+</EM><BR>
+<EM>&gt; RRDs.pm
+</EM><BR>
+<P>And for some reason the other box (*with* the standard setup)
+<BR>
+didn't upgrade the RRD shared libs with the 'make install'.  
+<BR>
+So I had to do that by hand.  Watch out for that.
+<BR>
+<P><EM>&gt; I'll know if this is effective shortly.
+</EM><BR>
+<P>It is indeed effective, though I ended up chasing a problem where
+<BR>
+AVG and MAX values at the top of the graph weren't updating, but
+<BR>
+that turns out to be the %f-&gt;%lf problem, and that I was editing
+<BR>
+a grapher.cgi that wasn't getting loaded in public_html.
+<BR>
+<P>Again, just do a 'rrdtool dump rrdfile.rrd &gt; /tmp/somefile' and
+<BR>
+look for something like:
+<BR>
+<P>!-- 2000-01-12 00:05:00 PST --&gt; &lt;row&gt;&lt;v&gt; 1.0000000000e+00 &lt;/v&gt;&lt;v&gt; 1.0007666667e+00 &lt;/v&gt;&lt;v&gt; 1.0100000000e+00 &lt;/v&gt;&lt;/row&gt;
+<BR>
+&lt;!-- 2000-01-12 00:10:00 PST --&gt; &lt;row&gt;&lt;v&gt; NaN &lt;/v&gt;&lt;v&gt; NaN &lt;/v&gt;&lt;v&gt; NaN &lt;/v&gt;&lt;/row&gt;
+<BR>
+&lt;!-- 2000-01-12 00:15:00 PST --&gt; &lt;row&gt;&lt;v&gt; 1.0000000000e+00 &lt;/v&gt;&lt;v&gt; 1.0007000000e+00 &lt;/v&gt;&lt;v&gt; 1.0100000000e+00 &lt;/v&gt;&lt;/row&gt;
+<BR>
+<P>And check this against normal.N, where collector is able to pull a datasource
+<BR>
+value.
+<BR>
+<P>Take care,
+<BR>
+<P>--Sam
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0911.html">Ivan Berg: "Re: [cricket-users] RRD Max"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0909.html">Sam Habash: "Re: [cricket-users] rrdtool-1.0.10"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0909.html">Sam Habash: "Re: [cricket-users] rrdtool-1.0.10"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#910">[ date ]</A>
+<A HREF="index.html#910">[ thread ]</A>
+<A HREF="subject.html#910">[ subject ]</A>
+<A HREF="author.html#910">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:10 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

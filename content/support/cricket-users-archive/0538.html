@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Multiple Size Graphs and Aggrega</TITLE>
+<META NAME="Author" CONTENT="Matt Duggan (matt@insnet.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Multiple Size Graphs and Aggregates.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Multiple Size Graphs and Aggregates.</H1>
+<!-- received="Tue Aug 24 12:26:01 1999" -->
+<!-- isoreceived="19990824192601" -->
+<!-- sent="Tue, 24 Aug 1999 16:16:36 +0000" -->
+<!-- isosent="19990824161636" -->
+<!-- name="Matt Duggan" -->
+<!-- email="matt@insnet.net" -->
+<!-- subject="[cricket-users] Multiple Size Graphs and Aggregates." -->
+<!-- id="37C2C564.963E172D@insnet.net" -->
+<STRONG>From:</STRONG> Matt Duggan (<A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20Multiple%20Size%20Graphs%20and%20Aggregates.&In-Reply-To=&lt;37C2C564.963E172D@insnet.net&gt;"><EM>matt@insnet.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Aug 24 1999 - 09:16:36 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0539.html">Jim D. Kirby: "RE: [cricket-users] Cricket 0.70 available"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0537.html">qztf7k@powertrain.mpg.gm.com: "RE: [cricket-users] Graphing Question"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#538">[ date ]</A>
+<A HREF="index.html#538">[ thread ]</A>
+<A HREF="subject.html#538">[ subject ]</A>
+<A HREF="author.html#538">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Matt Duggan &lt;<A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20Multiple%20Size%20Graphs%20and%20Aggregates.&In-Reply-To=&lt;37C2C564.963E172D@insnet.net&gt;">matt@insnet.net</A>&gt;
+<BR>
+<P>Hi Everyone, 
+<BR>
+<P>I am using the latest release of Cricket and RRDTOOL 
+<BR>
+on a Sun Ultra 1 running fully patched Solaris 2.6.
+<BR>
+<P>Everything is working great at the moment, I have modified
+<BR>
+'listInterfaces' to include a nice bit of html by default as
+<BR>
+a long-descr, it pulls router name, interface type (has an 
+<BR>
+array of interface types), interface speed etc and includes
+<BR>
+it on a zoomed view. If anyone's interested, mail me and you
+<BR>
+can have it.
+<BR>
+<P>Anyway... I have got a multi-view working which is great, 
+<BR>
+but I am interested in two things now:
+<BR>
+<P>1. I need to have different size graphs for multiviews and
+<BR>
+zoomed views. i.e. I would like small, perhaps 300x150 graphs
+<BR>
+for multi-views and then revert to the 500x200 graphs when 
+<BR>
+zooming to them. I tried putting a new graphs --default--
+<BR>
+tag in the config file (Peering_Points) and this over-rode
+<BR>
+the main defaults at the start of the config tree. Any suggestions?
+<BR>
+<P>2. I need an aggregate view of some interfaces, I know that
+<BR>
+mtargets should do it but it fails with a server error, the 
+<BR>
+config I have for it is as follows:
+<BR>
+<P>target Aggregate
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;aggregate port usage&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtarget = &quot;/router-interfaces/routera/ethernet5_0;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/routerb/ethernet2_1;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/routerc/ethernet0&quot;
+<BR>
+<P>The same code works with the targets tag but not mtarget.
+<BR>
+<P>The apache server error is as follows:
+<BR>
+<P>[24-Aug-1999 17:12:41*] Variable expansion uses undefined variable:
+<BR>
+router.
+<BR>
+Can't call method &quot;configHash&quot; on an undefined value at 
+<BR>
+/**HIDDEN DIRECTORY**/cricket/lib/Common/Map.pm line 126.
+<BR>
+[Tue Aug 24 17:12:41 1999] [error] [client 194.205.255.249] Premature
+<BR>
+end of script headers: /www/cgi-bin/grapher.cgi
+<BR>
+<P><P>Any ideas would be much appreciated!
+<BR>
+<P>Thanks in advance, 
+<BR>
+Regards, 
+<BR>
+Matt.
+<BR>
+mailto:<A HREF="mailto:matt@insnet.net?Subject=Re:%20[cricket-users]%20Multiple%20Size%20Graphs%20and%20Aggregates.&In-Reply-To=&lt;37C2C564.963E172D@insnet.net&gt;">matt@insnet.net</A>
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Congratulations to Susan Davis!
+<BR>
+ONElist’s final FRIENDS&amp;FAMILY WINNER! 
+<BR>
+Stay tuned for exciting new contests, sweepstakes &amp; more at ONElist!
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0539.html">Jim D. Kirby: "RE: [cricket-users] Cricket 0.70 available"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0537.html">qztf7k@powertrain.mpg.gm.com: "RE: [cricket-users] Graphing Question"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#538">[ date ]</A>
+<A HREF="index.html#538">[ thread ]</A>
+<A HREF="subject.html#538">[ subject ]</A>
+<A HREF="author.html#538">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

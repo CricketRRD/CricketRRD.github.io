@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] monitor linux-interfaces</TITLE>
+<META NAME="Author" CONTENT="Kilian Weniger (c0033024@tu-bs.de)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] monitor linux-interfaces">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] monitor linux-interfaces</H1>
+<!-- received="Mon Jul 19 17:37:55 1999" -->
+<!-- isoreceived="19990720003755" -->
+<!-- sent="Mon, 19 Jul 1999 23:35:39 +0200 (METDST)" -->
+<!-- isosent="19990719213539" -->
+<!-- name="Kilian Weniger" -->
+<!-- email="c0033024@tu-bs.de" -->
+<!-- subject="RE: [cricket-users] monitor linux-interfaces" -->
+<!-- id="Pine.HPX.4.05.9907192332420.18321-100000@rzserv6i.rz.tu-bs.de" -->
+<!-- inreplyto="8B069C65F931D111B6E10000F804A4DF770363@amethyst.msu.montana.edu" -->
+<STRONG>From:</STRONG> Kilian Weniger (<A HREF="mailto:c0033024@tu-bs.de?Subject=RE:%20[cricket-users]%20monitor%20linux-interfaces&In-Reply-To=&lt;Pine.HPX.4.05.9907192332420.18321-100000@rzserv6i.rz.tu-bs.de&gt;"><EM>c0033024@tu-bs.de</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jul 19 1999 - 14:35:39 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0374.html">Kilian Weniger: "RE: [cricket-users] monitor linux-interfaces"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0372.html">Berg, Ivan: "RE: [cricket-users] monitor linux-interfaces"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0372.html">Berg, Ivan: "RE: [cricket-users] monitor linux-interfaces"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0374.html">Kilian Weniger: "RE: [cricket-users] monitor linux-interfaces"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0374.html">Kilian Weniger: "RE: [cricket-users] monitor linux-interfaces"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#373">[ date ]</A>
+<A HREF="index.html#373">[ thread ]</A>
+<A HREF="subject.html#373">[ subject ]</A>
+<A HREF="author.html#373">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Kilian Weniger &lt;<A HREF="mailto:c0033024@tu-bs.de?Subject=RE:%20[cricket-users]%20monitor%20linux-interfaces&In-Reply-To=&lt;Pine.HPX.4.05.9907192332420.18321-100000@rzserv6i.rz.tu-bs.de&gt;">c0033024@tu-bs.de</A>&gt;
+<BR>
+<P>I tried that too, but it doesnt help. The community &quot;public&quot; is right for
+<BR>
+me...
+<BR>
+I think the problem is the warning &quot;Undefined subroutine &amp;main::Warn
+<BR>
+called at util/../lib/snmpUitls.pm at line 47&quot;...
+<BR>
+But it dont know what to do now...
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kilian
+<BR>
+<P><P>On Mon, 19 Jul 1999, Berg, Ivan wrote:
+<BR>
+<P><EM>&gt; From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20monitor%20linux-interfaces&In-Reply-To=&lt;Pine.HPX.4.05.9907192332420.18321-100000@rzserv6i.rz.tu-bs.de&gt;">iberg@montana.edu</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; You need to do &quot;util/listInterfaces &lt;hostname or IP&gt; &lt;community&gt;&quot; &gt;
+</EM><BR>
+<EM>&gt; interfaces
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; In other words, give it a community password so it can access the snmp
+</EM><BR>
+<EM>&gt; device.
+</EM><BR>
+<EM>&gt; By default on the snmp tools on redhat, the read community is public, and
+</EM><BR>
+<EM>&gt; the write community is private.
+</EM><BR>
+<EM>&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; From: Kilian Weniger
+</EM><BR>
+<EM>&gt; To: <A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20monitor%20linux-interfaces&In-Reply-To=&lt;Pine.HPX.4.05.9907192332420.18321-100000@rzserv6i.rz.tu-bs.de&gt;">cricket-users@onelist.com</A>
+</EM><BR>
+<EM>&gt; Sent: 7/19/99 3:24 PM
+</EM><BR>
+<EM>&gt; Subject: [cricket-users] monitor linux-interfaces
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; From: Kilian Weniger &lt;<A HREF="mailto:c0033024@tu-bs.de?Subject=RE:%20[cricket-users]%20monitor%20linux-interfaces&In-Reply-To=&lt;Pine.HPX.4.05.9907192332420.18321-100000@rzserv6i.rz.tu-bs.de&gt;">c0033024@tu-bs.de</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Im a newbie with cricket and I have problems on making the
+</EM><BR>
+<EM>&gt; interface-files.
+</EM><BR>
+<EM>&gt; I use &quot;util/listInterfaces &lt;hostname or IP&gt;&quot; &gt; interfaces 
+</EM><BR>
+<EM>&gt; and everytime the interfaces-file only contains 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &quot;target --default--
+</EM><BR>
+<EM>&gt; 	router = &lt;hostname or IP&gt;&quot;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; and I get an warning-message:
+</EM><BR>
+<EM>&gt; &quot;Undefined subroutine &amp;main::Warn called at util/..lib/snmpUtils.pm line
+</EM><BR>
+<EM>&gt; 47&quot;
+</EM><BR>
+<EM>&gt; But I think that should not be the problem?! 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The machines I want to montior are linux-Redhat6.0 with ucd-snmpd
+</EM><BR>
+<EM>&gt; running
+</EM><BR>
+<EM>&gt; and a router &quot;Bintec Brick/XL&quot;, with which I have the same problem.
+</EM><BR>
+<EM>&gt; the linux-Redhat-system has many IP-Aliases I want to monitor seperately
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Am I right that I dont need to edit the router-subtree if I only want
+</EM><BR>
+<EM>&gt; the
+</EM><BR>
+<EM>&gt; router-interfaces to monitor?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; What can I do? Pleaze help
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 	thnx, Kilian
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; /=================================================\
+</EM><BR>
+<EM>&gt; |                                                 |
+</EM><BR>
+<EM>&gt; | Kilian Weniger                                  |
+</EM><BR>
+<EM>&gt; | Technische Universitaet Braunschweig            |
+</EM><BR>
+<EM>&gt; | Rechenzentrum, Gruppe Netze und Betrieb         |
+</EM><BR>
+<EM>&gt; | e-mail  : <A HREF="mailto:Kilian.Weniger@tu-bs.de?Subject=RE:%20[cricket-users]%20monitor%20linux-interfaces&In-Reply-To=&lt;Pine.HPX.4.05.9907192332420.18321-100000@rzserv6i.rz.tu-bs.de&gt;">Kilian.Weniger@tu-bs.de</A>               |
+</EM><BR>
+<EM>&gt; | Telefon : 0531-391-5538                         |
+</EM><BR>
+<EM>&gt; |                                                 |
+</EM><BR>
+<EM>&gt; \=================================================/
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Congratulations SAYNO2DRUGS. Our latest ONElist of the week.
+</EM><BR>
+<EM>&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+</EM><BR>
+<EM>&gt; How is ONElist changing YOUR life? Visit our homepage and let us know!
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Books, music, auctions, and more. Amazon.com!
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/Amazon6">http://clickme.onelist.com/ad/Amazon6</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P>/=================================================\
+<BR>
+|                                                 |
+<BR>
+| Kilian Weniger                                  |
+<BR>
+| Technische Universitaet Braunschweig            |
+<BR>
+| Rechenzentrum, Gruppe Netze und Betrieb         |
+<BR>
+| e-mail  : <A HREF="mailto:Kilian.Weniger@tu-bs.de?Subject=RE:%20[cricket-users]%20monitor%20linux-interfaces&In-Reply-To=&lt;Pine.HPX.4.05.9907192332420.18321-100000@rzserv6i.rz.tu-bs.de&gt;">Kilian.Weniger@tu-bs.de</A>               |
+<BR>
+| Telefon : 0531-391-5538                         |
+<BR>
+|                                                 |
+<BR>
+\=================================================/
+<BR>
+<P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist:  your connection to people who share your interests.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0374.html">Kilian Weniger: "RE: [cricket-users] monitor linux-interfaces"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0372.html">Berg, Ivan: "RE: [cricket-users] monitor linux-interfaces"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0372.html">Berg, Ivan: "RE: [cricket-users] monitor linux-interfaces"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0374.html">Kilian Weniger: "RE: [cricket-users] monitor linux-interfaces"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0374.html">Kilian Weniger: "RE: [cricket-users] monitor linux-interfaces"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#373">[ date ]</A>
+<A HREF="index.html#373">[ thread ]</A>
+<A HREF="subject.html#373">[ subject ]</A>
+<A HREF="author.html#373">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:57 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Cricket on NT: Frequent Questions</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Office\html.dot">
+<!--       #exec cmd="logger" --><STYLE TYPE="text/css"></STYLE></HEAD>
+<BODY TEXT="#000000" LINK="#800000" VLINK="#008080" BGCOLOR="#ffffff">
+
+<TABLE CELLSPACING=0 BORDER=0 WIDTH=474>
+<TR><TD VALIGN="MIDDLE" COLSPAN=3>
+<P><B><FONT SIZE=5>Frequent Questions </B></FONT></TD>
+</TR>
+<TR><TD VALIGN="MIDDLE" COLSPAN=3 HEIGHT=120>
+<B><I><P>Q:</B> I'm still having trouble installing the RRD perl module ... </P>
+</I><B><P>A:</B> Create a module package for PPM to find when installing RRD. I found that installing RRD wasn't enough, that I had to install the module to my Perl Lib. Briefly:</P>
+<P>Download and unzip RRD to any drive. (c:\rrdtool)</P>
+<P>Change directory to c:\rrdtool\perl-shared</P>
+<B><P>tar -cvf blib</B> (making a tar file of the blib directory)</P>
+<B><P>gzip blib.tar</B> (compressing the tar file)</P>
+<P>giving you <B>'blib.tar.gz</B>' which I renamed to <B>RRDs.tar.gz</B> that contained</P>
+<P>all my Perl module info.</P>
+<P>Also create a Perl package description file <B>RRDs.ppd.</P>
+<P>Nmake ppd</P>
+</B><P>Edit the PPD file to include the RRDs.tar.gz name:</P>
+<P>&lt;CODEBASE HREF="RRDs_tar.gz" /&gt;</P>
+<P>Copy the '.ppd' and '.tar.gz' to a new subdirectory off the root, '<B>C:\rrdmod</B>'.</P>
+<P>Fire up PPM. </P>
+<B><P>set repository cdrive c:\rrdmod</B> to point PPM to the cdrive.</P>
+<B><P>search /location c:\rrdmod</B> (Showing an installable perlmod)</P>
+<B><P>install /location c:\rrdmod RRDs</B> Installs it.</P>
+<B><P>query</B> at the PPM prompt shows if it works.</P>
+<P ALIGN="CENTER">. . .</P>
+<B><I><P>&nbsp;Q:</B> How do I install the SNMP mod and the cricket software? Do I just need the blib dir for modules or do I need lib and other parts to make a PPM module. I love PPM, it is so much easier than doing all that nmake stuff... </P>
+</I><B><P>A:</B> Just copy <B>BER.pm</B>, <B>SNMP_Session.pm</B>, and <B>SNMP_util.pm </B>to your <B>c:\cricket-0.XX\lib. </B>As for installing the Cricket software itself, try to unzip it to <B>c:\cricket-0.XX</B>, (where 0.XX is the version number).</P>
+<P ALIGN="CENTER">. . .</P>
+<B><I><P>Q: </B>I get a message from compile that says:</I><FONT FACE="Courier New" SIZE=2>:</P>
+<P>[10-Mar-2000 13:44:04 ] Starting compile: Cricket version 0.72 ( Sun Jan 23 23:54:35 PST 2000 )</P>
+<P>[10-Mar-2000 13:44:04 ] Processed 1 nodes (in 0 files) in 0 seconds</P>
+</FONT><I><P>When I run Cricket/collector /routers I get:</P>
+</I><FONT FACE="Courier New" SIZE=2><P>[10-Mar-2000 13:43:22 ] Starting collector: Cricket version 0.72 ( Sun Jan 23 23:54:35 PST 2000 )</P>
+<P>[10-Mar-2000 13:43:22*] Failed to open compiled config tree from /cricket-config/config.db: No such file or directory</P>
+<P>Exiting due to unrecoverble error.</P>
+</FONT><I><P>and there is no config.db file that I can find.</P>
+</I><B><P>A:</B> This error is caused by forgetting to set the 'HOME' environmental variable. Fix this by editing the file <B>subtree-sets. </B>Make it look like this:</P>
+<FONT FACE="Courier New" SIZE=2><P>base: /cricket-0.xx/cricket-config</P>
+<P>logdir: /cricket-0.xx/cricket-logs</P>
+</FONT><P>Edit /cricket-0xx/lib/Common/Options.pm and set:</P>
+<FONT FACE="Courier New" SIZE=1><P>$ENV{'HOME'} = '/cricket-0.72' unless (defined($ENV{'HOME'})); </P>
+</FONT><P>You may also want to edit grapher.cgi and set:<FONT FACE="Courier New" SIZE=2> </P>
+<P>$Common::global::gConfigRoot</P>
+</FONT><P>to the full path that you set for "<FONT FACE="Courier" SIZE=2>base:</FONT>" above.</P>
+<P>Whenever you use collector, compile, rrd-tune, dump-targets, generate-statics scripts (and other future things which expect to find the config tree) you'll need to use the "-base" option to specify the base.</P>
+<P ALIGN="CENTER">. . .</P>
+<B><I><P>Q: </B>I have 'collector' running but my 'grapher.cgi' isn't showing me a web page…</P>
+</I><B><P>A:</B> To configure IIS or PWS 4.0 to run Perl scripts:</P>
+<P>1.Open the IIS 4.0 Internet Service Manager. This will bring up the Microsoft Management Console with the Internet Service Manager snap-in selected.</P>
+<P>2.From the tree display on the left, select the level at which to apply the mappings. You can choose an entire server, web site, or a given virtual directory.</P>
+<P>3.Select Properties from the Action menu.</P>
+<P>4.If you chose to administer the properties for the entire server, the Server Properties dialog will appear. Select WWW Service from the Master Properties pull-down menu and click the Edit button under Master Properties. This opens WWW Service Master Properties. Select the Home Directory tab and proceed to step 7.</P>
+<P>5.If you chose to administer the properties for an entire web site, the Web Site Properties sheet appears. Select the Home Directory tab and proceed to step 7.</P>
+<P>6.If you chose to administer the properties for a virtual directory, the Virtual Directory Properties sheet appears. Select the Virtual Directory tab and proceed to step 7.</P>
+<P>7.Click the Configuration button. This opens the Application Configuration dialog.</P>
+<P>8.Select the App Mappings tab and click the Add button. You see the Add/Edit Application Extension Mapping dialog.</P>
+<P>9.To run Perl as a CGI application, type the full path to <I>Perl.EXE</I> followed by <FONT FACE="Courier New">%s %s</FONT>. When a script is executed, the first <FONT FACE="Courier New">%s</FONT> will be replaced by the full path to the script, and the second <FONT FACE="Courier New">%s</FONT> will be replaced by the script parameters.</P>
+<P>10.To run Perl for ISAPI, type the full path to <I>PerlIS.DLL</I>. The <FONT FACE="Courier New">%s %s</FONT> is not required for ISAPI DLLs.</P>
+<P>11.In the Extension field, type <I>.pl</I> or <I>.plx</I> (or whatever extension you want to use).</P>
+<P>12.The application mapping is now complete. Click the OK button and click OK to dismiss any remaining dialogs/property sheets.</P>
+<P>13.Close the IIS 4.0 Internet Service Manager.</P>
+<P ALIGN="CENTER">. . .</P>
+<B><I><P>Q: </B>Okay, any hints on grapher.cgi? I have the web server up no problem. Right now I can see the interfaces I am polling, but the graphs don't show<B>. </P>
+</I><P>A: </B>Check your 'C:\TEMP\Cricket-Cache' directory to see if Cricket has in fact created '<I>*.png</I>' graph files. If there are no graph files, then 'mini-graph.cgi' has failed to make them. Edit 'mini-graph.cgi' and find the line that executes:</P>
+<FONT FACE="Courier New" SIZE=2><P>exec("$gInstallRoot/grapher.cgi");</P>
+</FONT><P>and change it to:</P>
+<FONT FACE="Courier New" SIZE=2><P>exec("$perl gInstallRoot/grapher.cgi");</P>
+</FONT><P>You might need to type the absolute path to perl, such as:</P>
+<FONT FACE="Courier New" SIZE=2><P>exec("$c:\perl\bin\perl gInstallRoot/grapher.cgi");</P>
+</FONT><P ALIGN="CENTER">. . .</P>
+<B><I><P>Q:</B></I> <I>At the base of the page it tells me I probably don't have $HOME set right. Didn't we fix that in the 'options.pm' file?</P>
+</I><B><P>A: </B>Use the 'brute force' option in 'grapher.cgi'. Edit 'grapher.cgi':</P>
+<FONT FACE="Courier" SIZE=2><P>sub fixHome {</P>
+<P>&#9;# brute force:</P>
+<P>&#9;# $ENV{'HOME'} = '/path/to/cricket/home';</P>
+<P>&#9;# return;</P>
+</FONT><P>Uncomment the <I>last</I> <I>two lines</I> and and set '$ENV{'HOME'} to the path of your Cricket directory.</P>
+<FONT FACE="Courier New" SIZE=2><P>&nbsp;</FONT></TD>
+</TR>
+<TR><TD WIDTH="2%" VALIGN="MIDDLE" BGCOLOR="#ff0000">
+<P>&nbsp;</TD>
+<TD WIDTH="96%" VALIGN="MIDDLE">
+<P>Questions or comments, email: <A HREF="mailto:jzola@penton.com">John Zola &lt;jzola@penton.com&gt;&nbsp;</A></TD>
+<TD WIDTH="2%" VALIGN="MIDDLE" BGCOLOR="#ff0000">
+<P>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<P>&nbsp;</P>
+<P><SPACER TYPE=VERTICAL SIZE=4></P></BODY>
+</HTML>

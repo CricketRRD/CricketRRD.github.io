@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Counter Overflows</TITLE>
+<META NAME="Author" CONTENT="Matt Zimmerman (mdz@csh.rit.edu)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Counter Overflows">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Counter Overflows</H1>
+<!-- received="Mon Aug 23 23:56:44 1999" -->
+<!-- isoreceived="19990824065644" -->
+<!-- sent="Mon, 23 Aug 1999 23:55:04 -0400" -->
+<!-- isosent="19990824035504" -->
+<!-- name="Matt Zimmerman" -->
+<!-- email="mdz@csh.rit.edu" -->
+<!-- subject="Re: [cricket-users] Counter Overflows" -->
+<!-- id="19990823235504.B5698@csh.rit.edu" -->
+<!-- inreplyto="7F608EC0BDE6D111B53A00805FA7F7DA06715F7A@tahoe.corp.netapp.com" -->
+<STRONG>From:</STRONG> Matt Zimmerman (<A HREF="mailto:mdz@csh.rit.edu?Subject=Re:%20[cricket-users]%20Counter%20Overflows&In-Reply-To=&lt;19990823235504.B5698@csh.rit.edu&gt;"><EM>mdz@csh.rit.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Aug 23 1999 - 20:55:04 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0534.html">Matt Zimmerman: "Re: [cricket-users] Graphing Question"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0532.html">Craig Mckenna: "[cricket-users] Graphing Question"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0528.html">Doherty, Niall: "[cricket-users] Counter Overflows"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#533">[ date ]</A>
+<A HREF="index.html#533">[ thread ]</A>
+<A HREF="subject.html#533">[ subject ]</A>
+<A HREF="author.html#533">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Matt Zimmerman &lt;<A HREF="mailto:mdz@csh.rit.edu?Subject=Re:%20[cricket-users]%20Counter%20Overflows&In-Reply-To=&lt;19990823235504.B5698@csh.rit.edu&gt;">mdz@csh.rit.edu</A>&gt;
+<BR>
+<P>On Mon, Aug 23, 1999 at 11:22:25AM -0700, Doherty, Niall wrote:
+<BR>
+<P><EM>&gt; I'm attempting to graph a URLs/sec rate.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The MIB on the cache is counting Total URLs served
+</EM><BR>
+<EM>&gt; so far, and it is of type COUNTER.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I've used a rrd-ds-type = COUNTER to retrieve the
+</EM><BR>
+<EM>&gt; variable. RRD is correctly subtracting the current
+</EM><BR>
+<EM>&gt; value from the previous value and dividing by the
+</EM><BR>
+<EM>&gt; interval to give URLs/sec (averaged over the interval).
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; However, when the counter rolls over to zero, I get
+</EM><BR>
+<EM>&gt; a huge spike in my graph. I can see this coz I retrieve
+</EM><BR>
+<EM>&gt; [...]
+</EM><BR>
+<P>I had a similar problem when collecting a similar statistic (though not
+<BR>
+via SNMP).  The offending code (line 294 in rrd_update.c in RRDtool 1.0.6):
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* simple overflow catcher sugestet by andres kroonmaa */
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* this will fail terribly for non 32 or 64 bit ounters ... */
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* are there any others in SNMP land ? */
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (pdp_new[i] &lt; (double)0.0 ) 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pdp_new[i] += (double)4294967296.0 ;  /* 2^32 */
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (pdp_new[i] &lt; (double)0.0 ) 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pdp_new[i] += (double)18446744069414584320.0; /* 2^64-2^32 */;
+<BR>
+<P>This code attempts to correct for counter overflow by assuming that the counter
+<BR>
+is either 32 or 64 bits.  My workaround (read: whack) was to patch rrdtool to
+<BR>
+instead disregard the sample (pdp) if the counter appeared to have rolled over.
+<BR>
+My patch (against version 0.99.31, I haven't upgraded to 1.0.6 yet) is below.
+<BR>
+<P>It would be nice if this were a runtime option, but I haven't had time to work
+<BR>
+that out.  I have been using this patch since rrdtool 0.99.11 (February?)
+<BR>
+without problems (other than one less data point per rollover period).
+<BR>
+<P>--- rrdtool-0.99.31/src/rrd_update.c    Wed May 26 15:35:06 1999
+<BR>
++++ rrdtool-0.99.31+dropof/src/rrd_update.c     Thu Jun  3 16:04:43 1999
+<BR>
+@@ -290,6 +290,11 @@
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(rrd.pdp_prep[i].last_ds[0] != 'U'){
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pdp_new[i]= rrd_diff(updvals[i+1],rrd.pdp_prep[i].last_d
+<BR>
+s);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(dst_idx == DST_COUNTER) {
+<BR>
++#ifdef DROP_OVERFLOW
+<BR>
++                               if (pdp_new[i] &lt; (double)0.0) {
+<BR>
++                                       pdp_new[i] = DNAN;
+<BR>
++                               }
+<BR>
++#else
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* simple overflow catcher sugestet by andres kr
+<BR>
+oonmaa */
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* this will fail terribly for non 32 or 64 bit 
+<BR>
+counters ... */
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* are there any others in SNMP land ? */
+<BR>
+@@ -297,6 +302,7 @@
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pdp_new[i] += (double)4294967296.0 ;  /* 2^32 */
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (pdp_new[i] &lt; (double)0.0 ) 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pdp_new[i] += (double)18446744069414584320.0; /*
+<BR>
+&nbsp;2^64-2^32 */;
+<BR>
++#endif /* !DROP_OVERFLOW */
+<BR>
+<P><P><PRE>
+-- 
+ - Matt
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Congratulations GENEVINCENT. Our latest ONElist of the week.
+For full story and to submit yours, go to
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/ootw23">http://clickme.onelist.com/ad/ootw23</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0534.html">Matt Zimmerman: "Re: [cricket-users] Graphing Question"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0532.html">Craig Mckenna: "[cricket-users] Graphing Question"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0528.html">Doherty, Niall: "[cricket-users] Counter Overflows"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#533">[ date ]</A>
+<A HREF="index.html#533">[ thread ]</A>
+<A HREF="subject.html#533">[ subject ]</A>
+<A HREF="author.html#533">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

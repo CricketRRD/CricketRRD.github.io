@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: Problems with config tree se</TITLE>
+<META NAME="Author" CONTENT="olg@amt.ru (olg@amt.ru)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: Problems with config tree setup">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: Problems with config tree setup</H1>
+<!-- received="Fri Sep  3 11:07:23 1999" -->
+<!-- isoreceived="19990903180723" -->
+<!-- sent="3 Sep 1999 15:06:41 -0000" -->
+<!-- isosent="19990903150641" -->
+<!-- name="olg@amt.ru" -->
+<!-- email="olg@amt.ru" -->
+<!-- subject="[cricket-users] Re: Problems with config tree setup" -->
+<!-- id="936371201.2637@onelist.com" -->
+<STRONG>From:</STRONG> <A HREF="mailto:olg@amt.ru?Subject=Re:%20[cricket-users]%20Re:%20Problems%20with%20config%20tree%20setup&In-Reply-To=&lt;936371201.2637@onelist.com&gt;"><EM>olg@amt.ru</EM></A><BR>
+<STRONG>Date:</STRONG> Fri Sep 03 1999 - 08:06:41 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0573.html">Ponce Dioses, Luis Alexander: "[cricket-users] Problems when I`m running compile"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0571.html">Cricket-users@triada.bg: "[cricket-users] re: cricket and WinNT"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#572">[ date ]</A>
+<A HREF="index.html#572">[ thread ]</A>
+<A HREF="subject.html#572">[ subject ]</A>
+<A HREF="author.html#572">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:olg@amt.ru?Subject=Re:%20[cricket-users]%20Re:%20Problems%20with%20config%20tree%20setup&In-Reply-To=&lt;936371201.2637@onelist.com&gt;">olg@amt.ru</A>
+<BR>
+<P>Hi,
+<BR>
+<P>First, thanks to Denise for pointing out the right direction 
+<BR>
+to look for. What was excat source of the problem is overriding
+<BR>
+in router Defaults correct global datasource defaults 
+<BR>
+They are set to type GAUGE, and rrd-min/rrd-max set to undef in 
+<BR>
+router subtree instead of correct COUNTER type.
+<BR>
+Putting the same datasource defaults as global default to interfaces
+<BR>
+directory fixed the problem. For sample-configs maintainer: probably it
+<BR>
+will be a good idea to put right datasource defaults to Defaults
+<BR>
+file of interfaces subtree (inherintance down the subtree is powerful but
+<BR>
+dangerous feature :-).
+<BR>
+<P>Thanks again Denise !
+<BR>
+<P>Oleg 
+<BR>
+<P><P><P><EM>&gt;Subject: Re: Problems with config tree setup
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Make sure the rrd-ds-type for ifInOctets and ifOutOctets isn't set to COUNTER
+</EM><BR>
+<EM>&gt;for your global Defaults (at least I think that's what fixed it when i had
+</EM><BR>
+<EM>&gt;that problem).
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;On Thu, Sep 02, 1999 at 09:49:29PM -0000, <A HREF="mailto:olg@amt.ru?Subject=Re:%20[cricket-users]%20Re:%20Problems%20with%20config%20tree%20setup&In-Reply-To=&lt;936371201.2637@onelist.com&gt;">olg@amt.ru</A> wrote:
+</EM><BR>
+<EM>&gt;&gt; Hi,
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; When I'm trying to setup my config tree in a such manner that
+</EM><BR>
+<EM>&gt;&gt; routers looks like an &quot;objects&quot;, so you have directory with a router
+</EM><BR>
+<EM>&gt;&gt; name, inside it router Defaults and Target file and subdirectory with
+</EM><BR>
+<EM>&gt;&gt; interfaces Defaults and Targets files, I'm getting weird numbers in interfaces
+</EM><BR>
+<EM>&gt;&gt; graph, say utilization is several gigs/s, when actually it is several
+</EM><BR>
+<EM>&gt;&gt; kbits/s. At the same time router targets (cpu, mem etc) are graphed
+</EM><BR>
+<EM>&gt;&gt; with normal values. Looks like router defaults are messed up with some
+</EM><BR>
+<EM>&gt;&gt; interfaces Defaults values. When I'm moving router and interfaces targets
+</EM><BR>
+<EM>&gt;&gt; at the same directory level everything is graphed perfectly.
+</EM><BR>
+<EM>&gt;&gt; I'm currently using Defaults files from the sample-config directory.
+</EM><BR>
+<EM>&gt;&gt; Anybody has an idea ?
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;&gt; Oleg
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ATTN ONELIST USERS: stay current on the latest activities,
+<BR>
+programs, &amp; features at ONElist by joining our member newsletter at
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/newsletter4">http://clickme.onelist.com/ad/newsletter4</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0573.html">Ponce Dioses, Luis Alexander: "[cricket-users] Problems when I`m running compile"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0571.html">Cricket-users@triada.bg: "[cricket-users] re: cricket and WinNT"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#572">[ date ]</A>
+<A HREF="index.html#572">[ thread ]</A>
+<A HREF="subject.html#572">[ subject ]</A>
+<A HREF="author.html#572">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

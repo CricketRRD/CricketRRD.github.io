@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] graphing datasources from mu</TITLE>
+<META NAME="Author" CONTENT="McGannahan Skjellyfetti (roofpig@the.satanic.org)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] graphing datasources from multiple targes?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] graphing datasources from multiple targes?</H1>
+<!-- received="Fri May 14 21:40:42 1999" -->
+<!-- isoreceived="19990515044042" -->
+<!-- sent="Fri, 14 May 1999 18:39:04 -0700 (PDT)" -->
+<!-- isosent="19990515013904" -->
+<!-- name="McGannahan Skjellyfetti" -->
+<!-- email="roofpig@the.satanic.org" -->
+<!-- subject="Re: [cricket-users] graphing datasources from multiple targes?" -->
+<!-- id="Pine.BSI.3.96.990514183330.12510E-100000@the.satanic.org" -->
+<!-- inreplyto="19990514172601.R2191@corp.webtv.net" -->
+<STRONG>From:</STRONG> McGannahan Skjellyfetti (<A HREF="mailto:roofpig@the.satanic.org?Subject=Re:%20[cricket-users]%20graphing%20datasources%20from%20multiple%20targes?&In-Reply-To=&lt;Pine.BSI.3.96.990514183330.12510E-100000@the.satanic.org&gt;"><EM>roofpig@the.satanic.org</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri May 14 1999 - 18:39:04 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0058.html">Jeff Allen: "Re: [cricket-users] grapher.cgi problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0056.html">Jeff Allen: "Re: [cricket-users] graphs doen't get completely drawn"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0054.html">Jeff Jensen: "Re: [cricket-users] graphing datasources from multiple targes?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0066.html">Jeff Jensen: "Re: [cricket-users] graphing datasources from multiple targes?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0066.html">Jeff Jensen: "Re: [cricket-users] graphing datasources from multiple targes?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#57">[ date ]</A>
+<A HREF="index.html#57">[ thread ]</A>
+<A HREF="subject.html#57">[ subject ]</A>
+<A HREF="author.html#57">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: McGannahan Skjellyfetti &lt;<A HREF="mailto:roofpig@the.satanic.org?Subject=Re:%20[cricket-users]%20graphing%20datasources%20from%20multiple%20targes?&In-Reply-To=&lt;Pine.BSI.3.96.990514183330.12510E-100000@the.satanic.org&gt;">roofpig@the.satanic.org</A>&gt;
+<BR>
+<P><P>On Fri, 14 May 1999, Jeff Jensen wrote:
+<BR>
+<P><EM>&gt; Hi,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I would use mtargets combined with Views.  Something like this:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; target-type big-routers
+</EM><BR>
+<EM>&gt;     ds  =   &quot;cpu1min, cpu5min, tempInlet, tempOutlet,
+</EM><BR>
+<EM>&gt;                 mem5minUsed, mem5minFree&quot;
+</EM><BR>
+<EM>&gt;     view    =   &quot;cpu: cpu1min cpu5min,
+</EM><BR>
+<EM>&gt;                 temperature: tempInlet tempOutlet,
+</EM><BR>
+<EM>&gt;                 memory: mem5minUsed mem5minFree,
+</EM><BR>
+<EM>&gt; 		cpu5minonly: cpu5min&quot;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; target many-cpus
+</EM><BR>
+<EM>&gt; 	mtargets = &quot;/routers/router-1;/routers/router-2&quot;
+</EM><BR>
+<EM>&gt; 	short-desc = &quot;My two routers&quot;
+</EM><BR>
+<EM>&gt; 	target-type = big-routers
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Then when you navigated to the page where many-cpus lives, you'd be offered
+</EM><BR>
+<EM>&gt; all the views, one of which chooses only the cpu5min
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Does this assume that inside the file &quot;/routers/router-1&quot; there
+<BR>
+in only 1 target, and it has the same name as the file?  For example,
+<BR>
+part of my config tree looks like:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/&lt;routername&gt;/interfaces
+<BR>
+<P>Where interfaces is a file that contains all the targets for the router
+<BR>
+named &lt;routername&gt; (Ethernet0_0, Ethernet0_1, etc.).  Essentially, the
+<BR>
+file &quot;interfaces&quot; was created with the &quot;/util/listInterfaces&quot; script.
+<BR>
+I tried simply appending the target name to the path above, but that
+<BR>
+doesn't seem to work.  What's the proper syntax, or must I have a
+<BR>
+seperate file for each target?
+<BR>
+<P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thanks
+<BR>
+<P><P><P>------------------------------------------------------------------------
+<BR>
+Looking to expand your world?
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+ONElist has over 145,000 email communities to choose from!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0058.html">Jeff Allen: "Re: [cricket-users] grapher.cgi problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0056.html">Jeff Allen: "Re: [cricket-users] graphs doen't get completely drawn"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0054.html">Jeff Jensen: "Re: [cricket-users] graphing datasources from multiple targes?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0066.html">Jeff Jensen: "Re: [cricket-users] graphing datasources from multiple targes?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0066.html">Jeff Jensen: "Re: [cricket-users] graphing datasources from multiple targes?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#57">[ date ]</A>
+<A HREF="index.html#57">[ thread ]</A>
+<A HREF="subject.html#57">[ subject ]</A>
+<A HREF="author.html#57">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:48 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

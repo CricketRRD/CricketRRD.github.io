@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Problem with grapher.cgi and fas</TITLE>
+<META NAME="Author" CONTENT="Bjorn Nordbo (bn@nextel.no)">
+<META NAME="Subject" CONTENT="[cricket-users] Problem with grapher.cgi and fast ethernet interface">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Problem with grapher.cgi and fast ethernet interface</H1>
+<!-- received="Fri Dec 17 13:18:43 1999" -->
+<!-- isoreceived="19991217211843" -->
+<!-- sent="Fri, 17 Dec 1999 10:38:50 +0100" -->
+<!-- isosent="19991217093850" -->
+<!-- name="Bjorn Nordbo" -->
+<!-- email="bn@nextel.no" -->
+<!-- subject="[cricket-users] Problem with grapher.cgi and fast ethernet interface" -->
+<!-- id="19991217103849.A9496@nextel.no" -->
+<STRONG>From:</STRONG> Bjorn Nordbo (<A HREF="mailto:bn@nextel.no?Subject=Re:%20[cricket-users]%20Problem%20with%20grapher.cgi%20and%20fast%20ethernet%20interface&In-Reply-To=&lt;19991217103849.A9496@nextel.no&gt;"><EM>bn@nextel.no</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Dec 17 1999 - 01:38:50 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0803.html">Hugo Gayosso: "RE: [cricket-users] Problem with grapher.cgi and fast ethernet i"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0801.html">D.Kumareshan: "Re: [cricket-users] Suggestion and Clarification"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0803.html">Hugo Gayosso: "RE: [cricket-users] Problem with grapher.cgi and fast ethernet i"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0803.html">Hugo Gayosso: "RE: [cricket-users] Problem with grapher.cgi and fast ethernet i"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#802">[ date ]</A>
+<A HREF="index.html#802">[ thread ]</A>
+<A HREF="subject.html#802">[ subject ]</A>
+<A HREF="author.html#802">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Bjorn Nordbo &lt;<A HREF="mailto:bn@nextel.no?Subject=Re:%20[cricket-users]%20Problem%20with%20grapher.cgi%20and%20fast%20ethernet%20interface&In-Reply-To=&lt;19991217103849.A9496@nextel.no&gt;">bn@nextel.no</A>&gt;
+<BR>
+<P>I seems to get into lots of trouble these days.. :)
+<BR>
+<P>My directory structure for router-interfaces:
+<BR>
+<P>/cricket-config/routers-interfaces/&lt;router-name&gt;/if[00-99]
+<BR>
+<P>Ie. I want to have one file for every interface collected in
+<BR>
+one directory per router. This would suit me nice because I
+<BR>
+might have to autogenerate some of the interface config files.
+<BR>
+<P>This forks fine for serial interfaces, for instance, this
+<BR>
+interface is all joy:
+<BR>
+<P>target Serial10_0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial10/0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;128kB/s to somewhere&quot;
+<BR>
+<P>However, I cannot get any fast ethernet interfaces working:
+<BR>
+<P>target FastEthernet8_0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       FastEthernet8/0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;Fast ethernet to Okern&quot;
+<BR>
+<P>It is in the same directory as the above seial interface, and
+<BR>
+the interface-name is present on the router:
+<BR>
+<P>interfaces.ifTable.ifEntry.ifDescr.6 = &quot;FastEthernet8/0/0&quot;
+<BR>
+<P>When I try to view statistics for it with grapher.cgi, I get
+<BR>
+the following error in error_log:
+<BR>
+<P>Can't call method &quot;configHash&quot; on an undefined value at \
+<BR>
+&nbsp;/local/cricket/./lib/Common/Map.pm line 125.
+<BR>
+<P>(long lines split)
+<BR>
+<P>Now, what REALLY bugs me, is that when I change the config
+<BR>
+file interface-name to, say, FastEthernet3/0/0, but leaves
+<BR>
+the target name to FastEthernet8_0_0, it works! If I change
+<BR>
+the target name too, it fails again.
+<BR>
+<P>Any help would be greately appreciated!
+<BR>
+<P>BTW, grapher.cgi seems to run rrdtool print with &quot;%f&quot; in
+<BR>
+the format string. Shouldn't this be &quot;%lf&quot; or &quot;%le&quot;?
+<BR>
+<P><P>Bjørn
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make $$$ by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0803.html">Hugo Gayosso: "RE: [cricket-users] Problem with grapher.cgi and fast ethernet i"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0801.html">D.Kumareshan: "Re: [cricket-users] Suggestion and Clarification"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0803.html">Hugo Gayosso: "RE: [cricket-users] Problem with grapher.cgi and fast ethernet i"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0803.html">Hugo Gayosso: "RE: [cricket-users] Problem with grapher.cgi and fast ethernet i"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#802">[ date ]</A>
+<A HREF="index.html#802">[ thread ]</A>
+<A HREF="subject.html#802">[ subject ]</A>
+<A HREF="author.html#802">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Cricket 0.70 graph problems</TITLE>
+<META NAME="Author" CONTENT="Aurelio Sanchez (asanchez@avantel.net.mx)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Cricket 0.70 graph problems">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Cricket 0.70 graph problems</H1>
+<!-- received="Mon Sep 13 13:07:18 1999" -->
+<!-- isoreceived="19990913200718" -->
+<!-- sent="Mon, 13 Sep 1999 12:08:25 -0500" -->
+<!-- isosent="19990913170825" -->
+<!-- name="Aurelio Sanchez" -->
+<!-- email="asanchez@avantel.net.mx" -->
+<!-- subject="Re: [cricket-users] Cricket 0.70 graph problems" -->
+<!-- id="37DD2F89.EA05A359@avantel.net.mx" -->
+<!-- inreplyto="s7dd2e8f.012@groupwise.telecom.co.nz" -->
+<STRONG>From:</STRONG> Aurelio Sanchez (<A HREF="mailto:asanchez@avantel.net.mx?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;37DD2F89.EA05A359@avantel.net.mx&gt;"><EM>asanchez@avantel.net.mx</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Sep 13 1999 - 10:08:25 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0590.html">dusteur@excite.com: "[cricket-users] monitor thresholds"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0588.html">pmckenna@uswest.net: "[cricket-users] undefined values returned for all queries"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0585.html">Campbell Simpson: "[cricket-users] Cricket 0.70 graph problems"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0593.html">rose@gerf.org: "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#589">[ date ]</A>
+<A HREF="index.html#589">[ thread ]</A>
+<A HREF="subject.html#589">[ subject ]</A>
+<A HREF="author.html#589">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Aurelio Sanchez &lt;<A HREF="mailto:asanchez@avantel.net.mx?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;37DD2F89.EA05A359@avantel.net.mx&gt;">asanchez@avantel.net.mx</A>&gt;
+<BR>
+<P>&nbsp;&nbsp;Be sure that RRD 1.0.7 is installed in the  default  Perl library, read the README file to know how to that. My guess is you still using an old version of RDD that doesn't suport the -a extension with rrdgraph command.
+<BR>
+<P>&nbsp;&nbsp;Regards,
+<BR>
+<P>&nbsp;&nbsp;Aurelio Sanchez
+<BR>
+<P>Campbell Simpson wrote:
+<BR>
+<P><EM>&gt; From: &quot;Campbell Simpson&quot; &lt;<A HREF="mailto:Campbell.Simpson@telecom.co.nz?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;37DD2F89.EA05A359@avantel.net.mx&gt;">Campbell.Simpson@telecom.co.nz</A>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Hi everyone
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; I have just upgraded to RRD 1.0.7 and Cricket 0.70 and have a problem with the graphs being created (doesn't seem to matter if they are GIF or PNG). For some reason grapher is complaining about generating the graphs with the following as output if you right click on the graphic and choose to view it:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; /tmp/cricket-cache/cricket-c512ca3f.png[13-Sep-1999 16:58:35*] Could not open /tmp/cricket-cache/cricket-c512ca3f.png: No such file or directory
+</EM><BR>
+<EM>&gt; Content-Type: image/gif GIF87a¹ ]
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; The directory /tmp/cricket-cache exists and I have migrated my existing cricket-config and cricket-data files which were working with 0.69 to the new version of cricket. I'm running Solaris 2.6 and have all the perl modules installed but did not update any when I upgraded from 0.69 to 0.70 (do I need to?).
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Can anyone out there help me please?
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Thanks in advance
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Campbell Simpson
+</EM><BR>
+<EM>&gt; Service Platforms
+</EM><BR>
+<EM>&gt; Centralised Maintain &amp; Support
+</EM><BR>
+<EM>&gt; Telecom NZ Ltd.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Celebrate the NEW ONElist!
+</EM><BR>
+<EM>&gt; Enter to win a trip to Hawaii!  Go to:
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/hawaii2">http://clickme.onelist.com/ad/hawaii2</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>GET WHAT YOU DESERVE! A NextCard Platinum VISA: DOUBLE Rewards points, 
+<BR>
+NO annual fee &amp; rates as low as 9.9 percent FIXED APR. Apply online today!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/nextcard5">http://clickme.onelist.com/ad/nextcard5</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0590.html">dusteur@excite.com: "[cricket-users] monitor thresholds"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0588.html">pmckenna@uswest.net: "[cricket-users] undefined values returned for all queries"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0585.html">Campbell Simpson: "[cricket-users] Cricket 0.70 graph problems"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0593.html">rose@gerf.org: "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#589">[ date ]</A>
+<A HREF="index.html#589">[ thread ]</A>
+<A HREF="subject.html#589">[ subject ]</A>
+<A HREF="author.html#589">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] FIX: grapher.cgi broken with</TITLE>
+<META NAME="Author" CONTENT="Phil Pierotti (phil.pierotti@QUOKKA.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9</H1>
+<!-- received="Wed Jan  5 20:57:44 2000" -->
+<!-- isoreceived="20000106045744" -->
+<!-- sent="Wed, 5 Jan 2000 17:56:36 -0800 " -->
+<!-- isosent="20000106015636" -->
+<!-- name="Phil Pierotti" -->
+<!-- email="phil.pierotti@QUOKKA.com" -->
+<!-- subject="RE: [cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9" -->
+<!-- id="E19A882C6CD5D211A8A70008C75B6AF40122AEAE@pcmail.quokka.com" -->
+<!-- inreplyto="[cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9" -->
+<STRONG>From:</STRONG> Phil Pierotti (<A HREF="mailto:phil.pierotti@QUOKKA.com?Subject=RE:%20[cricket-users]%20FIX:%20grapher.cgi%20broken%20with%20rrdtool%201.0.9&In-Reply-To=&lt;E19A882C6CD5D211A8A70008C75B6AF40122AEAE@pcmail.quokka.com&gt;"><EM>phil.pierotti@QUOKKA.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jan 05 2000 - 17:56:36 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0841.html">Phil Pierotti: "RE: [cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0839.html">Michael S. Fischer: "[cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0839.html">Michael S. Fischer: "[cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0841.html">Phil Pierotti: "RE: [cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#840">[ date ]</A>
+<A HREF="index.html#840">[ thread ]</A>
+<A HREF="subject.html#840">[ subject ]</A>
+<A HREF="author.html#840">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+when I apply the patch to 0.70 , why do I get 
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;patching file `cricket-0.70/grapher.cgi'
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;patch: **** malformed patch at line 14:
+<BR>
+&quot;DEF:ds1=$rrdfile:ds$dsnum:MAX&quot;,
+<BR>
+<P>Thanks,
+<BR>
+Phil P
+<BR>
+<P>----------------------------------------------------------------------------
+<BR>
+<PRE>
+----
+         When you love someone all your saved wishes start coming out.
+          -- Elizabeth Bowen
+----------------------------------------------------------------------------
+----
+Quokka Sports, Inc.                      Phil Pierotti
+Ground Floor,                            Senior Network Engineer 
+525 Brannan St,                          <A HREF="mailto:phil.pierotti@quokka.com?Subject=RE:%20[cricket-users]%20FIX:%20grapher.cgi%20broken%20with%20rrdtool%201.0.9&In-Reply-To=&lt;E19A882C6CD5D211A8A70008C75B6AF40122AEAE@pcmail.quokka.com&gt;">phil.pierotti@quokka.com</A>
+San Francisco CA 94107                   Ph: +1 415 977 2390
+                                         Fx: +1 415 908 1841
+<P>                                               o_o  
+<A HREF="http://www.quokka.com/">http://www.quokka.com/</A>                         / )o  
+                                              (_/    
+<P><P><P>&gt; -----Original Message-----
+&gt; From: Michael S. Fischer [mailto:<A HREF="mailto:michael@auctionwatch.com?Subject=RE:%20[cricket-users]%20FIX:%20grapher.cgi%20broken%20with%20rrdtool%201.0.9&In-Reply-To=&lt;E19A882C6CD5D211A8A70008C75B6AF40122AEAE@pcmail.quokka.com&gt;">michael@auctionwatch.com</A>]
+&gt; Sent: Wednesday, January 05, 2000 3:09 PM
+&gt; To: '<A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20FIX:%20grapher.cgi%20broken%20with%20rrdtool%201.0.9&In-Reply-To=&lt;E19A882C6CD5D211A8A70008C75B6AF40122AEAE@pcmail.quokka.com&gt;">cricket-users@onelist.com</A>'
+&gt; Subject: [cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9
+&gt; 
+&gt; 
+&gt; It turns out that grapher.cgi in Cricket 0.70 exploits a bug 
+&gt; in rrdtool
+&gt; 1.0.9 that causes the graphing component to crash, leading to 
+&gt; virtually
+&gt; silent but deadly errors when attempting to access graphs.  
+&gt; This is probably
+&gt; the reason many of you are getting &quot;Premature end of script 
+&gt; headers&quot; or
+&gt; similar errors in your server logs.
+&gt; 
+&gt; A patch follows.  Note that my patch includes the 'use lib' statement
+&gt; necessary if you used the standard install for rrdtool in 
+&gt; /usr/local; you
+&gt; may not need this at your site.
+&gt; 
+&gt; ---CUT HERE---
+&gt; 
+&gt; --- grapher.cgi.0.70    Wed Jan  5 14:39:33 2000
+&gt; +++ grapher.cgi Wed Jan  5 14:40:23 2000
+&gt; @@ -43,6 +43,7 @@
+&gt;  }
+&gt;  
+&gt;  use lib &quot;$Common::global::gInstallRoot/lib&quot;;
+&gt; +use lib &quot;/usr/local/rrdtool/lib/perl&quot;;
+&gt;  
+&gt;  use CGI qw(fatalsToBrowser);
+&gt;  use RRDs;
+&gt; @@ -880,8 +881,8 @@
+&gt;  
+&gt; &quot;DEF:ds1=$rrdfile:ds$dsnum:MAX&quot;,
+&gt;  
+&gt; &quot;CDEF:sds0=ds0,$scale&quot;,
+&gt;  
+&gt; &quot;CDEF:sds1=ds1,$scale&quot;,
+&gt; -
+&gt; &quot;PRINT:sds0:AVERAGE:\%f&quot;,
+&gt; -                                                       
+&gt; &quot;PRINT:sds1:MAX:\%f&quot;
+&gt; );
+&gt; +
+&gt; &quot;PRINT:sds0:AVERAGE:\%lf&quot;,
+&gt; +
+&gt; &quot;PRINT:sds1:MAX:\%lf&quot; );
+&gt;  
+&gt;                                                 ($mmax, 
+&gt; undef, undef) =
+&gt; RRDs::graph @args;
+&gt; ---CUT HERE---
+&gt; 
+&gt; --
+&gt; Michael S. Fischer  &lt;<A HREF="mailto:michael@auctionwatch.com?Subject=RE:%20[cricket-users]%20FIX:%20grapher.cgi%20broken%20with%20rrdtool%201.0.9&In-Reply-To=&lt;E19A882C6CD5D211A8A70008C75B6AF40122AEAE@pcmail.quokka.com&gt;">michael@auctionwatch.com</A>&gt;              
+&gt; Sr. Engineer, AuctionWatch.com                               
+&gt; Phone: +1 650 808 5842             FAX:   +1 650 875 0915
+&gt; require Std::Disclaimer;
+&gt; &quot;From the bricks of shame is built the hope&quot;--Alan Wilder
+&gt; 
+&gt; --------------------------- ONElist Sponsor 
+&gt; ----------------------------
+&gt; 
+&gt; Independent contractors: Find your next project gig through JobSwarm!
+&gt;         You can even make money by referring friends.
+&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+&gt; 
+&gt; --------------------------------------------------------------
+&gt; ----------
+&gt; 
+&gt; --
+&gt; 
+&gt; 
+&gt; ==============================================================
+&gt; ==========
+&gt; To UNSUBSCRIBE from this community, send an email to: 
+&gt;   <A HREF="mailto:cricket-users-unsubscribe@onelist.com?Subject=RE:%20[cricket-users]%20FIX:%20grapher.cgi%20broken%20with%20rrdtool%201.0.9&In-Reply-To=&lt;E19A882C6CD5D211A8A70008C75B6AF40122AEAE@pcmail.quokka.com&gt;">cricket-users-unsubscribe@onelist.com</A>
+&gt; and reply to the confirmation email we send you.
+&gt; ==============================================================
+&gt; ==========
+&gt; 
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>  Hey Freelancers:  Find your next project through JobSwarm!  
+  You can even make money in your sleep by referring friends.
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0841.html">Phil Pierotti: "RE: [cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0839.html">Michael S. Fischer: "[cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0839.html">Michael S. Fischer: "[cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0841.html">Phil Pierotti: "RE: [cricket-users] FIX: grapher.cgi broken with rrdtool 1.0.9"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#840">[ date ]</A>
+<A HREF="index.html#840">[ thread ]</A>
+<A HREF="subject.html#840">[ subject ]</A>
+<A HREF="author.html#840">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:08 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

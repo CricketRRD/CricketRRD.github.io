@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: aggregate bandwidth cont.</TITLE>
+<META NAME="Author" CONTENT="Jeff Jensen (jpj@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: aggregate bandwidth cont.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: aggregate bandwidth cont.</H1>
+<!-- received="Wed Apr 28 14:17:34 1999" -->
+<!-- isoreceived="19990428211734" -->
+<!-- sent="Wed, 28 Apr 1999 11:15:49 -0700" -->
+<!-- isosent="19990428181549" -->
+<!-- name="Jeff Jensen" -->
+<!-- email="jpj@corp.webtv.net" -->
+<!-- subject="[cricket-users] Re: aggregate bandwidth cont." -->
+<!-- id="19990428111549.C16667@corp.webtv.net" -->
+<!-- inreplyto="199904281708.NAA19006@dn.net" -->
+<STRONG>From:</STRONG> Jeff Jensen (<A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20aggregate%20bandwidth%20cont.&In-Reply-To=&lt;19990428111549.C16667@corp.webtv.net&gt;"><EM>jpj@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Apr 28 1999 - 11:15:49 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0006.html">Brad S. Dreisbach: "[cricket-users] Re: aggregate bandwidth cont."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0004.html">Jeff Allen: "[cricket-users] Re: aggregate bandwidth cont."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0003.html">Brad S. Dreisbach: "[cricket-users] aggregate bandwidth cont."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#5">[ date ]</A>
+<A HREF="index.html#5">[ thread ]</A>
+<A HREF="subject.html#5">[ subject ]</A>
+<A HREF="author.html#5">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Jensen &lt;<A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20aggregate%20bandwidth%20cont.&In-Reply-To=&lt;19990428111549.C16667@corp.webtv.net&gt;">jpj@corp.webtv.net</A>&gt;
+<BR>
+<P>Hi,
+<BR>
+<P>With 5 targets, to add them all together, the  mtargets-ops line should
+<BR>
+look like this:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtargets-ops = &quot;+,+,+,+&quot;
+<BR>
+<P>So, it's comma seperated.  I have done this with targets from multiple
+<BR>
+routers just fine.
+<BR>
+<P>Hope this helps some.  Cricket 0.63 does have all the known bugs with the
+<BR>
+mtargets implementation fixed.  Now, if someone would just fix all the
+<BR>
+unknown bugs...
+<BR>
+<P>-Jeff
+<BR>
+<P>On Wed, Apr 28, 1999 at 01:08:19PM -0400, Brad S. Dreisbach wrote:
+<BR>
+<EM>&gt; From: &quot;Brad S. Dreisbach&quot; &lt;<A HREF="mailto:bradd@dn.net?Subject=Re:%20[cricket-users]%20Re:%20aggregate%20bandwidth%20cont.&In-Reply-To=&lt;19990428111549.C16667@corp.webtv.net&gt;">bradd@dn.net</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I had some email dialog with a list member this morning.
+</EM><BR>
+<EM>&gt; Trying to figure out how to combine targets into an aggregate.
+</EM><BR>
+<EM>&gt; He informed me that I should put
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; mtargets-ops = &quot;++++&quot; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; with one less + than targets....I did that and Im getting the following in 
+</EM><BR>
+<EM>&gt; error_log
+</EM><BR>
+<EM>&gt; [28-Apr-1999 13:05:31*] Unable to create graph: invalid rpn expression 
+</EM><BR>
+<EM>&gt; 'sds0,sds2,sds4,sds6,sds8,++++'
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Am I doing something wrong??? Is this feature broken in the version of 
+</EM><BR>
+<EM>&gt; cricket/rrdtool that Im using(cricket 0.63 and rrdtool 0.99.25)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ________________________________________________
+</EM><BR>
+<EM>&gt; Brad Dreisbach ~ Unix Systems Engineer
+</EM><BR>
+<EM>&gt; digitalNATION ~ www.dedicatedserver.com
+</EM><BR>
+<EM>&gt; Phone: 703-642-2800 ~ Fax: 703-642-3747
+</EM><BR>
+<EM>&gt; Work: www.dn.net ~ Personal: home.dn.net/~bradd
+</EM><BR>
+<EM>&gt; ICQ:  22031613
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; Grow your list the most and receive a $5000 donation
+</EM><BR>
+<EM>&gt; to the charity of your choice.
+</EM><BR>
+<EM>&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+</EM><BR>
+<EM>&gt; See our homepage for details on our new ONEreach incentive programs.
+</EM><BR>
+<P><PRE>
+-- 
+Jeff Jensen                             <A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20aggregate%20bandwidth%20cont.&In-Reply-To=&lt;19990428111549.C16667@corp.webtv.net&gt;">jpj@corp.webtv.net</A>
+Network Engineer                        WebTV Networks
+Phone: (650) 614-7802                   305 Lytton Avenue
+FAX:   (650) 614-8451                   Palo Alto, CA  94301
+<P>------------------------------------------------------------------------
+Wanting to get back in touch with old friends?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Get re-acquainted through a ONElist community.
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0006.html">Brad S. Dreisbach: "[cricket-users] Re: aggregate bandwidth cont."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0004.html">Jeff Allen: "[cricket-users] Re: aggregate bandwidth cont."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0003.html">Brad S. Dreisbach: "[cricket-users] aggregate bandwidth cont."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#5">[ date ]</A>
+<A HREF="index.html#5">[ thread ]</A>
+<A HREF="subject.html#5">[ subject ]</A>
+<A HREF="author.html#5">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:47 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] [MRTG-DEV] Re: [cricket-user</TITLE>
+<META NAME="Author" CONTENT="Steen Linden (Steen.Linden@ebone.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket</H1>
+<!-- received="Thu May  6 04:14:12 1999" -->
+<!-- isoreceived="19990506111412" -->
+<!-- sent="Thu, 6 May 1999 10:12:41 +0200" -->
+<!-- isosent="19990506081241" -->
+<!-- name="Steen Linden" -->
+<!-- email="Steen.Linden@ebone.net" -->
+<!-- subject="Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket" -->
+<!-- id="Pine.SGI.4.10.9905060930410.16514-100000@adm.ebone.net" -->
+<!-- inreplyto="Pine.LNX.3.96.990506003639.402A-100000@audrey.ee.ethz.ch" -->
+<STRONG>From:</STRONG> Steen Linden (<A HREF="mailto:Steen.Linden@ebone.net?Subject=Re:%20[cricket-users]%20[MRTG-DEV]%20Re:%20[cricket-users]%20Re:%20cartinha%20p/%20lista%20cricket&In-Reply-To=&lt;Pine.SGI.4.10.9905060930410.16514-100000@adm.ebone.net&gt;"><EM>Steen.Linden@ebone.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu May 06 1999 - 01:12:41 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0028.html">Tobias Oetiker: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0026.html">Tobias Oetiker: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0026.html">Tobias Oetiker: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0028.html">Tobias Oetiker: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0028.html">Tobias Oetiker: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#27">[ date ]</A>
+<A HREF="index.html#27">[ thread ]</A>
+<A HREF="subject.html#27">[ subject ]</A>
+<A HREF="author.html#27">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Steen Linden &lt;<A HREF="mailto:Steen.Linden@ebone.net?Subject=Re:%20[cricket-users]%20[MRTG-DEV]%20Re:%20[cricket-users]%20Re:%20cartinha%20p/%20lista%20cricket&In-Reply-To=&lt;Pine.SGI.4.10.9905060930410.16514-100000@adm.ebone.net&gt;">Steen.Linden@ebone.net</A>&gt;
+<BR>
+<P><P>Hi Tobi,
+<BR>
+<P>I did the &quot;rrdtool graph&quot; test on the same ebone-inc.rrd again, this time
+<BR>
+every minute for an hour simultaneously on a FreeBSD and a Linux system.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The problem is only present on the FreeBSD system. All plots are
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fine on the Linux box.
+<BR>
+<P>On FreeBSD the problem is consistently present for a 5 minute period every
+<BR>
+5 minutes. 05-10, 15-20, 25-30 and so on.
+<BR>
+<P>I ran your test below as well on the FreeBSD system. graph005.gif through
+<BR>
+graph009.gif were bad as expected. 
+<BR>
+<P>--Steen
+<BR>
+<P>On Thu, 6 May 1999, Tobias Oetiker wrote:
+<BR>
+<P><P><EM>&gt; OK, I have now tested it with a little script:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; #!/usr/bin/perl
+</EM><BR>
+<EM>&gt; $start = 925905000;
+</EM><BR>
+<EM>&gt; my $name = &quot;out000&quot;;
+</EM><BR>
+<EM>&gt; for $x (1..12){
+</EM><BR>
+<EM>&gt; $name++;
+</EM><BR>
+<EM>&gt; $s= $start-151200+$x*60;
+</EM><BR>
+<EM>&gt; $e= $start+$x*60;
+</EM><BR>
+<EM>&gt; print localtime($e).&quot;\n&quot;;
+</EM><BR>
+<EM>&gt; system &quot;../src/rrdtool graph $name.gif --base 1024 --start $s --end $e &quot;.
+</EM><BR>
+<EM>&gt; &quot;--vertical-label 'bits per second' --width 500 --height 200 &quot;.
+</EM><BR>
+<EM>&gt; &quot;DEF:ds0=ebone-inc.rrd:ds0:AVERAGE &quot;.
+</EM><BR>
+<EM>&gt; &quot;DEF:ds1=ebone-inc.rrd:ds1:AVERAGE &quot;.
+</EM><BR>
+<EM>&gt; &quot;CDEF:sds0='ds0,8,*' &quot;.
+</EM><BR>
+<EM>&gt; &quot;CDEF:sds1='ds1,8,*' &quot;.
+</EM><BR>
+<EM>&gt; &quot;AREA:sds0#00cc00:'Average bits in' &quot;.
+</EM><BR>
+<EM>&gt; &quot;LINE1:sds1#0000ff:'Average bytes out' &quot;.
+</EM><BR>
+<EM>&gt; &quot;VRULE:925855200#ff0000: VRULE:925768800#ff0000: &quot;.
+</EM><BR>
+<EM>&gt; &quot;COMMENT:'&quot;.localtime($e).&quot;'\\\\j&quot;}
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; unfortunately I was not able to reproduce your problem ... all graphs
+</EM><BR>
+<EM>&gt; showed nicely ...
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; could you very fy that my testscript produced the 'desired' result on
+</EM><BR>
+<EM>&gt; your machine ...
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; cheers
+</EM><BR>
+<EM>&gt; tobi
+</EM><BR>
+<EM>&gt; r  
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --
+</EM><BR>
+<EM>&gt; * To unsubscribe from the mrtg-developers  mailing list, send a message
+</EM><BR>
+<EM>&gt;   with the subject: unsubscribe to <A HREF="mailto:mrtg-developers-request@list.ee.ethz.ch?Subject=Re:%20[cricket-users]%20[MRTG-DEV]%20Re:%20[cricket-users]%20Re:%20cartinha%20p/%20lista%20cricket&In-Reply-To=&lt;Pine.SGI.4.10.9905060930410.16514-100000@adm.ebone.net&gt;">mrtg-developers-request@list.ee.ethz.ch</A>
+</EM><BR>
+<EM>&gt; * Mailing list archives are at <A HREF="http://www.ee.ethz.ch/~slist/mrtg-developers">http://www.ee.ethz.ch/~slist/mrtg-developers</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P><P>------------------------------------------------------------------------
+<BR>
+Who offers the richest group communications tools on the Internet?
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Answer:  ONElist.  Check out our homepage for details!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0028.html">Tobias Oetiker: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0026.html">Tobias Oetiker: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0026.html">Tobias Oetiker: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0028.html">Tobias Oetiker: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0028.html">Tobias Oetiker: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#27">[ date ]</A>
+<A HREF="index.html#27">[ thread ]</A>
+<A HREF="subject.html#27">[ subject ]</A>
+<A HREF="author.html#27">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:48 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

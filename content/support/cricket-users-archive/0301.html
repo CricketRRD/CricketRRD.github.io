@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: [rrd-developers] Cricket and</TITLE>
+<META NAME="Author" CONTENT="Tobias Oetiker (oetiker@ee.ethz.ch)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: [rrd-developers] Cricket and RRDTOOL major problems">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: [rrd-developers] Cricket and RRDTOOL major problems</H1>
+<!-- received="Mon Jul 12 14:36:52 1999" -->
+<!-- isoreceived="19990712213652" -->
+<!-- sent="Mon, 12 Jul 1999 20:36:25 +0200 (MET DST)" -->
+<!-- isosent="19990712183625" -->
+<!-- name="Tobias Oetiker" -->
+<!-- email="oetiker@ee.ethz.ch" -->
+<!-- subject="[cricket-users] Re: [rrd-developers] Cricket and RRDTOOL major problems" -->
+<!-- id="Pine.GSO.4.10.9907122035440.22839-100000@engelberg.ee.ethz.ch" -->
+<!-- inreplyto="Pine.GSO.4.10.9907121419210.13065-100000@strangelove.ns.itd.umich.edu" -->
+<STRONG>From:</STRONG> Tobias Oetiker (<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20Re:%20[rrd-developers]%20Cricket%20and%20RRDTOOL%20major%20problems&In-Reply-To=&lt;Pine.GSO.4.10.9907122035440.22839-100000@engelberg.ee.ethz.ch&gt;"><EM>oetiker@ee.ethz.ch</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jul 12 1999 - 11:36:25 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0302.html">Jeff Allen: "Re: [cricket-users] Bug in 0.68"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0300.html">Jeff Allen: "Re: [cricket-users] RRD file"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0298.html">David Koski: "[cricket-users] Cricket and RRDTOOL major problems"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#301">[ date ]</A>
+<A HREF="index.html#301">[ thread ]</A>
+<A HREF="subject.html#301">[ subject ]</A>
+<A HREF="author.html#301">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20Re:%20[rrd-developers]%20Cricket%20and%20RRDTOOL%20major%20problems&In-Reply-To=&lt;Pine.GSO.4.10.9907122035440.22839-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A>&gt;
+<BR>
+<P>Today you sent me mail regarding [rrd-developers] Cricket and RRDTOOL major...:
+<BR>
+<P>*&gt; Ok, at Tobias's suggestion I upgraded from RRDTOOL 0.99.34 to 0.99.50 to
+<BR>
+*&gt; try to take care of many problems with blank graphs showing up.  My hourly
+<BR>
+*&gt; and weekly graphs are even worse now, showing up about 80% of the time
+<BR>
+*&gt; blank (Verses 60% of the time blank).  Any idea how to fix this???  Its a
+<BR>
+*&gt; major problem trying to get data to my user base when the graphs keep
+<BR>
+*&gt; coming up blank and the compliants keep pouring in.  I'm going to
+<BR>
+*&gt; downgrade back to 0.99.34 with Cricket since it seems only slightly more
+<BR>
+*&gt; stable that 0.99.50 for the time being till I can get this sorted out.
+<BR>
+*&gt; Its always with the first graph on the list with Cricket, doesn't seem to
+<BR>
+*&gt; affect graphs associated with variables further into the RRD (In my case,
+<BR>
+*&gt; its affecting the first 2 on the list), the Monthly and Daily graphs are
+<BR>
+*&gt; fine, and a small percentage of the time, they are all fine.  Thoughts?
+<BR>
+<P>Hi David,
+<BR>
+<P>it would help a lot if you could send me a x.rrd file together with an
+<BR>
+rrdtool graph ... command which produces an empty graph ... 
+<BR>
+<P>cheers
+<BR>
+tobi
+<BR>
+*&gt; 
+<BR>
+*&gt; 	David
+<BR>
+*&gt; 
+<BR>
+*&gt; ------------------------------------------------------------------------
+<BR>
+*&gt; UMNet                         MichNet                         Merit RSNG
+<BR>
+*&gt; ------------------------------------------------------------------------
+<BR>
+*&gt; <A HREF="mailto:dkoski@umich.edu?Subject=Re:%20[cricket-users]%20Re:%20[rrd-developers]%20Cricket%20and%20RRDTOOL%20major%20problems&In-Reply-To=&lt;Pine.GSO.4.10.9907122035440.22839-100000@engelberg.ee.ethz.ch&gt;">dkoski@umich.edu</A>                       			    Technologist
+<BR>
+*&gt; Unix Administration                                Technical Team Leader 
+<BR>
+*&gt; Phone: (734)/647-8993                          Network Operations Center 
+<BR>
+*&gt; 	         		  U of M Information Technology Division
+<BR>
+*&gt; 
+<BR>
+*&gt; --
+<BR>
+*&gt; * To unsubscribe from the rrd-developers mailing list, send a message with the
+<BR>
+*&gt;   subject: unsubscribe to <A HREF="mailto:rrd-developers-request@list.ee.ethz.ch?Subject=Re:%20[cricket-users]%20Re:%20[rrd-developers]%20Cricket%20and%20RRDTOOL%20major%20problems&In-Reply-To=&lt;Pine.GSO.4.10.9907122035440.22839-100000@engelberg.ee.ethz.ch&gt;">rrd-developers-request@list.ee.ethz.ch</A>
+<BR>
+*&gt; 
+<BR>
+*&gt; 
+<BR>
+<P><PRE>
+-- 
+ ______    __   _
+/_  __/_  / /  (_) Oetiker, Timelord &amp; SysMgr @ EE-Dept ETH-Zurich
+ / // _ \/ _ \/ / TEL: +41(0)1-6325286  FAX:...1517  ICQ: 10419518 
+/_/ \.__/_.__/_/ <A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20Re:%20[rrd-developers]%20Cricket%20and%20RRDTOOL%20major%20problems&In-Reply-To=&lt;Pine.GSO.4.10.9907122035440.22839-100000@engelberg.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A> <A HREF="http://ee-staff.ethz.ch/~oetiker">http://ee-staff.ethz.ch/~oetiker</A>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>ONElist:  your connection to people who share your interests.
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0302.html">Jeff Allen: "Re: [cricket-users] Bug in 0.68"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0300.html">Jeff Allen: "Re: [cricket-users] RRD file"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0298.html">David Koski: "[cricket-users] Cricket and RRDTOOL major problems"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#301">[ date ]</A>
+<A HREF="index.html#301">[ thread ]</A>
+<A HREF="subject.html#301">[ subject ]</A>
+<A HREF="author.html#301">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:55 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

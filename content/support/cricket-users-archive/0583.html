@@ -1,0 +1,308 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] How do I get Switch Port Nam</TITLE>
+<META NAME="Author" CONTENT="Alan Nichols (Alan.Nichols@EBay.Sun.COM)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] How do I get Switch Port Names?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] How do I get Switch Port Names?</H1>
+<!-- received="Thu Sep  9 19:25:41 1999" -->
+<!-- isoreceived="19990910022541" -->
+<!-- sent="Thu, 9 Sep 1999 16:24:24 -0700 (PDT)" -->
+<!-- isosent="19990909232424" -->
+<!-- name="Alan Nichols" -->
+<!-- email="Alan.Nichols@EBay.Sun.COM" -->
+<!-- subject="Re: [cricket-users] How do I get Switch Port Names?" -->
+<!-- id="199909092324.QAA02115@lapaz.EBay.Sun.COM" -->
+<!-- inreplyto="[cricket-users] How do I get Switch Port Names?" -->
+<STRONG>From:</STRONG> Alan Nichols (<A HREF="mailto:Alan.Nichols@EBay.Sun.COM?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20Switch%20Port%20Names?&In-Reply-To=&lt;199909092324.QAA02115@lapaz.EBay.Sun.COM&gt;"><EM>Alan.Nichols@EBay.Sun.COM</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Sep 09 1999 - 16:24:24 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0584.html">Tim Kennedy: "Re: [cricket-users] Web server"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0582.html">Glenn MacGregor: "[cricket-users] Web server"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0577.html">rose@gerf.org: "[cricket-users] How do I get Switch Port Names?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#583">[ date ]</A>
+<A HREF="index.html#583">[ thread ]</A>
+<A HREF="subject.html#583">[ subject ]</A>
+<A HREF="author.html#583">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+Rose:
+<BR>
+<P>The attached code works under Cricket 0.67 (the last version that I have
+<BR>
+tested it under).
+<BR>
+<P>Rather than patch this into Map.pm, I put at the top of collector
+<BR>
+a &quot;require 'mapping.pl';&quot; line.
+<BR>
+<P>The main thing that changed between the earlier version and the current
+<BR>
+version is some calls to Cricket internal functions.
+<BR>
+<P>Alan
+<BR>
+<P><EM>&gt;From: <A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20Switch%20Port%20Names?&In-Reply-To=&lt;199909092324.QAA02115@lapaz.EBay.Sun.COM&gt;">rose@gerf.org</A>
+</EM><BR>
+<EM>&gt;To: <A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20Switch%20Port%20Names?&In-Reply-To=&lt;199909092324.QAA02115@lapaz.EBay.Sun.COM&gt;">cricket-users@onelist.com</A>
+</EM><BR>
+<EM>&gt;Mailing-List: list <A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20Switch%20Port%20Names?&In-Reply-To=&lt;199909092324.QAA02115@lapaz.EBay.Sun.COM&gt;">cricket-users@onelist.com</A>; contact 
+</EM><BR>
+<A HREF="mailto:cricket-users-owner@onelist.com?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20Switch%20Port%20Names?&In-Reply-To=&lt;199909092324.QAA02115@lapaz.EBay.Sun.COM&gt;">cricket-users-owner@onelist.com</A>
+<BR>
+<EM>&gt;Delivered-To: mailing list <A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20Switch%20Port%20Names?&In-Reply-To=&lt;199909092324.QAA02115@lapaz.EBay.Sun.COM&gt;">cricket-users@onelist.com</A>
+</EM><BR>
+<EM>&gt;List-Unsubscribe: &lt;mailto:<A HREF="mailto:cricket-users-unsubscribe@ONElist.com?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20Switch%20Port%20Names?&In-Reply-To=&lt;199909092324.QAA02115@lapaz.EBay.Sun.COM&gt;">cricket-users-unsubscribe@ONElist.com</A>&gt;
+</EM><BR>
+<EM>&gt;Mime-Version: 1.0
+</EM><BR>
+<EM>&gt;Content-Transfer-Encoding: 7bit
+</EM><BR>
+<EM>&gt;Subject: [cricket-users] How do I get Switch Port Names?
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;From: <A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20Switch%20Port%20Names?&In-Reply-To=&lt;199909092324.QAA02115@lapaz.EBay.Sun.COM&gt;">rose@gerf.org</A>
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Hi all,
+</EM><BR>
+<EM>&gt;  I have been beating my head against the wall trying to figure out
+</EM><BR>
+<EM>&gt;how to get switch interface names to show up somewhere, just like 
+</EM><BR>
+<EM>&gt;the router interface names pop up now.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;  I looked through Alan Nicholas' stuff, and in there he tells you to modify
+</EM><BR>
+<EM>&gt;common.pm, which no longer exists in cricket 0.70.  So what exactly
+</EM><BR>
+<EM>&gt;do I do to make the switch interface names come up? 
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;  I did splice his code in with Map.pm instead of common.pm, and changed the
+</EM><BR>
+<EM>&gt;other things he mentioned in the readme, but I only end up breaking things.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;  Can someone tell me how to get switch instances to come up with the switch
+</EM><BR>
+<EM>&gt;port name for something as standard as a Cisco 5500?  I'd greatly appreciate
+</EM><BR>
+<EM>&gt;it.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Thanks again,
+</EM><BR>
+<EM>&gt;  Rose
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+-------------------------------------------------------------------------
+<BR>
+Email: <A HREF="mailto:Alan.Nichols@Sun.COM?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20Switch%20Port%20Names?&In-Reply-To=&lt;199909092324.QAA02115@lapaz.EBay.Sun.COM&gt;">Alan.Nichols@Sun.COM</A>	Phone:(408)276-1306
+<BR>
+Pager: <A HREF="mailto:Alan.Nichols@pager.ebay.sun.com?Subject=Re:%20[cricket-users]%20How%20do%20I%20get%20Switch%20Port%20Names?&In-Reply-To=&lt;199909092324.QAA02115@lapaz.EBay.Sun.COM&gt;">Alan.Nichols@pager.ebay.sun.com</A>	or (650)940-0687
+<BR>
+-----BEGIN GEEK CODE BLOCK-----
+<BR>
+Version: 3.1
+<BR>
+GCS/PA d- s:+ a- C++(++++)$ USC++++$ P++(+++)$ L&gt;++++ E+(+++)$
+<BR>
+W+(+++)$ N+$ o--- !K w--- O? M- V+ PS@ PE@ Y+&gt;+++$ PGP?&gt;+++ t+ !5 X+
+<BR>
+R* tv b+++&gt;++++ DI++++ D++ G e++ h--- r++ y+++
+<BR>
+------END GEEK CODE BLOCK------
+<BR>
+<P>
+<BR><P>
+# netManagement: mapping.pl 1.2 07/01/99 16:12:05
+<BR>
+<P>my (%portmapping);
+<BR>
+<P>sub map_port {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;use SNMP_MIB;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;use SNMP_Simple;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my($target) = @_;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my $host = ConfigTree::Cache::expandString($target-&gt;{'snmp-host'}, $target);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my $community = ConfigTree::Cache::expandString($target-&gt;{'snmp-community'}, $target);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my $oids = $target-&gt;{'oids'};
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my $port = $target-&gt;{'port-name'};
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my $mapping = $portmapping{$host};
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;if (!defined($mapping)) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Debug(&quot;Finding mapping for $host&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$mapping = {};
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;SNMP_MIB::loadoids($oids, 'CISCO-STACK');
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my $session = SNMP_Simple-&gt;open($host, $community);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my %portEntries = $session-&gt;snmpgettableka(2, 'portName',
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'portIfIndex');
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my $portkey;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach $portkey (keys %portEntries) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next if ($portEntries{$portkey}-&gt;{'portName'} eq &quot;&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$mapping-&gt;{$portEntries{$portkey}-&gt;{'portName'}} =
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$portEntries{$portkey}-&gt;{'portIfIndex'};
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$portmapping{$host} = $mapping;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#For some reason, this closes more than I expect.  So don't do it. :-(
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#$session-&gt;close();
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;Debug(&quot;Mapping $host:$port -&gt; $host:$mapping-&gt;{$port}&quot;);    
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;return $mapping-&gt;{$port} if (defined($mapping-&gt;{$port}));
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+<BR>
+}
+<BR>
+<P>my (%aliasmapping);
+<BR>
+<P>sub map_alias {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;use SNMP_MIB;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;use SNMP_Simple;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;my ($target) = @_;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my $host = ConfigTree::Cache::expandString($target-&gt;{'snmp-host'}, $target);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my $community = ConfigTree::Cache::expandString($target-&gt;{'snmp-community'}, $target);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my $oids = $target-&gt;{'oids'};
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;return 0 unless defined($target-&gt;{'if-alias'});
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my ($port, $junk) = split(' ', $target-&gt;{'if-alias'}, 2);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;my $mapping = $aliasmapping{$host};
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;if (!defined($mapping)) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Debug(&quot;Finding mapping for $host&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$mapping = {};
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;SNMP_MIB::loadoids($oids, 'IF');
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my $session = SNMP_Simple-&gt;open($host, $community);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my %ifAlias = $session-&gt;snmpgettablean('ifAlias');
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my $interface;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach $interface (sort { $a &lt;=&gt; $b } keys %ifAlias) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my ($alias, $rest) = split(' ', $ifAlias{$interface}, 2);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next if (!defined($alias) || $alias eq &quot;&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my ($base, $unique) = split(/;/, $alias, 2);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$unique = 1 if (!defined($unique) || $unique eq &quot;&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (defined($mapping-&gt;{&quot;$base;$unique&quot;})) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$unique++;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$mapping-&gt;{&quot;$base;$unique&quot;} = $interface;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$aliasmapping{$host} = $mapping;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#For some reason, this closes more than I expect.  So don't do it. :-(
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#$session-&gt;close();
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;} 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;Debug(&quot;Mapping $host:$port -&gt; $host:$mapping-&gt;{$port}&quot;);    
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;return $mapping-&gt;{$port} if (defined($mapping-&gt;{$port}));
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+<BR>
+}
+<BR>
+<P>1;
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0584.html">Tim Kennedy: "Re: [cricket-users] Web server"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0582.html">Glenn MacGregor: "[cricket-users] Web server"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0577.html">rose@gerf.org: "[cricket-users] How do I get Switch Port Names?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#583">[ date ]</A>
+<A HREF="index.html#583">[ thread ]</A>
+<A HREF="subject.html#583">[ subject ]</A>
+<A HREF="author.html#583">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

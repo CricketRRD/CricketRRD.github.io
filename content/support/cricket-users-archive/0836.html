@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] multi-row snmp responses?</TITLE>
+<META NAME="Author" CONTENT="Marg Suarez (marg@columbia.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] multi-row snmp responses?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] multi-row snmp responses?</H1>
+<!-- received="Wed Jan  5 12:16:33 2000" -->
+<!-- isoreceived="20000105201633" -->
+<!-- sent="Wed, 5 Jan 2000 12:15:05 EST" -->
+<!-- isosent="20000105171505" -->
+<!-- name="Marg Suarez" -->
+<!-- email="marg@columbia.edu" -->
+<!-- subject="RE: [cricket-users] multi-row snmp responses?" -->
+<!-- id="CMM.0.90.4.947092505.marg@manila" -->
+<!-- inreplyto="Wed, 05 Jan 2000 08:33:07 -0500 (EST)" -->
+<STRONG>From:</STRONG> Marg Suarez (<A HREF="mailto:marg@columbia.edu?Subject=RE:%20[cricket-users]%20multi-row%20snmp%20responses?&In-Reply-To=&lt;CMM.0.90.4.947092505.marg@manila&gt;"><EM>marg@columbia.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jan 05 2000 - 09:15:05 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0837.html">Nathan Alan Haneysmith: "[cricket-users] Monitoring Cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0835.html">Hugo Gayosso: "[cricket-users] FW: Re: Cricket is not compatible with rrdtool 1.0.8  (was RE: ["</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0828.html">Hugo Gayosso: "RE: [cricket-users] multi-row snmp responses?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#836">[ date ]</A>
+<A HREF="index.html#836">[ thread ]</A>
+<A HREF="subject.html#836">[ subject ]</A>
+<A HREF="author.html#836">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+thanks!  i had tried
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OID             cpu1min         1.3.6.1.4.1.11.2.3.1.1.3.0
+<BR>
+<P>but on my system i must omit the trailing .0 -- sheesh (a thread on
+<BR>
+cricket-users a few months ago clued me in to this).  i actually got it
+<BR>
+working last night.
+<BR>
+<P>my problem stemmed from my misunderstanding of the difference between
+<BR>
+snmpwalk and snmpget (ucd-snmp).   i can &quot;walk&quot; to the top of a table,
+<BR>
+but i must &quot;get&quot; each element.  so early on i had disregarded the OID
+<BR>
+for loadTable.laLoad simply because i was unable to extract it with
+<BR>
+snmpwalk.
+<BR>
+<P>the next confusion was that my cricket OID didn't work with the trailing
+<BR>
+..0, though everything else does.  i think ucd-snmp requires the trailing
+<BR>
+..0 for scalars, but disallows it for table entries.
+<BR>
+<P>by the way, on my solaris machine the following OID doesn't seem to
+<BR>
+work:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OID             freemem         1.3.6.1.4.1.11.2.3.1.1.7.0
+<BR>
+<P>though i am able to get some memory statistics from the ucdavis mib.
+<BR>
+<P>i wish i had more interesting stats than just cpu and memory usage.
+<BR>
+going to fiddle around with netstats and iostats-type stuff now.  will
+<BR>
+post my config (of course) when i've got it the way i want it...
+<BR>
+<P>thanks again
+<BR>
+marg
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><PRE>
+--
+<P><P>========================================================================
+To UNSUBSCRIBE from this community, send an email to: 
+  <A HREF="mailto:cricket-users-unsubscribe@onelist.com?Subject=RE:%20[cricket-users]%20multi-row%20snmp%20responses?&In-Reply-To=&lt;CMM.0.90.4.947092505.marg@manila&gt;">cricket-users-unsubscribe@onelist.com</A>
+and reply to the confirmation email we send you.
+========================================================================
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0837.html">Nathan Alan Haneysmith: "[cricket-users] Monitoring Cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0835.html">Hugo Gayosso: "[cricket-users] FW: Re: Cricket is not compatible with rrdtool 1.0.8  (was RE: ["</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0828.html">Hugo Gayosso: "RE: [cricket-users] multi-row snmp responses?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#836">[ date ]</A>
+<A HREF="index.html#836">[ thread ]</A>
+<A HREF="subject.html#836">[ subject ]</A>
+<A HREF="author.html#836">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:08 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

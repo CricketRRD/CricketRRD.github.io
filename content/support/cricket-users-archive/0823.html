@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] grapher.cgi fails to produce</TITLE>
+<META NAME="Author" CONTENT="Hugo Gayosso (qztf7k@powertrain.mpg.gm.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] grapher.cgi fails to produce graphs">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] grapher.cgi fails to produce graphs</H1>
+<!-- received="Tue Jan  4 15:48:00 2000" -->
+<!-- isoreceived="20000104234800" -->
+<!-- sent="Tue, 04 Jan 2000 15:45:08 -0500 (EST)" -->
+<!-- isosent="20000104204508" -->
+<!-- name="Hugo Gayosso" -->
+<!-- email="qztf7k@powertrain.mpg.gm.com" -->
+<!-- subject="RE: [cricket-users] grapher.cgi fails to produce graphs" -->
+<!-- id="XFMail.20000104154508.qztf7k@powertrain.mpg.gm.com" -->
+<!-- inreplyto="947016195.2311@onelist.com" -->
+<STRONG>From:</STRONG> Hugo Gayosso (<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20grapher.cgi%20fails%20to%20produce%20graphs&In-Reply-To=&lt;XFMail.20000104154508.qztf7k@powertrain.mpg.gm.com&gt;"><EM>qztf7k@powertrain.mpg.gm.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jan 04 2000 - 12:45:08 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0824.html">Marg Suarez: "[cricket-users] multi-row snmp responses?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0822.html">phil.pierotti@quokka.com: "[cricket-users] grapher.cgi fails to produce graphs"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0822.html">phil.pierotti@quokka.com: "[cricket-users] grapher.cgi fails to produce graphs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0826.html">tom minchin: "Re: [cricket-users] grapher.cgi fails to produce graphs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#823">[ date ]</A>
+<A HREF="index.html#823">[ thread ]</A>
+<A HREF="subject.html#823">[ subject ]</A>
+<A HREF="author.html#823">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Hugo Gayosso &lt;<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20grapher.cgi%20fails%20to%20produce%20graphs&In-Reply-To=&lt;XFMail.20000104154508.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>&gt;
+<BR>
+<P>-----BEGIN PGP SIGNED MESSAGE-----
+<BR>
+Hash: SHA1
+<BR>
+<P>Hello!
+<BR>
+<P>Check the archives of the list, there are some explanations about this.
+<BR>
+<P>In the mean time you can check your /var/log/messages and
+<BR>
+/var/log/httpd/error_log and /var/log/httpd/access_log files for info.
+<BR>
+<P>suexec is also an issue, so check the log file of it too.
+<BR>
+<P>Greetings,
+<BR>
+On 04-Jan-2000 <A HREF="mailto:phil.pierotti@quokka.com?Subject=RE:%20[cricket-users]%20grapher.cgi%20fails%20to%20produce%20graphs&In-Reply-To=&lt;XFMail.20000104154508.qztf7k@powertrain.mpg.gm.com&gt;">phil.pierotti@quokka.com</A> wrote:
+<BR>
+<EM>&gt; From: <A HREF="mailto:phil.pierotti@quokka.com?Subject=RE:%20[cricket-users]%20grapher.cgi%20fails%20to%20produce%20graphs&In-Reply-To=&lt;XFMail.20000104154508.qztf7k@powertrain.mpg.gm.com&gt;">phil.pierotti@quokka.com</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Ok, so I'm setting up Cricket (0.70) with RRDTool (1.09) on RedHat 6.0 and am
+</EM><BR>
+<EM>&gt; having just a little grief.
+</EM><BR>
+<EM>&gt; I have the tree configured and collecting data.
+</EM><BR>
+<EM>&gt; I have verified that data is being stored (via rrdtool dump).
+</EM><BR>
+<EM>&gt; I'm running Apache , and just using 'straight cgi' under Perl 5.005_03 .
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Yet, whenever I get as far through grapher.cgi to actually click on a link
+</EM><BR>
+<EM>&gt; which would generate the html page and graph, I get an Internal Server Error.
+</EM><BR>
+<EM>&gt; The Apache logs show the following:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;       [Tue Jan  4 13:15:12 2000] [error] [client 192.168.24.105] Premature
+</EM><BR>
+end of
+<BR>
+<EM>&gt; script headers: /home/cricket/public_html/grapher.cgi
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I can't seem to squeeze any further debug info out of it, turning on DEBUG
+</EM><BR>
+<EM>&gt; level messages in both grapher.cgi and apache produce no further info.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Anybody have any ideas ?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Thanks,
+</EM><BR>
+<EM>&gt; PhiL P
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+- -- 
+<BR>
+Hugo Gayosso                            |  The ultimate result is that some  
+<BR>
+Controls Process Support                |  innovations that would truly 
+<BR>
+Electronics Integration and Software    |  benefit consumers never occur 
+<BR>
+GM Powertrain                           |  for the sole reason that they
+<BR>
+Brighton, MI                            |  do not coincide with Microsoft's 
+<BR>
+USA                                     |  self-interest.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|      
+<BR>
+E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20grapher.cgi%20fails%20to%20produce%20graphs&In-Reply-To=&lt;XFMail.20000104154508.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>    |            Thomas Penfield Jackson
+<BR>
+&nbsp;Phone: (810) 220-2635                  |              U.S. District Judge
+<BR>
+&nbsp;&nbsp;&nbsp;Fax: (810) 220-2663                  |
+<BR>
+<P><P><P>-----BEGIN PGP SIGNATURE-----
+<BR>
+Version: GnuPG v1.0.0 (GNU/Linux)
+<BR>
+Comment: For info see <A HREF="http://www.gnupg.org">http://www.gnupg.org</A>
+<BR>
+<P>iD8DBQE4clvTx2JZtTN6co8RAlIsAJ9JSvi67ew0VKhnaH7iVz1rCY3LhQCg+9n8
+<BR>
+a+D4Qtac5o4Zf5irO6obqps=
+<BR>
+=hbd/
+<BR>
+-----END PGP SIGNATURE-----
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0824.html">Marg Suarez: "[cricket-users] multi-row snmp responses?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0822.html">phil.pierotti@quokka.com: "[cricket-users] grapher.cgi fails to produce graphs"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0822.html">phil.pierotti@quokka.com: "[cricket-users] grapher.cgi fails to produce graphs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0826.html">tom minchin: "Re: [cricket-users] grapher.cgi fails to produce graphs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#823">[ date ]</A>
+<A HREF="index.html#823">[ thread ]</A>
+<A HREF="subject.html#823">[ subject ]</A>
+<A HREF="author.html#823">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

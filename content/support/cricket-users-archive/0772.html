@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] config for frame relay ints</TITLE>
+<META NAME="Author" CONTENT="Tim Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] config for frame relay ints">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] config for frame relay ints</H1>
+<!-- received="Mon Dec  6 02:18:54 1999" -->
+<!-- isoreceived="19991206101854" -->
+<!-- sent="Mon, 6 Dec 1999 02:27:28 -0500 (EST)" -->
+<!-- isosent="19991206072728" -->
+<!-- name="Tim Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="Re: [cricket-users] config for frame relay ints" -->
+<!-- id="Pine.BSF.3.96.991206022439.57223A-100000@localhost" -->
+<!-- inreplyto="19991205142417.A17895@mindspring.net" -->
+<STRONG>From:</STRONG> Tim Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20config%20for%20frame%20relay%20ints&In-Reply-To=&lt;Pine.BSF.3.96.991206022439.57223A-100000@localhost&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sun Dec 05 1999 - 23:27:28 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0773.html">theresa.hilding@gcmail.maricopa.edu: "[cricket-users] Receiving noSuchName SNMP error from collector, new cricket installation"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0771.html">Kevin J. Schmidt: "[cricket-users] config for frame relay ints"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0771.html">Kevin J. Schmidt: "[cricket-users] config for frame relay ints"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#772">[ date ]</A>
+<A HREF="index.html#772">[ thread ]</A>
+<A HREF="subject.html#772">[ subject ]</A>
+<A HREF="author.html#772">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Tim Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20config%20for%20frame%20relay%20ints&In-Reply-To=&lt;Pine.BSF.3.96.991206022439.57223A-100000@localhost&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P><P><P>Kevin,
+<BR>
+<P>I put up a some changes I made to the Defaults file for the config-tree
+<BR>
+and the router-interfaces Defaults file, as well as a modified version of
+<BR>
+the listInterfaces script, called frInterfaces that changes frame-relay
+<BR>
+interfates from &quot;sub-interface&quot; to &quot;frame-interface&quot; and adds the host
+<BR>
+interface ifIndex, and the DLCI.
+<BR>
+<P>It was written for Cricket 0.69, but you shouldn't have much work to do on
+<BR>
+it.
+<BR>
+<P>You can find it at <A HREF="http://www.sugarat.net/software/fr-config.tar.gz">http://www.sugarat.net/software/fr-config.tar.gz</A>.
+<BR>
+<P>HTH,
+<BR>
+<P>-Tim
+<BR>
+<P>On Sun, 5 Dec 1999, Kevin J. Schmidt wrote:
+<BR>
+<P><EM>&gt; From: &quot;Kevin J. Schmidt&quot; &lt;<A HREF="mailto:kschmidt@mindspring.com?Subject=Re:%20[cricket-users]%20config%20for%20frame%20relay%20ints&In-Reply-To=&lt;Pine.BSF.3.96.991206022439.57223A-100000@localhost&gt;">kschmidt@mindspring.com</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; does anyone have a config for obtaining stats from the frCircuitTable?
+</EM><BR>
+<EM>&gt; basically i want to do something like:
+</EM><BR>
+<EM>&gt;  
+</EM><BR>
+<EM>&gt; datasource frCircuitSentOctets
+</EM><BR>
+<EM>&gt; 	ds-source       =       snmp://%snmp%/frCircuitSentOctets.%inst%.%dlci%
+</EM><BR>
+<EM>&gt;  
+</EM><BR>
+<EM>&gt; it's apparent how to use %inst%, however, it's not so apparent how to combine
+</EM><BR>
+<EM>&gt; it with %dlci%.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; thanks!
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<P>Timothy Kennedy
+<BR>
+sugarat.net, Network Management Resources
+<BR>
+<A HREF="http://www.sugarat.net">http://www.sugarat.net</A>
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make $$$ by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0773.html">theresa.hilding@gcmail.maricopa.edu: "[cricket-users] Receiving noSuchName SNMP error from collector, new cricket installation"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0771.html">Kevin J. Schmidt: "[cricket-users] config for frame relay ints"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0771.html">Kevin J. Schmidt: "[cricket-users] config for frame relay ints"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#772">[ date ]</A>
+<A HREF="index.html#772">[ thread ]</A>
+<A HREF="subject.html#772">[ subject ]</A>
+<A HREF="author.html#772">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:06 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

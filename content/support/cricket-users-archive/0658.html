@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Cisco 5500, switch-ports, instan</TITLE>
+<META NAME="Author" CONTENT="qztf7k@powertrain.mpg.gm.com (qztf7k@powertrain.mpg.gm.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Cisco 5500, switch-ports, instances">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Cisco 5500, switch-ports, instances</H1>
+<!-- received="Wed Oct 13 08:46:00 1999" -->
+<!-- isoreceived="19991013154600" -->
+<!-- sent="Wed, 13 Oct 1999 08:44:16 -0400 (EDT)" -->
+<!-- isosent="19991013124416" -->
+<!-- name="qztf7k@powertrain.mpg.gm.com" -->
+<!-- email="qztf7k@powertrain.mpg.gm.com" -->
+<!-- subject="[cricket-users] Cisco 5500, switch-ports, instances" -->
+<!-- id="XFMail.991013084416.qztf7k@powertrain.mpg.gm.com" -->
+<STRONG>From:</STRONG> <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20Cisco%205500,%20switch-ports,%20instances&In-Reply-To=&lt;XFMail.991013084416.qztf7k@powertrain.mpg.gm.com&gt;"><EM>qztf7k@powertrain.mpg.gm.com</EM></A><BR>
+<STRONG>Date:</STRONG> Wed Oct 13 1999 - 05:44:16 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0659.html">sascha@checkout.com: "[cricket-users] rrd-max and min set but still getting spikes"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0657.html">the+cricket@llama.com: "Re: [cricket-users] Smoothing &quot;reboot&quot; spikes?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#658">[ date ]</A>
+<A HREF="index.html#658">[ thread ]</A>
+<A HREF="subject.html#658">[ subject ]</A>
+<A HREF="author.html#658">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20Cisco%205500,%20switch-ports,%20instances&In-Reply-To=&lt;XFMail.991013084416.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>
+<BR>
+<P>Hello!
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I have this Cisco 5500 with the following:
+<BR>
+<P><P>snmpwalk 130.172.80.8 public ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName
+<BR>
+<P>ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.1 = sc0
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.2 = sl0
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.3 = 1/1
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.4 = 1/2
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.29 = 3/1
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.30 = 3/2
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.31 = 3/3
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.32 = 3/4
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.33 = 3/5
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.34 = 3/6
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.35 = 3/7
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.36 = 3/8
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.37 = 3/9
+<BR>
+..
+<BR>
+..
+<BR>
+..
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.72 = 4/20
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.73 = 4/21
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.74 = 4/22
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.75 = 4/23
+<BR>
+ifMIB.ifMIBObjects.ifXTable.ifXEntry.ifName.76 = 4/24
+<BR>
+<P><P><P><P>Notice how it breaks after number 4 and number 29.
+<BR>
+<P>I inserted this:
+<BR>
+<P>target 130.172.80.8
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =   &quot;A2-001-1s&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst=(1..4,29..76)
+<BR>
+<P>in the file:
+<BR>
+<P>/home/cricket/cricket-config/switch-ports/switches
+<BR>
+<P>In the web page only these instances are displayed (1-4 and 29-76), but it seems
+<BR>
+that the collector tries to collect all of them!!, so it keeps sending email
+<BR>
+complaining about this situation:
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[13-Oct-1999 08:27:37 ] Retrieved data for 130.172.80.10 (1): 2302518378,0
+<BR>
+[13-Oct-1999 08:27:37 ] Retrieved data for 130.172.80.10 (2): 0,0
+<BR>
+[13-Oct-1999 08:27:37 ] Retrieved data for 130.172.80.10 (3): 46396465,953792128
+<BR>
+[13-Oct-1999 08:27:37 ] Retrieved data for 130.172.80.10 (4): 0,0
+<BR>
+[13-Oct-1999 08:27:38*] Received SNMP response with error code noSuchName
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[13-Oct-1999 08:27:37 ] Retrieved data for 130.172.80.10 (4): 0,0
+<BR>
+[13-Oct-1999 08:27:38*] Received SNMP response with error code noSuchName
+<BR>
+[13-Oct-1999 08:27:38 ] Retrieved data for 130.172.80.10 (5): U,U
+<BR>
+[13-Oct-1999 08:27:38 ] Some data is missing for 130.172.80.10 (5).
+<BR>
+[13-Oct-1999 08:27:38*] Received SNMP response with error code noSuchName
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[13-Oct-1999 08:27:38 ] Some data is missing for 130.172.80.10 (5).
+<BR>
+[13-Oct-1999 08:27:38*] Received SNMP response with error code noSuchName
+<BR>
+[13-Oct-1999 08:27:38 ] Retrieved data for 130.172.80.10 (6): U,U
+<BR>
+[13-Oct-1999 08:27:38 ] Some data is missing for 130.172.80.10 (6).
+<BR>
+[13-Oct-1999 08:27:38*] Received SNMP response with error code noSuchName
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[13-Oct-1999 08:27:38 ] Some data is missing for 130.172.80.10 (6).
+<BR>
+[13-Oct-1999 08:27:38*] Received SNMP response with error code noSuchName
+<BR>
+[13-Oct-1999 08:27:38 ] Retrieved data for 130.172.80.10 (7): U,U
+<BR>
+[13-Oct-1999 08:27:38 ] Some data is missing for 130.172.80.10 (7).
+<BR>
+[13-Oct-1999 08:27:38*] Received SNMP response with error code noSuchName
+<BR>
+..
+<BR>
+..
+<BR>
+..
+<BR>
+..
+<BR>
+it continues until it finds the instance 29, and even some instances after 29!!
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[13-Oct-1999 08:27:43 ] Some data is missing for 130.172.80.10 (28).
+<BR>
+[13-Oct-1999 08:27:43*] Received SNMP response with error code noSuchName
+<BR>
+[13-Oct-1999 08:27:43 ] Retrieved data for 130.172.80.10 (29): U,U
+<BR>
+[13-Oct-1999 08:27:43 ] Some data is missing for 130.172.80.10 (29).
+<BR>
+[13-Oct-1999 08:27:43*] Received SNMP response with error code noSuchName
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[13-Oct-1999 08:27:43 ] Some data is missing for 130.172.80.10 (29).
+<BR>
+[13-Oct-1999 08:27:43*] Received SNMP response with error code noSuchName
+<BR>
+[13-Oct-1999 08:27:43 ] Retrieved data for 130.172.80.10 (30): U,U
+<BR>
+[13-Oct-1999 08:27:43 ] Some data is missing for 130.172.80.10 (30).
+<BR>
+[13-Oct-1999 08:27:44*] Received SNMP response with error code noSuchName
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[13-Oct-1999 08:27:43 ] Some data is missing for 130.172.80.10 (30).
+<BR>
+[13-Oct-1999 08:27:44*] Received SNMP response with error code noSuchName
+<BR>
+[13-Oct-1999 08:27:44 ] Retrieved data for 130.172.80.10 (31): U,U
+<BR>
+[13-Oct-1999 08:27:44 ] Some data is missing for 130.172.80.10 (31).
+<BR>
+[13-Oct-1999 08:27:44*] Received SNMP response with error code noSuchName
+<BR>
+<P>Error and the lines leading up to it:
+<BR>
+[13-Oct-1999 08:27:44 ] Some data is missing for 130.172.80.10 (31).
+<BR>
+[13-Oct-1999 08:27:44*] Received SNMP response with error code noSuchName
+<BR>
+[13-Oct-1999 08:27:44 ] Retrieved data for 130.172.80.10 (32): U,U
+<BR>
+[13-Oct-1999 08:27:44 ] Some data is missing for 130.172.80.10 (32).
+<BR>
+<P><P><P>I have some other switches with the same problem, any ideas??
+<BR>
+<P>Also if you have some other ideas about monitoring Cisco 5500 I will gladly
+<BR>
+take them :)
+<BR>
+<P><P>Greetings, and thanks in advance.
+<BR>
+<P><P><PRE>
+---
+Hugo Gayosso                            |      Free Software implies
+Controls Process Support                | 
+Electronics Integration and Software    |      &quot;Free speech&quot;
+GM Powertrain                           |
+Brighton, MI                            |      NOT
+USA                                     |
+                                        |      &quot;Free beer&quot; !!!
+E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20Cisco%205500,%20switch-ports,%20instances&In-Reply-To=&lt;XFMail.991013084416.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>    |
+ Phone: (810) 220-2635                  |      <A HREF="http://www.gnu.org">http://www.gnu.org</A>
+   Fax: (810) 220-2663                  |
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>??? Computer Questions  ==&gt; Free Answers From Live Experts ! ! !
+                       go to EXPERTCITY.COM
+    &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity15">http://clickme.onelist.com/ad/expertcity15</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0659.html">sascha@checkout.com: "[cricket-users] rrd-max and min set but still getting spikes"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0657.html">the+cricket@llama.com: "Re: [cricket-users] Smoothing &quot;reboot&quot; spikes?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#658">[ date ]</A>
+<A HREF="index.html#658">[ thread ]</A>
+<A HREF="subject.html#658">[ subject ]</A>
+<A HREF="author.html#658">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

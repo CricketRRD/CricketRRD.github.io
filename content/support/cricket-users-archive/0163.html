@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Cricket monitoring of INN/CNFS?</TITLE>
+<META NAME="Author" CONTENT="hume@ug.cs.dal.ca (hume@ug.cs.dal.ca)">
+<META NAME="Subject" CONTENT="[cricket-users] Cricket monitoring of INN/CNFS?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Cricket monitoring of INN/CNFS?</H1>
+<!-- received="Mon Jun  7 10:45:19 1999" -->
+<!-- isoreceived="19990607174519" -->
+<!-- sent="Mon, 7 Jun 1999 11:43:09 -0300 (ADT)" -->
+<!-- isosent="19990607144309" -->
+<!-- name="hume@ug.cs.dal.ca" -->
+<!-- email="hume@ug.cs.dal.ca" -->
+<!-- subject="[cricket-users] Cricket monitoring of INN/CNFS?" -->
+<!-- id="19990607144315Z473406-28182+17@ug.cs.dal.ca" -->
+<STRONG>From:</STRONG> <A HREF="mailto:hume@ug.cs.dal.ca?Subject=Re:%20[cricket-users]%20Cricket%20monitoring%20of%20INN/CNFS?&In-Reply-To=&lt;19990607144315Z473406-28182%2B17@ug.cs.dal.ca&gt;"><EM>hume@ug.cs.dal.ca</EM></A><BR>
+<STRONG>Date:</STRONG> Mon Jun 07 1999 - 07:43:09 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0164.html">cricket@nirvana.EBay.Sun.COM: "Re: [cricket-users] 0.63 grapher.cgi problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0162.html">Kirby Krueger: "Re: [cricket-users] 0.63 grapher.cgi problem"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#163">[ date ]</A>
+<A HREF="index.html#163">[ thread ]</A>
+<A HREF="subject.html#163">[ subject ]</A>
+<A HREF="author.html#163">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From:	<A HREF="mailto:hume@ug.cs.dal.ca?Subject=Re:%20[cricket-users]%20Cricket%20monitoring%20of%20INN/CNFS?&In-Reply-To=&lt;19990607144315Z473406-28182%2B17@ug.cs.dal.ca&gt;">hume@ug.cs.dal.ca</A>
+<BR>
+<P>Has anyone tried using Cricket to monitor the amount of data going into
+<BR>
+a cyclic buffer under INN?
+<BR>
+<P>I'm using cnfsstat -m (to get MRTG-style output) and grabbing the &quot;current
+<BR>
+fill&quot; value.  I'm basically just after the amount of data flowing into
+<BR>
+each buffer during a five minute period.
+<BR>
+<P>I'm using the following rules:
+<BR>
+<P>&lt;cricket-config&gt;/INN/Cycbuffs/Defaults =
+<BR>
+<P>target          --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      = &quot;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long-desc       = &quot;Volume of data into cyclic buffer %short-desc%&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     = cycbuff
+<BR>
+<P>datasource      buffusage
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source       = &quot;exec:2:/local/news/bin/cnfsstat -m %cb%&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desc            = &quot;Amount of data written to cyclic buffer&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytes           = 1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type     = COUNTER
+<BR>
+<P>targetType      cycbuff
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds              = buffusage
+<BR>
+<P>graph           --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-axis          = &quot;Bytes written&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units           = bytes
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as         = AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytes           = 1
+<BR>
+<P><P>While, for example:
+<BR>
+<P>&lt;cricket-config&gt;/INN/Cycbuffs/JUNK/Buffers = 
+<BR>
+<P>target  CYCB16
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      = &quot;CYCB16&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cb              = &quot;CYCB16&quot;
+<BR>
+<P><P>The problem is, I'm getting nonsensical answers when I look at the graphs.
+<BR>
+I know the &quot;JUNK&quot; buffers receives about 100K of data per five minutes (at
+<BR>
+the least), and when I run cnfsstat -m in a loop the numbers reflect that.
+<BR>
+<P>For example, from Cricket itself:
+<BR>
+<P>[07-Jun-1999 11:30:13 ] Retrieved data for cycb16 (): 293131264
+<BR>
+[07-Jun-1999 11:35:12 ] Retrieved data for cycb16 (): 293263872
+<BR>
+<P>Those numbers are in bytes.
+<BR>
+<P>However, the grapher tells me during that period it received 256.20 bytes of
+<BR>
+data.  Which doesn't seem to be a number derived from the difference between
+<BR>
+the above, or a division by eight, or anything else visible to me.
+<BR>
+<P><P>Anyone know what I might be doing wrong here?
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+Having difficulty getting &quot;in synch&quot; with list members? 
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Try ONElist's Shared Calendar to organize events, meetings and more!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0164.html">cricket@nirvana.EBay.Sun.COM: "Re: [cricket-users] 0.63 grapher.cgi problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0162.html">Kirby Krueger: "Re: [cricket-users] 0.63 grapher.cgi problem"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#163">[ date ]</A>
+<A HREF="index.html#163">[ thread ]</A>
+<A HREF="subject.html#163">[ subject ]</A>
+<A HREF="author.html#163">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:52 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

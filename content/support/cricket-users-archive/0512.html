@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Config tree design question</TITLE>
+<META NAME="Author" CONTENT="Brad Knowles (brad@shub-internet.org)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Config tree design question">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Config tree design question</H1>
+<!-- received="Wed Aug 18 11:51:19 1999" -->
+<!-- isoreceived="19990818185119" -->
+<!-- sent="Wed, 18 Aug 1999 17:43:12 +0200" -->
+<!-- isosent="19990818154312" -->
+<!-- name="Brad Knowles" -->
+<!-- email="brad@shub-internet.org" -->
+<!-- subject="Re: [cricket-users] Config tree design question" -->
+<!-- id="v0420551ab3e080d1e298@[195.238.1.121]" -->
+<!-- inreplyto="852567D1.00517770.00@NA-GATEWAYS02.NOTES.MCKINSEY.COM" -->
+<STRONG>From:</STRONG> Brad Knowles (<A HREF="mailto:brad@shub-internet.org?Subject=Re:%20[cricket-users]%20Config%20tree%20design%20question&In-Reply-To=&lt;v0420551ab3e080d1e298@[195.238.1.121]&gt;"><EM>brad@shub-internet.org</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Aug 18 1999 - 08:43:12 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0513.html">Doherty, Niall: "[cricket-users] (no subject)"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0511.html">Utsav Ratti: "[cricket-users] Config tree design question"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0511.html">Utsav Ratti: "[cricket-users] Config tree design question"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0517.html">Jeff Allen: "Re: [cricket-users] Config tree design question"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0517.html">Jeff Allen: "Re: [cricket-users] Config tree design question"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#512">[ date ]</A>
+<A HREF="index.html#512">[ thread ]</A>
+<A HREF="subject.html#512">[ subject ]</A>
+<A HREF="author.html#512">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Brad Knowles &lt;<A HREF="mailto:brad@shub-internet.org?Subject=Re:%20[cricket-users]%20Config%20tree%20design%20question&In-Reply-To=&lt;v0420551ab3e080d1e298@[195.238.1.121]&gt;">brad@shub-internet.org</A>&gt;
+<BR>
+<P>At 10:56 AM -0400 1999/8/18, Utsav Ratti wrote:
+<BR>
+<P><EM>&gt; Clearly this is a config tree issue. Here's what I'd like to do. When I
+</EM><BR>
+<EM>&gt; click on router-interfaces from the main page, I want to see a list of my
+</EM><BR>
+<EM>&gt; routers displayed, then I want to be able to choose the router and see its
+</EM><BR>
+<EM>&gt; interfaces.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; What do I need to do to accomplish this?
+</EM><BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Move everything down a subtree.  Create your Defaults file at the 
+<BR>
+&quot;router&quot; level, then within that directory, create a sub-directory 
+<BR>
+for each router.  Create your Targets and interfaces files within 
+<BR>
+those subdirectories.  The web pages that are generated will be a bit 
+<BR>
+confusing (they won't tell you what router you're looking at), but 
+<BR>
+you should keep all the data separate for the interfaces with the 
+<BR>
+same name on different routers.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Of course, you'll have to modify your cricket-data directory 
+<BR>
+hierarchy to match, you'll have to recompile, and you'll probably 
+<BR>
+have to start over with a fresh dataset.
+<BR>
+<P><PRE>
+-- 
+Brad Knowles &lt;<A HREF="mailto:brad@shub-internet.org?Subject=Re:%20[cricket-users]%20Config%20tree%20design%20question&In-Reply-To=&lt;v0420551ab3e080d1e298@[195.238.1.121]&gt;">brad@shub-internet.org</A>&gt; &lt;<A HREF="http://www.shub-internet.org/brad/">http://www.shub-internet.org/brad/</A>&gt;
+     &lt;<A HREF="http://wwwkeys.pgp.net:11371/pks/lookup?op=get&search=0xE38CCEF1">http://wwwkeys.pgp.net:11371/pks/lookup?op=get&search=0xE38CCEF1</A>&gt;
+<P>Your mouse has moved.   Windows NT must be restarted for the change to
+take effect.   Reboot now?  [ OK ]
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Why do WOMEN ASTRONAUTS have such BAD HAIRCUTS?
+What happens if you CLEAN your self-cleaning OVEN?  
+The DR. has answers:&lt;a href=&quot; <A HREF="http://www.drscience.com/u">http://www.drscience.com/u</A> &quot;&gt;Click&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0513.html">Doherty, Niall: "[cricket-users] (no subject)"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0511.html">Utsav Ratti: "[cricket-users] Config tree design question"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0511.html">Utsav Ratti: "[cricket-users] Config tree design question"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0517.html">Jeff Allen: "Re: [cricket-users] Config tree design question"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0517.html">Jeff Allen: "Re: [cricket-users] Config tree design question"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#512">[ date ]</A>
+<A HREF="index.html#512">[ thread ]</A>
+<A HREF="subject.html#512">[ subject ]</A>
+<A HREF="author.html#512">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] instance mapping of switch-ports</TITLE>
+<META NAME="Author" CONTENT="Trygve Lunheim (Trygve.Lunheim@idi.ntnu.no)">
+<META NAME="Subject" CONTENT="[cricket-users] instance mapping of switch-ports (map_port)">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] instance mapping of switch-ports (map_port)</H1>
+<!-- received="Tue Jun 29 13:21:23 1999" -->
+<!-- isoreceived="19990629202123" -->
+<!-- sent="Tue, 29 Jun 1999 19:20:46 +0200 (MET DST)" -->
+<!-- isosent="19990629172046" -->
+<!-- name="Trygve Lunheim" -->
+<!-- email="Trygve.Lunheim@idi.ntnu.no" -->
+<!-- subject="[cricket-users] instance mapping of switch-ports (map_port)" -->
+<!-- id="Pine.GS4.4.05.9906281941510.17624-100000@vier.idi.ntnu.no" -->
+<STRONG>From:</STRONG> Trygve Lunheim (<A HREF="mailto:Trygve.Lunheim@idi.ntnu.no?Subject=Re:%20[cricket-users]%20instance%20mapping%20of%20switch-ports%20(map_port)&In-Reply-To=&lt;Pine.GS4.4.05.9906281941510.17624-100000@vier.idi.ntnu.no&gt;"><EM>Trygve.Lunheim@idi.ntnu.no</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jun 29 1999 - 10:20:46 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0265.html">Glenn MacGregor: "[cricket-users] Multiple targets"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0263.html">Jim D. Kirby: "Re: [cricket-users] I am ready to migrate"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0270.html">Alan Nichols: "Re: [cricket-users] instance mapping of switch-ports (map_port)"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0270.html">Alan Nichols: "Re: [cricket-users] instance mapping of switch-ports (map_port)"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#264">[ date ]</A>
+<A HREF="index.html#264">[ thread ]</A>
+<A HREF="subject.html#264">[ subject ]</A>
+<A HREF="author.html#264">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Trygve Lunheim &lt;<A HREF="mailto:Trygve.Lunheim@idi.ntnu.no?Subject=Re:%20[cricket-users]%20instance%20mapping%20of%20switch-ports%20(map_port)&In-Reply-To=&lt;Pine.GS4.4.05.9906281941510.17624-100000@vier.idi.ntnu.no&gt;">Trygve.Lunheim@idi.ntnu.no</A>&gt;
+<BR>
+<P>Hello list,
+<BR>
+<P>Setting up fully automated gathering of data for router traffic was like
+<BR>
+child's play compared to our old mrtg setup. Very nice.
+<BR>
+<P>Now, we'd like a more detailed view of the network, so I moved on to
+<BR>
+gathering data for the switch-ports in use. Since there are quite a few
+<BR>
+switches, setting up and updating the cricket-config files has to involve
+<BR>
+as little manual work as possible.
+<BR>
+<P>Trying a similar approach to the one that worked so well for
+<BR>
+router-interfaces.. need a new map (map port-name) to get right inst..
+<BR>
+<P>Now, querying .1.3.6.1.4.1.9.5.1.4.1.1.11
+<BR>
+(cisco.workgroup.stack.portGrp.portTable.portEntry.portIfIndex)
+<BR>
+gives the mapping from portName to mib-2 variable ifIndex, like this:
+<BR>
+<P>1.1 : 3
+<BR>
+1.2 : 4
+<BR>
+2.1 : 5
+<BR>
+2.2 : 6
+<BR>
+2.3 : 7 ..etc
+<BR>
+\/    \_ifIndex
+<BR>
+&nbsp;\__port
+<BR>
+<P>So to read traffic on port 2.2 I would go to 
+<BR>
+mib-2.interfaces.ifTable.ifEntry.if[In,Out]Octets.6
+<BR>
+<P>If I'm not mistaken this mapping is reverse from the one normally used to
+<BR>
+map router-interfaces, and so I'm stuck on my map port-name. Trying a
+<BR>
+bit more..
+<BR>
+<P>Ok, I looked at the anichols/switches/map_port.pl in cricket-contrib that
+<BR>
+actually does this, but I can't make it work. Somehow I don't think the
+<BR>
+collector evaluates 'inst = &quot;map_port($target)&quot;' at all. Has anyone got
+<BR>
+this working on cricket-0.67?
+<BR>
+<P>Yrs,
+<BR>
+<PRE>
+-- 
+Trygve Lunheim
+NTNU ITEA Nettseksjon
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>With more than 20 million e-mails exchanged daily...
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+....ONElist is home to the liveliest discussions on the Internet!
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0265.html">Glenn MacGregor: "[cricket-users] Multiple targets"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0263.html">Jim D. Kirby: "Re: [cricket-users] I am ready to migrate"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0270.html">Alan Nichols: "Re: [cricket-users] instance mapping of switch-ports (map_port)"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0270.html">Alan Nichols: "Re: [cricket-users] instance mapping of switch-ports (map_port)"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#264">[ date ]</A>
+<A HREF="index.html#264">[ thread ]</A>
+<A HREF="subject.html#264">[ subject ]</A>
+<A HREF="author.html#264">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:55 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

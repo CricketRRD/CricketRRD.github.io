@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Frame-relay sub-interface co</TITLE>
+<META NAME="Author" CONTENT="Tim Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Frame-relay sub-interface configs">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Frame-relay sub-interface configs</H1>
+<!-- received="Wed Jul 28 11:55:20 1999" -->
+<!-- isoreceived="19990728185520" -->
+<!-- sent="Wed, 28 Jul 1999 11:53:42 -0400 (EDT)" -->
+<!-- isosent="19990728155342" -->
+<!-- name="Tim Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="RE: [cricket-users] Frame-relay sub-interface configs" -->
+<!-- id="Pine.BSF.3.96.990728111825.94828A-100000@localhost" -->
+<!-- inreplyto="8B069C65F931D111B6E10000F804A4DF770373@amethyst.msu.montana.edu" -->
+<STRONG>From:</STRONG> Tim Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=RE:%20[cricket-users]%20Frame-relay%20sub-interface%20configs&In-Reply-To=&lt;Pine.BSF.3.96.990728111825.94828A-100000@localhost&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jul 28 1999 - 08:53:42 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0440.html">rose@gerf.org: "[cricket-users] No ds tag found for target type ."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0438.html">Tim Kennedy: "Re: [cricket-users] Frame-relay sub-interface configs"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0435.html">Berg, Ivan: "RE: [cricket-users] Frame-relay sub-interface configs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0437.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] IT WORKED!!!!!!"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#439">[ date ]</A>
+<A HREF="index.html#439">[ thread ]</A>
+<A HREF="subject.html#439">[ subject ]</A>
+<A HREF="author.html#439">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Tim Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=RE:%20[cricket-users]%20Frame-relay%20sub-interface%20configs&In-Reply-To=&lt;Pine.BSF.3.96.990728111825.94828A-100000@localhost&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P><P><EM>&gt; target Serial1.3
+</EM><BR>
+<EM>&gt; 	interface-name	=	Serial1.3
+</EM><BR>
+<EM>&gt; 	target-type	=	sub-interface
+</EM><BR>
+<P>That's reminded me of something.  The reason that the sub-interface 
+<BR>
+thing didn't work for me, was the router I am using.  All Cisco.
+<BR>
+Cisco's track frInOctets, and frOutOctets, as well as FECN's and BECN's.
+<BR>
+I wanted cricket to automagically distinguish between frame-relay
+<BR>
+interfaces and other sub-interfaces, and graph teh right stats for me.
+<BR>
+We use ATM in some places, which provides it's own type of sub-interface,
+<BR>
+and we use BRI's in some places that also sho up as sub-interfaces.
+<BR>
+So what I did, was add some stuff to teh listInterfaces script that
+<BR>
+built frame interfaces seperately.  like:
+<BR>
+<P>target Serial1.300
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;community	=	public  (we use several comm strings)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name	=	Serial1.300
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc	=	&quot;Frame relay to customer&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type	=	frame-interface
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;host-interface	=	3       (matches the ifIndex for host)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frame-interface	=	300	(DLCI)
+<BR>
+<P><P>I had to add the community line because of the way I set up my tree.
+<BR>
+We use routers with about 4 different communities, and have servers and
+<BR>
+others that also have different communities.  This makes it a standard for
+<BR>
+the whole tree that I can just pull the community out of the interfaces
+<BR>
+or Targets files.
+<BR>
+<P>This set-up lets me grpah frame-relay specific stats, apart from
+<BR>
+the other interfaces.
+<BR>
+<P>-Tim
+<BR>
+<P><P>Timothy Kennedy
+<BR>
+sugarat.net, Network Management Resources
+<BR>
+<A HREF="http://www.sugarat.net">http://www.sugarat.net</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Start a new ONElist list &amp; you can WIN great prizes!
+<BR>
+For details on ONElist’s NEW FRIENDS &amp; FAMILY program, go to
+<BR>
+<A HREF="http://www.onelist.com/info/onereachsplash3.html">http://www.onelist.com/info/onereachsplash3.html</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0440.html">rose@gerf.org: "[cricket-users] No ds tag found for target type ."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0438.html">Tim Kennedy: "Re: [cricket-users] Frame-relay sub-interface configs"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0435.html">Berg, Ivan: "RE: [cricket-users] Frame-relay sub-interface configs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0437.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] IT WORKED!!!!!!"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#439">[ date ]</A>
+<A HREF="index.html#439">[ thread ]</A>
+<A HREF="subject.html#439">[ subject ]</A>
+<A HREF="author.html#439">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:59 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

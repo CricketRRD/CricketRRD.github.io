@@ -1,0 +1,3 @@
+# we use this instead of a symlink, since CVS can't handle symlinks
+DirectoryIndex cricket-faq.html
+

@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: Cisco 2501 configuration</TITLE>
+<META NAME="Author" CONTENT="Todd A. Green (tagreen@awardsforfjords.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: Cisco 2501 configuration">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: Cisco 2501 configuration</H1>
+<!-- received="Fri Nov  5 00:44:47 1999" -->
+<!-- isoreceived="19991105084447" -->
+<!-- sent="Thu, 04 Nov 1999 22:38:41 +0000" -->
+<!-- isosent="19991104223841" -->
+<!-- name="Todd A. Green" -->
+<!-- email="tagreen@awardsforfjords.com" -->
+<!-- subject="[cricket-users] Re: Cisco 2501 configuration" -->
+<!-- id="38220AF1.1E1344C7@awardsforfjords.com" -->
+<!-- inreplyto="3821FDC1.26EF0BA3@awardsforfjords.com" -->
+<STRONG>From:</STRONG> Todd A. Green (<A HREF="mailto:tagreen@awardsforfjords.com?Subject=Re:%20[cricket-users]%20Re:%20Cisco%202501%20configuration&In-Reply-To=&lt;38220AF1.1E1344C7@awardsforfjords.com&gt;"><EM>tagreen@awardsforfjords.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Nov 04 1999 - 14:38:41 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0723.html">Berg, Ivan: "RE: [cricket-users] Cisco Switch Support"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0721.html">Todd A. Green: "[cricket-users] Cisco Switch Support"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0720.html">Todd A. Green: "[cricket-users] Cisco 2501 configuration"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#722">[ date ]</A>
+<A HREF="index.html#722">[ thread ]</A>
+<A HREF="subject.html#722">[ subject ]</A>
+<A HREF="author.html#722">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Todd A. Green&quot; &lt;<A HREF="mailto:tagreen@awardsforfjords.com?Subject=Re:%20[cricket-users]%20Re:%20Cisco%202501%20configuration&In-Reply-To=&lt;38220AF1.1E1344C7@awardsforfjords.com&gt;">tagreen@awardsforfjords.com</A>&gt;
+<BR>
+<P>&quot;Todd A. Green&quot; wrote:
+<BR>
+<P><EM>&gt; Can anyone send me a sample config for Cisco 2501 routers.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; For some reason when I build the list of interfaces with
+</EM><BR>
+<EM>&gt; util/listInterfaces and then fire it off my numbers come back in GB/s
+</EM><BR>
+<EM>&gt; instead of MB/s.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Thanks
+</EM><BR>
+<P>Can anyone say DOI!
+<BR>
+<P>I found the problem.
+<BR>
+<P>The sample-config looks like this
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;Defaults
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;routers
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Targets
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router-interfaces
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interfaces
+<BR>
+<P>I massaged the config tree into this
+<BR>
+<P>&nbsp;&nbsp;&nbsp;Defaults
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;routers
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ixl-mem-7513
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;routers
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interfaces
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interfaces
+<BR>
+<P>The issue was that ifInOctets and ifOutOctets are defined in the root
+<BR>
+Defaults along with a default data-source which is defined as COUNTER.
+<BR>
+<P>However the Defaults file in the routers directory redefined the
+<BR>
+data-source a GAUGE and the Defaults file in the interfaces directory
+<BR>
+didn't redefine the data-source at all so in my config tree it inherited
+<BR>
+the GAUGE setting from the routers file.
+<BR>
+<P>Problem solved, sigh...
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make $$$ in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0723.html">Berg, Ivan: "RE: [cricket-users] Cisco Switch Support"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0721.html">Todd A. Green: "[cricket-users] Cisco Switch Support"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0720.html">Todd A. Green: "[cricket-users] Cisco 2501 configuration"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#722">[ date ]</A>
+<A HREF="index.html#722">[ thread ]</A>
+<A HREF="subject.html#722">[ subject ]</A>
+<A HREF="author.html#722">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

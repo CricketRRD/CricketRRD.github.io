@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] can't update 'dummy'?</TITLE>
+<META NAME="Author" CONTENT="Greg Redder (redder@yuma.ACNS.ColoState.EDU)">
+<META NAME="Subject" CONTENT="[cricket-users] can't update 'dummy'?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] can't update 'dummy'?</H1>
+<!-- received="Tue Jul 27 16:08:20 1999" -->
+<!-- isoreceived="19990727230820" -->
+<!-- sent="Tue, 27 Jul 1999 10:39:00 -0600 (MDT)" -->
+<!-- isosent="19990727163900" -->
+<!-- name="Greg Redder" -->
+<!-- email="redder@yuma.ACNS.ColoState.EDU" -->
+<!-- subject="[cricket-users] can't update 'dummy'?" -->
+<!-- id="Pine.A41.4.10.9907271030370.171958-100000@yuma.ACNS.ColoState.EDU" -->
+<STRONG>From:</STRONG> Greg Redder (<A HREF="mailto:redder@yuma.ACNS.ColoState.EDU?Subject=Re:%20[cricket-users]%20can't%20update%20'dummy'?&In-Reply-To=&lt;Pine.A41.4.10.9907271030370.171958-100000@yuma.ACNS.ColoState.EDU&gt;"><EM>redder@yuma.ACNS.ColoState.EDU</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jul 27 1999 - 09:39:00 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0428.html">Matt Birkner: "[cricket-users] Getting the graphics configured"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0426.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] Need help !!!!  problems with cricket setup and grapher.cgi"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#427">[ date ]</A>
+<A HREF="index.html#427">[ thread ]</A>
+<A HREF="subject.html#427">[ subject ]</A>
+<A HREF="author.html#427">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Greg Redder &lt;<A HREF="mailto:redder@yuma.ACNS.ColoState.EDU?Subject=Re:%20[cricket-users]%20can't%20update%20'dummy'?&In-Reply-To=&lt;Pine.A41.4.10.9907271030370.171958-100000@yuma.ACNS.ColoState.EDU&gt;">redder@yuma.ACNS.ColoState.EDU</A>&gt;
+<BR>
+<P><P>I'm running RRD 1.0.0 on AIX 4.3.2 with Cricket .69
+<BR>
+<P>Cricket's collector code calls:
+<BR>
+<P>RRDs::update($datafile, join(&quot;:&quot;, $when, @data2));
+<BR>
+<P>and gets the error:
+<BR>
+<P>Cannot update
+<BR>
+/home/cricket/cricket-config/../cricket-data//routers/router-name.rrd:
+<BR>
+rrdopen can't open 'dummy'
+<BR>
+<P>It's the &quot;can't open 'dummy'&quot; that is confusing me and preventing
+<BR>
+things from working properly.   
+<BR>
+<P>If I print out the variables passed to RRDs::update, I get:
+<BR>
+<P>$datafile =
+<BR>
+/home/cricket/cricket-config/../cricket-data//routers/router-name.rrd
+<BR>
+<P>$when=N
+<BR>
+@data2=1 1 28 36 3941364 10448088
+<BR>
+<P>These values all seem correct. Actually, I'm not quite sure what
+<BR>
+the $when is doing, but ....
+<BR>
+<P>So, why is rrdupdate complaining about &quot;dummy&quot;?  Any ideas, please?
+<BR>
+<P>Thank you --Greg Redder
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Network Analyst
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colorado State University
+<BR>
+===============================================================================
+<BR>
+Greg Redder                         Academic Computing &amp; Networking Services 
+<BR>
+Colorado State University, ACNS     Phone:(970)491-7222  FAX:  (970)491-1958
+<BR>
+601 S. Howes, Room 625              E-mail: <A HREF="mailto:redder@yuma.colostate.edu?Subject=Re:%20[cricket-users]%20can't%20update%20'dummy'?&In-Reply-To=&lt;Pine.A41.4.10.9907271030370.171958-100000@yuma.ACNS.ColoState.EDU&gt;">redder@yuma.colostate.edu</A>  
+<BR>
+Fort Collins, CO 80523              PGP Fprint:68CEE78C86AC452881B27249785FEE91 
+<BR>
+===============================================================================
+<BR>
+<P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>How do you enter ONElist’s WEEKLY DRAWING for $100?
+<BR>
+By joining the FRIENDS &amp; FAMILY program.  For details, go to
+<BR>
+<A HREF="http://www.onelist.com/info/onereachsplash3.html">http://www.onelist.com/info/onereachsplash3.html</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0428.html">Matt Birkner: "[cricket-users] Getting the graphics configured"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0426.html">qztf7k@powertrain.mpg.gm.com: "[cricket-users] Need help !!!!  problems with cricket setup and grapher.cgi"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#427">[ date ]</A>
+<A HREF="index.html#427">[ thread ]</A>
+<A HREF="subject.html#427">[ subject ]</A>
+<A HREF="author.html#427">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:59 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Errors in collector</TITLE>
+<META NAME="Author" CONTENT="David Koski (dkoski@noc.ns.itd.umich.edu)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Errors in collector">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Errors in collector</H1>
+<!-- received="Tue Oct  5 21:27:59 1999" -->
+<!-- isoreceived="19991006042759" -->
+<!-- sent="Tue, 5 Oct 1999 21:25:39 -0400 (EDT)" -->
+<!-- isosent="19991006012539" -->
+<!-- name="David Koski" -->
+<!-- email="dkoski@noc.ns.itd.umich.edu" -->
+<!-- subject="Re: [cricket-users] Errors in collector" -->
+<!-- id="Pine.GSO.4.10.9910052123330.1330-100000@noc.ns.itd.umich.edu" -->
+<!-- inreplyto="939171889.29147@onelist.com" -->
+<STRONG>From:</STRONG> David Koski (<A HREF="mailto:dkoski@noc.ns.itd.umich.edu?Subject=Re:%20[cricket-users]%20Errors%20in%20collector&In-Reply-To=&lt;Pine.GSO.4.10.9910052123330.1330-100000@noc.ns.itd.umich.edu&gt;"><EM>dkoski@noc.ns.itd.umich.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Oct 05 1999 - 18:25:39 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0638.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Collector / CISCO Router errors"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0636.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Errors in collector"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0636.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Errors in collector"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#637">[ date ]</A>
+<A HREF="index.html#637">[ thread ]</A>
+<A HREF="subject.html#637">[ subject ]</A>
+<A HREF="author.html#637">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: David Koski &lt;<A HREF="mailto:dkoski@noc.ns.itd.umich.edu?Subject=Re:%20[cricket-users]%20Errors%20in%20collector&In-Reply-To=&lt;Pine.GSO.4.10.9910052123330.1330-100000@noc.ns.itd.umich.edu&gt;">dkoski@noc.ns.itd.umich.edu</A>&gt;
+<BR>
+<P>Cisco does not support ATM correctly, ATM subinterfaces prior to 12.0
+<BR>
+don't even show up in SNMP, while all versions will not return regular (or
+<BR>
+cisco) traffic stat mibs.  we've commented all of ours out till Cisco gets
+<BR>
+around to fixing there mibs. 
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;David
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+UMNet                         MichNet                         Merit RSNG
+<BR>
+------------------------------------------------------------------------
+<BR>
+<A HREF="mailto:dkoski@umich.edu?Subject=Re:%20[cricket-users]%20Errors%20in%20collector&In-Reply-To=&lt;Pine.GSO.4.10.9910052123330.1330-100000@noc.ns.itd.umich.edu&gt;">dkoski@umich.edu</A>                       			    Technologist
+<BR>
+Unix Administration                                Technical Team Leader 
+<BR>
+Phone: (734)/647-8993                          Network Operations Center 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;U of M Information Technology Division
+<BR>
+<P>On 6 Oct 1999 <A HREF="mailto:Jennifer.Hayes@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Errors%20in%20collector&In-Reply-To=&lt;Pine.GSO.4.10.9910052123330.1330-100000@noc.ns.itd.umich.edu&gt;">Jennifer.Hayes@det.nsw.edu.au</A> wrote:
+<BR>
+<P><EM>&gt; From: <A HREF="mailto:Jennifer.Hayes@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Errors%20in%20collector&In-Reply-To=&lt;Pine.GSO.4.10.9910052123330.1330-100000@noc.ns.itd.umich.edu&gt;">Jennifer.Hayes@det.nsw.edu.au</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I have started configuring cricket and am trying it out on two
+</EM><BR>
+<EM>&gt; routers (7200 &amp; 7500) to start with. However I am getting the following errors
+</EM><BR>
+<EM>&gt; running collector. Can anyone help with explanations of the causes of these??
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Thanks,
+</EM><BR>
+<EM>&gt; Jennifer
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Starting collector: Cricket version 0.70 ( Wed Aug 11 11
+</EM><BR>
+<EM>&gt; :33:37 PDT 1999 )
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_0 (1): 3498540010,891097575
+</EM><BR>
+<EM>&gt; ,101,0,70827899,66963694
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_1 (2): 2666461188,290415098
+</EM><BR>
+<EM>&gt; 1,113,0,61815944,60215112
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_2 (3): 1892767660,150971259
+</EM><BR>
+<EM>&gt; 0,92,0,90249328,88149139
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for fastethernet4_0_0 (10): 3755776505,16
+</EM><BR>
+<EM>&gt; 89349536,0,0,210484842,216334431
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for null0 (5): 0,0,0,0,0,0
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_0.1 (13): 1644487084,104120
+</EM><BR>
+<EM>&gt; 2834
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_0.2 (14): 2056851458,415365
+</EM><BR>
+<EM>&gt; 0016
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_1.1 (15): 3524047235,414128
+</EM><BR>
+<EM>&gt; 2135
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_1.2 (16): 1575620509,405214
+</EM><BR>
+<EM>&gt; 1497
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_1.3 (17): 2100065634,329620
+</EM><BR>
+<EM>&gt; 0561
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_2.1 (19): 2833812200,177784
+</EM><BR>
+<EM>&gt; 668
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_2.2 (20): 2047481681,314077
+</EM><BR>
+<EM>&gt; 0749
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for serial0_0_2.3 (21): 1301182690,248166
+</EM><BR>
+<EM>&gt; 2729
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for fddi1_0_0 (1): 3306101898,760091276,6
+</EM><BR>
+<EM>&gt; 700,0,8877966,7885536
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for atm1_1_0 (2): 526697855,2593580205,0,
+</EM><BR>
+<EM>&gt; 0,4365279,7531759
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45*] Received SNMP response with error code noSuchName
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Walking ifDescr for isbr10.isd.tafensw.EDU.AU:161 to res
+</EM><BR>
+<EM>&gt; olve interface-name mapping
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45*] Received SNMP response with error code noSuchName
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for atm1_1_0-atm_layer (3): U,U
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Some data is missing for atm1_1_0-atm_layer (3).
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for atm1_1_0-atm_layer (3): U,U
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Some data is missing for atm1_1_0-atm_layer (3).
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45*] Received SNMP response with error code noSuchName
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45*] Received SNMP response with error code noSuchName
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for atm1_1_0-aal5_layer (4): U,U
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Some data is missing for atm1_1_0-aal5_layer (4).
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for atm1_1_0-aal5_layer (4): U,U
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Some data is missing for atm1_1_0-aal5_layer (4).
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45 ] Retrieved data for null0 (5): 0,0,0,0,0,0
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:45*] Cannot update /usr/users/cricket/cricket-config/../crick
+</EM><BR>
+<EM>&gt; et-data//router-interfaces/null0.rrd: illegal attempt to update using time 93917
+</EM><BR>
+<EM>&gt; 1345 when last update time is 939171345 (minimum one second step)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:55*] no response received &quot;isbr22.isd.tafensw.edu.au&quot; [10.23.
+</EM><BR>
+<EM>&gt; 254.250].161
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:55 ] Retrieved data for <A HREF="mailto:openview@isbr22.isd.tafensw.edu.au?Subject=Re:%20[cricket-users]%20Errors%20in%20collector&In-Reply-To=&lt;Pine.GSO.4.10.9910052123330.1330-100000@noc.ns.itd.umich.edu&gt;">openview@isbr22.isd.tafensw.edu.au</A> ()
+</EM><BR>
+<EM>&gt; : U,U,U,U,U,U
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:55:55 ] Some data is missing for <A HREF="mailto:openview@isbr22.isd.tafensw.edu?Subject=Re:%20[cricket-users]%20Errors%20in%20collector&In-Reply-To=&lt;Pine.GSO.4.10.9910052123330.1330-100000@noc.ns.itd.umich.edu&gt;">openview@isbr22.isd.tafensw.edu</A>
+</EM><BR>
+<EM>&gt; .au ().
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:56:05*] no response received &quot;isbr10.isd.tafensw.edu.au&quot; [153.10
+</EM><BR>
+<EM>&gt; 7.20.10].161
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:56:05 ] Retrieved data for <A HREF="mailto:openview@isbr10.isd.tafensw.edu.au?Subject=Re:%20[cricket-users]%20Errors%20in%20collector&In-Reply-To=&lt;Pine.GSO.4.10.9910052123330.1330-100000@noc.ns.itd.umich.edu&gt;">openview@isbr10.isd.tafensw.edu.au</A> ()
+</EM><BR>
+<EM>&gt; : U,U,U,U,U,U
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:56:05 ] Some data is missing for <A HREF="mailto:openview@isbr10.isd.tafensw.edu?Subject=Re:%20[cricket-users]%20Errors%20in%20collector&In-Reply-To=&lt;Pine.GSO.4.10.9910052123330.1330-100000@noc.ns.itd.umich.edu&gt;">openview@isbr10.isd.tafensw.edu</A>
+</EM><BR>
+<EM>&gt; .au ().
+</EM><BR>
+<EM>&gt; [06-Oct-1999 10:56:05 ] Processed 20 targets in 21 seconds.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>BETA TEST expertcity.com's new online, real-time, technical support service!
+<BR>
+&nbsp;&nbsp;&nbsp;Let our live experts help you with your computer now. IT'S FREE! ! !
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity8">http://clickme.onelist.com/ad/expertcity8</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0638.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Collector / CISCO Router errors"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0636.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Errors in collector"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0636.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Errors in collector"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#637">[ date ]</A>
+<A HREF="index.html#637">[ thread ]</A>
+<A HREF="subject.html#637">[ subject ]</A>
+<A HREF="author.html#637">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

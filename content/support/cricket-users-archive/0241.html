@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] http-perfo</TITLE>
+<META NAME="Author" CONTENT="antoine cochet (cochet@univ-lehavre.fr)">
+<META NAME="Subject" CONTENT="[cricket-users] http-perfo">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] http-perfo</H1>
+<!-- received="Fri Jun 25 06:31:18 1999" -->
+<!-- isoreceived="19990625133118" -->
+<!-- sent="Fri, 25 Jun 1999 13:30:49 +0200 (CEST)" -->
+<!-- isosent="19990625113049" -->
+<!-- name="antoine cochet" -->
+<!-- email="cochet@univ-lehavre.fr" -->
+<!-- subject="[cricket-users] http-perfo" -->
+<!-- id="Pine.BSF.4.10.9906251325500.426-100000@manx.univ-lehavre.fr" -->
+<STRONG>From:</STRONG> antoine cochet (<A HREF="mailto:cochet@univ-lehavre.fr?Subject=Re:%20[cricket-users]%20http-perfo&In-Reply-To=&lt;Pine.BSF.4.10.9906251325500.426-100000@manx.univ-lehavre.fr&gt;"><EM>cochet@univ-lehavre.fr</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jun 25 1999 - 04:30:49 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0242.html">Jeff Allen: "Re: [cricket-users] [cricket-0.67:event]"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0240.html">jfesler@gigo.com: "Re: [cricket-users] graphs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0243.html">Jeff Allen: "Re: [cricket-users] http-perfo"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0243.html">Jeff Allen: "Re: [cricket-users] http-perfo"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#241">[ date ]</A>
+<A HREF="index.html#241">[ thread ]</A>
+<A HREF="subject.html#241">[ subject ]</A>
+<A HREF="author.html#241">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: antoine cochet &lt;<A HREF="mailto:cochet@univ-lehavre.fr?Subject=Re:%20[cricket-users]%20http-perfo&In-Reply-To=&lt;Pine.BSF.4.10.9906251325500.426-100000@manx.univ-lehavre.fr&gt;">cochet@univ-lehavre.fr</A>&gt;
+<BR>
+<P>Hello and sorry about my english
+<BR>
+Cricket works fine for routers and interfaces but a problem occurs with
+<BR>
+http: my serveur runs on pc/linux/apache and no snmp server is on it.
+<BR>
+collector logs :-------------------
+<BR>
+$ ~/cricket/collector -loglevel debug /http-performance
+<BR>
+[25-Jun-1999 12:13:15 ] Starting collector: Cricket version 0.65 ( Wed May
+<BR>
+19 16:49:51 PDT 1999 )
+<BR>
+[25-Jun-1999 12:13:15*] Config tree needs to be recompiled: File
+<BR>
+/home/cochet/cricket-config/http-performance/urls is newer than the
+<BR>
+compiled version.
+<BR>
+[25-Jun-1999 12:13:15 ] Starting compile: Cricket version 0.65 ( Wed May
+<BR>
+19 16:49:51 PDT 1999 )
+<BR>
+[25-Jun-1999 12:13:16 ] Processed 69 nodes (in 24 files) in 1 seconds.
+<BR>
+[25-Jun-1999 12:13:17 ] Processing
+<BR>
+/http-performance/norton.univ-lehavre.fr...
+<BR>
+[25-Jun-1999 12:13:17 ] target norton.univ-lehavre.fr
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-base = /home/cochet/cricket-config
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-root = /..
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-target-path = /http-performance
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datadir =
+<BR>
+/home/cochet/cricket-config/../cricket-data//http-performance
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst = 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long-desc =  Intranet Norton is being monitored via this URL:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a
+<BR>
+href=<A HREF="http://norton.univ-lehavre.fr">http://norton.univ-lehavre.fr</A>&gt;<A HREF="http://norton.univ-lehavre.fr</a">http://norton.univ-lehavre.fr</a</A>&gt;.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile =
+<BR>
+/home/cochet/cricket-config/../cricket-data//http-performance/norton.univ-lehavre.fr.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-poll-interval = 300
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc =  Intranet Norton
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp = <A HREF="mailto:public@norton.univ-lehavre.fr?Subject=Re:%20[cricket-users]%20http-perfo&In-Reply-To=&lt;Pine.BSF.4.10.9906251325500.426-100000@manx.univ-lehavre.fr&gt;">public@norton.univ-lehavre.fr</A>:161
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-community = public
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = norton.univ-lehavre.fr
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-port = 161
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type = http-performance
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url = <A HREF="http://norton.univ-lehavre.fr">http://norton.univ-lehavre.fr</A>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;util-dir = /home/cochet/cricket-config/../cricket-0.65/util
+<BR>
+<P>[25-Jun-1999 12:13:17 ] Retrieving data for target norton.univ-lehavre.fr
+<BR>
+() (http-performance)
+<BR>
+[25-Jun-1999 12:13:17 ] Retrieving data (EXEC:
+<BR>
+/home/cochet/cricket-config/../cricket-0.65/util/test-url
+<BR>
+<A HREF="http://norton.univ-lehavre.fr">http://norton.univ-lehavre.fr</A>) for norton.univ-lehavre.fr
+<BR>
+[25-Jun-1999 12:13:17 ] EXEC:
+<BR>
+/home/cochet/cricket-config/../cricket-0.65/util/test-url
+<BR>
+<A HREF="http://norton.univ-lehavre.fr">http://norton.univ-lehavre.fr</A> results = U,U
+<BR>
+[25-Jun-1999 12:13:17 ] Retrieved data for norton.univ-lehavre.fr (): U,U
+<BR>
+[25-Jun-1999 12:13:17 ] Some data is missing for norton.univ-lehavre.fr
+<BR>
+().
+<BR>
+[25-Jun-1999 12:13:17 ] Processed 1 targets in 3 seconds.
+<BR>
+----------------------------------------------
+<BR>
+if no server is on server-host, i wonder what i can do?
+<BR>
+(I saw nothing about snmp in linux-howto)
+<BR>
+Thanks
+<BR>
+<P>Antoine Cochet                            | CRI Universite du HAVRE
+<BR>
+Tel: 02 32 74 42 51   Fax: 02 32 74 40 56 | BP 540 
+<BR>
+Mail : <A HREF="mailto:Antoine.Cochet@univ-lehavre.fr?Subject=Re:%20[cricket-users]%20http-perfo&In-Reply-To=&lt;Pine.BSF.4.10.9906251325500.426-100000@manx.univ-lehavre.fr&gt;">Antoine.Cochet@univ-lehavre.fr</A>     | 76058 LE HAVRE CEDEX , France
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Books, music, videos, gifts, e-cards, auctions-find them at AMAZON.COM.
+<BR>
+Browse Earth's Biggest Selection!  Enjoy everyday savings of up to 50%!
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/amazon1">http://clickme.onelist.com/ad/amazon1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0242.html">Jeff Allen: "Re: [cricket-users] [cricket-0.67:event]"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0240.html">jfesler@gigo.com: "Re: [cricket-users] graphs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0243.html">Jeff Allen: "Re: [cricket-users] http-perfo"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0243.html">Jeff Allen: "Re: [cricket-users] http-perfo"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#241">[ date ]</A>
+<A HREF="index.html#241">[ thread ]</A>
+<A HREF="subject.html#241">[ subject ]</A>
+<A HREF="author.html#241">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:54 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] RE: How to Get Max Values Graphed</TITLE>
+<META NAME="Author" CONTENT="Jim D. Kirby (jdkirby@bluebunny.com)">
+<META NAME="Subject" CONTENT="[cricket-users] RE: How to Get Max Values Graphed">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] RE: How to Get Max Values Graphed</H1>
+<!-- received="Fri Aug 27 15:48:55 1999" -->
+<!-- isoreceived="19990827224855" -->
+<!-- sent="Fri, 27 Aug 1999 14:47:34 -0500" -->
+<!-- isosent="19990827194734" -->
+<!-- name="Jim D. Kirby" -->
+<!-- email="jdkirby@bluebunny.com" -->
+<!-- subject="[cricket-users] RE: How to Get Max Values Graphed" -->
+<!-- id="3227885B4692D2118D4600A0C9DD534C01D3403A@norm.bluebunny.com" -->
+<STRONG>From:</STRONG> Jim D. Kirby (<A HREF="mailto:jdkirby@bluebunny.com?Subject=Re:%20[cricket-users]%20RE:%20How%20to%20Get%20Max%20Values%20Graphed&In-Reply-To=&lt;3227885B4692D2118D4600A0C9DD534C01D3403A@norm.bluebunny.com&gt;"><EM>jdkirby@bluebunny.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Aug 27 1999 - 12:47:34 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0556.html">David Mitchell: "[cricket-users] Anyone have a MIB for the monitor-thresholds traps?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0554.html">Jim D. Kirby: "RE: [cricket-users] How to Get Max Values Graphed"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#555">[ date ]</A>
+<A HREF="index.html#555">[ thread ]</A>
+<A HREF="subject.html#555">[ subject ]</A>
+<A HREF="author.html#555">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Jim D. Kirby&quot; &lt;<A HREF="mailto:jdkirby@bluebunny.com?Subject=Re:%20[cricket-users]%20RE:%20How%20to%20Get%20Max%20Values%20Graphed&In-Reply-To=&lt;3227885B4692D2118D4600A0C9DD534C01D3403A@norm.bluebunny.com&gt;">jdkirby@bluebunny.com</A>&gt;
+<BR>
+<P>Ok, now I've played with this little switch and it *does* do at least one
+<BR>
+thing I like, although I think it may be a bug.
+<BR>
+<P>On Octet graphs &quot;Avg bits in&quot; and the new &quot;Max Avg Bits In&quot; are drawn
+<BR>
+different colors which is great.  The &quot;Mac Avg Bits In&quot; and &quot;Average Bits
+<BR>
+Out&quot; are the same color and the Max Averages don't seem very accurate, at
+<BR>
+least for octet calculations, but I can live with that for now.
+<BR>
+<P>But, using an OID I found on the cisco list, I am graphing modem utilization
+<BR>
+on my AS5200.  All I really wante was a graph showing the number of modems
+<BR>
+in use at the polling interval.  Well, Cricket/RRD have a penchang for
+<BR>
+averages so the actual numbers were a little off, and the more time
+<BR>
+encompassed in the graph, the fewer modems appeared to be used.  Well, turn
+<BR>
+on the Max Avg switch and behold:  all modem usage graphs instantly become
+<BR>
+Max Used graphs.  (in fact, my weekly graph went from numbers well below 10
+<BR>
+to numbers around 17 and 18, a significant difference on a 24 modem
+<BR>
+chassis).  However, this is the possible bug part:  The grapher doesn't use
+<BR>
+different color for average modems used and Max Average modems used.  They
+<BR>
+are both drawn as Green AREA graphs and hence indistinguishable.  Of course,
+<BR>
+the bug produces exactly the graph I was hoping for in the first place and
+<BR>
+is now my sole reason for having Max Averages turned on.
+<BR>
+<P>There's got to be a better way, however.  Can anyone tell me how I can graph
+<BR>
+exactly (not averages) the number of modems used, and have it appear as
+<BR>
+absolute numbers and not averages on the long-term graphs?  
+<BR>
+<P>Possible?
+<BR>
+jk
+<BR>
+<P><EM>&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; From: <A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20RE:%20How%20to%20Get%20Max%20Values%20Graphed&In-Reply-To=&lt;3227885B4692D2118D4600A0C9DD534C01D3403A@norm.bluebunny.com&gt;">rose@gerf.org</A> [mailto:<A HREF="mailto:rose@gerf.org?Subject=Re:%20[cricket-users]%20RE:%20How%20to%20Get%20Max%20Values%20Graphed&In-Reply-To=&lt;3227885B4692D2118D4600A0C9DD534C01D3403A@norm.bluebunny.com&gt;">rose@gerf.org</A>]
+</EM><BR>
+<EM>&gt; Sent: Thursday, August 26, 1999 12:06 PM
+</EM><BR>
+<EM>&gt; To: Jim D. Kirby
+</EM><BR>
+<EM>&gt; Cc: <A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20RE:%20How%20to%20Get%20Max%20Values%20Graphed&In-Reply-To=&lt;3227885B4692D2118D4600A0C9DD534C01D3403A@norm.bluebunny.com&gt;">cricket-users@onelist.com</A>
+</EM><BR>
+<EM>&gt; Subject: How to Get Max Values Graphed
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; [Charset iso-8859-1 unsupported, filtering to ASCII...]
+</EM><BR>
+<EM>&gt; &gt; From: &quot;Jim D. Kirby&quot; &lt;<A HREF="mailto:jdkirby@bluebunny.com?Subject=Re:%20[cricket-users]%20RE:%20How%20to%20Get%20Max%20Values%20Graphed&In-Reply-To=&lt;3227885B4692D2118D4600A0C9DD534C01D3403A@norm.bluebunny.com&gt;">jdkirby@bluebunny.com</A>&gt;
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; I&quot;m kinda confused about the &quot;show-avg-max&quot; graph tag.  
+</EM><BR>
+<EM>&gt; According to the
+</EM><BR>
+<EM>&gt; &gt; refrence doc it's supposed to turn on and off avg/max 
+</EM><BR>
+<EM>&gt; display in the page
+</EM><BR>
+<EM>&gt; &gt; header.  Is this the MRTG style avg/max or is this the same 
+</EM><BR>
+<EM>&gt; old Cricket
+</EM><BR>
+<EM>&gt; &gt; &quot;values at last update&quot; averages with some new switch?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Trouble is that this tag appears in the grapher.cgi, but 
+</EM><BR>
+<EM>&gt; that's not what 
+</EM><BR>
+<EM>&gt; turns on the graphing.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; To turn on graphing, you need to change the line below in grapher.cgi:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;  # default to not doing max stuff, since it's still a bit
+</EM><BR>
+<EM>&gt;  # messy -- due to bad deafault RRA setup, etc.
+</EM><BR>
+<EM>&gt;               $mx = isTrue(graphParam($gRef, 'show-max', 0));
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Change the 0 to 1, and you will see that indeed the graphs 
+</EM><BR>
+<EM>&gt; are messy, because 
+</EM><BR>
+<EM>&gt; two of the graph colors are the same.  I will have to look 
+</EM><BR>
+<EM>&gt; into how to change
+</EM><BR>
+<EM>&gt; 'Max Average Bits In' to something other than blue.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; And what does 'max average bits in' mean?  What's a max average?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;   Btw, cricket is designed to not call up the same picture 
+</EM><BR>
+<EM>&gt; twice, so clearing
+</EM><BR>
+<EM>&gt; your netscape cache is not going to make new pictures appear 
+</EM><BR>
+<EM>&gt; that wouldn't 
+</EM><BR>
+<EM>&gt; have appeared by just hitting refresh.
+</EM><BR>
+<EM>&gt;   The key to making new pictures appear is to muck with the code.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Good luck!
+</EM><BR>
+<EM>&gt;   -- Rose
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Congratulations GENEVINCENT. Our latest ONElist of the week.
+<BR>
+For full story and to submit yours, go to
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/ootw23">http://clickme.onelist.com/ad/ootw23</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0556.html">David Mitchell: "[cricket-users] Anyone have a MIB for the monitor-thresholds traps?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0554.html">Jim D. Kirby: "RE: [cricket-users] How to Get Max Values Graphed"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#555">[ date ]</A>
+<A HREF="index.html#555">[ thread ]</A>
+<A HREF="subject.html#555">[ subject ]</A>
+<A HREF="author.html#555">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] drawing on the same graph th</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] drawing on the same graph the max also">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] drawing on the same graph the max also</H1>
+<!-- received="Mon May 24 19:49:27 1999" -->
+<!-- isoreceived="19990525024927" -->
+<!-- sent="Mon, 24 May 1999 16:48:32 -0700 (PDT)" -->
+<!-- isosent="19990524234832" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] drawing on the same graph the max also" -->
+<!-- id="199905242348.QAA15168@oops.artemis.com" -->
+<!-- inreplyto="199905240645.PAA01851@ws22a926.nssmb.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20drawing%20on%20the%20same%20graph%20the%20max%20also&In-Reply-To=&lt;199905242348.QAA15168@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon May 24 1999 - 16:48:32 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0119.html">Jeff Allen: "Re: [cricket-users] (Cricket 0.65) router-interfaces doesn't work."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0117.html">Jeff Allen: "Re: [cricket-users] The averages in Cricket."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0115.html">nicolas@gol.com: "[cricket-users] drawing on the same graph the max also"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0120.html">Kirby Krueger: "Re: [cricket-users] drawing on the same graph the max also"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0120.html">Kirby Krueger: "Re: [cricket-users] drawing on the same graph the max also"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#118">[ date ]</A>
+<A HREF="index.html#118">[ thread ]</A>
+<A HREF="subject.html#118">[ subject ]</A>
+<A HREF="author.html#118">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20drawing%20on%20the%20same%20graph%20the%20max%20also&In-Reply-To=&lt;199905242348.QAA15168@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P><A HREF="mailto:nicolas@gol.com?Subject=Re:%20[cricket-users]%20drawing%20on%20the%20same%20graph%20the%20max%20also&In-Reply-To=&lt;199905242348.QAA15168@oops.artemis.com&gt;">nicolas@gol.com</A> wrote:
+<BR>
+<EM>&gt; I am running cricket 0.63 and even though I looked for a way to add
+</EM><BR>
+<EM>&gt; the max 2hours and days in a graph, I didn't find how I could do it
+</EM><BR>
+<EM>&gt; (basically, I want to have a similar graph as the one I have with
+</EM><BR>
+<EM>&gt; mrtg).
+</EM><BR>
+<P>Plotting the max data that we are collecting is not possible at this
+<BR>
+time. I have a patch from someone (thanks Walter) that I play to take
+<BR>
+a look at soon and integrate, but it's not high on my priorities.
+<BR>
+<P><EM>&gt; data? So is it better to have a complete different cricket for different
+</EM><BR>
+<EM>&gt; polling intervals?
+</EM><BR>
+<P>It's definately possible to use a separate Cricket setup to do fast
+<BR>
+polling.
+<BR>
+<P>Cricket is designed to be able to poll different subtrees on different
+<BR>
+rates, but this is not a function we have completely tested and gotten
+<BR>
+working. A critical change to make this work was to reformat the
+<BR>
+targetType dictionary, which is done. You need to be certain to reset
+<BR>
+&quot;rrd-poll-interval&quot; in the root Defaults file to reflect the shorter
+<BR>
+polling rate.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen                   |   <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20drawing%20on%20the%20same%20graph%20the%20max%20also&In-Reply-To=&lt;199905242348.QAA15168@oops.artemis.com&gt;">jra@corp.webtv.net</A> (work)
+WebTV Networks, Inc.            |   <A HREF="mailto:jeff.allen@acm.org?Subject=Re:%20[cricket-users]%20drawing%20on%20the%20same%20graph%20the%20max%20also&In-Reply-To=&lt;199905242348.QAA15168@oops.artemis.com&gt;">jeff.allen@acm.org</A> (personal)
+Service Operations Toolsmith    |   <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>------------------------------------------------------------------------
+ONElist:  where real people with real interests get connected.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Join a new list today!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0119.html">Jeff Allen: "Re: [cricket-users] (Cricket 0.65) router-interfaces doesn't work."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0117.html">Jeff Allen: "Re: [cricket-users] The averages in Cricket."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0115.html">nicolas@gol.com: "[cricket-users] drawing on the same graph the max also"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0120.html">Kirby Krueger: "Re: [cricket-users] drawing on the same graph the max also"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0120.html">Kirby Krueger: "Re: [cricket-users] drawing on the same graph the max also"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#118">[ date ]</A>
+<A HREF="index.html#118">[ thread ]</A>
+<A HREF="subject.html#118">[ subject ]</A>
+<A HREF="author.html#118">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:50 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

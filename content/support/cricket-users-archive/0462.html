@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>cricket-users: RE: [cricket-users] Trending data types</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Trending data types">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Trending data types</H1>
+<!-- received="Thu Aug  5 11:53:04 1999" -->
+<!-- isoreceived="19990805185304" -->
+<!-- sent="Thu, 5 Aug 1999 09:50:27 -0600 " -->
+<!-- isosent="19990805155027" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="RE: [cricket-users] Trending data types" -->
+<!-- id="8B069C65F931D111B6E10000F804A4DF77037F@amethyst.msu.montana.edu" -->
+<!-- charset="windows-1252" -->
+<!-- inreplyto="[cricket-users] Trending data types" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Trending%20data%20types&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77037F@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Aug 05 1999 - 08:50:27 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0463.html">trygvelu@bug.itea.ntnu.no: "Re: [cricket-users] monitor-thresholds"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0461.html">Utsav Ratti: "[cricket-users] monitor-thresholds"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0459.html">Utsav Ratti: "[cricket-users] Trending data types"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0465.html">trygvelu@bug.itea.ntnu.no: "RE: [cricket-users] Trending data types"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0465.html">trygvelu@bug.itea.ntnu.no: "RE: [cricket-users] Trending data types"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#462">[ date ]</A>
+<A HREF="index.html#462">[ thread ]</A>
+<A HREF="subject.html#462">[ subject ]</A>
+<A HREF="author.html#462">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Trending%20data%20types&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77037F@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>I think you are missing the concept of cricket and rrdtool.
+<BR>
+<P>RRDTool merely graphs and analyzes data you throw at it, it doesn't really
+<BR>
+matter what you throw at it as long as you can get the data somehow, RRDTool
+<BR>
+will not get the data for you.
+<BR>
+<P>Cricket grabs ***SNMP****(important) data from devices and tells RRDTool to
+<BR>
+graph this data. So to answer your question, being able to do these things
+<BR>
+depends on the SNMP capabilities of your device.  I haven't used the
+<BR>
+specific router you mentioned but I am pretty certain that router will not
+<BR>
+keep track of application traffic like lotus notes. The best routers today
+<BR>
+are moving towards keeping track of the transport layer(TCP) but even that
+<BR>
+is a huge task. Even if they did, they would need to implement the SNMP
+<BR>
+variables to keep track of that also. Your router probably keeps track of IP
+<BR>
+packets since it is a router(that's what they do-route IP and other
+<BR>
+protocols).
+<BR>
+<P>If you want to find interesting stuff to graph, grab the MIB's for you
+<BR>
+specific device.
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Congratulations COUNTRYSIDE-ELIST. Our latest ONElist of the week.
+<BR>
+For full story and to submit yours, 
+<BR>
+&lt;a href=&quot; <A HREF="http://www.onelist.com/info/ootw_20.html">http://www.onelist.com/info/ootw_20.html</A> &quot;&gt;Click Here&lt;/A&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0463.html">trygvelu@bug.itea.ntnu.no: "Re: [cricket-users] monitor-thresholds"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0461.html">Utsav Ratti: "[cricket-users] monitor-thresholds"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0459.html">Utsav Ratti: "[cricket-users] Trending data types"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0465.html">trygvelu@bug.itea.ntnu.no: "RE: [cricket-users] Trending data types"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0465.html">trygvelu@bug.itea.ntnu.no: "RE: [cricket-users] Trending data types"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#462">[ date ]</A>
+<A HREF="index.html#462">[ thread ]</A>
+<A HREF="subject.html#462">[ subject ]</A>
+<A HREF="author.html#462">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:59 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

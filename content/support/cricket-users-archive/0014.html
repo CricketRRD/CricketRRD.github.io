@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: Question about instance numb</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: Question about instance number">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: Question about instance number</H1>
+<!-- received="Mon May  3 05:28:22 1999" -->
+<!-- isoreceived="19990503122822" -->
+<!-- sent="Mon, 3 May 1999 02:27:46 -0700 (PDT)" -->
+<!-- isosent="19990503092746" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="[cricket-users] Re: Question about instance number" -->
+<!-- id="199905030927.CAA25036@oops.artemis.com" -->
+<!-- inreplyto="000101be951f$45819e80$fd4075d2@jmpark.thrunet.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Question%20about%20instance%20number&In-Reply-To=&lt;199905030927.CAA25036@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon May 03 1999 - 02:27:46 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0015.html">Tobias Oetiker: "[cricket-users] Re: [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0013.html">Jeff Allen: "[cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#14">[ date ]</A>
+<A HREF="index.html#14">[ thread ]</A>
+<A HREF="subject.html#14">[ subject ]</A>
+<A HREF="author.html#14">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Question%20about%20instance%20number&In-Reply-To=&lt;199905030927.CAA25036@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>jmpark wrote:
+<BR>
+<EM>&gt; How can I do if I make the rrd name independence with instance number?
+</EM><BR>
+<EM>&gt; I want to name the instance the symbolic name.
+</EM><BR>
+<P>What you need to do is use Instance mapping on the symbolic
+<BR>
+name of the port, and use scalar targets that represent each of the
+<BR>
+ports you are interested in. You could use a vector instance to grab
+<BR>
+stats on the other, less interesting ports.
+<BR>
+<P>It would look something like this:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host		=		switch-name.company.com
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst	=		&quot;map(interface-name)&quot;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target important-server-1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = &quot;A&quot;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target important-server-2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name = &quot;B&quot;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# pick up all other ports here via a vector target
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target switch-name
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# right now, server-1 and server-2 are plugged into
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# the ports with instances 1 and 2.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst	=		(3 .. 24)
+<BR>
+<P>(The above example assumes you are using the root Defaults file from
+<BR>
+the config-tree, which includes the definition of the interface-name
+<BR>
+map.) 
+<BR>
+<P>This, of course, assumes that the ifDescr's for the ports take the
+<BR>
+form of &quot;A&quot;, or &quot;B&quot;. It's up to you to use other tools (like snmpwalk)
+<BR>
+to find out what the symbolic names (ifDescr's) are for the ports you
+<BR>
+are interested in.
+<BR>
+<P>PS: I just realized that rrd-datafile needs to be frobbed to use
+<BR>
+scalar and vector targets interchangeably. That's left as an exercise
+<BR>
+to the reader.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen                   |   <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Question%20about%20instance%20number&In-Reply-To=&lt;199905030927.CAA25036@oops.artemis.com&gt;">jra@corp.webtv.net</A> (work)
+WebTV Networks, Inc.            |   <A HREF="mailto:jeff.allen@acm.org?Subject=Re:%20[cricket-users]%20Re:%20Question%20about%20instance%20number&In-Reply-To=&lt;199905030927.CAA25036@oops.artemis.com&gt;">jeff.allen@acm.org</A> (personal)
+Service Operations Toolsmith    |   <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>------------------------------------------------------------------------
+Start a new hobby.  Meet a new friend.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+ONElist:  The leading provider of free e-mail list services!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0015.html">Tobias Oetiker: "[cricket-users] Re: [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0013.html">Jeff Allen: "[cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#14">[ date ]</A>
+<A HREF="index.html#14">[ thread ]</A>
+<A HREF="subject.html#14">[ subject ]</A>
+<A HREF="author.html#14">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:47 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

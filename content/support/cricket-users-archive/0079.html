@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-announce] Cricket 0.64 released!</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-announce] Cricket 0.64 released!">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-announce] Cricket 0.64 released!</H1>
+<!-- received="Tue May 18 19:47:55 1999" -->
+<!-- isoreceived="19990519024755" -->
+<!-- sent="Tue, 18 May 1999 16:45:55 -0700 (PDT)" -->
+<!-- isosent="19990518234555" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="[cricket-announce] Cricket 0.64 released!" -->
+<!-- id="199905182345.QAA22341@oops.artemis.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-announce]%20Cricket%200.64%20released!&In-Reply-To=&lt;199905182345.QAA22341@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue May 18 1999 - 16:45:55 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0080.html">Timothy Kennedy: "[cricket-users] cricket uses"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0078.html">Jeff Allen: "Re: [cricket-users] feature suggestion: targetType inheritance"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#79">[ date ]</A>
+<A HREF="index.html#79">[ thread ]</A>
+<A HREF="subject.html#79">[ subject ]</A>
+<A HREF="author.html#79">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-announce]%20Cricket%200.64%20released!&In-Reply-To=&lt;199905182345.QAA22341@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>After long hours of postponing the inevitable, I have released Cricket
+<BR>
+0.64. This is a big release -- more lines of code have changed than
+<BR>
+ever before.
+<BR>
+<P>There are some useful new features:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Cricket ignores comments in retrieved data
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* You can defeat the cache during testing
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* You can monitor US Robotics modem chassis and all types of
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Portmasters now.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* You can grab snapshots of GIFs easily
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* You can pass arguments thru to RRD Tool when graphing
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* You can set mtargets-ops to &quot;sum()&quot; and The Right Thing will
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;happen
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Less Perl code needs to be parsed when displaying cached
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GIFs, potentially making the grapher a bit snappier.
+<BR>
+<P>There was a MAJOR infrastructural change too, which resulted in
+<BR>
+Cricket relying on a compiled form of the config tree (which lives in
+<BR>
+a file managed by the DB_File module). The collector will
+<BR>
+automatically recompile it when necessary, and the grapher will try to
+<BR>
+alert you when it needs to be recompiled. Creating this compiled form
+<BR>
+was necessary since for future features I need to have more info from
+<BR>
+the config tree available, and it would have been too slow to load it
+<BR>
+all every time. I will not go so far to say that the compiled form
+<BR>
+makes anything faster now -- it's actually a bit more cumbersome, and
+<BR>
+the startup time is comparable. But it will make future things easier,
+<BR>
+and that's really important, since we have a lot of good ideas that
+<BR>
+need to get implemented soon.
+<BR>
+<P>I also renamed the confusingly named collect-subtree script. It is now
+<BR>
+named collect-subtrees, and it operates on a file named subtree-sets,
+<BR>
+which has subtle changes to it. Be certain to read the CHANGES file to
+<BR>
+see how to migrate to the new (correctly named) system. It does the
+<BR>
+exact same thing still, it's just got more appropriate names now.
+<BR>
+<P>In other news, I will soon be transferring to a slightly different job
+<BR>
+within WebTV. I will be taking Cricket with me, and this new job will
+<BR>
+leave me about the same amount of time I've had to work on Cricket --
+<BR>
+not a huge amount, but you can rest assured it won't get ignored
+<BR>
+either.
+<BR>
+<P>Finally, keep the kind words coming. I've always said that WebTV wrote
+<BR>
+Cricket first and foremost to solve real problems we were having. But
+<BR>
+it's really nice to hear from people who are happy with it too. If you
+<BR>
+have a story about how it helped you, please send it to me. I'll keep
+<BR>
+them in a folder here and read them for inspiration when I am in the
+<BR>
+middle of fighting a heinous bug. :)
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen                   |   <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-announce]%20Cricket%200.64%20released!&In-Reply-To=&lt;199905182345.QAA22341@oops.artemis.com&gt;">jra@corp.webtv.net</A> (work)
+WebTV Networks, Inc.            |   <A HREF="mailto:jeff.allen@acm.org?Subject=Re:%20[cricket-announce]%20Cricket%200.64%20released!&In-Reply-To=&lt;199905182345.QAA22341@oops.artemis.com&gt;">jeff.allen@acm.org</A> (personal)
+Service Operations Toolsmith    |   <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>------------------------------------------------------------------------
+ONElist:  bringing the world together.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Join a new list today!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0080.html">Timothy Kennedy: "[cricket-users] cricket uses"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0078.html">Jeff Allen: "Re: [cricket-users] feature suggestion: targetType inheritance"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#79">[ date ]</A>
+<A HREF="index.html#79">[ thread ]</A>
+<A HREF="subject.html#79">[ subject ]</A>
+<A HREF="author.html#79">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

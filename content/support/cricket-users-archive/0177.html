@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Need help...</TITLE>
+<META NAME="Author" CONTENT="James Pichardo (jimx@ns.intec.edu.do)">
+<META NAME="Subject" CONTENT="[cricket-users] Need help...">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Need help...</H1>
+<!-- received="Wed Jun  9 11:39:12 1999" -->
+<!-- isoreceived="19990609183912" -->
+<!-- sent="Wed, 09 Jun 1999 11:38:02 -0700" -->
+<!-- isosent="19990609183802" -->
+<!-- name="James Pichardo" -->
+<!-- email="jimx@ns.intec.edu.do" -->
+<!-- subject="[cricket-users] Need help..." -->
+<!-- id="375EB48A.B0BBFE23@ns.intec.edu.do" -->
+<STRONG>From:</STRONG> James Pichardo (<A HREF="mailto:jimx@ns.intec.edu.do?Subject=Re:%20[cricket-users]%20Need%20help...&In-Reply-To=&lt;375EB48A.B0BBFE23@ns.intec.edu.do&gt;"><EM>jimx@ns.intec.edu.do</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jun 09 1999 - 11:38:02 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0178.html">jari: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0176.html">Gildas PERROT: "[cricket-users] Other problems with Cricket 0.66"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#177">[ date ]</A>
+<A HREF="index.html#177">[ thread ]</A>
+<A HREF="subject.html#177">[ subject ]</A>
+<A HREF="author.html#177">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: James Pichardo &lt;<A HREF="mailto:jimx@mail.intec.edu.do?Subject=Re:%20[cricket-users]%20Need%20help...&In-Reply-To=&lt;375EB48A.B0BBFE23@ns.intec.edu.do&gt;">jimx@mail.intec.edu.do</A>&gt;
+<BR>
+<P>Hi folks,
+<BR>
+<P>I trying to run cricket-0.66 but I always get this messages:
+<BR>
+[jimx@ns1 cricket-0.66]# ./collector /routers
+<BR>
+[09-Jun-1999 10:13:30 ] Starting collector: Cricket version 0.66 ( Thu
+<BR>
+Jun 3 00:
+<BR>
+22:40 PDT 1999 )
+<BR>
+[09-Jun-1999 10:13:30*] Variable expansion uses undefined variable:
+<BR>
+domain.
+<BR>
+[09-Jun-1999 10:13:30*] Variable expansion uses undefined variable:
+<BR>
+domain.
+<BR>
+[09-Jun-1999 10:13:30*] Variable expansion uses undefined variable:
+<BR>
+domain.
+<BR>
+[09-Jun-1999 10:13:30*] Variable expansion uses undefined variable:
+<BR>
+domain.
+<BR>
+[09-Jun-1999 10:13:32*] Error:  can't resolve
+<BR>
+&quot;intec1-gw.intec.edu.do.%domain%&quot;
+<BR>
+to IP address
+<BR>
+[09-Jun-1999 10:13:32 ] Retrieved data for intec1-gw.intec.edu.do (): U
+<BR>
+[09-Jun-1999 10:13:32 ] Some data is missing for intec1-gw.intec.edu.do
+<BR>
+().
+<BR>
+[09-Jun-1999 10:13:32 ] Processed 1 targets in 3 seconds.
+<BR>
+<P>I did the following changes in ~cricket/cricket-config/routers/Defaults:
+<BR>
+<P>....
+<BR>
+Target  --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router                  = %auto-target-name%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host               = %router%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain                  = &quot;intec.edu.do&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# you could set a router-specific community string here:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# snmp-community        = not-public
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+<BR>
+....
+<BR>
+and my /routers/Targets file look like this:
+<BR>
+target  intec-gw
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type=Cisco-2500-Router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;Router de INTEC&quot;
+<BR>
+<P>#target main-router
+<BR>
+#       target-type=Cisco-7500-Router
+<BR>
+#       short-desc      =   &quot;Main router&quot;
+<BR>
+....
+<BR>
+<P>Any help will be appreciate...
+<BR>
+Thanks in advance,
+<BR>
+James.
+<BR>
+<P><PRE>
+--
+James P. Pichardo Lezma
+<A HREF="mailto:jimx@ns.intec.edu.do?Subject=Re:%20[cricket-users]%20Need%20help...&In-Reply-To=&lt;375EB48A.B0BBFE23@ns.intec.edu.do&gt;">jimx@ns.intec.edu.do</A>
+RedINTEC
+Instituto Tecnológico de Santo Domingo
+Santo Domingo, República Dominicana
+PGP Key: <A HREF="http://www.intec.edu.do/~jimx/pgp.key">http://www.intec.edu.do/~jimx/pgp.key</A>
+<P><P><P>------------------------------------------------------------------------
+With more than 20 million e-mails exchanged daily...
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+....ONElist is home to the liveliest discussions on the Internet!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0178.html">jari: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0176.html">Gildas PERROT: "[cricket-users] Other problems with Cricket 0.66"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#177">[ date ]</A>
+<A HREF="index.html#177">[ thread ]</A>
+<A HREF="subject.html#177">[ subject ]</A>
+<A HREF="author.html#177">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:53 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] ugrading to cricket ver 0.71</TITLE>
+<META NAME="Author" CONTENT="shanman@shanman.net (shanman@shanman.net)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] ugrading to cricket ver 0.71">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] ugrading to cricket ver 0.71</H1>
+<!-- received="Mon Jan 10 20:03:21 2000" -->
+<!-- isoreceived="20000111040321" -->
+<!-- sent="Mon, 10 Jan 2000 19:01:54 -0600 (CST)" -->
+<!-- isosent="20000111010154" -->
+<!-- name="shanman@shanman.net" -->
+<!-- email="shanman@shanman.net" -->
+<!-- subject="RE: [cricket-users] ugrading to cricket ver 0.71" -->
+<!-- id="Pine.LNX.4.10.10001101856300.5744-100000@shanhat.shanman.net" -->
+<!-- inreplyto="4DCF9508FC7FD211BF2F00A0C9E9378401C14C2D@xchng1.hosp.wisc.edu" -->
+<STRONG>From:</STRONG> <A HREF="mailto:shanman@shanman.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;Pine.LNX.4.10.10001101856300.5744-100000@shanhat.shanman.net&gt;"><EM>shanman@shanman.net</EM></A><BR>
+<STRONG>Date:</STRONG> Mon Jan 10 2000 - 17:01:54 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0898.html">Ivan Berg: "Re: [cricket-users] OID for cisco 2900"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0896.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0896.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0904.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#897">[ date ]</A>
+<A HREF="index.html#897">[ thread ]</A>
+<A HREF="subject.html#897">[ subject ]</A>
+<A HREF="author.html#897">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:shanman@shanman.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;Pine.LNX.4.10.10001101856300.5744-100000@shanhat.shanman.net&gt;">shanman@shanman.net</A>
+<BR>
+<P>I think the overall y-min and y-max was designed to be as follows:
+<BR>
+<P>If there isn't a y-min or y-max defined for any of your items to be
+<BR>
+graphed, it leaves it up to RRD to calculate.
+<BR>
+<P>If you have defined a y-min or y-max, it tries to find the lowest y-min
+<BR>
+and the biggest y-max in your configuration for the datasets that your
+<BR>
+current view asks for.
+<BR>
+<P>So, your fix is most likely correct.  Because, if you set a y-min to 0 or
+<BR>
+y-max to 0, it would end up auto-negotiating the content, or filtering out
+<BR>
+the 0 from the negotiation of min/max's.
+<BR>
+<P>Shannon
+<BR>
+<P>On Mon, 10 Jan 2000, Honermann Tom A. wrote:
+<BR>
+<P><EM>&gt; From: &quot;Honermann Tom A.&quot; &lt;<A HREF="mailto:TA.Honermann@hosp.wisc.edu?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;Pine.LNX.4.10.10001101856300.5744-100000@shanhat.shanman.net&gt;">TA.Honermann@hosp.wisc.edu</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I do have another fix.  setting y-min=0 does not work correctly (or
+</EM><BR>
+<EM>&gt; y-max=0).  I found this elluded to in previous cricket-user emails.  (see
+</EM><BR>
+<EM>&gt; <A HREF="http://www.onelist.com/messages/cricket-users?archive=84">http://www.onelist.com/messages/cricket-users?archive=84</A> message 3 and
+</EM><BR>
+<EM>&gt; <A HREF="http://www.onelist.com/messages/cricket-users?archive=199">http://www.onelist.com/messages/cricket-users?archive=199</A> message 1).  The
+</EM><BR>
+<EM>&gt; first link makes reference to a patch that apparently never actually made it
+</EM><BR>
+<EM>&gt; into the cricket distribution.  (Or I'm mis-reading the message.  The patch
+</EM><BR>
+<EM>&gt; is not included with the message - I'm assuming onelist drops the
+</EM><BR>
+<EM>&gt; attachments?)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I haven't researched the fix completely yet, but I believe that this will
+</EM><BR>
+<EM>&gt; fix it:
+</EM><BR>
+<EM>&gt; At line 1222 change:
+</EM><BR>
+<EM>&gt; 	if ($ymax) {
+</EM><BR>
+<EM>&gt; to:
+</EM><BR>
+<EM>&gt; 	if (defined($ymax)) {
+</EM><BR>
+<EM>&gt; At line 1228 change:
+</EM><BR>
+<EM>&gt; 	if ($ymin) {
+</EM><BR>
+<EM>&gt; to:
+</EM><BR>
+<EM>&gt; 	if(defined($ymin)) {
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The problem is that this if fails (currently) if y-min (or y-max for that
+</EM><BR>
+<EM>&gt; matter) is set to 0.  I don't believe that this is the desired behavior.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; &gt; From:	Jeff Allen [SMTP:<A HREF="mailto:jra@corp.webtv.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;Pine.LNX.4.10.10001101856300.5744-100000@shanhat.shanman.net&gt;">jra@corp.webtv.net</A>]
+</EM><BR>
+<EM>&gt; &gt; Sent:	Monday, January 10, 2000 3:43 PM
+</EM><BR>
+<EM>&gt; &gt; To:	Honermann Tom A.
+</EM><BR>
+<EM>&gt; &gt; Cc:	'<A HREF="mailto:shanman@shanman.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;Pine.LNX.4.10.10001101856300.5744-100000@shanhat.shanman.net&gt;">shanman@shanman.net</A>'; '<A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;Pine.LNX.4.10.10001101856300.5744-100000@shanhat.shanman.net&gt;">cricket-users@onelist.com</A>'
+</EM><BR>
+<EM>&gt; &gt; Subject:	RE: [cricket-users] ugrading to cricket ver 0.71
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;Pine.LNX.4.10.10001101856300.5744-100000@shanhat.shanman.net&gt;">jra@corp.webtv.net</A>&gt;
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Honermann Tom A. wrote:
+</EM><BR>
+<EM>&gt; &gt; &gt; I'm willing to bet that that line should be changed to:
+</EM><BR>
+<EM>&gt; &gt; &gt; 	my($vname, $dss) = split(/\s*:\s*/, $v, 2);
+</EM><BR>
+<EM>&gt; &gt; &gt; I suspect it was a typo that the \s* was typed \*.
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Yes, this is the correct fix. I have added it to my version, and I
+</EM><BR>
+<EM>&gt; &gt; expect to be putting out a new Cricket in the next day or so with this
+</EM><BR>
+<EM>&gt; &gt; fix and maybe some others, if you guys find things that need to be
+</EM><BR>
+<EM>&gt; &gt; fixed.
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; -- 
+</EM><BR>
+<EM>&gt; &gt; Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;Pine.LNX.4.10.10001101856300.5744-100000@shanhat.shanman.net&gt;">jra@corp.webtv.net</A>
+</EM><BR>
+<EM>&gt; &gt; WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt;   Hey Freelancers:  Find your next project through JobSwarm!  
+</EM><BR>
+<EM>&gt; &gt;   You can even make money in your sleep by referring friends.
+</EM><BR>
+<EM>&gt; &gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;   Hey Freelancers:  Find your next project through JobSwarm!  
+</EM><BR>
+<EM>&gt;   You can even make money in your sleep by referring friends.
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0898.html">Ivan Berg: "Re: [cricket-users] OID for cisco 2900"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0896.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0896.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0904.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#897">[ date ]</A>
+<A HREF="index.html#897">[ thread ]</A>
+<A HREF="subject.html#897">[ subject ]</A>
+<A HREF="author.html#897">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:09 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

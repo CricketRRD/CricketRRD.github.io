@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Cricket almost there, small conf</TITLE>
+<META NAME="Author" CONTENT="Loucks Guy (Guy.Loucks@det.nsw.edu.au)">
+<META NAME="Subject" CONTENT="[cricket-users] Cricket almost there, small config problems">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Cricket almost there, small config problems</H1>
+<!-- received="Sun Oct 17 22:54:58 1999" -->
+<!-- isoreceived="19991018055458" -->
+<!-- sent="Mon, 18 Oct 1999 12:52:26 +1000" -->
+<!-- isosent="19991018025226" -->
+<!-- name="Loucks Guy" -->
+<!-- email="Guy.Loucks@det.nsw.edu.au" -->
+<!-- subject="[cricket-users] Cricket almost there, small config problems" -->
+<!-- id="0927641E8B07D311BE4C0008C7894E916D0C94@itfexch5.isd.tafensw.EDU.AU" -->
+<STRONG>From:</STRONG> Loucks Guy (<A HREF="mailto:Guy.Loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Cricket%20almost%20there,%20small%20config%20problems&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0C94@itfexch5.isd.tafensw.EDU.AU&gt;"><EM>Guy.Loucks@det.nsw.edu.au</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sun Oct 17 1999 - 19:52:26 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0666.html">Loucks Guy: "[cricket-users] Cricket Config pt.2"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0664.html">Eric Kozowski: "[cricket-users] cricket and juniper routers"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#665">[ date ]</A>
+<A HREF="index.html#665">[ thread ]</A>
+<A HREF="subject.html#665">[ subject ]</A>
+<A HREF="author.html#665">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+People,
+<BR>
+<P>I believe we are very close to finishing this off, the config problems have
+<BR>
+to be very small now. The errors we are having still:
+<BR>
+<P>Graphing errors with the grapher.cgi:
+<BR>
+..
+<BR>
+Can't call method &quot;configHash&quot; on an undefined value at
+<BR>
+/usr/users/cricket/public_html/cricket/./lib/Common/Map.pm line 126.
+<BR>
+[Mon Oct 18 12:15:35 1999] [error] [client 153.107.21.98] Premature end of
+<BR>
+script headers: /usr/users/cricket/public_html/cricket/grapher.cgi
+<BR>
+<P>Additionally, on graphs which are being generated, the value for the last
+<BR>
+update time is set to Jan 1, 1970. Also the Current values for all graphs is
+<BR>
+0.00, even though the graphed output appears to be correct. The AVG and MAX
+<BR>
+values are OK.
+<BR>
+<P>We are generating some errors in the log files, I have attached one as a
+<BR>
+sample.
+<BR>
+<P>Our config tree is as follows:
+<BR>
+&nbsp;~cricket/cricket-config
+<BR>
+Defaults		routers&lt;directory&gt;
+<BR>
+<P>~cricket/cricket-config/routers
+<BR>
+Defaults (a symlink of above)
+<BR>
+Router-Defaults
+<BR>
+RouterInt-Defaults
+<BR>
+Central&lt;directory&gt;
+<BR>
+<P>~cricket/cricket-config/routers/Central
+<BR>
+Defaults (A symlink of ../Router-Defaults)
+<BR>
+Targets (Our targets file)
+<BR>
+isbr01 (Directory)
+<BR>
+<P>~cricket/cricket-config/routers/Central/isbr01
+<BR>
+Defaults (A Symlink of ../../RouterInt-Defaults)
+<BR>
+interfaces
+<BR>
+<P>Here are the files:
+<BR>
+<P>&nbsp;&lt;&lt;Defaults&gt;&gt;  &lt;&lt;log.out&gt;&gt;  &lt;&lt;Router-Defaults&gt;&gt;  &lt;&lt;RouterInt-Defaults&gt;&gt;  
+<BR>
+&lt;&lt;rrddump.txt&gt;&gt; 
+<BR>
+This is a sample Targets file:
+<BR>
++---------------------------------------------------------------
+<BR>
+target  isbr05.isd.tafensw.EDU.AU
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type=Cisco-3600-Router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;isbr05.isd.tafensw.EDU.AU&quot;
+<BR>
+<P>target  inet-gw.dmz1.tafensw.EDU.AU
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type=Cisco-7500-Router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;inet-gw.dmz1.tafensw.EDU.AU&quot;
+<BR>
+<P>target  isbr10.isd.tafensw.EDU.AU
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type=Cisco-7500-Router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;isbr10.isd.tafensw.EDU.AU&quot;
+<BR>
+&lt;snip&gt;
+<BR>
++---------------------------------------------------------------
+<BR>
+<P>This is a sample interfaces file:
+<BR>
+<P>+---------------------------------------------------------------
+<BR>
+target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = isbr10.isd.tafensw.EDU.AU
+<BR>
+<P>target Fddi1_0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Fddi1/0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;&quot;
+<BR>
+<P>target ATM1_1_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       ATM1/1/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;&quot;
+<BR>
+<P>target ATM1_1_0-atm_layer
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       &quot;ATM1/1/0-atm layer&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       sub-interface
+<BR>
+<P>target ATM1_1_0.0-atm_subif
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       &quot;ATM1/1/0.0-atm subif&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       sub-interface
+<BR>
+&lt;snip&gt;
+<BR>
++---------------------------------------------------------------
+<BR>
+<P>The log.out is the output of	: ~cricket/collector -logLevel debug
+<BR>
+/routers/Central
+<BR>
+<P>I received some offers of assistance this morning, however the users return
+<BR>
+email was not valid. I think I am going to take a break from this, and look
+<BR>
+at the config file with a clear mind.
+<BR>
+<P>Kind Regards,
+<BR>
+<P>Guy
+<BR>
+<P><P><P>Guy R. Loucks
+<BR>
+Senior Unix Systems Administrator
+<BR>
+Networks Branch
+<BR>
+NSW Department of Education &amp; Training
+<BR>
+Information Technology Bureau
+<BR>
+Direct +61 2 9942 9887
+<BR>
+Fax +61 2 9942 9600
+<BR>
+Mobile +61 (0)18 041 186
+<BR>
+Email <A HREF="mailto:guy.loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Cricket%20almost%20there,%20small%20config%20problems&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0C94@itfexch5.isd.tafensw.EDU.AU&gt;">guy.loucks@det.nsw.edu.au</A>
+<BR>
+<P><P><P><P>
+<BR><HR NOSHADE>
+<UL>
+<LI>application/octet-stream attachment: <A HREF="att-0665/01-Defaults">Defaults</A>
+</UL>
+<!-- attachment="01-Defaults" -->
+
+<BR><HR NOSHADE>
+<UL>
+<LI>application/octet-stream attachment: <A HREF="att-0665/02-log.out">log.out</A>
+</UL>
+<!-- attachment="02-log.out" -->
+
+<BR><HR NOSHADE>
+<UL>
+<LI>application/octet-stream attachment: <A HREF="att-0665/03-Router-Defaults">Router-Defaults</A>
+</UL>
+<!-- attachment="03-Router-Defaults" -->
+
+<BR><HR NOSHADE>
+<UL>
+<LI>application/octet-stream attachment: <A HREF="att-0665/04-RouterInt-Defaults">RouterInt-Defaults</A>
+</UL>
+<!-- attachment="04-RouterInt-Defaults" -->
+
+<BR><HR NOSHADE>
+<UL>
+<LI>text/plain attachment: <A HREF="att-0665/05-rrddump.txt">rrddump.txt</A>
+</UL>
+<!-- attachment="05-rrddump.txt" -->
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0666.html">Loucks Guy: "[cricket-users] Cricket Config pt.2"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0664.html">Eric Kozowski: "[cricket-users] cricket and juniper routers"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#665">[ date ]</A>
+<A HREF="index.html#665">[ thread ]</A>
+<A HREF="subject.html#665">[ subject ]</A>
+<A HREF="author.html#665">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

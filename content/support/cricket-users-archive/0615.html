@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Cricket 0.70 graph problems</TITLE>
+<META NAME="Author" CONTENT="Adam B. Meltzer (KF6PDH) (ameltzer@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Cricket 0.70 graph problems">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Cricket 0.70 graph problems</H1>
+<!-- received="Sat Sep 25 13:14:04 1999" -->
+<!-- isoreceived="19990925201404" -->
+<!-- sent="Sat, 25 Sep 1999 10:10:53 -0700" -->
+<!-- isosent="19990925171053" -->
+<!-- name="Adam B. Meltzer (KF6PDH)" -->
+<!-- email="ameltzer@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Cricket 0.70 graph problems" -->
+<!-- id="19990925101053.B1208@corp.webtv.net" -->
+<!-- inreplyto="s7dd2e8f.012@groupwise.telecom.co.nz" -->
+<STRONG>From:</STRONG> Adam B. Meltzer (KF6PDH) (<A HREF="mailto:ameltzer@corp.webtv.net?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;19990925101053.B1208@corp.webtv.net&gt;"><EM>ameltzer@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sat Sep 25 1999 - 10:10:53 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0616.html">David Rhodes: "Re: [cricket-users] Digest Number 137"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0614.html">Michael K. Smith: "[cricket-users] Switch-ports Description"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0585.html">Campbell Simpson: "[cricket-users] Cricket 0.70 graph problems"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0617.html">Pete: "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0617.html">Pete: "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#615">[ date ]</A>
+<A HREF="index.html#615">[ thread ]</A>
+<A HREF="subject.html#615">[ subject ]</A>
+<A HREF="author.html#615">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Adam B. Meltzer (KF6PDH)&quot; &lt;<A HREF="mailto:ameltzer@corp.webtv.net?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;19990925101053.B1208@corp.webtv.net&gt;">ameltzer@corp.webtv.net</A>&gt;
+<BR>
+<P>* Campbell Simpson (<A HREF="mailto:Campbell.Simpson@telecom.co.nz?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;19990925101053.B1208@corp.webtv.net&gt;">Campbell.Simpson@telecom.co.nz</A>) [990912 22:06]:
+<BR>
+<EM>&gt; From: &quot;Campbell Simpson&quot; &lt;<A HREF="mailto:Campbell.Simpson@telecom.co.nz?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;19990925101053.B1208@corp.webtv.net&gt;">Campbell.Simpson@telecom.co.nz</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Hi everyone
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I have just upgraded to RRD 1.0.7 and Cricket 0.70 and have a problem with the graphs being created (doesn't seem to matter if they are GIF or PNG). For some reason grapher is complaining about generating the graphs with the following as output if you right click on the graphic and choose to view it:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; /tmp/cricket-cache/cricket-c512ca3f.png[13-Sep-1999 16:58:35*] Could not open /tmp/cricket-cache/cricket-c512ca3f.png: No such file or directory
+</EM><BR>
+<EM>&gt; Content-Type: image/gif GIF87a¹ ]
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The directory /tmp/cricket-cache exists and I have migrated my existing cricket-config and cricket-data files which were working with 0.69 to the new version of cricket. I'm running Solaris 2.6 and have all the perl modules installed but did not update any when I upgraded from 0.69 to 0.70 (do I need to?).
+</EM><BR>
+<P>I'm having a similar problem. I'm running RRD 1.0.7, and Cricket 0.70.
+<BR>
+<P>[25-Sep-1999 10:12:56 ] RRDs::graph /tmp/cricket-cache/cricket-9d39d974.gif -a GIF --base 1000 --start -151200 --vertical-label  --width 500 --height 200 DEF:ds0=/usr/home/cricket/cricket-config/../cricket-datta//web-server/happydevil.com.rrd:ds0:AVERAGE DEF:ds1=/usr/home/cricket/cricket-config/../cricket-data//web-server/happydevil.com.rrd:ds1:AVERAGE LINE1:ds0#00cc00:Hits to happydevil.com LINE1:ds1#0000ff:Server errors VRULE:938242800#ff0000: VRULE:938156400#ff0000:
+<BR>
+[25-Sep-1999 10:12:56*] Unable to create graph: unknown option '-a'
+<BR>
+<P>[25-Sep-1999 10:12:56*] Could not open /tmp/cricket-cache/cricket-9d39d974.gif: No such file or directory
+<BR>
+<P>I've tried every version of RRD and can't get past this error. I've tried using
+<BR>
+both GIF and PNG.
+<BR>
+<P>Any ideas?
+<BR>
+<P><PRE>
+-- 
+              ._____                    
+    _-_  ____//_/___\_.-=___     Adam Meltzer / KF6PDH
+ _-_-_  / ,-.   |`  /  .-.  \    WebTV Tools Engineer
+- - _-  `( * )--+--+--( o )-'    <A HREF="mailto:ameltzer@corp.webtv.net?Subject=Re:%20[cricket-users]%20Cricket%200.70%20graph%20problems&In-Reply-To=&lt;19990925101053.B1208@corp.webtv.net&gt;">ameltzer@corp.webtv.net</A>
+      -   `-'          `-'       Voice: 650-470-4828 Cell: 650-280-6402
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Share your special moments with family and friends- send PHOTO Greetings
+at Zing.com! Use your own photos or choose from a variety of funny,
+                 cute, cool and animated cards.       
+   &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/zing12">http://clickme.onelist.com/ad/zing12</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0616.html">David Rhodes: "Re: [cricket-users] Digest Number 137"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0614.html">Michael K. Smith: "[cricket-users] Switch-ports Description"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0585.html">Campbell Simpson: "[cricket-users] Cricket 0.70 graph problems"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0617.html">Pete: "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0617.html">Pete: "Re: [cricket-users] Cricket 0.70 graph problems"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#615">[ date ]</A>
+<A HREF="index.html#615">[ thread ]</A>
+<A HREF="subject.html#615">[ subject ]</A>
+<A HREF="author.html#615">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] New listInterfaces is finally wo</TITLE>
+<META NAME="Author" CONTENT="Timothy Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="[cricket-users] New listInterfaces is finally working for frame-relay. :)">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] New listInterfaces is finally working for frame-relay. :)</H1>
+<!-- received="Fri May 21 03:29:22 1999" -->
+<!-- isoreceived="19990521102922" -->
+<!-- sent="Fri, 21 May 1999 03:27:49 -0400 (EDT)" -->
+<!-- isosent="19990521072749" -->
+<!-- name="Timothy Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="[cricket-users] New listInterfaces is finally working for frame-relay. :)" -->
+<!-- id="Pine.LNX.3.96.990521031951.373H-100000@gunslinger.hate.org" -->
+<!-- inreplyto="Pine.GSO.4.05.9905201926520.28588-100000@mars.eli.net" -->
+<STRONG>From:</STRONG> Timothy Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20New%20listInterfaces%20is%20finally%20working%20for%20frame-relay.%20:)&In-Reply-To=&lt;Pine.LNX.3.96.990521031951.373H-100000@gunslinger.hate.org&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri May 21 1999 - 00:27:49 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0106.html">Timothy Kennedy: "[cricket-users] new Defaults file to work with my listInterface"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0104.html">Nicolas Miyazaki: "[MRTG] cricket: drawing on the same graph the max also"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0103.html">Alan Lichty: "Re: [cricket-users] Defaults file problem"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#105">[ date ]</A>
+<A HREF="index.html#105">[ thread ]</A>
+<A HREF="subject.html#105">[ subject ]</A>
+<A HREF="author.html#105">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Timothy Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20New%20listInterfaces%20is%20finally%20working%20for%20frame-relay.%20:)&In-Reply-To=&lt;Pine.LNX.3.96.990521031951.373H-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P><P><P>On Thu, 20 May 1999, Alan Lichty wrote:
+<BR>
+<P><EM>&gt; Ascend/Cascade ATM switches use a fixed VPI/VCI number as their MIB
+</EM><BR>
+<EM>&gt; ifIndex in their counter tables and I had to hard code in the
+</EM><BR>
+<EM>&gt; interface numbers instead of using the instance mapping tool.  In this
+</EM><BR>
+<EM>&gt; case, I have a template for inst as:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;         inst            =       %InterfaceID%
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; and hard code the entry per interface in the interfaces file:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;         InterfaceID = &quot;3.65579&quot;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I have a script that regularly rebuilds the interfaces file with new
+</EM><BR>
+<EM>&gt; circuit updates every hour.  
+</EM><BR>
+<P><P>Your idea pushed me over the top, Alan.  Thanks alot.
+<BR>
+I finally got the listInterfaces script to build the interfaces file
+<BR>
+properly, with two extra lines.  One for the frame-relay host inst,
+<BR>
+and one for the frame-relay-sub inst.
+<BR>
+<P>Here's a diff of the listInterfaces script I now use.  Next post will have
+<BR>
+a diff of my new Defaults file.  These Diffs are versus the cricket-0.65
+<BR>
+files.
+<BR>
+<P>---------8&lt; cute here 8&lt;----------
+<BR>
+<P>*** listInterfaces      Wed Feb 24 12:54:51 1999
+<BR>
+--- ../../cricket/util/listInterfaces   Thu May 20 23:56:47 1999
+<BR>
+***************
+<BR>
+*** 47,50 ****
+<BR>
+--- 47,53 ----
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;my($ifDescr) = '.1.3.6.1.2.1.2.2.1.2';
+<BR>
++ my($host);
+<BR>
++ my($frInst);
+<BR>
++ my %hash;
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;my($row);
+<BR>
+***************
+<BR>
+*** 52,55 ****
+<BR>
+--- 55,61 ----
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($oid, $value) = split(/:/, $row, 2);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
++       my ($ifindex, $ifdescr) = split(/\:/, $row);
+<BR>
++         $hash{$ifdescr} = $ifindex;
+<BR>
++ 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$oid =~ s/$ifDescr//;
+<BR>
+&nbsp;&nbsp;
+<BR>
+***************
+<BR>
+*** 57,60 ****
+<BR>
+--- 63,67 ----
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($connector) = snmpUtils::get($snmp,
+<BR>
+&quot;1.3.6.1.2.1.31.1.1.1.17.$oid&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($desc) = snmpUtils::get($snmp, &quot;1.3.6.1.2.1.31.1.1.1.18.$oid&quot;);
+<BR>
++       my($type) = snmpUtils::get($snmp, &quot;.1.3.6.1.2.1.2.2.1.3.$oid&quot;);
+<BR>
+&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# second fetched value is oper status -- use it to decide which
+<BR>
+***************
+<BR>
+*** 73,78 ****
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# frame relay link) need a special config.
+<BR>
+&nbsp;&nbsp;
+<BR>
+!               if (defined($connector) &amp;&amp; $connector == 2) {
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output(&quot;target-type&quot;, &quot;sub-interface&quot;);
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;\n&quot;;
+<BR>
+--- 80,99 ----
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# frame relay link) need a special config.
+<BR>
+&nbsp;&nbsp;
+<BR>
+!               if (defined($connector) &amp;&amp; $connector == 2 &amp;&amp; $type != 32)
+<BR>
+{
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output(&quot;target-type&quot;, &quot;sub-interface&quot;);
+<BR>
++               }
+<BR>
++               elsif (defined($connector) &amp;&amp; $connector == 2 &amp;&amp; $type ==
+<BR>
+32) {
+<BR>
++                         my @parent = split(/\./, $ifdescr);
+<BR>
++                                 if($#parent == 1) {
+<BR>
++                                         $host = $parent[0];
+<BR>
++                                         $frInst = $parent[1];
+<BR>
++                                         }
+<BR>
++                                 elsif($#parent == 0) {
+<BR>
++                                         $host = $parent[0];
+<BR>
++                                         }
+<BR>
++                         output(&quot;target-type&quot;, &quot;frame-interface&quot;);
+<BR>
++                         print &quot;\thost-interface \t= \t$hash{$host}\n&quot;;
+<BR>
++                         output(&quot;frame-interface&quot;, $frInst);
+<BR>
++ 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print &quot;\n&quot;;
+<BR>
+<P>--------------8&lt; cute here 8&lt;------------
+<BR>
+<P><P><P><P><P><P><P><P>Tim Kennedy
+<BR>
+<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20New%20listInterfaces%20is%20finally%20working%20for%20frame-relay.%20:)&In-Reply-To=&lt;Pine.LNX.3.96.990521031951.373H-100000@gunslinger.hate.org&gt;">sugarat@thunderhold.sugarat.net</A>
+<BR>
+<P>Disclaimer:  since this came from this me, not that ---&gt; me, 
+<BR>
+it is persona mail, and in no way reflects any opinions or
+<BR>
+policies of my employer, whom I won't mention here, just to 
+<BR>
+keep things clear of them. (new email policy at work)
+<BR>
+Usual stuff about confidentiality and whatnot... intended
+<BR>
+receivers, blah, blah, etc., etc.
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+ONElist members are using Shared Files in great ways!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Are you?  If not, see our homepage for details.
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0106.html">Timothy Kennedy: "[cricket-users] new Defaults file to work with my listInterface"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0104.html">Nicolas Miyazaki: "[MRTG] cricket: drawing on the same graph the max also"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0103.html">Alan Lichty: "Re: [cricket-users] Defaults file problem"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#105">[ date ]</A>
+<A HREF="index.html#105">[ thread ]</A>
+<A HREF="subject.html#105">[ subject ]</A>
+<A HREF="author.html#105">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

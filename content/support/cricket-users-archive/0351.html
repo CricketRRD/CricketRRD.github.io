@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] listInterfaces in Cricket 0.</TITLE>
+<META NAME="Author" CONTENT="Craig Mckenna (craig@tintz.co.nz)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69</H1>
+<!-- received="Sun Jul 18 22:31:23 1999" -->
+<!-- isoreceived="19990719053123" -->
+<!-- sent="Mon, 19 Jul 1999 14:27:50 +1200" -->
+<!-- isosent="19990719022750" -->
+<!-- name="Craig Mckenna" -->
+<!-- email="craig@tintz.co.nz" -->
+<!-- subject="RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69" -->
+<!-- id="000801bed18e$4bf71dc0$ec64a8c0@craiglap.craigm.tintz.co.nz" -->
+<!-- inreplyto="3792898B.263D5F7B@tddny.fujitsu.com" -->
+<STRONG>From:</STRONG> Craig Mckenna (<A HREF="mailto:craig@tintz.co.nz?Subject=RE:%20[cricket-users]%20listInterfaces%20in%20Cricket%200.68%20and%200.69&In-Reply-To=&lt;000801bed18e$4bf71dc0$ec64a8c0@craiglap.craigm.tintz.co.nz&gt;"><EM>craig@tintz.co.nz</EM></A>)<BR>
+<STRONG>Date:</STRONG> Sun Jul 18 1999 - 19:27:50 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0352.html">Tim Kennedy: "RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0350.html">Alan Lichty: "Re: [cricket-users] Monitoring Interfaces on Cascade"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0352.html">Tim Kennedy: "RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0352.html">Tim Kennedy: "RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#351">[ date ]</A>
+<A HREF="index.html#351">[ thread ]</A>
+<A HREF="subject.html#351">[ subject ]</A>
+<A HREF="author.html#351">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Craig Mckenna&quot; &lt;<A HREF="mailto:craig@tintz.co.nz?Subject=RE:%20[cricket-users]%20listInterfaces%20in%20Cricket%200.68%20and%200.69&In-Reply-To=&lt;000801bed18e$4bf71dc0$ec64a8c0@craiglap.craigm.tintz.co.nz&gt;">craig@tintz.co.nz</A>&gt;
+<BR>
+<P><P><P><EM>&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; From: Matthew Stier [mailto:<A HREF="mailto:Matthew.Stier@tddny.fujitsu.com?Subject=RE:%20[cricket-users]%20listInterfaces%20in%20Cricket%200.68%20and%200.69&In-Reply-To=&lt;000801bed18e$4bf71dc0$ec64a8c0@craiglap.craigm.tintz.co.nz&gt;">Matthew.Stier@tddny.fujitsu.com</A>]
+</EM><BR>
+<EM>&gt; Sent: Monday, 19 July 1999 14:12
+</EM><BR>
+<EM>&gt; To: <A HREF="mailto:craig@tintz.co.nz?Subject=RE:%20[cricket-users]%20listInterfaces%20in%20Cricket%200.68%20and%200.69&In-Reply-To=&lt;000801bed18e$4bf71dc0$ec64a8c0@craiglap.craigm.tintz.co.nz&gt;">craig@tintz.co.nz</A>
+</EM><BR>
+<EM>&gt; Subject: Re: [cricket-users] listInterfaces in Cricket 0.68 and 0.69
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; It looks like, to me, that the reference to Warn on
+</EM><BR>
+<EM>&gt; lib/snmpUtils.pm line 47
+</EM><BR>
+<EM>&gt; needs to be changed from main::Warn, to Common::Log::Warn.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Another, another issue may be add &quot;use Common::log;&quot; to the
+</EM><BR>
+<EM>&gt; collection &quot;use&quot;
+</EM><BR>
+<EM>&gt; statements at the beginning of the module.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+Well that got rid of that error message but now I just get this
+<BR>
+<P>[cricket@tintz router-interfaces]$ ~/cricket/util/listInterfaces
+<BR>
+router.tintz.co.nz
+<BR>
+target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = router.tintz.co.nz
+<BR>
+<P>[19-Jul-1999 14:27:26*] no response received &quot;router.tintz.co.nz&quot;
+<BR>
+[203.167.253.126].161
+<BR>
+<P>I know that the router is working as I have mrtg graphing details from it
+<BR>
+without any problems
+<BR>
+(am attempting to change over to cricket and rrdtool)
+<BR>
+<P>any pointers on this one?
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist:  your connection to like-minds and kindred spirits.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0352.html">Tim Kennedy: "RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0350.html">Alan Lichty: "Re: [cricket-users] Monitoring Interfaces on Cascade"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0352.html">Tim Kennedy: "RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0352.html">Tim Kennedy: "RE: [cricket-users] listInterfaces in Cricket 0.68 and 0.69"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#351">[ date ]</A>
+<A HREF="index.html#351">[ thread ]</A>
+<A HREF="subject.html#351">[ subject ]</A>
+<A HREF="author.html#351">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:57 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Segmentation Fault</TITLE>
+<META NAME="Author" CONTENT="Ambrose Chiu (bobo709394@yahoo.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Segmentation Fault">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Segmentation Fault</H1>
+<!-- received="Thu Oct 28 13:49:32 1999" -->
+<!-- isoreceived="19991028204932" -->
+<!-- sent="Thu, 28 Oct 1999 10:50:29 -0700 (PDT)" -->
+<!-- isosent="19991028175029" -->
+<!-- name="Ambrose Chiu" -->
+<!-- email="bobo709394@yahoo.com" -->
+<!-- subject="RE: [cricket-users] Segmentation Fault" -->
+<!-- id="19991028175029.5821.rocketmail@web1402.mail.yahoo.com" -->
+<!-- inreplyto="[cricket-users] Segmentation Fault" -->
+<STRONG>From:</STRONG> Ambrose Chiu (<A HREF="mailto:bobo709394@yahoo.com?Subject=RE:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;19991028175029.5821.rocketmail@web1402.mail.yahoo.com&gt;"><EM>bobo709394@yahoo.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Oct 28 1999 - 10:50:29 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0685.html">Tim Kennedy: "[cricket-users] Mail Archive going down."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0683.html">James Moore: "Re: [cricket-users] Segmentation Fault"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0825.html">phil.pierotti@quokka.com: "[cricket-users] Segmentation Fault"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#684">[ date ]</A>
+<A HREF="index.html#684">[ thread ]</A>
+<A HREF="subject.html#684">[ subject ]</A>
+<A HREF="author.html#684">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Ambrose Chiu &lt;<A HREF="mailto:bobo709394@yahoo.com?Subject=RE:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;19991028175029.5821.rocketmail@web1402.mail.yahoo.com&gt;">bobo709394@yahoo.com</A>&gt;
+<BR>
+<P>That helped but now I am left with this other error
+<BR>
+when trying to process the &quot;http-performance&quot;
+<BR>
+<P>[28-Oct-1999 11:59:06 ] Retrieving data (EXEC:
+<BR>
+/home/cricket/cricket-config/../cricket/util/test-url
+<BR>
+<A HREF="http://10.0.1.200">http://10.0.1.200</A>) for home
+<BR>
+Can't exec
+<BR>
+&quot;/home/cricket/cricket-config/../cricket/util/test-url&quot;:
+<BR>
+No such file or directory at ./lib/exec.pm line 62.
+<BR>
+Use of uninitialized value at ./lib/exec.pm line 76.
+<BR>
+<P>It can't seem to find the directory so I created a
+<BR>
+symlink &quot;ln -s /cricket/ /home/cricket/&quot;. I can &quot;cd&quot;
+<BR>
+to directory but then I can't execute the &quot;test-url&quot;!!
+<BR>
+I have chown -R the whole cricket directory to the
+<BR>
+user cricket!! Don't know what else I can do!!
+<BR>
+<P>Any help is appreciated!!
+<BR>
+<P>Ambrose Chiu
+<BR>
+Gibraltar Solutions
+<BR>
+<P>--- &quot;Standish, John C.&quot;
+<BR>
+&lt;<A HREF="mailto:JCStandish@magellanhealth.com?Subject=RE:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;19991028175029.5821.rocketmail@web1402.mail.yahoo.com&gt;">JCStandish@magellanhealth.com</A>&gt; wrote:
+<BR>
+<EM>&gt; I'm running cricket as a specific user, cricket. 
+</EM><BR>
+<EM>&gt; The only way I've found to
+</EM><BR>
+<EM>&gt; solve it was to create the directory 'cricket-data'
+</EM><BR>
+<EM>&gt; as root then give it to
+</EM><BR>
+<EM>&gt; cricket.  Once that directory is created, it all
+</EM><BR>
+<EM>&gt; came together for me.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The directory is $HOME/cricket-data
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Good Luck,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; John Standish
+</EM><BR>
+<EM>&gt; Magellan Health Services
+</EM><BR>
+<EM>&gt; 314-595-3474
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; From: <A HREF="mailto:bobo709394@yahoo.com?Subject=RE:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;19991028175029.5821.rocketmail@web1402.mail.yahoo.com&gt;">bobo709394@yahoo.com</A>
+</EM><BR>
+<EM>&gt; [mailto:<A HREF="mailto:bobo709394@yahoo.com?Subject=RE:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;19991028175029.5821.rocketmail@web1402.mail.yahoo.com&gt;">bobo709394@yahoo.com</A>]
+</EM><BR>
+<EM>&gt; Sent: Thursday, October 28, 1999 10:14 AM
+</EM><BR>
+<EM>&gt; To: <A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;19991028175029.5821.rocketmail@web1402.mail.yahoo.com&gt;">cricket-users@onelist.com</A>
+</EM><BR>
+<EM>&gt; Subject: [cricket-users] Segmentation Fault
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; From: <A HREF="mailto:bobo709394@yahoo.com?Subject=RE:%20[cricket-users]%20Segmentation%20Fault&In-Reply-To=&lt;19991028175029.5821.rocketmail@web1402.mail.yahoo.com&gt;">bobo709394@yahoo.com</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I am getting the exact same problem with the same
+</EM><BR>
+<EM>&gt; error. 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Are you running cricket from a special cricket user
+</EM><BR>
+<EM>&gt; or from root?? I was
+</EM><BR>
+<EM>&gt; using root to run but ran into some error so I
+</EM><BR>
+<EM>&gt; created a cricket account and
+</EM><BR>
+<EM>&gt; these errors showed up!!
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; What I don't get is the directory path cricket is
+</EM><BR>
+<EM>&gt; trying to create the
+</EM><BR>
+<EM>&gt; cricket-data in
+</EM><BR>
+<EM>&gt; &quot;/home/cricket/cricket-config/../cricket-data&quot;. What
+</EM><BR>
+<EM>&gt; does
+</EM><BR>
+<EM>&gt; the &quot;/../&quot; mean??
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; If you solved this problem please post a solutions!!
+</EM><BR>
+<EM>&gt; Thanks
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Ambrose Chiu
+</EM><BR>
+<EM>&gt; Gibraltar Solutions
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor
+</EM><BR>
+<EM>&gt; ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Accurate impartial advice on everything from laptops
+</EM><BR>
+<EM>&gt; to table saws.
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/Productopia2">http://clickme.onelist.com/ad/Productopia2</A>
+</EM><BR>
+<EM>&gt; &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+------------------------------------------------------------------------
+<BR>
+<EM>&gt; 
+</EM><BR>
+<P><P>=====
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Accurate impartial advice on everything from laptops to table saws.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/Productopia2">http://clickme.onelist.com/ad/Productopia2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0685.html">Tim Kennedy: "[cricket-users] Mail Archive going down."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0683.html">James Moore: "Re: [cricket-users] Segmentation Fault"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0825.html">phil.pierotti@quokka.com: "[cricket-users] Segmentation Fault"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#684">[ date ]</A>
+<A HREF="index.html#684">[ thread ]</A>
+<A HREF="subject.html#684">[ subject ]</A>
+<A HREF="author.html#684">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:04 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

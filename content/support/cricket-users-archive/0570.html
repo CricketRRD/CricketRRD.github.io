@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Problems with config tree se</TITLE>
+<META NAME="Author" CONTENT="Denise Sandell (dsandell@execpc.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Problems with config tree setup">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Problems with config tree setup</H1>
+<!-- received="Thu Sep  2 18:07:16 1999" -->
+<!-- isoreceived="19990903010716" -->
+<!-- sent="Thu, 2 Sep 1999 17:06:53 -0500" -->
+<!-- isosent="19990902220653" -->
+<!-- name="Denise Sandell" -->
+<!-- email="dsandell@execpc.com" -->
+<!-- subject="Re: [cricket-users] Problems with config tree setup" -->
+<!-- id="19990902170653.A29151@earth.execpc.com" -->
+<!-- inreplyto="936308969.3700@onelist.com" -->
+<STRONG>From:</STRONG> Denise Sandell (<A HREF="mailto:dsandell@execpc.com?Subject=Re:%20[cricket-users]%20Problems%20with%20config%20tree%20setup&In-Reply-To=&lt;19990902170653.A29151@earth.execpc.com&gt;"><EM>dsandell@execpc.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Sep 02 1999 - 15:06:53 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0571.html">Cricket-users@triada.bg: "[cricket-users] re: cricket and WinNT"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0569.html">olg@amt.ru: "[cricket-users] Problems with config tree setup"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0569.html">olg@amt.ru: "[cricket-users] Problems with config tree setup"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#570">[ date ]</A>
+<A HREF="index.html#570">[ thread ]</A>
+<A HREF="subject.html#570">[ subject ]</A>
+<A HREF="author.html#570">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Denise Sandell &lt;<A HREF="mailto:dsandell@execpc.com?Subject=Re:%20[cricket-users]%20Problems%20with%20config%20tree%20setup&In-Reply-To=&lt;19990902170653.A29151@earth.execpc.com&gt;">dsandell@execpc.com</A>&gt;
+<BR>
+<P>On Thu, Sep 02, 1999 at 09:49:29PM -0000, <A HREF="mailto:olg@amt.ru?Subject=Re:%20[cricket-users]%20Problems%20with%20config%20tree%20setup&In-Reply-To=&lt;19990902170653.A29151@earth.execpc.com&gt;">olg@amt.ru</A> wrote:
+<BR>
+<P>Make sure the rrd-ds-type for ifInOctets and ifOutOctets isn't set to COUNTER
+<BR>
+for your global Defaults (at least I think that's what fixed it when i had
+<BR>
+that problem).
+<BR>
+<P><EM>&gt; Hi,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; When I'm trying to setup my config tree in a such manner that
+</EM><BR>
+<EM>&gt; routers looks like an &quot;objects&quot;, so you have directory with a router
+</EM><BR>
+<EM>&gt; name, inside it router Defaults and Target file and subdirectory with
+</EM><BR>
+<EM>&gt; interfaces Defaults and Targets files, I'm getting weird numbers in interfaces
+</EM><BR>
+<EM>&gt; graph, say utilization is several gigs/s, when actually it is several
+</EM><BR>
+<EM>&gt; kbits/s. At the same time router targets (cpu, mem etc) are graphed
+</EM><BR>
+<EM>&gt; with normal values. Looks like router defaults are messed up with some
+</EM><BR>
+<EM>&gt; interfaces Defaults values. When I'm moving router and interfaces targets
+</EM><BR>
+<EM>&gt; at the same directory level everything is graphed perfectly.
+</EM><BR>
+<EM>&gt; I'm currently using Defaults files from the sample-config directory.
+</EM><BR>
+<EM>&gt; Anybody has an idea ?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Oleg
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ONElist:  home to the world's liveliest email communities.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<P><PRE>
+-- 
+- Denise Sandell                          ExecPC Network Operations -
+- <A HREF="mailto:dsandell@execpc.com?Subject=Re:%20[cricket-users]%20Problems%20with%20config%20tree%20setup&In-Reply-To=&lt;19990902170653.A29151@earth.execpc.com&gt;">dsandell@execpc.com</A>                       <A HREF="http://home.execpc.com/">http://home.execpc.com/</A> -
+- PGP --               <A HREF="http://www.execpc.com/~dsandell/stuff/PGPpub">http://www.execpc.com/~dsandell/stuff/PGPpub</A> -
+<P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>You can WIN $100 to Amazon.com by starting a new list at ONElist. 
+Drawing is held each week through September 17.  For details go to: 
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/Teaser116">http://clickme.onelist.com/ad/Teaser116</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0571.html">Cricket-users@triada.bg: "[cricket-users] re: cricket and WinNT"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0569.html">olg@amt.ru: "[cricket-users] Problems with config tree setup"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0569.html">olg@amt.ru: "[cricket-users] Problems with config tree setup"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#570">[ date ]</A>
+<A HREF="index.html#570">[ thread ]</A>
+<A HREF="subject.html#570">[ subject ]</A>
+<A HREF="author.html#570">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:01 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>cricket-users: RE: [cricket-users] Querying Routers with IP Add</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Querying Routers with IP Addresses">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Querying Routers with IP Addresses</H1>
+<!-- received="Thu Jul 15 15:44:58 1999" -->
+<!-- isoreceived="19990715224458" -->
+<!-- sent="Thu, 15 Jul 1999 13:40:56 -0600" -->
+<!-- isosent="19990715194056" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="RE: [cricket-users] Querying Routers with IP Addresses" -->
+<!-- id="8B069C65F931D111B6E10000F804A4DF770357@amethyst.msu.montana.edu" -->
+<!-- charset="windows-1252" -->
+<!-- inreplyto="[cricket-users] Querying Routers with IP Addresses" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Querying%20Routers%20with%20IP%20Addresses&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770357@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jul 15 1999 - 12:40:56 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0322.html">trygvelu@bug.itea.ntnu.no: "Re: [cricket-users] common.pm"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0320.html">Michael P. Burton: "[cricket-users] common.pm"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0319.html">rose@gerf.org: "[cricket-users] Querying Routers with IP Addresses"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0323.html">Stephen Carville: "Re: [cricket-users] Querying Routers with IP Addresses"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#321">[ date ]</A>
+<A HREF="index.html#321">[ thread ]</A>
+<A HREF="subject.html#321">[ subject ]</A>
+<A HREF="author.html#321">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Querying%20Routers%20with%20IP%20Addresses&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770357@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>You should not have a problem under router-intefaces doing this.  Just do a
+<BR>
+router = 192.1.2.1 or something.
+<BR>
+<P>However, under routers(when querying cpu usage, temp, etc) try something
+<BR>
+similar to this.
+<BR>
+<P>target router1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router          =       192.1.2.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host       =       %router%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       Cisco-7500-Router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+<P>-----Original Message-----
+<BR>
+From: <A HREF="mailto:rose@gerf.org?Subject=RE:%20[cricket-users]%20Querying%20Routers%20with%20IP%20Addresses&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770357@amethyst.msu.montana.edu&gt;">rose@gerf.org</A>
+<BR>
+To: <A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20Querying%20Routers%20with%20IP%20Addresses&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770357@amethyst.msu.montana.edu&gt;">cricket-users@onelist.com</A>
+<BR>
+Sent: 7/15/99 11:01 AM
+<BR>
+Subject: [cricket-users] Querying Routers with IP Addresses
+<BR>
+<P>From: <A HREF="mailto:rose@gerf.org?Subject=RE:%20[cricket-users]%20Querying%20Routers%20with%20IP%20Addresses&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF770357@amethyst.msu.montana.edu&gt;">rose@gerf.org</A>
+<BR>
+<P>Hi all,
+<BR>
+&nbsp;&nbsp;I've been struggling with the installation of cricket because of a
+<BR>
+very
+<BR>
+basic configuration problem.
+<BR>
+&nbsp;&nbsp;I need to specify the routers I will query by IP address, *not* by
+<BR>
+hostname,
+<BR>
+and I do not know how to do this.
+<BR>
+The beginner.txt file mentions that this is possible, but does not give
+<BR>
+any clue as to how it is done.
+<BR>
+<P>&nbsp;&nbsp;I have already aliased the router's ip address to a hostname in my
+<BR>
+/etc/hosts file, and I have set up the domain lookups to check files
+<BR>
+before checking dns, and none of this has helped.
+<BR>
+<P>&nbsp;&nbsp;Cricket just runs, complains it can't resolve the ip address with
+<BR>
+gethostbyname and dies.
+<BR>
+<P>&nbsp;&nbsp;Can anyone help me with this simple bit of information?  
+<BR>
+It would surely prevent further hair tearing, and binge drinking.
+<BR>
+<P>Thanks!
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist members are using Shared Files in great ways!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Are you?  If not, see our homepage for details.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>What is &quot;FRIENDS &amp; FAMILY?&quot;
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+It's a new program at ONElist.  See homepage for details.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0322.html">trygvelu@bug.itea.ntnu.no: "Re: [cricket-users] common.pm"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0320.html">Michael P. Burton: "[cricket-users] common.pm"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0319.html">rose@gerf.org: "[cricket-users] Querying Routers with IP Addresses"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0323.html">Stephen Carville: "Re: [cricket-users] Querying Routers with IP Addresses"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#321">[ date ]</A>
+<A HREF="index.html#321">[ thread ]</A>
+<A HREF="subject.html#321">[ subject ]</A>
+<A HREF="author.html#321">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:56 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

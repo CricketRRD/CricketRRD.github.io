@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] HELP</TITLE>
+<META NAME="Author" CONTENT="James Pichardo (jimx@ns.intec.edu.do)">
+<META NAME="Subject" CONTENT="[cricket-users] HELP">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] HELP</H1>
+<!-- received="Wed Jun 23 17:58:21 1999" -->
+<!-- isoreceived="19990624005821" -->
+<!-- sent="Wed, 23 Jun 1999 17:57:45 -0700" -->
+<!-- isosent="19990624005745" -->
+<!-- name="James Pichardo" -->
+<!-- email="jimx@ns.intec.edu.do" -->
+<!-- subject="[cricket-users] HELP" -->
+<!-- id="37718289.433957BF@ns.intec.edu.do" -->
+<STRONG>From:</STRONG> James Pichardo (<A HREF="mailto:jimx@ns.intec.edu.do?Subject=Re:%20[cricket-users]%20HELP&In-Reply-To=&lt;37718289.433957BF@ns.intec.edu.do&gt;"><EM>jimx@ns.intec.edu.do</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jun 23 1999 - 17:57:45 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0234.html">Daniel Spisak: "[cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0232.html">Pantazis, Dionysios J.: "[cricket-users] help: now where to look"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0234.html">Daniel Spisak: "[cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0234.html">Daniel Spisak: "[cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0236.html">Jeff Allen: "Re: [cricket-users] HELP"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#233">[ date ]</A>
+<A HREF="index.html#233">[ thread ]</A>
+<A HREF="subject.html#233">[ subject ]</A>
+<A HREF="author.html#233">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: James Pichardo &lt;<A HREF="mailto:jimx@mail.intec.edu.do?Subject=Re:%20[cricket-users]%20HELP&In-Reply-To=&lt;37718289.433957BF@ns.intec.edu.do&gt;">jimx@mail.intec.edu.do</A>&gt;
+<BR>
+<P>Hi,
+<BR>
+<P>I've installed cricket-0.67. All seems to be ok but all I get from the
+<BR>
+../collector /routers script is:
+<BR>
+[jimx@ns1 cricket-0.67]# ./collector /routers
+<BR>
+[23-Jun-1999 17:34:01 ] Starting collector: Cricket version 0.67 ( Wed
+<BR>
+Jun 9 22:
+<BR>
+40:32 PDT 1999 )
+<BR>
+[23-Jun-1999 17:34:01*] Variable expansion uses undefined variable:
+<BR>
+domain.
+<BR>
+[23-Jun-1999 17:34:01*] Variable expansion uses undefined variable:
+<BR>
+domain.
+<BR>
+[23-Jun-1999 17:34:01*] Variable expansion uses undefined variable:
+<BR>
+domain.
+<BR>
+[23-Jun-1999 17:34:01*] Variable expansion uses undefined variable:
+<BR>
+domain.
+<BR>
+[23-Jun-1999 17:34:02*] Error:  can't resolve
+<BR>
+&quot;intec1-gw.intec.edu.do.%domain%&quot;
+<BR>
+to IP address
+<BR>
+[23-Jun-1999 17:34:02 ] Retrieved data for intec1-gw.intec.edu.do (): U
+<BR>
+[23-Jun-1999 17:34:02 ] Some data is missing for intec1-gw.intec.edu.do
+<BR>
+().
+<BR>
+[23-Jun-1999 17:34:02 ] Processed 1 targets in 3 seconds.
+<BR>
+<P>My Targets file for /routers is:
+<BR>
+target  intec1-gw
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type=Cisco-7500-Router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;Router de INTEC&quot;
+<BR>
+<P>#target main-router
+<BR>
+#       target-type=Cisco-7500-Router
+<BR>
+#       short-desc      =   &quot;Main router&quot;
+<BR>
+<P>I've modified the Defaults file as follow:
+<BR>
+Target  --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router                  = %auto-target-name%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host               = %router%
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain                  = &quot;intec.edu.do&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# you could set a router-specific community string here:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# snmp-community        = not-public
+<BR>
+......
+<BR>
+<P>I did run the compile script with success:
+<BR>
+[jimx@ns1 cricket-0.67]# ./compile
+<BR>
+[23-Jun-1999 17:42:53 ] Starting compile: Cricket version 0.67 ( Wed Jun
+<BR>
+9 22:40
+<BR>
+:32 PDT 1999 )
+<BR>
+[23-Jun-1999 17:42:54*] Missing equals sign at (or before)
+<BR>
+/root/cricket-config/
+<BR>
+Defaults line 149.
+<BR>
+[23-Jun-1999 17:42:55 ] Processed 30 nodes (in 14 files) in 2 seconds.
+<BR>
+<P>What can be wrong?
+<BR>
+<P>Thanx in advance for any help,
+<BR>
+James.
+<BR>
+<P><PRE>
+--
+James P. Pichardo Lezma
+<A HREF="mailto:jimx@ns.intec.edu.do?Subject=Re:%20[cricket-users]%20HELP&In-Reply-To=&lt;37718289.433957BF@ns.intec.edu.do&gt;">jimx@ns.intec.edu.do</A>
+RedINTEC
+Instituto Tecnológico de Santo Domingo
+Santo Domingo, República Dominicana
+PGP Key: <A HREF="http://www.intec.edu.do/~jimx/pgp.key">http://www.intec.edu.do/~jimx/pgp.key</A>
+<P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<P>ONElist:  the best source for group communications.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Join a new list today!
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0234.html">Daniel Spisak: "[cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0232.html">Pantazis, Dionysios J.: "[cricket-users] help: now where to look"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0234.html">Daniel Spisak: "[cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0234.html">Daniel Spisak: "[cricket-users] Help needed for a cricket newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0236.html">Jeff Allen: "Re: [cricket-users] HELP"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#233">[ date ]</A>
+<A HREF="index.html#233">[ thread ]</A>
+<A HREF="subject.html#233">[ subject ]</A>
+<A HREF="author.html#233">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:54 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

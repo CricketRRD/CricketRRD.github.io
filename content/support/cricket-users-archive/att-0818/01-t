@@ -1,0 +1,19 @@
+*** grapher.cgi.org	Mon Dec 27 18:40:50 1999
+--- grapher.cgi	Wed Dec 29 04:13:55 1999
+***************
+*** 1363,1368 ****
+  				my($mod) = $ct % $numDSs;
+  				if (defined($scale)) {
+! 					push @cdefs, "CDEF:smx$ct=mx$ct,$scale" if ($mx);
+! 					push @cdefs, "CDEF:sds$ct=ds$ct,$scale";
+  					if ($isMTargetsOps) {
+  						if (!$linePushed[$mod])  {
+--- 1363,1370 ----
+  				my($mod) = $ct % $numDSs;
+  				if (defined($scale)) {
+! 					my $cdefv = $scale;
+! 					$cdefv =~ s/#/$ct/;
+! 					push @cdefs, "CDEF:smx$ct=mx$ct,$cdefv" if ($mx);
+! 					push @cdefs, "CDEF:sds$ct=ds$ct,$cdefv";
+  					if ($isMTargetsOps) {
+  						if (!$linePushed[$mod])  {

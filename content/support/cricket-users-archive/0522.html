@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Same problem, or different? (You</TITLE>
+<META NAME="Author" CONTENT="Michael P. Burton (mpburton@teleport.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Same problem, or different? (You decide)">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Same problem, or different? (You decide)</H1>
+<!-- received="Thu Aug 19 17:02:39 1999" -->
+<!-- isoreceived="19990820000239" -->
+<!-- sent="Thu, 19 Aug 1999 14:01:08 -0700 (PDT)" -->
+<!-- isosent="19990819210108" -->
+<!-- name="Michael P. Burton" -->
+<!-- email="mpburton@teleport.com" -->
+<!-- subject="[cricket-users] Same problem, or different? (You decide)" -->
+<!-- id="Pine.GSO.3.96.990819135521.5396G-100000@user2.teleport.com" -->
+<STRONG>From:</STRONG> Michael P. Burton (<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Same%20problem,%20or%20different?%20(You%20decide)&In-Reply-To=&lt;Pine.GSO.3.96.990819135521.5396G-100000@user2.teleport.com&gt;"><EM>mpburton@teleport.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Aug 19 1999 - 14:01:08 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0523.html">Denise Sandell: "[cricket-users] sock5 support"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0521.html">Brad Knowles: "Re: [cricket-users] Multiple data source graphs on one web page"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#522">[ date ]</A>
+<A HREF="index.html#522">[ thread ]</A>
+<A HREF="subject.html#522">[ subject ]</A>
+<A HREF="author.html#522">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Michael P. Burton&quot; &lt;<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Same%20problem,%20or%20different?%20(You%20decide)&In-Reply-To=&lt;Pine.GSO.3.96.990819135521.5396G-100000@user2.teleport.com&gt;">mpburton@teleport.com</A>&gt;
+<BR>
+<P><P>The code is being gathered as there are no errors in the cricket-logs
+<BR>
+and the number summary across the top looks good. However, the .png 
+<BR>
+images are only error messages. Here are the snippits:
+<BR>
+<P>/switch-ports/xsb/switches code snippet:
+<BR>
+----------------------------------------
+<BR>
+target FastEthernet0_11
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       FastEthernet0/11
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       Fa0/11
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type     =       sub-interface        
+<BR>
+<P>Data directory file names created:
+<BR>
+----------------------------------
+<BR>
+fastethernet0_11-0.meta
+<BR>
+fastethernet0_11-0.rrd   
+<BR>
+<P><P>error_log of apache:
+<BR>
+--------------------
+<BR>
+[19-Aug-1999 13:27:25*] Unable to create graph: rrdopen can't open
+<BR>
+/home/cricket/cricket-config/../cricket-data//switch-ports/xsb.bet.45.1/
+<BR>
+fastethernet0_11-map(interface-name).rrd'
+<BR>
+<P>[19-Aug-1999 13:27:25*] Could not open
+<BR>
+/tmp/cricket-cache/cricket-fbd212be.png: No such file or directory
+<BR>
+[Thu Aug 19 13:27:25 1999] [error] [client 131.252.134.9] Premature end of
+<BR>
+script headers: /home/cricket/public_html/cricket/mini-graph.cgi
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+<P>________________________________________________________________________
+<BR>
+Michael P. Burton          &quot;Love is like racing across the frozen tundra 
+<BR>
+Network Engineer, DCII      on a snowmobile which flips over, 
+<BR>
+Portland State University   trapping you underneath. 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At night, the ice-weasels come.&quot; - Nietchze
+<BR>
+-------------------------------------------------------------------------
+<BR>
+GCS d---- H--- s g+ !p au a25 w+++ v++ C++ UL++ P+ L++ 3 E---- N+ K- W+ M
+<BR>
+V po--- Y+ t++ 5 j R++ G+ tv b++ D+ B--- e+++ u++ h-- f+ r+++ n--- z+++ 
+<BR>
+Decode at: <A HREF="http://pcd.stanford.edu/mogens/geek2.html">http://pcd.stanford.edu/mogens/geek2.html</A>
+<BR>
+-------------------------------------------------------------------------
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist announces &quot;FRIENDS &amp; FAMILY!&quot;
+<BR>
+For details, including our weekly drawing, go to
+<BR>
+<A HREF="http://www.onelist.com/info/onereachsplash3.html">http://www.onelist.com/info/onereachsplash3.html</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0523.html">Denise Sandell: "[cricket-users] sock5 support"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0521.html">Brad Knowles: "Re: [cricket-users] Multiple data source graphs on one web page"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#522">[ date ]</A>
+<A HREF="index.html#522">[ thread ]</A>
+<A HREF="subject.html#522">[ subject ]</A>
+<A HREF="author.html#522">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

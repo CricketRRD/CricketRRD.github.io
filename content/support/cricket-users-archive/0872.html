@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Graphing Problem.</TITLE>
+<META NAME="Author" CONTENT="Grimshaw Stuart (stuart.grimshaw@blackburn.gov.uk)">
+<META NAME="Subject" CONTENT="[cricket-users] Graphing Problem.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Graphing Problem.</H1>
+<!-- received="Mon Jan 10 06:32:12 2000" -->
+<!-- isoreceived="20000110143212" -->
+<!-- sent="Mon, 10 Jan 2000 11:28:56 -0000" -->
+<!-- isosent="20000110112856" -->
+<!-- name="Grimshaw Stuart" -->
+<!-- email="stuart.grimshaw@blackburn.gov.uk" -->
+<!-- subject="[cricket-users] Graphing Problem." -->
+<!-- id="c=GB%a=_%p=BDBC%l=EXCHANGE1-000110112856Z-15730@mail.blackburn.gov.uk" -->
+<STRONG>From:</STRONG> Grimshaw Stuart (<A HREF="mailto:stuart.grimshaw@blackburn.gov.uk?Subject=Re:%20[cricket-users]%20Graphing%20Problem.&In-Reply-To=&lt;c=GB%25a=_%25p=BDBC%25l=EXCHANGE1-000110112856Z-15730@mail.blackburn.gov.uk&gt;"><EM>stuart.grimshaw@blackburn.gov.uk</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jan 10 2000 - 03:28:56 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0873.html">Sam Habash: "Re: [cricket-users] Cricket 0.71 released"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0871.html">Grimshaw Stuart: "[cricket-users] Graphing Real values."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0885.html">Nathan Alan Haneysmith: "Re: [cricket-users] Graphing Problem."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0885.html">Nathan Alan Haneysmith: "Re: [cricket-users] Graphing Problem."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#872">[ date ]</A>
+<A HREF="index.html#872">[ thread ]</A>
+<A HREF="subject.html#872">[ subject ]</A>
+<A HREF="author.html#872">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Grimshaw Stuart &lt;<A HREF="mailto:stuart.grimshaw@blackburn.gov.uk?Subject=Re:%20[cricket-users]%20Graphing%20Problem.&In-Reply-To=&lt;c=GB%25a=_%25p=BDBC%25l=EXCHANGE1-000110112856Z-15730@mail.blackburn.gov.uk&gt;">stuart.grimshaw@blackburn.gov.uk</A>&gt;
+<BR>
+<P>Having successfully configured cricket to monitor various things,
+<BR>
+routers, printers etc, I've gathered my first bit of data over the past
+<BR>
+week. However, I'm getting a problem displaying certain graphs...
+<BR>
+<P>I havn't altered the defaults file for the router-interfaces, and the
+<BR>
+only thing contained in the interfaces file is the targets themselves,
+<BR>
+(see below)
+<BR>
+<P>When I try to view a graph for one of the datasources, (the serial port)
+<BR>
+I get these messages in the web servers error log:
+<BR>
+<P>[10-Jan-2000 11:02:56*] Actual graph width (595) differs from width-hint
+<BR>
+(596).
+<BR>
+[10-Jan-2000 11:02:56*] Actual graph height (255) differs from
+<BR>
+height-hint (267
+<BR>
+<P>The other ports on the same device work fine, and I only get this when I
+<BR>
+try and display the &quot;Octets&quot; view, the packets and errors view are fine.
+<BR>
+<P>I've tried turning off the graph hints in the defaults file now, but all
+<BR>
+that changes is the errors dont appear in the log file :) I just get the
+<BR>
+good old &quot;Premature end etc etc&quot;
+<BR>
+<P>This problem is hapenning on more than one, but not all of my
+<BR>
+router-interfaces.
+<BR>
+<P>interfaces file :
+<BR>
+<P>target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = 10.16.0.1
+<BR>
+<P>target 3Com_NETBuilderSER_1-1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       3Com_NETBuilderSER/1-1
+<BR>
+<P>target 3Com_NETBuilderETH_2-1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       3Com_NETBuilderETH/2-1
+<BR>
+<P>Stuart Grimshaw,
+<BR>
+System Administrator,
+<BR>
+Community, Leisure &amp; Cultural Services Dept.
+<BR>
+Blackburn with Darwen Borough Council.
+<BR>
+<P>t:01254 587235
+<BR>
+f:01254 660236
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0873.html">Sam Habash: "Re: [cricket-users] Cricket 0.71 released"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0871.html">Grimshaw Stuart: "[cricket-users] Graphing Real values."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0885.html">Nathan Alan Haneysmith: "Re: [cricket-users] Graphing Problem."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0885.html">Nathan Alan Haneysmith: "Re: [cricket-users] Graphing Problem."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#872">[ date ]</A>
+<A HREF="index.html#872">[ thread ]</A>
+<A HREF="subject.html#872">[ subject ]</A>
+<A HREF="author.html#872">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:09 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

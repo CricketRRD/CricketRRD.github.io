@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] OID for cisco 2900</TITLE>
+<META NAME="Author" CONTENT="George Hong (ghong@iasiaworks.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] OID for cisco 2900">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] OID for cisco 2900</H1>
+<!-- received="Mon Jan 10 18:56:50 2000" -->
+<!-- isoreceived="20000111025650" -->
+<!-- sent="Mon, 10 Jan 2000 15:59:17 -0800" -->
+<!-- isosent="20000110235917" -->
+<!-- name="George Hong" -->
+<!-- email="ghong@iasiaworks.com" -->
+<!-- subject="Re: [cricket-users] OID for cisco 2900" -->
+<!-- id="387A7255.6B8EAB65@iasiaworks.com" -->
+<!-- inreplyto="Pine.OSF.3.95.1000110164244.14259C-100000@gemini.oscs.montana.edu" -->
+<STRONG>From:</STRONG> George Hong (<A HREF="mailto:ghong@iasiaworks.com?Subject=Re:%20[cricket-users]%20OID%20for%20cisco%202900&In-Reply-To=&lt;387A7255.6B8EAB65@iasiaworks.com&gt;"><EM>ghong@iasiaworks.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jan 10 2000 - 15:59:17 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0894.html">George Hong: "Re: [cricket-users] OID for cisco 2900"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0892.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0898.html">Ivan Berg: "Re: [cricket-users] OID for cisco 2900"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0894.html">George Hong: "Re: [cricket-users] OID for cisco 2900"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0894.html">George Hong: "Re: [cricket-users] OID for cisco 2900"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0895.html">Ivan Berg: "Re: [cricket-users] OID for cisco 2900"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#893">[ date ]</A>
+<A HREF="index.html#893">[ thread ]</A>
+<A HREF="subject.html#893">[ subject ]</A>
+<A HREF="author.html#893">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: George Hong &lt;<A HREF="mailto:ghong@iasiaworks.com?Subject=Re:%20[cricket-users]%20OID%20for%20cisco%202900&In-Reply-To=&lt;387A7255.6B8EAB65@iasiaworks.com&gt;">ghong@iasiaworks.com</A>&gt;
+<BR>
+<P>Thanks, Ivan. After adding the leading &quot;.&quot;,  it came back with:
+<BR>
+Error in packet
+<BR>
+Reason: (noSuchName) There is no such variable name in this MIB.
+<BR>
+This name doesn't exist: enterprises.9.9.87.1.5
+<BR>
+<P>What could be wrong?
+<BR>
+Good day.
+<BR>
+--George
+<BR>
+<P>Ivan Berg wrote:
+<BR>
+<P><EM>&gt; Add a leading &quot;.&quot; to the OID
+</EM><BR>
+<EM>&gt; Consult the man page for the snmp utility to find out why
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; __________________________________________________________________________
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; On Mon, 10 Jan 2000, George Hong wrote:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; &gt; From: George Hong &lt;<A HREF="mailto:ghong@iasiaworks.com?Subject=Re:%20[cricket-users]%20OID%20for%20cisco%202900&In-Reply-To=&lt;387A7255.6B8EAB65@iasiaworks.com&gt;">ghong@iasiaworks.com</A>&gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; Hi Hugo,
+</EM><BR>
+<EM>&gt; &gt;   Thanks for the tip. I went to the site and find the MIB for 2900 under pub/oid
+</EM><BR>
+<EM>&gt; &gt; directory. snmpget doesn't return the value, any suggestion?
+</EM><BR>
+<EM>&gt; &gt;   Here is the log:
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &quot;c2900BandwidthUsage&quot;           &quot;1.3.6.1.4.1.9.9.87.1.5&quot;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt;snmpget switch_ip_address public_snmp 1.3.6.1.4.1.9.9.87.1.5
+</EM><BR>
+<EM>&gt; &gt; Error in packet
+</EM><BR>
+<EM>&gt; &gt; Reason: (noSuchName) There is no such variable name in this MIB.
+</EM><BR>
+<EM>&gt; &gt; This name doesn't exist: system.sysUpTime.6.1.4.1.9.9.87.1.5
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; Try snmpwalk, nothing either.
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;   Thanks a bunch in advanced.
+</EM><BR>
+<EM>&gt; &gt; --George Hong
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; Hugo Gayosso wrote:
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; -----BEGIN PGP SIGNED MESSAGE-----
+</EM><BR>
+<EM>&gt; &gt; &gt; Hash: SHA1
+</EM><BR>
+<EM>&gt; &gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; Try downloading the MIB from ftp.cisco.com or from somewhere else.
+</EM><BR>
+<EM>&gt; &gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; Greetings,
+</EM><BR>
+<EM>&gt; &gt; &gt; On 08-Jan-2000 George Hong wrote:
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt; Hi there,
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt;   It seems like the oid for cisco 2900 is a lot different from 1900 or
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt; 5500. Anyone knows 2900's oids for 1mincpu, 5mincpu, backplane bandwidth
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt; usage? I tried snmpwalk on the router, can't find something obvious.
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt;   Thanks.
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt; --George
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt;   Hey Freelancers:  Find your next project through JobSwarm!
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt;   You can even make money in your sleep by referring friends.
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; &gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; &gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; - --
+</EM><BR>
+<EM>&gt; &gt; &gt; Hugo Gayosso                            |  The ultimate result is that some
+</EM><BR>
+<EM>&gt; &gt; &gt; Controls Process Support                |  innovations that would truly
+</EM><BR>
+<EM>&gt; &gt; &gt; Electronics Integration and Software    |  benefit consumers never occur
+</EM><BR>
+<EM>&gt; &gt; &gt; GM Powertrain                           |  for the sole reason that they
+</EM><BR>
+<EM>&gt; &gt; &gt; Brighton, MI                            |  do not coincide with Microsoft's
+</EM><BR>
+<EM>&gt; &gt; &gt; USA                                     |  self-interest.
+</EM><BR>
+<EM>&gt; &gt; &gt;                                         |
+</EM><BR>
+<EM>&gt; &gt; &gt; E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=Re:%20[cricket-users]%20OID%20for%20cisco%202900&In-Reply-To=&lt;387A7255.6B8EAB65@iasiaworks.com&gt;">qztf7k@powertrain.mpg.gm.com</A>    |            Thomas Penfield Jackson
+</EM><BR>
+<EM>&gt; &gt; &gt;  Phone: (810) 220-2635                  |              U.S. District Judge
+</EM><BR>
+<EM>&gt; &gt; &gt;    Fax: (810) 220-2663                  |
+</EM><BR>
+<EM>&gt; &gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; -----BEGIN PGP SIGNATURE-----
+</EM><BR>
+<EM>&gt; &gt; &gt; Version: GnuPG v1.0.1 (GNU/Linux)
+</EM><BR>
+<EM>&gt; &gt; &gt; Comment: For info see <A HREF="http://www.gnupg.org">http://www.gnupg.org</A>
+</EM><BR>
+<EM>&gt; &gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; iD8DBQE4edvHx2JZtTN6co8RAv73AJ4tS9CM36S8krFHg2Nrr0GOb24qqwCgkDbN
+</EM><BR>
+<EM>&gt; &gt; &gt; 9+UrPg0Ih2aOs9XB0TlkLmI=
+</EM><BR>
+<EM>&gt; &gt; &gt; =Jfs0
+</EM><BR>
+<EM>&gt; &gt; &gt; -----END PGP SIGNATURE-----
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; Independent contractors: Find your next project gig through JobSwarm!
+</EM><BR>
+<EM>&gt; &gt;         You can even make money by referring friends.
+</EM><BR>
+<EM>&gt; &gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<EM>&gt; &gt;
+</EM><BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0894.html">George Hong: "Re: [cricket-users] OID for cisco 2900"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0892.html">Honermann Tom A.: "RE: [cricket-users] ugrading to cricket ver 0.71"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0898.html">Ivan Berg: "Re: [cricket-users] OID for cisco 2900"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0894.html">George Hong: "Re: [cricket-users] OID for cisco 2900"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0894.html">George Hong: "Re: [cricket-users] OID for cisco 2900"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0895.html">Ivan Berg: "Re: [cricket-users] OID for cisco 2900"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#893">[ date ]</A>
+<A HREF="index.html#893">[ thread ]</A>
+<A HREF="subject.html#893">[ subject ]</A>
+<A HREF="author.html#893">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:09 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

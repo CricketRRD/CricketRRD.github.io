@@ -1,0 +1,13 @@
+target	pm4-1
+	target-type=Portmaster4
+	short-desc	=	"Portmaster4 1"
+
+target	pm3-1
+	target-type=Portmaster3
+	short-desc	=	"Portmaster3 1"
+
+target	pm3-2
+	target-type=Portmaster3
+	short-desc	=	"Portmaster3 2"
+
+

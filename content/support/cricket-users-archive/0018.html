@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: Looking for config file for</TITLE>
+<META NAME="Author" CONTENT="Jeff Jensen (jpj@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: Looking for config file for Cisco 2924XL">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: Looking for config file for Cisco 2924XL</H1>
+<!-- received="Tue May  4 15:05:36 1999" -->
+<!-- isoreceived="19990504220536" -->
+<!-- sent="Tue, 4 May 1999 12:05:00 -0700" -->
+<!-- isosent="19990504190500" -->
+<!-- name="Jeff Jensen" -->
+<!-- email="jpj@corp.webtv.net" -->
+<!-- subject="[cricket-users] Re: Looking for config file for Cisco 2924XL" -->
+<!-- id="19990504120500.L464@corp.webtv.net" -->
+<!-- inreplyto="372EC049.71C302C1@Acer.Net" -->
+<STRONG>From:</STRONG> Jeff Jensen (<A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Looking%20for%20config%20file%20for%20Cisco%202924XL&In-Reply-To=&lt;19990504120500.L464@corp.webtv.net&gt;"><EM>jpj@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue May 04 1999 - 12:05:00 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0019.html">Jeff Allen: "[cricket-users] Re: [Question about subtree]"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0017.html">Jackson Weng: "[cricket-users] glob failed ???"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0016.html">Jackson Weng: "[cricket-users] Looking for config file for Cisco 2924XL"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#18">[ date ]</A>
+<A HREF="index.html#18">[ thread ]</A>
+<A HREF="subject.html#18">[ subject ]</A>
+<A HREF="author.html#18">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Jensen &lt;<A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Looking%20for%20config%20file%20for%20Cisco%202924XL&In-Reply-To=&lt;19990504120500.L464@corp.webtv.net&gt;">jpj@corp.webtv.net</A>&gt;
+<BR>
+<P>Hi,
+<BR>
+<P>A Cisco 2924XL is not the same type of device as a Cisco 2926.  Different
+<BR>
+code base, different size, and so forth.
+<BR>
+<P>For a 2924XL I would suggest using the target-type of cisco-2900xl
+<BR>
+This pulls out CPU and Memory from all the XL switches that I've tried it on.
+<BR>
+<P>-Jeff
+<BR>
+<P>On Tue, May 04, 1999 at 05:39:21PM +0800, Jackson Weng wrote:
+<BR>
+<EM>&gt; Hi,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I use the target-type=cisco-2926 (which come with the cricket 
+</EM><BR>
+<EM>&gt; distribution) to collect the data from my cisco 2924XL switch
+</EM><BR>
+<EM>&gt; and it came out the following error. Can anyone here help me
+</EM><BR>
+<EM>&gt; over come the problem, thanks in advance!
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; %~/cricket/collector -logLevel debug ~/cricket-config/switches
+</EM><BR>
+<EM>&gt; ...
+</EM><BR>
+<EM>&gt; [04-May-1999 17:29:18 ] Retrieving data for target c2924 () (cisco-2926)
+</EM><BR>
+<EM>&gt; [04-May-1999 17:29:18 ] Getting from <A HREF="mailto:public@c2924.acer.net?Subject=Re:%20[cricket-users]%20Re:%20Looking%20for%20config%20file%20for%20Cisco%202924XL&In-Reply-To=&lt;19990504120500.L464@corp.webtv.net&gt;">public@c2924.acer.net</A>:161
+</EM><BR>
+<EM>&gt; 1.3.6.1.4.1.9.5.1.1.8.0 1.3.6.1.4.1.9.5.1.1.19.0
+</EM><BR>
+<EM>&gt; [04-May-1999 17:29:18*] Received SNMP response with error code
+</EM><BR>
+<EM>&gt; noSuchName
+</EM><BR>
+<EM>&gt; [04-May-1999 17:29:18 ] Got:
+</EM><BR>
+<EM>&gt; [04-May-1999 17:29:18 ] Retrieved data for c2924 (): U,U
+</EM><BR>
+<EM>&gt; [04-May-1999 17:29:18 ] Some data is missing for c2924 ().
+</EM><BR>
+<EM>&gt; [04-May-1999 17:29:18 ] Processed 1 targets in 2 seconds.
+</EM><BR>
+<EM>&gt; %
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -Jackson
+</EM><BR>
+<P><PRE>
+-- 
+Jeff Jensen                             <A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20Looking%20for%20config%20file%20for%20Cisco%202924XL&In-Reply-To=&lt;19990504120500.L464@corp.webtv.net&gt;">jpj@corp.webtv.net</A>
+<P>------------------------------------------------------------------------
+ONElist:  where real people with real interests get connected.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Join today!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0019.html">Jeff Allen: "[cricket-users] Re: [Question about subtree]"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0017.html">Jackson Weng: "[cricket-users] glob failed ???"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0016.html">Jackson Weng: "[cricket-users] Looking for config file for Cisco 2924XL"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#18">[ date ]</A>
+<A HREF="index.html#18">[ thread ]</A>
+<A HREF="subject.html#18">[ subject ]</A>
+<A HREF="author.html#18">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:47 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

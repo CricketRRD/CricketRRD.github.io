@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] RRD Max</TITLE>
+<META NAME="Author" CONTENT="Ivan Berg (opjib@gemini.oscs.montana.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] RRD Max">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] RRD Max</H1>
+<!-- received="Wed Jan 12 15:07:34 2000" -->
+<!-- isoreceived="20000112230734" -->
+<!-- sent="Wed, 12 Jan 2000 13:07:01 -0700 (MST)" -->
+<!-- isosent="20000112200701" -->
+<!-- name="Ivan Berg" -->
+<!-- email="opjib@gemini.oscs.montana.edu" -->
+<!-- subject="RE: [cricket-users] RRD Max" -->
+<!-- id="Pine.OSF.3.95.1000112130507.26587A-100000@gemini.oscs.montana.edu" -->
+<!-- inreplyto="06C35CDB8BCAD211AD1100805FA76561059F1C66@MUSTANG" -->
+<STRONG>From:</STRONG> Ivan Berg (<A HREF="mailto:opjib@gemini.oscs.montana.edu?Subject=RE:%20[cricket-users]%20RRD%20Max&In-Reply-To=&lt;Pine.OSF.3.95.1000112130507.26587A-100000@gemini.oscs.montana.edu&gt;"><EM>opjib@gemini.oscs.montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jan 12 2000 - 12:07:01 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0914.html">Ivan Berg: "[cricket-users] thresholds"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0912.html">Matt Zimmerman: "Re: [cricket-users] RRD Max"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#913">[ date ]</A>
+<A HREF="index.html#913">[ thread ]</A>
+<A HREF="subject.html#913">[ subject ]</A>
+<A HREF="author.html#913">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Ivan Berg &lt;<A HREF="mailto:opjib@gemini.oscs.montana.edu?Subject=RE:%20[cricket-users]%20RRD%20Max&In-Reply-To=&lt;Pine.OSF.3.95.1000112130507.26587A-100000@gemini.oscs.montana.edu&gt;">opjib@gemini.oscs.montana.edu</A>&gt;
+<BR>
+<P>Mmm... interesting graphs
+<BR>
+<P>I wonder what a better default RRA would be to do MAX graphing.
+<BR>
+<P>And we would probably need to fix it so both max's are graphed as lines
+<BR>
+instead of bars &lt;- that's what really messes the graph up.
+<BR>
+<P><EM>&gt; There is a undocumented tag you can add to the graph section:
+</EM><BR>
+<EM>&gt;  
+</EM><BR>
+<EM>&gt; show-max = true
+</EM><BR>
+<EM>&gt;  
+</EM><BR>
+<EM>&gt; Unfortunately, it doesn't look like it does the right thing.  (sticks max
+</EM><BR>
+<EM>&gt; data on all the graphs)  The comment from the code reads:
+</EM><BR>
+<EM>&gt;  
+</EM><BR>
+<EM>&gt; # default to not doing max stuff, since it's still a bit
+</EM><BR>
+<EM>&gt; # messy -- due to bad default RRA setup, etc.
+</EM><BR>
+<EM>&gt;  
+</EM><BR>
+<EM>&gt; Haven't ripped into the code enough to know how fixable it is.
+</EM><BR>
+<EM>&gt;  
+</EM><BR>
+<EM>&gt; Mike
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; From: Ivan Berg [mailto:<A HREF="mailto:opjib@gemini.oscs.montana.edu?Subject=RE:%20[cricket-users]%20RRD%20Max&In-Reply-To=&lt;Pine.OSF.3.95.1000112130507.26587A-100000@gemini.oscs.montana.edu&gt;">opjib@gemini.oscs.montana.edu</A>]
+</EM><BR>
+<EM>&gt; Sent: Wednesday, January 12, 2000 11:43 AM
+</EM><BR>
+<EM>&gt; To: Sam Habash
+</EM><BR>
+<EM>&gt; Cc: Berg, Ivan; '<A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20RRD%20Max&In-Reply-To=&lt;Pine.OSF.3.95.1000112130507.26587A-100000@gemini.oscs.montana.edu&gt;">cricket-users@onelist.com</A>'
+</EM><BR>
+<EM>&gt; Subject: Re: [cricket-users] RRD Max
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; From: Ivan Berg &lt;<A HREF="mailto:opjib@gemini.oscs.montana.edu?Subject=RE:%20[cricket-users]%20RRD%20Max&In-Reply-To=&lt;Pine.OSF.3.95.1000112130507.26587A-100000@gemini.oscs.montana.edu&gt;">opjib@gemini.oscs.montana.edu</A>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; No, however, I am looking forward to a reply :)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I have searched the archives and people have asked similar questions in
+</EM><BR>
+<EM>&gt; the past to no avail.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; On Tue, 11 Jan 2000, Sam Habash wrote:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; Ivan, did you ever get an answer to the following?
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; --Sam
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; On Wed, 8 Dec 1999, Berg, Ivan wrote:
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20RRD%20Max&In-Reply-To=&lt;Pine.OSF.3.95.1000112130507.26587A-100000@gemini.oscs.montana.edu&gt;">iberg@montana.edu</A>&gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; I am looking for a way to display the max values in a day.
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; Looking at the main defaults I see a RRD for 2hrMax and 1dayMax
+</EM><BR>
+<EM>&gt; &gt; &gt; This looks like exactly what I want..       
+</EM><BR>
+<EM>&gt; &gt; &gt; After that, the default RRA is:
+</EM><BR>
+<EM>&gt; &gt; &gt; rra     =       &quot;5minAve, 30minAve, 2hrAve, 2hrMax, 1dayAve, 1dayMax&quot;
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; It says we will define the rra further down the file for specific target
+</EM><BR>
+<EM>&gt; &gt; &gt; types, however I don't see it changing further down the config tree so I
+</EM><BR>
+<EM>&gt; &gt; &gt; assume most every target uses the default rra.
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; How would I display these max graphs? Is it currently collecting the max
+</EM><BR>
+<EM>&gt; &gt; &gt; data(should be since it displays max for the day at the top of the web
+</EM><BR>
+<EM>&gt; &gt; &gt; page)?
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; Someone suggested putting &quot;max = 1&quot; into the graph dictionary. It
+</EM><BR>
+<EM>&gt; compiles
+</EM><BR>
+<EM>&gt; &gt; &gt; with that but doesn't seem to do anything. Are these related? I would
+</EM><BR>
+<EM>&gt; assume
+</EM><BR>
+<EM>&gt; &gt; &gt; &quot;max=1&quot; would turn on max graphing???
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; Anyone with some experience in this???
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; Independent contractors: Find your next project gig through JobSwarm!
+</EM><BR>
+<EM>&gt; &gt; &gt;         You can even make $$$ by referring friends.
+</EM><BR>
+<EM>&gt; &gt; &gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A>
+</EM><BR>
+<EM>&gt; &lt;<A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A>&gt;  &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; &gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; &gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;   _____  
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Please click above to support our sponsor
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;   _____  
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0914.html">Ivan Berg: "[cricket-users] thresholds"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0912.html">Matt Zimmerman: "Re: [cricket-users] RRD Max"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#913">[ date ]</A>
+<A HREF="index.html#913">[ thread ]</A>
+<A HREF="subject.html#913">[ subject ]</A>
+<A HREF="author.html#913">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:10 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

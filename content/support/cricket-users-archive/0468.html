@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] monitor-thresholds</TITLE>
+<META NAME="Author" CONTENT="Javier C. Muniz (jmuniz@granicus.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] monitor-thresholds">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] monitor-thresholds</H1>
+<!-- received="Fri Aug  6 17:48:57 1999" -->
+<!-- isoreceived="19990807004857" -->
+<!-- sent="Thu, 5 Aug 1999 23:33:39 -0700 (PDT)" -->
+<!-- isosent="19990806063339" -->
+<!-- name="Javier C. Muniz" -->
+<!-- email="jmuniz@granicus.com" -->
+<!-- subject="Re: [cricket-users] monitor-thresholds" -->
+<!-- id="Pine.BSF.4.10.9908052327000.27166-100000@alexander.granicus.com" -->
+<!-- inreplyto="Pine.LNX.4.10.9908051639250.5655-100000@bug.itea.ntnu.no" -->
+<STRONG>From:</STRONG> Javier C. Muniz (<A HREF="mailto:jmuniz@granicus.com?Subject=Re:%20[cricket-users]%20monitor-thresholds&In-Reply-To=&lt;Pine.BSF.4.10.9908052327000.27166-100000@alexander.granicus.com&gt;"><EM>jmuniz@granicus.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Aug 05 1999 - 23:33:39 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0469.html">Blair Zajac: "[cricket-users] Publically viewable Cricket sites for article"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0467.html">[A3D]V'alien: "RE: [cricket-users] Status of Cricket 0.70"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0463.html">trygvelu@bug.itea.ntnu.no: "Re: [cricket-users] monitor-thresholds"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0726.html">Neal S. Pressman: "[cricket-users] monitor-thresholds"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#468">[ date ]</A>
+<A HREF="index.html#468">[ thread ]</A>
+<A HREF="subject.html#468">[ subject ]</A>
+<A HREF="author.html#468">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Javier C. Muniz&quot; &lt;<A HREF="mailto:jmuniz@granicus.com?Subject=Re:%20[cricket-users]%20monitor-thresholds&In-Reply-To=&lt;Pine.BSF.4.10.9908052327000.27166-100000@alexander.granicus.com&gt;">jmuniz@granicus.com</A>&gt;
+<BR>
+<P>You can certain attach more than one monitor-threshold via the
+<BR>
+monitor-thresholds tag, which is why it's plural :)  monitor-thresholds is
+<BR>
+a comma delimited list of monitor-strings, which can be of 3 types as
+<BR>
+listed in reference.txt.  You should take a closer look at the relation
+<BR>
+monitor, which is unfortunately broken in the current version of cricket
+<BR>
+due to the namespace changes... it should be working in 0.70, since i got
+<BR>
+a copy of a tree that tests monitor-thresholds to jeff allen after
+<BR>
+noticing that it was broken in 0.69 :)
+<BR>
+<P>I'm not sure if trap-address can contain multiple addresses, or if it's
+<BR>
+trivial to add such support, but i'll look into it this weekend.
+<BR>
+<P>The monitor-thresholds system is designed to be flexible and easy to add
+<BR>
+onto.  Over time i hope that many more types of monitoring will be
+<BR>
+contributed to the code.
+<BR>
+<P>-Javier
+<BR>
+<P>On Thu, 5 Aug 1999 <A HREF="mailto:trygvelu@bug.itea.ntnu.no?Subject=Re:%20[cricket-users]%20monitor-thresholds&In-Reply-To=&lt;Pine.BSF.4.10.9908052327000.27166-100000@alexander.granicus.com&gt;">trygvelu@bug.itea.ntnu.no</A> wrote:
+<BR>
+<P><EM>&gt; From: <A HREF="mailto:trygvelu@bug.itea.ntnu.no?Subject=Re:%20[cricket-users]%20monitor-thresholds&In-Reply-To=&lt;Pine.BSF.4.10.9908052327000.27166-100000@alexander.granicus.com&gt;">trygvelu@bug.itea.ntnu.no</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; On Wed, 4 Aug 1999, Utsav Ratti wrote:
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; I want to use the 'monitor-thresholds' tag. The reference guide describes
+</EM><BR>
+<EM>&gt; &gt; its functionality really well, but one thing isn't clear: what happens when
+</EM><BR>
+<EM>&gt; &gt; a threshold is exceeded? How do I call an external script to send an alert
+</EM><BR>
+<EM>&gt; &gt; via e-mail or pager? The guide  mentioned traps, but where do these go?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I played around a little with modifying the 'value' monitor to sending a
+</EM><BR>
+<EM>&gt; mail when a threshold is exceeded. You'll have to look into the file
+</EM><BR>
+<EM>&gt; Monitor.pm in cricket's lib/ and specifically the Alarm(), Clear() and
+</EM><BR>
+<EM>&gt; sendMonitorTraps() subs.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Modifying the sendMonitorTraps() to something like 'sendMonitorMail()'
+</EM><BR>
+<EM>&gt; should be pretty straight forward.. (Just include your favourite sendmail
+</EM><BR>
+<EM>&gt; routine)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; There's been little discussion about this feature yet, maybe someone could
+</EM><BR>
+<EM>&gt; go more in-depth explaining things.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I, for one, would like to put some more functionality in this, eg have
+</EM><BR>
+<EM>&gt; multiple monitors on a target for different threshold/time pairs. I think
+</EM><BR>
+<EM>&gt; some new monitor would have to be built (monValueOverTime eg), and it
+</EM><BR>
+<EM>&gt; could look something(?) like this in the config
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; #monitor if value since last update exceeds 80% 
+</EM><BR>
+<EM>&gt;         monitor-thresholds =    &quot;myds:value:0:80&quot;
+</EM><BR>
+<EM>&gt;         trap-address    =       some@address
+</EM><BR>
+<EM>&gt; #monitor if value exceeds 60% over 15min period
+</EM><BR>
+<EM>&gt;         monitor-thresholds =    &quot;myds:valueovertime:15:0:60&quot;
+</EM><BR>
+<EM>&gt;         trap-address    =       some@other.address
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I've only thought a little about this, I'm not even sure if you can define
+</EM><BR>
+<EM>&gt; multiple monitor/trap-address pairs on the same target? If not, I could
+</EM><BR>
+<EM>&gt; probably hardcode the address in the new monitor.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; but now I'm babbling
+</EM><BR>
+<EM>&gt; -- 
+</EM><BR>
+<EM>&gt; Trygve Lunheim
+</EM><BR>
+<EM>&gt; NTNU ITEA/Nett
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; GET WHAT YOU DESERVE! A NextCard Platinum VISA: DOUBLE Rewards points, 
+</EM><BR>
+<EM>&gt;        NO annual fee &amp; rates as low as 9.9 percent FIXED APR. 
+</EM><BR>
+<EM>&gt; Apply online today!                <A HREF="http://www.onelist.com/ad/nextcard1">http://www.onelist.com/ad/nextcard1</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist:  the best place to EXPLORE topics, SHARE ideas, and 
+<BR>
+CONNECT to people with the same interests.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0469.html">Blair Zajac: "[cricket-users] Publically viewable Cricket sites for article"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0467.html">[A3D]V'alien: "RE: [cricket-users] Status of Cricket 0.70"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0463.html">trygvelu@bug.itea.ntnu.no: "Re: [cricket-users] monitor-thresholds"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0726.html">Neal S. Pressman: "[cricket-users] monitor-thresholds"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#468">[ date ]</A>
+<A HREF="index.html#468">[ thread ]</A>
+<A HREF="subject.html#468">[ subject ]</A>
+<A HREF="author.html#468">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:59 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

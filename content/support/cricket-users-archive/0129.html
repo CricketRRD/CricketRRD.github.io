@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] (Cricket 0.65) Forcing the g</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] (Cricket 0.65) Forcing the graphing range">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] (Cricket 0.65) Forcing the graphing range</H1>
+<!-- received="Tue May 25 12:39:30 1999" -->
+<!-- isoreceived="19990525193930" -->
+<!-- sent="Tue, 25 May 1999 09:38:50 -0700 (PDT)" -->
+<!-- isosent="19990525163850" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] (Cricket 0.65) Forcing the graphing range" -->
+<!-- id="199905251638.JAA23874@oops.artemis.com" -->
+<!-- inreplyto="Pine.GSO.4.10.9905241947230.16436-100000@the.satanic.org" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20(Cricket%200.65)%20Forcing%20the%20graphing%20range&In-Reply-To=&lt;199905251638.JAA23874@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue May 25 1999 - 09:38:50 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0130.html">Jeff Allen: "Re: [cricket-users] Is Cricket Graph Y2K compliant?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0128.html">roofpig@the.satanic.org: "Re: [cricket-users] graphing problem..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0122.html">roofpig@the.satanic.org: "Re: [cricket-users] (Cricket 0.65) Forcing the graphing range"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0131.html">Jeff Allen: "Re: [cricket-users] (Cricket 0.65) Forcing the graphing range"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#129">[ date ]</A>
+<A HREF="index.html#129">[ thread ]</A>
+<A HREF="subject.html#129">[ subject ]</A>
+<A HREF="author.html#129">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20(Cricket%200.65)%20Forcing%20the%20graphing%20range&In-Reply-To=&lt;199905251638.JAA23874@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P><A HREF="mailto:roofpig@the.satanic.org?Subject=Re:%20[cricket-users]%20(Cricket%200.65)%20Forcing%20the%20graphing%20range&In-Reply-To=&lt;199905251638.JAA23874@oops.artemis.com&gt;">roofpig@the.satanic.org</A> wrote:
+<BR>
+<EM>&gt; 	The sample-config/routers/Defaults measures the cpu percentage.
+</EM><BR>
+<EM>&gt; How come the y-min and y-max don't have to be set there?
+</EM><BR>
+<P>On our routers, the CPU stays in the 0-50 range, and if we fixed it at
+<BR>
+0-100, then it would be hard to see the CPU graphs when it was in the
+<BR>
+0-20 range, which happens on occasion.
+<BR>
+<P>The reason y-max is useful in http-performance is that sometimes it
+<BR>
+takes a LONG time to fetch a web page, and it's a bummer if the entire
+<BR>
+graph is crunched becuase of that. Thus, we cap the spikes to a few
+<BR>
+seconds, so we can still see the low data.
+<BR>
+<P>What might be nice is a way to tell RRD that I want it to auto-scale,
+<BR>
+but that under no circumstances should it allow y-max to get bigger
+<BR>
+than X. Then, my http-performance graphs will always be maximally
+<BR>
+legible. Tobias, are you listening? :)
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen                   |   <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20(Cricket%200.65)%20Forcing%20the%20graphing%20range&In-Reply-To=&lt;199905251638.JAA23874@oops.artemis.com&gt;">jra@corp.webtv.net</A> (work)
+WebTV Networks, Inc.            |   <A HREF="mailto:jeff.allen@acm.org?Subject=Re:%20[cricket-users]%20(Cricket%200.65)%20Forcing%20the%20graphing%20range&In-Reply-To=&lt;199905251638.JAA23874@oops.artemis.com&gt;">jeff.allen@acm.org</A> (personal)
+Service Operations Toolsmith    |   <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>------------------------------------------------------------------------
+ONElist:  bringing the world together.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Join a new list today!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0130.html">Jeff Allen: "Re: [cricket-users] Is Cricket Graph Y2K compliant?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0128.html">roofpig@the.satanic.org: "Re: [cricket-users] graphing problem..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0122.html">roofpig@the.satanic.org: "Re: [cricket-users] (Cricket 0.65) Forcing the graphing range"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0131.html">Jeff Allen: "Re: [cricket-users] (Cricket 0.65) Forcing the graphing range"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#129">[ date ]</A>
+<A HREF="index.html#129">[ thread ]</A>
+<A HREF="subject.html#129">[ subject ]</A>
+<A HREF="author.html#129">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:50 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

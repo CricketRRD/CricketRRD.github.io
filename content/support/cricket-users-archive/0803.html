@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Problem with grapher.cgi and</TITLE>
+<META NAME="Author" CONTENT="Hugo Gayosso (qztf7k@powertrain.mpg.gm.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Problem with grapher.cgi and fast ethernet i">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Problem with grapher.cgi and fast ethernet i</H1>
+<!-- received="Fri Dec 17 13:18:57 1999" -->
+<!-- isoreceived="19991217211857" -->
+<!-- sent="Fri, 17 Dec 1999 08:33:22 -0500 (EST)" -->
+<!-- isosent="19991217133322" -->
+<!-- name="Hugo Gayosso" -->
+<!-- email="qztf7k@powertrain.mpg.gm.com" -->
+<!-- subject="RE: [cricket-users] Problem with grapher.cgi and fast ethernet i" -->
+<!-- id="XFMail.19991217083322.qztf7k@powertrain.mpg.gm.com" -->
+<!-- inreplyto="19991217103849.A9496@nextel.no" -->
+<STRONG>From:</STRONG> Hugo Gayosso (<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20Problem%20with%20grapher.cgi%20and%20fast%20ethernet%20i&In-Reply-To=&lt;XFMail.19991217083322.qztf7k@powertrain.mpg.gm.com&gt;"><EM>qztf7k@powertrain.mpg.gm.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Dec 17 1999 - 05:33:22 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0804.html">Hugo Gayosso: "Re: [cricket-users] Suggestion and Clarification"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0802.html">Bjorn Nordbo: "[cricket-users] Problem with grapher.cgi and fast ethernet interface"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0802.html">Bjorn Nordbo: "[cricket-users] Problem with grapher.cgi and fast ethernet interface"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#803">[ date ]</A>
+<A HREF="index.html#803">[ thread ]</A>
+<A HREF="subject.html#803">[ subject ]</A>
+<A HREF="author.html#803">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Hugo Gayosso &lt;<A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20Problem%20with%20grapher.cgi%20and%20fast%20ethernet%20i&In-Reply-To=&lt;XFMail.19991217083322.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>&gt;
+<BR>
+<P>-----BEGIN PGP SIGNED MESSAGE-----
+<BR>
+Hash: SHA1
+<BR>
+<P>On 17-Dec-1999 Bjorn Nordbo wrote:
+<BR>
+<EM>&gt; target Serial10_0_0
+</EM><BR>
+<EM>&gt;         interface-name  =       Serial10/0/0
+</EM><BR>
+<EM>&gt;         short-desc      =       &quot;128kB/s to somewhere&quot;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; However, I cannot get any fast ethernet interfaces working:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; target FastEthernet8_0_0
+</EM><BR>
+<EM>&gt;         interface-name  =       FastEthernet8/0/0
+</EM><BR>
+<EM>&gt;         short-desc      =       &quot;Fast ethernet to Okern&quot;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; interfaces.ifTable.ifEntry.ifDescr.6 = &quot;FastEthernet8/0/0&quot;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; When I try to view statistics for it with grapher.cgi, I get
+</EM><BR>
+<EM>&gt; the following error in error_log:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Can't call method &quot;configHash&quot; on an undefined value at \
+</EM><BR>
+<EM>&gt;  /local/cricket/./lib/Common/Map.pm line 125.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; (long lines split)
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Now, what REALLY bugs me, is that when I change the config
+</EM><BR>
+<EM>&gt; file interface-name to, say, FastEthernet3/0/0, but leaves
+</EM><BR>
+<EM>&gt; the target name to FastEthernet8_0_0, it works! If I change
+</EM><BR>
+<EM>&gt; the target name too, it fails again.
+</EM><BR>
+<P>I don't know, maybe it is too silly, but anyways, maybe there is a problem with
+<BR>
+grapher, or more specifically with '/local/cricket/./lib/Common/Map.pm' when
+<BR>
+reading '/'  from the target name, maybe &quot;escaping&quot; them, or I don't know, I am
+<BR>
+just wondering.
+<BR>
+<P>Why did I dare to say this??
+<BR>
+<P><EM>&gt; Any help would be greately appreciated!
+</EM><BR>
+<P><P>Because of this ^^^^^^^^^^^^^  ;)
+<BR>
+<P><P><P><P>- -- 
+<BR>
+Hugo Gayosso                            |  The ultimate result is that some  
+<BR>
+Controls Process Support                |  innovations that would truly 
+<BR>
+Electronics Integration and Software    |  benefit consumers never occur 
+<BR>
+GM Powertrain                           |  for the sole reason that they
+<BR>
+Brighton, MI                            |  do not coincide with Microsoft's 
+<BR>
+USA                                     |  self-interest.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|      
+<BR>
+E-Mail: <A HREF="mailto:qztf7k@powertrain.mpg.gm.com?Subject=RE:%20[cricket-users]%20Problem%20with%20grapher.cgi%20and%20fast%20ethernet%20i&In-Reply-To=&lt;XFMail.19991217083322.qztf7k@powertrain.mpg.gm.com&gt;">qztf7k@powertrain.mpg.gm.com</A>    |            Thomas Penfield Jackson
+<BR>
+&nbsp;Phone: (810) 220-2635                  |              U.S. District Judge
+<BR>
+&nbsp;&nbsp;&nbsp;Fax: (810) 220-2663                  |
+<BR>
+<P><P><P>-----BEGIN PGP SIGNATURE-----
+<BR>
+Version: GnuPG v1.0.0 (GNU/Linux)
+<BR>
+Comment: For info see <A HREF="http://www.gnupg.org">http://www.gnupg.org</A>
+<BR>
+<P>iD8DBQE4Wjuix2JZtTN6co8RAnDRAJ0cLYcfQIivdkQM7ZMaMMOCTLqUQwCePX9G
+<BR>
+IxBbQU9Yg1lh4UDY80P6mpw=
+<BR>
+=9lcQ
+<BR>
+-----END PGP SIGNATURE-----
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make $$$ in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0804.html">Hugo Gayosso: "Re: [cricket-users] Suggestion and Clarification"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0802.html">Bjorn Nordbo: "[cricket-users] Problem with grapher.cgi and fast ethernet interface"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0802.html">Bjorn Nordbo: "[cricket-users] Problem with grapher.cgi and fast ethernet interface"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#803">[ date ]</A>
+<A HREF="index.html#803">[ thread ]</A>
+<A HREF="subject.html#803">[ subject ]</A>
+<A HREF="author.html#803">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:07 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

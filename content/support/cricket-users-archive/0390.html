@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Again: Cascade Interfaces</TITLE>
+<META NAME="Author" CONTENT="Alan Lichty (alan_lichty@eli.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Again: Cascade Interfaces">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Again: Cascade Interfaces</H1>
+<!-- received="Tue Jul 20 11:53:07 1999" -->
+<!-- isoreceived="19990720185307" -->
+<!-- sent="Tue, 20 Jul 1999 08:52:02 -0700 (PDT)" -->
+<!-- isosent="19990720155202" -->
+<!-- name="Alan Lichty" -->
+<!-- email="alan_lichty@eli.net" -->
+<!-- subject="Re: [cricket-users] Again: Cascade Interfaces" -->
+<!-- id="Pine.GSO.4.05.9907200837260.1141-100000@mars.eli.net" -->
+<!-- inreplyto="19990720130437.A30455@darwin.ipf.de" -->
+<STRONG>From:</STRONG> Alan Lichty (<A HREF="mailto:alan_lichty@eli.net?Subject=Re:%20[cricket-users]%20Again:%20Cascade%20Interfaces&In-Reply-To=&lt;Pine.GSO.4.05.9907200837260.1141-100000@mars.eli.net&gt;"><EM>alan_lichty@eli.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jul 20 1999 - 08:52:02 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0391.html">Jan Ahrent Czmok: "Re: [cricket-users] Again: Cascade Interfaces"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0389.html">Kilian Weniger: "[cricket-users] monitor ip-aliases (eth:x) ?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0386.html">Jan Ahrent Czmok: "[cricket-users] Again: Cascade Interfaces"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0391.html">Jan Ahrent Czmok: "Re: [cricket-users] Again: Cascade Interfaces"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0391.html">Jan Ahrent Czmok: "Re: [cricket-users] Again: Cascade Interfaces"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#390">[ date ]</A>
+<A HREF="index.html#390">[ thread ]</A>
+<A HREF="subject.html#390">[ subject ]</A>
+<A HREF="author.html#390">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Alan Lichty&quot; &lt;<A HREF="mailto:alan_lichty@eli.net?Subject=Re:%20[cricket-users]%20Again:%20Cascade%20Interfaces&In-Reply-To=&lt;Pine.GSO.4.05.9907200837260.1141-100000@mars.eli.net&gt;">alan_lichty@eli.net</A>&gt;
+<BR>
+<P>Jan -
+<BR>
+<P>Are you trying to monitor the ATM port of a router or an ATM switch?
+<BR>
+If this is for a router, then the Ascend OID's won't work.  The
+<BR>
+listinterfaces script in Cricket will properly do the physical port
+<BR>
+for an ATM interface by simply using the defaults for router ports.
+<BR>
+<P>ATM PVCs will not work this way and present a whole new can of worms.
+<BR>
+Most versions of ATM PVC monitoring scripts for Cisco routers use a
+<BR>
+telnet session to get the numbers and Cricket doesn't handle this type
+<BR>
+of scripting very well - its a *LOT* of overhead.  I finally resorted
+<BR>
+to a custom script that updates using RRD directly for these
+<BR>
+interfaces.
+<BR>
+<P>Alan Lichty
+<BR>
+Internetworking Planner
+<BR>
+Electric Lightwave, Inc.
+<BR>
+(360)816-4167
+<BR>
+<P>On Tue, 20 Jul 1999, Jan Ahrent Czmok wrote:
+<BR>
+<P><EM>&gt; From: Jan Ahrent Czmok &lt;<A HREF="mailto:j.czmok@gigabell.net?Subject=Re:%20[cricket-users]%20Again:%20Cascade%20Interfaces&In-Reply-To=&lt;Pine.GSO.4.05.9907200837260.1141-100000@mars.eli.net&gt;">j.czmok@gigabell.net</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; After figuring out the stuff (with help from Alan) within
+</EM><BR>
+<EM>&gt; atm-interfaces, i run into the problem of monitoring
+</EM><BR>
+<EM>&gt; Lports ...
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Under mrtg i simply use the ifnum:community@router stuff
+</EM><BR>
+<EM>&gt; but under cricket, i try to get it to work, but failed.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The listinterfaces tool does not work as the name mappings
+</EM><BR>
+<EM>&gt; are not correct in the mib:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; target --default--
+</EM><BR>
+<EM>&gt;         router = 195.211.224.1
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;         Received SNMP response with error code noSuchNameReceived SNMP
+</EM><BR>
+<EM>&gt;         response with error code noSuchNametarget Ascend_FE1_12_3_1_1
+</EM><BR>
+<EM>&gt;                 interface-name  =       Ascend/FE1_12/3/1/1
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; So... how can i just use the interface number to get data ?
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; HELP!
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Nevertheless, cricket/rrd together *SEEM* to be better than mrtg, even
+</EM><BR>
+<EM>&gt; more for the advanced user.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Jan
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -- 
+</EM><BR>
+<EM>&gt; Jan Czmok                     Gigabell AG
+</EM><BR>
+<EM>&gt; Senior Network Engineer       Mainzer Landstr. 46
+</EM><BR>
+<EM>&gt; Member of IPv6-Forum          60325 Frankfurt
+</EM><BR>
+<EM>&gt; Phone: +49 69 17084-716       Fax: +49 69 17084-701
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The Best Place to Buy Movies - Reel.com
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/reel1">http://clickme.onelist.com/ad/reel1</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist announces &quot;FRIENDS &amp; FAMILY!&quot;
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+See homepage for details, including our weekly drawing!
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0391.html">Jan Ahrent Czmok: "Re: [cricket-users] Again: Cascade Interfaces"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0389.html">Kilian Weniger: "[cricket-users] monitor ip-aliases (eth:x) ?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0386.html">Jan Ahrent Czmok: "[cricket-users] Again: Cascade Interfaces"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0391.html">Jan Ahrent Czmok: "Re: [cricket-users] Again: Cascade Interfaces"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0391.html">Jan Ahrent Czmok: "Re: [cricket-users] Again: Cascade Interfaces"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#390">[ date ]</A>
+<A HREF="index.html#390">[ thread ]</A>
+<A HREF="subject.html#390">[ subject ]</A>
+<A HREF="author.html#390">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:57 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

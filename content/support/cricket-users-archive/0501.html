@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Using named OIDs?</TITLE>
+<META NAME="Author" CONTENT="Brad Knowles (brad@shub-internet.org)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Using named OIDs?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Using named OIDs?</H1>
+<!-- received="Tue Aug 17 08:40:30 1999" -->
+<!-- isoreceived="19990817154030" -->
+<!-- sent="Tue, 17 Aug 1999 14:30:55 +0200" -->
+<!-- isosent="19990817123055" -->
+<!-- name="Brad Knowles" -->
+<!-- email="brad@shub-internet.org" -->
+<!-- subject="RE: [cricket-users] Using named OIDs?" -->
+<!-- id="v04205512b3df04e0bc06@[195.238.1.121]" -->
+<!-- inreplyto="000001bee8a3$6fc13980$0a0110ac@craiglap.craigm.tintz.co.nz" -->
+<STRONG>From:</STRONG> Brad Knowles (<A HREF="mailto:brad@shub-internet.org?Subject=RE:%20[cricket-users]%20Using%20named%20OIDs?&In-Reply-To=&lt;v04205512b3df04e0bc06@[195.238.1.121]&gt;"><EM>brad@shub-internet.org</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Aug 17 1999 - 05:30:55 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0502.html">Brad Knowles: "RE: [cricket-users] Using named OIDs?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0500.html">Brad Knowles: "[cricket-users] Using named OIDs?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0502.html">Brad Knowles: "RE: [cricket-users] Using named OIDs?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#501">[ date ]</A>
+<A HREF="index.html#501">[ thread ]</A>
+<A HREF="subject.html#501">[ subject ]</A>
+<A HREF="author.html#501">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Brad Knowles &lt;<A HREF="mailto:brad@shub-internet.org?Subject=RE:%20[cricket-users]%20Using%20named%20OIDs?&In-Reply-To=&lt;v04205512b3df04e0bc06@[195.238.1.121]&gt;">brad@shub-internet.org</A>&gt;
+<BR>
+<P>At 11:27 PM +1200 1999/8/17, Craig Mckenna wrote:
+<BR>
+<P><EM>&gt; UCD comes with a tool called snmptranslate
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; If you enter the strings returned it will tell you the coresponding Numeric
+</EM><BR>
+<EM>&gt; OIDS
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Hope this helps :)
+</EM><BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I had previously found snmptranslate, but wasn't able to get it 
+<BR>
+to do anything useful for me.  I just tried it again, and still no 
+<BR>
+luck.  For example:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ snmptranslate -f -R 
+<BR>
+enterprises.ucdavis.loadTable.laEntry.loadaveLoad.1
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Produces the following output:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unknown object identifier: enterprises
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While walking the whole portion of the subtree gives me:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ snmpwalk -v 1 host.doma.in community .1.3.6.1.4.1.2021.10
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laIndex.1 = 1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laIndex.2 = 2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laIndex.3 = 3
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laNames.1 = &quot;Load-1&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laNames.2 = &quot;Load-5&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laNames.3 = &quot;Load-15&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoad.1 = &quot;1.50&quot; Hex: 
+<BR>
+31 2E 35 30
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoad.2 = &quot;1.44&quot; Hex: 
+<BR>
+31 2E 34 34
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoad.3 = &quot;1.54&quot; Hex: 
+<BR>
+31 2E 35 34
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laConfig.1 = &quot;5.00&quot; 
+<BR>
+Hex: 35 2E 30 30
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laConfig.2 = &quot;4.00&quot; 
+<BR>
+Hex: 34 2E 30 30
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laConfig.3 = &quot;2.00&quot; 
+<BR>
+Hex: 32 2E 30 30
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoadInt.1 = 150
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoadInt.2 = 144
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoadInt.3 = 153
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoadFloat.1 = OPAQUE: 
+<BR>
+9F 78 04 3F C0 A0 00
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoadFloat.2 = OPAQUE: 
+<BR>
+9F 78 04 3F B8 A0 00
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laLoadFloat.3 = OPAQUE: 
+<BR>
+9F 78 04 3F C5 00 00
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laErrorFlag.1 = 0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laErrorFlag.2 = 0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laErrorFlag.3 = 0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laErrMessage.1 = &quot;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laErrMessage.2 = &quot;&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.loadTable.laEntry.laErrMessage.3 = &quot;&quot;
+<BR>
+<P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The problem is that I know what 
+<BR>
+enterprises.ucdavis.loadTable.laEntry translates into 
+<BR>
+(.1.3.6.1.4.1.2021.10).  What I don't know is what laLoad translates 
+<BR>
+into, so that I can stick the appropriate number between 
+<BR>
+&quot;.1.3.6.1.4.1.2021.10&quot; and &quot;.1&quot; for the one-minute load average.
+<BR>
+<P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Browsing even more of the MIB, I get:
+<BR>
+<P>&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enterprises.ucdavis.mibRegistryTable.mrEntry.mrIndex.1.3.6.1.4.1.2021 
+<BR>
+..10.1 = OID
+<BR>
+: enterprises.ucdavis.loadTable.laEntry
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;But this doesn't tell me anything I didn't already know.  I'm 
+<BR>
+still missing the numbers that correspond to &quot;laIndex&quot;, &quot;laNames&quot;, 
+<BR>
+&quot;laLoad&quot;, etc....
+<BR>
+<P><PRE>
+-- 
+Brad Knowles &lt;<A HREF="mailto:brad@shub-internet.org?Subject=RE:%20[cricket-users]%20Using%20named%20OIDs?&In-Reply-To=&lt;v04205512b3df04e0bc06@[195.238.1.121]&gt;">brad@shub-internet.org</A>&gt; &lt;<A HREF="http://www.shub-internet.org/brad/">http://www.shub-internet.org/brad/</A>&gt;
+     &lt;<A HREF="http://wwwkeys.pgp.net:11371/pks/lookup?op=get&search=0xE38CCEF1">http://wwwkeys.pgp.net:11371/pks/lookup?op=get&search=0xE38CCEF1</A>&gt;
+<P>Your mouse has moved.   Windows NT must be restarted for the change to
+take effect.   Reboot now?  [ OK ]
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>ONElist:  your connection to like-minds and kindred spirits.
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0502.html">Brad Knowles: "RE: [cricket-users] Using named OIDs?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0500.html">Brad Knowles: "[cricket-users] Using named OIDs?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0502.html">Brad Knowles: "RE: [cricket-users] Using named OIDs?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#501">[ date ]</A>
+<A HREF="index.html#501">[ thread ]</A>
+<A HREF="subject.html#501">[ subject ]</A>
+<A HREF="author.html#501">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

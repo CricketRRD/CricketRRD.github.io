@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Yearly graph</TITLE>
+<META NAME="Author" CONTENT="Kennedy Clark (kclark@ccci.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Yearly graph">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Yearly graph</H1>
+<!-- received="Wed Oct  6 07:50:41 1999" -->
+<!-- isoreceived="19991006145041" -->
+<!-- sent="Wed, 06 Oct 1999 07:47:54 -0400" -->
+<!-- isosent="19991006114754" -->
+<!-- name="Kennedy Clark" -->
+<!-- email="kclark@ccci.com" -->
+<!-- subject="Re: [cricket-users] Yearly graph" -->
+<!-- id="3.0.1.32.19991006074754.0071a3f4@fridge.ccci.com" -->
+<!-- inreplyto="37FAD660.DE09ED79@fastlane.net" -->
+<STRONG>From:</STRONG> Kennedy Clark (<A HREF="mailto:kclark@ccci.com?Subject=Re:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;3.0.1.32.19991006074754.0071a3f4@fridge.ccci.com&gt;"><EM>kclark@ccci.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Oct 06 1999 - 04:47:54 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0643.html">Kennedy Clark: "Re: [cricket-users] Collector / CISCO Router errors"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0641.html">Shannon Reis: "Re: [cricket-users] Yearly graph"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0641.html">Shannon Reis: "Re: [cricket-users] Yearly graph"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0647.html">Smith Colin-WCCS07: "RE: [cricket-users] Yearly graph"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#642">[ date ]</A>
+<A HREF="index.html#642">[ thread ]</A>
+<A HREF="subject.html#642">[ subject ]</A>
+<A HREF="author.html#642">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Kennedy Clark &lt;<A HREF="mailto:kclark@ccci.com?Subject=Re:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;3.0.1.32.19991006074754.0071a3f4@fridge.ccci.com&gt;">kclark@ccci.com</A>&gt;
+<BR>
+<P>Everyone,
+<BR>
+<P>Is there a way to have Cricket show you the peak values in addition
+<BR>
+to the average values similar to the &quot;WithPeak&quot; option in MRTG?
+<BR>
+This is really nice because it allow you to see the more-and-more
+<BR>
+averaged values while also viewing the peak 5-minutes intervals.
+<BR>
+<P>Thanks,
+<BR>
+Kennedy
+<BR>
+<P>At 11:56 PM 10/5/99 -0500, Shannon Reis wrote:
+<BR>
+<EM>&gt;From: Shannon Reis &lt;<A HREF="mailto:sreis@fastlane.net?Subject=Re:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;3.0.1.32.19991006074754.0071a3f4@fridge.ccci.com&gt;">sreis@fastlane.net</A>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;You can also think about it this way:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;It takes you exactly 60 minutes to travel 35 miles to work (an
+</EM><BR>
+average speed of
+<BR>
+<EM>&gt;35 miles/hour).  RRD would graph this the hour average as 35
+</EM><BR>
+miles/hour for the
+<BR>
+<EM>&gt;hour period (on a daily graph).  However, during your drive, you
+</EM><BR>
+approach the
+<BR>
+<EM>&gt;speed of 80 miles/hour (don't let the cops catch you), and it just
+</EM><BR>
+so happens
+<BR>
+<EM>&gt;that RRD polled you when you got to the 80mph speed.  So, the MAX
+</EM><BR>
+for that period
+<BR>
+<EM>&gt;would be 80 Miles/hour.  Over time, RRD would still save the MAX
+</EM><BR>
+of 80 Miles/hour
+<BR>
+<EM>&gt;for the day...but it would average out the 35mph to 1.5mph
+</EM><BR>
+(assuming you didn't
+<BR>
+<EM>&gt;travel at all for the rest of the day).
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Basically, what you can extrapolate from this is:
+</EM><BR>
+<EM>&gt;Averages will tell you how much of the available bandwidth was
+</EM><BR>
+utilized during
+<BR>
+<EM>&gt;the period of time.
+</EM><BR>
+<EM>&gt;Maxes will tell you the maximum amount of available bandwidth was
+</EM><BR>
+utilized at any
+<BR>
+<EM>&gt;one time during a period of time.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Use averages in relation to MAX's.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;For network utilization, it is very helpful to see that your pipe
+</EM><BR>
+does max out
+<BR>
+<EM>&gt;during peak times during the day, but that over time it utilizes
+</EM><BR>
+about, say 30%
+<BR>
+<EM>&gt;of the pipe.  For network utilization, it is quite common for you
+</EM><BR>
+to get a MAX
+<BR>
+<EM>&gt;that approaches the bandwidth (even though its usually a 5 minute
+</EM><BR>
+average'd MAX
+<BR>
+<EM>&gt;-- depending on your polling time).  And, and average that is
+</EM><BR>
+20-30% of the
+<BR>
+<EM>&gt;total.  Network traffic tends to be bursty (especially on LAN's)
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;For modem utilization, use averages, but mostly focus on the max's
+</EM><BR>
+because if
+<BR>
+<EM>&gt;your max is at your capacity, you have busy signals! (ie unhappy
+</EM><BR>
+customers)
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;There are some cases where MIN's could be usable....but I can't
+</EM><BR>
+think of them now
+<BR>
+<EM>&gt;;)
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Shannon
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;&quot;Berg, Ivan&quot; wrote:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;&gt; From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=Re:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;3.0.1.32.19991006074754.0071a3f4@fridge.ccci.com&gt;">iberg@montana.edu</A>&gt;
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; Probably because cricket averages the longer time periods.
+</EM><BR>
+<EM>&gt;&gt; Notice your average for the day is about half what your peak
+</EM><BR>
+value is.  This
+<BR>
+<EM>&gt;&gt; average is what you seeing in the long run(you lose specifics in
+</EM><BR>
+the long
+<BR>
+<EM>&gt;&gt; run but gain a better idea of the average picture is)
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt;&gt; From: Aurelio Sanchez
+</EM><BR>
+<EM>&gt;&gt; To: <A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;3.0.1.32.19991006074754.0071a3f4@fridge.ccci.com&gt;">cricket-users@onelist.com</A>
+</EM><BR>
+<EM>&gt;&gt; Sent: 10/5/99 3:54 PM
+</EM><BR>
+<EM>&gt;&gt; Subject: [cricket-users] Yearly graph
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; From: Aurelio Sanchez &lt;<A HREF="mailto:asanchez@avantel.net.mx?Subject=Re:%20[cricket-users]%20Yearly%20graph&In-Reply-To=&lt;3.0.1.32.19991006074754.0071a3f4@fridge.ccci.com&gt;">asanchez@avantel.net.mx</A>&gt;
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; Hi!
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt;   I'm using crickte 0.70 with rrdtool 1.07 in a ultra 1 with
+</EM><BR>
+solaris
+<BR>
+<EM>&gt;&gt; 2.6. Currently I have a DS3 link been graphicated and I'm noticing
+</EM><BR>
+<EM>&gt;&gt; something really wierd.
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; The hourly graph shows the link almost full. The summary is as
+</EM><BR>
+follows:
+<BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; Summary
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt;   Values at last update:
+</EM><BR>
+<EM>&gt;&gt;   Average bits in (for the day):
+</EM><BR>
+<EM>&gt;&gt;   Cur: 39.36 Mbits/sec
+</EM><BR>
+<EM>&gt;&gt;   Avg: 25.41 Mbits/sec
+</EM><BR>
+<EM>&gt;&gt;   Max: 41.17 Mbits/sec
+</EM><BR>
+<EM>&gt;&gt;                                         Average bits out (for
+</EM><BR>
+the day):
+<BR>
+<EM>&gt;&gt;                                         Cur: 8.84 Mbits/sec
+</EM><BR>
+<EM>&gt;&gt;                                         Avg: 5.88 Mbits/sec
+</EM><BR>
+<EM>&gt;&gt;                                         Max: 10.04 Mbits/sec
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt;   Last updated at Tue Oct 5 16:45:09 1999
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt;   However my yearly graph shows the link barely half full and
+</EM><BR>
+this data
+<BR>
+<EM>&gt;&gt; is not making any sense to my upper management. Can anybody
+</EM><BR>
+explain me
+<BR>
+<EM>&gt;&gt; why is thios behaviour?, is this correct and I not understanding
+</EM><BR>
+the
+<BR>
+<EM>&gt;&gt; graphs?
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt;   Any help will be appreciated.
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt;   Thanks,
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt;    Aurelio Sanchez
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; 
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;--------------------------- ONElist Sponsor
+</EM><BR>
+----------------------------
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Does Windows keep &quot;&quot;bugging&quot;&quot; you?  Can't get that PowerPoint
+</EM><BR>
+slide to fit?
+<BR>
+<EM>&gt;Get FREE real-time live expert support over the Internet at
+</EM><BR>
+expertcity.com.  
+<BR>
+<EM>&gt;         &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity7">http://clickme.onelist.com/ad/expertcity7</A>
+</EM><BR>
+&quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;-------------------------------------------------------------------
+</EM><BR>
+-----
+<BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>BETA TEST expertcity.com's new online, real-time, technical support service!
+<BR>
+&nbsp;&nbsp;&nbsp;Let our live experts help you with your computer now. IT'S FREE! ! !
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity8">http://clickme.onelist.com/ad/expertcity8</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0643.html">Kennedy Clark: "Re: [cricket-users] Collector / CISCO Router errors"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0641.html">Shannon Reis: "Re: [cricket-users] Yearly graph"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0641.html">Shannon Reis: "Re: [cricket-users] Yearly graph"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0647.html">Smith Colin-WCCS07: "RE: [cricket-users] Yearly graph"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#642">[ date ]</A>
+<A HREF="index.html#642">[ thread ]</A>
+<A HREF="subject.html#642">[ subject ]</A>
+<A HREF="author.html#642">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

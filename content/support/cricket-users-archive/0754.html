@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] SOLVED (kinda) Re: DB_File needs</TITLE>
+<META NAME="Author" CONTENT="Jim Johnson (johnsojr@pluto.dsu.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] SOLVED (kinda) Re: DB_File needs compatible versions of libdb &amp; db.h?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] SOLVED (kinda) Re: DB_File needs compatible versions of libdb &amp; db.h?</H1>
+<!-- received="Fri Nov 19 23:18:31 1999" -->
+<!-- isoreceived="19991120071831" -->
+<!-- sent="Fri, 19 Nov 1999 22:19:12 -0600" -->
+<!-- isosent="19991120041912" -->
+<!-- name="Jim Johnson" -->
+<!-- email="johnsojr@pluto.dsu.edu" -->
+<!-- subject="[cricket-users] SOLVED (kinda) Re: DB_File needs compatible versions of libdb &amp; db.h?" -->
+<!-- id="4.2.0.58.19991119221241.009714f0@138.247.68.110" -->
+<STRONG>From:</STRONG> Jim Johnson (<A HREF="mailto:johnsojr@pluto.dsu.edu?Subject=Re:%20[cricket-users]%20SOLVED%20(kinda)%20Re:%20DB_File%20needs%20compatible%20versions%20of%20libdb%20&amp;%20db.h?&In-Reply-To=&lt;4.2.0.58.19991119221241.009714f0@138.247.68.110&gt;"><EM>johnsojr@pluto.dsu.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Nov 19 1999 - 20:19:12 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0755.html">Jim Johnson: "[cricket-users] Re: SOLVED: Premature end of script headers  ??"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0753.html">johnsojr@pluto.dsu.edu: "[cricket-users] DB_File needs compatible versions of libdb &amp; db.h?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#754">[ date ]</A>
+<A HREF="index.html#754">[ thread ]</A>
+<A HREF="subject.html#754">[ subject ]</A>
+<A HREF="author.html#754">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jim Johnson &lt;<A HREF="mailto:johnsojr@pluto.dsu.edu?Subject=Re:%20[cricket-users]%20SOLVED%20(kinda)%20Re:%20DB_File%20needs%20compatible%20versions%20of%20libdb%20&amp;%20db.h?&In-Reply-To=&lt;4.2.0.58.19991119221241.009714f0@138.247.68.110&gt;">johnsojr@pluto.dsu.edu</A>&gt;
+<BR>
+<P>mod_perl seems to be the source of my problems.  Went back to plain old cgi 
+<BR>
+and all is well now.  I was using a stock install of RedHat 6.1 with Apache 
+<BR>
+and mod_perl (ie. I didn't compile Apache with mod_perl in it from 
+<BR>
+scratch).  If I can get enough courage built up, I might try building Apach 
+<BR>
+with mod_perl installed from scratch to see if that works.  Has anyone else 
+<BR>
+experience this?  Any hints/tips?
+<BR>
+<P>Thanks,
+<BR>
+JIM
+<BR>
+<P>Message: 8 Date: 18 Nov 1999 23:25:13 -0000
+<BR>
+From: johnsojr@xxxxx.xxx.xxx
+<BR>
+Subject: DB_File needs compatible versions of libdb &amp; db.h?
+<BR>
+<P>When I make DB_File, everything works fine, passes all the tests. However 
+<BR>
+when I run grapher.cgi I get the following error in my Apache error_log file:
+<BR>
+<P>*********error**************
+<BR>
+[Thu Nov 18 16:36:11 1999] [error] DB_File needs compatible versions of 
+<BR>
+libdb &amp; db.h
+<BR>
+you have db.h version 2.7.7 and libdb version 2.4.14
+<BR>
+BEGIN failed--compilation aborted at 
+<BR>
+/home/cricket/public_html/cricket/./lib/ConfigTree/Cache.pm line 21.
+<BR>
+BEGIN failed--compilation aborted at 
+<BR>
+/home/cricket/public_html/cricket/grapher.cgi line 53.
+<BR>
+*********error**************
+<BR>
+<P>In an effort to get DB_File to use the correct libdb I renamed 
+<BR>
+/usr/lib/libdb.a to /usr/lib/libdb.a.back. This didn't work and since I 
+<BR>
+really don't know what I'm doing, I don't want to mess with any of the many 
+<BR>
+other libdb files I found on my system (listed below). At the end of this 
+<BR>
+post is some code that does work, and the versions of all the relevant 
+<BR>
+software. Has anyone had this problem before, can anyone help me?
+<BR>
+<P>/usr/lib/libdb.so
+<BR>
+/usr/lib/libdb1.a
+<BR>
+/usr/lib/libdb1.so
+<BR>
+/usr/lib/libdb.a.back
+<BR>
+/usr/local/BerkeleyDB/lib/libdb.a
+<BR>
+/usr/i386-glibc20-linux/lib/libdb-2.0.7.so
+<BR>
+/usr/i386-glibc20-linux/lib/libdb.so
+<BR>
+/usr/i386-glibc20-linux/lib/libdb.so.2
+<BR>
+/usr/i486-linux-libc5/lib/libdb.so.2.0.0
+<BR>
+/usr/i486-linux-libc5/lib/libdb.so.2
+<BR>
+/lib/libdb-2.1.2.so
+<BR>
+/lib/libdb.so.2
+<BR>
+/lib/libdb.so.3
+<BR>
+/lib/libdb1-2.1.2.so
+<BR>
+/lib/libdb1.so.2
+<BR>
+<P><P>********This code works************
+<BR>
+use DB_File;
+<BR>
+tie %hash,  'DB_File', 'test';
+<BR>
+$hash{'foo'} = &quot;bar&quot;;
+<BR>
+print &quot;result is: &quot;, $hash{'foo'}, &quot;\n&quot;;
+<BR>
+********This code works************
+<BR>
+<P>Below are the versions of all (I think) relevant software.
+<BR>
+DB_File-1.71
+<BR>
+db-2.7.7
+<BR>
+cricket-0.70
+<BR>
+rrdtool-1.0.7
+<BR>
+<P>RedHat 6.1
+<BR>
+apache_1.3.9
+<BR>
+mod_perl
+<BR>
+Time-HiRes-01.20
+<BR>
+MD5-1.7
+<BR>
+libwww-perl-5.46
+<BR>
+TimeDate-1.08
+<BR>
+SNMP_Session-0.75
+<BR>
+lwp
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GET WHAT YOU DESERVE! A NextCard Platinum VISA: 
+<BR>
+Get an APR as low as 2.9 Intro &amp; NO annual fee! Apply online today!  
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/nextcard16">http://clickme.onelist.com/ad/nextcard16</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0755.html">Jim Johnson: "[cricket-users] Re: SOLVED: Premature end of script headers  ??"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0753.html">johnsojr@pluto.dsu.edu: "[cricket-users] DB_File needs compatible versions of libdb &amp; db.h?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#754">[ date ]</A>
+<A HREF="index.html#754">[ thread ]</A>
+<A HREF="subject.html#754">[ subject ]</A>
+<A HREF="author.html#754">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:06 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Collector, DNS &amp; resolving I</TITLE>
+<META NAME="Author" CONTENT="Jennifer.Hayes@det.nsw.edu.au (Jennifer.Hayes@det.nsw.edu.au)">
+<META NAME="Subject" CONTENT="[cricket-users] Collector, DNS &amp; resolving IP addresses">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Collector, DNS &amp; resolving IP addresses</H1>
+<!-- received="Mon Sep 27 22:44:37 1999" -->
+<!-- isoreceived="19990928054437" -->
+<!-- sent="28 Sep 1999 02:42:14 -0000" -->
+<!-- isosent="19990928024214" -->
+<!-- name="Jennifer.Hayes@det.nsw.edu.au" -->
+<!-- email="Jennifer.Hayes@det.nsw.edu.au" -->
+<!-- subject="[cricket-users] Collector, DNS &amp; resolving IP addresses" -->
+<!-- id="938486534.28205@onelist.com" -->
+<STRONG>From:</STRONG> <A HREF="mailto:Jennifer.Hayes@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Collector,%20DNS%20&amp;%20resolving%20IP%20addresses&In-Reply-To=&lt;938486534.28205@onelist.com&gt;"><EM>Jennifer.Hayes@det.nsw.edu.au</EM></A><BR>
+<STRONG>Date:</STRONG> Mon Sep 27 1999 - 19:42:14 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0622.html">Jason Tonkin: "Re: [cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0620.html">David Mitchell: "[cricket-users] Bug fix for &quot;show max&quot;"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0622.html">Jason Tonkin: "Re: [cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0622.html">Jason Tonkin: "Re: [cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#621">[ date ]</A>
+<A HREF="index.html#621">[ thread ]</A>
+<A HREF="subject.html#621">[ subject ]</A>
+<A HREF="author.html#621">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:Jennifer.Hayes@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Collector,%20DNS%20&amp;%20resolving%20IP%20addresses&In-Reply-To=&lt;938486534.28205@onelist.com&gt;">Jennifer.Hayes@det.nsw.edu.au</A>
+<BR>
+<P>I am setting up Cricket (latest version) on an Alphaserver DS20 running 
+<BR>
+Digital UNIX V4.0F.
+<BR>
+<P>perl5.005_03
+<BR>
+rrdtool-1.0.4
+<BR>
+SNMP_Session-0.72
+<BR>
+cricket-0_70
+<BR>
+<P>A compile of the config tree worked okay but when collector was first run we got
+<BR>
+errors that the 'router name' could not be resolved to the IP address. As per an 
+<BR>
+earlier suggestion in these archives we added the IP address to /etc/hosts and
+<BR>
+checked the DNS forward / rev were okay. 
+<BR>
+<P># nslookup isbr22
+<BR>
+Server:  watt.isd.tafensw.EDU.AU
+<BR>
+Address:  153.107.23.1
+<BR>
+<P>Name:    isbr22.schools.nsw.EDU.AU
+<BR>
+Address:  10.23.254.250
+<BR>
+Aliases:  isbr22.isd.tafensw.EDU.AU
+<BR>
+<P><P>After doing another compile and re-running collector the following errors are 
+<BR>
+displayed:
+<BR>
+<P><P><P>[28-Sep-1999 12:30:05 ] Starting collector: Cricket version 0.70 ( Wed Aug 11 11
+<BR>
+:33:37 PDT 1999 )
+<BR>
+[28-Sep-1999 12:30:05*] Variable expansion uses undefined variable: interface-na
+<BR>
+me.
+<BR>
+[28-Sep-1999 12:30:05*] Variable expansion uses undefined variable: interface-na
+<BR>
+me.
+<BR>
+[28-Sep-1999 12:30:05 ] Walking ifDescr for isbr22.schools.nsw.EDU.AU:161 to res
+<BR>
+olve interface-name mapping
+<BR>
+[28-Sep-1999 12:30:05*] Failed to map instance for 0. Instance is now set to not
+<BR>
+hing.
+<BR>
+[28-Sep-1999 12:30:05*] Received SNMP response with error code noSuchName
+<BR>
+[28-Sep-1999 12:30:05 ] Retrieved data for 0 (): U,U,U,U,U,U
+<BR>
+[28-Sep-1999 12:30:05 ] Some data is missing for 0 ().
+<BR>
+<P>Any suggestions - are we missing something in setting up the 'interface-name'??
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GET 2 FREE MUSIC CDS AND LOWER YOUR PHONE BILL!  ACT NOW!
+<BR>
+Sign up for Qwest long distance at Shopnow.com and receive 2 free music
+<BR>
+CDs, huge savings on long distance, plus special deals! Expires 9/30!
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/shopnow1">http://clickme.onelist.com/ad/shopnow1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0622.html">Jason Tonkin: "Re: [cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0620.html">David Mitchell: "[cricket-users] Bug fix for &quot;show max&quot;"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0622.html">Jason Tonkin: "Re: [cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0622.html">Jason Tonkin: "Re: [cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#621">[ date ]</A>
+<A HREF="index.html#621">[ thread ]</A>
+<A HREF="subject.html#621">[ subject ]</A>
+<A HREF="author.html#621">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

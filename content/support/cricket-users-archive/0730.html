@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Data not being graphed</TITLE>
+<META NAME="Author" CONTENT="Brian E Gallew (geek+@cmu.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] Data not being graphed">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Data not being graphed</H1>
+<!-- received="Tue Nov  9 15:46:27 1999" -->
+<!-- isoreceived="19991109234627" -->
+<!-- sent="9 Nov 1999 15:44:58 -0500" -->
+<!-- isosent="19991109204458" -->
+<!-- name="Brian E Gallew" -->
+<!-- email="geek+@cmu.edu" -->
+<!-- subject="[cricket-users] Data not being graphed" -->
+<!-- id="emacs-smtp-589-14376-34762-758179@export.andrew.cmu.edu" -->
+<STRONG>From:</STRONG> Brian E Gallew (<A HREF="mailto:geek%2B@cmu.edu?Subject=Re:%20[cricket-users]%20Data%20not%20being%20graphed&In-Reply-To=&lt;emacs-smtp-589-14376-34762-758179@export.andrew.cmu.edu&gt;"><EM>geek+@cmu.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Nov 09 1999 - 12:44:58 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0731.html">Utsav_Ratti@mckinsey.com: "[cricket-users] Hardmapping OIDs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0729.html">the+cricket@llama.com: "[cricket-users] &quot;50 hour&quot; recording bug"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#730">[ date ]</A>
+<A HREF="index.html#730">[ thread ]</A>
+<A HREF="subject.html#730">[ subject ]</A>
+<A HREF="author.html#730">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+Any help will be greatly appreciated.
+<BR>
+<P>I've installed UCD-SNMP, and extended the configuration with the
+<BR>
+following line:
+<BR>
+exec logins /usr/local/share/snmp/login_count
+<BR>
+<P>I've declared the following OID:
+<BR>
+OID     logins          .1.3.6.1.4.1.2021.8.1.100.1
+<BR>
+datasource      logins          ds-source       =       snmp://%snmp%/logins
+<BR>
+<P>snmpget returns valid values, and rrd-dump shows correct values.
+<BR>
+<P>Unfortunately, the graphs are empty.  &quot;Values at last update&quot; is
+<BR>
+blank.  Here are the relevant lines from my Defaults file:
+<BR>
+<P>targetType      ucd-snmpd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds      =       &quot;cpu1min, cpu5min, cpu15min, freemem, freeswap, logins&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view    =       &quot;cpu: cpu1min cpu5min cpu15min, memory: freemem freeswap, Users: logins&quot;
+<BR>
+<P><P>graph   logins
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as =       LINE2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-axis  =       &quot;Users&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legend  =       &quot;User Logins&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units   =       &quot;users&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scale   =       &quot;1,*&quot;
+<BR>
+<P>At the risk of making this too long, I'll even include an rrd-dump of
+<BR>
+the relevant data file:
+<BR>
+<P>Header info: 6,6,300
+<BR>
+<P>DS 0:   max_val,?,dsName,ds0,dst,GAUGE,min_val,?,ds_mrhb,1800
+<BR>
+DS 1:   max_val,?,dsName,ds1,dst,GAUGE,min_val,?,ds_mrhb,1800
+<BR>
+DS 2:   max_val,?,dsName,ds2,dst,GAUGE,min_val,?,ds_mrhb,1800
+<BR>
+DS 3:   max_val,?,dsName,ds3,dst,GAUGE,min_val,?,ds_mrhb,1800
+<BR>
+DS 4:   max_val,?,dsName,ds4,dst,GAUGE,min_val,?,ds_mrhb,1800
+<BR>
+DS 5:   max_val,?,dsName,ds5,dst,GAUGE,min_val,?,ds_mrhb,1800
+<BR>
+<P>RRA 0:  pdp_cnt,1,cf,0.5,row_cnt,600,rraName,AVERAGE
+<BR>
+RRA 1:  pdp_cnt,6,cf,0.5,row_cnt,600,rraName,AVERAGE
+<BR>
+RRA 2:  pdp_cnt,24,cf,0.5,row_cnt,600,rraName,AVERAGE
+<BR>
+RRA 3:  pdp_cnt,24,cf,0.5,row_cnt,600,rraName,MAX
+<BR>
+RRA 4:  pdp_cnt,288,cf,0.5,row_cnt,600,rraName,AVERAGE
+<BR>
+RRA 5:  pdp_cnt,288,cf,0.5,row_cnt,600,rraName,MAX
+<BR>
+<P>Live header:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last update time: 942179927
+<BR>
+<P>PDP 0:  last_ds,UNKN,value,117.64,unkn_sec,0
+<BR>
+PDP 1:  last_ds,UNKN,value,110.87,unkn_sec,0
+<BR>
+PDP 2:  last_ds,UNKN,value,95.18,unkn_sec,0
+<BR>
+PDP 3:  last_ds,UNKN,value,12128448,unkn_sec,0
+<BR>
+PDP 4:  last_ds,UNKN,value,88447656,unkn_sec,0
+<BR>
+PDP 5:  last_ds,UNKN,value,908,unkn_sec,0
+<BR>
+<P>CDP's:
+<BR>
+rra=0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=0:   value,?,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=1:   value,?,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=2:   value,?,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=3:   value,?,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=4:   value,?,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=5:   value,?,unkn_pdp,0
+<BR>
+rra=1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=0:   value,0.418,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=1:   value,0.399,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=2:   value,0.3796,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=3:   value,61654.52,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=4:   value,382368.12,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=5:   value,4,unkn_pdp,0
+<BR>
+rra=2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=0:   value,2.05806666666667,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=1:   value,2.32943333333333,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=2:   value,2.5,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=3:   value,374588.653333333,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=4:   value,2689006.44,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=5:   value,28,unkn_pdp,0
+<BR>
+rra=3
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=0:   value,0.419,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=1:   value,0.399,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=2:   value,0.3796,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=3:   value,61654.52,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=4:   value,385301.88,unkn_pdp,0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=5:   value,4,unkn_pdp,0
+<BR>
+rra=4
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=0:   value,4.1314,unkn_pdp,234
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=1:   value,4.5017,unkn_pdp,234
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=2:   value,4.79393333333333,unkn_pdp,234
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=3:   value,689570.986666667,unkn_pdp,234
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=4:   value,5006698.86666667,unkn_pdp,234
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=5:   value,52,unkn_pdp,234
+<BR>
+rra=5
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=0:   value,0.47,unkn_pdp,234
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=1:   value,0.410766666666667,unkn_pdp,234
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=2:   value,0.393933333333333,unkn_pdp,234
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=3:   value,61654.52,unkn_pdp,234
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=4:   value,390189.906666667,unkn_pdp,234
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds=5:   value,4,unkn_pdp,234
+<BR>
+<P>RRA ptrs
+<BR>
+&nbsp;0: 230
+<BR>
+&nbsp;1: 339
+<BR>
+&nbsp;2: 85
+<BR>
+&nbsp;3: 85
+<BR>
+&nbsp;4: 7
+<BR>
+&nbsp;5: 7
+<BR>
+<P>Current values
+<BR>
+&nbsp;0: 0.418
+<BR>
+&nbsp;1: 0.399
+<BR>
+&nbsp;2: 0.3796
+<BR>
+&nbsp;3: 61654.52
+<BR>
+&nbsp;4: 382368.12
+<BR>
+&nbsp;5: 4
+<BR>
+<P>Metadata:
+<BR>
+<P><P><PRE>
+-- 
+=====================================================================
+| JAVA must have been developed in the wilds of West Virginia.      |
+| After all, why else would it support only single inheritance??    |
+=====================================================================
+| Finger <A HREF="mailto:geek@cmu.edu?Subject=Re:%20[cricket-users]%20Data%20not%20being%20graphed&In-Reply-To=&lt;emacs-smtp-589-14376-34762-758179@export.andrew.cmu.edu&gt;">geek@cmu.edu</A> for my public key.                            |
+=====================================================================
+<P>
+</PRE>
+<HR NOSHADE>
+<UL>
+<LI>application/pgp-signature attachment: <A HREF="att-0730/01-part">stored</A>
+</UL>
+<!-- attachment="01-part" -->
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0731.html">Utsav_Ratti@mckinsey.com: "[cricket-users] Hardmapping OIDs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0729.html">the+cricket@llama.com: "[cricket-users] &quot;50 hour&quot; recording bug"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#730">[ date ]</A>
+<A HREF="index.html#730">[ thread ]</A>
+<A HREF="subject.html#730">[ subject ]</A>
+<A HREF="author.html#730">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:06 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Help!</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Help!">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Help!</H1>
+<!-- received="Mon Nov  1 12:17:07 1999" -->
+<!-- isoreceived="19991101201707" -->
+<!-- sent="Mon, 1 Nov 1999 10:18:13 -0700 " -->
+<!-- isosent="19991101171813" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="RE: [cricket-users] Help!" -->
+<!-- id="6388138ED485D311B7230000F804A4DF5D8B35@amethyst.msu.montana.edu" -->
+<!-- inreplyto="[cricket-users] Help!" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Help!&In-Reply-To=&lt;6388138ED485D311B7230000F804A4DF5D8B35@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Nov 01 1999 - 09:18:13 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0703.html">Neal, Ken: "[cricket-users] Monitor-thresholds"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0701.html">Standish, John C.: "[cricket-users] Help!"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0701.html">Standish, John C.: "[cricket-users] Help!"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0705.html">James R Grinter: "RE: [cricket-users] Help!"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0705.html">James R Grinter: "RE: [cricket-users] Help!"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#702">[ date ]</A>
+<A HREF="index.html#702">[ thread ]</A>
+<A HREF="subject.html#702">[ subject ]</A>
+<A HREF="author.html#702">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=RE:%20[cricket-users]%20Help!&In-Reply-To=&lt;6388138ED485D311B7230000F804A4DF5D8B35@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>There is no current utility to convert a rrd data file from x data sources
+<BR>
+to x + n sources.
+<BR>
+Looks like you probably were collecting data from 6 items, then added a
+<BR>
+seventh item later on. Cricket cannot save data from seven sources into a
+<BR>
+data file meant for 6 sources. 
+<BR>
+<P>When I need to add more sources, I just delete the old rrd data file. This
+<BR>
+is not the best solution since you lose all of your previous data.  I
+<BR>
+thought there was a process for converting the data file over but it is not
+<BR>
+quick and painless.  Maybe someone else can help you out on that one if you
+<BR>
+need it.
+<BR>
+<P>-----Original Message-----
+<BR>
+From: Standish, John C.
+<BR>
+To: '<A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20Help!&In-Reply-To=&lt;6388138ED485D311B7230000F804A4DF5D8B35@amethyst.msu.montana.edu&gt;">cricket-users@onelist.com</A>'
+<BR>
+Sent: 11/1/99 9:41 AM
+<BR>
+Subject: [cricket-users] Help!
+<BR>
+<P>From: &quot;Standish, John C.&quot; &lt;<A HREF="mailto:JCStandish@magellanhealth.com?Subject=RE:%20[cricket-users]%20Help!&In-Reply-To=&lt;6388138ED485D311B7230000F804A4DF5D8B35@amethyst.msu.montana.edu&gt;">JCStandish@magellanhealth.com</A>&gt;
+<BR>
+<P>Help!
+<BR>
+<P>I'm getting the following errors in my mail, from cron.  Cricket is not
+<BR>
+compiling data, I know this is the reason, but I don't know why this is
+<BR>
+happening!  Any help is most appreciated...
+<BR>
+<P><P>Error and the lines leading up to it:
+<BR>
+[01-Nov-1999 10:16:47 ] Retrieved data for ethernet0_0 (1):
+<BR>
+1295785239,3838467026,27433,16202,130891985,118682975,10000000
+<BR>
+[01-Nov-1999 10:16:47*] Cannot update
+<BR>
+/home/cricket/cricket-config/../cricket-data//router-interfaces/blue-ash
+<BR>
+_oh0
+<BR>
+1/ethernet0_0.rrd: expected 6 data source readings (got 7) from N:...
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thinking about putting your business on the Web? 
+<BR>
+MindSpring Biz has helped over 100,000 businesses get their .com.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join MindSpring Biz and save $50!  
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/mindspring4">http://clickme.onelist.com/ad/mindspring4</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0703.html">Neal, Ken: "[cricket-users] Monitor-thresholds"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0701.html">Standish, John C.: "[cricket-users] Help!"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0701.html">Standish, John C.: "[cricket-users] Help!"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0705.html">James R Grinter: "RE: [cricket-users] Help!"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0705.html">James R Grinter: "RE: [cricket-users] Help!"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#702">[ date ]</A>
+<A HREF="index.html#702">[ thread ]</A>
+<A HREF="subject.html#702">[ subject ]</A>
+<A HREF="author.html#702">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:05 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

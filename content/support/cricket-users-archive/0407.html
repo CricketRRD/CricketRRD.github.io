@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users]</TITLE>
+<META NAME="Author" CONTENT="Berg, Ivan (iberg@montana.edu)">
+<META NAME="Subject" CONTENT="[cricket-users]">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users]</H1>
+<!-- received="Wed Jul 21 16:19:22 1999" -->
+<!-- isoreceived="19990721231922" -->
+<!-- sent="Wed, 21 Jul 1999 14:18:07 -0600" -->
+<!-- isosent="19990721201807" -->
+<!-- name="Berg, Ivan" -->
+<!-- email="iberg@montana.edu" -->
+<!-- subject="[cricket-users]" -->
+<!-- id="8B069C65F931D111B6E10000F804A4DF77036A@amethyst.msu.montana.edu" -->
+<STRONG>From:</STRONG> Berg, Ivan (<A HREF="mailto:iberg@montana.edu?Subject=Re:%20[cricket-users]&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77036A@amethyst.msu.montana.edu&gt;"><EM>iberg@montana.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jul 21 1999 - 13:18:07 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0408.html">Tim Kennedy: "Re: [cricket-users]"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0406.html">Rob Windsor: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0408.html">Tim Kennedy: "Re: [cricket-users]"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0408.html">Tim Kennedy: "Re: [cricket-users]"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0605.html">Berg, Ivan: "[cricket-users]"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0738.html">Neal, Ken: "[cricket-users]"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0907.html">Duncan Wallace: "[cricket-users]"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#407">[ date ]</A>
+<A HREF="index.html#407">[ thread ]</A>
+<A HREF="subject.html#407">[ subject ]</A>
+<A HREF="author.html#407">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Berg, Ivan&quot; &lt;<A HREF="mailto:iberg@montana.edu?Subject=Re:%20[cricket-users]&In-Reply-To=&lt;8B069C65F931D111B6E10000F804A4DF77036A@amethyst.msu.montana.edu&gt;">iberg@montana.edu</A>&gt;
+<BR>
+<P>This is not quite appopriate for this list since these are general
+<BR>
+networking questions however I cannot seem to find an answer anywhere else
+<BR>
+on the net.
+<BR>
+<P>Since most of you are networking professionals I thought I would give it a
+<BR>
+try.
+<BR>
+<P>1.  Sending a ping to the broadcast address of several subnets results in
+<BR>
+DUP packets from almost every responding hosts. The router of these subnets
+<BR>
+has directed broadcasts turned on. Other routers have directed broadcasts
+<BR>
+turned off and thus I can not reach them from where I am at.  The man page
+<BR>
+for ping states this:
+<BR>
+DUPLICATE AND DAMAGED PACKETS
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ping will report duplicate and damaged packets.  Duplicate packets
+<BR>
+should
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;never occur, and seem to be caused by inappropriate link-level retrans-
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;missions.  Duplicates may occur in many situations and are rarely (if
+<BR>
+ev-
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;er) a good sign, although the presence of low levels of duplicates may
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;not always be cause for alarm.
+<BR>
+<P>Now, this does not sound good, could this be normal?? cause for alarm?? what
+<BR>
+could be causing it.
+<BR>
+<P>2.  I have read networking books that state when using a classfull routing
+<BR>
+protocol such as RIP that you should not use masks other than the standard
+<BR>
+class ones.  They say you could possibly do it but that the mask should
+<BR>
+always be larger than what you are using by default on other equipment. For
+<BR>
+instance, if you have a class C subnet with a mask of 24, then it states
+<BR>
+that you should only use masks &gt; 24. e.g. DONT use a 23 bit net mask.  My
+<BR>
+question is: why is this bad?? It doesn't seem to cause problems.  For
+<BR>
+instance, on network using RIP, we want subnet with 512 hosts(23 bit
+<BR>
+netmask), since all hosts don't have netmask set properly, two routes are
+<BR>
+used. For example, 192.168.1.0/23 would be the proper way, however, you can
+<BR>
+also use 192.168.1.0/24 and 192.168.2.0/24 since RIP doesn't know about 24
+<BR>
+bit netmask and this will also work. Of course, you lose 192.168.2.0 and
+<BR>
+192.168.1.255 as valid addresses, but it seems to work.
+<BR>
+<P>Why is this bad??
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Having difficulty getting &quot;in synch&quot; with list members? 
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Try ONElist's Shared Calendar to organize events, meetings and more!
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0408.html">Tim Kennedy: "Re: [cricket-users]"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0406.html">Rob Windsor: "Re: [cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0408.html">Tim Kennedy: "Re: [cricket-users]"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0408.html">Tim Kennedy: "Re: [cricket-users]"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0605.html">Berg, Ivan: "[cricket-users]"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0738.html">Neal, Ken: "[cricket-users]"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0907.html">Duncan Wallace: "[cricket-users]"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#407">[ date ]</A>
+<A HREF="index.html#407">[ thread ]</A>
+<A HREF="subject.html#407">[ subject ]</A>
+<A HREF="author.html#407">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

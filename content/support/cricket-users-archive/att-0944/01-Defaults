@@ -1,0 +1,15 @@
+# Defaults file for Stuart Grimshaw's testbed config tree.
+# There's all sorts of crap in here.
+
+target --default--
+	target-type = ping-response
+
+datasource	ping-response
+	rrd-ds-type = GAUGE
+	ds-source = exec:0:"ping -c 4 %target% | /home/cricket/util/ping-response"
+
+targetType	ping-response
+	ds = "ping-response"
+	view = "Ping_Response: ping-response"
+
+	

@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] ugrading to cricket ver 0.71</TITLE>
+<META NAME="Author" CONTENT="Honermann Tom A. (TA.Honermann@hosp.wisc.edu)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] ugrading to cricket ver 0.71">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] ugrading to cricket ver 0.71</H1>
+<!-- received="Tue Jan 18 14:15:57 2000" -->
+<!-- isoreceived="20000118221557" -->
+<!-- sent="Tue, 18 Jan 2000 13:15:11 -0600" -->
+<!-- isosent="20000118191511" -->
+<!-- name="Honermann Tom A." -->
+<!-- email="TA.Honermann@hosp.wisc.edu" -->
+<!-- subject="RE: [cricket-users] ugrading to cricket ver 0.71" -->
+<!-- id="4DCF9508FC7FD211BF2F00A0C9E9378401C14C37@xchng1.hosp.wisc.edu" -->
+<!-- inreplyto="[cricket-users] ugrading to cricket ver 0.71" -->
+<STRONG>From:</STRONG> Honermann Tom A. (<A HREF="mailto:TA.Honermann@hosp.wisc.edu?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C37@xchng1.hosp.wisc.edu&gt;"><EM>TA.Honermann@hosp.wisc.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jan 18 2000 - 11:15:11 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0937.html">Matt Raykowski: "[cricket-users] Some things I've discovered."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0935.html">George Hong: "Re: [cricket-users] OID for cisco 2900"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0881.html">Phil Pierotti: "[cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#936">[ date ]</A>
+<A HREF="index.html#936">[ thread ]</A>
+<A HREF="subject.html#936">[ subject ]</A>
+<A HREF="author.html#936">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Honermann Tom A.&quot; &lt;<A HREF="mailto:TA.Honermann@hosp.wisc.edu?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C37@xchng1.hosp.wisc.edu&gt;">TA.Honermann@hosp.wisc.edu</A>&gt;
+<BR>
+<P>I never got a response on this bug.  If you didn't scroll down far enough,
+<BR>
+please do so.
+<BR>
+<P><EM>&gt; -----Original Message-----
+</EM><BR>
+<EM>&gt; From:	Honermann Tom A. [SMTP:<A HREF="mailto:TA.Honermann@hosp.wisc.edu?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C37@xchng1.hosp.wisc.edu&gt;">TA.Honermann@hosp.wisc.edu</A>]
+</EM><BR>
+<EM>&gt; Sent:	Tuesday, January 11, 2000 12:38 PM
+</EM><BR>
+<EM>&gt; To:	'Jeff Allen'; '<A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C37@xchng1.hosp.wisc.edu&gt;">cricket-users@onelist.com</A>'
+</EM><BR>
+<EM>&gt; Subject:	RE: [cricket-users] ugrading to cricket ver 0.71
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; From: &quot;Honermann Tom A.&quot; &lt;<A HREF="mailto:TA.Honermann@hosp.wisc.edu?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C37@xchng1.hosp.wisc.edu&gt;">TA.Honermann@hosp.wisc.edu</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; But I don't agree with this one:
+</EM><BR>
+<EM>&gt; 	[Honermann Tom A.]  OK, let me take another shot at it:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; Honermann Tom A. wrote:
+</EM><BR>
+<EM>&gt; &gt; &gt; The fix: change line 1338 from
+</EM><BR>
+<EM>&gt; &gt; &gt; 	if (defined($ymin) &amp;&amp; $ymin &gt; $ym) {
+</EM><BR>
+<EM>&gt; &gt; &gt; to:
+</EM><BR>
+<EM>&gt; &gt; &gt; 	if (defined($ymin) &amp;&amp; $ymin &lt; $ym) {
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; 	[Honermann Tom A.] 
+</EM><BR>
+<EM>&gt; 	This jumped out at me because the same comparison (&gt;) is used at
+</EM><BR>
+<EM>&gt; line 1324 and line 1333.  These lines are used for finding the _largest_
+</EM><BR>
+<EM>&gt; max
+</EM><BR>
+<EM>&gt; and the _smallest_ min.  The confusion comes in because the code embraced
+</EM><BR>
+<EM>&gt; by
+</EM><BR>
+<EM>&gt; the if is # nothing.  As the code stands right now, it will select the
+</EM><BR>
+<EM>&gt; largest y-min amongst a set of data sources.  I have verified this.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 	The fix above will work, but to enhance readability, I propose the
+</EM><BR>
+<EM>&gt; block be changed as follows:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 	Change lines 1322-1338 of grapher.cgi from:
+</EM><BR>
+<EM>&gt; 		$ym = graphParam($gRef, 'y-max');
+</EM><BR>
+<EM>&gt; 		if ($ym &amp;&amp; ! $ymaxlck) {
+</EM><BR>
+<EM>&gt; 			if (defined($ymax) &amp;&amp; $ymax &gt; $ym) {
+</EM><BR>
+<EM>&gt; 				# nothing
+</EM><BR>
+<EM>&gt; 			} else {
+</EM><BR>
+<EM>&gt; 				$ymax = $ym;
+</EM><BR>
+<EM>&gt; 			}
+</EM><BR>
+<EM>&gt; 		}
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 		$ym = graphParam($gRef, 'y-min');
+</EM><BR>
+<EM>&gt; 		if ($ym &amp;&amp; ! $yminlck) {
+</EM><BR>
+<EM>&gt; 			if (defined($ymin) &amp;&amp; $ymin &gt; $ym) {
+</EM><BR>
+<EM>&gt; 				# nothing
+</EM><BR>
+<EM>&gt; 			} else {
+</EM><BR>
+<EM>&gt; 				$ymin = $ym;
+</EM><BR>
+<EM>&gt; 			}
+</EM><BR>
+<EM>&gt; 		}
+</EM><BR>
+<EM>&gt; 	to:
+</EM><BR>
+<EM>&gt; 		$ym = graphParam($gRef, 'y-max');
+</EM><BR>
+<EM>&gt; 		if ($ym &amp;&amp; ! $ymaxlck) {
+</EM><BR>
+<EM>&gt; 			if (! defined($ymax) || $ym &gt; $ymax) {
+</EM><BR>
+<EM>&gt; 				$ymax = $ym;
+</EM><BR>
+<EM>&gt; 			}
+</EM><BR>
+<EM>&gt; 		}
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 		$ym = graphParam($gRef, 'y-min');
+</EM><BR>
+<EM>&gt; 		if ($ym &amp;&amp; ! $yminlck) {
+</EM><BR>
+<EM>&gt; 			if (! defined($ymin) || $ym &lt; $ymin) {
+</EM><BR>
+<EM>&gt; 				$ymin = $ym;
+</EM><BR>
+<EM>&gt; 			}
+</EM><BR>
+<EM>&gt; 		}
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; &gt; In that line, ym is the one we just got fro the config tree. If we
+</EM><BR>
+<EM>&gt; &gt; have not yet set a global ymin, then we do so. If the global ymin we
+</EM><BR>
+<EM>&gt; &gt; last set is less than the current proposed one, then we ignore the
+</EM><BR>
+<EM>&gt; &gt; proposed one. Otherwise, we set the global one (ymin) to the proposed
+</EM><BR>
+<EM>&gt; &gt; one (ym).
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; If I'm wrong, explain why, but for now I am leaving it.
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; Thanks for your help!
+</EM><BR>
+<EM>&gt; &gt; 
+</EM><BR>
+<EM>&gt; &gt; -- 
+</EM><BR>
+<EM>&gt; &gt; Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=RE:%20[cricket-users]%20ugrading%20to%20cricket%20ver%200.71&In-Reply-To=&lt;4DCF9508FC7FD211BF2F00A0C9E9378401C14C37@xchng1.hosp.wisc.edu&gt;">jra@corp.webtv.net</A>
+</EM><BR>
+<EM>&gt; &gt; WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; --------------------------- ONElist Sponsor ----------------------------
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;   Hey Freelancers:  Find your next project through JobSwarm!  
+</EM><BR>
+<EM>&gt;   You can even make money in your sleep by referring friends.
+</EM><BR>
+<EM>&gt; &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0937.html">Matt Raykowski: "[cricket-users] Some things I've discovered."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0935.html">George Hong: "Re: [cricket-users] OID for cisco 2900"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0881.html">Phil Pierotti: "[cricket-users] ugrading to cricket ver 0.71"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#936">[ date ]</A>
+<A HREF="index.html#936">[ thread ]</A>
+<A HREF="subject.html#936">[ subject ]</A>
+<A HREF="author.html#936">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:11 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] rough day trying to set up r</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] rough day trying to set up rrdtool/cricket">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] rough day trying to set up rrdtool/cricket</H1>
+<!-- received="Wed Jul 28 03:04:55 1999" -->
+<!-- isoreceived="19990728100455" -->
+<!-- sent="Tue, 27 Jul 1999 23:15:12 -0700 (PDT)" -->
+<!-- isosent="19990728061512" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] rough day trying to set up rrdtool/cricket" -->
+<!-- id="199907280615.XAA10221@oops.artemis.com" -->
+<!-- inreplyto="199907211631.LAA14062@bbg.adc.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20rough%20day%20trying%20to%20set%20up%20rrdtool/cricket&In-Reply-To=&lt;199907280615.XAA10221@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jul 27 1999 - 23:15:12 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0431.html">Jeff Allen: "Re: [cricket-users] grapher.cgi question"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0429.html">Michael P. Burton: "[cricket-users] Changing Instances and such"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0404.html">Rob Windsor: "[cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#430">[ date ]</A>
+<A HREF="index.html#430">[ thread ]</A>
+<A HREF="subject.html#430">[ subject ]</A>
+<A HREF="author.html#430">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20rough%20day%20trying%20to%20set%20up%20rrdtool/cricket&In-Reply-To=&lt;199907280615.XAA10221@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Rob Windsor wrote:
+<BR>
+<EM>&gt; [I apologize for hitting both lists, but I'm not exactly sure which
+</EM><BR>
+<EM>&gt; tool does the snmp chatter.  -- Rob ]
+</EM><BR>
+<P>That would be Cricket. RRD Tool is responsible for storing, rolling
+<BR>
+up, and plotting the data. Getting it off the network is Cricket's
+<BR>
+job.
+<BR>
+<P><EM>&gt; First up, I have to put the FQDN in the config file.  This is more annoying 
+</EM><BR>
+<EM>&gt; than 'broken', but I'd rather not have to do that.
+</EM><BR>
+<P>Cricket uses gethostbyname() to turn the hostname given to it into an
+<BR>
+IP address. If a FQDN is required on your machine to map a name to an
+<BR>
+IP address, that's not something I can solve for you. Or maybe I'm not
+<BR>
+understanding you here... can you clarify?
+<BR>
+<P><EM>&gt; Secondly, where can I hardcode the 'home directory' for cricket so that I 
+</EM><BR>
+<EM>&gt; don't have to create a new user?  I'm currently running mrtg as myself and I 
+</EM><BR>
+<P>Let's see. To run Cricket in some weird place, you'll need to do
+<BR>
+this:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. edit the file subtree-sets. Make it look like this:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base:	/some/weird/place/cricket-config
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logdir:	/some/weird/place/cricket-logs
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. edit grapher.cgi and set $Common::global::gConfigRoot
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the full path that you set for &quot;base:&quot; above.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. whenever you use collector, compile, rrd-tune,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dump-targets, generate-statics scripts (and other future
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;things which expect to find the config tree) you'll need to
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use the &quot;-base&quot; option to specify the base.
+<BR>
+<P><EM>&gt; Thirdly (and most importantly), I get the following, regardless of whether I 
+</EM><BR>
+<EM>&gt; point it at a solaris box (yeah, I know Solaris 2.6 smpdx is less than 
+</EM><BR>
+<EM>&gt; optimum) or either of our two NetApps:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; [20-Jul-1999 17:55:18*] Received SNMP response with error code noSuchName
+</EM><BR>
+<EM>&gt; [20-Jul-1999 17:55:18 ] Got: 
+</EM><BR>
+<EM>&gt; [20-Jul-1999 17:55:18 ] Retrieved data for na1.bbg.adc.com (): U,U,U,U
+</EM><BR>
+<P>I'd need to know more, but it looks to me like you are asking the
+<BR>
+device for some info it doesn't ahve. Are you certain the device in
+<BR>
+question supports the mib items you are trying to fetch? Try running
+<BR>
+the collector in debug mode and maybe you'll get a better idea what it
+<BR>
+was trying to do that failed. The command would look like this:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/home/cricket/cricket/collector -loglevel debug /subtree
+<BR>
+<P><EM>&gt; obtw, 'hi' to fellow former-Synopsys-ites.
+</EM><BR>
+<P>I'm sure they'd say Hi back. I worked there too, but it was either
+<BR>
+before or after your time.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20rough%20day%20trying%20to%20set%20up%20rrdtool/cricket&In-Reply-To=&lt;199907280615.XAA10221@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>GET WHAT YOU DESERVE! A NextCard Platinum VISA: DOUBLE Rewards points, 
+       NO annual fee &amp; rates as low as 9.9 percent FIXED APR. 
+Apply online today!                <A HREF="http://www.onelist.com/ad/nextcard1">http://www.onelist.com/ad/nextcard1</A>
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0431.html">Jeff Allen: "Re: [cricket-users] grapher.cgi question"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0429.html">Michael P. Burton: "[cricket-users] Changing Instances and such"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0404.html">Rob Windsor: "[cricket-users] rough day trying to set up rrdtool/cricket"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#430">[ date ]</A>
+<A HREF="index.html#430">[ thread ]</A>
+<A HREF="subject.html#430">[ subject ]</A>
+<A HREF="author.html#430">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:59 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

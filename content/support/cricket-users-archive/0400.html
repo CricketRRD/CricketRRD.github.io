@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] reading gauge data from a file</TITLE>
+<META NAME="Author" CONTENT="Zebee Johnstone (zebee@cse.unsw.edu.au)">
+<META NAME="Subject" CONTENT="[cricket-users] reading gauge data from a file">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] reading gauge data from a file</H1>
+<!-- received="Wed Jul 21 02:54:42 1999" -->
+<!-- isoreceived="19990721095442" -->
+<!-- sent="Wed, 21 Jul 1999 16:53:10 +1000" -->
+<!-- isosent="19990721065310" -->
+<!-- name="Zebee Johnstone" -->
+<!-- email="zebee@cse.unsw.edu.au" -->
+<!-- subject="[cricket-users] reading gauge data from a file" -->
+<!-- id="19990721165310.A27311@cse.unsw.edu.au" -->
+<STRONG>From:</STRONG> Zebee Johnstone (<A HREF="mailto:zebee@cse.unsw.edu.au?Subject=Re:%20[cricket-users]%20reading%20gauge%20data%20from%20a%20file&In-Reply-To=&lt;19990721165310.A27311@cse.unsw.edu.au&gt;"><EM>zebee@cse.unsw.edu.au</EM></A>)<BR>
+<STRONG>Date:</STRONG> Tue Jul 20 1999 - 23:53:10 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0401.html">Berg, Ivan: "RE: [cricket-users] Re: Cricket issues..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0399.html">¹ÚÀç¹: "[cricket-users] cricket 0.69"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#400">[ date ]</A>
+<A HREF="index.html#400">[ thread ]</A>
+<A HREF="subject.html#400">[ subject ]</A>
+<A HREF="author.html#400">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Zebee Johnstone &lt;<A HREF="mailto:zebee@cse.unsw.edu.au?Subject=Re:%20[cricket-users]%20reading%20gauge%20data%20from%20a%20file&In-Reply-To=&lt;19990721165310.A27311@cse.unsw.edu.au&gt;">zebee@cse.unsw.edu.au</A>&gt;
+<BR>
+<P>I wish to graph the use of modems.
+<BR>
+<P>The only way I can get the info I need is via a program that runs
+<BR>
+on a machine that is not the one I have cricket on, so it writes to
+<BR>
+a file.
+<BR>
+<P>Problem - weird numbers.  I suspect this is some units/averaging/other
+<BR>
+thing I'm not setting.
+<BR>
+<P>Log output:
+<BR>
+[21-Jul-1999 16:45:02 ] Reading data from /home/stat/services/ModemData for modemserver
+<BR>
+[21-Jul-1999 16:45:02 ] Retrieved data for modemserver (): 13,30
+<BR>
+[21-Jul-1999 16:45:02 ] Processed 7 targets in 2 seconds.
+<BR>
+<P><P>13 and 30 are the numbers I want.  First is staff, 2nd is students.
+<BR>
+<P>The numbers on the graph though... 
+<BR>
+Staff: 14220473.37 Modems
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Students: 14220473.37 Modems
+<BR>
+<P>Methinks I have some overflow or other oddity error?
+<BR>
+<P>The cricket-config/Defaults file is the one that came with
+<BR>
+The Defaults file for the graph in question is:
+<BR>
+<P>Target  --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-datafile    =       %dataDir%/%auto-target-name%.rrd
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type    =  ModemServer
+<BR>
+<P><P><P>dataSource  ModemStaff
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source    =   file:0:/home/stat/services/ModemData
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rr-ds-type = GAUGE
+<BR>
+<P>dataSource  ModemStudent
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source    =   file:1:/home/stat/services/ModemData
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rr-ds-type = GAUGE
+<BR>
+<P>targetType      ModemServer
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds      =       &quot;ModemStaff, ModemStudent&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+<P><P><P>graph   ModemStaff
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color       =   blue
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as     =   LINE1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend      =       &quot;Staff&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis      =   &quot;Modems&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units       =   &quot;Modems&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si-units = false
+<BR>
+<P>graph   ModemStudent
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;color       =   red
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;draw-as     =   LINE1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;legend      =       &quot;Students&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;y-axis      =   &quot;Modems&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;units       =   &quot;Modems&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si-units = false
+<BR>
+<P><P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Create a list for FRIENDS &amp; FAMILY...
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+....and you can WIN $100 to Amazon.com.  See homepage for details.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0401.html">Berg, Ivan: "RE: [cricket-users] Re: Cricket issues..."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0399.html">¹ÚÀç¹: "[cricket-users] cricket 0.69"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#400">[ date ]</A>
+<A HREF="index.html#400">[ thread ]</A>
+<A HREF="subject.html#400">[ subject ]</A>
+<A HREF="author.html#400">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

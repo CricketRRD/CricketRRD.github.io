@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Graphing result of two OIDs</TITLE>
+<META NAME="Author" CONTENT="Selena M Brewington (smbrewin@ichips.intel.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Graphing result of two OIDs">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Graphing result of two OIDs</H1>
+<!-- received="Wed Oct  6 11:44:19 1999" -->
+<!-- isoreceived="19991006184419" -->
+<!-- sent="Wed, 6 Oct 1999 08:43:11 -0700 (PDT)" -->
+<!-- isosent="19991006154311" -->
+<!-- name="Selena M Brewington" -->
+<!-- email="smbrewin@ichips.intel.com" -->
+<!-- subject="RE: [cricket-users] Graphing result of two OIDs" -->
+<!-- id="14331.28175.333315.347797@pdxlx050.pdx.intel.com" -->
+<!-- inreplyto="3.0.1.32.19991006072040.0072e2cc@fridge.ccci.com" -->
+<STRONG>From:</STRONG> Selena M Brewington (<A HREF="mailto:smbrewin@ichips.intel.com?Subject=RE:%20[cricket-users]%20Graphing%20result%20of%20two%20OIDs&In-Reply-To=&lt;14331.28175.333315.347797@pdxlx050.pdx.intel.com&gt;"><EM>smbrewin@ichips.intel.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Oct 06 1999 - 08:43:11 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0646.html">Berg, Ivan: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0644.html">Kennedy Clark: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0644.html">Kennedy Clark: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0646.html">Berg, Ivan: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#645">[ date ]</A>
+<A HREF="index.html#645">[ thread ]</A>
+<A HREF="subject.html#645">[ subject ]</A>
+<A HREF="author.html#645">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Selena M Brewington &lt;<A HREF="mailto:smbrewin@ichips.intel.com?Subject=RE:%20[cricket-users]%20Graphing%20result%20of%20two%20OIDs&In-Reply-To=&lt;14331.28175.333315.347797@pdxlx050.pdx.intel.com&gt;">smbrewin@ichips.intel.com</A>&gt;
+<BR>
+<P><P>I'm interested in this feature as well.  Another feature that would be nice
+<BR>
+is more control over the RPN calculator - for example, I wanted to
+<BR>
+aggregate two targets and than graph that number, along with another single
+<BR>
+target, yielding two lines on the same graph from three targets.  I ended up
+<BR>
+using rrdcgi to do it, but i'd prefer to do it all within cricket.
+<BR>
+<P>Also, Kennedy - you could use rrdcgi to do what you want.  It means writing
+<BR>
+up some scripts w/ all of the variables the rrdtool grapher asks for.  There
+<BR>
+are some illustrative examples at:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="http://ee-staff.ethz.ch/~oetiker/webtools/rrdtool/rrdcgi.html">http://ee-staff.ethz.ch/~oetiker/webtools/rrdtool/rrdcgi.html</A>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+-selena
+<BR>
+<P>Kennedy Clark writes:
+<BR>
+<EM> &gt; From: Kennedy Clark &lt;<A HREF="mailto:kclark@ccci.com?Subject=RE:%20[cricket-users]%20Graphing%20result%20of%20two%20OIDs&In-Reply-To=&lt;14331.28175.333315.347797@pdxlx050.pdx.intel.com&gt;">kclark@ccci.com</A>&gt;
+</EM><BR>
+<EM> &gt; 
+</EM><BR>
+<EM> &gt; Ivan:
+</EM><BR>
+<EM> &gt; 
+</EM><BR>
+<EM> &gt; Thanks for the note!  However, I still think I'm missing something.
+</EM><BR>
+<EM> &gt;  If I use mtargets to aggregate four interfaces as you show below,
+</EM><BR>
+<EM> &gt; aren't I just adding up the information that already being
+</EM><BR>
+<EM> &gt; collected for those interfaces?  In other words, assume that the
+</EM><BR>
+<EM> &gt; four interfaces are collecting and graphing ifInUcastPkts and
+</EM><BR>
+<EM> &gt; ifInNUcastPkts.  One line of each  graph with show ifInUcastPkts
+</EM><BR>
+<EM> &gt; while the other line will plot ifInNUcastPkts.  If I then use
+</EM><BR>
+<EM> &gt; mtargets to aggregate these, won't I just get a new graph that
+</EM><BR>
+<EM> &gt; still shows one line for ifInUcastPkts and another line for
+</EM><BR>
+<EM> &gt; ifInNUcastPkts?  How do I make a graph that plots a single line
+</EM><BR>
+<EM> &gt; that the sum of these two OIDs?  
+</EM><BR>
+<EM> &gt; 
+</EM><BR>
+<EM> &gt; In short, it seems that mtargets will aggregate multiple interfaces
+</EM><BR>
+<EM> &gt; into a single graph... I'm just not sure I see how it can aggregate
+</EM><BR>
+<EM> &gt; multiple OIDs into a single line on a graph...
+</EM><BR>
+<EM> &gt; 
+</EM><BR>
+<EM> &gt; Thanks!
+</EM><BR>
+<EM> &gt; Kennedy
+</EM><BR>
+<EM> &gt; 
+</EM><BR>
+<EM> &gt; At 08:39 PM 10/4/99 -0600, you wrote:
+</EM><BR>
+<EM> &gt; &gt;no, sounds like you want &quot;mtargets&quot;
+</EM><BR>
+<EM> &gt; &gt;
+</EM><BR>
+<EM> &gt; &gt;targets - put multiple graphs on one page
+</EM><BR>
+<EM> &gt; &gt;mtargets- perform operations on data and graph results
+</EM><BR>
+<EM> &gt; &gt;
+</EM><BR>
+<EM> &gt; &gt;ex..
+</EM><BR>
+<EM> &gt; &gt;target T1_All
+</EM><BR>
+<EM> &gt; &gt;       mtargets = &quot;serial0_0;serial0_1;serial0_2;serial0_3&quot;
+</EM><BR>
+<EM> &gt; &gt;       mtargets-ops = &quot;sum()&quot;
+</EM><BR>
+<EM> &gt; &gt;       short-desc = &quot;Combined T1's - 6.176Mb/s&quot;
+</EM><BR>
+<EM> &gt;    
+</EM><BR>
+<EM> &gt; &gt;
+</EM><BR>
+<EM> &gt; &gt;
+</EM><BR>
+<EM> &gt; &gt;-----Original Message-----
+</EM><BR>
+<EM> &gt; &gt;From: Kennedy Clark
+</EM><BR>
+<EM> &gt; &gt;To: <A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20Graphing%20result%20of%20two%20OIDs&In-Reply-To=&lt;14331.28175.333315.347797@pdxlx050.pdx.intel.com&gt;">cricket-users@onelist.com</A>
+</EM><BR>
+<EM> &gt; &gt;Sent: 10/4/99 4:53 PM
+</EM><BR>
+<EM> &gt; &gt;Subject: [cricket-users] Graphing result of two OIDs
+</EM><BR>
+<EM> &gt; &gt;
+</EM><BR>
+<EM> &gt; &gt;From: Kennedy Clark &lt;<A HREF="mailto:kclark@ccci.com?Subject=RE:%20[cricket-users]%20Graphing%20result%20of%20two%20OIDs&In-Reply-To=&lt;14331.28175.333315.347797@pdxlx050.pdx.intel.com&gt;">kclark@ccci.com</A>&gt;
+</EM><BR>
+<EM> &gt; &gt;
+</EM><BR>
+<EM> &gt; &gt;There might be a really simple answer to my question, but I'm not
+</EM><BR>
+<EM> &gt; &gt;finding anything in the docs that seem to address this...
+</EM><BR>
+<EM> &gt; &gt;
+</EM><BR>
+<EM> &gt; &gt;I'm trying to graph the results of two OIDs.  For example, let's
+</EM><BR>
+<EM> &gt; &gt;say you want to add ifInUcastPkts and ifInNUcastPkts to get total
+</EM><BR>
+<EM> &gt; &gt;packets.  Note, that I'm not trying to view the aggregate of two
+</EM><BR>
+<EM> &gt; &gt;targets (interfaces), which seems to be the purpose of mtargets and
+</EM><BR>
+<EM> &gt; &gt;mtargets-ops.  In other words, I don't want to aggregate &quot;targets,&quot;
+</EM><BR>
+<EM> &gt; &gt;I want to essentially aggregate &quot;datasources.&quot;
+</EM><BR>
+<EM> &gt; &gt;
+</EM><BR>
+<EM> &gt; &gt;Thanks!
+</EM><BR>
+<EM> &gt; &gt;Kennedy
+</EM><BR>
+<EM> &gt; &gt;
+</EM><BR>
+<EM> &gt; 
+</EM><BR>
+<EM> &gt; 
+</EM><BR>
+--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>?? BETA TEST our free, real-time technical support service with live experts !!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;go to EXPERTCITY.COM
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity6">http://clickme.onelist.com/ad/expertcity6</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0646.html">Berg, Ivan: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0644.html">Kennedy Clark: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0644.html">Kennedy Clark: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0646.html">Berg, Ivan: "RE: [cricket-users] Graphing result of two OIDs"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#645">[ date ]</A>
+<A HREF="index.html#645">[ thread ]</A>
+<A HREF="subject.html#645">[ subject ]</A>
+<A HREF="author.html#645">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

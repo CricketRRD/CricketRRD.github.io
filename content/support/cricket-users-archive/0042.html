@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Both static and dynamic grap</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Both static and dynamic graphs?">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Both static and dynamic graphs?</H1>
+<!-- received="Thu May  6 19:36:48 1999" -->
+<!-- isoreceived="19990507023648" -->
+<!-- sent="Thu, 6 May 1999 16:34:58 -0700 (PDT)" -->
+<!-- isosent="19990506233458" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="Re: [cricket-users] Both static and dynamic graphs?" -->
+<!-- id="199905062334.QAA02716@oops.artemis.com" -->
+<!-- inreplyto="199905062316.SAA22240@hamachi.uchicago.edu" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Both%20static%20and%20dynamic%20graphs?&In-Reply-To=&lt;199905062334.QAA02716@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu May 06 1999 - 16:34:58 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0043.html">Noam Freedman: "Re: [cricket-users] Both static and dynamic graphs?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0041.html">Noam Freedman: "[cricket-users] Both static and dynamic graphs?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0041.html">Noam Freedman: "[cricket-users] Both static and dynamic graphs?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0043.html">Noam Freedman: "Re: [cricket-users] Both static and dynamic graphs?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0043.html">Noam Freedman: "Re: [cricket-users] Both static and dynamic graphs?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#42">[ date ]</A>
+<A HREF="index.html#42">[ thread ]</A>
+<A HREF="subject.html#42">[ subject ]</A>
+<A HREF="author.html#42">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Both%20static%20and%20dynamic%20graphs?&In-Reply-To=&lt;199905062334.QAA02716@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Your ideas about static image generation are sound, but let me just be
+<BR>
+devil's advocate for a second...
+<BR>
+<P>Noam Freedman wrote:
+<BR>
+<EM>&gt; The grapher.cgi would know to first look for the static image in a set
+</EM><BR>
+<EM>&gt; location (~/cricket-graphs/....), and if it does not find it there it
+</EM><BR>
+<EM>&gt; would generate it on the fly.
+</EM><BR>
+<P>How is this different from image caching? With image caching, what we
+<BR>
+do is turn the parameters into a filename, and serve that image
+<BR>
+directly if we find it on disk, and it's fresh enough. What you are
+<BR>
+talking about is making the graph every five minutes whether you are
+<BR>
+going to look at it or not, and put it on the disk in a certain
+<BR>
+filename, then serving that file up when asked for it.
+<BR>
+<P>With the system I use for image caching, we shortcut the entire job of
+<BR>
+reading the config tree, and instead immediately turn the parameters
+<BR>
+into a filename. I'm not certain if you'll be able to shortcut the
+<BR>
+config tree stuff still with your approach -- and that can be a
+<BR>
+significant cost.
+<BR>
+<P>Basically, I'm asking you &quot;what is the problem you are trying to
+<BR>
+solve?&quot;. Is Cricket too slow? If so, CGI overhead (followed closely by
+<BR>
+Config Tree parsing) is the bottleneck you need to solve, not image
+<BR>
+drawing time. mod_perl is the right way to solve CGI overhead. As of
+<BR>
+Cricket 0.64 there will be a new and improved set of routines to talk
+<BR>
+to the config tree which are much faster.
+<BR>
+<P>If you feel like you need to make the images statically, and you can
+<BR>
+do it with simple patches (or preferably, a new companion to collector
+<BR>
+called &quot;bulk-graph&quot; or something) then I'm ready and willing to
+<BR>
+integrate your changes. If you need to turn everything on it's head to
+<BR>
+make static graphs work, I'm not too excited about that, and I will
+<BR>
+probably exercise my perogative to &quot;lose&quot; your patch... :)
+<BR>
+<P>Let's talk about this and see if we can make certain we are doing the
+<BR>
+least work to fix the problem you are having.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen                   |   <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Both%20static%20and%20dynamic%20graphs?&In-Reply-To=&lt;199905062334.QAA02716@oops.artemis.com&gt;">jra@corp.webtv.net</A> (work)
+WebTV Networks, Inc.            |   <A HREF="mailto:jeff.allen@acm.org?Subject=Re:%20[cricket-users]%20Both%20static%20and%20dynamic%20graphs?&In-Reply-To=&lt;199905062334.QAA02716@oops.artemis.com&gt;">jeff.allen@acm.org</A> (personal)
+Service Operations Toolsmith    |   <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>------------------------------------------------------------------------
+What's &quot;Grow to Give&quot;?
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+It's a new incentive program at ONElist.  See homepage for details.
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0043.html">Noam Freedman: "Re: [cricket-users] Both static and dynamic graphs?"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0041.html">Noam Freedman: "[cricket-users] Both static and dynamic graphs?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0041.html">Noam Freedman: "[cricket-users] Both static and dynamic graphs?"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0043.html">Noam Freedman: "Re: [cricket-users] Both static and dynamic graphs?"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0043.html">Noam Freedman: "Re: [cricket-users] Both static and dynamic graphs?"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#42">[ date ]</A>
+<A HREF="index.html#42">[ thread ]</A>
+<A HREF="subject.html#42">[ subject ]</A>
+<A HREF="author.html#42">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:48 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

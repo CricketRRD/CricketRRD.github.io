@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] [MRTG-DEV] Re: [cricket-user</TITLE>
+<META NAME="Author" CONTENT="Tobias Oetiker (oetiker@ee.ethz.ch)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket</H1>
+<!-- received="Wed May  5 18:42:59 1999" -->
+<!-- isoreceived="19990506014259" -->
+<!-- sent="Thu, 6 May 1999 00:38:16 +0200 (CEST)" -->
+<!-- isosent="19990505223816" -->
+<!-- name="Tobias Oetiker" -->
+<!-- email="oetiker@ee.ethz.ch" -->
+<!-- subject="Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket" -->
+<!-- id="Pine.LNX.3.96.990506003639.402A-100000@audrey.ee.ethz.ch" -->
+<!-- inreplyto="Pine.SGI.4.10.9905051341550.9878-100000@adm.ebone.net" -->
+<STRONG>From:</STRONG> Tobias Oetiker (<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20[MRTG-DEV]%20Re:%20[cricket-users]%20Re:%20cartinha%20p/%20lista%20cricket&In-Reply-To=&lt;Pine.LNX.3.96.990506003639.402A-100000@audrey.ee.ethz.ch&gt;"><EM>oetiker@ee.ethz.ch</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed May 05 1999 - 15:38:16 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0027.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0025.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0025.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0027.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0027.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#26">[ date ]</A>
+<A HREF="index.html#26">[ thread ]</A>
+<A HREF="subject.html#26">[ subject ]</A>
+<A HREF="author.html#26">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20[MRTG-DEV]%20Re:%20[cricket-users]%20Re:%20cartinha%20p/%20lista%20cricket&In-Reply-To=&lt;Pine.LNX.3.96.990506003639.402A-100000@audrey.ee.ethz.ch&gt;">oetiker@ee.ethz.ch</A>&gt;
+<BR>
+<P><P><P>On Wed, 5 May 1999, Steen Linden wrote:
+<BR>
+<P><EM>&gt; 
+</EM><BR>
+<EM>&gt; On Wed, 5 May 1999, Tobias Oetiker wrote:
+</EM><BR>
+<EM>&gt; &gt; can you provide an ebine-inc.rrd file and an absolute --start parameter
+</EM><BR>
+<EM>&gt; &gt; which shows the problem ? The rrd should have been created either on a
+</EM><BR>
+<EM>&gt; &gt; solaris sparc or on a linux intel box ... 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Hi Tobi,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I turned off cricket updates and ran the following command every minute
+</EM><BR>
+<EM>&gt; for 20 minutes (13:56-14:16) in order to isolate cricket out of the test.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; /usr/local/bin/rrdtool graph out.gif --base 1024 --start -151200 \
+</EM><BR>
+<EM>&gt; --vertical-label 'bits per second' --width 500 --height 200 \
+</EM><BR>
+<EM>&gt; DEF:ds0=/usr/users/sl/cricket-data/hqgw/ebone-inc.rrd:ds0:AVERAGE \
+</EM><BR>
+<EM>&gt; DEF:ds1=/usr/users/sl/cricket-data/hqgw/ebone-inc.rrd:ds1:AVERAGE \
+</EM><BR>
+<EM>&gt; CDEF:sds0='ds0,8,*' \
+</EM><BR>
+<EM>&gt; CDEF:sds1='ds1,8,*' \
+</EM><BR>
+<EM>&gt; AREA:sds0#00cc00:'Average bits in' \
+</EM><BR>
+<EM>&gt; LINE1:sds1#0000ff:'Average bytes out' \
+</EM><BR>
+<EM>&gt; VRULE:925855200#ff0000: VRULE:925768800#ff0000:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Sometimes it produces the right graph sometimes it doesn't.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; The problem was not present when running rrdtool between minutes 00-05 and
+</EM><BR>
+<EM>&gt; 10-15. But between 56-00, 05-10, 15-16 it didn't work out. (see
+</EM><BR>
+<EM>&gt; <A HREF="http://serv.ebone.net/~sl/out.html">http://serv.ebone.net/~sl/out.html</A>).
+</EM><BR>
+<EM>&gt; So it looks like a periodic problem every 5 minutes.
+</EM><BR>
+<P>OK, I have now tested it with a little script:
+<BR>
+<P>#!/usr/bin/perl
+<BR>
+$start = 925905000;
+<BR>
+my $name = &quot;out000&quot;;
+<BR>
+for $x (1..12){
+<BR>
+$name++;
+<BR>
+$s= $start-151200+$x*60;
+<BR>
+$e= $start+$x*60;
+<BR>
+print localtime($e).&quot;\n&quot;;
+<BR>
+system &quot;../src/rrdtool graph $name.gif --base 1024 --start $s --end $e &quot;.
+<BR>
+&quot;--vertical-label 'bits per second' --width 500 --height 200 &quot;.
+<BR>
+&quot;DEF:ds0=ebone-inc.rrd:ds0:AVERAGE &quot;.
+<BR>
+&quot;DEF:ds1=ebone-inc.rrd:ds1:AVERAGE &quot;.
+<BR>
+&quot;CDEF:sds0='ds0,8,*' &quot;.
+<BR>
+&quot;CDEF:sds1='ds1,8,*' &quot;.
+<BR>
+&quot;AREA:sds0#00cc00:'Average bits in' &quot;.
+<BR>
+&quot;LINE1:sds1#0000ff:'Average bytes out' &quot;.
+<BR>
+&quot;VRULE:925855200#ff0000: VRULE:925768800#ff0000: &quot;.
+<BR>
+&quot;COMMENT:'&quot;.localtime($e).&quot;'\\\\j&quot;}
+<BR>
+<P>unfortunately I was not able to reproduce your problem ... all graphs
+<BR>
+showed nicely ...
+<BR>
+<P>could you very fy that my testscript produced the 'desired' result on
+<BR>
+your machine ...
+<BR>
+<P>cheers
+<BR>
+tobi
+<BR>
+r  
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+Did you know that
+<BR>
+<A HREF="http://www.ONElist.com">http://www.ONElist.com</A>
+<BR>
+More than 3.5 million people are using ONElist?
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0027.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0025.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0025.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0027.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0027.html">Steen Linden: "Re: [cricket-users] [MRTG-DEV] Re: [cricket-users] Re: cartinha p/ lista cricket"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#26">[ date ]</A>
+<A HREF="index.html#26">[ thread ]</A>
+<A HREF="subject.html#26">[ subject ]</A>
+<A HREF="author.html#26">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:48 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

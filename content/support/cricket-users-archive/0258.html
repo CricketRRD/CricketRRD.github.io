@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Error getting twoo values</TITLE>
+<META NAME="Author" CONTENT="Tim Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Error getting twoo values">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Error getting twoo values</H1>
+<!-- received="Mon Jun 28 19:13:44 1999" -->
+<!-- isoreceived="19990629021344" -->
+<!-- sent="Mon, 28 Jun 1999 19:16:44 -0400 (EDT)" -->
+<!-- isosent="19990628231644" -->
+<!-- name="Tim Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="Re: [cricket-users] Error getting twoo values" -->
+<!-- id="Pine.BSF.3.96.990628191456.52713A-100000@localhost" -->
+<!-- inreplyto="3777F384.669C39AA@oracom.com" -->
+<STRONG>From:</STRONG> Tim Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Error%20getting%20twoo%20values&In-Reply-To=&lt;Pine.BSF.3.96.990628191456.52713A-100000@localhost&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jun 28 1999 - 16:16:44 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0259.html">Tim Kennedy: "Re: [cricket-users] I am ready to migrate"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0257.html">Stephen Carville: "[cricket-users] I am ready to migrate"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0255.html">Glenn MacGregor: "[cricket-users] Error getting twoo values"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0260.html">Jeff Allen: "Re: [cricket-users] Error getting twoo values"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#258">[ date ]</A>
+<A HREF="index.html#258">[ thread ]</A>
+<A HREF="subject.html#258">[ subject ]</A>
+<A HREF="author.html#258">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Tim Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]%20Error%20getting%20twoo%20values&In-Reply-To=&lt;Pine.BSF.3.96.990628191456.52713A-100000@localhost&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P><P>Glenn,
+<BR>
+<P>Yes, it is possible.   If you were graphing only 1 datasource int eh past
+<BR>
+for a particular rrd file, and now you added one, you just confused
+<BR>
+rrdtool.  It was expecting you to continue 'get'ing 1 datasource.
+<BR>
+You can't add new datasources, to the best of my knowledge, so you
+<BR>
+need to delete that rrd file and then run it so the file get's built wiht
+<BR>
+2 datasources from the start.
+<BR>
+<P>-Tim
+<BR>
+<P>On Mon, 28 Jun 1999, Glenn MacGregor wrote:
+<BR>
+<P><EM>&gt; From: Glenn MacGregor &lt;<A HREF="mailto:gtm@oracom.com?Subject=Re:%20[cricket-users]%20Error%20getting%20twoo%20values&In-Reply-To=&lt;Pine.BSF.3.96.990628191456.52713A-100000@localhost&gt;">gtm@oracom.com</A>&gt;
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Hi all,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;     Thanks for the response Jeff, I have figured some stuff out.  Now I
+</EM><BR>
+<EM>&gt; want to move on
+</EM><BR>
+<EM>&gt; from graphing one point to two points.  So I add a new OID the my
+</EM><BR>
+<EM>&gt; Default file as well as a new datasource
+</EM><BR>
+<EM>&gt; and in the targetType directive ds = &quot;oid1, oid2&quot;  and view  = &quot;Test:
+</EM><BR>
+<EM>&gt; oid1, oid2&quot; and I have graph directives for each as well.  I recompile
+</EM><BR>
+<EM>&gt; and when I run I get the following error:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt;      Retrieved data for 10.32.4.1 (): +15.3,+12.3
+</EM><BR>
+<EM>&gt; [28-Jun-1999 18:07:56*] Cannot update
+</EM><BR>
+<EM>&gt; /homes/gtm/cricket-config/../cricket-data//oracom/10.32.4.1.rrd:
+</EM><BR>
+<EM>&gt; expected 1 data source readings (got 2) from N...
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I know it is possible to get many points on a graph, so what have I done
+</EM><BR>
+<EM>&gt; wrong?
+</EM><BR>
+<P>Timothy Kennedy
+<BR>
+Hate.org -- What do you expect?
+<BR>
+<A HREF="http://gunslinger.hate.org">http://gunslinger.hate.org</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Who is the most visited e-mail list community Web Service?
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+ONElist.com - where more than 20 million e-mails are exchanged each day!
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0259.html">Tim Kennedy: "Re: [cricket-users] I am ready to migrate"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0257.html">Stephen Carville: "[cricket-users] I am ready to migrate"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0255.html">Glenn MacGregor: "[cricket-users] Error getting twoo values"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0260.html">Jeff Allen: "Re: [cricket-users] Error getting twoo values"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#258">[ date ]</A>
+<A HREF="index.html#258">[ thread ]</A>
+<A HREF="subject.html#258">[ subject ]</A>
+<A HREF="author.html#258">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:54 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

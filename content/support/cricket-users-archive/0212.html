@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Zeroed out graphs</TITLE>
+<META NAME="Author" CONTENT="Marcelo A. Ferreira Gomes (mgomes@trip.com.br)">
+<META NAME="Subject" CONTENT="[cricket-users] Zeroed out graphs">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Zeroed out graphs</H1>
+<!-- received="Thu Jun 17 20:37:42 1999" -->
+<!-- isoreceived="19990618033742" -->
+<!-- sent="Fri, 11 Jun 1999 01:52:41 -0300" -->
+<!-- isosent="19990611045241" -->
+<!-- name="Marcelo A. Ferreira Gomes" -->
+<!-- email="mgomes@trip.com.br" -->
+<!-- subject="[cricket-users] Zeroed out graphs" -->
+<!-- id="l03130302b386333bc28b@[192.168.0.24]" -->
+<!-- inreplyto="925730123.24234@onelist.com" -->
+<STRONG>From:</STRONG> Marcelo A. Ferreira Gomes (<A HREF="mailto:mgomes@trip.com.br?Subject=Re:%20[cricket-users]%20Zeroed%20out%20graphs&In-Reply-To=&lt;l03130302b386333bc28b@[192.168.0.24]&gt;"><EM>mgomes@trip.com.br</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jun 10 1999 - 21:52:41 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0213.html">Steen Linden: "[cricket-users] Small common.pm bug"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0211.html">Marcelo A. Ferreira Gomes: "Re: [cricket-users] Migrating old data from MRTG..."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#212">[ date ]</A>
+<A HREF="index.html#212">[ thread ]</A>
+<A HREF="subject.html#212">[ subject ]</A>
+<A HREF="author.html#212">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Marcelo A. Ferreira Gomes&quot; &lt;<A HREF="mailto:mgomes@trip.com.br?Subject=Re:%20[cricket-users]%20Zeroed%20out%20graphs&In-Reply-To=&lt;l03130302b386333bc28b@[192.168.0.24]&gt;">mgomes@trip.com.br</A>&gt;
+<BR>
+<P>(the original thread name was &quot;cartinha p/ lista cricket&quot;, an improper
+<BR>
+subject from a posting of mine. It should have been &quot;Zeroed out graphs&quot;
+<BR>
+from the start.
+<BR>
+I'm trying to restart this thread, since the problem is still unsolved to me)
+<BR>
+<P>On Mon, 3 May 1999 11:44:25 +0200, Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20Zeroed%20out%20graphs&In-Reply-To=&lt;l03130302b386333bc28b@[192.168.0.24]&gt;">oetiker@ee.ethz.ch</A>&gt; writes:
+<BR>
+<EM>&gt;Hi Jeff Allen,
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Today you sent me mail regarding [MRTG-DEV] Re: [cricket-users] Re:...:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;*&gt;
+</EM><BR>
+<EM>&gt;*&gt; Marcelo A. Ferreira Gomes wrote:
+</EM><BR>
+<EM>&gt;*&gt; &gt; But sometimes, some of the graphs will only show zeroes (a flat
+</EM><BR>
+<EM>&gt;horizontal
+</EM><BR>
+<EM>&gt;*&gt; &gt; line covering the x axis). For instance, the hourly and weekly are zeroed
+</EM><BR>
+<EM>&gt;*&gt; &gt; out and the daily and monthly are ok. Sometime later (after another
+</EM><BR>
+<EM>&gt;sample
+</EM><BR>
+<EM>&gt;*&gt;
+</EM><BR>
+<EM>&gt;*&gt; You are not going nuts. We have seen the same problem here. I have
+</EM><BR>
+<EM>&gt;*&gt; tried to reproduce it but failed. I am almost 100% certain it's a
+</EM><BR>
+<EM>&gt;*&gt; problem with RRD Tool, not Cricket. The problem seems to be
+</EM><BR>
+<EM>&gt;*&gt; time-based, and the options that Cricket sends to rrdgraph do not vary
+</EM><BR>
+<EM>&gt;*&gt; over time.
+</EM><BR>
+<EM>&gt;*&gt;
+</EM><BR>
+<EM>&gt;*&gt; Tobias, any word on this bug? Have you seen it? I'll try again to
+</EM><BR>
+<EM>&gt;*&gt; characterize the situations where it happens, though it's very hard to
+</EM><BR>
+<EM>&gt;*&gt; do.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;I have not heared from this problem yet ...
+</EM><BR>
+<EM>&gt;sorry
+</EM><BR>
+<EM>&gt;tobi
+</EM><BR>
+<P>and then
+<BR>
+<P>On Wed, 5 May 1999 11:27:01 +0200, Steen Linden &lt;<A HREF="mailto:Steen.Linden@ebone.net?Subject=Re:%20[cricket-users]%20Zeroed%20out%20graphs&In-Reply-To=&lt;l03130302b386333bc28b@[192.168.0.24]&gt;">Steen.Linden@ebone.net</A>&gt;
+<BR>
+writes:
+<BR>
+<EM>&gt;Hi Tobi,
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Sorry, but I haven't been able to isolate it yet and can't come up with a
+</EM><BR>
+<EM>&gt;reproducable scenario.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;I'm using rrdtool-0.99.25 (also tried rrdtool-0.99.22 with same result),
+</EM><BR>
+<EM>&gt;cricket-0.63 and perl 5.004_04 on FreeBSD 2.2.6-RELEASE.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;The RRDs call for the cricket &quot;hourly graph&quot; look like this:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;RRDs::graph /tmp/graph.gif --base 1024 --start -151200
+</EM><BR>
+<EM>&gt;--vertical-label bits per second --width 500 --height 200
+</EM><BR>
+<EM>&gt;DEF:ds0=/cricket-data/hqgw/ebone-inc.rrd:ds0:AVERAGE
+</EM><BR>
+<EM>&gt;DEF:ds1=/cricket-data/hqgw/ebone-inc.rrd:ds1:AVERAGE
+</EM><BR>
+<EM>&gt;CDEF:sds0=ds0,8,* CDEF:sds1=ds1,8,* AREA:sds0#00cc00:Average bits in
+</EM><BR>
+<EM>&gt;LINE1:sds1#0000ff:Average bits out VRULE:925423200#ff0000:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Getting rid of the CDEFs makes it work all the time.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;--Steen
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;On Wed, 5 May 1999, Tobias Oetiker wrote:
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;&gt; From: Tobias Oetiker &lt;<A HREF="mailto:oetiker@ee.ethz.ch?Subject=Re:%20[cricket-users]%20Zeroed%20out%20graphs&In-Reply-To=&lt;l03130302b386333bc28b@[192.168.0.24]&gt;">oetiker@ee.ethz.ch</A>&gt;
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; Hi Steen Linden,
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; Today you sent me mail regarding RE: [MRTG-DEV] Re: [cricket-users] Re:...:
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; *&gt;
+</EM><BR>
+<EM>&gt;&gt; *&gt; I also believe it has something to do with the RRD scaling. I only see
+</EM><BR>
+<EM>&gt;&gt; *&gt; this problem on graphs converting bytes/s to bit/s, but then in about 50%
+</EM><BR>
+<EM>&gt;&gt; *&gt; of the time. A new poll makes the problem go away for a while.
+</EM><BR>
+<EM>&gt;&gt; *&gt;
+</EM><BR>
+<EM>&gt;&gt; *&gt; When removing the scaling the problem disappears. Seems to be time
+</EM><BR>
+<EM>&gt;&gt;related
+</EM><BR>
+<EM>&gt;&gt; *&gt; or maybe due to something uninitialized.
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; what is this scaling business about ?  are you using the latest rrdtool (.25
+</EM><BR>
+<EM>&gt;&gt; or .26) ?
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; cheers
+</EM><BR>
+<EM>&gt;&gt; tobi
+</EM><BR>
+<P>then again
+<BR>
+<P>On Thu, 6 May 1999 14:34:39 +0200, Steen Linden &lt;<A HREF="mailto:Steen.Linden@ebone.net?Subject=Re:%20[cricket-users]%20Zeroed%20out%20graphs&In-Reply-To=&lt;l03130302b386333bc28b@[192.168.0.24]&gt;">Steen.Linden@ebone.net</A>&gt;
+<BR>
+writes:
+<BR>
+<EM>&gt;On Thu, 6 May 1999, Tobias Oetiker wrote:
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;&gt; in that case I guess the FPE matter is rearing it's ugly head agin
+</EM><BR>
+<EM>&gt;&gt; can you try to recompile rrdtool and make sure that all components are
+</EM><BR>
+<EM>&gt;&gt; compiled with -ieee
+</EM><BR>
+<EM>&gt;&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Hi Tobi,
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;Changing the CDEF definitions by extending the last CDEF with a null
+</EM><BR>
+<EM>&gt;operation makes it work. Maybe this rings a bell, maybe it just adds to
+</EM><BR>
+<EM>&gt;the weirdness.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;&quot;CDEF:sds0='ds0,8,*' &quot;.
+</EM><BR>
+<EM>&gt;&quot;CDEF:sds1='ds1,8,*,0,+' &quot;.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt;I suspect the bug to be in or around rrd_graph.c:data_calc(), since this
+</EM><BR>
+<EM>&gt;function is both dependant on the CDEFs and the time, but I haven't been
+</EM><BR>
+<EM>&gt;able to find it yet.
+</EM><BR>
+<P>Well, it seems to solve the problem only for you, Steen, since I didn't see
+<BR>
+any difference when I added the &quot;,0,+&quot; to my Defaults file.
+<BR>
+<P>BTW, that file is the only place where I have CDEF definitions. I don't
+<BR>
+make them explicitly, like you seem to be doing.
+<BR>
+<P>Also, since I'm using grapher.cgi almost as it was shipped (with a few
+<BR>
+minor modifications that are of no general interest), I am using RRDs, not
+<BR>
+RRDp, so that the problem couldn't possibly come from rrd_graph.c. The
+<BR>
+piece of software in RRDs equivalent to rrd_graph.c in RRDp is RPN.pm.
+<BR>
+<P>I have checked that code myself (RPN.pm) and it looks fine to me.
+<BR>
+<P>Does anyone have any clue not mentioned about this problem yet? Does it
+<BR>
+show only to me, Steen Linden and Jeff Allen?
+<BR>
+<P>Thanks in advance.
+<BR>
+<P><PRE>
+--
+Marcelo A. Ferreira Gomes &lt;mailto:<A HREF="mailto:mgomes@trip.com.br?Subject=Re:%20[cricket-users]%20Zeroed%20out%20graphs&In-Reply-To=&lt;l03130302b386333bc28b@[192.168.0.24]&gt;">mgomes@trip.com.br</A>&gt;
+Analista de sistemas e consultor em Informática
+(Systems analist and CS consultant)
+Rio de Janeiro, RJ, Brasil
+<P><P><P>------------------------------------------------------------------------
+ONElist:  where real people with real interests get connected.
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Join a new list today!
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0213.html">Steen Linden: "[cricket-users] Small common.pm bug"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0211.html">Marcelo A. Ferreira Gomes: "Re: [cricket-users] Migrating old data from MRTG..."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#212">[ date ]</A>
+<A HREF="index.html#212">[ thread ]</A>
+<A HREF="subject.html#212">[ subject ]</A>
+<A HREF="author.html#212">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:53 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

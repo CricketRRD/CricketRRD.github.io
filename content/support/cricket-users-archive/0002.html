@@ -1,0 +1,395 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: getting an aggregate</TITLE>
+<META NAME="Author" CONTENT="Brad S. Dreisbach (bradd@dn.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: getting an aggregate">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: getting an aggregate</H1>
+<!-- received="Wed Apr 28 09:14:53 1999" -->
+<!-- isoreceived="19990428161453" -->
+<!-- sent="Wed, 28 Apr 1999 09:13:27 -0400 (EDT)" -->
+<!-- isosent="19990428131327" -->
+<!-- name="Brad S. Dreisbach" -->
+<!-- email="bradd@dn.net" -->
+<!-- subject="[cricket-users] Re: getting an aggregate" -->
+<!-- id="199904281313.JAA09645@dn.net" -->
+<STRONG>From:</STRONG> Brad S. Dreisbach (<A HREF="mailto:bradd@dn.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;"><EM>bradd@dn.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Apr 28 1999 - 06:13:27 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0003.html">Brad S. Dreisbach: "[cricket-users] aggregate bandwidth cont."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0001.html">Steen Linden: "[cricket-users] grapher.cgi problem"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#2">[ date ]</A>
+<A HREF="index.html#2">[ thread ]</A>
+<A HREF="subject.html#2">[ subject ]</A>
+<A HREF="author.html#2">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Brad S. Dreisbach&quot; &lt;<A HREF="mailto:bradd@dn.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">bradd@dn.net</A>&gt;
+<BR>
+<P>My /router-interfaces/interfaces looks like this:
+<BR>
+<P>target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = wdc-7500
+<BR>
+<P>target Hssi5_1_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Hssi5/1/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;*** T3 (2)&quot;
+<BR>
+<P>target Hssi8_0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Hssi8/0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;**** T3 Customer Network Address&quot;
+<BR>
+<P>target Hssi8_1_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Hssi8/1/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;mux t3's &quot;
+<BR>
+<P>target Hssi9_0_0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Hssi9/0/0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;T3 to the 8100 Boone Blvd.&quot;
+<BR>
+<P>target Hssi9_0_1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Hssi9/0/1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;New T3 to ****&quot;
+<BR>
+<P>target aggregate
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc      =       &quot;aggregate&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtargets        =       &quot;/router-interfaces/Hssi5_1_0;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/Hssi8_0_0;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/Hssi8_1_0;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/Hssi9_0_0;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/Hssi9_0_1;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/Hssi2_0;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/Hssi5_0;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/Serial1_2;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/router-interfaces/Ethernet6_0&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtargets-ops    =       &quot;+&quot;
+<BR>
+<P><P>All the individual graphs are fine...teh aggreate is working however it doesnt 
+<BR>
+appear to be generating valid graphs.  The aggegate is totaling right around 50 
+<BR>
+megs and the actual total is right around 100 megs.  Any ideas/suggestions???
+<BR>
+<P>Does this work with interfaces from multiple routers????
+<BR>
+<P>THanks,
+<BR>
+Brad
+<BR>
+<P><P><P><P><P><P>..Received: from deathstar.dn.net (deathstar.dn.net [206.197.81.212]) by dn.net 
+<BR>
+(8.9.3/arrakis) with ESMTP id MAA07376; Tue, 27 Apr 1999 12:10:22 -0400 (EDT)
+<BR>
+Received: (from daemon@localhost) by deathstar.dn.net (8.9.3/deathstar) id 
+<BR>
+MAA17273 for <A HREF="mailto:dnsadmin-dist@deathstar.dn.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">dnsadmin-dist@deathstar.dn.net</A>; Tue, 27 Apr 1999 12:10:21 -0400 
+<BR>
+(EDT)
+<BR>
+Received: from dn.net (arrakis.dn.net [206.197.81.213]) by deathstar.dn.net 
+<BR>
+(8.9.3/deathstar) with ESMTP id MAA17269 for &lt;<A HREF="mailto:dnsadmin@deathstar.dn.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">dnsadmin@deathstar.dn.net</A>&gt;; Tue, 
+<BR>
+27 Apr 1999 12:10:21 -0400 (EDT)
+<BR>
+Received: from latte.memphis.edu (latte.memphis.edu [141.225.1.7]) by dn.net 
+<BR>
+(8.9.3/arrakis) with ESMTP id MAA07373 for &lt;<A HREF="mailto:dnsadmin@DN.NET?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">dnsadmin@DN.NET</A>&gt;; Tue, 27 Apr 1999 
+<BR>
+12:10:20 -0400 (EDT)
+<BR>
+Received: from LATTE.MEMPHIS.EDU by LATTE.MEMPHIS.EDU (PMDF V5.1-12 #D3067) id 
+<BR>
+&lt;<A HREF="mailto:01JAIXN305MA94Y551@LATTE.MEMPHIS.EDU?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">01JAIXN305MA94Y551@LATTE.MEMPHIS.EDU</A>&gt; for <A HREF="mailto:dnsadmin@DN.NET?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">dnsadmin@DN.NET</A>; Tue, 27 Apr 1999 
+<BR>
+11:07:52 CDT
+<BR>
+Received: from glamdring.memphis.edu by LATTE.MEMPHIS.EDU (PMDF V5.1-12 #D3067) 
+<BR>
+with ESMTP id &lt;<A HREF="mailto:01JAIXN1576O94YE81@LATTE.MEMPHIS.EDU?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">01JAIXN1576O94YE81@LATTE.MEMPHIS.EDU</A>&gt; for 
+<BR>
+<A HREF="mailto:mknowles@LATTE.MEMPHIS.EDU?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">mknowles@LATTE.MEMPHIS.EDU</A>; Tue, 27 Apr 1999 11:07:48 -0500 (CDT)
+<BR>
+Received: (from root@localhost) by glamdring.memphis.edu (8.9.3/8.9.3) id 
+<BR>
+LAA27705 for <A HREF="mailto:mknowles@cc.memphis.edu?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">mknowles@cc.memphis.edu</A>; Tue, 27 Apr 1999 11:10:13 -0500 (CDT)
+<BR>
+Received: from onelist.com (pop.onelist.com [209.207.164.223]) by 
+<BR>
+glamdring.memphis.edu (8.9.3/8.9.3) with SMTP id LAA27700 for 
+<BR>
+&lt;<A HREF="mailto:mknowles@memphis.edu?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">mknowles@memphis.edu</A>&gt;; Tue, 27 Apr 1999 11:10:09 -0500 (CDT)
+<BR>
+Received: (qmail 20680 invoked by alias); Tue, 27 Apr 1999 16:51:23 +0000
+<BR>
+Received: (qmail 20618 invoked from network); Tue, 27 Apr 1999 16:51:23 +0000
+<BR>
+Received: from unknown (HELO imo20.mx.aol.com) (198.81.17.10) by pop.onelist.com 
+<BR>
+with SMTP; Tue, 27 Apr 1999 16:51:22 +0000
+<BR>
+Received: from <A HREF="mailto:LU1967@aol.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">LU1967@aol.com</A> (8007) by imo20.mx.aol.com (IMOv20) id hBLRa26751 
+<BR>
+for &lt;<A HREF="mailto:Non_Cust_Mom_Link@onelist.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">Non_Cust_Mom_Link@onelist.com</A>&gt;; Tue, 27 Apr 1999 12:09:46 -0400 (EDT)
+<BR>
+Date: Tue, 27 Apr 1999 12:09:43 -0400 (EDT)
+<BR>
+From: <A HREF="mailto:LU1967@aol.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">LU1967@aol.com</A>
+<BR>
+Subject: [Non_Cust_Mom_Link] Re: Summer School
+<BR>
+To: <A HREF="mailto:Non_Cust_Mom_Link@onelist.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">Non_Cust_Mom_Link@onelist.com</A>
+<BR>
+Reply-To: <A HREF="mailto:Non_Cust_Mom_Link@onelist.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">Non_Cust_Mom_Link@onelist.com</A>
+<BR>
+Message-Id: &lt;<A HREF="mailto:76113524.24573b47@aol.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">76113524.24573b47@aol.com</A>&gt;
+<BR>
+X-Vms-To: IN%&quot;<A HREF="mailto:Non_Cust_Mom_Link@onelist.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">Non_Cust_Mom_Link@onelist.com</A>&quot;
+<BR>
+Mime-Version: 1.0
+<BR>
+X-Mailer: AOL 4.0 for Windows 95 sub 10
+<BR>
+Content-Transfer-Encoding: 7bit
+<BR>
+Precedence: bulk
+<BR>
+Delivered-To: mailing list <A HREF="mailto:Non_Cust_Mom_Link@onelist.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">Non_Cust_Mom_Link@onelist.com</A>
+<BR>
+X-Ph: V4.1@glamdring
+<BR>
+Mailing-List: list <A HREF="mailto:Non_Cust_Mom_Link@onelist.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">Non_Cust_Mom_Link@onelist.com</A>; contact 
+<BR>
+<A HREF="mailto:Non_Cust_Mom_Link-owner@onelist.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">Non_Cust_Mom_Link-owner@onelist.com</A>
+<BR>
+List-Unsubscribe: &lt;mailto:<A HREF="mailto:Non_Cust_Mom_Link-unsubscribe@ONElist.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">Non_Cust_Mom_Link-unsubscribe@ONElist.com</A>&gt;
+<BR>
+Cc: <A HREF="mailto:dnsadmin@dn.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">dnsadmin@dn.net</A>
+<BR>
+Content-Type: text/plain; charset=us-ascii
+<BR>
+Content-Length: 1014
+<BR>
+<P>From: <A HREF="mailto:LU1967@aol.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">LU1967@aol.com</A>
+<BR>
+<P>In a message dated 4/27/99 6:33:11 AM Pacific Daylight Time, 
+<BR>
+<A HREF="mailto:frishman@shore.intercom.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">frishman@shore.intercom.net</A> writes:
+<BR>
+<P>&lt;&lt; Sissy, can you tell me again what I can do about home schooling or get her 
+<BR>
+to go to summer school hear? &gt;&gt;
+<BR>
+Missy- I just found out the private school I want to put my kids in when we 
+<BR>
+move back to Ohio doesn't have room for my son-only my daughter. I called the 
+<BR>
+teacher and asked which books they used-now I'm ordering them from the 
+<BR>
+company so I can homeschool him until there is an opening. This is a 
+<BR>
+christian school-they use ABEKA curriculum (wonderful). You can find it 
+<BR>
+online and they also can tell you about meetings in your area for 
+<BR>
+homeschoolers. Cindy Lu
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+New hobbies? New curiosities? New enthusiasms?
+<BR>
+<A HREF="http://www.ONElist.com">http://www.ONElist.com</A>
+<BR>
+Sign up for a new e-mail list today!
+<BR>
+------------------------------------------------------------------------
+<BR>
+Visit our webpage <A HREF="http://www.geocities.com/Heartland/Village/6300">http://www.geocities.com/Heartland/Village/6300</A>
+<BR>
+<P><P><P>!Date: Tue, 27 Apr 1999 16:36:38 -0700
+<BR>
+!From: Jeff Jensen &lt;<A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">jpj@corp.webtv.net</A>&gt;
+<BR>
+!To: &quot;Brad S. Dreisbach&quot; &lt;<A HREF="mailto:bradd@dn.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">bradd@dn.net</A>&gt;
+<BR>
+!Cc: <A HREF="mailto:cricket-users@onelist.com?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">cricket-users@onelist.com</A>
+<BR>
+!Subject: Re: [cricket-users] getting an aggregate
+<BR>
+!Mime-Version: 1.0
+<BR>
+!
+<BR>
+!Hi,
+<BR>
+!
+<BR>
+!If you have a relatively recent version of Cricket, you can do something
+<BR>
+!like this:
+<BR>
+!
+<BR>
+!target sum-of-connections
+<BR>
+!	short-desc = &quot;Sum of our two interfaces&quot;
+<BR>
+!	mtargets = &quot;/router-interfaces/interface-1;
+<BR>
+!		    /router-interfaces/interface-2&quot;
+<BR>
+!	mtargets-ops = &quot;+&quot;
+<BR>
+!
+<BR>
+!This will have the grapher present you a target which sums the information
+<BR>
+!from these two interfaces.  This can also work for more than 2 interfaces,
+<BR>
+!or different operations.
+<BR>
+!
+<BR>
+!This functionality is still rather new.  It's working for me, but your
+<BR>
+!milage may vary...
+<BR>
+!
+<BR>
+!-Jeff
+<BR>
+!
+<BR>
+!On Mon, Apr 26, 1999 at 06:08:29PM -0400, Brad S. Dreisbach wrote:
+<BR>
+!&gt; From: &quot;Brad S. Dreisbach&quot; &lt;<A HREF="mailto:bradd@dn.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">bradd@dn.net</A>&gt;
+<BR>
+!&gt; 
+<BR>
+!&gt; Is there a way to make cricket graph the total number of octets for each 
+<BR>
+!&gt; interface in the router-interfaces/interfaces file???  thus getting a total 
+<BR>
+!&gt; bandwidth graph of all interfaces?
+<BR>
+!&gt; 
+<BR>
+!&gt; brad
+<BR>
+!&gt; 
+<BR>
+!&gt; ________________________________________________
+<BR>
+!&gt; Brad Dreisbach ~ Unix Systems Engineer
+<BR>
+!&gt; digitalNATION ~ www.dedicatedserver.com
+<BR>
+!&gt; Phone: 703-642-2800 ~ Fax: 703-642-3747
+<BR>
+!&gt; Work: www.dn.net ~ Personal: home.dn.net/~bradd
+<BR>
+!&gt; ICQ:  22031613
+<BR>
+!&gt; 
+<BR>
+!&gt; 
+<BR>
+!&gt; ------------------------------------------------------------------------
+<BR>
+!&gt; Tired of empty chat rooms and out of date bulletin boards?
+<BR>
+!&gt; <A HREF="http://www.ONElist.com">http://www.ONElist.com</A> 
+<BR>
+!&gt; ONElist: Making the Internet Intimate
+<BR>
+!
+<BR>
+!-- 
+<BR>
+!Jeff Jensen                             <A HREF="mailto:jpj@corp.webtv.net?Subject=Re:%20[cricket-users]%20Re:%20getting%20an%20aggregate&In-Reply-To=&lt;199904281313.JAA09645@dn.net&gt;">jpj@corp.webtv.net</A>
+<BR>
+!Network Engineer                        WebTV Networks
+<BR>
+!Phone: (650) 614-7802                   305 Lytton Avenue
+<BR>
+!FAX:   (650) 614-8451                   Palo Alto, CA  94301
+<BR>
+<P>________________________________________________
+<BR>
+Brad Dreisbach ~ Unix Systems Engineer
+<BR>
+digitalNATION ~ www.dedicatedserver.com
+<BR>
+Phone: 703-642-2800 ~ Fax: 703-642-3747
+<BR>
+Work: www.dn.net ~ Personal: home.dn.net/~bradd
+<BR>
+ICQ:  22031613
+<BR>
+<P><P>------------------------------------------------------------------------
+<BR>
+Show mom you love her.  Check out our great Mother's Day Gifts!
+<BR>
+14K Gold and gemstone jewelry, leather and cloth wallets and purses,
+<BR>
+gardening, gourmet, kitchen, more! Free Shipping in the US!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="http://www.onelist.com/ad/shoptheglobe5">http://www.onelist.com/ad/shoptheglobe5</A>
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0003.html">Brad S. Dreisbach: "[cricket-users] aggregate bandwidth cont."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0001.html">Steen Linden: "[cricket-users] grapher.cgi problem"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#2">[ date ]</A>
+<A HREF="index.html#2">[ thread ]</A>
+<A HREF="subject.html#2">[ subject ]</A>
+<A HREF="author.html#2">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:47 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

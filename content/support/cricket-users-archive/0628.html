@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Re: Bug fix for &quot;show max&q</TITLE>
+<META NAME="Author" CONTENT="dusteur@excite.com (dusteur@excite.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Re: Bug fix for &quot;show max&quot;">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Re: Bug fix for &quot;show max&quot;</H1>
+<!-- received="Wed Sep 29 11:41:55 1999" -->
+<!-- isoreceived="19990929184155" -->
+<!-- sent="29 Sep 1999 15:40:56 -0000" -->
+<!-- isosent="19990929154056" -->
+<!-- name="dusteur@excite.com" -->
+<!-- email="dusteur@excite.com" -->
+<!-- subject="[cricket-users] Re: Bug fix for &quot;show max&quot;" -->
+<!-- id="938619656.12347@onelist.com" -->
+<STRONG>From:</STRONG> <A HREF="mailto:dusteur@excite.com?Subject=Re:%20[cricket-users]%20Re:%20Bug%20fix%20for%20&quot;show%20max&quot;&In-Reply-To=&lt;938619656.12347@onelist.com&gt;"><EM>dusteur@excite.com</EM></A><BR>
+<STRONG>Date:</STRONG> Wed Sep 29 1999 - 08:40:56 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0629.html">Eric Molitor: "Re: [cricket-users] Re: Bug fix for &quot;show max&quot;"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0627.html">Neal S. Pressman: "Re: [cricket-users] Graphing multiple views on one page."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0629.html">Eric Molitor: "Re: [cricket-users] Re: Bug fix for &quot;show max&quot;"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0629.html">Eric Molitor: "Re: [cricket-users] Re: Bug fix for &quot;show max&quot;"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0630.html">Berg, Ivan: "RE: [cricket-users] Re: Bug fix for &quot;show max&quot;"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#628">[ date ]</A>
+<A HREF="index.html#628">[ thread ]</A>
+<A HREF="subject.html#628">[ subject ]</A>
+<A HREF="author.html#628">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: <A HREF="mailto:dusteur@excite.com?Subject=Re:%20[cricket-users]%20Re:%20Bug%20fix%20for%20&quot;show%20max&quot;&In-Reply-To=&lt;938619656.12347@onelist.com&gt;">dusteur@excite.com</A>
+<BR>
+<P>&nbsp;
+<BR>
+I was having this problem too. 
+<BR>
+however, I found that this bug-fix alone didn't allow me to graph both averages and maximums
+<BR>
+all in different colours.
+<BR>
+I have a work-around - not really a bug-fix as it doesn't address the underlying bug,
+<BR>
+but if you repeat the lines in grapher.cgi:
+<BR>
+<P>1369,1371d1368
+<BR>
+&lt; 				$colormax = graphParam($gRef, 'max-color',
+<BR>
+&lt; 					nextColor($colorRef));
+<BR>
+&lt; 				usedColor($colormax);
+<BR>
+so they appear twice consectutively - again the line numbers are probably slightly out - then
+<BR>
+the problem is overcome, and we get unique colours for each line on the graph.
+<BR>
+<P>I have also knocked up a small module called GetStats.pm which uses rrdtool to extract 
+<BR>
+the stats for a router interface over a set time period and return the average 
+<BR>
+for that time, which I'm using to produce MRTG style stats for daily,weekly,monthly,yearly
+<BR>
+averages on the graphs. This works independently, but I also have some changes 
+<BR>
+to grapher.cgi to put it on the graphs.
+<BR>
+If you want the code, drop me a line. Its probably not perfect for inclusion into 
+<BR>
+the Cricket baseline, but changes for other peoples implementations should be minimal.
+<BR>
+<P>Also - I haven't had any mail from one.list for about 5 days. and sugarat.net hasn't been
+<BR>
+updated since saturday (or not via my ISP anyway). anyone know why?
+<BR>
+<P>Ryan Duffy.
+<BR>
+<A HREF="mailto:dusteur@excite.com?Subject=Re:%20[cricket-users]%20Re:%20Bug%20fix%20for%20&quot;show%20max&quot;&In-Reply-To=&lt;938619656.12347@onelist.com&gt;">dusteur@excite.com</A>
+<BR>
+<P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date: Mon, 27 Sep 1999 16:10:59 -0600
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From: David Mitchell &lt;mitchell@xxx.xxxx.xxxx
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject: Bug fix for &quot;show max&quot;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I finally got around to tracking down some bugs in the
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grapher.cgi code which display the maximum value for a datasource.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The short version is that in a couple of places, grapher.cgi pushes
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the wrong stuff onto the command line for RRD. In the first change,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the $ got left off, so it pushes the name of the variable instead
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of it's value. I wasn't actually hitting this bug, but I found it
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when I was trying to find the second bug.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The second bug pushes the wrong color onto the command. Instead of
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;using $clmxCode it uses $colorCode. As a result, no matter how hard
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;you try and change it, the &quot;max&quot; graph is always the same color as
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the &quot;average&quot; graph. Not very useful.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you are running into this problem, here are diffs of the two changes.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should probably change them by hand, since I think the line numbers
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are a little off due to other changes I've made.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Also, if Jeff Allen or one of the other WebTV folks is on this
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list, could you please put this fix in the code so it shows up
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in 0.71?  Thanks in advance,
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-David Mitchell
+<BR>
+<P><P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1369c1371
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;                                                       push @lines, 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;$drawAs:totmx$mod#clmxCode:&quot; .
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---
+<BR>
+<EM>                 &gt;                                                       push @lines, &quot;$drawAs:totmx$mod#$clmxCode:&quot; .
+</EM><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1388c1390
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;                                               push @lines, 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;$drawAs:mx$ct#$colorCode:&quot; .
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---
+<BR>
+<EM>                 &gt;                                               push @lines, &quot;$drawAs:mx$ct#$clmxCode:&quot; .
+</EM><BR>
+<P><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-------------------------------------------
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;David Mitchell         Network Engineer III
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:mitchell@ucar.edu?Subject=Re:%20[cricket-users]%20Re:%20Bug%20fix%20for%20&quot;show%20max&quot;&In-Reply-To=&lt;938619656.12347@onelist.com&gt;">mitchell@ucar.edu</A>      National Center  for
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x1845                  Atmospheric Research
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-------------------------------------------
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GET 2 FREE MUSIC CDS AND LOWER YOUR PHONE BILL!  ACT NOW!
+<BR>
+Sign up for Qwest long distance at Shopnow.com and receive 2 free music
+<BR>
+CDs, huge savings on long distance, plus special deals! Expires 9/30!
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/shopnow1">http://clickme.onelist.com/ad/shopnow1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0629.html">Eric Molitor: "Re: [cricket-users] Re: Bug fix for &quot;show max&quot;"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0627.html">Neal S. Pressman: "Re: [cricket-users] Graphing multiple views on one page."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0629.html">Eric Molitor: "Re: [cricket-users] Re: Bug fix for &quot;show max&quot;"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0629.html">Eric Molitor: "Re: [cricket-users] Re: Bug fix for &quot;show max&quot;"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0630.html">Berg, Ivan: "RE: [cricket-users] Re: Bug fix for &quot;show max&quot;"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#628">[ date ]</A>
+<A HREF="index.html#628">[ thread ]</A>
+<A HREF="subject.html#628">[ subject ]</A>
+<A HREF="author.html#628">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:03 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

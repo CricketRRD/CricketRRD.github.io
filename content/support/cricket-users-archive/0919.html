@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] directory-desc, and non-usage gr</TITLE>
+<META NAME="Author" CONTENT="Matt Raykowski (mattr@spacestar.net)">
+<META NAME="Subject" CONTENT="[cricket-users] directory-desc, and non-usage graphs.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] directory-desc, and non-usage graphs.</H1>
+<!-- received="Fri Jan 14 16:17:35 2000" -->
+<!-- isoreceived="20000115001735" -->
+<!-- sent="Fri, 14 Jan 2000 15:17:19 -0600" -->
+<!-- isosent="20000114211719" -->
+<!-- name="Matt Raykowski" -->
+<!-- email="mattr@spacestar.net" -->
+<!-- subject="[cricket-users] directory-desc, and non-usage graphs." -->
+<!-- id="HHEILEOELNBPDCKJADALMECMCAAA.mattr@spacestar.net" -->
+<STRONG>From:</STRONG> Matt Raykowski (<A HREF="mailto:mattr@spacestar.net?Subject=Re:%20[cricket-users]%20directory-desc,%20and%20non-usage%20graphs.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALMECMCAAA.mattr@spacestar.net&gt;"><EM>mattr@spacestar.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jan 14 2000 - 13:17:19 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0920.html">Jeff Younker: "[cricket-users] Format.pm values for OpenBSD"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0918.html">Jeff Younker: "RE: [cricket-users] Spike suppression"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0924.html">Nathan Alan Haneysmith: "Re: [cricket-users] directory-desc, and non-usage graphs."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0924.html">Nathan Alan Haneysmith: "Re: [cricket-users] directory-desc, and non-usage graphs."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#919">[ date ]</A>
+<A HREF="index.html#919">[ thread ]</A>
+<A HREF="subject.html#919">[ subject ]</A>
+<A HREF="author.html#919">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Matt Raykowski&quot; &lt;<A HREF="mailto:mattr@spacestar.net?Subject=Re:%20[cricket-users]%20directory-desc,%20and%20non-usage%20graphs.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALMECMCAAA.mattr@spacestar.net&gt;">mattr@spacestar.net</A>&gt;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My first, and most important problem is that grapher.cgi isn't displaying
+<BR>
+any usage/traffic whatsoever when browsing it directly, but when I run
+<BR>
+generate-statics, it makes graphs that show the proper amount of usage.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The second thing is that I'm running generate-statics once every ten to
+<BR>
+fifteen minutes to make static images to use in the &quot;choose a target&quot; page,
+<BR>
+in the description field - I want to throw an IMG SRC tag in there to show
+<BR>
+the daily usage of the interface, so at the interface listing you can get an
+<BR>
+at-a-glance idea of the traffic on that interface.  I've broken my tree down
+<BR>
+like this:
+<BR>
+<P>Geometric Location
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|___router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|	|__interfaces
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|	|__stats
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|	|__routing
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|___router2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My interfaces file currently looks like this:
+<BR>
+target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;router = 192.168.1.204
+<BR>
+target Ethernet0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Ethernet0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generate-static =       1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desc            =       &quot;This is where the image goes&quot;
+<BR>
+target Serial0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generate-static =       1
+<BR>
+target Serial1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Serial1
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You get the idea.  However, the admins want to get at-a-glance ideas of the
+<BR>
+summary of data, so I was using generate-statics copies of the
+<BR>
+ethernet0-daily-octets, etc.  In theory it's a good idea, but I still don't
+<BR>
+get anything in the &quot;description&quot; field of the table. I've tried using
+<BR>
+&quot;directory-desc,&quot; &quot;desc,&quot; &quot;short-desc,&quot; &quot;long-desc,&quot; and
+<BR>
+&quot;targets-short-desc&quot; in my interfaces file, and haven't had any luck.  I'll
+<BR>
+continue to tinker with it, and see if I can come up with anything, and if I
+<BR>
+do, I'll certainly mail out to the list, but if anyone else has any ideas,
+<BR>
+I'd appreciate it.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another thing a little, the reference file could be a little bit more
+<BR>
+verbose.  It gives you the name, default value, but not how the value should
+<BR>
+be formatted, where it should be used, i.e. putting generate-static under
+<BR>
+&quot;target Ethernet0,&quot; but it also doesn't mention that you have to use an
+<BR>
+equal sign and a value.  I figured it out with tinkering, but thought I'd
+<BR>
+mention my point of view on the documentation.  After awhile, this isn't
+<BR>
+such a big deal, but when you first get your hands in it, it's a little
+<BR>
+confusing.
+<BR>
+<P>Matt Raykowski - Level Two Technician
+<BR>
+Spacestar Communications, Inc.
+<BR>
+Dial-up to DS-3 Serving - MN WI ND MI IL
+<BR>
+Voice (612) 996-0000 / Fax (612) 996-0123
+<BR>
+www.spacestar.net / <A HREF="mailto:mattr@spacestar.net?Subject=Re:%20[cricket-users]%20directory-desc,%20and%20non-usage%20graphs.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALMECMCAAA.mattr@spacestar.net&gt;">mattr@spacestar.net</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0920.html">Jeff Younker: "[cricket-users] Format.pm values for OpenBSD"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0918.html">Jeff Younker: "RE: [cricket-users] Spike suppression"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0924.html">Nathan Alan Haneysmith: "Re: [cricket-users] directory-desc, and non-usage graphs."</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0924.html">Nathan Alan Haneysmith: "Re: [cricket-users] directory-desc, and non-usage graphs."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#919">[ date ]</A>
+<A HREF="index.html#919">[ thread ]</A>
+<A HREF="subject.html#919">[ subject ]</A>
+<A HREF="author.html#919">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:10 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,610 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Help with Cricket-0.69 for newbie</TITLE>
+<META NAME="Author" CONTENT="Daniel Spisak (dspisak@mminternet.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Help with Cricket-0.69 for newbie">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Help with Cricket-0.69 for newbie</H1>
+<!-- received="Mon Jul 19 16:05:05 1999" -->
+<!-- isoreceived="19990719230505" -->
+<!-- sent="Mon, 19 Jul 1999 13:03:17 -0700" -->
+<!-- isosent="19990719200317" -->
+<!-- name="Daniel Spisak" -->
+<!-- email="dspisak@mminternet.com" -->
+<!-- subject="[cricket-users] Help with Cricket-0.69 for newbie" -->
+<!-- id="019b01bed221$be914de0$d748afcf@mminternet.com" -->
+<!-- inreplyto="199907191755.KAA29242@oops.artemis.com" -->
+<STRONG>From:</STRONG> Daniel Spisak (<A HREF="mailto:dspisak@mminternet.com?Subject=Re:%20[cricket-users]%20Help%20with%20Cricket-0.69%20for%20newbie&In-Reply-To=&lt;019b01bed221$be914de0$d748afcf@mminternet.com&gt;"><EM>dspisak@mminternet.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jul 19 1999 - 13:03:17 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0366.html">Berg, Ivan: "RE: [cricket-users] Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0364.html">Greg Redder: "[cricket-users] can't open 'dummy'?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0362.html">Jeff Allen: "Re: [cricket-users] Apache Setup for user with Cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0366.html">Berg, Ivan: "RE: [cricket-users] Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0366.html">Berg, Ivan: "RE: [cricket-users] Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0384.html">Jeff Allen: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#365">[ date ]</A>
+<A HREF="index.html#365">[ thread ]</A>
+<A HREF="subject.html#365">[ subject ]</A>
+<A HREF="author.html#365">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Daniel Spisak&quot; &lt;<A HREF="mailto:dspisak@mminternet.com?Subject=Re:%20[cricket-users]%20Help%20with%20Cricket-0.69%20for%20newbie&In-Reply-To=&lt;019b01bed221$be914de0$d748afcf@mminternet.com&gt;">dspisak@mminternet.com</A>&gt;
+<BR>
+<P>Ok here is where I am at now.  I have RRDtool-1.00 installed with
+<BR>
+Cricket-0.69 on a Redhat 6.0 Intel box with all the updates from Redhat as
+<BR>
+well.  I have followed the beginner.txt file to the letter and when I do a
+<BR>
+compile this is what I get.
+<BR>
+<P>[19-Jul-1999 12:55:55 ] Starting compile: Cricket version 0.69 ( Fri Jul 16
+<BR>
+00:37:23 PDT 1999 )
+<BR>
+[19-Jul-1999 12:55:55 ] Processed 1 nodes (in 0 files) in 6 seconds.
+<BR>
+[root@paraguay cricket]#
+<BR>
+<P>After running the compile I can find config.db nowhere!  Now, after scouring
+<BR>
+the beginner.txt and the FAQ on Jeff's site I ran into some confusion.  In
+<BR>
+the beginner file Jeff says to install DB_File.  However, in the FAQ at the
+<BR>
+end he says to download BerkeleyDB 1.68 which is NOT DB_File as best as I
+<BR>
+can tell.  I have DB_File installed just fiine.  However, I have been
+<BR>
+totally unsucessful in getting BerkeleyDB-1.68 to compile on my Redhat box,
+<BR>
+and this was after following its instructions.  Here is the output of a
+<BR>
+&quot;make&quot; on the BerkeleyDB:
+<BR>
+<P>cc -c -D__DBINTERFACE_PRIVATE -O -I. -Iinclude -I../../hash
+<BR>
+.../../hash/hash.c
+<BR>
+In file included from ../../hash/hash.c:42:
+<BR>
+/usr/include/sys/stat.h:316: parse error before `__THROW'
+<BR>
+/usr/include/sys/stat.h:317: syntax error before `{'
+<BR>
+/usr/include/sys/stat.h:323: parse error before `__THROW'
+<BR>
+/usr/include/sys/stat.h:324: syntax error before `{'
+<BR>
+/usr/include/sys/stat.h:329: parse error before `__THROW'
+<BR>
+/usr/include/sys/stat.h:330: syntax error before `{'
+<BR>
+/usr/include/sys/stat.h:336: parse error before `__THROW'
+<BR>
+/usr/include/sys/stat.h:337: syntax error before `{'
+<BR>
+In file included from /usr/include/stdio.h:57,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from ../../hash/hash.c:46:
+<BR>
+/usr/include/libio.h:328: conflicting types for `__restrict'
+<BR>
+/usr/include/libio.h:328: previous declaration of `__restrict'
+<BR>
+/usr/include/libio.h:329: conflicting types for `__restrict'
+<BR>
+/usr/include/libio.h:328: previous declaration of `__restrict'
+<BR>
+/usr/include/libio.h:330: conflicting types for `__restrict'
+<BR>
+/usr/include/libio.h:330: previous declaration of `__restrict'
+<BR>
+In file included from ../../hash/hash.c:46:
+<BR>
+/usr/include/stdio.h:178: parse error before `__filename'
+<BR>
+/usr/include/stdio.h:181: parse error before `__filename'
+<BR>
+/usr/include/stdio.h:228: parse error before `__stream'
+<BR>
+/usr/include/stdio.h:232: parse error before `__stream'
+<BR>
+/usr/include/stdio.h:238: parse error before `__stream'
+<BR>
+/usr/include/stdio.h:247: parse error before `__stream'
+<BR>
+/usr/include/stdio.h:250: parse error before `__format'
+<BR>
+/usr/include/stdio.h:252: parse error before `__s'
+<BR>
+/usr/include/stdio.h:256: parse error before `__s'
+<BR>
+/usr/include/stdio.h:260: parse error before `__format'
+<BR>
+/usr/include/stdio.h:263: parse error before `__s'
+<BR>
+/usr/include/stdio.h:269: parse error before `__s'
+<BR>
+/usr/include/stdio.h:273: parse error before `__s'
+<BR>
+/usr/include/stdio.h:277: parse error before `__s'
+<BR>
+/usr/include/stdio.h:306: parse error before `__stream'
+<BR>
+/usr/include/stdio.h:309: parse error before `__format'
+<BR>
+/usr/include/stdio.h:311: parse error before `__s'
+<BR>
+/usr/include/stdio.h:389: parse error before `__s'
+<BR>
+/usr/include/stdio.h:424: parse error before `__s'
+<BR>
+/usr/include/stdio.h:442: parse error before `__ptr'
+<BR>
+/usr/include/stdio.h:445: parse error before `__ptr'
+<BR>
+/usr/include/stdio.h:450: parse error before `__ptr'
+<BR>
+/usr/include/stdio.h:452: parse error before `__ptr'
+<BR>
+/usr/include/stdio.h:495: parse error before `__stream'
+<BR>
+In file included from /usr/include/stdio.h:631,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from ../../hash/hash.c:46:
+<BR>
+/usr/include/bits/stdio.h:33: parse error before `__fmt'
+<BR>
+/usr/include/bits/stdio.h:34: syntax error before `{'
+<BR>
+/usr/include/bits/stdio.h:40: parse error before `__THROW'
+<BR>
+/usr/include/bits/stdio.h:41: syntax error before `{'
+<BR>
+/usr/include/bits/stdio.h:49: parse error before `__THROW'
+<BR>
+/usr/include/bits/stdio.h:50: syntax error before `{'
+<BR>
+/usr/include/bits/stdio.h:56: parse error before `__THROW'
+<BR>
+/usr/include/bits/stdio.h:57: syntax error before `{'
+<BR>
+/usr/include/bits/stdio.h:65: parse error before `__THROW'
+<BR>
+/usr/include/bits/stdio.h:66: syntax error before `{'
+<BR>
+/usr/include/bits/stdio.h:74: parse error before `__THROW'
+<BR>
+/usr/include/bits/stdio.h:75: syntax error before `{'
+<BR>
+/usr/include/bits/stdio.h:84: parse error before `__THROW'
+<BR>
+/usr/include/bits/stdio.h:85: syntax error before `{'
+<BR>
+/usr/include/bits/stdio.h:91: parse error before `__THROW'
+<BR>
+/usr/include/bits/stdio.h:92: syntax error before `{'
+<BR>
+/usr/include/bits/stdio.h:111: parse error before `__THROW'
+<BR>
+/usr/include/bits/stdio.h:112: syntax error before `{'
+<BR>
+/usr/include/bits/stdio.h:118: parse error before `__THROW'
+<BR>
+/usr/include/bits/stdio.h:119: syntax error before `{'
+<BR>
+In file included from ../../hash/hash.c:47:
+<BR>
+/usr/include/stdlib.h:96: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:109: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:112: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:119: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:123: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:133: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:137: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:196: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:199: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:201: parse error before `__strtold_internal'
+<BR>
+/usr/include/stdlib.h:202: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:204: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/stdlib.h:206: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:213: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:221: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:229: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:243: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:244: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:248: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:250: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:254: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:256: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:275: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:277: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:281: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:283: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:290: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:292: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:296: parse error before `__nptr'
+<BR>
+/usr/include/stdlib.h:298: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:304: parse error before `__THROW'
+<BR>
+/usr/include/stdlib.h:305: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:309: parse error before `__THROW'
+<BR>
+/usr/include/stdlib.h:310: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:314: parse error before `__THROW'
+<BR>
+/usr/include/stdlib.h:315: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:321: parse error before `__THROW'
+<BR>
+/usr/include/stdlib.h:322: syntax error before `{'
+<BR>
+/usr/include/stdlib.h:355: parse error before `initstate'
+<BR>
+/usr/include/stdlib.h:355: parse error before `__ptr_t'
+<BR>
+/usr/include/stdlib.h:356: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/stdlib.h:360: parse error before `setstate'
+<BR>
+/usr/include/stdlib.h:360: parse error before `__statebuf'
+<BR>
+/usr/include/stdlib.h:360: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/stdlib.h:379: parse error before `__buf'
+<BR>
+/usr/include/stdlib.h:385: parse error before `__ptr_t'
+<BR>
+/usr/include/stdlib.h:389: parse error before `__restrict'
+<BR>
+/usr/include/stdlib.h:438: parse error before `__buffer'
+<BR>
+/usr/include/stdlib.h:441: parse error before `__buffer'
+<BR>
+/usr/include/stdlib.h:445: parse error before `__buffer'
+<BR>
+/usr/include/stdlib.h:448: parse error before `__buffer'
+<BR>
+/usr/include/stdlib.h:452: parse error before `__buffer'
+<BR>
+/usr/include/stdlib.h:455: parse error before `__buffer'
+<BR>
+/usr/include/stdlib.h:474: parse error before `malloc'
+<BR>
+/usr/include/stdlib.h:474: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/stdlib.h:476: parse error before `calloc'
+<BR>
+/usr/include/stdlib.h:476: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/stdlib.h:482: parse error before `realloc'
+<BR>
+/usr/include/stdlib.h:482: parse error before `__ptr'
+<BR>
+/usr/include/stdlib.h:482: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/stdlib.h:484: parse error before `__ptr'
+<BR>
+/usr/include/stdlib.h:488: parse error before `__ptr'
+<BR>
+In file included from /usr/include/stdlib.h:492,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from ../../hash/hash.c:47:
+<BR>
+/usr/include/alloca.h:33: parse error before `alloca'
+<BR>
+/usr/include/alloca.h:33: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+In file included from ../../hash/hash.c:47:
+<BR>
+/usr/include/stdlib.h:497: parse error before `valloc'
+<BR>
+/usr/include/stdlib.h:497: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/stdlib.h:511: parse error before `__ptr_t'
+<BR>
+/usr/include/stdlib.h:513: parse error before `__ptr_t'
+<BR>
+/usr/include/stdlib.h:595: parse error before `__name'
+<BR>
+/usr/include/stdlib.h:603: parse error before `__PMT'
+<BR>
+/usr/include/stdlib.h:612: parse error before `bsearch'
+<BR>
+/usr/include/stdlib.h:618: parse error before `__PMT'
+<BR>
+/usr/include/stdlib.h:651: parse error before `__decpt'
+<BR>
+/usr/include/stdlib.h:657: parse error before `__decpt'
+<BR>
+/usr/include/stdlib.h:666: parse error before `__value'
+<BR>
+/usr/include/stdlib.h:668: parse error before `__value'
+<BR>
+/usr/include/stdlib.h:670: parse error before `__value'
+<BR>
+/usr/include/stdlib.h:676: parse error before `__decpt'
+<BR>
+/usr/include/stdlib.h:679: parse error before `__decpt'
+<BR>
+/usr/include/stdlib.h:683: parse error before `__value'
+<BR>
+/usr/include/stdlib.h:686: parse error before `__value'
+<BR>
+/usr/include/stdlib.h:698: parse error before `__pwc'
+<BR>
+/usr/include/stdlib.h:706: parse error before `__pwcs'
+<BR>
+/usr/include/stdlib.h:709: parse error before `__s'
+<BR>
+In file included from ../../hash/hash.c:48:
+<BR>
+/usr/include/string.h:37: parse error before `memcpy'
+<BR>
+/usr/include/string.h:37: parse error before `__restrict'
+<BR>
+/usr/include/string.h:38: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/string.h:41: parse error before `memmove'
+<BR>
+/usr/include/string.h:41: parse error before `__dest'
+<BR>
+/usr/include/string.h:42: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/string.h:48: parse error before `memccpy'
+<BR>
+/usr/include/string.h:48: parse error before `__dest'
+<BR>
+/usr/include/string.h:49: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/string.h:54: parse error before `memset'
+<BR>
+/usr/include/string.h:54: parse error before `__s'
+<BR>
+/usr/include/string.h:54: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/string.h:57: parse error before `__s1'
+<BR>
+/usr/include/string.h:61: parse error before `memchr'
+<BR>
+/usr/include/string.h:61: parse error before `__s'
+<BR>
+/usr/include/string.h:61: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/string.h:71: parse error before `__dest'
+<BR>
+/usr/include/string.h:74: parse error before `__dest'
+<BR>
+/usr/include/string.h:78: parse error before `__dest'
+<BR>
+/usr/include/string.h:81: parse error before `__dest'
+<BR>
+/usr/include/string.h:92: parse error before `__dest'
+<BR>
+/usr/include/string.h:170: parse error before `__s'
+<BR>
+/usr/include/string.h:175: parse error before `__s'
+<BR>
+/usr/include/string.h:179: parse error before `__s'
+<BR>
+/usr/include/string.h:221: parse error before `__s'
+<BR>
+/usr/include/string.h:225: parse error before `__src'
+<BR>
+/usr/include/string.h:228: parse error before `__s'
+<BR>
+/usr/include/string.h:231: parse error before `__s1'
+<BR>
+/usr/include/string.h:276: parse error before `__stringp'
+<BR>
+In file included from /usr/include/string.h:340,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from ../../hash/hash.c:48:
+<BR>
+/usr/include/bits/string2.h:257: parse error before `__rawmemchr'
+<BR>
+/usr/include/bits/string2.h:257: parse error before `__s'
+<BR>
+/usr/include/bits/string2.h:257: warning: data definition has no type or
+<BR>
+storage class
+<BR>
+In file included from ../../hash/hash.c:49:
+<BR>
+/usr/include/unistd.h:300: parse error before `__ptr_t'
+<BR>
+/usr/include/unistd.h:301: parse error before `__ptr_t'
+<BR>
+/usr/include/unistd.h:304: parse error before `__buf'
+<BR>
+/usr/include/unistd.h:305: parse error before `__buf'
+<BR>
+In file included from ../../hash/hash.c:49:
+<BR>
+/usr/include/unistd.h:860: parse error before `__addr'
+<BR>
+In file included from ../../hash/hash.c:49:
+<BR>
+/usr/include/unistd.h:869: parse error before `__sbrk'
+<BR>
+/usr/include/unistd.h:869: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+/usr/include/unistd.h:870: parse error before `sbrk'
+<BR>
+/usr/include/unistd.h:870: warning: data definition has no type or storage
+<BR>
+class
+<BR>
+In file included from ../../hash/hash.c:55:
+<BR>
+.../../hash/hash.h:101: field `__errno_location' declared as a function
+<BR>
+.../../hash/hash.c: In function `__hash_open':
+<BR>
+.../../hash/hash.c:187: warning: pointer/integer type mismatch in conditional
+<BR>
+expression
+<BR>
+.../../hash/hash.c: In function `init_hash':
+<BR>
+.../../hash/hash.c:323: warning: pointer/integer type mismatch in conditional
+<BR>
+expression
+<BR>
+.../../hash/hash.c:324: warning: pointer/integer type mismatch in conditional
+<BR>
+expression
+<BR>
+.../../hash/hash.c: In function `hash_get':
+<BR>
+.../../hash/hash.c:623: parse error before `('
+<BR>
+.../../hash/hash.c: In function `hash_put':
+<BR>
+.../../hash/hash.c:640: parse error before `('
+<BR>
+.../../hash/hash.c:644: parse error before `('
+<BR>
+.../../hash/hash.c: In function `hash_delete':
+<BR>
+.../../hash/hash.c:661: parse error before `('
+<BR>
+.../../hash/hash.c:665: parse error before `('
+<BR>
+.../../hash/hash.c: In function `cursor_get':
+<BR>
+.../../hash/hash.c:840: parse error before `('
+<BR>
+make: *** [hash.o] Error 1
+<BR>
+<P>I compared the PORT/linux dir to my PORT/Linux-2.2 dir and found no
+<BR>
+significant differences that I could tell. I am also at a loss as to wether
+<BR>
+I need BerkeleyDB-1.68 (although its readme says 1.67) or DB_File? Has
+<BR>
+anyone got any clues/hints/ideas/help for me?  I really would like to use
+<BR>
+Cricket/RRDtool over MRTG as MRTG simply consumes way too much time on
+<BR>
+configs and everything.  Any help at all would be appriciated, thank you.
+<BR>
+<P>Daniel E. Spisak
+<BR>
+Senior Network Administrator
+<BR>
+MM Internet
+<BR>
+<A HREF="http://www.mminternet.com/">http://www.mminternet.com/</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist members are using Shared Files in great ways!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Are you?  If not, see our homepage for details.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0366.html">Berg, Ivan: "RE: [cricket-users] Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0364.html">Greg Redder: "[cricket-users] can't open 'dummy'?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0362.html">Jeff Allen: "Re: [cricket-users] Apache Setup for user with Cricket"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0366.html">Berg, Ivan: "RE: [cricket-users] Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0366.html">Berg, Ivan: "RE: [cricket-users] Help with Cricket-0.69 for newbie"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0384.html">Jeff Allen: "[cricket-users] Re: Help with Cricket-0.69 for newbie"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#365">[ date ]</A>
+<A HREF="index.html#365">[ thread ]</A>
+<A HREF="subject.html#365">[ subject ]</A>
+<A HREF="author.html#365">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:57 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

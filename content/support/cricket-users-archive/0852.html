@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] SNMP_Session.pm and unformat</TITLE>
+<META NAME="Author" CONTENT="Bert Driehuis (bert_driehuis@nl.compuware.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] SNMP_Session.pm and unformatted timeticks">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] SNMP_Session.pm and unformatted timeticks</H1>
+<!-- received="Thu Jan  6 22:46:22 2000" -->
+<!-- isoreceived="20000107064622" -->
+<!-- sent="Fri, 7 Jan 2000 03:11:53 +0100 (CET)" -->
+<!-- isosent="20000107021153" -->
+<!-- name="Bert Driehuis" -->
+<!-- email="bert_driehuis@nl.compuware.com" -->
+<!-- subject="Re: [cricket-users] SNMP_Session.pm and unformatted timeticks" -->
+<!-- id="Pine.BSI.4.10.10001070303210.12943-100000@c1111.nl.compuware.com" -->
+<!-- inreplyto="200001070159.RAA06957@oops.artemis.com" -->
+<STRONG>From:</STRONG> Bert Driehuis (<A HREF="mailto:bert_driehuis@nl.compuware.com?Subject=Re:%20[cricket-users]%20SNMP_Session.pm%20and%20unformatted%20timeticks&In-Reply-To=&lt;Pine.BSI.4.10.10001070303210.12943-100000@c1111.nl.compuware.com&gt;"><EM>bert_driehuis@nl.compuware.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Thu Jan 06 2000 - 18:11:53 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0853.html">Grimshaw Stuart: "[cricket-users] Getting Pagecount from a printer."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0851.html">Jeff Allen: "Re: [cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0851.html">Jeff Allen: "Re: [cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#852">[ date ]</A>
+<A HREF="index.html#852">[ thread ]</A>
+<A HREF="subject.html#852">[ subject ]</A>
+<A HREF="author.html#852">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+On Thu, 6 Jan 2000, Jeff Allen wrote:
+<BR>
+<P><EM>&gt; &gt; 	By setting the following variable to zero (I choose to do this in
+</EM><BR>
+<EM>&gt; &gt; cricket/lib/snmpUtils.pm), you will get the raw TimeTicks value, rather
+</EM><BR>
+<EM>&gt; &gt; that the pretty_print formatted version:
+</EM><BR>
+[snip]
+<BR>
+<EM>&gt; If I simply add that line, will it affect anyone badly? I don't think
+</EM><BR>
+<EM>&gt; so... I think I can simply add that line, and them _if_ someone tries
+</EM><BR>
+<EM>&gt; to graph a timeticks, then the right thing will happen. Which, I'm
+</EM><BR>
+<EM>&gt; beginning to recall, is what you were trying to get me to do. :)
+</EM><BR>
+<P>&lt;webtv&gt;MME TOOO&lt;/webtv&gt;   :-)
+<BR>
+<P>Yes, it will impact people. Currently, if a timeticks value exceeds one
+<BR>
+day, the value returned will be formatted as the number of days indicated.
+<BR>
+However, people will be impacted by the current situation as soon as they
+<BR>
+reboot whatever server has an uptime exceeding one day, or if (as in my
+<BR>
+case) their Squid Current LRU expiration drops below one day and suddenly
+<BR>
+shows up as 23 units (which happen to be hours suddenly).
+<BR>
+<P>So, it's a misfeature, and I agree with roofdog (sp?) it would help to
+<BR>
+make it consistent by setting this variable.
+<BR>
+<P>Sigh. So much for wanting to produce clean diffs, I have been taking this
+<BR>
+one out of mine because I wanted to discuss it in-depth before suggesting
+<BR>
+the change.
+<BR>
+<P>Cheers,
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- Bert
+<BR>
+<P>Bert Driehuis, MIS -- <A HREF="mailto:bert_driehuis@nl.compuware.com?Subject=Re:%20[cricket-users]%20SNMP_Session.pm%20and%20unformatted%20timeticks&In-Reply-To=&lt;Pine.BSI.4.10.10001070303210.12943-100000@c1111.nl.compuware.com&gt;">bert_driehuis@nl.compuware.com</A> -- +31-20-3116119
+<BR>
+The first one to use the words &quot;Brick and Mortar Company&quot; will get it in
+<BR>
+the neck.
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0853.html">Grimshaw Stuart: "[cricket-users] Getting Pagecount from a printer."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0851.html">Jeff Allen: "Re: [cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0851.html">Jeff Allen: "Re: [cricket-users] SNMP_Session.pm and unformatted timeticks"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#852">[ date ]</A>
+<A HREF="index.html#852">[ thread ]</A>
+<A HREF="subject.html#852">[ subject ]</A>
+<A HREF="author.html#852">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:08 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

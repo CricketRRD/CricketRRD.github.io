@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>cricket-users: RE: [cricket-users] Getting Pagecount from a pri</TITLE>
+<META NAME="Author" CONTENT="Steve Nemetz (snemetz@exp.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Getting Pagecount from a printer.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Getting Pagecount from a printer.</H1>
+<!-- received="Fri Jan  7 11:40:27 2000" -->
+<!-- isoreceived="20000107194027" -->
+<!-- sent="Fri, 7 Jan 2000 08:29:16 -0800 " -->
+<!-- isosent="20000107162916" -->
+<!-- name="Steve Nemetz" -->
+<!-- email="snemetz@exp.com" -->
+<!-- subject="RE: [cricket-users] Getting Pagecount from a printer." -->
+<!-- id="099746D1BB12D311A4FD0090277870B035FBAA@oak.exp.com" -->
+<!-- charset="windows-1252" -->
+<!-- inreplyto="[cricket-users] Getting Pagecount from a printer." -->
+<STRONG>From:</STRONG> Steve Nemetz (<A HREF="mailto:snemetz@exp.com?Subject=RE:%20[cricket-users]%20Getting%20Pagecount%20from%20a%20printer.&In-Reply-To=&lt;099746D1BB12D311A4FD0090277870B035FBAA@oak.exp.com&gt;"><EM>snemetz@exp.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jan 07 2000 - 08:29:16 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0858.html">Michael S. Fischer: "Re: [cricket-users] Error from apache when trying to get grapher.cgi to actually disp lay some graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0856.html">Bjorn Nordbo: "[cricket-users] Problem with directory global dictionaries"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0853.html">Grimshaw Stuart: "[cricket-users] Getting Pagecount from a printer."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0859.html">Jeff Allen: "Re: [cricket-users] Getting Pagecount from a printer."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#857">[ date ]</A>
+<A HREF="index.html#857">[ thread ]</A>
+<A HREF="subject.html#857">[ subject ]</A>
+<A HREF="author.html#857">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+For cricket you need to use the full OID. So add 1.3.6.1.2.1 to the
+<BR>
+beginning of your OID and it should work.
+<BR>
+<P>Steven Nemetz			phone:	650-330-9063
+<BR>
+Network Security Manager 	fax:	650-566-0382
+<BR>
+exp.com
+<BR>
+1374 Willow Road	
+<BR>
+Menlo Park, CA 94025
+<BR>
+<P>www.exp.com
+<BR>
+<P><P>-----Original Message-----
+<BR>
+From: Grimshaw Stuart [mailto:<A HREF="mailto:stuart.grimshaw@blackburn.gov.uk?Subject=RE:%20[cricket-users]%20Getting%20Pagecount%20from%20a%20printer.&In-Reply-To=&lt;099746D1BB12D311A4FD0090277870B035FBAA@oak.exp.com&gt;">stuart.grimshaw@blackburn.gov.uk</A>]
+<BR>
+Sent: Friday, January 07, 2000 5:09 AM
+<BR>
+To: '<A HREF="mailto:cricket-users@onelist.com?Subject=RE:%20[cricket-users]%20Getting%20Pagecount%20from%20a%20printer.&In-Reply-To=&lt;099746D1BB12D311A4FD0090277870B035FBAA@oak.exp.com&gt;">cricket-users@onelist.com</A>'
+<BR>
+Subject: [cricket-users] Getting Pagecount from a printer.
+<BR>
+<P><P>You may have seen my post yesterday about trying to get a pagecount from
+<BR>
+my HP Laserjet 4000, at the time I didn't think the question was a topic
+<BR>
+for this list, however a little further investigation, and I think it
+<BR>
+might be.
+<BR>
+<P>this command :
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmpget 10.18.2.4 public 43.10.2.1.4.1.1
+<BR>
+<P>will return the pagecount.
+<BR>
+<P>43.10.2.1.4.1.1 = 56152
+<BR>
+<P>However, when I try to set up a cricket config for the printer :
+<BR>
+<P># Cricket 'Defaults' file for HP Laserjet 4000 printers
+<BR>
+# Created 05/01/2000 Stuart M. Grimshaw
+<BR>
+<P>OID     hplj_pagecount  43.10.2.1.4.1.1
+<BR>
+<P>datasource hplj_pagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/hplj_pagecount
+<BR>
+<P># Graph defaults
+<BR>
+graph   hplj_pagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color = orange
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as = AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legend = &quot;Pages Printed&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-axis = &quot;Pages&quot;
+<BR>
+<P># Target Type
+<BR>
+targetType      hp-lj4000
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds = &quot;hplj_pagecount&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view = &quot;Pages: hplj_pagecount&quot;
+<BR>
+<P>and the actual file from deeper in the tree :
+<BR>
+<P>target sysadmin-printer
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type = hp-lj4000
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = 10.18.2.4
+<BR>
+<P>and then run it through collect-subtrees, I get the following error
+<BR>
+message.
+<BR>
+<P>[07-Jan-2000 13:00:49*] cannot encode Object ID 43.10.2.1.4.1.1: first
+<BR>
+subid too big in Object ID 43.10.2.1.4.1.1 at
+<BR>
+usr/lib/perl5/site_perl/5.005/SNMP_util.pm line 942.
+<BR>
+<P>I'm guessing there must be some errors in my Defaults and other files?
+<BR>
+Might I be missing a MIB file? I've downloaded one for an HPJetdirect 3,
+<BR>
+which is what these printers have inside them to the best of my
+<BR>
+knowledge, but it stiall makes no difference.
+<BR>
+<P>TIA, 
+<BR>
+<P>Stu.
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0858.html">Michael S. Fischer: "Re: [cricket-users] Error from apache when trying to get grapher.cgi to actually disp lay some graphs"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0856.html">Bjorn Nordbo: "[cricket-users] Problem with directory global dictionaries"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0853.html">Grimshaw Stuart: "[cricket-users] Getting Pagecount from a printer."</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0859.html">Jeff Allen: "Re: [cricket-users] Getting Pagecount from a printer."</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#857">[ date ]</A>
+<A HREF="index.html#857">[ thread ]</A>
+<A HREF="subject.html#857">[ subject ]</A>
+<A HREF="author.html#857">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:08 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] Spike suppression</TITLE>
+<META NAME="Author" CONTENT="Jeff Younker (Jeff@mdli.com)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] Spike suppression">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] Spike suppression</H1>
+<!-- received="Fri Jan 14 13:43:39 2000" -->
+<!-- isoreceived="20000114214339" -->
+<!-- sent="Fri, 14 Jan 2000 10:37:29 -0800" -->
+<!-- isosent="20000114183729" -->
+<!-- name="Jeff Younker" -->
+<!-- email="Jeff@mdli.com" -->
+<!-- subject="RE: [cricket-users] Spike suppression" -->
+<!-- id="8E13FBBA26A9DA119ED400A0C9AB2CE5036AC54B@shepherd.mdli.com" -->
+<!-- inreplyto="[cricket-users] Spike suppression" -->
+<STRONG>From:</STRONG> Jeff Younker (<A HREF="mailto:Jeff@mdli.com?Subject=RE:%20[cricket-users]%20Spike%20suppression&In-Reply-To=&lt;8E13FBBA26A9DA119ED400A0C9AB2CE5036AC54B@shepherd.mdli.com&gt;"><EM>Jeff@mdli.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jan 14 2000 - 10:37:29 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0919.html">Matt Raykowski: "[cricket-users] directory-desc, and non-usage graphs."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0917.html">Bert Driehuis: "[cricket-users] Spike suppression"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0917.html">Bert Driehuis: "[cricket-users] Spike suppression"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0923.html">Bert Driehuis: "RE: [cricket-users] Spike suppression"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0923.html">Bert Driehuis: "RE: [cricket-users] Spike suppression"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#918">[ date ]</A>
+<A HREF="index.html#918">[ thread ]</A>
+<A HREF="subject.html#918">[ subject ]</A>
+<A HREF="author.html#918">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Younker &lt;<A HREF="mailto:Jeff@mdli.com?Subject=RE:%20[cricket-users]%20Spike%20suppression&In-Reply-To=&lt;8E13FBBA26A9DA119ED400A0C9AB2CE5036AC54B@shepherd.mdli.com&gt;">Jeff@mdli.com</A>&gt;
+<BR>
+<P>From: Bert Driehuis &lt;<A HREF="mailto:driehuis@playbeing.org?Subject=RE:%20[cricket-users]%20Spike%20suppression&In-Reply-To=&lt;8E13FBBA26A9DA119ED400A0C9AB2CE5036AC54B@shepherd.mdli.com&gt;">driehuis@playbeing.org</A>&gt;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When an SNMP agent restarts, this will show up as a
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spike on the Cricket graphs because of the way RRDTOOL
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handles SNMP counter values. Of course, they can be
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;suppressed by defining a maximum value for the
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datasource, but doing that sort of sucks because you
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;need a very precise understanding of the ranges that
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;your data can take (which, in particular for things like
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;monitoring a Squid cache, if often information you don't
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;have at the outset).
+<BR>
+<P>It's also useful to know that versions of RRDTool below 1.0.10 have a bug
+<BR>
+which can generate spurious spikes.  This bug is only present on certain
+<BR>
+architectures, but if you're getting spikes at random points not related to
+<BR>
+variable roll over then upgrade RRDTool to 1.0.10.
+<BR>
+<P><P>- Jeff Younker - <A HREF="mailto:jeff@mdli.com?Subject=RE:%20[cricket-users]%20Spike%20suppression&In-Reply-To=&lt;8E13FBBA26A9DA119ED400A0C9AB2CE5036AC54B@shepherd.mdli.com&gt;">jeff@mdli.com</A> - These are my opinions, not MDL's -
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0919.html">Matt Raykowski: "[cricket-users] directory-desc, and non-usage graphs."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0917.html">Bert Driehuis: "[cricket-users] Spike suppression"</A>
+<LI><STRONG>Maybe in reply to:</STRONG> <A HREF="0917.html">Bert Driehuis: "[cricket-users] Spike suppression"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0923.html">Bert Driehuis: "RE: [cricket-users] Spike suppression"</A>
+<LI><STRONG>Reply:</STRONG> <A HREF="0923.html">Bert Driehuis: "RE: [cricket-users] Spike suppression"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#918">[ date ]</A>
+<A HREF="index.html#918">[ thread ]</A>
+<A HREF="subject.html#918">[ subject ]</A>
+<A HREF="author.html#918">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:10 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

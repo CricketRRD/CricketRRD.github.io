@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Collector, DNS &amp; resolvi</TITLE>
+<META NAME="Author" CONTENT="Jason Tonkin (jtonkin@dogbert.linz.govt.nz)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Collector, DNS &amp; resolving IP addresses">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Collector, DNS &amp; resolving IP addresses</H1>
+<!-- received="Tue Sep 28 00:19:03 1999" -->
+<!-- isoreceived="19990928071903" -->
+<!-- sent="Tue, 28 Sep 1999 16:18:08 +1200" -->
+<!-- isosent="19990928041808" -->
+<!-- name="Jason Tonkin" -->
+<!-- email="jtonkin@dogbert.linz.govt.nz" -->
+<!-- subject="Re: [cricket-users] Collector, DNS &amp; resolving IP addresses" -->
+<!-- id="37F04180.D67434A6@dogbert.linz.govt.nz" -->
+<!-- inreplyto="938486534.28205@onelist.com" -->
+<STRONG>From:</STRONG> Jason Tonkin (<A HREF="mailto:jtonkin@dogbert.linz.govt.nz?Subject=Re:%20[cricket-users]%20Collector,%20DNS%20&amp;%20resolving%20IP%20addresses&In-Reply-To=&lt;37F04180.D67434A6@dogbert.linz.govt.nz&gt;"><EM>jtonkin@dogbert.linz.govt.nz</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Sep 27 1999 - 21:18:08 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0623.html">Pete Mckenna: "[cricket-users] Graphing multiple views on one page."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0621.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0621.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#622">[ date ]</A>
+<A HREF="index.html#622">[ thread ]</A>
+<A HREF="subject.html#622">[ subject ]</A>
+<A HREF="author.html#622">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jason Tonkin &lt;<A HREF="mailto:jtonkin@dogbert.linz.govt.nz?Subject=Re:%20[cricket-users]%20Collector,%20DNS%20&amp;%20resolving%20IP%20addresses&In-Reply-To=&lt;37F04180.D67434A6@dogbert.linz.govt.nz&gt;">jtonkin@dogbert.linz.govt.nz</A>&gt;
+<BR>
+<P>Hi Jennifer
+<BR>
+<P>I'm seeing the same problem on an UltraII running
+<BR>
+Solaris 2.6 with all recommended patches installed.
+<BR>
+<P>Anyone have any ideas?
+<BR>
+<P>regards
+<BR>
+<P>Jason Tonkin
+<BR>
+Unix Systems Administrator
+<BR>
+Land Information New Zealand
+<BR>
+<A HREF="http://www.linz.govt.nz">http://www.linz.govt.nz</A>   <A HREF="mailto:jtonkin@dogbert.linz.govt.nz?Subject=Re:%20[cricket-users]%20Collector,%20DNS%20&amp;%20resolving%20IP%20addresses&In-Reply-To=&lt;37F04180.D67434A6@dogbert.linz.govt.nz&gt;">jtonkin@dogbert.linz.govt.nz</A>
+<BR>
+<P><P><P><A HREF="mailto:Jennifer.Hayes@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Collector,%20DNS%20&amp;%20resolving%20IP%20addresses&In-Reply-To=&lt;37F04180.D67434A6@dogbert.linz.govt.nz&gt;">Jennifer.Hayes@det.nsw.edu.au</A> wrote:
+<BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; From: <A HREF="mailto:Jennifer.Hayes@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Collector,%20DNS%20&amp;%20resolving%20IP%20addresses&In-Reply-To=&lt;37F04180.D67434A6@dogbert.linz.govt.nz&gt;">Jennifer.Hayes@det.nsw.edu.au</A>
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; I am setting up Cricket (latest version) on an Alphaserver DS20 running
+</EM><BR>
+<EM>&gt; Digital UNIX V4.0F.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; perl5.005_03
+</EM><BR>
+<EM>&gt; rrdtool-1.0.4
+</EM><BR>
+<EM>&gt; SNMP_Session-0.72
+</EM><BR>
+<EM>&gt; cricket-0_70
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; A compile of the config tree worked okay but when collector was first run we got
+</EM><BR>
+<EM>&gt; errors that the 'router name' could not be resolved to the IP address. As per an
+</EM><BR>
+<EM>&gt; earlier suggestion in these archives we added the IP address to /etc/hosts and
+</EM><BR>
+<EM>&gt; checked the DNS forward / rev were okay.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; # nslookup isbr22
+</EM><BR>
+<EM>&gt; Server:  watt.isd.tafensw.EDU.AU
+</EM><BR>
+<EM>&gt; Address:  153.107.23.1
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Name:    isbr22.schools.nsw.EDU.AU
+</EM><BR>
+<EM>&gt; Address:  10.23.254.250
+</EM><BR>
+<EM>&gt; Aliases:  isbr22.isd.tafensw.EDU.AU
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; After doing another compile and re-running collector the following errors are
+</EM><BR>
+<EM>&gt; displayed:
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; [28-Sep-1999 12:30:05 ] Starting collector: Cricket version 0.70 ( Wed Aug 11 11
+</EM><BR>
+<EM>&gt; :33:37 PDT 1999 )
+</EM><BR>
+<EM>&gt; [28-Sep-1999 12:30:05*] Variable expansion uses undefined variable: interface-na
+</EM><BR>
+<EM>&gt; me.
+</EM><BR>
+<EM>&gt; [28-Sep-1999 12:30:05*] Variable expansion uses undefined variable: interface-na
+</EM><BR>
+<EM>&gt; me.
+</EM><BR>
+<EM>&gt; [28-Sep-1999 12:30:05 ] Walking ifDescr for isbr22.schools.nsw.EDU.AU:161 to res
+</EM><BR>
+<EM>&gt; olve interface-name mapping
+</EM><BR>
+<EM>&gt; [28-Sep-1999 12:30:05*] Failed to map instance for 0. Instance is now set to not
+</EM><BR>
+<EM>&gt; hing.
+</EM><BR>
+<EM>&gt; [28-Sep-1999 12:30:05*] Received SNMP response with error code noSuchName
+</EM><BR>
+<EM>&gt; [28-Sep-1999 12:30:05 ] Retrieved data for 0 (): U,U,U,U,U,U
+</EM><BR>
+<EM>&gt; [28-Sep-1999 12:30:05 ] Some data is missing for 0 ().
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Any suggestions - are we missing something in setting up the 'interface-name'??
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<PRE>
+-- 
+Jason Tonkin
+Unix Systems Adminstrator
+Land Information New Zealand
+<A HREF="http://www.linz.govt.nz">http://www.linz.govt.nz</A>  <A HREF="mailto:jtonkin@linz.govt.nz?Subject=Re:%20[cricket-users]%20Collector,%20DNS%20&amp;%20resolving%20IP%20addresses&In-Reply-To=&lt;37F04180.D67434A6@dogbert.linz.govt.nz&gt;">jtonkin@linz.govt.nz</A>
+Phone (04)4600174 (025)811382 Fax (04)4600166
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>Share your special moments with family and friends- send PHOTO Greetings
+at Zing.com! Use your own photos or choose from a variety of funny,
+                 cute, cool and animated cards.       
+   &lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/zing15">http://clickme.onelist.com/ad/zing15</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0623.html">Pete Mckenna: "[cricket-users] Graphing multiple views on one page."</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0621.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0621.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#622">[ date ]</A>
+<A HREF="index.html#622">[ thread ]</A>
+<A HREF="subject.html#622">[ subject ]</A>
+<A HREF="author.html#622">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users]</TITLE>
+<META NAME="Author" CONTENT="Tim Kennedy (sugarat@thunderhold.sugarat.net)">
+<META NAME="Subject" CONTENT="Re: [cricket-users]">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users]</H1>
+<!-- received="Wed Jul 21 16:29:31 1999" -->
+<!-- isoreceived="19990721232931" -->
+<!-- sent="Wed, 21 Jul 1999 16:30:19 -0400 (EDT)" -->
+<!-- isosent="19990721203019" -->
+<!-- name="Tim Kennedy" -->
+<!-- email="sugarat@thunderhold.sugarat.net" -->
+<!-- subject="Re: [cricket-users]" -->
+<!-- id="Pine.BSF.3.96.990721162320.69895B-100000@localhost" -->
+<!-- inreplyto="8B069C65F931D111B6E10000F804A4DF77036A@amethyst.msu.montana.edu" -->
+<STRONG>From:</STRONG> Tim Kennedy (<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]&In-Reply-To=&lt;Pine.BSF.3.96.990721162320.69895B-100000@localhost&gt;"><EM>sugarat@thunderhold.sugarat.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jul 21 1999 - 13:30:19 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0409.html">Matt Birkner: "[cricket-users] collector can't find/use RRDs.pm"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0407.html">Berg, Ivan: "[cricket-users]"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0407.html">Berg, Ivan: "[cricket-users]"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0605.html">Berg, Ivan: "[cricket-users]"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#408">[ date ]</A>
+<A HREF="index.html#408">[ thread ]</A>
+<A HREF="subject.html#408">[ subject ]</A>
+<A HREF="author.html#408">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Tim Kennedy &lt;<A HREF="mailto:sugarat@thunderhold.sugarat.net?Subject=Re:%20[cricket-users]&In-Reply-To=&lt;Pine.BSF.3.96.990721162320.69895B-100000@localhost&gt;">sugarat@thunderhold.sugarat.net</A>&gt;
+<BR>
+<P>On Wed, 21 Jul 1999, Berg, Ivan wrote:
+<BR>
+<P><EM>&gt; 1.  Sending a ping to the broadcast address of several subnets results in
+</EM><BR>
+<EM>&gt; DUP packets from almost every responding hosts. The router of these subnets
+</EM><BR>
+<EM>&gt; has directed broadcasts turned on. Other routers have directed broadcasts
+</EM><BR>
+<EM>&gt; turned off and thus I can not reach them from where I am at.  The man page
+</EM><BR>
+<EM>&gt; for ping states this:
+</EM><BR>
+<EM>&gt; DUPLICATE AND DAMAGED PACKETS
+</EM><BR>
+<EM>&gt;      Ping will report duplicate and damaged packets.  Duplicate packets
+</EM><BR>
+<EM>&gt; should
+</EM><BR>
+<EM>&gt;      never occur, and seem to be caused by inappropriate link-level retrans-
+</EM><BR>
+<EM>&gt;      missions.  Duplicates may occur in many situations and are rarely (if
+</EM><BR>
+<EM>&gt; ev-
+</EM><BR>
+<EM>&gt;      er) a good sign, although the presence of low levels of duplicates may
+</EM><BR>
+<EM>&gt;      not always be cause for alarm.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Now, this does not sound good, could this be normal?? cause for alarm?? what
+</EM><BR>
+<EM>&gt; could be causing it.
+</EM><BR>
+<P>I suspect that pinging a broadcast address is different situation.
+<BR>
+You send out a single ECHO.  You receive the first ECHO-REPY.  Good.
+<BR>
+You receive another ECHO-REPLY to the same ECHO.  Huh?  DUPLICATE.
+<BR>
+That is normal behavior, when pinging a broadcast address.  Every node on
+<BR>
+that netwok will respond.  If you ping a node that is not a broadcast
+<BR>
+address and you receive DUP packets, then yes, that _is_ bad.
+<BR>
+<P><EM>&gt; 2.  I have read networking books that state when using a classfull routing
+</EM><BR>
+<EM>&gt; protocol such as RIP that you should not use masks other than the standard
+</EM><BR>
+<EM>&gt; class ones.  They say you could possibly do it but that the mask should
+</EM><BR>
+<EM>&gt; always be larger than what you are using by default on other equipment. For
+</EM><BR>
+<EM>&gt; instance, if you have a class C subnet with a mask of 24, then it states
+</EM><BR>
+<EM>&gt; that you should only use masks &gt; 24. e.g. DONT use a 23 bit net mask.  My
+</EM><BR>
+<EM>&gt; question is: why is this bad?? It doesn't seem to cause problems.  For
+</EM><BR>
+<EM>&gt; instance, on network using RIP, we want subnet with 512 hosts(23 bit
+</EM><BR>
+<EM>&gt; netmask), since all hosts don't have netmask set properly, two routes are
+</EM><BR>
+<EM>&gt; used. For example, 192.168.1.0/23 would be the proper way, however, you can
+</EM><BR>
+<EM>&gt; also use 192.168.1.0/24 and 192.168.2.0/24 since RIP doesn't know about 24
+</EM><BR>
+<EM>&gt; bit netmask and this will also work. Of course, you lose 192.168.2.0 and
+</EM><BR>
+<EM>&gt; 192.168.1.255 as valid addresses, but it seems to work.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Why is this bad??
+</EM><BR>
+<P>Possible has to do with route aggregation/summarization which RIP doesn't
+<BR>
+do. The smaller the netmask you use to announce routes with RIP, the more
+<BR>
+routes you have to announce, the larger your RIP table is. Using a routing
+<BR>
+protocol like OSPF that can aggregate your samller routes, this becomes
+<BR>
+less of an issue.
+<BR>
+<P>We actually use rip to announce individual ip addresses (/32) that are
+<BR>
+dialed into our network, then have the routers perform RIP-&gt;OSPF
+<BR>
+translation and summarize the routes outbound.
+<BR>
+<P>Just a guess.
+<BR>
+<P>-Tim
+<BR>
+<P>Timothy Kennedy
+<BR>
+sugarat.net, Network Management Resources
+<BR>
+<A HREF="http://www.sugarat.net">http://www.sugarat.net</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>ONElist members are using Shared Files in great ways!
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+Are you?  If not, see our homepage for details.
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0409.html">Matt Birkner: "[cricket-users] collector can't find/use RRDs.pm"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0407.html">Berg, Ivan: "[cricket-users]"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0407.html">Berg, Ivan: "[cricket-users]"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0605.html">Berg, Ivan: "[cricket-users]"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#408">[ date ]</A>
+<A HREF="index.html#408">[ thread ]</A>
+<A HREF="subject.html#408">[ subject ]</A>
+<A HREF="author.html#408">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

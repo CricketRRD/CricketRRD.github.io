@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: RE: [cricket-users] directory-desc, and non-usag</TITLE>
+<META NAME="Author" CONTENT="Matt Raykowski (mattr@spacestar.net)">
+<META NAME="Subject" CONTENT="RE: [cricket-users] directory-desc, and non-usage graphs.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>RE: [cricket-users] directory-desc, and non-usage graphs.</H1>
+<!-- received="Mon Jan 17 12:45:16 2000" -->
+<!-- isoreceived="20000117204516" -->
+<!-- sent="Mon, 17 Jan 2000 11:44:02 -0600" -->
+<!-- isosent="20000117174402" -->
+<!-- name="Matt Raykowski" -->
+<!-- email="mattr@spacestar.net" -->
+<!-- subject="RE: [cricket-users] directory-desc, and non-usage graphs." -->
+<!-- id="HHEILEOELNBPDCKJADALAEDECAAA.mattr@spacestar.net" -->
+<!-- inreplyto="20000115151013.A13939@cybertrails.com" -->
+<STRONG>From:</STRONG> Matt Raykowski (<A HREF="mailto:mattr@spacestar.net?Subject=RE:%20[cricket-users]%20directory-desc,%20and%20non-usage%20graphs.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALAEDECAAA.mattr@spacestar.net&gt;"><EM>mattr@spacestar.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Jan 17 2000 - 09:44:02 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0930.html">Keith Dickey: "[cricket-users] 0.71 problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0928.html">Adam B. Meltzer (KF6PDH): "Re: [cricket-users] Cricket 0.71 version conflicts?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0924.html">Nathan Alan Haneysmith: "Re: [cricket-users] directory-desc, and non-usage graphs."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#929">[ date ]</A>
+<A HREF="index.html#929">[ thread ]</A>
+<A HREF="subject.html#929">[ subject ]</A>
+<A HREF="author.html#929">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Matt Raykowski&quot; &lt;<A HREF="mailto:mattr@spacestar.net?Subject=RE:%20[cricket-users]%20directory-desc,%20and%20non-usage%20graphs.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALAEDECAAA.mattr@spacestar.net&gt;">mattr@spacestar.net</A>&gt;
+<BR>
+<P>From: Nathan Alan Haneysmith &lt;<A HREF="mailto:nathan@cybertrails.com?Subject=RE:%20[cricket-users]%20directory-desc,%20and%20non-usage%20graphs.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALAEDECAAA.mattr@spacestar.net&gt;">nathan@cybertrails.com</A>&gt;
+<BR>
+<P>Hi Matt,
+<BR>
+<P>Regarding your first question, so when you go to view the graphs it is
+<BR>
+displaying a blank graph with values from 0 to 1, but when you
+<BR>
+generate-statics
+<BR>
+you get a correctly ranged and graphed gif, right?
+<BR>
+<P>[snip]
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I just now noticed that in the summary field, I wasn't getting anything
+<BR>
+either.  A post that came out shortly after you sent this out notes that in
+<BR>
+grapher.cgi, line 237 should be:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my($vname, $dss) = split(/\s*:\s*/, $v, 2);
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I made that change, and my summary statistics came back, and my grapher.cgi
+<BR>
+started working, manually and with generate-static.  Maybe something that
+<BR>
+should be noted and fixed on future releases?  (=
+<BR>
+<P><P>Regarding your second question, just put the tag in either directory-desc or
+<BR>
+short-desc like such:
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc	=	&quot;Ethernet 1 &lt;img
+<BR>
+src='<A HREF="http://www.bobo.com/~cricket/statics/path/to/static/img.gif">http://www.bobo.com/~cricket/statics/path/to/static/img.gif</A>'&gt;&quot;
+<BR>
+<P>Just tried it and it works good :-) be sure to use single quotes inside the
+<BR>
+tag...
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I figured that out ten minutes after mailing out to the list, I was doing:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;Ethernet 1 &lt;IMG SRC=&quot;blah.gif&quot;&gt;&quot; and changed it to:
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;Ethernet 1 &lt;IMG SRC=\&quot;blah.gif\&quot;&gt;&quot;
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Despite the reference guide, that's been working fine for me, and is all I
+<BR>
+need to organize the tree.  It's flushed out quite nicely, but there are a
+<BR>
+couple issues I'm working on tackling, and that's that the generate-static
+<BR>
+script generates all datasources for a given target (i.e., makes an error,
+<BR>
+octets, and upacks graph files), and I only need to generate the graph for
+<BR>
+hourly octets.
+<BR>
+<P>[snip]
+<BR>
+<P>Right now, my generate-static-html script does NOT grab any data from the
+<BR>
+cricket configs. It just looks at what exists in the statics directory you
+<BR>
+run
+<BR>
+it from. Later versions might have this functionality, in fact I really like
+<BR>
+that idea, hurm, sounds like I have a new project :-)
+<BR>
+<P>It is available at <A HREF="ftp://ftp.cybertrails.com/pub/sysadmin/cricket-contrib">ftp://ftp.cybertrails.com/pub/sysadmin/cricket-contrib</A> be
+<BR>
+sure to grab and read the README file for description of how I set this up
+<BR>
+and
+<BR>
+use it.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I've been quite on a troubleshooting/experimenting rampage, I even went so
+<BR>
+far as to try Orca, until I cussed to no end because the pod2html never
+<BR>
+worked for it.  So far, Cricket's been satisfying all the needs I have,
+<BR>
+except for a couple little quirks I'm sure I can iron out with a little bit
+<BR>
+of perl.  (=
+<BR>
+<P>Matt Raykowski - Level Two Technician
+<BR>
+Spacestar Communications, Inc.
+<BR>
+Dial-up to DS-3 Serving - MN WI ND MI IL
+<BR>
+Voice (612) 996-0000 / Fax (612) 996-0123
+<BR>
+www.spacestar.net / <A HREF="mailto:mattr@spacestar.net?Subject=RE:%20[cricket-users]%20directory-desc,%20and%20non-usage%20graphs.&In-Reply-To=&lt;HHEILEOELNBPDCKJADALAEDECAAA.mattr@spacestar.net&gt;">mattr@spacestar.net</A>
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>&nbsp;&nbsp;Hey Freelancers:  Find your next project through JobSwarm!  
+<BR>
+&nbsp;&nbsp;You can even make money in your sleep by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm1">http://clickme.onelist.com/ad/jobswarm1</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0930.html">Keith Dickey: "[cricket-users] 0.71 problem"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0928.html">Adam B. Meltzer (KF6PDH): "Re: [cricket-users] Cricket 0.71 version conflicts?"</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0924.html">Nathan Alan Haneysmith: "Re: [cricket-users] directory-desc, and non-usage graphs."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#929">[ date ]</A>
+<A HREF="index.html#929">[ thread ]</A>
+<A HREF="subject.html#929">[ subject ]</A>
+<A HREF="author.html#929">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:10 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

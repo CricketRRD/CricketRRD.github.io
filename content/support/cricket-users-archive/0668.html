@@ -1,0 +1,349 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Final of config questions (hopef</TITLE>
+<META NAME="Author" CONTENT="Loucks Guy (Guy.Loucks@det.nsw.edu.au)">
+<META NAME="Subject" CONTENT="[cricket-users] Final of config questions (hopefully), how to handle NAN values">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Final of config questions (hopefully), how to handle NAN values</H1>
+<!-- received="Tue Oct 19 01:16:45 1999" -->
+<!-- isoreceived="19991019081645" -->
+<!-- sent="Tue, 19 Oct 1999 15:15:21 +1000" -->
+<!-- isosent="19991019051521" -->
+<!-- name="Loucks Guy" -->
+<!-- email="Guy.Loucks@det.nsw.edu.au" -->
+<!-- subject="[cricket-users] Final of config questions (hopefully), how to handle NAN values" -->
+<!-- id="0927641E8B07D311BE4C0008C7894E916D0CA2@itfexch5.isd.tafensw.EDU.AU" -->
+<STRONG>From:</STRONG> Loucks Guy (<A HREF="mailto:Guy.Loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Final%20of%20config%20questions%20(hopefully),%20how%20to%20handle%20NAN%20values&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0CA2@itfexch5.isd.tafensw.EDU.AU&gt;"><EM>Guy.Loucks@det.nsw.edu.au</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Oct 18 1999 - 22:15:21 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0669.html">cameron.cox@db.com: "[cricket-users] Processed 0 targets"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0667.html">Scott Call: "[cricket-users] rrd-max values?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#668">[ date ]</A>
+<A HREF="index.html#668">[ thread ]</A>
+<A HREF="subject.html#668">[ subject ]</A>
+<A HREF="author.html#668">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Loucks Guy &lt;<A HREF="mailto:Guy.Loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Final%20of%20config%20questions%20(hopefully),%20how%20to%20handle%20NAN%20values&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0CA2@itfexch5.isd.tafensw.EDU.AU&gt;">Guy.Loucks@det.nsw.edu.au</A>&gt;
+<BR>
+<P>Ok, we are getting closer all the time, the current values and the graph
+<BR>
+update date are still stuffed on the graph header. However most graphs are
+<BR>
+now generating. See below(text only)
+<BR>
+<P>Summary
+<BR>
+<P>&nbsp;&nbsp;Values at last update:
+<BR>
+&nbsp;&nbsp;5 Second CPU utilization (for the day): 
+<BR>
+&nbsp;&nbsp;Cur:
+<BR>
+&nbsp;&nbsp;1472335951597458500000000000000000000000000000000000000000000000000000.00
+<BR>
+&nbsp;&nbsp;%
+<BR>
+&nbsp;&nbsp;Avg: 0.89 %
+<BR>
+&nbsp;&nbsp;Max: 5.96 %
+<BR>
+&nbsp;
+<BR>
+1 minute
+<BR>
+&nbsp;
+<BR>
+CPU
+<BR>
+&nbsp;
+<BR>
+utilization
+<BR>
+&nbsp;
+<BR>
+(for the
+<BR>
+&nbsp;
+<BR>
+day): 
+<BR>
+&nbsp;
+<BR>
+Cur:
+<BR>
+&nbsp;
+<BR>
+0.00 %
+<BR>
+&nbsp;
+<BR>
+Avg:
+<BR>
+&nbsp;
+<BR>
+0.61 %
+<BR>
+&nbsp;
+<BR>
+Max:
+<BR>
+&nbsp;
+<BR>
+3.97 %
+<BR>
+&nbsp;
+<BR>
+5 minute
+<BR>
+&nbsp;
+<BR>
+CPU
+<BR>
+&nbsp;
+<BR>
+utilization
+<BR>
+&nbsp;
+<BR>
+(for the
+<BR>
+&nbsp;
+<BR>
+day): 
+<BR>
+&nbsp;
+<BR>
+Cur:
+<BR>
+&nbsp;
+<BR>
+0.00 %
+<BR>
+&nbsp;
+<BR>
+Avg:
+<BR>
+&nbsp;
+<BR>
+0.68 %
+<BR>
+&nbsp;
+<BR>
+Max:
+<BR>
+&nbsp;
+<BR>
+3.00 %
+<BR>
+<P>&nbsp;&nbsp;Last updated at Thu Jan 1 10:00:00 1970 
+<BR>
+<P>NB: we are currently AEST, which is UTC+10h
+<BR>
+<P>This is the info we are collecting:
+<BR>
+<P>targetType      Cisco-7200-Router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds      =       &quot;cpu5sec, cpu1min, cpu5min, tempInlet, tempOutlet,
+<BR>
+mem5m
+<BR>
+inUsed, mem5minFree&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view    =       &quot;cpu: cpu5sec cpu1min cpu5min,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature: tempInlet tempOutlet,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory: mem5minUsed mem5minFree&quot;
+<BR>
+<P>targetType      Cisco-7500-Router
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ds  =   &quot;cpu5sec, cpu1min, cpu5min, tempInlet, tempOutlet, mem5minUsed,
+<BR>
+mem5
+<BR>
+minFree&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;view    =   &quot;cpu: cpu5sec cpu1min cpu5min,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature: tempInlet tempOutlet,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory: mem5minUsed mem5minFree&quot;
+<BR>
+<P>The errors below are simply MIB values which we have defined, but are
+<BR>
+currently disabled. i.e.:
+<BR>
+<P>no ip mroute
+<BR>
+<P>I however want to leave space in the RRD, as we may collect the following
+<BR>
+when we change interface type or the nature of how education is delivered
+<BR>
+changes. BOTH of these have a probability for our group.
+<BR>
+<P>The MIB values which are causing problems: 
+<BR>
+ifInDiscards, ifINNUcastPackets, ifOutNUcastPackets
+<BR>
+<P>Discards are not relevant on Token based technologies such as FDDI, NUCAST,
+<BR>
+which is multi/broad cast may be used in the future.
+<BR>
+<P>targetType  standard-interface
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds      =       &quot;ifInOctets, ifOutOctets, ifInErrors, ifInDiscards,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifOutErrors, ifInUcastPackets,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifOutUcastPackets, ifINNUcastPackets,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifOutNUcastPackets, ifSpeed&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view    =       &quot;Octets: ifInOctets ifOutOctets,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UcastPackets: ifInUcastPackets ifOutUcastPackets,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors: ifInErrors ifOutErrors&quot;
+<BR>
+<P>targetType  sub-interface
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds      =       &quot;ifInOctets, ifOutOctets&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;view                =       &quot;Octets: ifInOctets ifOutOctets&quot;
+<BR>
+<P><P>Use of uninitialized value at /usr/users/cricket/././lib/ConfigTree/Cache.pm
+<BR>
+lin
+<BR>
+e 222.
+<BR>
+Use of uninitialized value at /usr/users/cricket/././lib/ConfigTree/Cache.pm
+<BR>
+lin
+<BR>
+e 236.
+<BR>
+Use of uninitialized value at /usr/users/cricket/./collector line 312.
+<BR>
+Use of uninitialized value at /usr/users/cricket/./collector line 320.
+<BR>
+Use of uninitialized value at /usr/users/cricket/././lib/ConfigTree/Cache.pm
+<BR>
+lin
+<BR>
+e 222.
+<BR>
+Use of uninitialized value at /usr/users/cricket/././lib/ConfigTree/Cache.pm
+<BR>
+lin
+<BR>
+e 236.
+<BR>
+Use of uninitialized value at /usr/users/cricket/./collector line 312.
+<BR>
+Use of uninitialized value at /usr/users/cricket/./collector line 320.
+<BR>
+Use of uninitialized value at /usr/users/cricket/././lib/ConfigTree/Cache.pm
+<BR>
+lin
+<BR>
+e 222.
+<BR>
+Use of uninitialized value at /usr/users/cricket/././lib/ConfigTree/Cache.pm
+<BR>
+lin
+<BR>
+e 236.
+<BR>
+Use of uninitialized value at /usr/users/cricket/./collector line 312.
+<BR>
+Use of uninitialized value at /usr/users/cricket/./collector line 320.
+<BR>
+[19-Oct-1999 14:35:06*] Could not find a fetcher with type  to fetch data
+<BR>
+for fd
+<BR>
+di1_0_0 (1).
+<BR>
+[19-Oct-1999 14:35:06 ] Retrieved data for fddi1_0_0 (1):
+<BR>
+4227009546,154138467,0
+<BR>
+,U,0,245058568,288749023,U,U,100000000
+<BR>
+[19-Oct-1999 14:35:06 ] Some data is missing for fddi1_0_0 (1).
+<BR>
+<P>Is it possible to say, ok NAN is good record it as undefined, and let us
+<BR>
+know when we turned this feature on or off.
+<BR>
+<P>Back to trolling through the documentation and code...
+<BR>
+<P>Regs,
+<BR>
+<P>Guy
+<BR>
+<P><P>Guy R. Loucks
+<BR>
+Senior Unix Systems Administrator
+<BR>
+Networks Branch
+<BR>
+NSW Department of Education &amp; Training
+<BR>
+Information Technology Bureau
+<BR>
+Direct +61 2 9942 9887
+<BR>
+Fax +61 2 9942 9600
+<BR>
+Mobile +61 (0)18 041 186
+<BR>
+Email <A HREF="mailto:guy.loucks@det.nsw.edu.au?Subject=Re:%20[cricket-users]%20Final%20of%20config%20questions%20(hopefully),%20how%20to%20handle%20NAN%20values&In-Reply-To=&lt;0927641E8B07D311BE4C0008C7894E916D0CA2@itfexch5.isd.tafensw.EDU.AU&gt;">guy.loucks@det.nsw.edu.au</A>
+<BR>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>??? Computer Questions  ==&gt; Free Answers From Live Experts ! ! !
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;go to EXPERTCITY.COM
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/expertcity15">http://clickme.onelist.com/ad/expertcity15</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0669.html">cameron.cox@db.com: "[cricket-users] Processed 0 targets"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0667.html">Scott Call: "[cricket-users] rrd-max values?"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#668">[ date ]</A>
+<A HREF="index.html#668">[ thread ]</A>
+<A HREF="subject.html#668">[ subject ]</A>
+<A HREF="author.html#668">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:04 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

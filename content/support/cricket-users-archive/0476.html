@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Cricket 0.70 available</TITLE>
+<META NAME="Author" CONTENT="Jeff Allen (jra@corp.webtv.net)">
+<META NAME="Subject" CONTENT="[cricket-users] Cricket 0.70 available">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Cricket 0.70 available</H1>
+<!-- received="Wed Aug 11 16:09:48 1999" -->
+<!-- isoreceived="19990811230948" -->
+<!-- sent="Wed, 11 Aug 1999 13:07:05 -0700 (PDT)" -->
+<!-- isosent="19990811200705" -->
+<!-- name="Jeff Allen" -->
+<!-- email="jra@corp.webtv.net" -->
+<!-- subject="[cricket-users] Cricket 0.70 available" -->
+<!-- id="199908112007.NAA00038@oops.artemis.com" -->
+<STRONG>From:</STRONG> Jeff Allen (<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Cricket%200.70%20available&In-Reply-To=&lt;199908112007.NAA00038@oops.artemis.com&gt;"><EM>jra@corp.webtv.net</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Aug 11 1999 - 13:07:05 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0477.html">Jeff Allen: "[cricket-announce] Cricket 0.70 available"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0475.html">Utsav Ratti: "[cricket-users] Timestamp problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0539.html">Jim D. Kirby: "RE: [cricket-users] Cricket 0.70 available"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0539.html">Jim D. Kirby: "RE: [cricket-users] Cricket 0.70 available"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#476">[ date ]</A>
+<A HREF="index.html#476">[ thread ]</A>
+<A HREF="subject.html#476">[ subject ]</A>
+<A HREF="author.html#476">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Jeff Allen &lt;<A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Cricket%200.70%20available&In-Reply-To=&lt;199908112007.NAA00038@oops.artemis.com&gt;">jra@corp.webtv.net</A>&gt;
+<BR>
+<P>Cricket 0.70 is released. Here's are the changes in this version:
+<BR>
+<P>New features, fixes in version 0.70 (11-Aug-99):
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;ATTENTION: You must use RRD Tool 1.0.x with Cricket 0.70
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;and higher. Cricket now defaults to making PNG pictures,
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;if you are using a 4.0 browser or better. If you really
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;want GIFs (which are big and slow, now that GD has been
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;lobotomized by Dr. Unisys), then you need to investigate
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;the graph-format tag in the graph dictionary.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;Frobbed the quoting magic some. I think it was broken before.
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;I think it is less broken now. If you see odd behavior, suspect
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;quoting problems.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;Integrated a patch from Shannon Reis &lt;<A HREF="mailto:sreis@fastlane.net?Subject=Re:%20[cricket-users]%20Cricket%200.70%20available&In-Reply-To=&lt;199908112007.NAA00038@oops.artemis.com&gt;">sreis@fastlane.net</A>&gt;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;that adds avg/max display in. This adds an additional
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;call to RRDs::graph. If you want it the old way, check
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;out the tag named show-avg-max in the graph dict.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;backed out change related to lower-casing the
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;target names in the targets and mtargets tags. What
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;was I thinking?
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;usrModemUsage script no longer tries to use
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;common.pm.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;removed useless and confusing reference to domain
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;in the routers subtree.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;made warnings work right in util/* again. Oops.
+<BR>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;made the mapping routines use collect=false when
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;called from the collector. Note: if you set collect
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;to 'false', the target will still show up in the grapher
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;and if necessary, the instance will be mapped. This
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;could cause warnings in the grapher, but they can be
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;ignored.
+<BR>
+<P><PRE>
+-- 
+Jeff R. Allen              |  <A HREF="mailto:jra@corp.webtv.net?Subject=Re:%20[cricket-users]%20Cricket%200.70%20available&In-Reply-To=&lt;199908112007.NAA00038@oops.artemis.com&gt;">jra@corp.webtv.net</A>
+WebTV Service Engineering  |  <A HREF="http://www.munitions.com/~jra">http://www.munitions.com/~jra</A>
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>ONElist members, don't miss out on the latest news at ONElist!
+Join our community member news update  
+&lt;a href=&quot; <A HREF="http://www.onelist.com/subscribe/onelist_announce">http://www.onelist.com/subscribe/onelist_announce</A> &quot;here&lt;/A&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0477.html">Jeff Allen: "[cricket-announce] Cricket 0.70 available"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0475.html">Utsav Ratti: "[cricket-users] Timestamp problem"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0539.html">Jim D. Kirby: "RE: [cricket-users] Cricket 0.70 available"</A>
+<LI><STRONG>Maybe reply:</STRONG> <A HREF="0539.html">Jim D. Kirby: "RE: [cricket-users] Cricket 0.70 available"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#476">[ date ]</A>
+<A HREF="index.html#476">[ thread ]</A>
+<A HREF="subject.html#476">[ subject ]</A>
+<A HREF="author.html#476">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:00 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

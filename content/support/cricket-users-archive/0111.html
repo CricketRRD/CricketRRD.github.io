@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] [Q] Cricket collect server/w</TITLE>
+<META NAME="Author" CONTENT="Greg Kulosa (greg@gnac.com)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] [Q] Cricket collect server/workstation CPU, Memory, etc.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] [Q] Cricket collect server/workstation CPU, Memory, etc.</H1>
+<!-- received="Fri May 21 14:40:22 1999" -->
+<!-- isoreceived="19990521214022" -->
+<!-- sent="Fri, 21 May 1999 11:37:06 -0700" -->
+<!-- isosent="19990521183706" -->
+<!-- name="Greg Kulosa" -->
+<!-- email="greg@gnac.com" -->
+<!-- subject="Re: [cricket-users] [Q] Cricket collect server/workstation CPU, Memory, etc." -->
+<!-- id="19990521113706.A10114@sharra.exelixis.com" -->
+<!-- inreplyto="927310397.13167@onelist.com" -->
+<STRONG>From:</STRONG> Greg Kulosa (<A HREF="mailto:greg@gnac.com?Subject=Re:%20[cricket-users]%20[Q]%20Cricket%20collect%20server/workstation%20CPU,%20Memory,%20etc.&In-Reply-To=&lt;19990521113706.A10114@sharra.exelixis.com&gt;"><EM>greg@gnac.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri May 21 1999 - 11:37:06 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0112.html">Jeff Johnson: "[cricket-users] Some output from 'compile'"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0110.html">shawn@unifygroup.com: "[cricket-users] [Q] Cricket collect server/workstation CPU, Memory, etc."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0110.html">shawn@unifygroup.com: "[cricket-users] [Q] Cricket collect server/workstation CPU, Memory, etc."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#111">[ date ]</A>
+<A HREF="index.html#111">[ thread ]</A>
+<A HREF="subject.html#111">[ subject ]</A>
+<A HREF="author.html#111">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Greg Kulosa &lt;<A HREF="mailto:greg@gnac.com?Subject=Re:%20[cricket-users]%20[Q]%20Cricket%20collect%20server/workstation%20CPU,%20Memory,%20etc.&In-Reply-To=&lt;19990521113706.A10114@sharra.exelixis.com&gt;">greg@gnac.com</A>&gt;
+<BR>
+<P><P><P><EM>&gt; Hi,
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; Has anyone configured cricket to collect CPU, Memory, Filesystem info
+</EM><BR>
+<EM>&gt; for, say UCD Snmp agent or NT Snmp agent ?  If so I would appreciate to
+</EM><BR>
+<EM>&gt; get a copy of the configuration tree.  Otherwise is there doc on how to
+</EM><BR>
+<EM>&gt; create those configuration tree ?
+</EM><BR>
+<P>Yep, we have created one here that works with the UCD SNMP agent.
+<BR>
+(Thanks to Emmett Hogan for doing most of the work :-)
+<BR>
+<P>We are using UCD-snmp-3.6.1 on Solaris machines, and collecting the following:
+<BR>
+<P>- Ethernet stats (in/out octets, bytes, errors)
+<BR>
+- Load average (1, 5, 15 min)
+<BR>
+- Memory/swap
+<BR>
+- Disk partition Bytes used and Percent used. (You get to specify the partition)
+<BR>
+<P><P><P>The things it does NOT do yet that I would still like are:
+<BR>
+<P>- CPU (idle, system, user)
+<BR>
+- # context switche
+<BR>
+- Page in/out
+<BR>
+- Disk I/O
+<BR>
+- Number of runnable/blocked, etc.  processes
+<BR>
+<P><P>I have been waiting until I can figure out a few more of the above before
+<BR>
+I submit this new tree to Jeff.
+<BR>
+<P><P>But, I can send you what I have if you REALLY want.
+<BR>
+<P><P><EM>&gt; thanks.
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; -shawn
+</EM><BR>
+<EM>&gt; 
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; ONElist:  where the world talks!
+</EM><BR>
+<EM>&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+</EM><BR>
+<EM>&gt; Join a new list today.
+</EM><BR>
+<P><PRE>
+-- 
+Greg A. Kulosa          | &quot;The avalanche has already started, it is too
+Systems Administrator   |  late for the pebbles to vote.&quot; - Ambassador Kosh
+GNAC, Inc.              |___________________________________________________
+<A HREF="mailto:greg@gnac.com?Subject=Re:%20[cricket-users]%20[Q]%20Cricket%20collect%20server/workstation%20CPU,%20Memory,%20etc.&In-Reply-To=&lt;19990521113706.A10114@sharra.exelixis.com&gt;">greg@gnac.com</A>           999 Main Street - Redwood City, CA  94063
+<P>------------------------------------------------------------------------
+ONElist:  where the world talks!
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+Join a new list today.
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0112.html">Jeff Johnson: "[cricket-users] Some output from 'compile'"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0110.html">shawn@unifygroup.com: "[cricket-users] [Q] Cricket collect server/workstation CPU, Memory, etc."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0110.html">shawn@unifygroup.com: "[cricket-users] [Q] Cricket collect server/workstation CPU, Memory, etc."</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#111">[ date ]</A>
+<A HREF="index.html#111">[ thread ]</A>
+<A HREF="subject.html#111">[ subject ]</A>
+<A HREF="author.html#111">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:49 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Bug fix for &quot;show max&quot;</TITLE>
+<META NAME="Author" CONTENT="David Mitchell (mitchell@scd.ucar.edu)">
+<META NAME="Subject" CONTENT="[cricket-users] Bug fix for &quot;show max&quot;">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Bug fix for &quot;show max&quot;</H1>
+<!-- received="Mon Sep 27 18:11:13 1999" -->
+<!-- isoreceived="19990928011113" -->
+<!-- sent="Mon, 27 Sep 1999 16:10:59 -0600" -->
+<!-- isosent="19990927221059" -->
+<!-- name="David Mitchell" -->
+<!-- email="mitchell@scd.ucar.edu" -->
+<!-- subject="[cricket-users] Bug fix for &quot;show max&quot;" -->
+<!-- id="199909272210.QAA03500@niwot.scd.ucar.edu" -->
+<STRONG>From:</STRONG> David Mitchell (<A HREF="mailto:mitchell@scd.ucar.edu?Subject=Re:%20[cricket-users]%20Bug%20fix%20for%20&quot;show%20max&quot;&In-Reply-To=&lt;199909272210.QAA03500@niwot.scd.ucar.edu&gt;"><EM>mitchell@scd.ucar.edu</EM></A>)<BR>
+<STRONG>Date:</STRONG> Mon Sep 27 1999 - 15:10:59 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0621.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0619.html">Chris Adams: "[cricket-users] Problem with mtargets"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#620">[ date ]</A>
+<A HREF="index.html#620">[ thread ]</A>
+<A HREF="subject.html#620">[ subject ]</A>
+<A HREF="author.html#620">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: David Mitchell &lt;<A HREF="mailto:mitchell@scd.ucar.edu?Subject=Re:%20[cricket-users]%20Bug%20fix%20for%20&quot;show%20max&quot;&In-Reply-To=&lt;199909272210.QAA03500@niwot.scd.ucar.edu&gt;">mitchell@scd.ucar.edu</A>&gt;
+<BR>
+<P>I finally got around to tracking down some bugs in the
+<BR>
+grapher.cgi code which display the maximum value for a datasource.
+<BR>
+<P>The short version is that in a couple of places, grapher.cgi pushes
+<BR>
+the wrong stuff onto the command line for RRD. In the first change,
+<BR>
+the $ got left off, so it pushes the name of the variable instead
+<BR>
+of it's value. I wasn't actually hitting this bug, but I found it
+<BR>
+when I was trying to find the second bug.
+<BR>
+<P>The second bug pushes the wrong color onto the command. Instead of
+<BR>
+using $clmxCode it uses $colorCode. As a result, no matter how hard
+<BR>
+you try and change it, the &quot;max&quot; graph is always the same color as
+<BR>
+the &quot;average&quot; graph. Not very useful.
+<BR>
+<P>If you are running into this problem, here are diffs of the two changes.
+<BR>
+You should probably change them by hand, since I think the line numbers
+<BR>
+are a little off due to other changes I've made.
+<BR>
+<P>Also, if Jeff Allen or one of the other WebTV folks is on this
+<BR>
+list, could you please put this fix in the code so it shows up
+<BR>
+in 0.71?  Thanks in advance,
+<BR>
+<P>-David Mitchell
+<BR>
+<P><P><P>1369c1371
+<BR>
+&lt;                                                       push @lines, 
+<BR>
+&quot;$drawAs:totmx$mod#clmxCode:&quot; .
+<BR>
+<PRE>
+---
+&gt;                                                       push @lines, &quot;$drawAs:totmx$mod#$clmxCode:&quot; .
+1388c1390
+&lt;                                               push @lines, 
+&quot;$drawAs:mx$ct#$colorCode:&quot; .
+---
+&gt;                                               push @lines, &quot;$drawAs:mx$ct#$clmxCode:&quot; .
+<P><P>-------------------------------------------
+David Mitchell         Network Engineer III
+<A HREF="mailto:mitchell@ucar.edu?Subject=Re:%20[cricket-users]%20Bug%20fix%20for%20&quot;show%20max&quot;&In-Reply-To=&lt;199909272210.QAA03500@niwot.scd.ucar.edu&gt;">mitchell@ucar.edu</A>      National Center  for
+x1845                  Atmospheric Research
+-------------------------------------------
+<P>--------------------------- ONElist Sponsor ----------------------------
+<P>     GET 2 FREE MUSIC CDS AND LOWER YOUR PHONE BILL!  ACT NOW!
+Sign up for Qwest long distance at Shopnow.com and receive 2 free music
+CDs, huge savings on long distance, plus special deals! Expires 9/30!
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/shopnow1">http://clickme.onelist.com/ad/shopnow1</A> &quot;&gt;Click Here&lt;/a&gt;
+<P>------------------------------------------------------------------------
+</PRE>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0621.html">Jennifer.Hayes@det.nsw.edu.au: "[cricket-users] Collector, DNS &amp; resolving IP addresses"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0619.html">Chris Adams: "[cricket-users] Problem with mtargets"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#620">[ date ]</A>
+<A HREF="index.html#620">[ thread ]</A>
+<A HREF="subject.html#620">[ subject ]</A>
+<A HREF="author.html#620">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:02 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

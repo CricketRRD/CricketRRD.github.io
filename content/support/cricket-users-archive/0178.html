@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: Re: [cricket-users] Other problems with Cricket</TITLE>
+<META NAME="Author" CONTENT="jari (jari.peuralahti@hpy.fi)">
+<META NAME="Subject" CONTENT="Re: [cricket-users] Other problems with Cricket 0.66">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Re: [cricket-users] Other problems with Cricket 0.66</H1>
+<!-- received="Wed Jun  9 11:55:21 1999" -->
+<!-- isoreceived="19990609185521" -->
+<!-- sent="Wed, 09 Jun 1999 10:46:21 +0000" -->
+<!-- isosent="19990609104621" -->
+<!-- name="jari" -->
+<!-- email="jari.peuralahti@hpy.fi" -->
+<!-- subject="Re: [cricket-users] Other problems with Cricket 0.66" -->
+<!-- id="375E45FC.4624DAB2@hpy.fi" -->
+<!-- inreplyto="199906090858.KAA14059@breizh.francenet.fr" -->
+<STRONG>From:</STRONG> jari (<A HREF="mailto:jari.peuralahti@hpy.fi?Subject=Re:%20[cricket-users]%20Other%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;375E45FC.4624DAB2@hpy.fi&gt;"><EM>jari.peuralahti@hpy.fi</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jun 09 1999 - 03:46:21 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0179.html">Jeff Allen: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0177.html">James Pichardo: "[cricket-users] Need help..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0176.html">Gildas PERROT: "[cricket-users] Other problems with Cricket 0.66"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0179.html">Jeff Allen: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#178">[ date ]</A>
+<A HREF="index.html#178">[ thread ]</A>
+<A HREF="subject.html#178">[ subject ]</A>
+<A HREF="author.html#178">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: jari &lt;<A HREF="mailto:jari.peuralahti@hpy.fi?Subject=Re:%20[cricket-users]%20Other%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;375E45FC.4624DAB2@hpy.fi&gt;">jari.peuralahti@hpy.fi</A>&gt;
+<BR>
+<P>Gildas,
+<BR>
+his is not the fix for your proplem but one way to go bit further in your
+<BR>
+installation,,,
+<BR>
+Seems that u are having the same proplems what I have : )
+<BR>
+Some how the map function in the Default file dosen't work..
+<BR>
+I am also waiting that some one tell us what is the real proplem in here.
+<BR>
+But like me u can do next to go bit further
+<BR>
+<P>change
+<BR>
+inst = map(interface-name)
+<BR>
+&nbsp;to
+<BR>
+inst = %inst%
+<BR>
+<P>in /router-interfaces/Defaults file..
+<BR>
+<P>then add inst key and index number of interface foreach target in
+<BR>
+/router-interfaces/interfaces file
+<BR>
+........ example ......
+<BR>
+target Ethernet0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interface-name  =       Ethernet0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst            =       3     &lt;-- added line    where the number is the
+<BR>
+index of the interface
+<BR>
+.................................
+<BR>
+<P>U should have some snmp  tool to check what are the proper index numbers of your
+<BR>
+router's interface...
+<BR>
+I read the cricket reference manual and ill think the instance mappping is creat
+<BR>
+idea to solve some index change proplems but like u I didnt get it work :(..
+<BR>
+<P>PD.. I have noticed that u have the same basic proplems installing this cricket
+<BR>
+what I have had, next your proplem is that the grapher.cgi dosent work ... trying
+<BR>
+to resolve what is the real proplem before Ill ask it in here : =)
+<BR>
+<P>-- Jari
+<BR>
+<P>Gildas PERROT wrote:
+<BR>
+<P><EM>&gt; From: Gildas PERROT &lt;<A HREF="mailto:perrot@FranceNet.fr?Subject=Re:%20[cricket-users]%20Other%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;375E45FC.4624DAB2@hpy.fi&gt;">perrot@FranceNet.fr</A>&gt;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Hi,
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; I just installed Cricket 0.66 on FreeBSD 3.2 host and I have a problem with
+</EM><BR>
+<EM>&gt; collecting data for router-interfaces even after the patch for common.pm.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Error and the lines leading up to it:
+</EM><BR>
+<EM>&gt; [09-Jun-1999 10:51:11 ] Starting collector: Cricket version 0.66 ( Thu Jun 3
+</EM><BR>
+<EM>&gt; 00:22:40 PDT 1999 )
+</EM><BR>
+<EM>&gt; [09-Jun-1999 10:51:12 ] Retrieved data for ourrouter ():
+</EM><BR>
+<EM>&gt; 14,14,42849728,16028636
+</EM><BR>
+<EM>&gt; [09-Jun-1999 10:51:12*] Could not resolve OID for ifDescr
+</EM><BR>
+<EM>&gt; Use of uninitialized value at /home/cricket/cricket/././lib/common.pm line 302.
+</EM><BR>
+<EM>&gt; [09-Jun-1999 10:51:12*] Missing base-oid in interface-name map entry.
+</EM><BR>
+<EM>&gt; [09-Jun-1999 10:51:12*] Failed to map instance for ethernet0. Instance is now
+</EM><BR>
+<EM>&gt; set to nothing.
+</EM><BR>
+<EM>&gt; [09-Jun-1999 10:51:13*] Received SNMP response with error code noSuchName
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; However, the interfaces file I got by 'listInterface' seems correct :
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; target --default--
+</EM><BR>
+<EM>&gt;         router = ourrouter
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; target Ethernet0
+</EM><BR>
+<EM>&gt;         interface-name  =       Ethernet0
+</EM><BR>
+<EM>&gt;         short-desc      =       &quot;BACKBONE-DIRECT&quot;
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; Thanks in advance for your help.                Gildas.
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; --
+</EM><BR>
+<EM>&gt; Gildas PERROT, <A HREF="mailto:perrot@francenet.fr?Subject=Re:%20[cricket-users]%20Other%20problems%20with%20Cricket%200.66&In-Reply-To=&lt;375E45FC.4624DAB2@hpy.fi&gt;">perrot@francenet.fr</A>         __o
+</EM><BR>
+<EM>&gt; FranceNet, 28 rue Desaix, 75015 Paris ---_ \&lt;,_
+</EM><BR>
+<EM>&gt; <A HREF="http://www.francenet.fr">http://www.francenet.fr</A>            ---- (_)/ (_)
+</EM><BR>
+<EM>&gt;
+</EM><BR>
+<EM>&gt; ------------------------------------------------------------------------
+</EM><BR>
+<EM>&gt; Have you entered ONElist's &quot;Grow to Give&quot; program?
+</EM><BR>
+<EM>&gt; <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+</EM><BR>
+<EM>&gt; Deadline is June 19.  Join now to win $5000 for your charity of choice.
+</EM><BR>
+<P><P><P><P>------------------------------------------------------------------------
+<BR>
+Looking to expand your world?
+<BR>
+<A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+ONElist has over 165,000 e-mail communities from which to choose!
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0179.html">Jeff Allen: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0177.html">James Pichardo: "[cricket-users] Need help..."</A>
+<LI><STRONG>In reply to:</STRONG> <A HREF="0176.html">Gildas PERROT: "[cricket-users] Other problems with Cricket 0.66"</A>
+<!-- nextthread="start" -->
+<LI><STRONG>Next in thread:</STRONG> <A HREF="0179.html">Jeff Allen: "Re: [cricket-users] Other problems with Cricket 0.66"</A>
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#178">[ date ]</A>
+<A HREF="index.html#178">[ thread ]</A>
+<A HREF="subject.html#178">[ subject ]</A>
+<A HREF="author.html#178">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:53 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

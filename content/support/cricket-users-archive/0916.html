@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Defaults file for HP printers.</TITLE>
+<META NAME="Author" CONTENT="Grimshaw Stuart (stuart.grimshaw@blackburn.gov.uk)">
+<META NAME="Subject" CONTENT="[cricket-users] Defaults file for HP printers.">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Defaults file for HP printers.</H1>
+<!-- received="Fri Jan 14 08:31:03 2000" -->
+<!-- isoreceived="20000114163103" -->
+<!-- sent="Fri, 14 Jan 2000 13:26:51 -0000" -->
+<!-- isosent="20000114132651" -->
+<!-- name="Grimshaw Stuart" -->
+<!-- email="stuart.grimshaw@blackburn.gov.uk" -->
+<!-- subject="[cricket-users] Defaults file for HP printers." -->
+<!-- id="c=GB%a=_%p=BDBC%l=EXCHANGE1-000114132651Z-5618@mail.blackburn.gov.uk" -->
+<STRONG>From:</STRONG> Grimshaw Stuart (<A HREF="mailto:stuart.grimshaw@blackburn.gov.uk?Subject=Re:%20[cricket-users]%20Defaults%20file%20for%20HP%20printers.&In-Reply-To=&lt;c=GB%25a=_%25p=BDBC%25l=EXCHANGE1-000114132651Z-5618@mail.blackburn.gov.uk&gt;"><EM>stuart.grimshaw@blackburn.gov.uk</EM></A>)<BR>
+<STRONG>Date:</STRONG> Fri Jan 14 2000 - 05:26:51 PST
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0917.html">Bert Driehuis: "[cricket-users] Spike suppression"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0915.html">Sam Habash: "Re: [cricket-users] thresholds (fwd)"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#916">[ date ]</A>
+<A HREF="index.html#916">[ thread ]</A>
+<A HREF="subject.html#916">[ subject ]</A>
+<A HREF="author.html#916">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: Grimshaw Stuart &lt;<A HREF="mailto:stuart.grimshaw@blackburn.gov.uk?Subject=Re:%20[cricket-users]%20Defaults%20file%20for%20HP%20printers.&In-Reply-To=&lt;c=GB%25a=_%25p=BDBC%25l=EXCHANGE1-000114132651Z-5618@mail.blackburn.gov.uk&gt;">stuart.grimshaw@blackburn.gov.uk</A>&gt;
+<BR>
+<P>Here is my first attempt at a defaults file. I would appreciate *any*
+<BR>
+comments you have to make, and I hope someone else also finds it
+<BR>
+usefull.
+<BR>
+<P>I'm not sure if the scale is working correctly for the number of pages
+<BR>
+printed, but it seems to be....
+<BR>
+<P>&lt;Defaults&gt;
+<BR>
+<P># Cricket 'Defaults' file for HP Laserjet 4000 printers
+<BR>
+# Created 05/01/2000 Stuart M. Grimshaw
+<BR>
+<P># HP Laserjet 4000 OID's
+<BR>
+OID	hplj_totalpagecount	1.3.6.1.2.1.43.10.2.1.4.1.1
+<BR>
+OID	hplj_pspagecount	1.3.6.1.4.1.11.2.3.9.4.2.1.3.3.4.5.0
+<BR>
+OID	hplj_pclpagecount	1.3.6.1.4.1.11.2.3.9.4.2.1.3.3.3.5.0
+<BR>
+OID	hplj_storageused	1.3.6.1.4.1.11.2.3.9.4.2.3.2.3.1.6.1
+<BR>
+<P># HP Laserjet 6p OID
+<BR>
+OID	lj6p_totalpagecount	1.3.6.1.4.1.11.2.3.9.4.2.2.10.2.1.4.1.1
+<BR>
+<P># HP Deskjet 1120c (A3)
+<BR>
+OID	1120c_totalpagecount	1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.2.5.0
+<BR>
+<P>target --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snmp-host = %printer%
+<BR>
+<P># ---------------------------------------------
+<BR>
+# HP Laserjet 4000 Datasources
+<BR>
+<P>datasource hplj_totalpagecount 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/hplj_totalpagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = COUNTER
+<BR>
+<P>datasource hplj_pspagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/hplj_pspagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = COUNTER
+<BR>
+<P>datasource hplj_pclpagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/hplj_pclpagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = COUNTER
+<BR>
+<P>datasource hplj_storageused
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/hplj_storageused
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = GAUGE 
+<BR>
+<P># ------------------------------------------
+<BR>
+# HP Laserjet 6p datasource
+<BR>
+<P>datasource hp6p_totalpagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/hp6p_totalpagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = COUNTER
+<BR>
+<P># ------------------------------------------
+<BR>
+# HP Deskjet 1120c datasource
+<BR>
+<P>datasource 1120c_totalpagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds-source = snmp://%snmp%/1120c_totalpagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rrd-ds-type = COUNTER
+<BR>
+<P># Graph defaults
+<BR>
+graph --default--
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si-units = 0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precision = 0
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as = AREA
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color = orange
+<BR>
+<P># HP Laserjet 4000 Graph defaults
+<BR>
+graph	hplj_totalpagecount	
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legend = &quot;Pages Printed&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-axis = &quot;Pages&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scale = 300,* 
+<BR>
+<P>graph hplj_pspagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-axis = &quot;PostScript Pages&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scale = 300,*
+<BR>
+<P>graph hplj_pclpagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color = blue
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw-as LINE
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-axis = &quot;PCL Pages&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scale = 300,*
+<BR>
+<P>graph hplj_storageused
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color = dark-green
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-axis = &quot;Storage Used&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si-units = true
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precision = 2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytes = true
+<BR>
+<P># ------------------------------------------
+<BR>
+# HP Laserjet 6p Graph settings
+<BR>
+<P>graph hp6p_totalpagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-axis = &quot;pages&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scale = 300,*
+<BR>
+<P># ------------------------------------------
+<BR>
+# HP Deskjet 1120c graph settings
+<BR>
+<P>graph 1120c_totalpagecount
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-axis = &quot;Pages&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scale = 300,*
+<BR>
+<P># ------------------------------------------
+<BR>
+# Target Types
+<BR>
+<P>targetType	hp-lj4000
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds = &quot;hplj_totalpagecount, hplj_pspagecount, hplj_pclpagecount,
+<BR>
+hplj_storageused&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view = &quot;Total_Pages: hplj_totalpagecount, By_PageType: hplj_pspagecount
+<BR>
+hplj_pclpagecount, Memory: hplj_storageused&quot;
+<BR>
+<P>targetType	hp-dj6p
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds = &quot;hp6p_totalpagecount&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view = &quot;Pages: hp6p_totalpagecount&quot;
+<BR>
+<P>targetType	hp_dj1120c
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds = &quot;1120c_totalpagecount&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view = &quot;Pages: 1120c_totalpagecount&quot;
+<BR>
+<P>&lt;/Defaults&gt;
+<BR>
+<P>&lt;printers&gt;
+<BR>
+<P>target	admin_main
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type = hp-lj4000
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printer = 10.18.2.2
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;Main admin printer, 2nd floor office&quot;
+<BR>
+<P>&lt;/printers&gt;
+<BR>
+<P>Stuart Grimshaw,
+<BR>
+System Administrator,
+<BR>
+Community, Leisure &amp; Cultural Services Dept.
+<BR>
+Blackburn with Darwen Borough Council.
+<BR>
+<P>t:01254 587235
+<BR>
+f:01254 660236
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Independent contractors: Find your next project gig through JobSwarm!
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can even make money by referring friends.
+<BR>
+&lt;a href=&quot; <A HREF="http://clickme.onelist.com/ad/jobswarm2">http://clickme.onelist.com/ad/jobswarm2</A> &quot;&gt;Click Here&lt;/a&gt;
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0917.html">Bert Driehuis: "[cricket-users] Spike suppression"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0915.html">Sam Habash: "Re: [cricket-users] thresholds (fwd)"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#916">[ date ]</A>
+<A HREF="index.html#916">[ thread ]</A>
+<A HREF="subject.html#916">[ subject ]</A>
+<A HREF="author.html#916">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:01:10 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>cricket-users: [cricket-users] Getting switches to work</TITLE>
+<META NAME="Author" CONTENT="Michael P. Burton (mpburton@teleport.com)">
+<META NAME="Subject" CONTENT="[cricket-users] Getting switches to work">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>[cricket-users] Getting switches to work</H1>
+<!-- received="Wed Jul 21 20:37:17 1999" -->
+<!-- isoreceived="19990722033717" -->
+<!-- sent="Wed, 21 Jul 1999 17:17:21 -0700 (PDT)" -->
+<!-- isosent="19990722001721" -->
+<!-- name="Michael P. Burton" -->
+<!-- email="mpburton@teleport.com" -->
+<!-- subject="[cricket-users] Getting switches to work" -->
+<!-- id="Pine.GSO.3.96.990721170348.20793U-100000@user2.teleport.com" -->
+<STRONG>From:</STRONG> Michael P. Burton (<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Getting%20switches%20to%20work&In-Reply-To=&lt;Pine.GSO.3.96.990721170348.20793U-100000@user2.teleport.com&gt;"><EM>mpburton@teleport.com</EM></A>)<BR>
+<STRONG>Date:</STRONG> Wed Jul 21 1999 - 17:17:21 PDT
+<P>
+<!-- next="start" -->
+<UL>
+<LI><STRONG>Next message:</STRONG> <A HREF="0411.html">Gaylin Yee: "Re: [cricket-users] collector can't find/use RRDs.pm"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0409.html">Matt Birkner: "[cricket-users] collector can't find/use RRDs.pm"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#410">[ date ]</A>
+<A HREF="index.html#410">[ thread ]</A>
+<A HREF="subject.html#410">[ subject ]</A>
+<A HREF="author.html#410">[ author ]</A>
+</UL>
+<HR NOSHADE><P>
+<!-- body="start" -->
+<P>
+From: &quot;Michael P. Burton&quot; &lt;<A HREF="mailto:mpburton@teleport.com?Subject=Re:%20[cricket-users]%20Getting%20switches%20to%20work&In-Reply-To=&lt;Pine.GSO.3.96.990721170348.20793U-100000@user2.teleport.com&gt;">mpburton@teleport.com</A>&gt;
+<BR>
+<P><P>I'm attempting to watch a switch. This is the snippit fomr my
+<BR>
+/switch-ports/switches file:
+<BR>
+<P>target &quot;XSB BET&quot;
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type= switch-port
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targets    = 131.252.45.1:1..24
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;XSB BET Switch&quot;
+<BR>
+<P>target 131.252.45.1
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target-type= switch-port
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst       = (1..24)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-desc = &quot;XSB BET&quot;   
+<BR>
+<P>I'm touching a 2900xl switch, and my graphs look odd. 
+<BR>
+(you can see them at 
+<BR>
+<A HREF="http://131.252.134.9/~cricket/cricket/grapher.cgi?target=%2Fswitch-ports%2Fxsb%20bet&ranges=d">http://131.252.134.9/~cricket/cricket/grapher.cgi?target=%2Fswitch-ports%2Fxsb%20bet&ranges=d</A>
+<BR>
+) and I don't know why. It looks like it is collecting data correctly,
+<BR>
+the numbers look right at the collector and with the numbers shown on
+<BR>
+the graph when looking at the indivual interfaces, but the graph itself
+<BR>
+dosn't look right. Any ideas?
+<BR>
+<P>Michael
+<BR>
+________________________________________________________________________
+<BR>
+Michael P. Burton          &quot;Love is like racing across the frozen tundra 
+<BR>
+Network Engineer, DCII      on a snowmobile which flips over, 
+<BR>
+Portland State University   trapping you underneath. 
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At night, the ice-weasels come.&quot; - Nietchze
+<BR>
+-------------------------------------------------------------------------
+<BR>
+GCS d---- H--- s g+ !p au a25 w+++ v++ C++ UL++ P+ L++ 3 E---- N+ K- W+ M
+<BR>
+V po--- Y+ t++ 5 j R++ G+ tv b++ D+ B--- e+++ u++ h-- f+ r+++ n--- z+++ 
+<BR>
+Decode at: <A HREF="http://pcd.stanford.edu/mogens/geek2.html">http://pcd.stanford.edu/mogens/geek2.html</A>
+<BR>
+-------------------------------------------------------------------------
+<BR>
+<P><P>--------------------------- ONElist Sponsor ----------------------------
+<BR>
+<P>Congratulations to RON MARTINO 
+<BR>
+This week's FRIENDS &amp; FAMILY WINNER! 
+<BR>
+To join ONElist's Friends &amp; Family program, go to <A HREF="http://www.onelist.com">http://www.onelist.com</A>
+<BR>
+<P>------------------------------------------------------------------------
+<BR>
+<P><!-- body="end" -->
+<HR NOSHADE>
+<UL>
+<!-- next="start" -->
+<LI><STRONG>Next message:</STRONG> <A HREF="0411.html">Gaylin Yee: "Re: [cricket-users] collector can't find/use RRDs.pm"</A>
+<LI><STRONG>Previous message:</STRONG> <A HREF="0409.html">Matt Birkner: "[cricket-users] collector can't find/use RRDs.pm"</A>
+<!-- nextthread="start" -->
+<!-- reply="end" -->
+<LI><STRONG>Messages sorted by:</STRONG> 
+<A HREF="date.html#410">[ date ]</A>
+<A HREF="index.html#410">[ thread ]</A>
+<A HREF="subject.html#410">[ subject ]</A>
+<A HREF="author.html#410">[ author ]</A>
+</UL>
+<!-- trailer="footer" -->
+<HR NOSHADE>
+<P>
+<SMALL>
+<EM>
+This archive was generated by <A HREF="http://www.hypermail.org/">hypermail 2b29</A> 
+: <EM>Mon Mar 06 2000 - 19:00:58 PST</EM>
+</EM>
+</SMALL>
+</BODY>
+</HTML>
