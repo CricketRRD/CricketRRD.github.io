@@ -1,0 +1,24 @@
+Index: grapher.cgi
+===================================================================
+RCS file: /cvsroot/cricket/cricket/grapher.cgi,v
+retrieving revision 1.32
+diff -c -r1.32 grapher.cgi
+*** grapher.cgi	27 Nov 2001 01:38:07 -0000	1.32
+--- grapher.cgi	12 Mar 2002 23:34:19 -0000
+***************
+*** 1411,1417 ****
+              # pick up the value for bytes, if we have not already
+              # found it.
+              if (! $bytes) {
+!                 $bytes = graphParam($gRef, 'bytes', 0);
+              }
+  
+              $colorCode = colorToCode($colorRef, $color);
+--- 1411,1417 ----
+              # pick up the value for bytes, if we have not already
+              # found it.
+              if (! $bytes) {
+!                 $bytes = isTrue(graphParam($gRef, 'bytes', 0));
+              }
+  
+              $colorCode = colorToCode($colorRef, $color);

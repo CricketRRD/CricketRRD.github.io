@@ -1,0 +1,52 @@
+*** cricket-1.0.3-orig/grapher.cgi	Sat Nov  3 03:26:40 2001
+--- grapher.cgi	Mon Mar 11 19:20:06 2002
+***************
+*** 45,48 ****
+--- 45,49 ----
+  use RRDs 1.000101;
+  use Digest::MD5;
++ use Carp;
+  
+  use RPN;
+***************
+*** 295,301 ****
+              my(@targets, $isMulti, $plural);
+              if (defined($targRef->{'targets'})) {
+                  my($path) = $targRef->{'auto-target-path'};
+                  my($target);
+!                 foreach $target (split(/\s*;\s*/, ($targRef->{'targets'}))) {
+  
+                      # this allows local targets to use shorter names
+--- 296,303 ----
+              my(@targets, $isMulti, $plural);
+              if (defined($targRef->{'targets'})) {
++                 my $targets = lc $targRef->{'targets'};
+                  my($path) = $targRef->{'auto-target-path'};
+                  my($target);
+!                 foreach $target (split(/\s*;\s*/, $targets)) {
+  
+                      # this allows local targets to use shorter names
+***************
+*** 828,831 ****
+--- 830,834 ----
+      foreach $thisName (@mtargets) {
+          if ($isMTargets) {
++             $thisName = lc $thisName;
+              $targRef = $gCT->configHash($thisName, 'target', undef, 1);
+              $tname = $targRef->{'auto-target-name'};
+***************
+*** 1068,1071 ****
+--- 1071,1075 ----
+      my($dsname, %dsmap);
+  
++     confess "dslist undefined in makeDSMap" unless defined $dslist;
+      foreach $dsname (split(/\s*,\s*/, $dslist)) {
+          $dsmap{lc($dsname)} = $i;
+***************
+*** 1304,1307 ****
+--- 1308,1312 ----
+      my($thisName, $mx);
+      foreach $thisName (@mtargets) {
++         $thisName = lc $thisName;
+          # this allows local targets to use shorter name
+          $thisName = "$path/$thisName" unless ($thisName =~ /^\//);
