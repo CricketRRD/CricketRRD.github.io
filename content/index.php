@@ -5,7 +5,7 @@
 ?>
 
 <div>
-<h2> About Cricket </h2>
+<h2>About Cricket</h2>
 
 <p>
 Cricket is a high performance, extremely flexible system for monitoring
@@ -42,7 +42,7 @@ distributed under the
 </div>
 
 <div>
-<h2> Supported OS's </h2>
+<h2>Supported OS's</h2>
 
 <p>
 Cricket is developed on Solaris machines running under Apache. It is
@@ -53,7 +53,7 @@ and/or Windows 2000, but at this time, no one has documented this.
 </div>
 
 <div>
-<h2> Sponsors </h2>
+<h2>Sponsors</h2>
 
 <p>
 Cricket was originally written for <a href="http://www.webtv.net/">
