@@ -212,7 +212,16 @@ tutorial for setting up SNMP properly on your boxes.</para>
     <sect2>
       <title>What are perl mode indentation setting for emacs ?</title>
 
-      <para>Some one please fill this</para>
+      <para>Try these:
+<programlisting>
+# Local Variables:
+# mode: perl
+# indent-tabs-mode: nil
+# tab-width: 4
+# perl-indent-level: 4
+# End:
+</programlisting>
+      </para>
     </sect2>
     <sect2> <title>How do I change my config tree to use the view dictionary entries introduced in 1.0.4? (added by jakeb 6/7/02)</title>
     <para>This is best illustrated via example. Suppose this is your existing (pre-1.0.4) targettype dictionary and graph --default-- dictionary: </para>
