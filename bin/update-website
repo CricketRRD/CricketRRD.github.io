@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /home/groups/c/cr/cricket/website
+cvs up -dP
+
