@@ -1,7 +1,7 @@
 <?php
-	$gRoot = ".";
-	include("$gRoot/lib/common.inc");
-	page("Cricket Home");
+    $gRoot = ".";
+    include("$gRoot/lib/common.inc");
+    page("Cricket Home");
 ?>
 
         <div id="about">
