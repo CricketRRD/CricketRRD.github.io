@@ -1,17 +1,17 @@
 <?php
 
 function navBit($link, $name, $sep) {
-	echo "<a href=\"$link\">[ $name ]</a> $sep\n";
+	echo "            <a href=\"$link\">[ $name ]</a> $sep\n";
 }
 
 function nav() {
 	global $gRoot;
-	echo "<div class=\"nav\">";
+	echo "        <div class=\"nav\">\n";
 	navBit("$gRoot", "home", "|");
 	navBit("$gRoot/download/", "download", "|");
 	navBit("$gRoot/support/", "support", "|");
 	navBit("$gRoot/literacy/", "literacy", "");
-	echo "</div>";
+	echo "        </div>\n";
 }
 
 function page() {
