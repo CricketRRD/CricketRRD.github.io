@@ -20,8 +20,7 @@
 				repository.
 			</p>
 			<p>
-				First, please review <a href="http://sfdocs.sourceforge.net/sfdocs/display_topic.php?topicid=14">this
-					page</a>, which talks about how to talk to CVS remotely.
+				First, please review <a href="http://sfdocs.sourceforge.net/sfdocs/display_topic.php?topicid=14">this page</a>, which talks about how to talk to CVS remotely.
 			</p>
 			<p>
 				To use get access to the CVS repository, you need to:
@@ -43,7 +42,7 @@
 					public/private key, protected by a passphrase.
 				</li>
 				<li>
-					Go to the account maintenance page, and click on Edit Keys,
+					Go to the <a href="http://sourceforge.net/account/editsshkeys.php">Edit Keys</a>,
 					then paste in the contents of the identity.pub file you made
 					in step 3. There is a delay until this kicks in. Until it does,
 					you'll need to type your password for each CVS command.
