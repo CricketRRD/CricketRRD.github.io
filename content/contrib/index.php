@@ -239,14 +239,14 @@
                         <td> 4/18/2002 </td>
                     </tr>
                     <tr>
-                        <td> <a href="http://members.optusnet.com.au/peteblack/pooter/cricket/latency/">cricket-latency</a> </td>
+                        <td> <a href="http://froob.net/~dezwart/pooter/cricket/latency/">cricket-latency</a> </td>
                         <td> Measure latency using ping and a shell script </td>
                         <td> <a href="mailto:dezwart%40froob%2enet">Pete de Zwart</a> </td>
                         <td> 2K </td>
                         <td> 2/4/2002 </td>
                     </tr>
                     <tr>
-                        <td> <a href="http://members.optusnet.com.au/peteblack/pooter/cricket/boxen/">cricket-linux-boxen</a> </td>
+                        <td> <a href="http://froob.net/~dezwart/pooter/cricket/boxen/">cricket-linux-boxen</a> </td>
                         <td> Monitor your Linux boxen via SNMP </td>
                         <td> <a href="mailto:dezwart%40froob%2enet">Pete de Zwart</a> </td>
                         <td> 5K </td>
