@@ -38,7 +38,7 @@
         </div>
 
         <div id="os">
-            <h2>Supported OS's</h2>
+            <h2>Supported OSs</h2>
             <p>
                 Cricket is developed on Solaris machines running under Apache.
                 It is known to work on Linux, HP-UX, variants of BSD, and other
