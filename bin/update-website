@@ -1,5 +1,5 @@
 #!/bin/sh
 
 cd /home/groups/c/cr/cricket/website
-cvs -q up -dP
+cvs -q up -dP | grep -v '^? content/contrib/files'
 
