@@ -8,28 +8,31 @@
    <title>Resources for Aberrant Behavior Detection</title>
 </head>
 <body>
-<font size=+2>Resources for Aberrant
-Behavior Detection in Time Series for Service Network Monitoring</font><font size=+2></font>
-<p><i><font size=+2>last updated 12/4/00</font></i>
+<h1>Resources for Aberrant
+Behavior Detection in Time Series for Service Network Monitoring</h1>
+
+<p><i>last updated 12/4/00</i>
 <ul>
 <li>
-<font size=+2><a href="lisa2000talk.htm">Slides from LISA&nbsp;2000 Conference
-Talk</a></font></li>
+<a href="lisa2000talk.htm">Slides from LISA 2000 Conference
+Talk</a></li>
 
 <li>
-<font size=+2><a href="lisa2000_paper.ps">Paper submitted to the LISA 2000
-Conference</a></font></li>
+Paper submitted to the LISA 2000 Conference:
+<a href="lisa2000_paper.ps">[ ps ]</a>
+<a href="lisa2000_paper.pdf">[ pdf ]</a>
+</li>
 
 <li>
-<font size=+2><a href="rrd_hw.htm">Notes on the implementation within RRDTOOL</a></font></li>
+<a href="rrd_hw.htm">Notes on the implementation within RRDTOOL</a></li>
 
 <li>
-<font size=+2><a href="rrd-1.0.28.aberrant.patch.gz">GZIP patch file for
-RRDTOOL&nbsp; 1.0.28 code</a></font></li>
+<a href="rrd-1.0.28.aberrant.patch.gz">GZIP patch file for
+RRDTOOL 1.0.28 code</a></li>
 
 <li>
-<font size=+2><a href="patch_install.txt">Directions for installing the
-RRDTOOL code patch</a></font></li>
+<a href="patch_install.txt">Directions for installing the
+RRDTOOL code patch</a></li>
 </ul>
 
 </body>

@@ -21,8 +21,7 @@
 			the logo on pages that you configure. The logo looks like this:
 		</p>
 		<p style="text-align: center">
-			<a href="http://ee-staff.ethz.ch/~oetiker/webtools/rrdtool">
-				<img src="img/rrdtool.gif"
+			<a href="http://www.rrdtool.org/"><img src="img/rrdtool.gif"
 				alt="RRD Tool"
 				width="120" height="34"
 				style="border: solid white 0px" /></a>
@@ -30,7 +29,7 @@
 		<p>
 			There's more information available about RRD Tool from its
 			homepage at <a
-			href="http://ee-staff.ethz.ch/~oetiker/webtools/rrdtool"><tt>http://ee-staff.ethz.ch/~oetiker/webtools/rrdtool</tt></a>.
+			href="http://www.rrdtool.org/"><tt>http://www.rrdtool.org/</tt></a>.
 		</p>
 
 <? endpage(__FILE__); ?>

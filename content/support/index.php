@@ -70,8 +70,7 @@
 			<p>
 				There is a collection of contributed stuff (scripts,
 				patches, example configuration trees) at the <a
-				href="http://www.gnac.com/techinfo/cricket_contrib/index.
-				html">Cricket Contributed Software</a> website.
+				href="http://www.certaintysolutions.com/tech-advice/cricket-contrib/">Cricket Contributed Software</a> website.
 			</p>
 			<p>
 				Our thanks go out to <a href="http://www.gnac.com">GNAC</a>
@@ -99,7 +98,7 @@
 				href="../devel">Cricket Developers Pages</a> and learn how
 				to be a developer, to fix your own bug, and help other
 				Cricket users out by giving them new features you are
-				interested in adding.
+				interested in adding. Or you can also file a <a href="bugreq.php">bug report</a> and hopefully someone will be able to help you out.
 			</p>
 		</div>
 

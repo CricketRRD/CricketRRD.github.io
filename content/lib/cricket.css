@@ -8,16 +8,12 @@ body {
 div.nav {
     text-align:    center;
     margin:        1em;
-    border-top:    1px solid black;
-    border-bottom: 1px solid black;
     font-family:   "Myriad Web", Geneva, Helvetica, Arial, sans-serif;
     font-style:    normal;
 }
 
 div.nav a {
     padding: .1ex .1em;
-    border-left:  1px solid black;
-    border-right: 1px solid black;
 }
 
 /* Stuff common to all headers */
@@ -125,38 +121,13 @@ acronym {
 
 a:link {
     text-decoration: none;
-    font-weight:     bold;
     color:           blue;
-    background:      #FFC;
 }
 
 a:visited {
     text-decoration: none;
-    font-weight:     bold;
-    color:           #999;
-    background:      #FFC;
+    color:           blue;
 }
-
-a:hover {
-    text-decoration: none;
-    color:           #C00;
-    background:      #FC0;
-}
-
-a:active {
-    text-decoration: none;
-    font-weight:     bold;
-    color:           #F00;
-    background:      #FC0;
-}
-
-a.offsite { 
-    text-decoration: none;
-    font-weight:     normal;
-    color:           #C00;
-    background:      #FFC;
-}
-
 
 /* Padding and Margins */
 

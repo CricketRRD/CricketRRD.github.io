@@ -1,0 +1,298 @@
+<html>
+<head>
+<title>webreview.com - Apache Server Page Load Monitoring With Cricket</title><META NAME="Description" CONTENT="Here's a straight-forward approach to setting up Cricket for logging and graphing page-load times."><META NAME="Keywords" CONTENT="page load time, server monitoring, Apache server, Cricket">
+<SCRIPT LANGUAGE="JavaScript" SRC="http://web.archive.org/web/20001213152300js_/http://webreview.com/iwr/layouts/common/wrmenu.js"></SCRIPT>
+<LINK HREF="http://web.archive.org/web/20001213152300/http://webreview.com/iwr/layouts/webreviewstyle.css" type="text/css" rel="stylesheet">
+
+</head><BODY BGCOLOR="#FFFFFF" LINK="#006699" VLINK="#CCCC66" ALINK="#CCCCCC" TEXT="#000000" LEFTMARGIN=5 TOPMARGIN=5>
+
+
+<!-- article/pre.html -->
+<center><table width="610" border="0" cellspacing="0" cellpadding="0"><tr valign="top"><td width="1"><img src="white.gif" alt="blank.gif" height=70 width=1 border=0></td><td width="139"><iframe width="120" height="60" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" bordercolor="#000000" src="about:blank">  
+</iframe>
+</td><td align="center"><center><iframe width="468" height="60" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" bordercolor="#000000" src="about:blank">  
+</iframe>
+</center></td></tr></table><!-- common/wrmasthead.html -->
+<TABLE WIDTH="610" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+<TR>
+<TD ROWSPAN="2" VALIGN="TOP" WIDTH="313"><A HREF="/wr/pub"><IMG SRC="white.gif" WIDTH=313 HEIGHT=47 BORDER=0 ALT="webreview.com - Cross-Training for Web Teams"></A></TD>
+<TD VALIGN="BOTTOM" WIDTH="297" ALIGN="right"><FONT FACE="Verdana,Arial,Helvetica" SIZE="-1"><FORM NAME="searchform" ACTION="/wr/pub" METHOD="get"><INPUT TYPE=hidden name=x-tb value=a>Search for: <INPUT TYPE="Text" name="x-searchall" SIZE="13" MAXLENGTH="255">&nbsp;<INPUT TYPE="Image" NAME="" SRC="/universal/images/searchbutton.gif" BORDER="0" WIDTH="54" HEIGHT="13" name="x-a" value="Search"></FONT></TD>
+	<TD></FORM></TD>
+</TR>
+<TR>
+	<TD VALIGN="top"  ALIGN="right"><FONT FACE="Verdana,Arial,Helvetica" SIZE="-1"><FORM NAME = "jumpform" onSubmit="return isReady(this);" ACTION="/wr/pub" METHOD="post"> Jump to:
+<SELECT NAME="wrguide" onChange="return isReady(jumpform);">
+<OPTION Value="Topics:">Topics:
+<OPTION>
+<OPTION>Authoring:
+<OPTION VALUE="HTML">--HTML
+<OPTION VALUE="Dynamic_HTML">--DHTML
+<OPTION VALUE="JavaScript">--JavaScript
+<OPTION VALUE="Style_Sheets">--Style Sheets
+<OPTION>
+<OPTION>Design:
+<OPTION VALUE="Fonts">--Fonts
+<OPTION VALUE="Graphics">--Graphics
+<OPTION VALUE="Navigation">--Navigation
+<OPTION VALUE="Usability">--Usability
+<OPTION VALUE="Web_Design">--Web Design
+<OPTION>
+<OPTION>Development:
+<OPTION VALUE="Databases">--Databases
+<OPTION VALUE="Java">--Java
+<OPTION VALUE="Perl">--Perl
+<OPTION VALUE="XML">--XML
+<OPTION>
+<OPTION>eCommerce:
+<OPTION VALUE="Advertising">--Advertising
+<OPTION VALUE="Legal">--Legal
+<OPTION VALUE="Storefronts">--Storefronts
+<OPTION>
+<OPTION>Multimedia:
+<OPTION VALUE="Audio/Video">--Audio/Video
+<OPTION VALUE="Animation">--Animation
+<OPTION VALUE="Shockwave">--Shockwave
+<OPTION>
+<OPTION>Backend:
+<OPTION VALUE="Networks">--Networks
+<OPTION VALUE="Security">--Security
+<OPTION VALUE="Servers">--Servers
+</SELECT>&nbsp;<INPUT TYPE="Image" NAME="" SRC="white.gif" BORDER="0" WIDTH="54" HEIGHT="13"></FONT></TD>
+	<TD></FORM></TD>
+</TR>
+<TR>
+	<TD COLSPAN="3"><IMG SRC="white.gif" ALT="blank.gif" HEIGHT=5 WIDTH=1 BORDER=0></TD>
+</TR>
+</TABLE>
+
+<table width="610" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td width="1" bgcolor="#006699"><img src="white.gif" ALT="blank.gif" height="1" width="1" border="0"></td>
+	<td width="149" valign="top">
+<!-- start left nav bar -->
+
+<center>
+<center><table border="0" cellspacing="5" cellpadding="0">
+<tr>
+<td width="100%" valign="top">
+<div class="navbar">
+<table cellpadding="5" width="100%"><td bgcolor="#99ccff"><b>Servers</b><br><A HREF=/pub/Servers><font size=2>Related Articles</font></a><br></td></table><!--
+-->
+<p></p>
+<!-- layouts/navbars/basicnav.html -->
+<!-- Used in all files except new section layouts - starting w/e-commerce; see sectionnav.html for those; duplicate any ad changes made here in also in sectionnav.html -->
+<b>Find</b>
+<br />
+
+<A HREF="/pub/Search">Search</a><br />
+
+<A HREF="/pub/List_Depts">List Departments</a><br />
+
+<A HREF="/pub/List_Topics">List Topics</a><p></p>
+<a href="/wr/pub/webtools">Web Tools Guide</a><p>
+Buy Software at the</FONT><br />
+
+<a href="http://store.webreview.com">Web Tools Store</a></strong>
+<br />
+<br />
+
+
+<hr size=1 color="#006699" noshade>
+<center>
+
+<iframe width="125" height="125" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" bordercolor="#000000" src="about:blank">  
+</iframe>
+</center>
+<hr size=1 color="#006699" noshade>
+<div class="navbar">
+<a href="/pace/print/2000/02/25/feature/index2.html"><img src="white.gif" width="26" height="28" alt="printer icon" border="0" align="left">Print This Page</a><br clear="all" /><hr size="1" color="#006699" noshade%3dnoshade /><a href="/pub/universal/mediakit/contact.html">Contact Us</a></div>
+<hr size=1 color="#006699" noshade>
+<DIV CLASS="navbar">
+<a href="http://www.webreview.com/pub/v/webauthoring"><b>Authoring</b></a>
+<br />
+
+<A HREF="/pub/HTML">HTML</a><br />
+
+<A HREF="/pub/Dynamic_HTML">Dynamic HTML</a><br />
+
+<A HREF="/pub/JavaScript">JavaScript</a><br />
+
+<A HREF="/pub/Style_Sheets">Style Sheets</a><p></p>
+<a href="http://www.webreview.com/pub/v/design"><b>Design</b></a>
+<br />
+
+<A HREF="/pub/Fonts">Fonts</a><br />
+
+<A HREF="/pub/Graphics">Graphics</a><br />
+
+<A HREF="/pub/Navigation">Navigation</a><br />
+
+<A HREF="/pub/Usability">Usability</a><br />
+
+<A HREF="/pub/Web_Design">Web Design</a><p></p>
+<a href="http://www.webreview.com/pub/v/development"><b>Development</b></a>
+<br />
+
+<A HREF="/pub/Databases">Databases</a><br />
+
+<A HREF="/pub/Java">Java</a><br />
+
+<A HREF="/pub/Perl">Perl</a><br />
+
+<A HREF="/pub/XML">XML</a><p></p>
+<a href="http://www.webreview.com/pub/v/ecommerce"><b>E-Commerce</b></a>
+<br />
+
+<A HREF="/pub/Advertising">Advertising</a><br />
+
+<A HREF="/pub/Legal">Legal</a><br />
+
+<A HREF="/pub/Storefronts">Storefronts</a><p></p>
+
+<a href="http://www.webreview.com/pub/v/multimedia"><b>Multimedia</b></a>
+<br />
+
+<A HREF="/pub/Audio/Video">Audio/Video</a><br />
+
+<A HREF="/pub/Animation">Animation</a><br />
+
+<A HREF="/pub/Shockwave">Shockwave</a><p></p>
+<a href="http://www.webreview.com/pub/v/backend"><b>Backend</b></a>
+<br />
+
+<A HREF="/pub/Networks">Networks</a><br />
+
+<A HREF="/pub/Security">Security</a><br />
+
+<A HREF="/pub/Servers">Servers</a><br />
+
+<A HREF="/pub/Traffic">Traffic</a><p></p>
+
+</DIV>
+<hr size=1 color="#006699" noshade>
+<center>
+
+<iframe width="125" height="125" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" bordercolor="#000000" src="about:blank">  
+</iframe>
+
+</center>
+<hr size=1 color="#006699" noshade>
+
+<!-- end of navbar -->
+</div>
+<p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<!-- end left nav bar -->
+<img src="white.gif" width="149" height="100" align="top">
+Sponsored by:<br>
+
+<iframe width="120" height="60" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" bordercolor="#000000" src="about:blank">  
+</iframe>
+</center>
+	<td width="1" bgcolor="#006699"><img src="white.gif" width="1" height="1" align="bottom"></td>
+	<td width="10"><img src="white.gif" width="10" height="1" align="bottom"></td>
+	<td bgcolor="#ffffff" valign="top"><div align="right" class="depthead"><font face="arial, helvetica" color="#006699"><b>
+<A HREF=/pub/at/Feature>Feature</a></b></font></div>
+<hr size="1" width="100%" noshade>
+<A HREF=/pub/2000/02/25/feature/index.html><b>Walking the Thin Blue Line</b></a><p><IMG SRC=white.gif width='450' height='75' border='0' alt='Apache Server Page Load Monitoring' ><br /><br />
+by <A HREF=/pub/au/Wilson_Brian>Brian Wilson</a><br />
+Feb. 25, 2000
+<p><table width="170" border="0" cellspacing="9" cellpadding="9" align="right">
+<tr>
+<td width="170" valign="TOP" bgcolor="#FF9900">
+<font face="verdana" size="1"><font face="verdana" size="2">
+<b>
+What is Cricket?
+</b></font><br><br>
+Cricket is an easy to set up application for recording page-load times, and it has a nice web-based grapher that will generate charts to display the data in several formats. <br>
+</td>
+</tr>
+</table>
+
+<p>
+Everyone wants something different from our web server. Marketing people want to know the geographical areas that hits are coming from. Editors want to know what content readers find most interesting. Advertisers demand to know how many times their banner ads are delivered, and from what pages.
+</p>
+
+
+<p>
+And of course, as system administrator, I need to know that pages are being delivered promptly. I can't get that information from conventional web server log files. Instead, I need a system that can periodically load test pages from each of my servers, and log how long it takes. By graphing that data, I can get a feel for how well my servers are running.
+</p>
+
+
+<p>
+For the last year, I have been using a free software package called "Cricket" that's perfect for this application.
+</p>
+ 
+<h3> What's Cricket?</h3>
+
+<p>
+Cricket can be easily set up to record page-load times, and it has a nice web-based grapher that will generate charts to display the data in several formats. Cricket is based on RRDtool, whose ancestor is MRTG (short for "Multi-Router Traffic Grapher"). RRDtool (round robin data tool) is a package that collects data in "round robin" databases; each data file is fixed in size so that running Cricket does not slowly fill up your disks. The database tables are sized when created and do not grow larger over time. As the data ages, it's averaged; this works fine for the graphing we are doing here.
+</p>
+
+
+<p>
+Each RRDtool table "wraps around": that is, the detailed "hourly'" table has readings at 5 minute intervals for the last 24 hours, then the "daily" table has averages of the load times for the last 7 days, and so on. It's pretty intuitive when you look at the graphs, but you should be aware that you won't be able to get back exact 5 minute interval readings for something that took place a month ago if you use the RRDtool as your logging system&#151;only the interpolated averages are stored. This is good enough for most purposes however.
+</p>
+
+
+<p>
+Tracking page-load times is just one small facet of what Cricket can do for you. I use it to track how much traffic travels across our etherswitch so that we can track bandwidth utilization of our subnet and each individual host. Cricket uses SNMP (simple network management protocol) so it can log data from all sorts of networked gear.
+</p>
+
+
+<p>
+In addition, you can even write your own "collector" scripts that log data on just about anything, and then use Cricket to graph the data. I tested this by logging subscriber counts for a mailing list.
+</p>
+
+
+<p>
+In this article, we're going to set up Cricket to track web server performance. Cricket comes with good documentation, and good sample setups for network gear. Once you've got it running, refer to those docs to take on more ambitious projects. There is also a good Cricket mailing list that you can sign up for to get more help. (See the <a href="http://cricket.sourceforge.net/">Cricket web site</a> for info on how to sign up.)
+</p>
+
+
+<p>When Cricket is installed to log page-load times, I can show folks the before and after pictures when I perform system tuning operations such as adding memory or a new hard drive. This helps to justify the expense by showing concrete evidence that the change has improved load times. 
+</p>
+
+
+<p>
+If you make a major software change, you can track its effect on load times. Keep in mind that you have to select the right URLs to track. If you turn on server side "includes" but point Cricket only at a page with no "includes" in it, then you won't get as sharp a picture of the change resulting from the new software.
+</p>
+
+<p>
+In part two, we'll walk through the Cricket installation process step by step.
+</p>
+
+
+<p><center><hr size=1 noshade width=300></center><p><b>Apache Server Page Load Monitoring With Cricket</b><p><p><b>Next:</b> <A HREF=webreview-2.htm><b>Cricket Part 2 - Step by Step Installation</b></a><br><!-- article/post.html -->
+<IMG SRC="white.gif" WIDTH="449" HEIGHT="1" BORDER="0" ALT=""></TD></TABLE>
+<BR>
+<TABLE WIDTH="610" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+<TR VALIGN="top">
+<TD WIDTH="139">
+
+<iframe width="120" height="60" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" bordercolor="#000000" src="about:blank">  
+</iframe>
+</TD>
+<TD ALIGN="CENTER"><CENTER>
+
+<iframe width="468" height="60" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" bordercolor="#000000" src="about:blank">  
+</iframe>
+</CENTER></TD>
+
+</TR>
+<TR>
+<TD COLSPAN=2>
+<!-- common/copyright.html -->
+<center><font size="-2"><a href="/wr/pub/universal/mediakit/contact.html">Web Review</a> copyright &#169; 1995-2000 Miller Freeman, Inc.<br />
+
+</font></center>
+</TD>
+</TR></TABLE>
+</CENTER>
+<!--dc base tag-->
+</BODY>
+
+</SCRIPT>
+</HTML>

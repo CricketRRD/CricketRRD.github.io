@@ -1,7 +1,7 @@
 <?
 
 function navBit($link, $name, $sep) {
-	echo "<a href=\"$link\">$name</a> $sep\n";
+	echo "<a href=\"$link\">[ $name ]</a> $sep\n";
 }
 
 function nav() {
