@@ -171,6 +171,13 @@
                         <th> Date Submitted </th>
                     </tr>
                     <tr>
+                        <td> <a href="files/mysql-stats-0.2.tar.gz">mysql-stats-0.2.tar.gz</a> </td>
+                        <td> Monitor data from MySQL. <br> </td>
+                        <td> <a href="mailto:mike%40rentageek%2ecom">Mike Lerley</a> </td>
+                        <td> 3K </td>
+                        <td> 7/7/2003 </td>
+                    </tr>
+                    <tr>
                         <td> <a href="files/snmp4w2k.tar.gz">snmp4w2k.tar.gz</a> </td>
                         <td> Monitor Win2K<br> Requires: <a href="http://www.wtcs.org/snmp4tpc/snmp4w2k.htm">SNMP4W2K</a> </td>
                         <td> <a href="mailto:RLAdams%40kelsey-seybold%2ecom">Russell Adams</a> </td>
