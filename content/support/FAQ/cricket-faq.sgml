@@ -114,9 +114,7 @@ relevant RRD data file. In practice, no one bothered to do this yet.</para>
       <title>Is there a central repository of useful configurations</title>
 
       <para>
-       Check out 
-<ulink url="http://www.certaintysolutions.com/tech-advice/cricket-contrib/">
-http://www.certaintysolutions.com/tech-advice/cricket-contrib/</ulink></para>
+       Check <ulink url="/contrib/">here</ulink></para>
     </sect2>
 
     <sect2>
@@ -141,6 +139,13 @@ http://cricket.sourceforge.net/support/doc/new-devices.html</ulink></para>
 
   <sect1>
     <title>Common Problems</title>
+
+    <sect2>
+      <title>FAQ: The grapher places the message "Something is wrong with the
+      header of this file" in the summary area of my graph pages.</title>
+      <para>Please look at
+<ulink url="http://sourceforge.net/mailarchive/forum.php?thread_id=2765037&amp;forum_id=6693">this message</ulink><para>
+    </sect2>
 
     <sect2>
       <title>FAQ: mega = 10^6 vs 2^20</title>
