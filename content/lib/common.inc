@@ -14,8 +14,16 @@ function nav() {
 	echo "</div>";
 }
 
-function page($title) {
+function page() {
 	global $gRoot;
+
+	$title = func_get_arg(0);
+
+	if (func_num_args() >= 2) {
+	  $css = func_get_arg(1);
+	} else {
+	  $css = $gRoot . "/lib/cricket.css";
+	}
 
 	header("Content-Type: text/html; charset=utf-8");
 
@@ -25,7 +33,7 @@ function page($title) {
 	echo "    <head>\n";
 	echo "        <title>$title</title>\n";
 	echo "        <link rel=\"stylesheet\" type=\"text/css\"" .
-			" href=\"" . $gRoot . "/lib/cricket.css\" />\n";
+			" href=\"" . $css . "\" />\n";
 	echo "     </head>\n";
 	echo "     <body>\n";
 	
