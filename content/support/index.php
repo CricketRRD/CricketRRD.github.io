@@ -9,8 +9,8 @@
 			these places:
 		</p>
 		<ul>
-			<li>the <a href="doc">documentation</a></li>
-			<li>the <a href="FAQ">FAQ</a></li>
+			<li>the <a href="doc/">documentation</a></li>
+			<li>the <a href="FAQ/">FAQ</a></li>
 			<li>other users, via the mailing lists and IRC</li>
 			<li>companies who offer <a href="commercial.php">Cricket support</a></li>
 		</ul>
