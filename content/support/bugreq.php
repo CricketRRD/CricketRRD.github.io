@@ -54,4 +54,4 @@ so at least one is likely to answer.
 
 <p>
 
-<? endpage(__FILE__); ?>
+<?php endpage(__FILE__); ?>

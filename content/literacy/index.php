@@ -47,5 +47,5 @@ Sincerely,
 &nbsp;
 Jeff R. Allen
 
-<? endpage(__FILE__); ?>
+<?php endpage(__FILE__); ?>
 

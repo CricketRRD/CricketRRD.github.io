@@ -33,5 +33,5 @@ rmdir cricket-1.0.2/
 			<li>Send mail to the interested parties.</li>
 		</ul>
 
-<? endpage(__FILE__); ?>
+<?php endpage(__FILE__); ?>
 

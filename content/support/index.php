@@ -102,4 +102,4 @@
 			</p>
 		</div>
 
-<? endpage(__FILE__); ?>
+<?php endpage(__FILE__); ?>

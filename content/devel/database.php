@@ -21,5 +21,5 @@ Username:    cricket
 			want it, we'll have it.
 		</p>
 
-<? endpage(__FILE__); ?>
+<?php endpage(__FILE__); ?>
 

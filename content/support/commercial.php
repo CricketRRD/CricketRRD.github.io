@@ -25,5 +25,5 @@ the Cricket Developers mailing list to get suggestions on ways
 you can help the Cricket community out as we help you out.
 </p>
 
-<? endpage(__FILE__); ?>
+<?php endpage(__FILE__); ?>
 

@@ -167,5 +167,5 @@ If Perl is installed in /usr/local/bin on your test machine, but in
 against a wall for a long time. Not that I did that. :)
 		</pre>
 
-<? endpage(__FILE__); ?>
+<?php endpage(__FILE__); ?>
 
