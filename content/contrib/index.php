@@ -42,6 +42,13 @@
                         <th> Date Submitted </th>
                     </tr>
                     <tr>
+                        <td> <a href="http://www.acktomic.com/cricket/cricket-genRtrConfig.htm">genRtrConfig</a> </td>
+                        <td> Config subtree generator for a wide range of routers, switches and firewalls </td>
+                        <td> <a href="mailto:fmikus%40acktomic%2ecom">Fran&ccedil;ois Mikus</a><br />Original by: <a href="mailto:mlf%40users%2esourceforge%2enet">Mike Fisher</a> </td>
+                        <td> 16K </td>
+                        <td> 7/24/2003 </td>
+                    </tr>
+                    <tr>
                         <td> <a href="files/mge-ups-cricket-1.0.tar.gz">mge-ups-cricket-1.0.tar.gz</a> </td>
                         <td> Config tree for MGE UPS devices </td>
                         <td> <a href="mailto:cricket%40%2eoisec%2enet">Cliff Albert</a> </td>
@@ -82,13 +89,6 @@
                         <td> <a href="mailto:jsanjuan%40satec%2ees">Jose Antonio San Juan Sampr&oacute;n</a> </td>
                         <td> 4K </td>
                         <td> 2/26/2002 </td>
-                    </tr>
-                    <tr>
-                        <td> <a href="http://www.acktomic.com/cricket/cricket-genRtrConfig.htm">genRtrConfig</a> </td>
-                        <td> Config subtree generator for routers </td>
-                        <td> <a href="mailto:fmikus%40acktomic%2ecom">Fran&ccedil;ois Mikus</a><br />Original by: <a href="mailto:mlf%40users%2esourceforge%2enet">Mike Fisher</a> </td>
-                        <td> 16K </td>
-                        <td> 1/24/2002 </td>
                     </tr>
                     <tr>
                         <td> <a href="files/listInterfaces+.tar.gz">listInterfaces+.tar.gz</a> </td>
@@ -169,6 +169,13 @@
                         <th> Author </th>
                         <th> Size </th>
                         <th> Date Submitted </th>
+                    </tr>
+                    <tr>
+                        <td> <a href="files/flexlm-generator.tar.gz">flexlm-generator.tar.gz</a> </td>
+                        <td> Flexlm-generator.pl parses your license file and generates the proper Defaults file for use with Matthew Stier's flexlm perl script.  It will handle multiple vendor daemons and features.<br> </td>
+                        <td> <a href="mailto:Dan%2eHarris%40smsc%2ecom">Dan Harris</a> </td>
+                        <td> 4.1K </td>
+                        <td> 9/22/2003 </td>
                     </tr>
                     <tr>
                         <td> <a href="files/graph-djbdns.tar.gz">graph-djbdns.tar.gz</a> </td>
@@ -384,6 +391,13 @@
                         <th> Date Submitted </th>
                     </tr>
                     <tr>
+                        <td> <a href="files/metagen.tar.gz">metagen.tar.gz</a> </td>
+                        <td> Framework for executing autogeneration tools like genRtrConfig periodically, in parallel, and compiling off-line</td>
+                        <td> <a href="mailto:mlf%40users%2esourceforge%2enet">Mike Fisher</a> </td>
+                        <td> 7K </td>
+                        <td> 9/19/2003 </td>
+                    </tr>
+                    <tr>
                         <td> <a href="files/topscripts.tar.gz">topscripts.tar.gz</a> </td>
                         <td> Perl scripts to report Top talker/listener ports and top error ports for multiple Cisco Switches</td>
                         <td> <a href="mailto:henry.tindall%40tindall%2ehomedns%2eorg">Henry Tindall</a> </td>
@@ -405,11 +419,11 @@
                         <td> 5/23/2003 </td>
                     </tr>
                     <tr>
-                        <td> <a href="files/traffic_1_7.tar.gz">traffic_1_7.tar.gz</a> </td>
+                        <td> <a href="http://www.alboe.org/code/index.html">Traffic for Cricket</a> </td>
                         <td> Traffic is a pair of scripts that will allow you to graph month, week, or year-to-date bandwidth usage for things like DSL and T1 customers, so you can bill them according to their use </td>
-                        <td> <a href="mailto:dkelly%40inav%2enet">Dave Kelly</a> </td>
-                        <td> 6K </td>
-                        <td> 6/6/2002 </td>
+                        <td> <a href="mailto:dk%40lucidstrategies%2enet">Dave Kelly</a> </td>
+                        <td> - </td>
+                        <td> 9/12/2003 </td>
                     </tr>
                     <tr>
                         <td> <a href="files/killspike2">killspike2</a> </td>
