@@ -16,10 +16,11 @@
             <p>
                 Cricket has two components, a collector and a grapher. The
                 collector runs from <tt>cron</tt> every 5 minutes (or at a
-                different rate, if you want), and stores data into a data
-                structure managed by <a href="rrd.php">RRD Tool</a>. Later,
-                when you want to check on the data you have collected, you can
-                use a web-based interface to view graphs of the data.
+                different rate, if you want), and stores data into a
+                datastructure managed by <a href="rrd.php">RRD Tool</a>.
+                Later, when you want to check on the data you have
+                collected, you can use a web-based interface to view graphs
+                of the data.
             </p>
             <p>
                 Cricket reads a set of config files called a config tree. The
@@ -50,7 +51,7 @@
         <div id="sponsors">
             <h2>Sponsors</h2>
             <p>
-                Cricket was originally written for <a
+                Cricket was originally written for <a class="offsite"
                     href="http://www.webtv.net/">WebTV Networks, Inc.</a>
                 It was subsequently publically released under the <a
                     href="license.php">GNU General Public License</a>. Without
