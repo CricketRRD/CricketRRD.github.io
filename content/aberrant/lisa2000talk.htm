@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Slides of Jake Brutlag's LISA 2000 Talk</title>
+<style type="text/css">
+<!--
+.slides {position:absolute; top:50px; visibility:hidden}
+-->
+</style>
+<script language="JavaScript1.2">
+<!--
+var currentSlide = 1;
+var numSlides = 15;
+
+function Is ()
+{   // convert all characters to lowercase to simplify testing
+    var agt=navigator.userAgent.toLowerCase()
+
+    // *** BROWSER VERSION ***
+    this.major = parseInt(navigator.appVersion)
+
+    this.nav  = ((agt.indexOf('mozilla')!=-1) && ((agt.indexOf('spoofer')==-1)
+                && (agt.indexOf('compatible') == -1)))
+    this.nav4 = (this.nav && (this.major == 4))
+    this.nav4up = this.nav && (this.major >= 4)
+
+    this.ie   = (agt.indexOf("msie") != -1)
+    this.ie4  = (this.ie && (this.major == 4))
+    this.ie4up  = this.ie  && (this.major >= 4)
+}
+var is = new Is();
+
+function showNextSlide()
+{
+	var oldSlide = "slide"+currentSlide;
+	if (currentSlide == numSlides)
+		currentSlide = 1;
+	else
+		currentSlide++;
+	
+	var nameofSlide = "slide"+currentSlide;
+	switchSlides(nameofSlide, oldSlide,currentSlide);
+}
+
+function showPreviousSlide()
+{
+	var oldSlide = "slide"+currentSlide;
+	if (currentSlide == 1)
+		currentSlide = numSlides;
+	else
+		currentSlide--;
+	
+	var nameofSlide = "slide"+currentSlide;
+	switchSlides(nameofSlide, oldSlide,currentSlide);
+}
+
+function switchSlides(newSlide, oldSlide, slideNumber)
+{
+	if (is.nav4up) {
+		document.layers[newSlide].visibility="show";
+		document.layers[oldSlide].visibility="hide";
+	}
+	else {
+		document.all[newSlide].style.visibility="visible";
+		document.all[oldSlide].style.visibility="hidden";
+	}
+}
+
+//-->
+</script>
+</head>
+<body BGCOLOR=#FFFFFF>
+<table border=0 size=100><tr><td>
+<A HREF="javascript:showPreviousSlide()"><font SIZE=+2>< Previous</font></a></td>
+<td><A HREF="javascript:showNextSlide()"><font SIZE=+2>Next ></font></a></td></tr></table>
+<DIV id="slide1" CLASS="slides" STYLE="visibility:visible"><img src="slides/Slide1.PNG"></div>
+<DIV id="slide2" CLASS="slides"><img src="slides/Slide2.PNG"></div>
+<DIV id="slide3" CLASS="slides"><img src="slides/Slide3.PNG"></div>
+<DIV id="slide4" CLASS="slides"><img src="slides/Slide4.PNG"></div>
+<DIV id="slide5" CLASS="slides"><img src="slides/Slide5.PNG"></div>
+<DIV id="slide6" CLASS="slides"><img src="slides/Slide6.PNG"></div>
+<DIV id="slide7" CLASS="slides"><img src="slides/Slide7.PNG"></div>
+<DIV id="slide8" CLASS="slides"><img src="slides/Slide8.PNG"></div>
+<DIV id="slide9" CLASS="slides"><img src="slides/Slide9.PNG"></div>
+<DIV id="slide10" CLASS="slides"><img src="slides/Slide10.PNG"></div>
+<DIV id="slide11" CLASS="slides"><img src="slides/Slide11.PNG"></div>
+<DIV id="slide12" CLASS="slides"><img src="slides/Slide12.PNG"></div>
+<DIV id="slide13" CLASS="slides"><img src="slides/Slide13.PNG"></div>
+<DIV id="slide14" CLASS="slides"><img src="slides/Slide14.PNG"></div>
+<DIV id="slide15" CLASS="slides"><img src="slides/Slide15.PNG"></div>
+</body>
+</html>

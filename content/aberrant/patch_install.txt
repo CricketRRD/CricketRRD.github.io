@@ -1,0 +1,7 @@
+The patch for RRDtool 1.0.28 is no longer available because 
+Aberrant behavior detection is now a part of RRDtool 1.1.x, 
+currently in development! Visit www.rrdtool.org for information
+on RRDtool 1.1.x.
+
+For those of already using the 1.0.28 patch, you can obtain the
+latest version here: http://cricket.sourceforge.net/aberrant/rrd-1.0.28.aberrant.patch.gz
