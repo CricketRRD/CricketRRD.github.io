@@ -4,6 +4,7 @@
 	page("Cricket Home");
 ?>
 
+<div>
 <h2> About Cricket </h2>
 
 <p>
@@ -11,6 +12,7 @@ Cricket is a high performance, extremely flexible system for monitoring
 trends in time-series data. Cricket was expressly developed to help
 network managers visualize and understand the traffic on their
 networks, but it can be used all kinds of other jobs, as well. 
+</p>
 
 <p>
 Cricket has two components, a collector and a grapher.
@@ -20,6 +22,7 @@ stores data into a data structure managed by
 <a href="rrd.php">RRD Tool</a>. Later, when you want
 to check on the data you have collected, you can use a
 web-based interface to view graphs of the data.
+</p>
 
 <p>
 Cricket reads a set of config files called a config tree. The config
@@ -29,12 +32,16 @@ should collect data. The config tree is designed to minimize
 redundant information, making it compact and easy to manage,
 and preventing silly mistakes from occurring due to copy-and-paste
 errors. 
+</p>
 
 <p>
 Cricket is written entirely in Perl and is
 distributed under the
 <a href="license.php">GNU General Public License</a>.
+</p>
+</div>
 
+<div>
 <h2> Supported OS's </h2>
 
 <p>
@@ -42,7 +49,10 @@ Cricket is developed on Solaris machines running under Apache. It is
 known to work on Linux, HP-UX, variants of BSD, and other operating 
 systems. Some users are successfully using Cricket under Windows NT
 and/or Windows 2000, but at this time, no one has documented this.
+</p>
+</div>
 
+<div>
 <h2> Sponsors </h2>
 
 <p>
@@ -54,6 +64,7 @@ the full support of WebTV's management, Cricket would still be an
 internal tool. You can thank them for their support indirectly
 by supporting <a href="literacy">literacy programs</a>,
 which (among other great things) increase WebTV's potential market!
+</p>
 
 <p>
 Cricket's home page is hosted by <a href="http://www.sourceforge.net">
@@ -72,5 +83,6 @@ the SourceForge guys. Thanks a bunch for your support.
 <IMG src="http://sourceforge.net/sflogo.php?group_id=1210&type=1"
 	width="0" height="0">
 </p>
+</div>
 
 <? endpage(__FILE__); ?>
