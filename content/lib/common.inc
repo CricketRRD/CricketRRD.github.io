@@ -1,4 +1,4 @@
-<?
+<?php
 
 function navBit($link, $name, $sep) {
 	echo "<a href=\"$link\">[ $name ]</a> $sep\n";
