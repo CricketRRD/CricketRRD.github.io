@@ -11,17 +11,12 @@
 		<ul>
 			<li>the <a href="doc">documentation</a></li>
 			<li>the <a href="FAQ">FAQ</a></li>
-			<li>other users, via the mailing lists</li>
+			<li>other users, via the mailing lists and IRC</li>
 			<li>companies who offer <a href="commercial.php">Cricket support</a></li>
 		</ul>
-		<p>
-			Most people who have asked me for help will tell you that they
-			got better help, faster, from the mailing list. I try to keep an
-			eye on the list to help out on hard problems, but I do not have
-			the time to do 100% of the Cricket support. Please take part in
-			the mailing list community, first by reading, then by asking,
-			and finally by contributing answers when you know them.
-		</p>
+
+		<h3>Mailing Lists</h3>
+
 		<p>There are four mailing lists related to Cricket:</p>
 		<ul>
 			<li><a href="http://lists.sourceforge.net/mailman/listinfo/cricket-users">cricket-users@lists.sourceforge.net</a></li>
@@ -43,6 +38,15 @@
 			and commits lists are for messages about hacking the next
 			version of Cricket. Only the hardcore geeks need to subscribe to
 			those lists.
+		</p>
+
+		<h3>IRC</h3>
+		<p>
+ 			Use any IRC client of your choice. Connect to this server:
+			<tt>irc.slashnet.org</tt>. Choose a nick and register it by typing:
+			<tt>/msg NickServ HELP</tt>. This will show you the options
+			and help you register your nickname. Then join the channel:
+ 			<tt>/join #cricket</tt>
 		</p>
 
 		<div>
