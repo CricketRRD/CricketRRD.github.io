@@ -1,16 +1,16 @@
 <?
 
 function navBit($link, $name, $sep) {
-	echo "<a class=\"nav\" href=\"$link\">[&nbsp;$name&nbsp;]</a> $sep\n";
+	echo "<a href=\"$link\">$name</a> $sep\n";
 }
 
 function nav() {
 	global $gRoot;
 	echo "<div class=\"nav\">";
 	navBit("$gRoot", "home", "|");
-	navBit("$gRoot/download", "download", "|");
-	navBit("$gRoot/support", "support", "|");
-	navBit("$gRoot/literacy", "literacy", "");
+	navBit("$gRoot/download/", "download", "|");
+	navBit("$gRoot/support/", "support", "|");
+	navBit("$gRoot/literacy/", "literacy", "");
 	echo "</div>";
 }
 
@@ -32,8 +32,9 @@ function page($title) {
 
 function endpage($file) {
 
+	echo "        <div class=\"footer\">\n";
 	nav();
-	echo "<address>\n";
+	echo "            <address>\n";
 
 	$owner = fileowner($file);
 	$owner = uid2name($owner);
@@ -41,9 +42,9 @@ function endpage($file) {
 	$date = strftime("%Y-%m-%d", filectime($file));
 
 	echo "Last modified on $date by $owner.\n";
-	echo "</address>\n";
-
-	echo "</body>\n";
+	echo "            </address>\n";
+	echo "        </div>\n";
+	echo "    </body>\n";
 	echo "</html>\n";
 }
 
