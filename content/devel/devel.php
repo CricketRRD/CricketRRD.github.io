@@ -55,8 +55,8 @@
 					Set the environment variable CVS_RSH to <tt>ssh</tt>.
 				</li>
 				<li>
-					Set the environment variable CVSROOT to 
-					<tt>username@cvs.cricket.sourceforge.net:/cvsroot/cricket</tt>.
+					Set the environment variable CVSROOT to
+					<tt>:ext:<i>username</i>@cricket.cvs.sourceforge.net:/cvsroot/cricket</tt>.
 				</li>
 			</ol>
 			<p>
@@ -87,7 +87,7 @@
 			<pre>
 	mkdir workspace
 	cd workspace
-	cvs -d$LOGNAME@cvs.cricket.sourceforge.net:/cvsroot/cricket co -d devel cricket
+	cvs -d:ext:$LOGNAME@cricket.cvs.sourceforge.net:/cvsroot/cricket co -d devel cricket
 			</pre>
 			<p>
 				This will put the tip-of-tree sources to Cricket into a
@@ -97,7 +97,7 @@
 			<p>To fetch the stable branch, use commands like this:</p>
 			<pre>
 	cd workspace
-	cvs -d$LOGNAME@cvs.cricket.sourceforge.net:/cvsroot/cricket co -r v_1_0_x -d stable cricket 
+	cvs -d:ext:$LOGNAME@cricket.cvs.sourceforge.net:/cvsroot/cricket co -r v_1_0_x -d stable cricket
 			</pre>
 		</div>
 
