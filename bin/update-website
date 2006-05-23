@@ -1,5 +1,6 @@
 #!/bin/sh
 
+umask 0002
 cd /home/groups/c/cr/cricket/website
 cvs -d :pserver:anonymous@cricket.cvs.sourceforge.net:/cvsroot/cricket -q up -dP | grep -v '^? content/contrib/files'
 
