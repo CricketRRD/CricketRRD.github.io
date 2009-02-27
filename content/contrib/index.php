@@ -171,6 +171,13 @@
                         <th> Date Submitted </th>
                     </tr>
                     <tr>
+                        <td> <a href="http://members.iinet.com.au/~pyardley%40ihug.com.au/projects/bind9_5_counters/bind9_5_counters.tar.gz">bind9_5_counters.tar.gz</a> </td>
+                        <td> Makes Cricket gather statistics from BIND 9.5+.  Queries are categorized as successful, referred, no data, no domain, failed, recursion, duplicate and dropped.<br> </td>
+                        <td> <a href="mailto:petery at eng d0t uts d0t edu d0t au">Peter Yardley</a> </td>
+                        <td> 25K </td>
+                        <td> 12/15/2008 </td>
+                    </tr>
+                     <tr>
                         <td> <a href="files/flexlm-generator.tar.gz">flexlm-generator.tar.gz</a> </td>
                         <td> Flexlm-generator.pl parses your license file and generates the proper Defaults file for use with Matthew Stier's flexlm perl script.  It will handle multiple vendor daemons and features.<br> </td>
                         <td> <a href="mailto:Dan%2eHarris%40smsc%2ecom">Dan Harris</a> </td>
